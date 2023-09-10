@@ -1,7 +1,8 @@
-import { fireEvent, render, screen } from '@testing-library/vue'
+import { fireEvent, screen } from '@testing-library/vue'
+
+import { render } from '../utils/render'
 
 import App from '@/App.vue'
-import Home from '@/pages/HomePage.vue'
 
 describe('test App component', () => {
 	it('render application', () => {
@@ -14,28 +15,15 @@ describe('test App component', () => {
 		expect(screen.getByTestId('app')).toBeTruthy()
 	})
 
-	it('render Home component', () => {
+	it('open mainPage', async () => {
 		// given / arrange
 
 		// when / act
-		render(Home)
+		render(App)
+		const aboutBtn = screen.getByText('About')
+		await fireEvent.click(aboutBtn)
 
 		// then / assert
-		expect(screen.getByText('Home Page')).toBeTruthy()
+		await screen.findByText('About Page')
 	})
-
-  // it('correctly responds to button clicks', async () => {
-	// 	// given / arrange
-
-	// 	// when / act
-	// 	render(Home)
-  //   const addBtn = screen.getByText('Add')
-  //   const subtractBtn = screen.getByText('Subtract')
-  //   await fireEvent.click(addBtn)
-  //   await fireEvent.click(addBtn)
-  //   await fireEvent.click(subtractBtn)
-
-	// 	// then / assert
-	// 	expect(screen.getByText('Count: 1')).toBeTruthy()
-	// })
 })
