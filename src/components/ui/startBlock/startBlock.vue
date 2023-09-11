@@ -4,8 +4,12 @@
       <slot name="title"></slot>
     </h3>
 
-    <div :class='styles.content'>
-      <slot name="content"></slot>
+    <div :class='styles.contentText'>
+      <slot name="contentText"></slot>
+    </div>
+
+    <div :class='styles.contentImg'>
+      <slot name="contentImg"></slot>
     </div>
 
     <div :class='styles.wrapperBtn'>
