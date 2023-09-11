@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
+
+:root {
+	/* screen  */
+	--desktop-width: 1280px;
+	--desktop-height: 768px;
+	--mobile: 480px;
+
+	/* primary colors  */
+	--primary-green: #89e159;
+	--primary-grey: #1f2431;
+	--primary-black: #141b25;
+
+	/* secondary colors  */
+	--secondary-hover-green: #1e4e4e;
+	--secondary-hover-red: #f68561;
+
+	--secondary-text-gray: #bfc6dc;
+	--secondary-text-gray-dark: #8990a5;
+
+	--secondary-gradient-green: linear-gradient(
+			302deg,
+			#1e4e4e 16.05%,
+			#1f2431 75.16%
+		)
+		--secondary-gradient-green-light:
+		linear-gradient(0deg, #b9f598 0%, #b9f598 100%);
+	--secondary-gradient-green-dark: linear-gradient(
+		329deg,
+		rgba(30, 78, 78, 0.6) -13.26%,
+		rgba(31, 36, 49, 0.6) 46.17%
+	);
+
+	/* fonts  */
+	--default-font: 'Ubuntu', sans-serif;
+
+	--font-white: #ffffff;
+	--font-grey: var(--secondary-text-gray);
+
+	/* shadows  */
+	/* --bx-primary-green: 0 4px 4px rgba(var(--primary-green), 0.25);
+  --bx-16: 0 3px 6px rgba(0, 0, 0, 0.16); */
+}
