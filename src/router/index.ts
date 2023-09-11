@@ -12,9 +12,9 @@ export const routes: Array<RouteConfig> = [
 		component: mainPage
 	},
 	{
-		path: '/about',
-		name: 'about',
-		component: () => import('../pages/aboutPage.vue')
+		path: '/start',
+		name: 'start',
+		component: () => import('../pages/startPage.vue')
 	}
 ]
 
