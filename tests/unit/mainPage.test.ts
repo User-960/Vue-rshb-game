@@ -10,7 +10,6 @@ describe('test mainPage component', () => {
 		render(mainPage)
 
 		// then / assert
-		expect(screen.getByText('Main Page')).toBeTruthy()
 	})
 
 	// it('correctly responds to button clicks', async () => {

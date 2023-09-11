@@ -15,7 +15,7 @@ describe('test App component', () => {
 		expect(screen.getByTestId('app')).toBeTruthy()
 	})
 
-	it('open mainPage', async () => {
+	it('open About page', async () => {
 		// given / arrange
 
 		// when / act
