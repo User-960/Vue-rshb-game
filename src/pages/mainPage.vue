@@ -1,19 +1,15 @@
 <template>
-  <layout>
-    <template v-slot:default>
-      <p>Параграф для основного контента.</p>
-    </template>
-  </layout>
+  <home />
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import layout from '@/components/layout/layout.vue'
+import home from '@/components/screens/home/home.vue'
 
 export default Vue.extend({
   name: 'mainPage',
   components: {
-    layout
-  },
+    home
+  }
 });
 </script>
