@@ -3,7 +3,7 @@
 .startBlock {
 	position: relative;
 	width: 630px;
-	height: 540px;
+	min-height: 430px;
 	padding: 52px 60px;
 
 	display: flex;
@@ -38,9 +38,17 @@
 }
 
 .content p {
+	width: 100%;
+
 	color: var(--secondary-text-gray);
 	font-size: 20px;
 	font-weight: 400;
 	line-height: 32px;
 	letter-spacing: 1.2px;
+}
+
+.wrapperBtn {
+	max-width: 230px;
+	width: 100%;
+	align-self: flex-end;
 }

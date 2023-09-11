@@ -8,16 +8,24 @@
       <slot name="content"></slot>
     </div>
 
-    <button>Далее</button>
+    <div :class='styles.wrapperBtn'>
+      <startButton>
+        Далее
+      </startButton>
+    </div>
 
   </div>
 </template>
 
 <script lang='ts'>
 import Vue from 'vue'
+import startButton from '../button/startButton/startButton.vue'
 
 export default Vue.extend({
-  name: 'startBlock'
+  name: 'startBlock',
+  components: {
+    startButton
+  }
 })
 </script>
 
