@@ -1,0 +1,14 @@
+@import '../../assets/styles/variables.css';
+
+.mainWrapper {
+	position: relative;
+	min-height: 100%;
+}
+
+.contentWrapper {
+	max-width: var(--desktop-width);
+	width: 100%;
+
+	padding: 0px 15px 0px 15px;
+	margin: 0 auto;
+}
