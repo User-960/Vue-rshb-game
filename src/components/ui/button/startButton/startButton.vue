@@ -1,5 +1,5 @@
 <template>
-  <button :class='styles.btn' @click.left='nextFunc'>
+  <button :class='styles.btn' @click='nextFunc' aria-label='skip button'>
     <slot></slot>
   </button>
 </template>

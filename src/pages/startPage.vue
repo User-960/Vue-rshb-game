@@ -24,13 +24,15 @@
       <template v-slot:contentImg>
         <img src='../../public/images/characterAvatarWomen.png' 
           alt='character avatar'  
-          @click.left='chooseWomen'
+          draggable='false'
+          @click='chooseWomen'
         />
 
         <img 
           src='../../public/images/characterAvatarMen.png' 
           alt='character avatar'
-          @click.left='chooseMen'
+          draggable='false'
+          @click='chooseMen'
         />
       </template>
     </startBlock>
