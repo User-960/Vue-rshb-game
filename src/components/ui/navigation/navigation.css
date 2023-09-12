@@ -1,0 +1,15 @@
+@import '../../../assets/styles/variables.css';
+
+.navigation {
+	width: 214px;
+	height: 86px;
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	padding: 18px;
+	border-radius: 12px;
+	border: 2px solid var(--primary-green);
+	background-color: var(--primary-grey);
+}
