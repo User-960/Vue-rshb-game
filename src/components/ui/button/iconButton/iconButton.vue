@@ -1,5 +1,5 @@
 <template>
-  <button :class='styles.btn' @click="$emit('onclick')" aria-label='next step button'>
+  <button :class='styles.btn' @click="$emit('onclick')" aria-label='navigate button'>
     <slot></slot>
   </button>
 </template>
@@ -8,11 +8,11 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-  name: 'skipButton',
+  name: 'iconButton',
   methods: {}
 })
 </script>
 
-<style src='./skipButton.css' module='styles'>
+<style src='./iconButton.css' module='styles'>
   
 </style>
