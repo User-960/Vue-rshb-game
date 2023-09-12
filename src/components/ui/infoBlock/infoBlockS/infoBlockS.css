@@ -2,7 +2,8 @@
 
 .infoBlock {
 	padding: 60px;
-	min-weight: 340px;
+	max-width: 340px;
+	width: 100%;
 	min-height: 260px;
 
 	display: flex;
@@ -23,4 +24,5 @@
 	margin-top: 40px;
 	max-width: 155px;
 	width: 100%;
+	align-self: center;
 }
