@@ -8,7 +8,7 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-  name: 'startButton',
+  name: 'skipButton',
   methods: {
     submit() {
       this.$emit('click')
@@ -17,6 +17,6 @@ export default Vue.extend({
 })
 </script>
 
-<style src='./startButton.css' module='styles'>
+<style src='./skipButton.css' module='styles'>
   
 </style>

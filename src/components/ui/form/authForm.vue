@@ -5,9 +5,9 @@
       <input id='name' type='text' value='' name='username' :class='styles.input'/>
 
       <div :class='styles.wrapperBtn'>
-        <startButton @onclick="submitName">
+        <skipButton @onclick="submitName">
           Далее
-        </startButton>
+        </skipButton>
       </div>
     </form>
   </div>
@@ -15,12 +15,12 @@
 
 <script lang='ts'>
 import Vue from 'vue'
-import startButton from '@/components/ui/button/startButton/startButton.vue'
+import skipButton from '@/components/ui/button/skipButton/skipButton.vue'
 
 export default Vue.extend({
   name: 'authForm',
   components: {
-    startButton
+    skipButton
   },
   methods: {
     submitName() {
