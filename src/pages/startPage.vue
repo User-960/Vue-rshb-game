@@ -28,10 +28,12 @@
       </template>
 
       <template v-slot:contentImg>
-        <img src='../../public/images/characterAvatarWomen.png' 
+        <img 
+          src='../../public/images/characterAvatarWomen.png' 
           alt='character avatar'  
           draggable='false'
           @click='chooseWomen'
+          :class='{selectWomen: isChooseWomen}'
         />
 
         <img 
@@ -39,6 +41,7 @@
           alt='character avatar'
           draggable='false'
           @click='chooseMen'
+          :class='{selectMen: isChooseMen}'
         />
       </template>
 
@@ -77,15 +80,23 @@ import startButton from '@/components/ui/button/startButton/startButton.vue'
 
 export default Vue.extend({
   name: 'aboutPage',
+  data: () => ({
+    isChooseWomen: false,
+    isChooseMen: false
+  }),
   components: {
     startBlock,
     startButton
   },
   methods: {
     chooseWomen() {
+      this.isChooseMen= false
+      this.isChooseWomen = true
       console.log('Choose women avatar')
     },
     chooseMen() {
+      this.isChooseWomen = false
+       this.isChooseMen= true
       console.log('Choose men avatar')
     },
     nextFunc() {
@@ -97,3 +108,13 @@ export default Vue.extend({
   }
 });
 </script>
+
+<style>
+.selectWomen {
+	border-color: var(--primary-green) !important;
+}
+
+.selectMen {
+	border-color: var(--primary-green) !important;
+}
+</style>
