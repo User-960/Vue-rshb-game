@@ -52,30 +52,14 @@
       </template>
     </startBlock>
 
-    <startBlock>
-      <template v-slot:title>
-        Придумай имя
-      </template>
-
-      <template v-slot:contentText>
-        <p>
-          Приветствую тебя в 2025 году! Здесь сельское хозяйство играет важную роль в обеспечении пищей населения городов и деревень. У нас беда -  урожая на всех не хватает!
-        </p>
-
-      </template>
-
-      <template v-slot:submitBtn>
-        <startButton @onclick="submitName">
-          Далее
-        </startButton>
-      </template>
-    </startBlock>
+    <authForm/>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
 import startBlock from '@/components/ui/startBlock/startBlock.vue'
+import authForm from '@/components/ui/form/authForm.vue'
 import startButton from '@/components/ui/button/startButton/startButton.vue'
 
 export default Vue.extend({
@@ -86,6 +70,7 @@ export default Vue.extend({
   }),
   components: {
     startBlock,
+    authForm,
     startButton
   },
   methods: {
@@ -101,9 +86,6 @@ export default Vue.extend({
     },
     nextFunc() {
       console.log('Next step')
-    },
-    submitName() {
-      console.log('Submit Name')
     }
   }
 });
