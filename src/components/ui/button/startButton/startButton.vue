@@ -1,5 +1,5 @@
 <template>
-  <button :class='styles.btn' @click='nextFunc' aria-label='skip button'>
+  <button :class='styles.btn' @click="$emit('onclick')" aria-label='next step button'>
     <slot></slot>
   </button>
 </template>
@@ -10,10 +10,10 @@ import Vue from 'vue'
 export default Vue.extend({
   name: 'startButton',
   methods: {
-    nextFunc() {
-      console.log(1)
+    submit() {
+      this.$emit('click')
     }
-  },
+  }
 })
 </script>
 

@@ -61,7 +61,9 @@
 	transition: border-color 0.3s ease-in-out;
 }
 
-.contentImg img:hover {
+.contentImg img:hover,
+.contentImg img:focus,
+.contentImg img:active {
 	border-color: var(--primary-green);
 }
 

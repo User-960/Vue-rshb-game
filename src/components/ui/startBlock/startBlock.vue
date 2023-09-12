@@ -13,9 +13,8 @@
     </div>
 
     <div :class='styles.wrapperBtn'>
-      <startButton>
-        Далее
-      </startButton>
+      <slot name="nextBtn"></slot>
+      <slot name="submitBtn"></slot>
     </div>
 
   </div>
@@ -23,13 +22,9 @@
 
 <script lang='ts'>
 import Vue from 'vue'
-import startButton from '../button/startButton/startButton.vue'
 
 export default Vue.extend({
   name: 'startBlock',
-  components: {
-    startButton
-  }
 })
 </script>
 
