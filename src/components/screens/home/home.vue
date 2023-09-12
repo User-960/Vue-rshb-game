@@ -87,10 +87,16 @@
             />
             <span>Кредит</span>
           </div>
-          +
           <div>
             <img 
-              src='../../../../public/images/bank.svg' 
+              src='../../../../public/images/plus.svg' 
+              alt='bank'  
+              draggable='false'
+            />
+          </div>
+          <div>
+            <img 
+              src='../../../../public/images/bankPercent.svg' 
               alt='bank'  
               draggable='false'
             />
@@ -106,7 +112,7 @@
 
         <template v-slot:nextBtn>
           <startButton @onclick="nextFunc">
-            Выйти
+            Вернуть деньги
           </startButton>
         </template>
       </bank>
