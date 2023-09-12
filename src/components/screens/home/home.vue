@@ -134,6 +134,8 @@
         </template>
       </blockButton>
 
+      <exitButton/>
+
     </template>
   </layout>
 </template>
@@ -147,6 +149,7 @@ import bank from '@/components/ui/bank/bank.vue'
 import skipButton from '@/components/ui/button/skipButton/skipButton.vue'
 import iconButton from '@/components/ui/button/iconButton/iconButton.vue'
 import blockButton from '@/components/ui/button/blockButton/blockButton.vue'
+import exitButton from '@/components/ui/button/exitButton/exitButton.vue'
 import navigation from '@/components/ui/navigation/navigation.vue'
 
 export default Vue.extend({
@@ -159,7 +162,8 @@ export default Vue.extend({
     skipButton,
     iconButton,
     navigation,
-    blockButton
+    blockButton,
+    exitButton
   },
   methods: {
     nextFunc() {

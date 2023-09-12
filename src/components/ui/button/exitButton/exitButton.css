@@ -1,0 +1,14 @@
+@import '../../../../assets/styles/variables.css';
+
+.exitBtn {
+	width: 86px;
+	height: 86px;
+
+	display: inline-flex;
+	padding: 20px;
+	align-items: center;
+
+	border-radius: 12px;
+	border: 2px solid var(--primary-green);
+	background: var(--primary-grey);
+}
