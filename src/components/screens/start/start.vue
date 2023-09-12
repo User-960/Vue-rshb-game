@@ -16,9 +16,9 @@
       </template>
 
       <template v-slot:nextBtn>
-        <startButton @onclick="nextFunc">
+        <skipButton @onclick="nextFunc">
           Далее
-        </startButton>
+        </skipButton>
       </template>
     </startBlock>
 
@@ -46,9 +46,9 @@
       </template>
 
       <template v-slot:nextBtn>
-        <startButton @onclick="nextFunc">
+        <skipButton @onclick="nextFunc">
           Далее
-        </startButton>
+        </skipButton>
       </template>
     </startBlock>
 
@@ -60,7 +60,7 @@
 import Vue from 'vue';
 import startBlock from '../../ui/startBlock/startBlock.vue'
 import authForm from '../../ui/form/authForm.vue'
-import startButton from '../../ui/button/startButton/startButton.vue'
+import skipButton from '../../ui/button/skipButton/skipButton.vue'
 
 export default Vue.extend({
   name: 'start',
@@ -71,7 +71,7 @@ export default Vue.extend({
   components: {
     startBlock,
     authForm,
-    startButton
+    skipButton
   },
   methods: {
     chooseWomen() {

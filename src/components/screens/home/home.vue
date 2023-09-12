@@ -15,9 +15,9 @@
         </template>
 
         <template v-slot:nextBtn>
-          <startButton @onclick="nextFunc">
+          <skipButton @onclick="nextFunc">
             Далее
-          </startButton>
+          </skipButton>
         </template>
       </infoBlockM>
 
@@ -27,9 +27,9 @@
         </template>
 
         <template v-slot:nextBtn>
-          <startButton @onclick="nextFunc">
+          <skipButton @onclick="nextFunc">
             Далее
-          </startButton>
+          </skipButton>
         </template>
       </infoBlockS>
 
@@ -49,9 +49,9 @@
         </template>
 
         <template v-slot:nextBtn>
-          <startButton @onclick="nextFunc">
+          <skipButton @onclick="nextFunc">
             Взять деньги
-          </startButton>
+          </skipButton>
         </template>
       </bank>
 
@@ -71,9 +71,9 @@
         </template>
 
         <template v-slot:nextBtn>
-          <startButton @onclick="nextFunc">
+          <skipButton @onclick="nextFunc">
             Выйти
-          </startButton>
+          </skipButton>
         </template>
       </bank>
       
@@ -111,9 +111,9 @@
         </template>
 
         <template v-slot:nextBtn>
-          <startButton @onclick="nextFunc">
+          <skipButton @onclick="nextFunc">
             Вернуть деньги
-          </startButton>
+          </skipButton>
         </template>
       </bank>
 
@@ -127,7 +127,7 @@ import layout from '../../layout/layout.vue'
 import infoBlockM from '@/components/ui/infoBlock/infoBlockM/infoBlockM.vue'
 import infoBlockS from '@/components/ui/infoBlock/infoBlockS/infoBlockS.vue'
 import bank from '@/components/ui/bank/bank.vue'
-import startButton from '@/components/ui/button/startButton/startButton.vue'
+import skipButton from '@/components/ui/button/skipButton/skipButton.vue'
 
 export default Vue.extend({
   name: 'home',
@@ -136,7 +136,7 @@ export default Vue.extend({
     infoBlockM,
     infoBlockS,
     bank,
-    startButton
+    skipButton
   },
   methods: {
     nextFunc() {
