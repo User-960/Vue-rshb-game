@@ -3,9 +3,15 @@
     <template v-slot:mapBack>
       <div :class='styles.map'>
         <div :class='[styles.trees, {[styles.thirdGame]: isThirdGameGameAvailable} ]'></div>
-        <div :class='styles.lab'></div>
-        <div :class='[styles.house, {[styles.available]: isHouseGameAvailable}]'></div>
-        <div :class='[styles.greenhouse, {[styles.available]: isGreenHouseGameAvailable}]'></div>
+        <div :class='styles.lab' @click='openFirstGame'></div>
+
+        <div :class='[styles.house, {[styles.available]: isHouseGameAvailable}]' @click='openSecondGame'></div>
+
+        <div 
+          :class='[styles.greenhouse, {[styles.available]: isGreenHouseGameAvailable}]' 
+          @click='openThirdGame'>
+        </div>
+
         <div :class='{[styles.gardenBed]: isFirstLevelGame}'></div>
       </div>
     </template>
@@ -26,6 +32,17 @@ export default Vue.extend({
   }),
   components: {
     navBar
+  },
+  methods: {
+    openFirstGame() {
+      console.log('Open First Game')
+    },
+    openSecondGame() {
+      console.log('Open Second Game')
+    },
+    openThirdGame() {
+      console.log('Open Third Game')
+    }
   }
 })
 </script>
