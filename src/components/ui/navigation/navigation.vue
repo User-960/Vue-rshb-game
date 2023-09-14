@@ -7,8 +7,8 @@
     </iconButton>
 
     <iconButton @onclick="openBank">
-      <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none">
-        <path d="M16.7368 21.15H14.6316V30.6H16.7368V21.15ZM23.0526 21.15H20.9474V30.6H23.0526V21.15ZM32 33.3H12V36H32V33.3ZM29.3684 21.15H27.2632V30.6H29.3684V21.15ZM22 12.051L27.4842 15.75H16.5158L22 12.051ZM22 9L12 15.75V18.45H32V15.75L22 9Z" fill="currentColor"/>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28" fill="none">
+        <path d="M5.68421 12.65H3.15789V22.1H5.68421V12.65ZM13.2632 12.65H10.7368V22.1H13.2632V12.65ZM24 24.8H0V27.5H24V24.8ZM20.8421 12.65H18.3158V22.1H20.8421V12.65ZM12 3.551L18.5811 7.25H5.41895L12 3.551ZM12 0.5L0 7.25V9.95H24V7.25L12 0.5Z" fill="currentColor"/>
       </svg>
     </iconButton>
 
