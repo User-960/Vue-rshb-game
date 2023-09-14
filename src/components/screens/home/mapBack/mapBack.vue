@@ -4,6 +4,7 @@
     <div :class='styles.lab'></div>
     <div :class='[styles.house, {[styles.available]: isHouseGameAvailable}]'></div>
     <div :class='[styles.greenhouse, {[styles.available]: isGreenHouseGameAvailable}]'></div>
+    <div :class='{[styles.gardenBed]: isFirstLevelGame}'></div>
   </div>
 </template>
 
@@ -15,7 +16,8 @@ export default Vue.extend({
   data: () => ({
     isHouseGameAvailable: false,
     isGreenHouseGameAvailable: false,
-    isThirdGameGameAvailable: false
+    isThirdGameGameAvailable: false,
+    isFirstLevelGame: true
   })
 })
 </script>

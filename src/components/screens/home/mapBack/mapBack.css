@@ -77,10 +77,21 @@ available {
 
 	left: 15px;
 	top: 68px;
-
-	color: #1e4e4f;
 }
 
 .thirdGame.trees {
-	background-image: url(../../../../../public/images/treesYellow.svg) !important;
+	background-image: url(../../../../../public/images/treesYellow.svg);
+}
+
+.gardenBed {
+	background-image: url(../../../../../public/images/gardenBed.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+
+	position: absolute;
+	width: 50%;
+	height: 260px;
+
+	left: 320px;
+	bottom: 82px;
 }
