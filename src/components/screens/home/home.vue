@@ -1,7 +1,7 @@
 <template>
   <layout>
     <template v-slot:default>
-      <p>Home</p>
+      <!-- <p>Home</p>
 
       <infoBlockM>
         <template v-slot:contentText>
@@ -134,8 +134,9 @@
         </template>
       </blockButton>
 
-      <exitButton/>
+      <exitButton/> -->
 
+      <mapBack/>
     </template>
   </layout>
 </template>
@@ -152,6 +153,8 @@ import blockButton from '@/components/ui/button/blockButton/blockButton.vue'
 import exitButton from '@/components/ui/button/exitButton/exitButton.vue'
 import navigation from '@/components/ui/navigation/navigation.vue'
 
+import mapBack from './mapBack/mapBack.vue'
+
 export default Vue.extend({
   name: 'home',
   components: {
@@ -163,7 +166,8 @@ export default Vue.extend({
     iconButton,
     navigation,
     blockButton,
-    exitButton
+    exitButton,
+    mapBack
   },
   methods: {
     nextFunc() {
