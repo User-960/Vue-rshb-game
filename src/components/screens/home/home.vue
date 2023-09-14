@@ -1,9 +1,9 @@
 <template>
   <layout>
     <template v-slot:default>
-      <!-- <p>Home</p>
+      <p>Home</p>
 
-      <infoBlockM>
+      <!-- <infoBlockM>
         <template v-slot:contentText>
           <p>
             Ты – молодой специалист, который недавно завершил обучение на перспективном направлении «Плодово-ягодные культуры» в сельскохозяйственной школе <span>“Своё фермерство”</span>.
