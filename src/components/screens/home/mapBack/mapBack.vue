@@ -1,8 +1,9 @@
 <template>
   <div :class='styles.map'>
+    <div :class='[styles.trees, {[styles.thirdGame]: isThirdGameGameAvailable} ]'></div>
     <div :class='styles.lab'></div>
-    <div :class='[styles.house, {available: isHouseGameAvailable}]'></div>
-    <div :class='[styles.greenhouse, {available: isGreenHouseGameAvailable}]'></div>
+    <div :class='[styles.house, {[styles.available]: isHouseGameAvailable}]'></div>
+    <div :class='[styles.greenhouse, {[styles.available]: isGreenHouseGameAvailable}]'></div>
   </div>
 </template>
 
@@ -14,6 +15,7 @@ export default Vue.extend({
   data: () => ({
     isHouseGameAvailable: false,
     isGreenHouseGameAvailable: false,
+    isThirdGameGameAvailable: false
   })
 })
 </script>
