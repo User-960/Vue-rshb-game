@@ -1,7 +1,7 @@
 .map {
-	background-image: url(../../../../../public/images/map.svg);
+	background-image: url(../../../../../public/images/mapBack.svg);
 	background-repeat: no-repeat;
-	background-position: center;
+	background-position: top;
 
 	/* max-width: 100%;
 	max-height: 100%;
@@ -9,6 +9,59 @@
 	width: 100%;
 	height: 100%; */
 
+	position: relative;
 	width: 1280px;
 	height: 660px;
+}
+
+.lab {
+	background-image: url(../../../../../public/images/labTable.svg);
+	background-repeat: no-repeat;
+	background-position-x: right;
+	background-position-y: bottom;
+
+	position: absolute;
+	bottom: 155px;
+	right: 95px;
+
+	width: 350px;
+	height: 350px;
+
+	cursor: pointer;
+}
+
+.house {
+	background-image: url(../../../../../public/images/houseTable.svg);
+	background-repeat: no-repeat;
+	background-position-x: right;
+	background-position-y: bottom;
+
+	position: absolute;
+	top: 62px;
+	left: 334px;
+
+	width: 375px;
+	height: 198px;
+
+	cursor: not-allowed;
+}
+
+.greenhouse {
+	background-image: url(../../../../../public/images/greenhouseTable.svg);
+	background-repeat: no-repeat;
+	background-position-x: left;
+	background-position-y: bottom;
+
+	position: absolute;
+	width: 245px;
+	height: 355px;
+
+	left: 80px;
+	bottom: 100px;
+
+	cursor: not-allowed;
+}
+
+available {
+	cursor: pointer;
 }
