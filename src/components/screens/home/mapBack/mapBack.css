@@ -62,7 +62,13 @@
 	cursor: not-allowed;
 }
 
-available {
+.houseAvailable {
+	background-image: url(../../../../../public/images/houseTableAvailable.svg);
+	cursor: pointer;
+}
+
+.greenhouseAvailable {
+	background-image: url(../../../../../public/images/greenhouseTableAvailable.svg);
 	cursor: pointer;
 }
 
@@ -79,10 +85,6 @@ available {
 	top: 68px;
 }
 
-.thirdGame.trees {
-	background-image: url(../../../../../public/images/treesYellow.svg);
-}
-
 .gardenBed {
 	background-image: url(../../../../../public/images/gardenBed.svg);
 	background-repeat: no-repeat;
@@ -94,4 +96,44 @@ available {
 
 	left: 320px;
 	bottom: 82px;
+}
+
+.afterFirstGame.gardenBed {
+	background-image: url(../../../../../public/images/plantedSeeds.svg);
+}
+
+.afterSecondGame.gardenBed {
+	background-image: url(../../../../../public/images/sproutedSeeds.svg);
+}
+
+.beforeThirdGame.trees {
+	background-image: url(../../../../../public/images/treesYellow.svg);
+}
+
+.beforeThirdGame.gardenBed {
+	background-image: url(../../../../../public/images/gardenBedYellow.svg);
+}
+
+.beforeFourthGame.gardenBed {
+	background-image: url(../../../../../public/images/pestAttack.svg);
+
+	width: 54%;
+	height: 350px;
+
+	left: 284px;
+	bottom: 35px;
+}
+
+.beforeFifthGame.trees {
+	background-image: url(../../../../../public/images/treesApples.svg);
+}
+
+.beforeFifthGame.gardenBed {
+	background-image: url(../../../../../public/images/harvestRiped.svg);
+
+	width: 51%;
+	height: 310px;
+
+	left: 316px;
+	bottom: 62px;
 }

@@ -2,17 +2,40 @@
   <navBar>
     <template v-slot:mapBack>
       <div :class='styles.map'>
-        <div :class='[styles.trees, {[styles.thirdGame]: isThirdGameGameAvailable} ]'></div>
+        <div :class='[
+            styles.trees, 
+            {[styles.beforeThirdGame]: isBeforeThirdGame},
+            {[styles.beforeFifthGame]: isBeforeFifthGame} 
+          ]'>
+        </div>
+
         <div :class='styles.lab' @click='openFirstGame'></div>
 
-        <div :class='[styles.house, {[styles.available]: isHouseGameAvailable}]' @click='openSecondGame'></div>
+        <div :class='[
+            styles.house, 
+            {[styles.houseAvailable]: isHouseAvailable}
+          ]' 
+          @click='openSecondGame'
+        ></div>
 
         <div 
-          :class='[styles.greenhouse, {[styles.available]: isGreenHouseGameAvailable}]' 
+          :class='[
+            styles.greenhouse, 
+            {[styles.greenhouseAvailable]: isGreenhouseAvailable}
+          ]' 
           @click='openThirdGame'>
         </div>
 
-        <div :class='{[styles.gardenBed]: isFirstLevelGame}'></div>
+        <div 
+          :class='[
+            {[styles.gardenBed]: isStartGame}, 
+            {[styles.afterFirstGame]: isAfterFirstGame}, 
+            {[styles.afterSecondGame]: isAfterSecondGame}, 
+            {[styles.beforeThirdGame]: isBeforeThirdGame},
+            {[styles.beforeFourthGame]: isBeforeFourthGame},
+            {[styles.beforeFifthGame]: isBeforeFifthGame} 
+          ]'
+        ></div>
       </div>
     </template>
   </navBar>
@@ -25,10 +48,16 @@ import navBar from '../navBar/navBar.vue'
 export default Vue.extend({
   name: 'mapBack',
   data: () => ({
-    isHouseGameAvailable: false,
-    isGreenHouseGameAvailable: false,
-    isThirdGameGameAvailable: false,
-    isFirstLevelGame: true
+    isStartGame: true,
+    isAfterFirstGame: false,
+    isAfterSecondGame: false,
+    isBeforeThirdGame: false,
+    isBeforeFourthGame: false,
+    isBeforeFifthGame: false,
+    // isAfterFifthGame: false,
+
+    isHouseAvailable: false,
+    isGreenhouseAvailable: false,
   }),
   components: {
     navBar
