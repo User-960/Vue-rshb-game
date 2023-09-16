@@ -15,13 +15,19 @@
 
           <section :class='styles.textSection'>
             <h2 :class='styles.textTitle'>Дорогой друг!</h2>
-              <p :class='styles.textBlock'>
+              <p :class='[styles.textBlock, styles.firstP]'>
                 Приветствуем тебя в 2025 году! Здесь сельское хозяйство играет важную роль в обеспечении пищей населения городов и деревень. У нас беда -  урожая на всех не хватает!
               </p>
               <br/>
-              <p :class='styles.textBlock'>
+              <p :class='[styles.textBlock, styles.secondP]'>
                 Помоги главному герою оптимизировать выращивание и сбор растительных культур. Используй современные технологии и автоматизированные системы.
               </p>
+
+              <div :class='styles.wrapperBtn'>
+                <skipButton @onclick="nextFunc">
+                  Начать игру
+                </skipButton>
+              </div>
           </section>
 
     <!-- <startBlock>

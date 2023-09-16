@@ -1,22 +1,32 @@
 @import '../../../assets/styles/variables.css';
 
 .startScreen {
-	position: relative;
 	padding-top: 40px;
+	padding-bottom: 40px;
+
+	display: flex;
+	flex-direction: column;
+
 	border-radius: 36px;
 	background-image: url(../../../../public/images/startScreen.png);
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 .topSection {
 	margin-bottom: 40px;
 	display: flex;
 	z-index: 10;
+
+	padding: 0px 128px 0px 40px;
 }
 
 .logo {
-	width: 148px;
-	height: 23px;
-	margin-left: 40px;
+	max-width: 148px;
+	max-height: 23px;
+	width: 100%;
+	height: 100%;
+	margin-right: 127px;
 }
 
 .topBlock {
@@ -27,7 +37,6 @@
 
 	max-width: 837px;
 	width: 100%;
-	margin-left: 127px;
 	padding: 41px 90px 26px 90px;
 
 	border-radius: 36px;
@@ -54,8 +63,12 @@
 }
 
 .textSection {
-	margin-left: 315px;
 	z-index: 10;
+
+	display: flex;
+	flex-direction: column;
+
+	padding: 0px 15% 0px 25%;
 }
 
 .textTitle {
@@ -63,11 +76,12 @@
 	font-size: 36px;
 	font-weight: 700;
 	line-height: 44px;
-	margin-bottom: 20px;
 	z-index: 10;
 }
 
 .textBlock {
+	margin-top: 12px;
+	position: relative;
 	max-width: 567px;
 	width: 100%;
 	color: #dbe2f9;
@@ -75,4 +89,35 @@
 	line-height: 32px;
 	letter-spacing: 1.2px;
 	z-index: 10;
+}
+
+.firstP::after {
+	position: absolute;
+	top: 0;
+	right: -10rem;
+	content: '';
+	width: 130px;
+	height: 85px;
+	background-image: url(../../../../public/images/drone.png);
+	background-repeat: no-repeat;
+	z-index: 0;
+}
+
+.secondP::after {
+	position: absolute;
+	top: 0;
+	right: -13rem;
+	content: '';
+	width: 120px;
+	height: 125px;
+	background-image: url(../../../../public/images/collector.png);
+	background-repeat: no-repeat;
+	z-index: 0;
+}
+
+.wrapperBtn {
+	margin-top: 10px;
+	max-width: 210px;
+	width: 100%;
+	align-self: flex-end;
 }
