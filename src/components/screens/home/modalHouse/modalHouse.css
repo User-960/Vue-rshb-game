@@ -1,0 +1,14 @@
+@import '../../../../assets/styles/variables.css';
+
+.modalHouse {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	padding: 40px;
+
+	border-radius: 20px;
+	border: 4px solid var(--primary-green);
+	background: var(--primary-black);
+}

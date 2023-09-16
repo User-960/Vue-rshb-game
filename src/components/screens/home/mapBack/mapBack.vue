@@ -44,6 +44,7 @@
 <script lang='ts'>
 import Vue from 'vue'
 import navBar from '../navBar/navBar.vue'
+import modalHouse from '../modalHouse/modalHouse.vue'
 
 export default Vue.extend({
   name: 'mapBack',
@@ -56,11 +57,12 @@ export default Vue.extend({
     isBeforeFifthGame: false,
     // isAfterFifthGame: false,
 
-    isHouseAvailable: false,
     isGreenhouseAvailable: false,
+    isHouseAvailable: false
   }),
   components: {
-    navBar
+    navBar,
+    modalHouse
   },
   methods: {
     openFirstGame() {
