@@ -1,16 +1,34 @@
 import Vue from 'vue'
-import Vuex from 'vuex'
+import Vuex, { StoreOptions } from 'vuex'
 
-import { IRootState } from '@/interfaces/globalStore.interface'
+import { IRootState } from './types'
 import { homeScreen } from '@/store/modules/homeScreen/homeScreenModule'
 
 Vue.use(Vuex)
 
-export default new Vuex.Store<IRootState>({
-	state: {
-		globalTitle: 'Цифровая ферма'
-	},
-	modules: {
-		homeScreen
+export const getDefaultStore = (): StoreOptions<IRootState> => {
+	return {
+		state: {
+			globalTitle: 'Цифровая ферма'
+		},
+		modules: {
+			homeScreen
+		}
 	}
-})
+}
+
+export default new Vuex.Store<IRootState>(getDefaultStore())
+
+// const defaultStore: StoreOptions<any> = {
+// 	modules: {
+// 		homeScreen
+// 	}
+// }
+
+// const store: Store<IRootState> = new Vuex.Store({
+// 	// other configuration...
+// })
+
+// store.registerModule('homeScreen', homeScreen)
+
+// export default store

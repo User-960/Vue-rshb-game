@@ -1,29 +1,35 @@
 import { fireEvent, screen } from '@testing-library/vue'
 
-import { render } from '../utils/render'
+import { render as r } from '../utils/render'
 
 import App from '@/App.vue'
 
+const render = async (App: any) => {
+	const utils = r(App)
+	await fireEvent.click(utils.getByText('Home'))
+	return utils
+}
+
 describe('test App component', () => {
 	it('render application', () => {
-		// given / arrange
+		// arrange
 
-		// when / act
+		// act
 		render(App)
 
-		// then / assert
+		// assert
 		expect(screen.getByTestId('app')).toBeTruthy()
 	})
 
 	// it('open About page', async () => {
-	// 	// given / arrange
+	// 	// arrange
 
-	// 	// when / act
+	// 	// act
 	// 	render(App)
 	// 	const aboutBtn = screen.getByText('About')
 	// 	await fireEvent.click(aboutBtn)
 
-	// 	// then / assert
+	// 	// assert
 	// 	await screen.findByText('About Page')
 	// })
 })

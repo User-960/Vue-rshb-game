@@ -1,5 +1,5 @@
 <template>
-  <div :class='styles.modalHouseWrapper' v-if='$store.getters.GET_MODAL_HOUSE_VISIBLE'>
+  <div :class='styles.modalHouseWrapper' v-if='GET_MODAL_HOUSE_VISIBLE' data-testid='modalHouse'>
     <div 
       :class='styles.modalHouse'
     >
@@ -27,6 +27,8 @@
 <script lang='ts'>
 import Vue from 'vue'
 import linkButton from '../../../ui/button/linkButton/linkButton.vue'
+import {mapGetters} from 'vuex'
+import { EPhotoGetters } from '@/store/modules/homeScreen/getters'
 
 export default Vue.extend({
   name: 'modalHouse',
@@ -37,6 +39,9 @@ export default Vue.extend({
   }),
   components: {
     linkButton
+  },
+  computed: {
+    ...mapGetters([EPhotoGetters.GET_MODAL_HOUSE_VISIBLE]),
   },
   methods: {
     openGameAI() {

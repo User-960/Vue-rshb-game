@@ -1,29 +1,32 @@
-import { render, screen } from '@testing-library/vue'
+import { fireEvent, screen } from '@testing-library/vue'
+
+import { render as r } from '../utils/render'
 
 import mainPage from '@/pages/mainPage.vue'
 
-describe('test mainPage component', () => {
-	it('render title in mainPage component', () => {
-		// given / arrange
+const render = async (ui: any) => {
+	const utils = r(ui)
+	return utils
+}
 
-		// when / act
+describe('test mainPage component', () => {
+	it('render mainPage component', () => {
+		// given
+
+		// when
 		render(mainPage)
 
-		// then / assert
+		// then
 	})
 
-	// it('correctly responds to button clicks', async () => {
-	// 	// given / arrange
+	it('show modalHouse', async () => {
+		// given
 
-	// 	// when / act
-	// 	render(mainPage)
-	//   const addBtn = screen.getByText('Add')
-	//   const subtractBtn = screen.getByText('Subtract')
-	//   await fireEvent.click(addBtn)
-	//   await fireEvent.click(addBtn)
-	//   await fireEvent.click(subtractBtn)
+		// when
+		render(mainPage)
+		await fireEvent.click(screen.getByTestId('houseGame'))
 
-	// 	// then / assert
-	// 	expect(screen.getByText('Count: 1')).toBeTruthy()
-	// })
+		// then
+		expect(screen.getByTestId('modalHouse')).toBeTruthy()
+	})
 })

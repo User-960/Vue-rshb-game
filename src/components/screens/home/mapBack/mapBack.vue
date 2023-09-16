@@ -17,6 +17,7 @@
             {[styles.houseAvailable]: isHouseAvailable}
           ]' 
           @click='openModalHouse'
+          data-testid='houseGame'
         >
         </div>
 
@@ -72,7 +73,7 @@ export default Vue.extend({
     modalHouse
   },
   methods: {
-    ...mapMutations([EHomeScreenMutation.SHOW_MODAL_HOUSE],),
+    ...mapMutations([EHomeScreenMutation.SHOW_MODAL_HOUSE]),
     openFirstGame() {
       console.log('Open First Game')
     },
