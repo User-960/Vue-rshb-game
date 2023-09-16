@@ -1,17 +1,28 @@
 <template>
-  <div>
     <layout>
       <template v-slot:default>
-        <section :class='styles.topSection'>
-          <div :class='styles.logo'>
-            <img src='../../../assets/logo.png' draggable='false' alt='logo' />
-          </div>
+        <div :class='styles.startScreen'>
+          <section :class='styles.topSection'>
+            <div :class='styles.logo'>
+              <img src='../../../assets/logo.png' draggable='false' alt='logo' />
+            </div>
 
-          <div :class='styles.topBlock'>
-            <h1 :class='styles.topTitle'>Цифровая ферма</h1>
-            <span :class='styles.topData'>2025</span>
-          </div>
-        </section>
+            <div :class='styles.topBlock'>
+              <h1 :class='styles.topTitle'>Цифровая ферма</h1>
+              <span :class='styles.topData'>2025</span>
+            </div>
+          </section>
+
+          <section :class='styles.textSection'>
+            <h2 :class='styles.textTitle'>Дорогой друг!</h2>
+              <p :class='styles.textBlock'>
+                Приветствуем тебя в 2025 году! Здесь сельское хозяйство играет важную роль в обеспечении пищей населения городов и деревень. У нас беда -  урожая на всех не хватает!
+              </p>
+              <br/>
+              <p :class='styles.textBlock'>
+                Помоги главному герою оптимизировать выращивание и сбор растительных культур. Используй современные технологии и автоматизированные системы.
+              </p>
+          </section>
 
     <!-- <startBlock>
       <template v-slot:title>
@@ -66,9 +77,9 @@
     </startBlock>
 
     <authForm/> -->
+        </div>
       </template>
     </layout>
-  </div>
 </template>
 
 <script lang="ts">

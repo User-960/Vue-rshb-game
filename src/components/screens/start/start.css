@@ -1,8 +1,16 @@
 @import '../../../assets/styles/variables.css';
 
+.startScreen {
+	position: relative;
+	padding-top: 40px;
+	border-radius: 36px;
+	background-image: url(../../../../public/images/startScreen.png);
+}
+
 .topSection {
-	margin-top: 40px;
+	margin-bottom: 40px;
 	display: flex;
+	z-index: 10;
 }
 
 .logo {
@@ -43,4 +51,28 @@
 	font-size: 32px;
 	font-weight: 700;
 	line-height: 48px;
+}
+
+.textSection {
+	margin-left: 315px;
+	z-index: 10;
+}
+
+.textTitle {
+	color: var(--primary-green);
+	font-size: 36px;
+	font-weight: 700;
+	line-height: 44px;
+	margin-bottom: 20px;
+	z-index: 10;
+}
+
+.textBlock {
+	max-width: 567px;
+	width: 100%;
+	color: #dbe2f9;
+	font-size: 20px;
+	line-height: 32px;
+	letter-spacing: 1.2px;
+	z-index: 10;
 }
