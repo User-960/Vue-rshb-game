@@ -1,0 +1,46 @@
+@import '../../../assets/styles/variables.css';
+
+.topSection {
+	margin-top: 40px;
+	display: flex;
+}
+
+.logo {
+	width: 148px;
+	height: 23px;
+	margin-left: 40px;
+}
+
+.topBlock {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	max-width: 837px;
+	width: 100%;
+	margin-left: 127px;
+	padding: 41px 90px 26px 90px;
+
+	border-radius: 36px;
+	border: 2px solid var(--primary-green);
+	background: var(--primary-black);
+}
+
+.topTitle {
+	color: var(--primary-green);
+	text-align: center;
+	font-size: 72px;
+	font-weight: 700;
+	line-height: 84px;
+}
+
+.topData {
+	margin-right: 25px;
+	align-self: flex-end;
+	color: var(--primary-green);
+	text-align: center;
+	font-size: 32px;
+	font-weight: 700;
+	line-height: 48px;
+}

@@ -1,6 +1,19 @@
 <template>
   <div>
-    <startBlock>
+    <layout>
+      <template v-slot:default>
+        <section :class='styles.topSection'>
+          <div :class='styles.logo'>
+            <img src='../../../assets/logo.png' draggable='false' alt='logo' />
+          </div>
+
+          <div :class='styles.topBlock'>
+            <h1 :class='styles.topTitle'>Цифровая ферма</h1>
+            <span :class='styles.topData'>2025</span>
+          </div>
+        </section>
+
+    <!-- <startBlock>
       <template v-slot:title>
         Дорогой друг,
       </template>
@@ -20,9 +33,9 @@
           Далее
         </skipButton>
       </template>
-    </startBlock>
+    </startBlock> -->
 
-    <startBlock>
+    <!-- <startBlock>
       <template v-slot:title>
         Выбери своего персонажа
       </template>
@@ -52,7 +65,9 @@
       </template>
     </startBlock>
 
-    <authForm/>
+    <authForm/> -->
+      </template>
+    </layout>
   </div>
 </template>
 
@@ -61,6 +76,7 @@ import Vue from 'vue';
 import startBlock from '../../ui/startBlock/startBlock.vue'
 import authForm from '../../ui/form/authForm.vue'
 import skipButton from '../../ui/button/skipButton/skipButton.vue'
+import layout from '../../layout/layout.vue'
 
 export default Vue.extend({
   name: 'start',
@@ -69,6 +85,7 @@ export default Vue.extend({
     isChooseMen: false
   }),
   components: {
+    layout,
     startBlock,
     authForm,
     skipButton
@@ -91,7 +108,7 @@ export default Vue.extend({
 });
 </script>
 
-<style>
+<style src='./start.css' module='styles'>
 .selectWomen {
 	border-color: var(--primary-green) !important;
 }
