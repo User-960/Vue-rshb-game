@@ -1,5 +1,9 @@
 <template>
-  <div :class='styles.modalHouse'>
+  <div 
+    v-if='$store.getters.GET_MODAL_HOUSE_VISIBLE'
+    :class='styles.modalHouse'
+    @click="$store.commit('HIDE_MODAL_HOUSE')"
+  >
     <linkButton @onclick='openGameAI'>
       Искусственный интеллект
     </linkButton>
@@ -33,7 +37,10 @@ export default Vue.extend({
     },
     openGameSystem() {
       console.log('Open Game System')
-    }
+    },
+    // closeModalHouse() {
+    //   console.log('Close Modal House')
+    // }
   }
 })
 </script>

@@ -15,8 +15,9 @@
             styles.house, 
             {[styles.houseAvailable]: isHouseAvailable}
           ]' 
-          @click='openSecondGame'
+          @click='openModalHouse'
         ></div>
+        <modalHouse/>
 
         <div 
           :class='[
@@ -45,6 +46,8 @@
 import Vue from 'vue'
 import navBar from '../navBar/navBar.vue'
 import modalHouse from '../modalHouse/modalHouse.vue'
+import { mapMutations } from 'vuex'
+import { EHomeScreenMutation } from '@/store/modules/homeScreen/mutations'
 
 export default Vue.extend({
   name: 'mapBack',
@@ -58,17 +61,19 @@ export default Vue.extend({
     // isAfterFifthGame: false,
 
     isGreenhouseAvailable: false,
-    isHouseAvailable: false
+    isHouseAvailable: true
   }),
   components: {
     navBar,
     modalHouse
   },
   methods: {
+    ...mapMutations([EHomeScreenMutation.SHOW_MODAL_HOUSE]),
     openFirstGame() {
       console.log('Open First Game')
     },
-    openSecondGame() {
+    openModalHouse() {
+      this.SHOW_MODAL_HOUSE()
       console.log('Open Second Game')
     },
     openThirdGame() {
