@@ -10,14 +10,15 @@
         </div>
 
         <div :class='styles.lab' @click='openFirstGame'></div>
-
+        
+        <modalHouse/>
         <div :class='[
             styles.house, 
             {[styles.houseAvailable]: isHouseAvailable}
           ]' 
           @click='openModalHouse'
-        ></div>
-        <modalHouse/>
+        >
+        </div>
 
         <div 
           :class='[
@@ -49,6 +50,9 @@ import modalHouse from '../modalHouse/modalHouse.vue'
 import { mapMutations } from 'vuex'
 import { EHomeScreenMutation } from '@/store/modules/homeScreen/mutations'
 
+// import { ref } from 'vue'
+// import { onClickOutside } from '@vueuse/core'
+
 export default Vue.extend({
   name: 'mapBack',
   data: () => ({
@@ -68,13 +72,12 @@ export default Vue.extend({
     modalHouse
   },
   methods: {
-    ...mapMutations([EHomeScreenMutation.SHOW_MODAL_HOUSE]),
+    ...mapMutations([EHomeScreenMutation.SHOW_MODAL_HOUSE],),
     openFirstGame() {
       console.log('Open First Game')
     },
     openModalHouse() {
       this.SHOW_MODAL_HOUSE()
-      console.log('Open Second Game')
     },
     openThirdGame() {
       console.log('Open Third Game')

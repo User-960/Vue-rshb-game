@@ -1,20 +1,26 @@
 <template>
-  <div 
-    v-if='$store.getters.GET_MODAL_HOUSE_VISIBLE'
-    :class='styles.modalHouse'
-    @click="$store.commit('HIDE_MODAL_HOUSE')"
-  >
-    <linkButton @onclick='openGameAI'>
-      Искусственный интеллект
-    </linkButton>
+  <div :class='styles.modalHouseWrapper' v-if='$store.getters.GET_MODAL_HOUSE_VISIBLE'>
+    <div 
+      :class='styles.modalHouse'
+    >
+      <linkButton @onclick='openGameAI' :isGameAvailable='isGameAiAvailable'>
+        Искусственный интеллект
+      </linkButton>
 
-    <linkButton @onclick='openGameDrone'>
-      Дроны
-    </linkButton>
+      <linkButton @onclick='openGameDrone' :isGameAvailable='isGameDroneAvailable'>
+        Дроны
+      </linkButton>
 
-    <linkButton @onclick='openGameSystem'>
-      Автоматизированные системы
-    </linkButton>
+      <linkButton @onclick='openGameSystem' :isGameAvailable='isGameSystem'>
+        Автоматизированные системы
+      </linkButton>
+
+      <button @click="$store.commit('HIDE_MODAL_HOUSE')" :class='styles.close' aria-label='close modal window'>
+        <svg width="30" height="30" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M4.11 2.697L2.698 4.11 6.586 8l-3.89 3.89 1.415 1.413L8 9.414l3.89 3.89 1.413-1.415L9.414 8l3.89-3.89-1.415-1.413L8 6.586l-3.89-3.89z" fill="#e60c0cc8"></path>
+        </svg>
+      </button>
+    </div>
   </div>
 </template>
 
@@ -24,23 +30,30 @@ import linkButton from '../../../ui/button/linkButton/linkButton.vue'
 
 export default Vue.extend({
   name: 'modalHouse',
-  data: () => ({}),
+  data: () => ({
+    isGameAiAvailable: true,
+    isGameDroneAvailable: false,
+    isGameSystem: false,
+  }),
   components: {
     linkButton
   },
   methods: {
     openGameAI() {
-      console.log('Open Game AI')
+      if (this.isGameAiAvailable) {
+        console.log('Open Game AI')
+      }
     },
     openGameDrone() {
-      console.log('Open Game Drone')
+      if (this.isGameDroneAvailable) {
+        console.log('Open Game Drone')
+      }
     },
     openGameSystem() {
-      console.log('Open Game System')
-    },
-    // closeModalHouse() {
-    //   console.log('Close Modal House')
-    // }
+      if (this.isGameSystem) {
+        console.log('Open Game System')
+      }
+    }
   }
 })
 </script>

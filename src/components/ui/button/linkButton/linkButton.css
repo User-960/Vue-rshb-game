@@ -10,17 +10,27 @@
 	padding: 8px 20px;
 
 	border-radius: 8px;
-	border: 2px solid var(--primary-green);
+	border: 2px solid var(--secondary-text-gray);
 
 	color: var(--secondary-text-gray);
 	font-size: 14px;
 	font-weight: 500;
 	line-height: 20px;
 
-	cursor: pointer;
+	cursor: not-allowed;
+	transition: all 0.25s ease-in-out;
 }
 
 .available {
 	color: var(--primary-green);
+	border: 2px solid var(--primary-green);
 	line-height: 24px;
+	cursor: pointer;
+	transition: all 0.25s ease-in-out;
+}
+
+.linkButton.available:hover {
+	color: var(--primary-black);
+	background-color: var(--primary-green);
+	border: 2px solid var(--primary-green);
 }
