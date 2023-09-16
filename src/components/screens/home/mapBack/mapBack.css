@@ -38,11 +38,12 @@
 	background-position-y: bottom;
 
 	position: absolute;
-	top: 62px;
+
+	top: 110px;
 	left: 334px;
 
 	width: 375px;
-	height: 198px;
+	height: 147px;
 
 	cursor: not-allowed;
 	z-index: 100;

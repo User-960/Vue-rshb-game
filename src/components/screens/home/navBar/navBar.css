@@ -10,7 +10,7 @@
 	left: 50%;
 	margin-left: -107px;
 
-	z-index: 100;
+	z-index: 120;
 }
 
 .exitButton {
@@ -18,7 +18,7 @@
 	bottom: 24px;
 	left: 24px;
 
-	z-index: 100;
+	z-index: 120;
 }
 
 .blockButtonWallet {
@@ -26,7 +26,7 @@
 	top: 24px;
 	right: 24px;
 
-	z-index: 100;
+	z-index: 120;
 }
 
 .blockButtonBank {
@@ -34,7 +34,7 @@
 	top: 128px;
 	right: 24px;
 
-	z-index: 100;
+	z-index: 120;
 }
 
 .mapBack {

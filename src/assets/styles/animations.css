@@ -7,3 +7,13 @@
 		opacity: 1;
 	}
 }
+
+@keyframes go-left-right {
+	/* объявляем имя анимации: "go-left-right" */
+	from {
+		left: 0px;
+	} /* от: left: 0px */
+	to {
+		left: calc(100% - 50px);
+	} /* до: left: 100%-50px */
+}
