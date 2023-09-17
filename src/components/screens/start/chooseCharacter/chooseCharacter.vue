@@ -2,9 +2,8 @@
   <div 
     :class='styles.chooseCharacterWrapper' 
     v-if='GET_CHOOSE_CHARACTER_VISIBLE' 
-    data-testid='chooseCharacter'
   >
-    <startBlock>
+    <startBlock data-testid='chooseCharacter'>
       <template v-slot:title>
         Выбери своего персонажа
       </template>
@@ -28,7 +27,7 @@
       </template>
     
       <template v-slot:nextBtn>
-        <skipButton @onclick="hideBlockChooseCharacter">
+        <skipButton @onclick="hideBlockChooseCharacter" data-testid='chooseCharacterBtn'>
           Далее
         </skipButton>
       </template>

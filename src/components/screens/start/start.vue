@@ -21,7 +21,7 @@
               </div>
 
               <div :class='styles.wrapperBtn'>
-                <skipButton @onclick="openBlockChooseCharacter">
+                <skipButton @onclick="openBlockChooseCharacter" data-testid='startGameBtn'>
                   Начать игру
                 </skipButton>
               </div>
