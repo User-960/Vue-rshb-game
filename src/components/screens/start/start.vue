@@ -15,13 +15,19 @@
 
           <section :class='styles.textSection'>
             <h2 :class='styles.textTitle'>Дорогой друг!</h2>
-              <p :class='[styles.textBlock, styles.firstP]'>
-                Приветствуем тебя в 2025 году! Здесь сельское хозяйство играет важную роль в обеспечении пищей населения городов и деревень. У нас беда -  урожая на всех не хватает!
-              </p>
+              <div :class='[styles.textBlock, styles.firstP]'>
+                <p>
+                  Приветствуем тебя в 2025 году! Здесь сельское хозяйство играет важную роль в обеспечении пищей населения городов и деревень. У нас беда -  урожая на всех не хватает!
+                </p>
+                <img src='../../../../public/images/drone.svg' draggable='false' alt='drone' />
+              </div>
               <br/>
-              <p :class='[styles.textBlock, styles.secondP]'>
-                Помоги главному герою оптимизировать выращивание и сбор растительных культур. Используй современные технологии и автоматизированные системы.
-              </p>
+              <div :class='[styles.textBlock, styles.secondP]'>
+                <p >
+                  Помоги главному герою оптимизировать выращивание и сбор растительных культур. Используй современные технологии и автоматизированные системы.
+                </p>
+                <img src='../../../../public/images/collector.svg' draggable='false' alt='collector robot' />
+              </div>
 
               <div :class='styles.wrapperBtn'>
                 <skipButton @onclick="nextFunc">

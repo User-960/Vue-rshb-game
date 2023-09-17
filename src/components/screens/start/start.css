@@ -82,37 +82,35 @@
 .textBlock {
 	margin-top: 12px;
 	position: relative;
-	max-width: 567px;
-	width: 100%;
 	color: #dbe2f9;
 	font-size: 20px;
 	line-height: 32px;
 	letter-spacing: 1.2px;
 	z-index: 10;
+
+	display: flex;
 }
 
-.firstP::after {
-	position: absolute;
-	top: 0;
-	right: -10rem;
-	content: '';
-	width: 130px;
-	height: 85px;
-	background-image: url(../../../../public/images/drone.png);
-	background-repeat: no-repeat;
-	z-index: 0;
+.firstP {
+	max-width: 740px;
+	width: 100%;
 }
 
-.secondP::after {
-	position: absolute;
-	top: 0;
-	right: -13rem;
-	content: '';
-	width: 120px;
-	height: 125px;
-	background-image: url(../../../../public/images/collector.png);
-	background-repeat: no-repeat;
-	z-index: 0;
+.firstP img {
+	width: 115px;
+	height: 65px;
+	margin-left: 36px;
+}
+
+.secondP {
+	max-width: 820px;
+	width: 100%;
+}
+
+.secondP img {
+	width: 96px;
+	height: 105px;
+	margin-left: 83px;
 }
 
 .wrapperBtn {
