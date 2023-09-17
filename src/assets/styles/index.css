@@ -33,5 +33,6 @@ body {
 }
 
 .error {
+	margin: 5px 0px;
 	color: var(--secondary-hover-red);
 }
