@@ -28,7 +28,7 @@
       </template>
     
       <template v-slot:nextBtn>
-        <skipButton @onclick="nextFunc">
+        <skipButton @onclick="hideBlockChooseCharacter">
           Далее
         </skipButton>
       </template>
@@ -41,7 +41,8 @@ import Vue from 'vue'
 import startBlock from '../../../ui/startBlock/startBlock.vue'
 import { EStartScreenGetters } from '@/store/modules/startScreen/getters'
 import skipButton from '../../../ui/button/skipButton/skipButton.vue'
-import { mapGetters } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
+import { EStartScreenMutation } from '@/store/modules/startScreen/mutations'
 
 export default Vue.extend({
   name: 'chooseCharacter',
@@ -57,6 +58,10 @@ export default Vue.extend({
     ...mapGetters([EStartScreenGetters.GET_CHOOSE_CHARACTER_VISIBLE]),
   },
    methods: {
+    ...mapMutations([
+      EStartScreenMutation.HIDE_CHOOSE_CHARACTER, 
+      EStartScreenMutation.SHOW_AUTH_PLAYER
+    ]),
     chooseWomen() {
       this.isChooseMen= false
       this.isChooseWomen = true
@@ -64,11 +69,12 @@ export default Vue.extend({
     },
     chooseMen() {
       this.isChooseWomen = false
-       this.isChooseMen= true
+      this.isChooseMen= true
       console.log('Choose men avatar')
     },
-    nextFunc() {
-      console.log('Next step')
+    hideBlockChooseCharacter() {
+      this.HIDE_CHOOSE_CHARACTER()
+      this.SHOW_AUTH_PLAYER()
     }
   }
 })

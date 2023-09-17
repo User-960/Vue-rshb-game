@@ -16,6 +16,8 @@
 <script lang='ts'>
 import Vue from 'vue'
 import skipButton from '@/components/ui/button/skipButton/skipButton.vue'
+import { mapMutations } from 'vuex'
+import { EStartScreenMutation } from '@/store/modules/startScreen/mutations'
 
 export default Vue.extend({
   name: 'authForm',
@@ -23,7 +25,9 @@ export default Vue.extend({
     skipButton
   },
   methods: {
+    ...mapMutations([EStartScreenMutation.HIDE_AUTH_PLAYER]),
     submitName() {
+      this.HIDE_AUTH_PLAYER()
       console.log('Submit Name')
     }
   },

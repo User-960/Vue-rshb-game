@@ -60,9 +60,6 @@ export default Vue.extend({
     ...mapMutations([EStartScreenMutation.SHOW_CHOOSE_CHARACTER]),
     openBlockChooseCharacter() {
       this.SHOW_CHOOSE_CHARACTER()
-    },
-    nextFunc() {
-      console.log('Next step')
     }
   }
 });

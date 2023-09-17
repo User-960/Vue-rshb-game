@@ -6,7 +6,8 @@ import { IStartScreenState } from './types'
 import { IRootState } from '@/store/types'
 
 const state: IStartScreenState = {
-	isChooseCharacterVisible: false
+	isChooseCharacterVisible: false,
+	isAuthPlayerVisible: false
 }
 
 export const getDefaultStartScreenState = () => {
