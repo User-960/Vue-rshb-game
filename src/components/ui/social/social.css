@@ -1,0 +1,7 @@
+.social {
+	display: flex;
+}
+
+.social button {
+	margin: 0 8px;
+}
