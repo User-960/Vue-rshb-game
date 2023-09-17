@@ -2,16 +2,7 @@
     <layout>
       <template v-slot:default>
         <div :class='styles.startScreen'>
-          <section :class='styles.topSection'>
-            <div :class='styles.logo'>
-              <img src='../../../assets/logo.png' draggable='false' alt='logo' />
-            </div>
-
-            <div :class='styles.topBlock'>
-              <h1 :class='styles.topTitle'>Цифровая ферма</h1>
-              <span :class='styles.topData'>2025</span>
-            </div>
-          </section>
+          <topSection/>
 
           <section :class='styles.textSection'>
             <h2 :class='styles.textTitle'>Дорогой друг!</h2>
@@ -99,6 +90,7 @@ import Vue from 'vue';
 import startBlock from '../../ui/startBlock/startBlock.vue'
 import authForm from '../../ui/form/authForm.vue'
 import skipButton from '../../ui/button/skipButton/skipButton.vue'
+import topSection from '../../ui/section/topSection/topSection.vue'
 import layout from '../../layout/layout.vue'
 
 export default Vue.extend({
@@ -111,7 +103,8 @@ export default Vue.extend({
     layout,
     startBlock,
     authForm,
-    skipButton
+    skipButton,
+    topSection
   },
   methods: {
     chooseWomen() {
