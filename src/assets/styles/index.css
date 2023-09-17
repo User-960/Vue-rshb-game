@@ -31,3 +31,7 @@ body {
 	width: 100%;
 	margin: 0 auto;
 }
+
+.error {
+	color: var(--secondary-hover-red);
+}

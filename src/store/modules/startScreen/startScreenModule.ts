@@ -1,5 +1,6 @@
 import { Module } from 'vuex'
 
+import { actions } from './actions'
 import { getters } from './getters'
 import { mutations } from './mutations'
 import { IStartScreenState } from './types'
@@ -7,14 +8,17 @@ import { IRootState } from '@/store/types'
 
 const state: IStartScreenState = {
 	isChooseCharacterVisible: false,
-	isAuthPlayerVisible: false
+	isAuthPlayerVisible: false,
+	playerGender: null,
+	playerName: null
 }
 
 export const getDefaultStartScreenState = () => {
 	return {
 		state,
 		mutations,
-		getters
+		getters,
+		actions
 	}
 }
 

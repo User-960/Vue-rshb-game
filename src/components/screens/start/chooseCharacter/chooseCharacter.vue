@@ -25,11 +25,13 @@
           :class='{[styles.selectMen]: isChooseMen}'
         />
       </template>
-    
+
       <template v-slot:nextBtn>
         <skipButton @onclick="hideBlockChooseCharacter" data-testid='chooseCharacterBtn'>
           Далее
         </skipButton>
+
+        <p class='error' v-if='isError'>вы не выбрали персонажа...</p>
       </template>
     </startBlock>
   </div>
@@ -39,6 +41,7 @@
 import Vue from 'vue'
 import startBlock from '../../../ui/startBlock/startBlock.vue'
 import { EStartScreenGetters } from '@/store/modules/startScreen/getters'
+import { startScreen } from '@/store/modules/startScreen/startScreenModule'
 import skipButton from '../../../ui/button/skipButton/skipButton.vue'
 import { mapGetters, mapMutations } from 'vuex'
 import { EStartScreenMutation } from '@/store/modules/startScreen/mutations'
@@ -47,33 +50,45 @@ export default Vue.extend({
   name: 'chooseCharacter',
   data: () => ({
     isChooseWomen: false,
-    isChooseMen: false
+    isChooseMen: false,
+    isError: false
   }),
   components: {
     startBlock,
     skipButton
   },
   computed: {
-    ...mapGetters([EStartScreenGetters.GET_CHOOSE_CHARACTER_VISIBLE]),
+    ...mapGetters([
+      EStartScreenGetters.GET_CHOOSE_CHARACTER_VISIBLE, 
+      EStartScreenGetters.GET_PLAYER_GENDER
+    ])
   },
    methods: {
     ...mapMutations([
       EStartScreenMutation.HIDE_CHOOSE_CHARACTER, 
-      EStartScreenMutation.SHOW_AUTH_PLAYER
+      EStartScreenMutation.SHOW_AUTH_PLAYER,
+      EStartScreenMutation.SELECT_GENDER_WOMEN,
+      EStartScreenMutation.SELECT_GENDER_MEN,
     ]),
     chooseWomen() {
+      this.isError = false
       this.isChooseMen= false
       this.isChooseWomen = true
-      console.log('Choose women avatar')
+      this.SELECT_GENDER_WOMEN()
     },
     chooseMen() {
+      this.isError = false
       this.isChooseWomen = false
       this.isChooseMen= true
-      console.log('Choose men avatar')
+      this.SELECT_GENDER_MEN()
     },
     hideBlockChooseCharacter() {
-      this.HIDE_CHOOSE_CHARACTER()
-      this.SHOW_AUTH_PLAYER()
+      if (this.GET_PLAYER_GENDER !== null) {
+        this.HIDE_CHOOSE_CHARACTER()
+        this.SHOW_AUTH_PLAYER()
+      } else {
+        this.isError = true
+      }
     }
   }
 })
