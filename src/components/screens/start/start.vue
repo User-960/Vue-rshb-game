@@ -1,6 +1,42 @@
 <template>
-  <div>
-    <startBlock>
+    <layout>
+      <template v-slot:default>
+        <div :class='styles.startScreen'>
+          <section :class='styles.topSection'>
+            <div :class='styles.logo'>
+              <img src='../../../assets/logo.png' draggable='false' alt='logo' />
+            </div>
+
+            <div :class='styles.topBlock'>
+              <h1 :class='styles.topTitle'>Цифровая ферма</h1>
+              <span :class='styles.topData'>2025</span>
+            </div>
+          </section>
+
+          <section :class='styles.textSection'>
+            <h2 :class='styles.textTitle'>Дорогой друг!</h2>
+              <div :class='[styles.textBlock, styles.firstP]'>
+                <p>
+                  Приветствуем тебя в 2025 году! Здесь сельское хозяйство играет важную роль в обеспечении пищей населения городов и деревень. У нас беда -  урожая на всех не хватает!
+                </p>
+                <img src='../../../../public/images/drone.svg' draggable='false' alt='drone' />
+              </div>
+              <br/>
+              <div :class='[styles.textBlock, styles.secondP]'>
+                <p >
+                  Помоги главному герою оптимизировать выращивание и сбор растительных культур. Используй современные технологии и автоматизированные системы.
+                </p>
+                <img src='../../../../public/images/collector.svg' draggable='false' alt='collector robot' />
+              </div>
+
+              <div :class='styles.wrapperBtn'>
+                <skipButton @onclick="nextFunc">
+                  Начать игру
+                </skipButton>
+              </div>
+          </section>
+
+    <!-- <startBlock>
       <template v-slot:title>
         Дорогой друг,
       </template>
@@ -20,9 +56,9 @@
           Далее
         </skipButton>
       </template>
-    </startBlock>
+    </startBlock> -->
 
-    <startBlock>
+    <!-- <startBlock>
       <template v-slot:title>
         Выбери своего персонажа
       </template>
@@ -52,8 +88,10 @@
       </template>
     </startBlock>
 
-    <authForm/>
-  </div>
+    <authForm/> -->
+        </div>
+      </template>
+    </layout>
 </template>
 
 <script lang="ts">
@@ -61,6 +99,7 @@ import Vue from 'vue';
 import startBlock from '../../ui/startBlock/startBlock.vue'
 import authForm from '../../ui/form/authForm.vue'
 import skipButton from '../../ui/button/skipButton/skipButton.vue'
+import layout from '../../layout/layout.vue'
 
 export default Vue.extend({
   name: 'start',
@@ -69,6 +108,7 @@ export default Vue.extend({
     isChooseMen: false
   }),
   components: {
+    layout,
     startBlock,
     authForm,
     skipButton
@@ -91,7 +131,7 @@ export default Vue.extend({
 });
 </script>
 
-<style>
+<style src='./start.css' module='styles'>
 .selectWomen {
 	border-color: var(--primary-green) !important;
 }

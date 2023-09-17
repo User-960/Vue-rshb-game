@@ -2,8 +2,6 @@ import { render as r } from '@testing-library/vue'
 
 import { routes } from '@/router'
 import { getDefaultStore } from '@/store'
-import { getDefaultHomeScreenState } from '@/store/modules/homeScreen/homeScreenModule'
-import { IHomeScreenState } from '@/store/modules/homeScreen/types'
 
 export const renderRouter = (ui: any) => {
 	return r(ui, { routes })
