@@ -3,6 +3,7 @@ import Vuex, { StoreOptions } from 'vuex'
 
 import { IRootState } from './types'
 import { homeScreen } from '@/store/modules/homeScreen/homeScreenModule'
+import { startScreen } from '@/store/modules/startScreen/startScreenModule'
 
 Vue.use(Vuex)
 
@@ -12,7 +13,8 @@ export const getDefaultStore = (): StoreOptions<IRootState> => {
 			globalTitle: 'Цифровая ферма'
 		},
 		modules: {
-			homeScreen
+			homeScreen,
+			startScreen
 		}
 	}
 }

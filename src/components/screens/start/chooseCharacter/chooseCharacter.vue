@@ -39,18 +39,22 @@
 <script lang='ts'>
 import Vue from 'vue'
 import startBlock from '../../../ui/startBlock/startBlock.vue'
+import { EStartScreenGetters } from '@/store/modules/startScreen/getters'
 import skipButton from '../../../ui/button/skipButton/skipButton.vue'
+import { mapGetters } from 'vuex'
 
 export default Vue.extend({
   name: 'chooseCharacter',
   data: () => ({
     isChooseWomen: false,
-    isChooseMen: false,
-    GET_CHOOSE_CHARACTER_VISIBLE: false
+    isChooseMen: false
   }),
   components: {
     startBlock,
     skipButton
+  },
+  computed: {
+    ...mapGetters([EStartScreenGetters.GET_CHOOSE_CHARACTER_VISIBLE]),
   },
    methods: {
     chooseWomen() {

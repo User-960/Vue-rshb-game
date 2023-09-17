@@ -27,8 +27,8 @@
 <script lang='ts'>
 import Vue from 'vue'
 import linkButton from '../../../ui/button/linkButton/linkButton.vue'
-import {mapGetters} from 'vuex'
-import { EPhotoGetters } from '@/store/modules/homeScreen/getters'
+import { mapGetters } from 'vuex'
+import { EMapBackGetters } from '@/store/modules/homeScreen/getters'
 
 export default Vue.extend({
   name: 'modalHouse',
@@ -41,7 +41,7 @@ export default Vue.extend({
     linkButton
   },
   computed: {
-    ...mapGetters([EPhotoGetters.GET_MODAL_HOUSE_VISIBLE]),
+    ...mapGetters([EMapBackGetters.GET_MODAL_HOUSE_VISIBLE]),
   },
   methods: {
     openGameAI() {

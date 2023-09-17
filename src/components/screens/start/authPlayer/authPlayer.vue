@@ -18,7 +18,7 @@ export default Vue.extend({
   data: () => ({
     isChooseWomen: false,
     isChooseMen: false,
-    GET_AUTH_PLAYER_VISIBLE: true
+    GET_AUTH_PLAYER_VISIBLE: false
   }),
   components: {
     authForm,
