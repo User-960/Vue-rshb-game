@@ -15,6 +15,11 @@ export const routes: Array<RouteConfig> = [
 		path: '/start',
 		name: 'start',
 		component: () => import('../pages/startPage.vue')
+	},
+	{
+		path: '/finish',
+		name: 'finish',
+		component: () => import('../pages/finishPage.vue')
 	}
 ]
 
