@@ -10,6 +10,7 @@ export enum EStartScreenMutation {
 	HIDE_AUTH_PLAYER = 'HIDE_AUTH_PLAYER',
 	SELECT_GENDER_WOMEN = 'SELECT_GENDER_WOMEN',
 	SELECT_GENDER_MEN = 'SELECT_GENDER_MEN',
+	SAVE_PLAYER_NAME = 'SAVE_PLAYER_NAME',
 	CREATE_PLAYER = 'CREATE_PLAYER'
 }
 
@@ -31,6 +32,9 @@ export const mutations: MutationTree<IStartScreenState> = {
 	},
 	[EStartScreenMutation.SELECT_GENDER_MEN](state) {
 		state.playerGender = 'men'
+	},
+	[EStartScreenMutation.SAVE_PLAYER_NAME](state, name: string) {
+		state.playerName = name
 	},
 	[EStartScreenMutation.CREATE_PLAYER](state, playerData: IPlayer) {
 		console.log(playerData)

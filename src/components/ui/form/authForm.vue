@@ -5,15 +5,16 @@
       <input 
         id='name' 
         type='text'
-        v-model='playerName'
+        v-model='newPlayerName'
         min='2'
         :class='styles.input'
+        data-testid='inputName'
       />
 
       <p class='error' v-if='isErrorEmptyName'>Недостаточно символов.</p>
 
       <div :class='styles.wrapperBtn'>
-        <skipButton>
+        <skipButton data-testid='formBtn'>
           Далее
         </skipButton>
       </div>
@@ -32,7 +33,7 @@ import { IPlayer } from '@/interfaces/player.interface'
 export default Vue.extend({
   name: 'authForm',
   data: () => ({
-    playerName: '',
+    newPlayerName: '',
     isErrorEmptyName: false
   }),
   components: {
@@ -40,17 +41,19 @@ export default Vue.extend({
   },
   computed: {
     ...mapState({
-      playerGender: ({ startScreen }: any): 'women' | 'men' => startScreen.playerGender
+      playerGender: ({ startScreen }: any): 'women' | 'men' => startScreen.playerGender,
+      playerName: ({ startScreen }: any) => startScreen.playerName
     })
   },
   methods: {
-    ...mapMutations([EStartScreenMutation.HIDE_AUTH_PLAYER]),
+    ...mapMutations([EStartScreenMutation.HIDE_AUTH_PLAYER, EStartScreenMutation.SAVE_PLAYER_NAME]),
     ...mapActions([EStartScreenActions.CREATE_PLAYER]),
     submitForm(e: Event) {
       e.preventDefault()
 
       let player: IPlayer
       this.isErrorEmptyName = false
+      this.SAVE_PLAYER_NAME(this.newPlayerName)
 
       if (this.playerName.length >= 2) {
         player = {
@@ -61,7 +64,7 @@ export default Vue.extend({
 
         this.CREATE_PLAYER(player)
         this.HIDE_AUTH_PLAYER()
-        this.playerName = ''
+        this.newPlayerName = ''
       } else {
         this.isErrorEmptyName = true
       }

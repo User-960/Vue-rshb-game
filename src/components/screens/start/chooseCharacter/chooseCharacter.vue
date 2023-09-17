@@ -15,6 +15,7 @@
           draggable='false'
           @click='chooseWomen'
           :class='{[styles.selectWomen]: isChooseWomen}'
+          data-testid='chooseWomenGender'
         />
       
         <img 
@@ -23,6 +24,7 @@
           draggable='false'
           @click='chooseMen'
           :class='{[styles.selectMen]: isChooseMen}'
+          data-testid='chooseMenGender'
         />
       </template>
 
