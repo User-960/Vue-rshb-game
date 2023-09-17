@@ -1,0 +1,36 @@
+@import '../../../../assets/styles/variables.css';
+
+.chooseCharacterWrapper {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	border-radius: 36px;
+	background-color: rgba(0, 0, 0, 0.5);
+
+	z-index: 120;
+	animation: opacity 0.4s;
+}
+
+.selectWomen {
+	border-color: var(--primary-green) !important;
+}
+
+.selectMen {
+	border-color: var(--primary-green) !important;
+}
+
+/* animations */
+@keyframes opacity {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}

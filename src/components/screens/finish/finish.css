@@ -1,9 +1,6 @@
 @import '../../../assets/styles/variables.css';
 
 .finishScreen {
-	padding-top: 40px;
-	padding-bottom: 40px;
-
 	display: flex;
 	flex-direction: column;
 
@@ -58,6 +55,7 @@
 }
 
 .navSection {
+	margin-bottom: 40px;
 	display: flex;
 	justify-content: space-between;
 	padding: 0px 128px 0px 25%;

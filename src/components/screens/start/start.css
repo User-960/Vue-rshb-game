@@ -1,8 +1,7 @@
 @import '../../../assets/styles/variables.css';
 
 .startScreen {
-	padding-top: 40px;
-	padding-bottom: 40px;
+	position: relative;
 
 	display: flex;
 	flex-direction: column;
@@ -14,8 +13,7 @@
 }
 
 .textSection {
-	z-index: 10;
-
+	margin-bottom: 40px;
 	display: flex;
 	flex-direction: column;
 
