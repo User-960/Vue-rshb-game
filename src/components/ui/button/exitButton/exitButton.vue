@@ -19,7 +19,7 @@ export default Vue.extend({
   },
   methods: {
     exit() {
-      console.log('exit')
+      this.$router.go(-1)
     }
   }
 })
