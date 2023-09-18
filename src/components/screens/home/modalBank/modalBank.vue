@@ -1,7 +1,12 @@
 <template>
-  <div :class='styles.modalBankWrapper' v-if='GET_MODAL_BANK_VISIBLE' data-testid='modalBank'>
-    <div :class='styles.modalBank'>
-      <button @click="$store.commit('HIDE_MODAL_BANK')" :class='styles.close' aria-label='close modal window'>
+  <div :class='styles.modalBankWrapper' v-if='GET_MODAL_BANK_VISIBLE'>
+    <div :class='styles.modalBank' data-testid='modalBank'>
+      <button 
+        @click="$store.commit('HIDE_MODAL_BANK')" 
+        :class='styles.close' 
+        aria-label='close modal window' 
+        data-testid='closeModalBtn'
+      >
         <svg width="30" height="30" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" clip-rule="evenodd" d="M4.11 2.697L2.698 4.11 6.586 8l-3.89 3.89 1.415 1.413L8 9.414l3.89 3.89 1.413-1.415L9.414 8l3.89-3.89-1.415-1.413L8 6.586l-3.89-3.89z" fill="#e60c0cc8"></path>
         </svg>

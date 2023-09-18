@@ -1,4 +1,4 @@
-import { screen } from '@testing-library/vue'
+import { fireEvent, screen } from '@testing-library/vue'
 
 import { render as r } from '../utils/render'
 
@@ -18,5 +18,27 @@ describe('test home screen', () => {
 
 		// then
 		expect(screen.getByTestId('map')).toBeTruthy()
+	})
+
+	it('show bank', async () => {
+		// given
+
+		// when
+		render(home)
+		await fireEvent.click(screen.getByTestId('openBankBtn'))
+
+		// then
+		expect(screen.getByTestId('modalBank')).toBeTruthy()
+	})
+
+	it('close bank', async () => {
+		// given
+
+		// when
+		render(home)
+		await fireEvent.click(screen.getByTestId('openBankBtn'))
+		await fireEvent.click(screen.getByTestId('closeModalBtn'))
+
+		// then
 	})
 })
