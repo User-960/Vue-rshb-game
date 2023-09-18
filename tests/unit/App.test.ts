@@ -6,7 +6,6 @@ import App from '@/App.vue'
 
 const render = async (App: any) => {
 	const utils = r(App)
-	await fireEvent.click(utils.getByText('Home'))
 	return utils
 }
 

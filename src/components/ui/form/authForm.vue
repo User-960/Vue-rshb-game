@@ -14,9 +14,9 @@
       <p class='error' v-if='isErrorEmptyName'>Недостаточно символов.</p>
 
       <div :class='styles.wrapperBtn'>
-        <skipButton data-testid='formBtn'>
-          Далее
-        </skipButton>
+          <skipButton data-testid='formBtn'>
+            Далее
+          </skipButton>
       </div>
     </form>
   </div>
@@ -64,6 +64,8 @@ export default Vue.extend({
         this.CREATE_PLAYER(player)
         this.HIDE_AUTH_PLAYER()
         this.newPlayerName = ''
+
+        this.$router.push({ name: 'home' })
       } else {
         this.isErrorEmptyName = true
       }

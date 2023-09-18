@@ -37,6 +37,6 @@ export const mutations: MutationTree<IStartScreenState> = {
 		state.userData.playerName = name
 	},
 	[EStartScreenMutation.CREATE_PLAYER](state, playerData: any) {
-		console.log(playerData)
+		// console.log(playerData)
 	}
 }
