@@ -3,50 +3,54 @@
       <div></div>
       <div :class='styles.shop'>
         <ul :class='styles.choice'>
-          <choiceButton @onclick='showPcCard'>
+
+          <button :class='[styles.choiceBtn, {[styles.choiceBtnActive] : isPc}]' @click='showPcCard'>
             Программное обеспечение
-          </choiceButton>
+          </button>
 
-          <choiceButton @onclick='showDroneCard'>
+          <button :class='[styles.choiceBtn, {[styles.choiceBtnActive] : isDrone}]' @click='showDroneCard'>
             Беспилотный летательный аппарат
-          </choiceButton>
+          </button>
 
-          <choiceButton @onclick='showRobotCollectorCard'>
+          <button 
+            :class='[styles.choiceBtn, {[styles.choiceBtnActive] : isRobotCollector}]' @click='showRobotCollectorCard'
+          >
             Робот-собиратель урожая
-          </choiceButton>
+          </button>
+
         </ul>
 
-        <div :class='[styles.description, {[styles.active] : isPc}]'>
-          <img :class='styles.robotImg' src='/' alt='photo of robot'/>
-          <p :class='styles.robotText'>
+        <div :class='[styles.description, {[styles.descActive] : isPc}]'>
+          <img :class='styles.img' src='/' alt='photo of robot'/>
+          <p :class='styles.text'>
             Собирает и обрабатывает информацию о растениях и почве
           </p>
           
           <shopLinkButton link='/vc.ru'/>
 
-          <button>Купить за 1000</button>
+          <button :class='styles.buyBtn'>Купить за 1000</button>
         </div>
 
-        <div :class='[styles.description, {[styles.active] : isDrone}]'>
-          <img :class='styles.robotImg' src='/' alt='photo of robot'/>
-          <p :class='styles.robotText'>
+        <div :class='[styles.description, {[styles.descActive] : isDrone}]'>
+          <img :class='styles.img' src='/' alt='photo of robot'/>
+          <p :class='styles.text'>
             Эффективно и быстро производит опрыскивание растений средствами защиты
           </p>
 
           <shopLinkButton link='/vc.ru'/>
 
-          <button>Купить за 1000</button>
+          <button :class='styles.buyBtn'>Купить за 1000</button>
         </div>
 
-        <div :class='[styles.description, {[styles.active] : isRobotCollector}]'>
-          <img :class='styles.robotImg' src='/' alt='photo of robot'/>
-          <p :class='styles.robotText'>
+        <div :class='[styles.description, {[styles.descActive] : isRobotCollector}]'>
+          <img :class='styles.img' src='/' alt='photo of robot'/>
+          <p :class='styles.text'>
             Автоматически собирает фрукты или овощи с помощью датчиков и робозахвата
           </p>
 
           <shopLinkButton link='/vc.ru'/>
-          
-          <button>Купить за 1000</button>
+
+          <button :class='styles.buyBtn'>Купить за 1000</button>
         </div>
       </div>
     </div>
@@ -92,7 +96,6 @@ export default Vue.extend({
   }),
   components: {
     card,
-    choiceButton,
     shopLinkButton
   },
   computed: {},

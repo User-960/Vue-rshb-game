@@ -32,15 +32,6 @@
 	background-color: var(--primary-black);
 }
 
-.close {
-	position: absolute;
-
-	top: 15px;
-	right: 15px;
-
-	cursor: pointer;
-}
-
 /* animations */
 @keyframes opacity {
 	from {
