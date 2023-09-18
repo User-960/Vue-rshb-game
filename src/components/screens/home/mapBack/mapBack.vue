@@ -1,7 +1,7 @@
 <template>
   <navBar>
     <template v-slot:mapBack>
-      <div :class='styles.map'>
+      <div :class='styles.map' data-testid='map'>
         <div :class='[
             styles.trees, 
             {[styles.beforeThirdGame]: isBeforeThirdGame},

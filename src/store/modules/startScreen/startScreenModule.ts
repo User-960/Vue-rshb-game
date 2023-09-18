@@ -10,8 +10,8 @@ const state: IStartScreenState = {
 	isChooseCharacterVisible: false,
 	isAuthPlayerVisible: false,
 	userData: {
-		playerGender: null,
-		playerName: null
+		playerGender: 'men',
+		playerName: ''
 	}
 }
 

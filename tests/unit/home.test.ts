@@ -17,6 +17,6 @@ describe('test home screen', () => {
 		render(home)
 
 		// then
-		expect(screen.getByText('Home')).toBeTruthy()
+		expect(screen.getByTestId('map')).toBeTruthy()
 	})
 })

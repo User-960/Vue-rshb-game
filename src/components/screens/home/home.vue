@@ -1,8 +1,6 @@
 <template>
   <layout>
     <template v-slot:default>
-      <p>Home</p>
-
       <!-- <infoBlockM>
         <template v-slot:contentText>
           <p>

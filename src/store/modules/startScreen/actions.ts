@@ -5,6 +5,7 @@ import { IRootState } from '../../types'
 import { EStartScreenMutation } from './mutations'
 import { IStartScreenState } from './types'
 import { IUserDataForm } from '@/interfaces/player.interface'
+import AuthService from '@/services/auth.service'
 
 export enum EStartScreenActions {
 	GET_PHOTOS_FROM_API = 'GET_PHOTOS_FROM_API',
@@ -12,18 +13,15 @@ export enum EStartScreenActions {
 }
 
 export const actions: ActionTree<IStartScreenState, IRootState> = {
-	// [EPhotoActions.GET_PHOTOS_FROM_API]({ commit }: { commit: Commit }) {
-	// 	UsersService.getUsers('https://jsonplaceholder.typicode.com')
-	// 		.then((res: IPhoto[]) => commit(EPhotoMutation.SET_PHOTOS, res))
-	// 		.catch(error => {
-	// 			console.log(error)
-	// 			return error
-	// 		})
-	// },
 	[EStartScreenActions.CREATE_PLAYER](
 		{ commit }: { commit: Commit },
 		player: IUserDataForm
 	) {
-		commit(EStartScreenMutation.CREATE_PLAYER, player)
+		AuthService.createUser(player.playerName, player.playerGender)
+			.then((res: any) => commit(EStartScreenMutation.CREATE_PLAYER, res))
+			.catch(error => {
+				console.log(error)
+				return error
+			})
 	}
 }
