@@ -1,5 +1,8 @@
 <template>
+  <div :class='styles.modalHouseWrapper' v-if='GET_MODAL_SHOP_VISIBLE'>
     <div :class='styles.modalShop'>
+      <closeButton @onclick="$store.commit('HIDE_MODAL_SHOP')"/>
+      
       <div></div>
       <div :class='styles.shop'>
         <ul :class='styles.choice'>
@@ -54,6 +57,7 @@
         </div>
       </div>
     </div>
+  </div>
 </template>
 
 <script lang='ts'>
@@ -61,6 +65,9 @@ import Vue from 'vue'
 import card from './card/card.vue'
 import choiceButton from '../../../ui/button/shopButton/choiceButton/choiceButton.vue'
 import shopLinkButton from '../../../ui/button/shopButton/shopLinkButton/shopLinkButton.vue'
+import closeButton from '../../../ui/button/closeButton/closeButton.vue'
+import { mapGetters } from 'vuex'
+import { EMapBackGetters } from '@/store/modules/homeScreen/getters'
 
 const mockData = [
   {
@@ -90,15 +97,18 @@ export default Vue.extend({
   name: 'modalShop',
   data: () => ({
     mockData: mockData,
-    isPc: false,
+    isPc: true,
     isDrone: false,
-    isRobotCollector: true
+    isRobotCollector: false
   }),
   components: {
     card,
-    shopLinkButton
+    shopLinkButton,
+    closeButton
   },
-  computed: {},
+  computed: {
+    ...mapGetters([EMapBackGetters.GET_MODAL_SHOP_VISIBLE]),
+  },
   methods: {
     showPcCard() {
       this.isDrone = false

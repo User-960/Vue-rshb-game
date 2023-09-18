@@ -7,7 +7,8 @@ import { IRootState } from '@/store/types'
 
 const state: IHomeScreenState = {
 	isModalHouseVisible: false,
-	isModalBankVisible: false
+	isModalBankVisible: false,
+	isModalShopVisible: false
 }
 
 export const getDefaultHomeScreenState = () => {
