@@ -34,28 +34,6 @@
       <bank>
         <template v-slot:contentImg>
           <img 
-            src='../../../../public/images/bank.svg' 
-            alt='bank'  
-            draggable='false'
-          />
-        </template>
-
-        <template v-slot:contentText>
-          <p>
-            Вам одобрили кредит. Процент за пользование кредитом составит 3%. Заемные средства необходимо вернуть после прохождения первой локации.
-          </p>
-        </template>
-
-        <template v-slot:nextBtn>
-          <skipButton @onclick="nextFunc">
-            Взять деньги
-          </skipButton>
-        </template>
-      </bank>
-
-      <bank>
-        <template v-slot:contentImg>
-          <img 
             src='../../../../public/images/flowers.svg' 
             alt='bank'  
             draggable='false'

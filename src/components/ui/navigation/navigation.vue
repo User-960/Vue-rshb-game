@@ -23,6 +23,8 @@
 <script lang='ts'>
 import Vue from 'vue'
 import iconButton from '../button/iconButton/iconButton.vue'
+import { mapMutations } from 'vuex'
+import { EHomeScreenMutation } from '@/store/modules/homeScreen/mutations'
 
 export default Vue.extend({
   name: 'navigation',
@@ -30,11 +32,12 @@ export default Vue.extend({
     iconButton
   },
   methods: {
+    ...mapMutations([EHomeScreenMutation.SHOW_MODAL_BANK]),
     turnOffVolume() {
       console.log('turn off volume')
     },
     openBank() {
-      console.log('open bank')
+      this.SHOW_MODAL_BANK()
     },
     openShop() {
       console.log('open shop')

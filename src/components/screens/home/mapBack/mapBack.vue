@@ -9,6 +9,8 @@
           ]'>
         </div>
 
+        <modalBank/>
+
         <div :class='styles.lab' @click='openFirstGame'></div>
         
         <modalHouse/>
@@ -48,8 +50,10 @@
 import Vue from 'vue'
 import navBar from '../navBar/navBar.vue'
 import modalHouse from '../modalHouse/modalHouse.vue'
+import modalBank from '../modalBank/modalBank.vue'
 import { mapMutations } from 'vuex'
 import { EHomeScreenMutation } from '@/store/modules/homeScreen/mutations'
+import bank from '@/components/ui/bank/bank.vue'
 
 // import { ref } from 'vue'
 // import { onClickOutside } from '@vueuse/core'
@@ -70,7 +74,8 @@ export default Vue.extend({
   }),
   components: {
     navBar,
-    modalHouse
+    modalHouse,
+    modalBank
   },
   methods: {
     ...mapMutations([EHomeScreenMutation.SHOW_MODAL_HOUSE]),
@@ -81,6 +86,9 @@ export default Vue.extend({
       this.SHOW_MODAL_HOUSE()
     },
     openThirdGame() {
+      console.log('Open Third Game')
+    },
+    nextFunc() {
       console.log('Open Third Game')
     }
   }

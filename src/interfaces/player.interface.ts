@@ -5,6 +5,15 @@ export interface IUserDataForm {
 
 export interface IUserDataResponse {
 	id: string | number
-	playerName: string
-	playerGender: 'women' | 'men'
+	name: string
+	gender: 'women' | 'men'
+	own_money: number
+	own_coins: number
+	credit: number
+	bank: number
+	equipment_shop_id: number
+	harvest_shop_id: number
+	equipment: any[]
+	harvest: any[]
+	minigame: any[]
 }

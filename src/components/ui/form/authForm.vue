@@ -70,7 +70,7 @@ export default Vue.extend({
         this.isErrorEmptyName = true
       }
     }
-  },
+  }
 })
 </script>
 
