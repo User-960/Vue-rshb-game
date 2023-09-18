@@ -1,7 +1,7 @@
 import { MutationTree } from 'vuex'
 
 import { IStartScreenState } from './types'
-import { IPlayer } from '@/interfaces/player.interface'
+import { IUserDataForm } from '@/interfaces/player.interface'
 
 export enum EStartScreenMutation {
 	SHOW_CHOOSE_CHARACTER = 'SHOW_CHOOSE_CHARACTER',
@@ -28,15 +28,15 @@ export const mutations: MutationTree<IStartScreenState> = {
 		state.isAuthPlayerVisible = false
 	},
 	[EStartScreenMutation.SELECT_GENDER_WOMEN](state) {
-		state.playerGender = 'women'
+		state.userData.playerGender = 'women'
 	},
 	[EStartScreenMutation.SELECT_GENDER_MEN](state) {
-		state.playerGender = 'men'
+		state.userData.playerGender = 'men'
 	},
 	[EStartScreenMutation.SAVE_PLAYER_NAME](state, name: string) {
-		state.playerName = name
+		state.userData.playerName = name
 	},
-	[EStartScreenMutation.CREATE_PLAYER](state, playerData: IPlayer) {
+	[EStartScreenMutation.CREATE_PLAYER](state, playerData: IUserDataForm) {
 		console.log(playerData)
 	}
 }

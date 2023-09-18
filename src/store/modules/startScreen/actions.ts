@@ -4,7 +4,7 @@ import { IRootState } from '../../types'
 
 import { EStartScreenMutation } from './mutations'
 import { IStartScreenState } from './types'
-import { IPlayer } from '@/interfaces/player.interface'
+import { IUserDataForm } from '@/interfaces/player.interface'
 
 export enum EStartScreenActions {
 	GET_PHOTOS_FROM_API = 'GET_PHOTOS_FROM_API',
@@ -22,7 +22,7 @@ export const actions: ActionTree<IStartScreenState, IRootState> = {
 	// },
 	[EStartScreenActions.CREATE_PLAYER](
 		{ commit }: { commit: Commit },
-		player: IPlayer
+		player: IUserDataForm
 	) {
 		commit(EStartScreenMutation.CREATE_PLAYER, player)
 	}

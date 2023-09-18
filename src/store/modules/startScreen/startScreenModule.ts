@@ -9,8 +9,10 @@ import { IRootState } from '@/store/types'
 const state: IStartScreenState = {
 	isChooseCharacterVisible: false,
 	isAuthPlayerVisible: false,
-	playerGender: null,
-	playerName: null
+	userData: {
+		playerGender: null,
+		playerName: null
+	}
 }
 
 export const getDefaultStartScreenState = () => {

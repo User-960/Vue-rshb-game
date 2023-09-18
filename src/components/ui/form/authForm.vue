@@ -28,7 +28,7 @@ import skipButton from '@/components/ui/button/skipButton/skipButton.vue'
 import { mapMutations, mapActions, mapState } from 'vuex'
 import { EStartScreenMutation } from '@/store/modules/startScreen/mutations'
 import { EStartScreenActions } from '@/store/modules/startScreen/actions'
-import { IPlayer } from '@/interfaces/player.interface'
+import { IUserDataForm } from '@/interfaces/player.interface'
 
 export default Vue.extend({
   name: 'authForm',
@@ -41,8 +41,8 @@ export default Vue.extend({
   },
   computed: {
     ...mapState({
-      playerGender: ({ startScreen }: any): 'women' | 'men' => startScreen.playerGender,
-      playerName: ({ startScreen }: any) => startScreen.playerName
+      playerGender: ({ startScreen }: any): 'women' | 'men' => startScreen.userData.playerGender,
+      playerName: ({ startScreen }: any) => startScreen.userData.playerName
     })
   },
   methods: {
@@ -51,13 +51,12 @@ export default Vue.extend({
     submitForm(e: Event) {
       e.preventDefault()
 
-      let player: IPlayer
+      let player: IUserDataForm
       this.isErrorEmptyName = false
       this.SAVE_PLAYER_NAME(this.newPlayerName)
 
       if (this.playerName.length >= 2) {
         player = {
-          id: Date.now(),
           playerName: this.playerName,
           playerGender: this.playerGender
         }

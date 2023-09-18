@@ -1,6 +1,7 @@
+import { IUserDataForm } from '@/interfaces/player.interface'
+
 export interface IStartScreenState {
 	isChooseCharacterVisible: boolean
 	isAuthPlayerVisible: boolean
-	playerGender: 'women' | 'men' | null
-	playerName: string | null
+	userData: IUserDataForm
 }

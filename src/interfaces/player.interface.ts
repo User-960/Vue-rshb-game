@@ -1,5 +1,4 @@
-export interface IPlayer {
-	id: number | string
-	playerName: string
-	playerGender: 'women' | 'men'
+export interface IUserDataForm {
+	playerName: string | null
+	playerGender: 'women' | 'men' | null
 }

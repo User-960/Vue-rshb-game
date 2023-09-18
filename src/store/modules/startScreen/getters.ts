@@ -14,5 +14,5 @@ export const getters: GetterTree<IStartScreenState, IRootState> = {
 		state.isChooseCharacterVisible,
 	[EStartScreenGetters.GET_AUTH_PLAYER_VISIBLE]: state =>
 		state.isAuthPlayerVisible,
-	[EStartScreenGetters.GET_PLAYER_GENDER]: state => state.playerGender
+	[EStartScreenGetters.GET_PLAYER_GENDER]: state => state.userData.playerGender
 }
