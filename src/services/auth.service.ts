@@ -1,22 +1,33 @@
 import { $axios } from '@/api/api'
 import { ENUSER } from '@/config/app.constants'
-import { IUserDataResponse } from '@/interfaces/player.interface'
+import { IPlayer } from '@/interfaces/player.interface'
 
 export enum EN_ENDPOINTS {
-	CREATE_PLAYER = '/v1/player/'
+	PLAYER = '/v1/player'
 }
 
 class AuthService {
 	async createUser(name: string, gender: string) {
 		try {
-			const { data } = await $axios.post<any>(`${EN_ENDPOINTS.CREATE_PLAYER}`, {
+			const { data } = await $axios.post<IPlayer>(`${EN_ENDPOINTS.PLAYER}/`, {
 				name,
 				gender
 			})
 
 			if (data.name) {
-				localStorage.setItem(ENUSER.PLAYER_ID, data.id)
+				localStorage.setItem(ENUSER.PLAYER_ID, String(data.id))
 			}
+
+			return data
+		} catch (error: any) {
+			let errorMessage = 'К сожалению, данное имя уже используется'
+			return errorMessage
+		}
+	}
+
+	async getUser(id: string | number) {
+		try {
+			const { data } = await $axios.get<any>(`${EN_ENDPOINTS.PLAYER}/${id}`)
 
 			return data
 		} catch (error: any) {

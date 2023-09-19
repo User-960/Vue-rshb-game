@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex, { StoreOptions } from 'vuex'
 
+import { playerData } from './modules/playerData/playerDataModule'
 import { IRootState } from './types'
 import { homeScreen } from '@/store/modules/homeScreen/homeScreenModule'
 import { startScreen } from '@/store/modules/startScreen/startScreenModule'
@@ -14,7 +15,8 @@ export const getDefaultStore = (): StoreOptions<IRootState> => {
 		},
 		modules: {
 			homeScreen,
-			startScreen
+			startScreen,
+			playerData
 		}
 	}
 }

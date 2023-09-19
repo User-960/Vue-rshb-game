@@ -3,9 +3,9 @@ export interface IUserDataForm {
 	gender: 'Female' | 'Male'
 }
 
-export interface IUserDataResponse {
+export interface IPlayer {
 	id: string | number
-	name: string
+	name: string | null
 	gender: 'Femala' | 'Male'
 	own_money: number
 	own_coins?: number

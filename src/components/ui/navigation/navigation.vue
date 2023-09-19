@@ -23,8 +23,10 @@
 <script lang='ts'>
 import Vue from 'vue'
 import iconButton from '../button/iconButton/iconButton.vue'
-import { mapMutations } from 'vuex'
+import { mapActions, mapMutations } from 'vuex'
 import { EHomeScreenMutation } from '@/store/modules/homeScreen/mutations'
+import { EPlayerDataActions } from '@/store/modules/playerData/actions'
+import { ENUSER } from '@/config/app.constants'
 
 export default Vue.extend({
   name: 'navigation',
@@ -32,8 +34,14 @@ export default Vue.extend({
     iconButton
   },
   methods: {
+    ...mapActions([EPlayerDataActions.GET_PLAYER]),
     ...mapMutations([EHomeScreenMutation.SHOW_MODAL_BANK, EHomeScreenMutation.SHOW_MODAL_SHOP]),
     turnOffVolume() {
+      let id = localStorage.getItem(ENUSER.PLAYER_ID)
+
+      if (id) {
+        this.GET_PLAYER(id)
+      }
       console.log('turn off volume')
     },
     openBank() {

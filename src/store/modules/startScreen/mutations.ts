@@ -11,7 +11,8 @@ export enum EStartScreenMutation {
 	SELECT_GENDER_WOMEN = 'SELECT_GENDER_WOMEN',
 	SELECT_GENDER_MEN = 'SELECT_GENDER_MEN',
 	SAVE_PLAYER_NAME = 'SAVE_PLAYER_NAME',
-	CREATE_PLAYER = 'CREATE_PLAYER'
+	SHOW_ERROR_SERVER = 'SHOW_ERROR_SERVER',
+	HIDE_ERROR_SERVER = 'HIDE_ERROR_SERVER'
 }
 
 export const mutations: MutationTree<IStartScreenState> = {
@@ -35,8 +36,5 @@ export const mutations: MutationTree<IStartScreenState> = {
 	},
 	[EStartScreenMutation.SAVE_PLAYER_NAME](state, name: string) {
 		state.player.name = name
-	},
-	[EStartScreenMutation.CREATE_PLAYER](state, player: IUserDataForm) {
-		console.log(player)
 	}
 }
