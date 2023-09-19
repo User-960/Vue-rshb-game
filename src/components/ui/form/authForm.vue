@@ -1,6 +1,11 @@
 <template>
   <div :class='styles.startBlock'>
-    <form :class='styles.form' @submit='submitForm'>
+    <div :class='styles.spinnerWrapper' v-if='isLoading'>
+      <loader/>
+    </div>
+
+    <form :class='styles.form' @submit='submitForm' v-else='!isLoading'>
+
       <label for='name' :class='styles.label'>Придумай имя</label>
       <input 
         id='name' 
@@ -26,6 +31,7 @@
 <script lang='ts'>
 import Vue from 'vue'
 import skipButton from '@/components/ui/button/skipButton/skipButton.vue'
+import loader from '@/components/ui/loader/loader.vue'
 import { mapMutations, mapActions, mapState, mapGetters } from 'vuex'
 import { EStartScreenMutation } from '@/store/modules/startScreen/mutations'
 import { IUserDataForm } from '@/interfaces/player.interface'
@@ -38,16 +44,19 @@ export default Vue.extend({
   data: () => ({
     newPlayerName: '',
     isErrorEmptyName: false,
-    isErrorDuplicateName: false
+    isErrorDuplicateName: false,
+    isLoading: false
   }),
   components: {
-    skipButton
+    skipButton,
+    loader
   },
   watch: {
     GET_PLAYER_DATA() {
       if (this.GET_PLAYER_DATA.name !== null && this.GET_PLAYER_DATA.name) {
         this.$router.push({ name: 'home' })
       } else {
+        this.isLoading = false
         this.isErrorDuplicateName = true
       }
     }
@@ -68,8 +77,9 @@ export default Vue.extend({
     ...mapActions([EPlayerDataActions.CREATE_PLAYER]),
     submitForm(e: Event) {
       e.preventDefault()
-
       let player: IUserDataForm
+
+      this.isLoading = true
       this.isErrorEmptyName = false
       this.SAVE_PLAYER_NAME(this.newPlayerName)
 

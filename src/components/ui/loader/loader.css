@@ -1,0 +1,8 @@
+@import '../../../assets/styles/variables.css';
+
+.spinner {
+	width: 100%;
+	height: 100%;
+	color: var(--primary-green);
+	user-select: none;
+}
