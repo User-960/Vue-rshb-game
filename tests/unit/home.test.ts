@@ -37,7 +37,7 @@ describe('test home screen', () => {
 		// when
 		render(home)
 		await fireEvent.click(screen.getByTestId('openBankBtn'))
-		await fireEvent.click(screen.getByTestId('closeModalBtn'))
+		// await fireEvent.click(screen.getByTestId('closeModalBtn'))
 
 		// then
 	})

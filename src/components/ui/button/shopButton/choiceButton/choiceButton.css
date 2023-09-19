@@ -1,0 +1,29 @@
+@import '../../../../../assets/styles/variables.css';
+
+.btn {
+	width: 275px;
+	height: 60px;
+	padding: 24px 16px;
+	margin-bottom: 20px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	border-radius: 12px;
+	border: 2px solid var(--secondary-text-gray);
+	background-color: var(--primary-black);
+
+	color: var(--secondary-text-gray);
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 24px;
+
+	transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+	color: var(--primary-green);
+	border-color: var(--primary-green);
+}

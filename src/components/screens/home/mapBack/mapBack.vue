@@ -10,6 +10,7 @@
         </div>
 
         <modalBank/>
+        <modalShop/>
 
         <div :class='styles.lab' @click='openFirstGame'></div>
         
@@ -53,7 +54,7 @@ import modalHouse from '../modalHouse/modalHouse.vue'
 import modalBank from '../modalBank/modalBank.vue'
 import { mapMutations } from 'vuex'
 import { EHomeScreenMutation } from '@/store/modules/homeScreen/mutations'
-import bank from '@/components/ui/bank/bank.vue'
+import modalShop from '../modalShop/modalShop.vue'
 
 // import { ref } from 'vue'
 // import { onClickOutside } from '@vueuse/core'
@@ -75,7 +76,8 @@ export default Vue.extend({
   components: {
     navBar,
     modalHouse,
-    modalBank
+    modalBank,
+    modalShop
   },
   methods: {
     ...mapMutations([EHomeScreenMutation.SHOW_MODAL_HOUSE]),

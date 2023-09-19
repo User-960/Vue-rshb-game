@@ -31,68 +31,6 @@
         </template>
       </infoBlockS>
 
-      <bank>
-        <template v-slot:contentImg>
-          <img 
-            src='../../../../public/images/flowers.svg' 
-            alt='bank'  
-            draggable='false'
-          />
-        </template>
-
-        <template v-slot:contentText>
-          <p>
-            Благодарим, что выбрали наш банк! Денежные средства будут перечислены на ваш счет.
-          </p>
-        </template>
-
-        <template v-slot:nextBtn>
-          <skipButton @onclick="nextFunc">
-            Выйти
-          </skipButton>
-        </template>
-      </bank>
-      
-      <bank>
-        <template v-slot:contentImgs>
-          <div>
-            <img 
-              src='../../../../public/images/bank.svg' 
-              alt='bank'  
-              draggable='false'
-            />
-            <span>Кредит</span>
-          </div>
-          <div>
-            <img 
-              src='../../../../public/images/plus.svg' 
-              alt='bank'  
-              draggable='false'
-            />
-          </div>
-          <div>
-            <img 
-              src='../../../../public/images/bankPercent.svg' 
-              alt='bank'  
-              draggable='false'
-            />
-            <span>% за пользование заемными средствами</span>
-          </div>
-        </template>
-
-        <template v-slot:contentText>
-          <p>
-            Срок вашего кредитование подошел к концу, просим вернуть ссуженные средства.
-          </p>
-        </template>
-
-        <template v-slot:nextBtn>
-          <skipButton @onclick="nextFunc">
-            Вернуть деньги
-          </skipButton>
-        </template>
-      </bank>
-
       -->
 
       <mapBack/>
@@ -105,7 +43,6 @@ import Vue from 'vue'
 import layout from '../../layout/layout.vue'
 import infoBlockM from '@/components/ui/infoBlock/infoBlockM/infoBlockM.vue'
 import infoBlockS from '@/components/ui/infoBlock/infoBlockS/infoBlockS.vue'
-import bank from '@/components/ui/bank/bank.vue'
 import skipButton from '@/components/ui/button/skipButton/skipButton.vue'
 import iconButton from '@/components/ui/button/iconButton/iconButton.vue'
 
@@ -117,7 +54,6 @@ export default Vue.extend({
     layout,
     infoBlockM,
     infoBlockS,
-    bank,
     skipButton,
     iconButton,
     mapBack

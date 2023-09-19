@@ -32,13 +32,10 @@
 	background-color: var(--primary-black);
 }
 
-.close {
+.closeBtnWrapper {
 	position: absolute;
-
 	top: 15px;
 	right: 15px;
-
-	cursor: pointer;
 }
 
 /* animations */

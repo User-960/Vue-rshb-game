@@ -32,7 +32,7 @@ export default Vue.extend({
     iconButton
   },
   methods: {
-    ...mapMutations([EHomeScreenMutation.SHOW_MODAL_BANK]),
+    ...mapMutations([EHomeScreenMutation.SHOW_MODAL_BANK, EHomeScreenMutation.SHOW_MODAL_SHOP]),
     turnOffVolume() {
       console.log('turn off volume')
     },
@@ -40,7 +40,7 @@ export default Vue.extend({
       this.SHOW_MODAL_BANK()
     },
     openShop() {
-      console.log('open shop')
+      this.SHOW_MODAL_SHOP()
     }
   }
 })

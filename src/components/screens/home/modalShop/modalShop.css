@@ -1,0 +1,180 @@
+@import '../../../../assets/styles/variables.css';
+
+.modalHouseWrapper {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	border-radius: 36px;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 120;
+	animation: opacity 0.4s;
+}
+
+.modalShop {
+	position: absolute;
+	z-index: 150;
+
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.navShop {
+	position: relative;
+	display: flex;
+}
+
+.shopType {
+	position: relative;
+	top: 2px;
+
+	max-width: 310px;
+	min-height: 53px;
+	width: 100%;
+
+	background-color: transparent;
+
+	color: var(--secondary-text-gray);
+	text-align: center;
+	font-size: 30px;
+	font-weight: 500;
+	line-height: 42px;
+
+	cursor: pointer;
+}
+
+.shopTypeActive {
+	background-color: var(--primary-grey);
+	border-radius: 20px 20px 0px 0px;
+	border-top: 2px solid var(--primary-green);
+	border-left: 2px solid var(--primary-green);
+	border-right: 2px solid var(--primary-green);
+	/* outline: 4px solid var(--primary-grey); */
+
+	color: var(--primary-green);
+	animation: opacity 0.3s;
+}
+
+.shop {
+	padding: 35px 25px;
+
+	max-width: 620px;
+	max-height: 420px;
+	width: 100%;
+	height: 100%;
+
+	display: flex;
+	justify-content: space-between;
+
+	border-radius: 0px 0px 20px 20px;
+	background-color: var(--primary-grey);
+	border: 2px solid var(--primary-green);
+}
+
+.choice {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+
+	margin-right: 20px;
+}
+
+.choiceBtn {
+	max-width: 275px;
+	width: 100%;
+	height: 60px;
+	padding: 20px 12px;
+	margin-bottom: 20px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	border-radius: 12px;
+	border: 2px solid var(--secondary-text-gray);
+	background-color: var(--primary-black);
+
+	color: var(--secondary-text-gray);
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 24px;
+
+	transition: all 0.3s ease-in-out;
+}
+
+.choiceBtn:hover {
+	color: var(--primary-green);
+	border-color: var(--primary-green);
+}
+
+.choiceBtnActive {
+	color: var(--primary-green);
+	border-color: var(--primary-green);
+}
+
+.description {
+	margin-left: 20px;
+
+	display: none;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.descActive {
+	display: flex;
+}
+
+.img {
+	width: 170px;
+	height: 170px;
+	border-radius: 20px;
+	background: var(--secondary-text-gray);
+	margin-bottom: 10px;
+}
+
+.text {
+	max-width: 222px;
+	width: 100%;
+	color: var(--secondary-text-gray);
+	text-align: center;
+	font-size: 14px;
+	line-height: 19.6px;
+	margin-bottom: 10px;
+}
+
+.buyBtn {
+	max-width: 150px;
+	width: 100%;
+	padding: 8px 10px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	border-radius: 8px;
+	border: 2px solid var(--primary-green);
+
+	color: var(--primary-green);
+	font-weight: 500;
+	line-height: 24px;
+}
+
+.closeBtnWrapper {
+	position: absolute;
+	top: -30px;
+	right: -40px;
+}
+
+/* animations */
+@keyframes opacity {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
