@@ -1,5 +1,5 @@
 <template >
-  <div :class='styles.spinner'>
+  <div :class='styles.spinner' data-testid='loader'>
     <img src='../../../../public/images/spinner.svg' alt='spinner' draggable='false'/>
   </div>
 </template>

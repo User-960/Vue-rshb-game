@@ -71,8 +71,7 @@ export default Vue.extend({
   methods: {
     ...mapMutations([
       EStartScreenMutation.HIDE_AUTH_PLAYER, 
-      EStartScreenMutation.SAVE_PLAYER_NAME,
-      EStartScreenMutation.HIDE_ERROR_SERVER,
+      EStartScreenMutation.SAVE_PLAYER_NAME
     ]),
     ...mapActions([EPlayerDataActions.CREATE_PLAYER]),
     submitForm(e: Event) {
@@ -84,8 +83,6 @@ export default Vue.extend({
       this.SAVE_PLAYER_NAME(this.newPlayerName)
 
       if (this.name.length >= 2) {
-        // this.HIDE_ERROR_SERVER()
-
         player = {
           name: this.name,
           gender: this.gender
@@ -93,9 +90,7 @@ export default Vue.extend({
         
         this.CREATE_PLAYER(player)
 
-        // this.HIDE_AUTH_PLAYER()
         this.newPlayerName = ''
-        // this.$router.push({ name: 'main' })
       } else {
         this.isErrorEmptyName = true
       }
