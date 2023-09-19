@@ -23,13 +23,10 @@
 	justify-content: space-between;
 }
 
-.close {
+.closeBtnWrapper {
 	position: absolute;
-
 	top: 20px;
 	right: 20px;
-
-	cursor: pointer;
 }
 
 /* animations */

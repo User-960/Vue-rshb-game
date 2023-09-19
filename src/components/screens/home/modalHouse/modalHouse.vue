@@ -15,7 +15,9 @@
         Автоматизированные системы
       </linkButton>
 
-      <closeButton @onclick="$store.commit('HIDE_MODAL_HOUSE')"/>
+      <div :class='styles.closeBtnWrapper'>
+        <closeButton @onclick="$store.commit('HIDE_MODAL_HOUSE')"/>
+      </div>
     </div>
   </div>
 </template>

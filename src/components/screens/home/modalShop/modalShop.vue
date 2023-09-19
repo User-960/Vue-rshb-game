@@ -1,9 +1,23 @@
 <template>
   <div :class='styles.modalHouseWrapper' v-if='GET_MODAL_SHOP_VISIBLE'>
+
     <div :class='styles.modalShop'>
-      <closeButton @onclick="$store.commit('HIDE_MODAL_SHOP')"/>
-      
-      <div></div>
+      <div :class='styles.navShop'>
+        <div :class='styles.closeBtnWrapper'>
+          <closeButton @onclick="$store.commit('HIDE_MODAL_SHOP')"/>
+        </div>
+        
+        <button 
+          :class='[styles.shopType, {[styles.shopTypeActive] : isShopA}]'
+          @click='choiceShopA'
+        >Своё фермерство</button>
+
+        <button 
+          :class='[styles.shopType, {[styles.shopTypeActive] : isShopB}]'
+          @click='choiceShopB'
+        >Своё родное</button>
+      </div>
+
       <div :class='styles.shop'>
         <ul :class='styles.choice'>
 
@@ -97,6 +111,8 @@ export default Vue.extend({
   name: 'modalShop',
   data: () => ({
     mockData: mockData,
+    isShopA: true,
+    isShopB: false,
     isPc: true,
     isDrone: false,
     isRobotCollector: false
@@ -110,6 +126,14 @@ export default Vue.extend({
     ...mapGetters([EMapBackGetters.GET_MODAL_SHOP_VISIBLE]),
   },
   methods: {
+    choiceShopA() {
+      this.isShopB = false
+      this.isShopA = true
+    },
+    choiceShopB() {
+      this.isShopA = false
+      this.isShopB = true
+    },
     showPcCard() {
       this.isDrone = false
       this.isRobotCollector = false

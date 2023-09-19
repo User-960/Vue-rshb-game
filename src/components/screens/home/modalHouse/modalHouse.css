@@ -32,6 +32,12 @@
 	background-color: var(--primary-black);
 }
 
+.closeBtnWrapper {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+}
+
 /* animations */
 @keyframes opacity {
 	from {

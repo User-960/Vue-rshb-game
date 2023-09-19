@@ -1,7 +1,9 @@
 <template>
   <div :class='styles.modalBankWrapper' v-if='GET_MODAL_BANK_VISIBLE'>
     <div :class='styles.modalBank' data-testid='modalBank'>
-      <closeButton @onclick="$store.commit('HIDE_MODAL_BANK')"/>
+      <div :class='styles.closeBtnWrapper'>
+        <closeButton @onclick="$store.commit('HIDE_MODAL_BANK')"/>
+      </div>
 
       <bank v-if='isFirstCredit'>
         <template v-slot:contentImg>
