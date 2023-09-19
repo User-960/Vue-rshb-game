@@ -28,15 +28,15 @@ export const mutations: MutationTree<IStartScreenState> = {
 		state.isAuthPlayerVisible = false
 	},
 	[EStartScreenMutation.SELECT_GENDER_WOMEN](state) {
-		state.userData.playerGender = 'women'
+		state.player.gender = 'Female'
 	},
 	[EStartScreenMutation.SELECT_GENDER_MEN](state) {
-		state.userData.playerGender = 'men'
+		state.player.gender = 'Male'
 	},
 	[EStartScreenMutation.SAVE_PLAYER_NAME](state, name: string) {
-		state.userData.playerName = name
+		state.player.name = name
 	},
-	[EStartScreenMutation.CREATE_PLAYER](state, playerData: any) {
-		// console.log(playerData)
+	[EStartScreenMutation.CREATE_PLAYER](state, player: IUserDataForm) {
+		console.log(player)
 	}
 }

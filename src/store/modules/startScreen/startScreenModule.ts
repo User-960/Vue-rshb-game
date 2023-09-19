@@ -9,9 +9,9 @@ import { IRootState } from '@/store/types'
 const state: IStartScreenState = {
 	isChooseCharacterVisible: false,
 	isAuthPlayerVisible: false,
-	userData: {
-		playerGender: 'men',
-		playerName: ''
+	player: {
+		gender: 'Male',
+		name: ''
 	}
 }
 

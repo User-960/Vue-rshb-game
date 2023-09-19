@@ -41,8 +41,8 @@ export default Vue.extend({
   },
   computed: {
     ...mapState({
-      playerGender: ({ startScreen }: any): 'women' | 'men' => startScreen.userData.playerGender,
-      playerName: ({ startScreen }: any) => startScreen.userData.playerName
+      gender: ({ startScreen }: any): 'Female' | 'Male' => startScreen.player.gender,
+      name: ({ startScreen }: any) => startScreen.player.name
     })
   },
   methods: {
@@ -55,17 +55,17 @@ export default Vue.extend({
       this.isErrorEmptyName = false
       this.SAVE_PLAYER_NAME(this.newPlayerName)
 
-      if (this.playerName.length >= 2) {
+      if (this.name.length >= 2) {
         player = {
-          playerName: this.playerName,
-          playerGender: this.playerGender
+          name: this.name,
+          gender: this.gender
         }
 
         this.CREATE_PLAYER(player)
         this.HIDE_AUTH_PLAYER()
         this.newPlayerName = ''
 
-        this.$router.push({ name: 'home' })
+        // this.$router.push({ name: 'home' })
       } else {
         this.isErrorEmptyName = true
       }

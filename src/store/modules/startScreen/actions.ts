@@ -17,7 +17,7 @@ export const actions: ActionTree<IStartScreenState, IRootState> = {
 		{ commit }: { commit: Commit },
 		player: IUserDataForm
 	) {
-		AuthService.createUser(player.playerName, player.playerGender)
+		AuthService.createUser(player.name, player.gender)
 			.then((res: any) => commit(EStartScreenMutation.CREATE_PLAYER, res))
 			.catch(error => {
 				console.log(error)
