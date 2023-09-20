@@ -24,6 +24,7 @@
             isChosenPepperLevel || 
             isChosenStrawberryLevel
           }]'
+          @click='() => console.log("Open Game")'
         >
           Собрать урожай
         </button>
@@ -41,6 +42,8 @@ export default Vue.extend({
     isChosenTomatoLevel: false,
     isChosenPepperLevel: false,
     isChosenStrawberryLevel: false,
+
+    isOpenTomatoLevel: false,
   }),
   components: {},
   methods: {
