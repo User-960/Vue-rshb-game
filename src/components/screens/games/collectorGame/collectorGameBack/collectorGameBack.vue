@@ -1,7 +1,7 @@
 <template>
   <navBarGameBack>
     <template v-slot:gameBack>
-      <div :class='styles.gameBack' data-testid='map'>
+      <div :class='styles.gameBack' data-testid='gameBack'>
         Fifth Game
       </div>
     </template>
