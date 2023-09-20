@@ -33,7 +33,7 @@ export default Vue.extend({
   name: 'modalHouse',
   data: () => ({
     isGameAiAvailable: true,
-    isGameDroneAvailable: false,
+    isGameDroneAvailable: true,
     isGameSystem: false,
   }),
   components: {
@@ -51,7 +51,7 @@ export default Vue.extend({
     },
     openGameDrone() {
       if (this.isGameDroneAvailable) {
-        console.log('Open Game Drone')
+        this.$router.push({ name: 'robot-collector' })
       }
     },
     openGameSystem() {
