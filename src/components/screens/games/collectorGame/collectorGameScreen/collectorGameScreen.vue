@@ -17,7 +17,14 @@
 
       <div :class='styles.robot'>
         <img src='../../../../../../public/images/collector.svg' alt='image robot collector' draggable='false' />
-        <button :class='styles.btn'>
+        <button 
+          :class='[
+            styles.btn, 
+            {[styles.btnActive] : isChosenTomatoLevel || 
+            isChosenPepperLevel || 
+            isChosenStrawberryLevel
+          }]'
+        >
           Собрать урожай
         </button>
       </div>

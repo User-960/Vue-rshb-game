@@ -95,15 +95,24 @@
 
 	background-color: transparent;
 	border-radius: 8px;
-	border: 2px solid var(--primary-green);
+	border: 2px solid var(--secondary-text-gray-dark);
 
-	color: var(--primary-green);
+	color: var(--secondary-text-gray-dark);
 	font-weight: 500;
 	line-height: 24px;
 	transition: all 0.3 ease-in-out;
+
+	cursor: not-allowed;
 }
 
-.btn:hover {
+.btnActive {
+	border: 2px solid var(--primary-green);
+	color: var(--primary-green);
+	cursor: pointer;
+	transition: all 0.3 ease-in-out;
+}
+
+.btnActive:hover {
 	color: var(--primary-grey);
 	background-color: var(--primary-green);
 }
