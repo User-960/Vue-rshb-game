@@ -38,7 +38,7 @@
         </ul>
 
         <div :class='[styles.description, {[styles.descActive] : isPc}]'>
-          <img :class='styles.img' src='/' alt='photo of robot'/>
+          <img :class='styles.img' src='../../../../../public/images/collectorShop.svg' alt='photo of robot'/>
           <p :class='styles.text'>
             Собирает и обрабатывает информацию о растениях и почве
           </p>
@@ -49,7 +49,7 @@
         </div>
 
         <div :class='[styles.description, {[styles.descActive] : isDrone}]'>
-          <img :class='styles.img' src='/' alt='photo of robot'/>
+          <img :class='styles.img' src='../../../../../public/images/droneShop.svg' alt='photo of robot'/>
           <p :class='styles.text'>
             Эффективно и быстро производит опрыскивание растений средствами защиты
           </p>
@@ -60,7 +60,7 @@
         </div>
 
         <div :class='[styles.description, {[styles.descActive] : isRobotCollector}]'>
-          <img :class='styles.img' src='/' alt='photo of robot'/>
+          <img :class='styles.img' src='../../../../../public/images/collectorShop.svg' alt='photo of robot'/>
           <p :class='styles.text'>
             Автоматически собирает фрукты или овощи с помощью датчиков и робозахвата
           </p>

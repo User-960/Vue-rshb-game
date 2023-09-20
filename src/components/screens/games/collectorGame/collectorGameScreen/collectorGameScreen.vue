@@ -16,7 +16,7 @@
       </ul>
 
       <div :class='styles.robot'>
-        <img src='../../../../../../public/images/collector.svg' alt='image robot collector' draggable='false' />
+        <img src='../../../../../../public/images/collectorShop.svg' alt='image robot collector' draggable='false' />
         <button 
           :class='[
             styles.btn, 
