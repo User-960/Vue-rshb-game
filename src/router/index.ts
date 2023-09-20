@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
 
+import collectorGamePage from '@/pages/collectorGamePage.vue'
 import mainPage from '@/pages/mainPage.vue'
 
 Vue.use(VueRouter)
@@ -20,6 +21,11 @@ export const routes: Array<RouteConfig> = [
 		path: '/finish',
 		name: 'finish',
 		component: () => import('../pages/finishPage.vue')
+	},
+	{
+		path: '/robot-collector',
+		name: 'robot-collector',
+		component: collectorGamePage
 	}
 ]
 
