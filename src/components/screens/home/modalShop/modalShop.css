@@ -55,20 +55,44 @@
 	animation: opacity 0.3s;
 }
 
-.shop {
+.shopA {
 	padding: 35px 25px;
 
 	max-width: 620px;
-	max-height: 420px;
+	height: 420px;
 	width: 100%;
-	height: 100%;
-
-	display: flex;
-	justify-content: space-between;
 
 	border-radius: 0px 0px 20px 20px;
 	background-color: var(--primary-grey);
 	border: 2px solid var(--primary-green);
+
+	display: none;
+}
+
+.shopB {
+	padding: 100px 60px 40px;
+
+	max-width: 620px;
+	height: 420px;
+	width: 100%;
+
+	border-radius: 0px 0px 20px 20px;
+	background-color: var(--primary-grey);
+	border: 2px solid var(--primary-green);
+
+	display: none;
+}
+
+.shopAActive {
+	display: flex;
+	justify-content: space-between;
+}
+
+.shopBActive {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
 
 .choice {
@@ -160,6 +184,15 @@
 	color: var(--primary-green);
 	font-weight: 500;
 	line-height: 24px;
+}
+
+.listSellsWrapper {
+}
+
+.sellBtnWrapper {
+	margin-top: 63px;
+	width: 275px;
+	height: 60px;
 }
 
 .closeBtnWrapper {

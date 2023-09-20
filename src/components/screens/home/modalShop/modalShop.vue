@@ -18,7 +18,7 @@
         >Своё родное</button>
       </div>
 
-      <div :class='styles.shop'>
+      <div :class='[styles.shopA, {[styles.shopAActive] : isShowShopA}]'>
         <ul :class='styles.choice'>
 
           <button :class='[styles.choiceBtn, {[styles.choiceBtnActive] : isPc}]' @click='showPcCard'>
@@ -70,15 +70,28 @@
           <button :class='styles.buyBtn'>Купить за 1000</button>
         </div>
       </div>
+
+      <div :class='[styles.shopB, {[styles.shopBActive] : isShowShopB}]'>
+        <div :class='styles.listSellsWrapper'>
+          <listSells />
+        </div>
+
+        <div :class='styles.sellBtnWrapper'>
+          <sellButton>
+            Продать за 1000
+          </sellButton>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script lang='ts'>
 import Vue from 'vue'
-import card from './card/card.vue'
+import listSells from './listSells/listSells.vue'
 import choiceButton from '../../../ui/button/shopButton/choiceButton/choiceButton.vue'
 import shopLinkButton from '../../../ui/button/shopButton/shopLinkButton/shopLinkButton.vue'
+import sellButton from '../../../ui/button/shopButton/sellButton/sellButton.vue'
 import closeButton from '../../../ui/button/closeButton/closeButton.vue'
 import { mapGetters } from 'vuex'
 import { EMapBackGetters } from '@/store/modules/homeScreen/getters'
@@ -107,20 +120,43 @@ const mockData = [
   }
 ]
 
+const mockDataCards = [
+  {
+    id: 4,
+    name: 'Помидоры',
+    weight: '65',
+    img: ''
+  },
+  {
+    id: 5,
+    name: 'Перцы',
+    weight: '65',
+    img: '/'
+  },
+  {
+    id: 6,
+    name: 'Клубника',
+    weight: '65',
+    img: '/'
+  }
+]
+
 export default Vue.extend({
   name: 'modalShop',
   data: () => ({
-    mockData: mockData,
     isShopA: true,
     isShopB: false,
     isPc: true,
     isDrone: false,
-    isRobotCollector: false
+    isRobotCollector: false,
+    isShowShopA: true,
+    isShowShopB: false
   }),
   components: {
-    card,
+    listSells,
     shopLinkButton,
-    closeButton
+    closeButton,
+    sellButton
   },
   computed: {
     ...mapGetters([EMapBackGetters.GET_MODAL_SHOP_VISIBLE]),
@@ -129,10 +165,14 @@ export default Vue.extend({
     choiceShopA() {
       this.isShopB = false
       this.isShopA = true
+      this.isShowShopB = false
+      this.isShowShopA = true
     },
     choiceShopB() {
       this.isShopA = false
       this.isShopB = true
+      this.isShowShopA = false
+      this.isShowShopB = true
     },
     showPcCard() {
       this.isDrone = false
