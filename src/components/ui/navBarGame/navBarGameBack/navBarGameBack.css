@@ -6,16 +6,16 @@
 
 .exitButton {
 	position: absolute;
-	bottom: 24px;
-	left: 24px;
+	bottom: 29px;
+	left: 29px;
 
 	z-index: 120;
 }
 
 .blockButtonWallet {
 	position: absolute;
-	top: 24px;
-	right: 24px;
+	top: 29px;
+	right: 29px;
 
 	z-index: 120;
 }
@@ -23,7 +23,7 @@
 .blockButtonBank {
 	position: absolute;
 	top: 128px;
-	right: 24px;
+	right: 29px;
 
 	z-index: 120;
 }

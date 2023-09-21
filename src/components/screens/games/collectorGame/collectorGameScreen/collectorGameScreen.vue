@@ -24,7 +24,7 @@
             isChosenPepperLevel || 
             isChosenStrawberryLevel
           }]'
-          @click='() => console.log("Open Game")'
+          @click='openGame'
         >
           Собрать урожай
         </button>
@@ -34,7 +34,9 @@
 </template>
 
 <script lang='ts'>
+import { ECollectorGameMutation } from '@/store/modules/collectorGame/mutations'
 import Vue from 'vue'
+import { mapMutations } from 'vuex'
 
 export default Vue.extend({
   name: 'collectorGameScreen',
@@ -47,6 +49,7 @@ export default Vue.extend({
   }),
   components: {},
   methods: {
+    ...mapMutations([ECollectorGameMutation.OPEN_GAME_FIELD]),
     chooseTomatoLevel() {
       this.isChosenPepperLevel = false
       this.isChosenStrawberryLevel = false
@@ -61,6 +64,9 @@ export default Vue.extend({
       this.isChosenTomatoLevel = false
       this.isChosenPepperLevel = false
       this.isChosenStrawberryLevel = true
+    },
+    openGame() {
+      this.OPEN_GAME_FIELD()
     }
   }
 })
