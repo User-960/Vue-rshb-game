@@ -26,7 +26,7 @@ export default Vue.extend({
   created() {
     setTimeout(() => {
       this.isBlackScreenShow = true
-    }, 2800)
+    }, 2350)
   },
   computed: {
     ...mapGetters([ECollectorGameGetters.GET_OPEN_GAME_FIELD]),

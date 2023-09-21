@@ -1,0 +1,41 @@
+@import '../../../../../assets/styles/variables.css';
+
+.navBarGameCollector {
+	position: relative;
+	width: 1280px;
+	height: 660px;
+}
+
+.exitButtonWrapper {
+	position: absolute;
+	bottom: 29px;
+	left: 29px;
+
+	z-index: 120;
+}
+
+.exitBtnLeave {
+	width: 86px;
+	height: 86px;
+
+	display: inline-flex;
+	padding: 20px;
+	align-items: center;
+
+	border-radius: 12px;
+	border: 2px solid var(--primary-green);
+	background: var(--primary-grey);
+}
+
+.blockButtonBank {
+	position: absolute;
+	top: 29px;
+	right: 29px;
+
+	z-index: 120;
+}
+
+.mapGame {
+	width: 100%;
+	height: 100%;
+}

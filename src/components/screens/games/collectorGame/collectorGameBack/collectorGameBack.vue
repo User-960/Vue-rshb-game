@@ -1,20 +1,24 @@
 <template>
-  <navBarGameBack>
+  <navBarGameCollector v-if='GET_OPEN_GAME_FIELD'>
     <template v-slot:gameBack>
-      <collectorGameField v-if='GET_OPEN_GAME_FIELD'/>
+      <collectorGameField/>
+    </template>
+  </navBarGameCollector>
 
-      <div :class='styles.gameBack' v-else data-testid='gameBack'>
+  <navBarGameCollector v-else>
+    <template v-slot:gameBack>
+      <div :class='styles.gameBack' data-testid='gameBack'>
         <div :class='styles.screenWrapper'>
           <collectorGameScreen/>
         </div>
       </div>
     </template>
-  </navBarGameBack>
+  </navBarGameCollector>
 </template>
 
 <script lang='ts'>
 import Vue from 'vue'
-import navBarGameBack from '../../../../ui/navBarGame/navBarGameBack/navBarGameBack.vue'
+import navBarGameCollector from '../navBarGameCollector/navBarGameCollector.vue'
 import collectorGameScreen from '../collectorGameScreen/collectorGameScreen.vue'
 import collectorGameField from '../collectorGameField/collectorGameField.vue'
 import { mapGetters } from 'vuex'
@@ -23,7 +27,7 @@ import { ECollectorGameGetters } from '@/store/modules/collectorGame/getters'
 export default Vue.extend({
   name: 'collectorGameBack',
   components: {
-    navBarGameBack,
+    navBarGameCollector,
     collectorGameScreen,
     collectorGameField
   },

@@ -25,13 +25,11 @@
       </blockButton>
     </div>
 
-    <div :class='styles.blockButtonBank'>
+    <div :class='styles.blockButtonPoints'>
       <blockButton>
       <template v-slot:contentIconBtn>
         <iconButton>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28" fill="none">
-            <path d="M5.68421 12.65H3.15789V22.1H5.68421V12.65ZM13.2632 12.65H10.7368V22.1H13.2632V12.65ZM24 24.8H0V27.5H24V24.8ZM20.8421 12.65H18.3158V22.1H20.8421V12.65ZM12 3.551L18.5811 7.25H5.41895L12 3.551ZM12 0.5L0 7.25V9.95H24V7.25L12 0.5Z" fill="currentColor"/>
-          </svg>
+          Б
         </iconButton>
       </template>
 

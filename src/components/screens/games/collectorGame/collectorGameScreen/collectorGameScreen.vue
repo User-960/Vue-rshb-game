@@ -66,7 +66,9 @@ export default Vue.extend({
       this.isChosenStrawberryLevel = true
     },
     openGame() {
-      this.OPEN_GAME_FIELD()
+      if (this.isChosenTomatoLevel || this.isChosenPepperLevel || this.isChosenStrawberryLevel) {
+        this.OPEN_GAME_FIELD()
+      }
     }
   }
 })

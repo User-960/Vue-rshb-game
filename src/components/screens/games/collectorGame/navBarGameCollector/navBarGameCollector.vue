@@ -1,10 +1,20 @@
 <template>
-  <div :class='styles.navBarGameBack'>
-    <div :class='styles.exitButton'>
+  <div :class='styles.navBarGameCollector'>
+    <div :class='styles.exitButtonWrapper' v-if='GET_OPEN_GAME_FIELD'>
+      <div :class='styles.exitBtnLeave'>
+        <iconButton @onclick="leaveGame">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="14" viewBox="0 0 24 14" fill="none">
+            <path d="M8.892 12.355L4.596 8.16667L19.2 8.16667V5.83333L4.596 5.83333L8.904 1.645L7.2 0L0 7L7.2 14L8.892 12.355ZM24 14V0H21.6V14H24Z" fill="currentColor"/>
+          </svg>
+        </iconButton>
+      </div>
+    </div>
+
+    <div :class='styles.exitButtonWrapper' v-else>
       <exitButton/>
     </div>
 
-    <div :class='styles.blockButtonWallet'>
+    <!-- <div :class='styles.blockButtonWallet'>
       <blockButton>
       <template v-slot:contentIconBtn>
         <iconButton>
@@ -19,15 +29,13 @@
         0
       </template>
       </blockButton>
-    </div>
+    </div> -->
 
     <div :class='styles.blockButtonBank'>
       <blockButton>
       <template v-slot:contentIconBtn>
         <iconButton>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28" fill="none">
-            <path d="M5.68421 12.65H3.15789V22.1H5.68421V12.65ZM13.2632 12.65H10.7368V22.1H13.2632V12.65ZM24 24.8H0V27.5H24V24.8ZM20.8421 12.65H18.3158V22.1H20.8421V12.65ZM12 3.551L18.5811 7.25H5.41895L12 3.551ZM12 0.5L0 7.25V9.95H24V7.25L12 0.5Z" fill="currentColor"/>
-          </svg>
+          Б
         </iconButton>
       </template>
 
@@ -45,13 +53,25 @@
 
 <script lang='ts'>
 import Vue from 'vue'
-import exitButton from '../../button/exitButton/exitButton.vue'
-import blockButton from '../../button/blockButton/blockButton.vue'
-import iconButton from '../../button/iconButton/iconButton.vue'
+import exitButton from '../../../../ui/button/exitButton/exitButton.vue'
+import blockButton from '../../../../ui/button/blockButton/blockButton.vue'
+import iconButton from '../../../../ui/button/iconButton/iconButton.vue'
+import { mapGetters, mapMutations } from 'vuex'
+import { ECollectorGameGetters } from '@/store/modules/collectorGame/getters'
+import { ECollectorGameMutation } from '@/store/modules/collectorGame/mutations'
 
 export default Vue.extend({
-  name: 'navBarGameBack',
+  name: 'navBarGameCollector',
   data: () => ({}),
+  computed: {
+    ...mapGetters([ECollectorGameGetters.GET_OPEN_GAME_FIELD]),
+  },
+  methods: {
+    ...mapMutations([ECollectorGameMutation.CLOSE_GAME_FIELD]),
+    leaveGame() {
+      this.CLOSE_GAME_FIELD()
+    }
+  },
   components: {
     exitButton,
     blockButton,
@@ -60,6 +80,6 @@ export default Vue.extend({
 })
 </script>
 
-<style src='./navBarGameBack.css' module='styles'>
+<style src='./navBarGameCollector.css' module='styles'>
   
 </style>
