@@ -8,5 +8,5 @@ export enum EPestControlGameGetters {
 }
 
 export const getters: GetterTree<IPestControlGameState, IRootState> = {
-	[EPestControlGameGetters.GET_OPEN_GAME_FIELD]: state => state.isOpenGameField
+	// [EPestControlGameGetters.GET_OPEN_GAME_FIELD]: state => state.isOpenGameField
 }

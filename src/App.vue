@@ -3,6 +3,7 @@
     <nav>
       <router-link to="/">Main</router-link> |
       <router-link to="/start">Start</router-link> |
+      <router-link to="/pest-control">Pest Control</router-link> |
       <router-link to="/robot-collector">Robot Collector</router-link> |
       <router-link to="/finish">Finish</router-link>
     </nav>

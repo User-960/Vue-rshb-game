@@ -1,7 +1,7 @@
 <template>
   <layout>
     <template v-slot:default>
-      <collectorGameBack/>
+      <pestControlGameBack/>
     </template>
   </layout>
 </template>
@@ -10,13 +10,13 @@
 import Vue from 'vue'
 import layout from '../../../layout/layout.vue'
 
-import collectorGameBack from './collectorGameBack/collectorGameBack.vue'
+import pestControlGameBack from './pestControlGameBack/pestControlGameBack.vue'
 
 export default Vue.extend({
-  name: 'collectorGame',
+  name: 'pestControlGame',
   components: {
     layout,
-    collectorGameBack
+    pestControlGameBack
   },
   methods: {}
 })

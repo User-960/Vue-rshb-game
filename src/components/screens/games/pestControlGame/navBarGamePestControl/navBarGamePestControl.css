@@ -1,0 +1,49 @@
+@import '../../../../../assets/styles/variables.css';
+
+.navBarGamePestControl {
+	position: relative;
+	width: 1280px;
+	height: 660px;
+}
+
+.exitButtonWrapper {
+	position: absolute;
+	bottom: 24px;
+	left: 24px;
+
+	z-index: 120;
+}
+
+.exitBtnLeave {
+	width: 86px;
+	height: 86px;
+
+	display: inline-flex;
+	padding: 20px;
+	align-items: center;
+
+	border-radius: 12px;
+	border: 2px solid var(--primary-green);
+	background: var(--primary-grey);
+}
+
+.blockButtonWallet {
+	position: absolute;
+	top: 24px;
+	right: 24px;
+
+	z-index: 120;
+}
+
+.blockButtonPoints {
+	position: absolute;
+	top: 128px;
+	right: 24px;
+
+	z-index: 120;
+}
+
+.mapGame {
+	width: 100%;
+	height: 100%;
+}

@@ -6,9 +6,7 @@ import { mutations } from './mutations'
 import { IPestControlGameState } from './types'
 import { IRootState } from '@/store/types'
 
-const state: IPestControlGameState = {
-	isOpenGameField: false
-}
+const state: IPestControlGameState = {}
 
 export const getDefaultPestControlGameState = () => {
 	return {

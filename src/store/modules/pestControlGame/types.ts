@@ -1,3 +1,1 @@
-export interface IPestControlGameState {
-	isOpenGameField: boolean
-}
+export interface IPestControlGameState {}

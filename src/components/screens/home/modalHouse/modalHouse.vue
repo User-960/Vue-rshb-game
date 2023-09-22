@@ -7,12 +7,12 @@
         Искусственный интеллект
       </linkButton>
 
-      <linkButton @onclick='openGameDrone' :isGameAvailable='isGameDroneAvailable'>
-        Дроны
-      </linkButton>
-
       <linkButton @onclick='openGameSystem' :isGameAvailable='isGameSystem'>
         Автоматизированные системы
+      </linkButton>
+
+      <linkButton @onclick='openGameDrone' :isGameAvailable='isGameDroneAvailable'>
+        Дроны
       </linkButton>
 
       <div :class='styles.closeBtnWrapper'>
@@ -33,8 +33,8 @@ export default Vue.extend({
   name: 'modalHouse',
   data: () => ({
     isGameAiAvailable: true,
+    isGameSystem: true,
     isGameDroneAvailable: true,
-    isGameSystem: false,
   }),
   components: {
     linkButton,
@@ -56,7 +56,7 @@ export default Vue.extend({
     },
     openGameSystem() {
       if (this.isGameSystem) {
-        console.log('Open Game System')
+        this.$router.push({ name: 'pest-control' })
       }
     }
   }

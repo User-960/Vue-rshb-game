@@ -8,10 +8,10 @@ export enum EPestControlGameMutation {
 }
 
 export const mutations: MutationTree<IPestControlGameState> = {
-	[EPestControlGameMutation.OPEN_GAME_FIELD](state) {
-		state.isOpenGameField = true
-	},
-	[EPestControlGameMutation.CLOSE_GAME_FIELD](state) {
-		state.isOpenGameField = false
-	}
+	// [EPestControlGameMutation.OPEN_GAME_FIELD](state) {
+	// 	state.isOpenGameField = true
+	// },
+	// [EPestControlGameMutation.CLOSE_GAME_FIELD](state) {
+	// 	state.isOpenGameField = false
+	// }
 }
