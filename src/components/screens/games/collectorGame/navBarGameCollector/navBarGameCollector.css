@@ -27,9 +27,17 @@
 	background: var(--primary-grey);
 }
 
-.blockButtonBank {
+.blockButtonWallet {
 	position: absolute;
 	top: 29px;
+	right: 29px;
+
+	z-index: 120;
+}
+
+.blockButtonPoints {
+	position: absolute;
+	top: 129px;
 	right: 29px;
 
 	z-index: 120;

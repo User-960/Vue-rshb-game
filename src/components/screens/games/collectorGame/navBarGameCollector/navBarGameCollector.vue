@@ -14,7 +14,7 @@
       <exitButton/>
     </div>
 
-    <!-- <div :class='styles.blockButtonWallet'>
+    <div :class='styles.blockButtonWallet'>
       <blockButton>
       <template v-slot:contentIconBtn>
         <iconButton>
@@ -29,9 +29,9 @@
         0
       </template>
       </blockButton>
-    </div> -->
+    </div>
 
-    <div :class='styles.blockButtonBank'>
+    <div :class='styles.blockButtonPoints'>
       <blockButton>
       <template v-slot:contentIconBtn>
         <iconButton>
