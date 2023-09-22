@@ -2,20 +2,107 @@
   <div :class='styles.border' data-testid='pestControlGameScreen'>
     <div :class='styles.screen'>
       <ul :class='styles.listLevels'>
+
         <li :class='[styles.itemLevels, {[styles.tomatoLevelActive] : isChosenTomatoLevel}]' @click='chooseTomatoLevel'>
-          <img src='../../../../../../public/images/tomatoBush.svg' alt='image of first level' draggable='false' />
+          <div :class='styles.pestInfo'>
+            <p :class='styles.pestTitle'>Вредители</p>
+            <ul :class='styles.pestImgList'>
+              <img src='../../../../../../public/images/worm.svg' alt='image of first level' draggable='false' />
+              <img src='../../../../../../public/images/worm.svg' alt='image of first level' draggable='false' />
+              <img src='../../../../../../public/images/worm.svg' alt='image of first level' draggable='false' />
+            </ul>
+          </div>
+
+          <div :class='styles.pestLevel'>
+            <img :class='styles.pestLevelImg' src='../../../../../../public/images/tomatoBushGreen.svg' alt='image of first level' draggable='false' />
+            <!-- <div :class='styles.pestIndicator'>
+              <p>0%</p>
+              <div :class='styles.indicatorWrapper'>
+                <label for='indicator'>0</label>
+                <input id='indicator' name='indicator' type='range' value=0>
+              </div>
+              <p>100%</p>
+            </div> -->
+
+            <div :class='styles.pestIndicator'>
+              <p>0%</p>
+              <div :class='styles.indicatorWrapper'>
+                <p>0</p>
+                <div :class='styles.indicatorNumber'>0</div>
+              </div>
+              <p>100%</p>
+            </div>
+          </div>
         </li>
         
-        <li :class='[styles.itemLevels , {[styles.pepperLevelActive] : isChosenPepperLevel}]' @click='choosePepperLevel'>
-          <img src='../../../../../../public/images/pepperBush.svg' alt='image of second level' draggable='false' />
+        <li :class='[styles.itemLevels, {[styles.tomatoLevelActive] : isChosenTomatoLevel}]' @click='chooseTomatoLevel'>
+          <div :class='styles.pestInfo'>
+            <p :class='styles.pestTitle'>Вредители</p>
+            <ul :class='styles.pestImgList'>
+              <img src='../../../../../../public/images/locusts.svg' alt='image of second level' draggable='false' />
+              <img src='../../../../../../public/images/locusts.svg' alt='image of second level' draggable='false' />
+              <img src='../../../../../../public/images/locusts.svg' alt='image of second level' draggable='false' />
+            </ul>
+          </div>
+
+          <div :class='styles.pestLevel'>
+            <img :class='styles.pestLevelImg' src='../../../../../../public/images/pepperBushGreen.svg' alt='image of first level' draggable='false' />
+
+            <!-- <div :class='styles.pestIndicator'>
+              <p>0%</p>
+              <div :class='styles.indicatorWrapper'>
+                <label for='indicator'>0</label>
+                <input id='indicator' name='indicator' type='range' value=0>
+              </div>
+              <p>100%</p>
+            </div> -->
+
+            <div :class='styles.pestIndicator'>
+              <p>0%</p>
+              <div :class='styles.indicatorWrapper'>
+                <p>0</p>
+                <div :class='styles.indicatorNumber'>0</div>
+              </div>
+              <p>100%</p>
+            </div>
+          </div>
         </li>
 
-        <li :class='[styles.itemLevels, {[styles.strawberryLevelActive] : isChosenStrawberryLevel}]' @click='chooseStrawberryLevel'>
-          <img src='../../../../../../public/images/strawberryBush.svg' alt='image of third level' draggable='false' />
+        <li :class='[styles.itemLevels, {[styles.tomatoLevelActive] : isChosenTomatoLevel}]' @click='chooseTomatoLevel'>
+          <div :class='styles.pestInfo'>
+            <p :class='styles.pestTitle'>Вредители</p>
+            <ul :class='styles.pestImgList'>
+              <img src='../../../../../../public/images/bug.svg' alt='image of third level' draggable='false' />
+              <img src='../../../../../../public/images/bug.svg' alt='image of third level' draggable='false' />
+              <img src='../../../../../../public/images/bug.svg' alt='image of third level' draggable='false' />
+            </ul>
+          </div>
+
+          <div :class='styles.pestLevel'>
+            <img :class='styles.pestLevelImg' src='../../../../../../public/images/strawberryBushGreen.svg' alt='image of first level' draggable='false' />
+
+            <!-- <div :class='styles.pestIndicator'>
+              <p>0%</p>
+              <div :class='styles.indicatorWrapper'>
+                <label for='indicator'>0</label>
+                <input id='indicator' name='indicator' type='range' value=0>
+              </div>
+              <p>100%</p>
+            </div> -->
+
+            <div :class='styles.pestIndicator'>
+              <p>0%</p>
+              <div :class='styles.indicatorWrapper'>
+                <p>0</p>
+                <div :class='styles.indicatorNumber'>0</div>
+              </div>
+              <p>100%</p>
+            </div>
+          </div>
         </li>
       </ul>
 
-      <div :class='styles.robot'>
+      <!-- <div :class='styles.robot'>
         <img src='../../../../../../public/images/collectorShop.svg' alt='image robot collector' draggable='false' />
         <button 
           :class='[
@@ -28,7 +115,7 @@
         >
           Собрать урожай
         </button>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>

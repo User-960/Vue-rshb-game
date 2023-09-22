@@ -3,15 +3,15 @@
     <div :class='styles.screen'>
       <ul :class='styles.listLevels'>
         <li :class='[styles.itemLevels, {[styles.tomatoLevelActive] : isChosenTomatoLevel}]' @click='chooseTomatoLevel'>
-          <img src='../../../../../../public/images/tomatoBush.svg' alt='image of first level' draggable='false' />
+          <img src='../../../../../../public/images/tomatoBushRed.svg' alt='image of first level' draggable='false' />
         </li>
         
         <li :class='[styles.itemLevels , {[styles.pepperLevelActive] : isChosenPepperLevel}]' @click='choosePepperLevel'>
-          <img src='../../../../../../public/images/pepperBush.svg' alt='image of second level' draggable='false' />
+          <img src='../../../../../../public/images/pepperBushRed.svg' alt='image of second level' draggable='false' />
         </li>
 
         <li :class='[styles.itemLevels, {[styles.strawberryLevelActive] : isChosenStrawberryLevel}]' @click='chooseStrawberryLevel'>
-          <img src='../../../../../../public/images/strawberryBush.svg' alt='image of third level' draggable='false' />
+          <img src='../../../../../../public/images/strawberryBushRed.svg' alt='image of third level' draggable='false' />
         </li>
       </ul>
 
