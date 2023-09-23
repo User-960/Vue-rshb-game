@@ -49,9 +49,13 @@ export default Vue.extend({
     ...mapGetters([EPestControlGameGetters.GET_RULES_BLOCK]),
   },
   methods: {
-    ...mapMutations([EPestControlGameMutation.HIDE_RULES_BLOCK]),
+    ...mapMutations([
+      EPestControlGameMutation.HIDE_RULES_BLOCK, 
+      EPestControlGameMutation.START_GAME
+    ]),
     startGame() {
       this.HIDE_RULES_BLOCK()
+      this.START_GAME()
     },
     goMap() {
       this.$router.push({ name: 'home' })

@@ -78,6 +78,7 @@
 	border-radius: 4px;
 	border: 2px solid var(--secondary-text-gray);
 
+	user-select: none;
 	transition: all 0.3s ease-in-out;
 	cursor: pointer;
 }
@@ -96,7 +97,8 @@
 	background-position: bottom;
 	background-size: contain;
 
-	animation: opacityUltra 8s;
+	user-select: none;
+	animation: opacityUltra 3s;
 }
 
 .pestIndicator {
@@ -252,6 +254,7 @@
 	background-repeat: no-repeat;
 	background-size: contain;
 
+	user-select: none;
 	cursor: pointer;
 }
 
@@ -268,6 +271,13 @@
 	right: 440px;
 
 	animation: droneMoved 7s;
+}
+
+.droneReturned {
+	top: 0px;
+	right: 0px;
+
+	animation: droneReturn 7s;
 }
 
 /* Levels states */
@@ -316,7 +326,7 @@
 
 	20% {
 		opacity: 1;
-		transform: rotate(18deg);
+		transform: rotate(12deg);
 	}
 
 	40% {
@@ -326,7 +336,7 @@
 
 	60% {
 		opacity: 1;
-		transform: rotate(-25deg);
+		transform: rotate(-19deg);
 	}
 
 	80% {
@@ -350,8 +360,35 @@
 		right: 0px;
 	}
 
+	88% {
+		transform: rotate(-10deg);
+	}
+
 	100% {
 		top: -156px;
 		right: 440px;
+		transform: rotate(0deg);
+	}
+}
+
+@keyframes droneReturn {
+	0% {
+		top: -156px;
+		right: 440px;
+		transform: rotate(10deg);
+	}
+
+	38% {
+		transform: rotate(0deg);
+	}
+
+	50% {
+		top: -156px;
+		right: 0px;
+	}
+
+	100% {
+		top: 0px;
+		right: 0px;
 	}
 }

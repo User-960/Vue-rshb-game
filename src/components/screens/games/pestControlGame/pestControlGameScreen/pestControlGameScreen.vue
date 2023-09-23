@@ -24,7 +24,7 @@
                 alt='image of first level' 
                 draggable='false' 
               />
-              <div :class='[{[styles.ultrasound]: isUltrasoundActive}]' ></div>
+              <div :class='[{[styles.ultrasound]: isUltrasoundTomatoActive}]' ></div>
             </div>
 
             <div :class='styles.pestIndicator'>
@@ -52,7 +52,7 @@
           <div :class='styles.pestLevel'>
             <div :class='styles.pestLevelImgWrapper'>
               <img :class='[styles.pestLevelImg, {[styles.pestLevelImgActive]: isChosenPepperLevel}]' src='../../../../../../public/images/pepperBushGreen.svg' alt='image of first level' draggable='false' />
-              <div :class='[{[styles.ultrasound]: isUltrasoundActive}]' ></div>
+              <div :class='[{[styles.ultrasound]: isUltrasoundPepperActive}]' ></div>
             </div>
 
             <div :class='styles.pestIndicator'>
@@ -80,7 +80,7 @@
           <div :class='styles.pestLevel'>
             <div :class='styles.pestLevelImgWrapper'>
               <img :class='[styles.pestLevelImg, {[styles.pestLevelImgActive]: isChosenStrawberryLevel}]' src='../../../../../../public/images/strawberryBushGreen.svg' alt='image of first level' draggable='false' />
-              <div :class='[{[styles.ultrasound]: isUltrasoundActive}]' ></div>
+              <div :class='[{[styles.ultrasound]: isUltrasoundStrawberryActive}]' ></div>
             </div>
 
             <div :class='styles.pestIndicator'>
@@ -98,17 +98,29 @@
         <li :class='styles.itemDrone'>
           <ul :class='styles.insecticideList'>
             <li 
-              :class='[styles.insecticide, styles.insecticideBug, {[styles.insecticideBugActive]: isBugActive}]'
+              :class='[
+                styles.insecticide, 
+                styles.insecticideBug, 
+                {[styles.insecticideBugActive]: isBugActive}
+              ]'
               @click='selectBug'
             ></li>
 
             <li 
-              :class='[styles.insecticide, styles.insecticideLocusts, {[styles.insecticideLocustsActive]: isLocustsActive}]'
+              :class='[
+                styles.insecticide, 
+                styles.insecticideLocusts, 
+                {[styles.insecticideLocustsActive]: isLocustsActive}
+              ]'
               @click='selectLocusts'
             ></li>
 
             <li 
-              :class='[styles.insecticide, styles.insecticideCaterpillar, {[styles.insecticideCaterpillarActive]: isCaterpillarActive}]'
+              :class='[
+                styles.insecticide, 
+                styles.insecticideCaterpillar, 
+                {[styles.insecticideCaterpillarActive]: isCaterpillarActive}
+              ]'
               @click='selectCaterpillar'
             ></li>
           </ul>
@@ -118,6 +130,7 @@
               styles.drone, 
               {[styles.droneActive]: isDroneActive},
               {[styles.droneMoved]: isDroneMoved},
+              {[styles.droneReturned]: isDroneFinishWork},
             ]' 
             @click='selectDrone'
           ></div>
@@ -129,7 +142,9 @@
 </template>
 
 <script lang='ts'>
+import { EPestControlGameGetters } from '@/store/modules/pestControlGame/getters'
 import Vue from 'vue'
+import { mapGetters } from 'vuex'
 
 export default Vue.extend({
   name: 'pestControlGameScreen',
@@ -140,7 +155,9 @@ export default Vue.extend({
     isChosenPepperLevel: false,
     isChosenStrawberryLevel: false,
 
-    isUltrasoundActive: true,
+    isUltrasoundTomatoActive: false,
+    isUltrasoundPepperActive: false,
+    isUltrasoundStrawberryActive: false,
 
     isTomatoLineCritical: false,
     isPepperLineCritical: false,
@@ -151,38 +168,71 @@ export default Vue.extend({
     isCaterpillarActive: false,
 
     isDroneActive: false,
-    isDroneMoved: false
+    isDroneMoved: false,
+    isDroneFinishWork: false
   }),
+  computed: {
+    ...mapGetters([EPestControlGameGetters.GET_START_GAME]),
+  },
+  watch: {
+    GET_START_GAME() {
+      setTimeout(() => {
+        this.isTomatoLineCritical = true
+      }, 4000)
+    },
+    isDroneMoved() {
+      setTimeout(() => {
+        this.isUltrasoundTomatoActive = true
+      }, 7000)
+    },
+    isDroneFinishWork() {
+      setTimeout(() => {
+        this.isDroneFinishWork = false
+        this.isBugActive = false
+        this.isDroneActive = false
+        this.isUltrasoundTomatoActive = false
+      }, 7000)
+    }
+  },
   components: {},
   methods: {
-    // startGame() {
-    //   this.isStartGame = true
-    //   if (this.isStartGame) {
-    //     this.isTomatoLineCritical = true
-    //   }
-    // },
     chooseTomatoLevel() {
-      this.isChosenPepperLevel = false
-      this.isChosenStrawberryLevel = false
-      this.isChosenTomatoLevel = true
+      if (this.isDroneActive) {
+        this.isChosenPepperLevel = false
+        this.isChosenStrawberryLevel = false
+        this.isChosenTomatoLevel = true
+
+        this.isDroneMoved = true
+
+        setTimeout(() => {
+          this.isTomatoLineCritical = false
+          this.isUltrasoundTomatoActive = false
+          this.isChosenTomatoLevel = false
+          this.isDroneMoved = false
+          this.isDroneFinishWork = true
+        }, 10000)
+      }
     },
     choosePepperLevel() {
-      this.isChosenTomatoLevel = false
-      this.isChosenStrawberryLevel = false
-      this.isChosenPepperLevel = true
+      if (this.isDroneActive) {
+        this.isChosenTomatoLevel = false
+        this.isChosenStrawberryLevel = false
+        this.isChosenPepperLevel = true
+      }
     },
     chooseStrawberryLevel() {
-      this.isChosenTomatoLevel = false
-      this.isChosenPepperLevel = false
-      this.isChosenStrawberryLevel = true
+      if (this.isDroneActive) {
+        this.isChosenTomatoLevel = false
+        this.isChosenPepperLevel = false
+        this.isChosenStrawberryLevel = true
+      }
     },
     selectBug() {
-      this.isCaterpillarActive = false
-      this.isLocustsActive = false
-      this.isBugActive = true
-
-      this.isTomatoLineCritical = true
-      this.isDroneMoved = true
+      if (this.isTomatoLineCritical) {
+        this.isCaterpillarActive = false
+        this.isLocustsActive = false
+        this.isBugActive = true
+      }
     },
     selectLocusts() {
       this.isCaterpillarActive = false
@@ -199,7 +249,9 @@ export default Vue.extend({
       this.isStrawberryLineCritical = true
     },
     selectDrone() {
-      this.isDroneActive = true
+      if (this.isBugActive || this.isLocustsActive || this.isCaterpillarActive) {
+        this.isDroneActive = true
+      }
     }
   }
 })

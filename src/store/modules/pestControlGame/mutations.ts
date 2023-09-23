@@ -6,7 +6,8 @@ export enum EPestControlGameMutation {
 	SHOW_INFO_LINK_BLOCK = 'SHOW_INFO_LINK_BLOCK',
 	HIDE_INFO_LINK_BLOCK = 'HIDE_INFO_LINK_BLOCK',
 	SHOW_RULES_BLOCK = 'SHOW_RULES_BLOCK',
-	HIDE_RULES_BLOCK = 'HIDE_RULES_BLOCK'
+	HIDE_RULES_BLOCK = 'HIDE_RULES_BLOCK',
+	START_GAME = 'START_GAME'
 }
 
 export const mutations: MutationTree<IPestControlGameState> = {
@@ -21,5 +22,8 @@ export const mutations: MutationTree<IPestControlGameState> = {
 	},
 	[EPestControlGameMutation.HIDE_RULES_BLOCK](state) {
 		state.isRulesBlockVisible = false
+	},
+	[EPestControlGameMutation.START_GAME](state) {
+		state.isStartGame = true
 	}
 }
