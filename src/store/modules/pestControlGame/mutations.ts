@@ -3,15 +3,15 @@ import { MutationTree } from 'vuex'
 import { IPestControlGameState } from './types'
 
 export enum EPestControlGameMutation {
-	OPEN_GAME_FIELD = 'OPEN_GAME_FIELD',
-	CLOSE_GAME_FIELD = 'CLOSE_GAME_FIELD'
+	SHOW_INFO_LINK_BLOCK = 'SHOW_INFO_LINK_BLOCK',
+	HIDE_INFO_LINK_BLOCK = 'HIDE_INFO_LINK_BLOCK'
 }
 
 export const mutations: MutationTree<IPestControlGameState> = {
-	// [EPestControlGameMutation.OPEN_GAME_FIELD](state) {
-	// 	state.isOpenGameField = true
-	// },
-	// [EPestControlGameMutation.CLOSE_GAME_FIELD](state) {
-	// 	state.isOpenGameField = false
-	// }
+	[EPestControlGameMutation.SHOW_INFO_LINK_BLOCK](state) {
+		state.isInfoLinkBlockVisible = true
+	},
+	[EPestControlGameMutation.HIDE_INFO_LINK_BLOCK](state) {
+		state.isInfoLinkBlockVisible = false
+	}
 }

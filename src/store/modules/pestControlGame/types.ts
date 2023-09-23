@@ -1,1 +1,3 @@
-export interface IPestControlGameState {}
+export interface IPestControlGameState {
+	isInfoLinkBlockVisible: boolean
+}
