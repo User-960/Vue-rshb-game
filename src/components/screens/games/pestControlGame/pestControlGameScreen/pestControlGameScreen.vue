@@ -3,7 +3,7 @@
     <div :class='styles.screen'>
       <ul :class='styles.listLevels'>
 
-        <li :class='[styles.itemLevels, {[styles.tomatoLevelActive] : isChosenTomatoLevel}]' @click='chooseTomatoLevel'>
+        <li :class='styles.itemLevels' @click='chooseTomatoLevel'>
           <div :class='styles.pestInfo'>
             <p :class='styles.pestTitle'>Вредители</p>
             <ul :class='styles.pestImgList'>
@@ -14,7 +14,18 @@
           </div>
 
           <div :class='styles.pestLevel'>
-            <img :class='styles.pestLevelImg' src='../../../../../../public/images/tomatoBushGreen.svg' alt='image of first level' draggable='false' />
+            <div :class='styles.pestLevelImgWrapper'>
+              <img 
+                :class='[
+                  styles.pestLevelImg, 
+                  {[styles.pestLevelImgActive]: isChosenTomatoLevel}
+                ]' 
+                src='../../../../../../public/images/tomatoBushGreen.svg' 
+                alt='image of first level' 
+                draggable='false' 
+              />
+              <div :class='[{[styles.ultrasound]: isUltrasoundActive}]' ></div>
+            </div>
 
             <div :class='styles.pestIndicator'>
               <p>0%</p>
@@ -28,7 +39,7 @@
           </div>
         </li>
         
-        <li :class='[styles.itemLevels, {[styles.tomatoLevelActive] : isChosenTomatoLevel}]' @click='chooseTomatoLevel'>
+        <li :class='styles.itemLevels' @click='choosePepperLevel'>
           <div :class='styles.pestInfo'>
             <p :class='styles.pestTitle'>Вредители</p>
             <ul :class='styles.pestImgList'>
@@ -39,7 +50,10 @@
           </div>
 
           <div :class='styles.pestLevel'>
-            <img :class='styles.pestLevelImg' src='../../../../../../public/images/pepperBushGreen.svg' alt='image of first level' draggable='false' />
+            <div :class='styles.pestLevelImgWrapper'>
+              <img :class='[styles.pestLevelImg, {[styles.pestLevelImgActive]: isChosenPepperLevel}]' src='../../../../../../public/images/pepperBushGreen.svg' alt='image of first level' draggable='false' />
+              <div :class='[{[styles.ultrasound]: isUltrasoundActive}]' ></div>
+            </div>
 
             <div :class='styles.pestIndicator'>
               <p>0%</p>
@@ -53,7 +67,7 @@
           </div>
         </li>
 
-        <li :class='[styles.itemLevels, {[styles.tomatoLevelActive] : isChosenTomatoLevel}]' @click='chooseTomatoLevel'>
+        <li :class='styles.itemLevels' @click='chooseStrawberryLevel'>
           <div :class='styles.pestInfo'>
             <p :class='styles.pestTitle'>Вредители</p>
             <ul :class='styles.pestImgList'>
@@ -64,7 +78,10 @@
           </div>
 
           <div :class='styles.pestLevel'>
-            <img :class='styles.pestLevelImg' src='../../../../../../public/images/strawberryBushGreen.svg' alt='image of first level' draggable='false' />
+            <div :class='styles.pestLevelImgWrapper'>
+              <img :class='[styles.pestLevelImg, {[styles.pestLevelImgActive]: isChosenStrawberryLevel}]' src='../../../../../../public/images/strawberryBushGreen.svg' alt='image of first level' draggable='false' />
+              <div :class='[{[styles.ultrasound]: isUltrasoundActive}]' ></div>
+            </div>
 
             <div :class='styles.pestIndicator'>
               <p>0%</p>
@@ -96,7 +113,14 @@
             ></li>
           </ul>
 
-          <div :class='[styles.drone, {[styles.droneActive]: isDroneActive}]' @click='selectDrone'></div>
+          <div 
+            :class='[
+              styles.drone, 
+              {[styles.droneActive]: isDroneActive},
+              {[styles.droneMoved]: isDroneMoved},
+            ]' 
+            @click='selectDrone'
+          ></div>
         </li>
 
       </ul>
@@ -110,9 +134,14 @@ import Vue from 'vue'
 export default Vue.extend({
   name: 'pestControlGameScreen',
   data: () => ({
+    isStartGame: false,
+
     isChosenTomatoLevel: false,
     isChosenPepperLevel: false,
     isChosenStrawberryLevel: false,
+
+    isUltrasoundActive: true,
+
     isTomatoLineCritical: false,
     isPepperLineCritical: false,
     isStrawberryLineCritical: false,
@@ -122,9 +151,16 @@ export default Vue.extend({
     isCaterpillarActive: false,
 
     isDroneActive: false,
+    isDroneMoved: false
   }),
   components: {},
   methods: {
+    // startGame() {
+    //   this.isStartGame = true
+    //   if (this.isStartGame) {
+    //     this.isTomatoLineCritical = true
+    //   }
+    // },
     chooseTomatoLevel() {
       this.isChosenPepperLevel = false
       this.isChosenStrawberryLevel = false
@@ -146,6 +182,7 @@ export default Vue.extend({
       this.isBugActive = true
 
       this.isTomatoLineCritical = true
+      this.isDroneMoved = true
     },
     selectLocusts() {
       this.isCaterpillarActive = false

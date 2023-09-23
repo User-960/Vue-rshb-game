@@ -67,12 +67,36 @@
 	margin-left: 20px;
 }
 
+.pestLevelImgWrapper {
+	position: relative;
+}
+
 .pestLevelImg {
 	width: 166px;
 	height: 127px;
 
 	border-radius: 4px;
 	border: 2px solid var(--secondary-text-gray);
+
+	transition: all 0.3s ease-in-out;
+	cursor: pointer;
+}
+
+.ultrasound {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+
+	width: 166px;
+	height: 160px;
+
+	background-image: url(../../../../../../public/images/ultrasound.png);
+
+	background-repeat: no-repeat;
+	background-position: bottom;
+	background-size: contain;
+
+	animation: opacityUltra 8s;
 }
 
 .pestIndicator {
@@ -219,6 +243,7 @@
 
 /* css drone */
 .drone {
+	position: relative;
 	width: 148px;
 	height: 82px;
 
@@ -238,26 +263,20 @@
 	background-image: url(../../../../../../public/images/droneGameActive.svg);
 }
 
-/* .pestLevelImg:hover {
+.droneMoved {
+	top: -156px;
+	right: 440px;
+
+	animation: droneMoved 7s;
+}
+
+/* Levels states */
+.pestLevelImg:hover {
 	border-color: var(--primary-green);
 }
 
-.tomatoLevelActive {
+.pestLevelImgActive {
 	border-color: var(--primary-green);
-}
-
-.pepperLevelActive {
-	border-color: var(--primary-green);
-}
-
-.strawberryLevelActive {
-	border-color: var(--primary-green);
-}
-
-.pestLevelImg img {
-	width: 100%;
-	height: 100%;
-	user-select: none;
 }
 
 /* animations */
@@ -282,5 +301,57 @@
 
 	100% {
 		left: 40px;
+	}
+}
+
+@keyframes opacityUltra {
+	0% {
+		opacity: 0;
+	}
+
+	10% {
+		opacity: 0.5;
+		transform: rotate(0deg);
+	}
+
+	20% {
+		opacity: 1;
+		transform: rotate(18deg);
+	}
+
+	40% {
+		opacity: 0.5;
+		transform: rotate(0deg);
+	}
+
+	60% {
+		opacity: 1;
+		transform: rotate(-25deg);
+	}
+
+	80% {
+		opacity: 0.5;
+	}
+
+	100% {
+		opacity: 1;
+		transform: rotate(0deg);
+	}
+}
+
+@keyframes droneMoved {
+	0% {
+		top: 0px;
+		right: 0px;
+	}
+
+	50% {
+		top: -156px;
+		right: 0px;
+	}
+
+	100% {
+		top: -156px;
+		right: 440px;
 	}
 }
