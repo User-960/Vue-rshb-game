@@ -56,9 +56,13 @@ export default Vue.extend({
     }
   },
   methods: {
-    ...mapMutations([EPestControlGameMutation.HIDE_INFO_LINK_BLOCK]),
+    ...mapMutations([
+      EPestControlGameMutation.HIDE_INFO_LINK_BLOCK, 
+      EPestControlGameMutation.SHOW_RULES_BLOCK
+    ]),
     closeBlock() {
       this.HIDE_INFO_LINK_BLOCK()
+      this.SHOW_RULES_BLOCK()
     }
   }
 })

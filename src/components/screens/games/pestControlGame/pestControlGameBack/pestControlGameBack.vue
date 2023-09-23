@@ -3,6 +3,7 @@
     <template v-slot:gameBack>
       <div :class='styles.gameBack' data-testid='pestControlGameBack'>
         <infoLinkBlockGame link='link-vc' />
+        <rulesBlockGame />
 
         <div :class='styles.screenWrapper'>
           <pestControlGameScreen/>
@@ -17,13 +18,15 @@ import Vue from 'vue'
 import navBarGamePestControl from '../navBarGamePestControl/navBarGamePestControl.vue'
 import pestControlGameScreen from '../pestControlGameScreen/pestControlGameScreen.vue'
 import infoLinkBlockGame from '../infoLinkBlockGame/infoLinkBlockGame.vue'
+import rulesBlockGame from '../rulesBlockGame/rulesBlockGame.vue'
 
 export default Vue.extend({
   name: 'pestControlGameBack',
   components: {
     navBarGamePestControl,
     pestControlGameScreen,
-    infoLinkBlockGame
+    infoLinkBlockGame,
+    rulesBlockGame
   },
   methods: {}
 })

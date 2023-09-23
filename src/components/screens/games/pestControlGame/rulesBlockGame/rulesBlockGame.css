@@ -1,6 +1,6 @@
 @import '../../../../../assets/styles/variables.css';
 
-.infoLinkWrapper {
+.rulesBlockWrapper {
 	position: relative;
 	width: 100%;
 	height: 100%;
@@ -10,7 +10,7 @@
 	animation: opacity 0.4s;
 }
 
-.infoLinkBlockGame {
+.rulesBlockGame {
 	padding: 45px;
 	max-width: 760px;
 	min-height: 490px;
@@ -32,17 +32,9 @@
 
 .title {
 	color: var(--primary-green);
-	font-size: 32px;
-	font-weight: 500;
-	line-height: 35px;
-
-	position: relative;
-}
-
-.closeBtnWrapper {
-	position: absolute;
-	top: -20px;
-	right: -20px;
+	font-size: 48px;
+	font-weight: 700;
+	line-height: 32px;
 }
 
 .contentText {
@@ -52,29 +44,53 @@
 	line-height: 24px;
 
 	color: var(--secondary-text-gray);
-	font-size: 16px;
+	font-size: 18px;
 	font-weight: 400;
-	line-height: 24px;
+	letter-spacing: -0.414px;
 }
 
-.awardLink {
+.btnWrapper {
 	display: flex;
-	flex-direction: column;
+	max-width: 600px;
+	width: 100%;
+	margin-top: 35px;
 }
 
-.link {
+.btnMap {
+	width: 100%;
+	padding: 14px 26px;
+
 	display: flex;
+	justify-content: center;
 	align-items: center;
+
+	border-radius: 12px;
+	border: 2px solid var(--primary-green);
+
+	color: var(--primary-green);
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 24px;
+	cursor: pointer;
 }
 
-.link a {
-	color: var(--primary-green);
-	font-family: Ubuntu;
+.btnStartGame {
+	width: 100%;
+	margin-left: 20px;
+	padding: 14px 26px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	border-radius: 12px;
+	background-color: var(--primary-green);
+
+	color: var(--primary-black);
 	font-size: 20px;
-	font-style: normal;
 	font-weight: 500;
-	line-height: 32px;
-	text-decoration-line: underline;
+	line-height: 24px;
+	cursor: pointer;
 }
 
 /* animations */
