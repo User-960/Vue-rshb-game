@@ -15,20 +15,13 @@
 
           <div :class='styles.pestLevel'>
             <img :class='styles.pestLevelImg' src='../../../../../../public/images/tomatoBushGreen.svg' alt='image of first level' draggable='false' />
-            <!-- <div :class='styles.pestIndicator'>
-              <p>0%</p>
-              <div :class='styles.indicatorWrapper'>
-                <label for='indicator'>0</label>
-                <input id='indicator' name='indicator' type='range' value=0>
-              </div>
-              <p>100%</p>
-            </div> -->
 
             <div :class='styles.pestIndicator'>
               <p>0%</p>
               <div :class='styles.indicatorWrapper'>
                 <p>0</p>
-                <div :class='styles.indicatorNumber'>0</div>
+                <div :class='[styles.indicatorNumber, {[styles.indicatorNumberCritical]: isTomatoLineCritical}]'></div>
+                <div :class='[styles.indicatorLine, {[styles.indicatorLineCritical]: isTomatoLineCritical}]'></div>
               </div>
               <p>100%</p>
             </div>
@@ -48,20 +41,12 @@
           <div :class='styles.pestLevel'>
             <img :class='styles.pestLevelImg' src='../../../../../../public/images/pepperBushGreen.svg' alt='image of first level' draggable='false' />
 
-            <!-- <div :class='styles.pestIndicator'>
-              <p>0%</p>
-              <div :class='styles.indicatorWrapper'>
-                <label for='indicator'>0</label>
-                <input id='indicator' name='indicator' type='range' value=0>
-              </div>
-              <p>100%</p>
-            </div> -->
-
             <div :class='styles.pestIndicator'>
               <p>0%</p>
               <div :class='styles.indicatorWrapper'>
                 <p>0</p>
-                <div :class='styles.indicatorNumber'>0</div>
+                <div :class='[styles.indicatorNumber, {[styles.indicatorNumberCritical]: isPepperLineCritical}]'></div>
+                <div :class='[styles.indicatorLine, {[styles.indicatorLineCritical]: isPepperLineCritical}]'></div>
               </div>
               <p>100%</p>
             </div>
@@ -81,41 +66,40 @@
           <div :class='styles.pestLevel'>
             <img :class='styles.pestLevelImg' src='../../../../../../public/images/strawberryBushGreen.svg' alt='image of first level' draggable='false' />
 
-            <!-- <div :class='styles.pestIndicator'>
-              <p>0%</p>
-              <div :class='styles.indicatorWrapper'>
-                <label for='indicator'>0</label>
-                <input id='indicator' name='indicator' type='range' value=0>
-              </div>
-              <p>100%</p>
-            </div> -->
-
             <div :class='styles.pestIndicator'>
               <p>0%</p>
               <div :class='styles.indicatorWrapper'>
                 <p>0</p>
-                <div :class='styles.indicatorNumber'>0</div>
+                <div :class='[styles.indicatorNumber, {[styles.indicatorNumberCritical]: isStrawberryLineCritical}]'></div>
+                <div :class='[styles.indicatorLine, {[styles.indicatorLineCritical]: isStrawberryLineCritical}]'></div>
               </div>
               <p>100%</p>
             </div>
           </div>
         </li>
-      </ul>
 
-      <!-- <div :class='styles.robot'>
-        <img src='../../../../../../public/images/collectorShop.svg' alt='image robot collector' draggable='false' />
-        <button 
-          :class='[
-            styles.btn, 
-            {[styles.btnActive] : isChosenTomatoLevel || 
-            isChosenPepperLevel || 
-            isChosenStrawberryLevel
-          }]'
-          @click=''
-        >
-          Собрать урожай
-        </button>
-      </div> -->
+        <li :class='styles.itemDrone'>
+          <ul :class='styles.insecticideList'>
+            <li 
+              :class='[styles.insecticide, styles.insecticideBug, {[styles.insecticideBugActive]: isBugActive}]'
+              @click='selectBug'
+            ></li>
+
+            <li 
+              :class='[styles.insecticide, styles.insecticideLocusts, {[styles.insecticideLocustsActive]: isLocustsActive}]'
+              @click='selectLocusts'
+            ></li>
+
+            <li 
+              :class='[styles.insecticide, styles.insecticideCaterpillar, {[styles.insecticideCaterpillarActive]: isCaterpillarActive}]'
+              @click='selectCaterpillar'
+            ></li>
+          </ul>
+
+          <div :class='[styles.drone, {[styles.droneActive]: isDroneActive}]' @click='selectDrone'></div>
+        </li>
+
+      </ul>
     </div>
   </div>
 </template>
@@ -129,8 +113,15 @@ export default Vue.extend({
     isChosenTomatoLevel: false,
     isChosenPepperLevel: false,
     isChosenStrawberryLevel: false,
+    isTomatoLineCritical: false,
+    isPepperLineCritical: false,
+    isStrawberryLineCritical: false,
 
-    isOpenTomatoLevel: false,
+    isBugActive: false,
+    isLocustsActive: false,
+    isCaterpillarActive: false,
+
+    isDroneActive: false,
   }),
   components: {},
   methods: {
@@ -148,6 +139,30 @@ export default Vue.extend({
       this.isChosenTomatoLevel = false
       this.isChosenPepperLevel = false
       this.isChosenStrawberryLevel = true
+    },
+    selectBug() {
+      this.isCaterpillarActive = false
+      this.isLocustsActive = false
+      this.isBugActive = true
+
+      this.isTomatoLineCritical = true
+    },
+    selectLocusts() {
+      this.isCaterpillarActive = false
+      this.isBugActive = false
+      this.isLocustsActive = true
+
+      this.isPepperLineCritical = true
+    },
+    selectCaterpillar() {
+      this.isLocustsActive = false
+      this.isBugActive = false
+      this.isCaterpillarActive = true
+
+      this.isStrawberryLineCritical = true
+    },
+    selectDrone() {
+      this.isDroneActive = true
     }
   }
 })

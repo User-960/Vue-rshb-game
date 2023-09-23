@@ -28,7 +28,7 @@
 }
 
 .listLevels {
-	max-width: 600px;
+	/* max-width: 600px; */
 	width: 100%;
 
 	display: flex;
@@ -93,7 +93,17 @@
 	line-height: 8px;
 }
 
+/* indicator of pest */
 .indicatorWrapper {
+	margin: 0px 8px;
+	background-color: var(--primary-black);
+	max-width: 100px;
+	width: 100%;
+	height: 12px;
+
+	border-radius: 4px;
+	outline: none;
+
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -101,56 +111,18 @@
 	position: relative;
 }
 
-/* .indicatorWrapper label {
-	display: block;
-	position: absolute;
-	top: -15px;
-	left: 8px;
-
-	content: '';
-	padding: 2px 4px 2px 4px;
-
-	background-color: var(--primary-black);
-	color: var(--secondary-text-gray);
-	text-align: center;
-	font-size: 10px;
-	font-weight: 500;
-	line-height: 8px;
-}
-
-.indicatorWrapper input[type='range'] {
-	margin: 0px 8px;
-	-webkit-appearance: none;
-	background-color: var(--primary-black);
-	max-width: 100px;
-	width: 100%;
-
-	border-radius: 4px;
-	outline: none;
-} */
-
-.indicatorWrapper {
-	margin: 0px 8px;
-	background-color: var(--primary-black);
-	width: 100px;
-	height: 12px;
-
-	border-radius: 4px;
-	outline: none;
-}
-
 .indicatorWrapper p {
 	color: transparent;
 	user-select: none;
 }
 
-.indicatorNumber {
+.indicatorNumber::after {
 	display: block;
 	position: absolute;
 	top: -15px;
-	left: 0px;
+	left: 20px;
 
-	content: '';
+	content: '30%';
 	padding: 2px 4px 2px 4px;
 
 	background-color: var(--primary-black);
@@ -159,6 +131,111 @@
 	font-size: 10px;
 	font-weight: 500;
 	line-height: 8px;
+}
+
+.indicatorLine {
+	max-width: 100px;
+	min-width: 30px;
+	width: 30px;
+
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 12px;
+	border-radius: 4px;
+	background: #8990a5;
+}
+
+.indicatorNumberCritical::after {
+	left: 40px;
+	content: '50%';
+	animation: indicatorNumber 1s;
+}
+
+.indicatorLineCritical {
+	width: 50px;
+	background-color: #df1d11;
+
+	animation: widthLine 1s;
+}
+
+/* css li drone */
+
+.itemDrone {
+	display: flex;
+	align-items: flex-end;
+
+	margin-left: 12px;
+}
+
+.insecticideList {
+	display: flex;
+}
+
+.insecticide {
+	width: 86px;
+	height: 130px;
+
+	background-position: center;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+
+.insecticideBug {
+	background-image: url(../../../../../../public/images/insecticideBug.svg);
+}
+
+.insecticideBug:hover {
+	background-image: url(../../../../../../public/images/insecticideBugActive.svg);
+}
+
+.insecticideBugActive {
+	background-image: url(../../../../../../public/images/insecticideBugActive.svg);
+}
+
+.insecticideLocusts {
+	background-image: url(../../../../../../public/images/insecticideLocusts.svg);
+}
+
+.insecticideLocusts:hover {
+	background-image: url(../../../../../../public/images/insecticideLocustsActive.svg);
+}
+
+.insecticideLocustsActive {
+	background-image: url(../../../../../../public/images/insecticideLocustsActive.svg);
+}
+
+.insecticideCaterpillar {
+	background-image: url(../../../../../../public/images/insecticideCaterpillar.svg);
+}
+
+.insecticideCaterpillar:hover {
+	background-image: url(../../../../../../public/images/insecticideCaterpillarActive.svg);
+}
+
+.insecticideCaterpillarActive {
+	background-image: url(../../../../../../public/images/insecticideCaterpillarActive.svg);
+}
+
+/* css drone */
+.drone {
+	width: 148px;
+	height: 82px;
+
+	background-image: url(../../../../../../public/images/droneGame.svg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+
+	cursor: pointer;
+}
+
+.drone:hover {
+	background-image: url(../../../../../../public/images/droneGameActive.svg);
+}
+
+.droneActive {
+	background-image: url(../../../../../../public/images/droneGameActive.svg);
 }
 
 /* .pestLevelImg:hover {
@@ -183,49 +260,27 @@
 	user-select: none;
 }
 
-.robot {
-	max-width: 230px;
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-end;
-	align-items: center;
+/* animations */
+@keyframes widthLine {
+	0% {
+		width: 30px;
+	}
+
+	100% {
+		width: 50px;
+	}
 }
 
-.robot img {
-	max-height: 156px;
-	width: 100%;
-	height: 100%;
-	user-select: none;
-	padding: 15px;
-} */
+@keyframes indicatorNumber {
+	0% {
+		left: 30px;
+	}
 
-.btn {
-	display: flex;
-	padding: 8px 10px;
-	justify-content: center;
-	align-items: center;
+	50% {
+		content: '50%';
+	}
 
-	background-color: transparent;
-	border-radius: 8px;
-	border: 2px solid var(--secondary-text-gray-dark);
-
-	color: var(--secondary-text-gray-dark);
-	font-weight: 500;
-	line-height: 24px;
-	transition: all 0.3 ease-in-out;
-
-	cursor: not-allowed;
-}
-
-.btnActive {
-	border: 2px solid var(--primary-green);
-	color: var(--primary-green);
-	cursor: pointer;
-	transition: all 0.3 ease-in-out;
-}
-
-.btnActive:hover {
-	color: var(--primary-grey);
-	background-color: var(--primary-green);
+	100% {
+		left: 40px;
+	}
 }
