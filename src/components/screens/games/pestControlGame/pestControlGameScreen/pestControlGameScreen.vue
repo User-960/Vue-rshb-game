@@ -143,8 +143,9 @@
 
 <script lang='ts'>
 import { EPestControlGameGetters } from '@/store/modules/pestControlGame/getters'
+import { EPestControlGameMutation } from '@/store/modules/pestControlGame/mutations'
 import Vue from 'vue'
-import { mapGetters } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 
 const getRandomNumber = (min: number, max: number) => {
   return Math.floor(Math.random() * (max - min) + min)
@@ -178,6 +179,9 @@ export default Vue.extend({
   computed: {
     ...mapGetters([
       EPestControlGameGetters.GET_START_GAME, 
+      EPestControlGameGetters.GET_TOMATO_LEVEL_NUM,
+      EPestControlGameGetters.GET_PEPPER_LEVEL_NUM,
+      EPestControlGameGetters.GET_STRAWBERRY_LEVEL_NUM,
       EPestControlGameGetters.GET_TOMATO_LEVEL,
       EPestControlGameGetters.GET_PEPPER_LEVEL,
       EPestControlGameGetters.GET_STRAWBERRY_LEVEL,
@@ -188,24 +192,40 @@ export default Vue.extend({
       if (this.GET_START_GAME) {
 
         let numberLevel = getRandomNumber(1, 4)
+        console.log(numberLevel)
 
-        if (this.GET_TOMATO_LEVEL === numberLevel) {
-          setTimeout(() => {
-            this.isTomatoLineCritical = true
-          }, 3000)
+        if (this.GET_TOMATO_LEVEL_NUM === numberLevel) {
+          this.START_TOMATO_LEVEL()
         }
 
-        if (this.GET_PEPPER_LEVEL === numberLevel) {
-          setTimeout(() => {
-            this.isPepperLineCritical = true
-          }, 3000)
+        if (this.GET_PEPPER_LEVEL_NUM === numberLevel) {
+          this.START_PEPPER_LEVEL()
         }
 
-        if (this.GET_STRAWBERRY_LEVEL === numberLevel) {
-          setTimeout(() => {
-            this.isStrawberryLineCritical = true
-          }, 3000)
+        if (this.GET_STRAWBERRY_LEVEL_NUM === numberLevel) {
+          this.START_STRAWBERRY_LEVEL()
         }
+      }
+    },
+    GET_TOMATO_LEVEL() {
+      if (this.GET_TOMATO_LEVEL) {
+        setTimeout(() => {
+          this.isTomatoLineCritical = true
+        }, 3000)
+      }
+    },
+    GET_PEPPER_LEVEL() {
+      if (this.GET_PEPPER_LEVEL) {
+        setTimeout(() => {
+          this.isPepperLineCritical = true
+        }, 3000)
+      }
+    },
+    GET_STRAWBERRY_LEVEL() {
+      if (this.GET_STRAWBERRY_LEVEL) {
+        setTimeout(() => {
+          this.isStrawberryLineCritical = true
+        }, 3000)
       }
     },
     isChosenTomatoLevel() {
@@ -242,6 +262,11 @@ export default Vue.extend({
   },
   components: {},
   methods: {
+    ...mapMutations([
+      EPestControlGameMutation.START_TOMATO_LEVEL,
+      EPestControlGameMutation.START_PEPPER_LEVEL,
+      EPestControlGameMutation.START_STRAWBERRY_LEVEL,
+    ]),
     chooseTomatoLevel() {
       if (this.isDroneActive && this.isBugActive && this.isTomatoLineCritical) {
         this.isChosenPepperLevel = false

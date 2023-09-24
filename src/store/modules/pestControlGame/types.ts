@@ -5,4 +5,7 @@ export interface IPestControlGameState {
 	tomatoLevel: number
 	pepperLevel: number
 	strawberryLevel: number
+	isTomatoLevel: boolean
+	isPepperLevel: boolean
+	isStrawberryLevel: boolean
 }
