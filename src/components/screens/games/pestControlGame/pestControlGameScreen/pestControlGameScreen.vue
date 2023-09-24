@@ -43,9 +43,9 @@
           <div :class='styles.pestInfo'>
             <p :class='styles.pestTitle'>Вредители</p>
             <ul :class='styles.pestImgList'>
-              <img src='../../../../../../public/images/locusts.svg' alt='image of second level' draggable='false' />
-              <img src='../../../../../../public/images/locusts.svg' alt='image of second level' draggable='false' />
-              <img src='../../../../../../public/images/locusts.svg' alt='image of second level' draggable='false' />
+              <img src='../../../../../../public/images/bug.svg' alt='image of third level' draggable='false' />
+              <img src='../../../../../../public/images/bug.svg' alt='image of third level' draggable='false' />
+              <img src='../../../../../../public/images/bug.svg' alt='image of third level' draggable='false' />
             </ul>
           </div>
 
@@ -71,9 +71,9 @@
           <div :class='styles.pestInfo'>
             <p :class='styles.pestTitle'>Вредители</p>
             <ul :class='styles.pestImgList'>
-              <img src='../../../../../../public/images/bug.svg' alt='image of third level' draggable='false' />
-              <img src='../../../../../../public/images/bug.svg' alt='image of third level' draggable='false' />
-              <img src='../../../../../../public/images/bug.svg' alt='image of third level' draggable='false' />
+              <img src='../../../../../../public/images/locusts.svg' alt='image of second level' draggable='false' />
+              <img src='../../../../../../public/images/locusts.svg' alt='image of second level' draggable='false' />
+              <img src='../../../../../../public/images/locusts.svg' alt='image of second level' draggable='false' />
             </ul>
           </div>
 
@@ -131,6 +131,10 @@
               {[styles.droneActive]: isDroneActive},
               {[styles.droneMovedTomato]: isDroneMovedTomato},
               {[styles.droneReturnTomato]: isDroneFinishWorkTomato},
+              {[styles.droneMovedPepper]: isDroneMovedPepper},
+              {[styles.droneReturnPepper]: isDroneFinishWorkPepper},
+              {[styles.droneMovedStrawberry]: isDroneMovedStrawberry},
+              {[styles.droneReturnStrawberry]: isDroneFinishWorkStrawberry},
             ]' 
             @click='selectDrone'
           ></div>
@@ -173,8 +177,13 @@ export default Vue.extend({
     isCaterpillarActive: false,
 
     isDroneActive: false,
+
     isDroneMovedTomato: false,
-    isDroneFinishWorkTomato: false
+    isDroneFinishWorkTomato: false,
+    isDroneMovedPepper: false,
+    isDroneFinishWorkPepper: false,
+    isDroneMovedStrawberry: false,
+    isDroneFinishWorkStrawberry: false
   }),
   computed: {
     ...mapGetters([
@@ -228,8 +237,9 @@ export default Vue.extend({
         }, 3000)
       }
     },
+    // Tomato Level
     isChosenTomatoLevel() {
-      if (this.isDroneActive && this.isBugActive && this.isTomatoLineCritical) {
+      if (this.isDroneActive && this.isCaterpillarActive && this.isTomatoLineCritical) {
         this.isDroneMovedTomato = true
       }
 
@@ -254,7 +264,71 @@ export default Vue.extend({
       if (this.isDroneFinishWorkTomato) {
         setTimeout(() => {
             this.isDroneFinishWorkTomato = false
+            this.isCaterpillarActive = false
+            this.isDroneActive = false
+        }, 7000)
+      }
+    },
+    // Pepper Level
+    isChosenPepperLevel() {
+      if (this.isDroneActive && this.isBugActive  && this.isPepperLineCritical) {
+        this.isDroneMovedPepper = true
+      }
+
+      if (this.isDroneMovedPepper) {
+        setTimeout(() => {
+            this.isUltrasoundPepperActive = true
+        }, 7000)
+      }
+    },
+    isUltrasoundPepperActive() {
+      if (this.isUltrasoundPepperActive && this.isChosenPepperLevel && this.isPepperLineCritical) {
+        setTimeout(() => {
+          this.isUltrasoundPepperActive = false
+          this.isPepperLineCritical = false
+          this.isChosenPepperLevel = false
+          this.isDroneMovedPepper = false
+          this.isDroneFinishWorkPepper = true
+        }, 3000)
+      }
+    },
+    isDroneFinishWorkPepper() {
+      if (this.isDroneFinishWorkPepper) {
+        setTimeout(() => {
+            this.isDroneFinishWorkPepper = false
             this.isBugActive = false
+            this.isDroneActive = false
+        }, 7000)
+      }
+    },
+    // Strawberry Level
+    isChosenStrawberryLevel() {
+      if (this.isDroneActive && this.isLocustsActive && this.isStrawberryLineCritical) {
+        this.isDroneMovedStrawberry = true
+      }
+
+      if (this.isDroneMovedStrawberry) {
+        setTimeout(() => {
+            this.isUltrasoundStrawberryActive = true
+        }, 7000)
+      }
+    },
+    isUltrasoundStrawberryActive() {
+      if (this.isUltrasoundStrawberryActive && this.isChosenStrawberryLevel && this.isStrawberryLineCritical) {
+        setTimeout(() => {
+          this.isUltrasoundStrawberryActive = false
+          this.isStrawberryLineCritical = false
+          this.isChosenStrawberryLevel = false
+          this.isDroneMovedStrawberry = false
+          this.isDroneFinishWorkStrawberry = true
+        }, 3000)
+      }
+    },
+    isDroneFinishWorkStrawberry() {
+      if (this.isDroneFinishWorkStrawberry) {
+        setTimeout(() => {
+            this.isDroneFinishWorkStrawberry = false
+            this.isLocustsActive = false
             this.isDroneActive = false
         }, 7000)
       }
@@ -268,48 +342,46 @@ export default Vue.extend({
       EPestControlGameMutation.START_STRAWBERRY_LEVEL,
     ]),
     chooseTomatoLevel() {
-      if (this.isDroneActive && this.isBugActive && this.isTomatoLineCritical) {
+      if (this.isDroneActive && this.isCaterpillarActive && this.isTomatoLineCritical) {
         this.isChosenPepperLevel = false
         this.isChosenStrawberryLevel = false
         this.isChosenTomatoLevel = true
       }
     },
     choosePepperLevel() {
-      if (this.isDroneActive && this.isLocustsActive && this.isPepperLineCritical) {
+      if (this.isDroneActive && this.isBugActive && this.isPepperLineCritical) {
         this.isChosenTomatoLevel = false
         this.isChosenStrawberryLevel = false
         this.isChosenPepperLevel = true
       }
     },
     chooseStrawberryLevel() {
-      if (this.isDroneActive && this.isCaterpillarActive && this.isStrawberryLineCritical) {
+      if (this.isDroneActive && this.isLocustsActive && this.isStrawberryLineCritical) {
         this.isChosenTomatoLevel = false
         this.isChosenPepperLevel = false
         this.isChosenStrawberryLevel = true
       }
     },
     selectBug() {
-      if (this.isTomatoLineCritical) {
+      if (this.isPepperLineCritical) {
         this.isCaterpillarActive = false
         this.isLocustsActive = false
         this.isBugActive = true
       }
     },
     selectLocusts() {
-      if (this.isPepperLineCritical) {
+      if (this.isStrawberryLineCritical) {
         this.isCaterpillarActive = false
         this.isBugActive = false
         this.isLocustsActive = true
       }
-      // this.isPepperLineCritical = true
     },
     selectCaterpillar() {
-      if (this.isStrawberryLineCritical) {
+      if (this.isTomatoLineCritical) {
         this.isLocustsActive = false
         this.isBugActive = false
         this.isCaterpillarActive = true
       }
-      // this.isStrawberryLineCritical = true
     },
     selectDrone() {
       if (this.isBugActive || this.isLocustsActive || this.isCaterpillarActive) {

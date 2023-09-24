@@ -269,15 +269,37 @@
 .droneMovedTomato {
 	top: -156px;
 	right: 440px;
-
 	animation: droneMovedTomato 7s;
 }
 
 .droneReturnTomato {
 	top: 0px;
 	right: 0px;
-
 	animation: droneReturnTomato 7s;
+}
+
+.droneMovedPepper {
+	top: -156px;
+	right: 146px;
+	animation: droneMovedPepper 7s;
+}
+
+.droneReturnPepper {
+	top: 0px;
+	right: 0px;
+	animation: droneReturnPepper 7s;
+}
+
+.droneMovedStrawberry {
+	top: 28px;
+	right: 440px;
+	animation: droneMovedStrawberry 7s;
+}
+
+.droneReturnStrawberry {
+	top: 0px;
+	right: 0px;
+	animation: droneReturnStrawberry 7s;
 }
 
 /* Levels states */
@@ -375,6 +397,9 @@
 	0% {
 		top: -156px;
 		right: 440px;
+	}
+
+	10% {
 		transform: rotate(10deg);
 	}
 
@@ -385,6 +410,98 @@
 	50% {
 		top: -156px;
 		right: 0px;
+	}
+
+	100% {
+		top: 0px;
+		right: 0px;
+	}
+}
+
+@keyframes droneMovedPepper {
+	0% {
+		top: 0px;
+		right: 0px;
+	}
+
+	50% {
+		top: -156px;
+		right: 0px;
+	}
+
+	88% {
+		transform: rotate(-10deg);
+	}
+
+	100% {
+		top: -156px;
+		right: 146px;
+		transform: rotate(0deg);
+	}
+}
+
+@keyframes droneReturnPepper {
+	0% {
+		top: -156px;
+		right: 146px;
+	}
+
+	10% {
+		transform: rotate(10deg);
+	}
+
+	38% {
+		transform: rotate(0deg);
+	}
+
+	50% {
+		top: -156px;
+		right: 0px;
+	}
+
+	100% {
+		top: 0px;
+		right: 0px;
+	}
+}
+
+@keyframes droneMovedStrawberry {
+	0% {
+		top: 0px;
+		right: 0px;
+		transform: rotate(0deg);
+	}
+
+	50% {
+		top: 28px;
+		right: 0px;
+	}
+
+	90% {
+		transform: rotate(-10deg);
+	}
+
+	100% {
+		top: 28px;
+		right: 440px;
+		transform: rotate(0deg);
+	}
+}
+
+@keyframes droneReturnStrawberry {
+	0% {
+		top: 28px;
+		right: 440px;
+	}
+
+	10% {
+		transform: rotate(10deg);
+	}
+
+	80% {
+		top: 28px;
+		right: 0px;
+		transform: rotate(0deg);
 	}
 
 	100% {
