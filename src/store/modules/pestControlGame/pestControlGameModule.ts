@@ -10,12 +10,10 @@ const state: IPestControlGameState = {
 	isInfoLinkBlockVisible: true,
 	isRulesBlockVisible: false,
 	isStartGame: false,
+	gameLoop: 0,
 	tomatoLevel: 1,
 	pepperLevel: 2,
-	strawberryLevel: 3,
-	isTomatoLevel: false,
-	isPepperLevel: false,
-	isStrawberryLevel: false
+	strawberryLevel: 3
 }
 
 export const getDefaultPestControlGameState = () => {

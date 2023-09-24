@@ -187,54 +187,30 @@ export default Vue.extend({
   }),
   computed: {
     ...mapGetters([
-      EPestControlGameGetters.GET_START_GAME, 
+      EPestControlGameGetters.GET_START_GAME,
+      EPestControlGameGetters.GET_GAME_LOOP,
       EPestControlGameGetters.GET_TOMATO_LEVEL_NUM,
       EPestControlGameGetters.GET_PEPPER_LEVEL_NUM,
-      EPestControlGameGetters.GET_STRAWBERRY_LEVEL_NUM,
-      EPestControlGameGetters.GET_TOMATO_LEVEL,
-      EPestControlGameGetters.GET_PEPPER_LEVEL,
-      EPestControlGameGetters.GET_STRAWBERRY_LEVEL,
+      EPestControlGameGetters.GET_STRAWBERRY_LEVEL_NUM
     ]),
   },
   watch: {
-    GET_START_GAME() {
-      if (this.GET_START_GAME) {
-
+    GET_GAME_LOOP() {
+      if (this.GET_GAME_LOOP <= 4) {
         let numberLevel = getRandomNumber(1, 4)
         console.log(numberLevel)
 
         if (this.GET_TOMATO_LEVEL_NUM === numberLevel) {
-          this.START_TOMATO_LEVEL()
+          this.startTomatoLevel()
         }
 
         if (this.GET_PEPPER_LEVEL_NUM === numberLevel) {
-          this.START_PEPPER_LEVEL()
+          this.startPepperLevel()
         }
 
         if (this.GET_STRAWBERRY_LEVEL_NUM === numberLevel) {
-          this.START_STRAWBERRY_LEVEL()
+          this.startStrawberryLevel()
         }
-      }
-    },
-    GET_TOMATO_LEVEL() {
-      if (this.GET_TOMATO_LEVEL) {
-        setTimeout(() => {
-          this.isTomatoLineCritical = true
-        }, 3000)
-      }
-    },
-    GET_PEPPER_LEVEL() {
-      if (this.GET_PEPPER_LEVEL) {
-        setTimeout(() => {
-          this.isPepperLineCritical = true
-        }, 3000)
-      }
-    },
-    GET_STRAWBERRY_LEVEL() {
-      if (this.GET_STRAWBERRY_LEVEL) {
-        setTimeout(() => {
-          this.isStrawberryLineCritical = true
-        }, 3000)
       }
     },
     // Tomato Level
@@ -266,6 +242,9 @@ export default Vue.extend({
             this.isDroneFinishWorkTomato = false
             this.isCaterpillarActive = false
             this.isDroneActive = false
+            // this.FINISH_TOMATO_LEVEL()
+
+            this.GAME_LOOP()
         }, 7000)
       }
     },
@@ -298,6 +277,9 @@ export default Vue.extend({
             this.isDroneFinishWorkPepper = false
             this.isBugActive = false
             this.isDroneActive = false
+            // this.FINISH_PEPPER_LEVEL()
+
+            this.GAME_LOOP()
         }, 7000)
       }
     },
@@ -330,6 +312,9 @@ export default Vue.extend({
             this.isDroneFinishWorkStrawberry = false
             this.isLocustsActive = false
             this.isDroneActive = false
+            // this.FINISH_STRAWBERRY_LEVEL()
+
+            this.GAME_LOOP()
         }, 7000)
       }
     }
@@ -337,10 +322,25 @@ export default Vue.extend({
   components: {},
   methods: {
     ...mapMutations([
-      EPestControlGameMutation.START_TOMATO_LEVEL,
-      EPestControlGameMutation.START_PEPPER_LEVEL,
-      EPestControlGameMutation.START_STRAWBERRY_LEVEL,
+      EPestControlGameMutation.START_GAME,
+      EPestControlGameMutation.FINISH_GAME,
+      EPestControlGameMutation.GAME_LOOP
     ]),
+    startTomatoLevel() {
+      setTimeout(() => {
+        this.isTomatoLineCritical = true
+      }, 3000)
+    },
+    startPepperLevel() {
+      setTimeout(() => {
+        this.isPepperLineCritical = true
+      }, 3000)
+    },
+    startStrawberryLevel() {
+      setTimeout(() => {
+        this.isStrawberryLineCritical = true
+      }, 3000)
+    },
     chooseTomatoLevel() {
       if (this.isDroneActive && this.isCaterpillarActive && this.isTomatoLineCritical) {
         this.isChosenPepperLevel = false

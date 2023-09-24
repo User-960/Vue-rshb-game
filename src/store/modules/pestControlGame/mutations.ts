@@ -8,6 +8,8 @@ export enum EPestControlGameMutation {
 	SHOW_RULES_BLOCK = 'SHOW_RULES_BLOCK',
 	HIDE_RULES_BLOCK = 'HIDE_RULES_BLOCK',
 	START_GAME = 'START_GAME',
+	FINISH_GAME = 'FINISH_GAME',
+	GAME_LOOP = 'GAME_LOOP',
 	START_TOMATO_LEVEL = 'START_TOMATO_LEVEL',
 	FINISH_TOMATO_LEVEL = 'FINISH_TOMATO_LEVEL',
 	START_PEPPER_LEVEL = 'START_PEPPER_LEVEL',
@@ -32,22 +34,10 @@ export const mutations: MutationTree<IPestControlGameState> = {
 	[EPestControlGameMutation.START_GAME](state) {
 		state.isStartGame = true
 	},
-	[EPestControlGameMutation.START_TOMATO_LEVEL](state) {
-		state.isTomatoLevel = true
+	[EPestControlGameMutation.FINISH_GAME](state) {
+		state.isStartGame = false
 	},
-	[EPestControlGameMutation.FINISH_TOMATO_LEVEL](state) {
-		state.isTomatoLevel = false
-	},
-	[EPestControlGameMutation.START_PEPPER_LEVEL](state) {
-		state.isPepperLevel = true
-	},
-	[EPestControlGameMutation.FINISH_PEPPER_LEVEL](state) {
-		state.isPepperLevel = false
-	},
-	[EPestControlGameMutation.START_STRAWBERRY_LEVEL](state) {
-		state.isStrawberryLevel = true
-	},
-	[EPestControlGameMutation.FINISH_STRAWBERRY_LEVEL](state) {
-		state.isStrawberryLevel = false
+	[EPestControlGameMutation.GAME_LOOP](state) {
+		state.gameLoop += 1
 	}
 }
