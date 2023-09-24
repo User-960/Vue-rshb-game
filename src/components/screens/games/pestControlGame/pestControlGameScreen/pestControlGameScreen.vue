@@ -244,8 +244,8 @@ export default Vue.extend({
             this.isDroneFinishWorkTomato = false
             this.isCaterpillarActive = false
             this.isDroneActive = false
-            // this.FINISH_TOMATO_LEVEL()
-
+            
+            this.PLUS_POINTS()
             this.GAME_LOOP()
         }, 7000)
       }
@@ -279,8 +279,8 @@ export default Vue.extend({
             this.isDroneFinishWorkPepper = false
             this.isBugActive = false
             this.isDroneActive = false
-            // this.FINISH_PEPPER_LEVEL()
 
+            this.PLUS_POINTS()
             this.GAME_LOOP()
         }, 7000)
       }
@@ -314,8 +314,8 @@ export default Vue.extend({
             this.isDroneFinishWorkStrawberry = false
             this.isLocustsActive = false
             this.isDroneActive = false
-            // this.FINISH_STRAWBERRY_LEVEL()
 
+            this.PLUS_POINTS()
             this.GAME_LOOP()
         }, 7000)
       }
@@ -327,6 +327,7 @@ export default Vue.extend({
       EPestControlGameMutation.START_GAME,
       EPestControlGameMutation.FINISH_GAME,
       EPestControlGameMutation.GAME_LOOP,
+      EPestControlGameMutation.PLUS_POINTS,
       EPestControlGameMutation.SHOW_VICTORY_BLOCK
     ]),
     startTomatoLevel() {

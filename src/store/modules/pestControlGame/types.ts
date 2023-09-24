@@ -7,4 +7,5 @@ export interface IPestControlGameState {
 	tomatoLevel: number
 	pepperLevel: number
 	strawberryLevel: number
+	points: number
 }

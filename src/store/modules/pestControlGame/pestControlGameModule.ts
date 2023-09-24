@@ -14,7 +14,8 @@ const state: IPestControlGameState = {
 	gameLoop: 0,
 	tomatoLevel: 1,
 	pepperLevel: 2,
-	strawberryLevel: 3
+	strawberryLevel: 3,
+	points: 0
 }
 
 export const getDefaultPestControlGameState = () => {

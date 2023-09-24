@@ -13,7 +13,7 @@
 
       <div :class='styles.result'>
         <p>
-          Накоплено баллов: <span>+30</span>
+          Накоплено баллов: <span> +{{ GET_POINTS }}</span>
         </p>
         <div :class='styles.resultIcon'>
           <iconButton>
@@ -69,14 +69,17 @@ export default Vue.extend({
     iconButton
   },
   computed: {
-    ...mapGetters([EPestControlGameGetters.GET_VICTORY_BLOCK]),
+    ...mapGetters([
+      EPestControlGameGetters.GET_VICTORY_BLOCK,
+      EPestControlGameGetters.GET_POINTS
+    ]),
   },
   methods: {
     ...mapMutations([
       EPestControlGameMutation.HIDE_VICTORY_BLOCK
     ]),
     restartGame() {
-      this.$router.push({ name: 'pest-control' })
+      this.$router.push({ name: 'home' })
     },
     skipToMap() {
       this.HIDE_VICTORY_BLOCK()

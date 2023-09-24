@@ -12,12 +12,8 @@ export enum EPestControlGameMutation {
 	START_GAME = 'START_GAME',
 	FINISH_GAME = 'FINISH_GAME',
 	GAME_LOOP = 'GAME_LOOP',
-	START_TOMATO_LEVEL = 'START_TOMATO_LEVEL',
-	FINISH_TOMATO_LEVEL = 'FINISH_TOMATO_LEVEL',
-	START_PEPPER_LEVEL = 'START_PEPPER_LEVEL',
-	FINISH_PEPPER_LEVEL = 'FINISH_PEPPER_LEVEL',
-	START_STRAWBERRY_LEVEL = 'START_STRAWBERRY_LEVEL',
-	FINISH_STRAWBERRY_LEVEL = 'FINISH_STRAWBERRY_LEVEL'
+	PLUS_POINTS = 'PLUS_POINTS',
+	MINUS_POINTS = 'MINUS_POINTS'
 }
 
 export const mutations: MutationTree<IPestControlGameState> = {
@@ -47,5 +43,11 @@ export const mutations: MutationTree<IPestControlGameState> = {
 	},
 	[EPestControlGameMutation.GAME_LOOP](state) {
 		state.gameLoop += 1
+	},
+	[EPestControlGameMutation.PLUS_POINTS](state) {
+		state.points += 5
+	},
+	[EPestControlGameMutation.MINUS_POINTS](state) {
+		state.gameLoop -= 5
 	}
 }

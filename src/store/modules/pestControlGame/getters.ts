@@ -11,7 +11,8 @@ export enum EPestControlGameGetters {
 	GET_GAME_LOOP = 'GET_GAME_LOOP',
 	GET_TOMATO_LEVEL_NUM = 'GET_TOMATO_LEVEL_NUM',
 	GET_PEPPER_LEVEL_NUM = 'GET_PEPPER_LEVEL_NUM',
-	GET_STRAWBERRY_LEVEL_NUM = 'GET_STRAWBERRY_LEVEL_NUM'
+	GET_STRAWBERRY_LEVEL_NUM = 'GET_STRAWBERRY_LEVEL_NUM',
+	GET_POINTS = 'GET_POINTS'
 }
 
 export const getters: GetterTree<IPestControlGameState, IRootState> = {
@@ -25,5 +26,6 @@ export const getters: GetterTree<IPestControlGameState, IRootState> = {
 	[EPestControlGameGetters.GET_TOMATO_LEVEL_NUM]: state => state.tomatoLevel,
 	[EPestControlGameGetters.GET_PEPPER_LEVEL_NUM]: state => state.pepperLevel,
 	[EPestControlGameGetters.GET_STRAWBERRY_LEVEL_NUM]: state =>
-		state.strawberryLevel
+		state.strawberryLevel,
+	[EPestControlGameGetters.GET_POINTS]: state => state.points
 }

@@ -30,7 +30,7 @@
       </template>
 
       <template v-slot:contentIndicator>
-        0
+        {{ GET_POINTS }}
       </template>
       </blockButton>
     </div>
@@ -46,6 +46,8 @@ import Vue from 'vue'
 import exitButton from '../../../../ui/button/exitButton/exitButton.vue'
 import blockButton from '../../../../ui/button/blockButton/blockButton.vue'
 import iconButton from '../../../../ui/button/iconButton/iconButton.vue'
+import { EPestControlGameGetters } from '@/store/modules/pestControlGame/getters'
+import { mapGetters } from 'vuex'
 
 export default Vue.extend({
   name: 'navBarGamePestControl',
@@ -53,7 +55,12 @@ export default Vue.extend({
     exitButton,
     blockButton,
     iconButton
-  }
+  },
+  computed: {
+    ...mapGetters([
+      EPestControlGameGetters.GET_POINTS
+    ]),
+  },
 })
 </script>
 
