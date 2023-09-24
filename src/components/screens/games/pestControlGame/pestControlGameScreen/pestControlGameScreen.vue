@@ -196,7 +196,7 @@ export default Vue.extend({
   },
   watch: {
     GET_GAME_LOOP() {
-      if (this.GET_GAME_LOOP <= 4) {
+      if (this.GET_GAME_LOOP < 4) {
         let numberLevel = getRandomNumber(1, 4)
         console.log(numberLevel)
 
@@ -211,6 +211,8 @@ export default Vue.extend({
         if (this.GET_STRAWBERRY_LEVEL_NUM === numberLevel) {
           this.startStrawberryLevel()
         }
+      } else {
+        this.SHOW_VICTORY_BLOCK()
       }
     },
     // Tomato Level
@@ -324,7 +326,8 @@ export default Vue.extend({
     ...mapMutations([
       EPestControlGameMutation.START_GAME,
       EPestControlGameMutation.FINISH_GAME,
-      EPestControlGameMutation.GAME_LOOP
+      EPestControlGameMutation.GAME_LOOP,
+      EPestControlGameMutation.SHOW_VICTORY_BLOCK
     ]),
     startTomatoLevel() {
       setTimeout(() => {

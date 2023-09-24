@@ -4,6 +4,7 @@
       <div :class='styles.gameBack' data-testid='pestControlGameBack'>
         <infoLinkBlockGame link='link-vc' />
         <rulesBlockGame />
+        <victoryBlockGame />
 
         <div :class='styles.screenWrapper'>
           <pestControlGameScreen/>
@@ -19,6 +20,7 @@ import navBarGamePestControl from '../navBarGamePestControl/navBarGamePestContro
 import pestControlGameScreen from '../pestControlGameScreen/pestControlGameScreen.vue'
 import infoLinkBlockGame from '../infoLinkBlockGame/infoLinkBlockGame.vue'
 import rulesBlockGame from '../rulesBlockGame/rulesBlockGame.vue'
+import victoryBlockGame from '../victoryBlockGame/victoryBlockGame.vue'
 
 export default Vue.extend({
   name: 'pestControlGameBack',
@@ -26,7 +28,8 @@ export default Vue.extend({
     navBarGamePestControl,
     pestControlGameScreen,
     infoLinkBlockGame,
-    rulesBlockGame
+    rulesBlockGame,
+    victoryBlockGame
   },
   methods: {}
 })

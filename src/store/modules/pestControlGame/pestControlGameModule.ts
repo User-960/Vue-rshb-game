@@ -9,6 +9,7 @@ import { IRootState } from '@/store/types'
 const state: IPestControlGameState = {
 	isInfoLinkBlockVisible: true,
 	isRulesBlockVisible: false,
+	isVictoryBlockVisible: false,
 	isStartGame: false,
 	gameLoop: 0,
 	tomatoLevel: 1,
