@@ -266,18 +266,18 @@
 	background-image: url(../../../../../../public/images/droneGameActive.svg);
 }
 
-.droneMoved {
+.droneMovedTomato {
 	top: -156px;
 	right: 440px;
 
-	animation: droneMoved 7s;
+	animation: droneMovedTomato 7s;
 }
 
-.droneReturned {
+.droneReturnTomato {
 	top: 0px;
 	right: 0px;
 
-	animation: droneReturn 7s;
+	animation: droneReturnTomato 7s;
 }
 
 /* Levels states */
@@ -349,7 +349,7 @@
 	}
 }
 
-@keyframes droneMoved {
+@keyframes droneMovedTomato {
 	0% {
 		top: 0px;
 		right: 0px;
@@ -371,7 +371,7 @@
 	}
 }
 
-@keyframes droneReturn {
+@keyframes droneReturnTomato {
 	0% {
 		top: -156px;
 		right: 440px;

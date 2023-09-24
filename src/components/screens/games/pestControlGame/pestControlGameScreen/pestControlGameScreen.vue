@@ -129,8 +129,8 @@
             :class='[
               styles.drone, 
               {[styles.droneActive]: isDroneActive},
-              {[styles.droneMoved]: isDroneMoved},
-              {[styles.droneReturned]: isDroneFinishWork},
+              {[styles.droneMovedTomato]: isDroneMovedTomato},
+              {[styles.droneReturnTomato]: isDroneFinishWorkTomato},
             ]' 
             @click='selectDrone'
           ></div>
@@ -168,8 +168,8 @@ export default Vue.extend({
     isCaterpillarActive: false,
 
     isDroneActive: false,
-    isDroneMoved: false,
-    isDroneFinishWork: false
+    isDroneMovedTomato: false,
+    isDroneFinishWorkTomato: false
   }),
   computed: {
     ...mapGetters([EPestControlGameGetters.GET_START_GAME]),
@@ -178,50 +178,58 @@ export default Vue.extend({
     GET_START_GAME() {
       setTimeout(() => {
         this.isTomatoLineCritical = true
-      }, 4000)
+      }, 3000)
     },
-    isDroneMoved() {
-      setTimeout(() => {
-        this.isUltrasoundTomatoActive = true
-      }, 7000)
+    isChosenTomatoLevel() {
+      if (this.isDroneActive && this.isBugActive && this.isTomatoLineCritical) {
+        this.isDroneMovedTomato = true
+      }
+
+      if (this.isDroneMovedTomato) {
+        setTimeout(() => {
+            this.isUltrasoundTomatoActive = true
+        }, 7000)
+      }
     },
-    isDroneFinishWork() {
-      setTimeout(() => {
-        this.isDroneFinishWork = false
-        this.isBugActive = false
-        this.isDroneActive = false
-        this.isUltrasoundTomatoActive = false
-      }, 7000)
+    isUltrasoundTomatoActive() {
+      if (this.isUltrasoundTomatoActive && this.isChosenTomatoLevel && this.isTomatoLineCritical) {
+        setTimeout(() => {
+          this.isUltrasoundTomatoActive = false
+          this.isTomatoLineCritical = false
+          this.isChosenTomatoLevel = false
+          this.isDroneMovedTomato = false
+          this.isDroneFinishWorkTomato = true
+        }, 3000)
+      }
+    },
+    isDroneFinishWorkTomato() {
+      if (this.isDroneFinishWorkTomato) {
+        setTimeout(() => {
+            this.isDroneFinishWorkTomato = false
+            this.isBugActive = false
+            this.isDroneActive = false
+        }, 7000)
+      }
     }
   },
   components: {},
   methods: {
     chooseTomatoLevel() {
-      if (this.isDroneActive) {
+      if (this.isDroneActive && this.isBugActive && this.isTomatoLineCritical) {
         this.isChosenPepperLevel = false
         this.isChosenStrawberryLevel = false
         this.isChosenTomatoLevel = true
-
-        this.isDroneMoved = true
-
-        setTimeout(() => {
-          this.isTomatoLineCritical = false
-          this.isUltrasoundTomatoActive = false
-          this.isChosenTomatoLevel = false
-          this.isDroneMoved = false
-          this.isDroneFinishWork = true
-        }, 10000)
       }
     },
     choosePepperLevel() {
-      if (this.isDroneActive) {
+      if (this.isDroneActive && this.isLocustsActive && this.isPepperLineCritical) {
         this.isChosenTomatoLevel = false
         this.isChosenStrawberryLevel = false
         this.isChosenPepperLevel = true
       }
     },
     chooseStrawberryLevel() {
-      if (this.isDroneActive) {
+      if (this.isDroneActive && this.isCaterpillarActive && this.isStrawberryLineCritical) {
         this.isChosenTomatoLevel = false
         this.isChosenPepperLevel = false
         this.isChosenStrawberryLevel = true
@@ -235,18 +243,20 @@ export default Vue.extend({
       }
     },
     selectLocusts() {
-      this.isCaterpillarActive = false
-      this.isBugActive = false
-      this.isLocustsActive = true
-
-      this.isPepperLineCritical = true
+      if (this.isPepperLineCritical) {
+        this.isCaterpillarActive = false
+        this.isBugActive = false
+        this.isLocustsActive = true
+      }
+      // this.isPepperLineCritical = true
     },
     selectCaterpillar() {
-      this.isLocustsActive = false
-      this.isBugActive = false
-      this.isCaterpillarActive = true
-
-      this.isStrawberryLineCritical = true
+      if (this.isStrawberryLineCritical) {
+        this.isLocustsActive = false
+        this.isBugActive = false
+        this.isCaterpillarActive = true
+      }
+      // this.isStrawberryLineCritical = true
     },
     selectDrone() {
       if (this.isBugActive || this.isLocustsActive || this.isCaterpillarActive) {
