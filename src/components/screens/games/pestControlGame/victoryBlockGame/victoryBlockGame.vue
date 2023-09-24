@@ -13,7 +13,7 @@
 
       <div :class='styles.result'>
         <p>
-          Накоплено баллов: <span> +{{ GET_POINTS }}</span>
+          Накоплено баллов: <span>+ {{ GET_POINTS }}</span>
         </p>
         <div :class='styles.resultIcon'>
           <iconButton>
