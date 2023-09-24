@@ -146,6 +146,10 @@ import { EPestControlGameGetters } from '@/store/modules/pestControlGame/getters
 import Vue from 'vue'
 import { mapGetters } from 'vuex'
 
+const getRandomNumber = (min: number, max: number) => {
+  return Math.floor(Math.random() * (max - min) + min)
+}
+
 export default Vue.extend({
   name: 'pestControlGameScreen',
   data: () => ({
@@ -172,13 +176,37 @@ export default Vue.extend({
     isDroneFinishWorkTomato: false
   }),
   computed: {
-    ...mapGetters([EPestControlGameGetters.GET_START_GAME]),
+    ...mapGetters([
+      EPestControlGameGetters.GET_START_GAME, 
+      EPestControlGameGetters.GET_TOMATO_LEVEL,
+      EPestControlGameGetters.GET_PEPPER_LEVEL,
+      EPestControlGameGetters.GET_STRAWBERRY_LEVEL,
+    ]),
   },
   watch: {
     GET_START_GAME() {
-      setTimeout(() => {
-        this.isTomatoLineCritical = true
-      }, 3000)
+      if (this.GET_START_GAME) {
+
+        let numberLevel = getRandomNumber(1, 4)
+
+        if (this.GET_TOMATO_LEVEL === numberLevel) {
+          setTimeout(() => {
+            this.isTomatoLineCritical = true
+          }, 3000)
+        }
+
+        if (this.GET_PEPPER_LEVEL === numberLevel) {
+          setTimeout(() => {
+            this.isPepperLineCritical = true
+          }, 3000)
+        }
+
+        if (this.GET_STRAWBERRY_LEVEL === numberLevel) {
+          setTimeout(() => {
+            this.isStrawberryLineCritical = true
+          }, 3000)
+        }
+      }
     },
     isChosenTomatoLevel() {
       if (this.isDroneActive && this.isBugActive && this.isTomatoLineCritical) {

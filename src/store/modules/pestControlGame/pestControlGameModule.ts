@@ -9,7 +9,10 @@ import { IRootState } from '@/store/types'
 const state: IPestControlGameState = {
 	isInfoLinkBlockVisible: true,
 	isRulesBlockVisible: false,
-	isStartGame: false
+	isStartGame: false,
+	tomatoLevel: 1,
+	pepperLevel: 2,
+	strawberryLevel: 3
 }
 
 export const getDefaultPestControlGameState = () => {
