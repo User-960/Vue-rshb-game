@@ -62,12 +62,9 @@
 	flex-direction: column;
 }
 
-.link {
+.link a {
 	display: flex;
 	align-items: center;
-}
-
-.link a {
 	color: var(--primary-green);
 	font-family: Ubuntu;
 	font-size: 20px;

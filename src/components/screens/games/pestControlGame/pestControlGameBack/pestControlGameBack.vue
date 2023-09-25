@@ -2,8 +2,12 @@
   <navBarGamePestControl>
     <template v-slot:gameBack>
       <div :class='styles.gameBack' data-testid='pestControlGameBack'>
-        <infoLinkBlockGame link='link-vc' />
+        <infoLinkBlockGame 
+          link='https://vc.ru/future/592705-perspektivy-bespilotnyh-tehnologiy-v-selskom-hozyaystve' 
+        />
+
         <rulesBlockGame />
+
         <victoryBlockGame />
 
         <div :class='styles.screenWrapper'>

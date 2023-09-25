@@ -27,7 +27,7 @@ class AuthService {
 
 	async getUser(id: string | number) {
 		try {
-			const { data } = await $axios.get<any>(`${EN_ENDPOINTS.PLAYER}/${id}`)
+			const { data } = await $axios.get<any>(`${EN_ENDPOINTS.PLAYER}/${id}/`)
 
 			return data
 		} catch (error: any) {
