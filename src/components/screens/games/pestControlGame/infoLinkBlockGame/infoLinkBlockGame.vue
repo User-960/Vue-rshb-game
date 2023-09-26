@@ -47,6 +47,9 @@ export default Vue.extend({
   components: {
     closeButton
   },
+  created() {
+    this.SHOW_INFO_LINK_BLOCK()
+  },
   computed: {
     ...mapGetters([EPestControlGameGetters.GET_INFO_LINK_BLOCK]),
   },
@@ -59,17 +62,20 @@ export default Vue.extend({
   },
   methods: {
     ...mapMutations([
+      EPestControlGameMutation.SHOW_INFO_LINK_BLOCK, 
       EPestControlGameMutation.HIDE_INFO_LINK_BLOCK, 
       EPestControlGameMutation.SHOW_RULES_BLOCK,
       EPestControlGameMutation.PLUS_POINTS
     ]),
     checkFollowLink() {
-      console.log('Check link')
       this.PLUS_POINTS()
     },
     closeBlock() {
       this.HIDE_INFO_LINK_BLOCK()
-      this.SHOW_RULES_BLOCK()
+      
+      if (!this.GET_INFO_LINK_BLOCK) {
+        this.SHOW_RULES_BLOCK()
+      }
     }
   }
 })

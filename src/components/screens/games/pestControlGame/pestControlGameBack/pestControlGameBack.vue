@@ -25,6 +25,9 @@ import pestControlGameScreen from '../pestControlGameScreen/pestControlGameScree
 import infoLinkBlockGame from '../infoLinkBlockGame/infoLinkBlockGame.vue'
 import rulesBlockGame from '../rulesBlockGame/rulesBlockGame.vue'
 import victoryBlockGame from '../victoryBlockGame/victoryBlockGame.vue'
+import { AUDIO_CONFIG } from '@/config/audio'
+import { mapMutations } from 'vuex'
+import { EPestControlGameMutation } from '@/store/modules/pestControlGame/mutations'
 
 export default Vue.extend({
   name: 'pestControlGameBack',
@@ -35,7 +38,17 @@ export default Vue.extend({
     rulesBlockGame,
     victoryBlockGame
   },
-  methods: {}
+  // created() {
+  //   if (this.$route.name === 'pest-control') {
+  //     this.PLAY_BACK_MUSIC_PEST_CONTROL_GAME()
+  //   }
+  // },
+  methods: {
+    ...mapMutations([
+      EPestControlGameMutation.PLAY_BACK_MUSIC_PEST_CONTROL_GAME,
+      EPestControlGameMutation.STOP_BACK_MUSIC_PEST_CONTROL_GAME,
+    ])
+  }
 })
 </script>
 

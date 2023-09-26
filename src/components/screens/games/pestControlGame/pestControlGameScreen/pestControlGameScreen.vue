@@ -152,6 +152,7 @@ import Vue from 'vue'
 import { mapGetters, mapMutations } from 'vuex'
 import { EN_CONFIG } from '../config/config'
 import { getRandomNumber } from '../helpers/helpers'
+import { AUDIO_CONFIG } from '@/config/audio'
 
 export default Vue.extend({
   name: 'pestControlGameScreen',
@@ -345,6 +346,10 @@ export default Vue.extend({
     },
     chooseTomatoLevel() {
       if (this.isDroneActive && this.isCaterpillarActive && this.isTomatoLineCritical) {
+        const audio = new Audio(AUDIO_CONFIG.AUDIO_CHOOSE_ACTION_COMPUTER)
+		    audio.autoplay = true
+		    audio.volume = 1
+
         this.isChosenPepperLevel = false
         this.isChosenStrawberryLevel = false
         this.isChosenTomatoLevel = true
@@ -352,6 +357,10 @@ export default Vue.extend({
     },
     choosePepperLevel() {
       if (this.isDroneActive && this.isBugActive && this.isPepperLineCritical) {
+        const audio = new Audio(AUDIO_CONFIG.AUDIO_CHOOSE_ACTION_COMPUTER)
+		    audio.autoplay = true
+		    audio.volume = 1
+
         this.isChosenTomatoLevel = false
         this.isChosenStrawberryLevel = false
         this.isChosenPepperLevel = true
@@ -359,6 +368,10 @@ export default Vue.extend({
     },
     chooseStrawberryLevel() {
       if (this.isDroneActive && this.isLocustsActive && this.isStrawberryLineCritical) {
+        const audio = new Audio(AUDIO_CONFIG.AUDIO_CHOOSE_ACTION_COMPUTER)
+		    audio.autoplay = true
+		    audio.volume = 1
+        
         this.isChosenTomatoLevel = false
         this.isChosenPepperLevel = false
         this.isChosenStrawberryLevel = true

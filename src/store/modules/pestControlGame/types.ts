@@ -8,4 +8,5 @@ export interface IPestControlGameState {
 	pepperLevel: number
 	strawberryLevel: number
 	points: number
+	isPlayBackMusic: boolean
 }

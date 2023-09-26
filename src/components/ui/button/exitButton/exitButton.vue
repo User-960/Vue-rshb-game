@@ -11,6 +11,7 @@
 <script lang='ts'>
 import Vue from 'vue'
 import iconButton from '../iconButton/iconButton.vue'
+import { AUDIO_CONFIG } from '@/config/audio'
 
 export default Vue.extend({
   name: 'exitButton',
@@ -19,6 +20,10 @@ export default Vue.extend({
   },
   methods: {
     exit() {
+      const audio = new Audio(AUDIO_CONFIG.AUDIO_CLICK_BUTTON)
+		  audio.autoplay = true
+		  audio.volume = 1
+
       this.$router.go(-1)
     }
   }

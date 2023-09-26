@@ -12,7 +12,8 @@ export enum EPestControlGameGetters {
 	GET_TOMATO_LEVEL_NUM = 'GET_TOMATO_LEVEL_NUM',
 	GET_PEPPER_LEVEL_NUM = 'GET_PEPPER_LEVEL_NUM',
 	GET_STRAWBERRY_LEVEL_NUM = 'GET_STRAWBERRY_LEVEL_NUM',
-	GET_POINTS = 'GET_POINTS'
+	GET_POINTS = 'GET_POINTS',
+	GET_BACK_MUSIC_PEST_CONTROL_GAME = 'GET_BACK_MUSIC_PEST_CONTROL_GAME'
 }
 
 export const getters: GetterTree<IPestControlGameState, IRootState> = {
@@ -27,5 +28,7 @@ export const getters: GetterTree<IPestControlGameState, IRootState> = {
 	[EPestControlGameGetters.GET_PEPPER_LEVEL_NUM]: state => state.pepperLevel,
 	[EPestControlGameGetters.GET_STRAWBERRY_LEVEL_NUM]: state =>
 		state.strawberryLevel,
-	[EPestControlGameGetters.GET_POINTS]: state => state.points
+	[EPestControlGameGetters.GET_POINTS]: state => state.points,
+	[EPestControlGameGetters.GET_BACK_MUSIC_PEST_CONTROL_GAME]: state =>
+		state.isPlayBackMusic
 }

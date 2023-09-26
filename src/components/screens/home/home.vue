@@ -47,6 +47,9 @@ import skipButton from '@/components/ui/button/skipButton/skipButton.vue'
 import iconButton from '@/components/ui/button/iconButton/iconButton.vue'
 
 import mapBack from './mapBack/mapBack.vue'
+import { EPestControlGameGetters } from '@/store/modules/pestControlGame/getters'
+import { mapGetters, mapMutations } from 'vuex'
+import { EPestControlGameMutation } from '@/store/modules/pestControlGame/mutations'
 
 export default Vue.extend({
   name: 'home',
@@ -58,7 +61,15 @@ export default Vue.extend({
     iconButton,
     mapBack
   },
+  computed: {
+    ...mapGetters([
+      EPestControlGameGetters.GET_BACK_MUSIC_PEST_CONTROL_GAME,
+    ]),
+  },
   methods: {
+    ...mapMutations([
+      EPestControlGameMutation.STOP_BACK_MUSIC_PEST_CONTROL_GAME
+    ]),
     nextFunc() {
       console.log('Next step')
     }
