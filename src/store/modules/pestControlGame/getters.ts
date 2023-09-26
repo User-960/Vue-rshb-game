@@ -7,6 +7,7 @@ export enum EPestControlGameGetters {
 	GET_INFO_LINK_BLOCK = 'GET_INFO_LINK_BLOCK',
 	GET_RULES_BLOCK = 'GET_RULES_BLOCK',
 	GET_VICTORY_BLOCK = 'GET_VICTORY_BLOCK',
+	GET_LOSS_BLOCK = 'GET_LOSS_BLOCK',
 	GET_START_GAME = 'GET_START_GAME',
 	GET_GAME_LOOP = 'GET_GAME_LOOP',
 	GET_TOMATO_LEVEL_NUM = 'GET_TOMATO_LEVEL_NUM',
@@ -22,6 +23,7 @@ export const getters: GetterTree<IPestControlGameState, IRootState> = {
 	[EPestControlGameGetters.GET_RULES_BLOCK]: state => state.isRulesBlockVisible,
 	[EPestControlGameGetters.GET_VICTORY_BLOCK]: state =>
 		state.isVictoryBlockVisible,
+	[EPestControlGameGetters.GET_LOSS_BLOCK]: state => state.isLossBlockVisible,
 	[EPestControlGameGetters.GET_START_GAME]: state => state.isStartGame,
 	[EPestControlGameGetters.GET_GAME_LOOP]: state => state.gameLoop,
 	[EPestControlGameGetters.GET_TOMATO_LEVEL_NUM]: state => state.tomatoLevel,

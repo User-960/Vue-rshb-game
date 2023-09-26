@@ -10,6 +10,7 @@ const state: IPestControlGameState = {
 	isInfoLinkBlockVisible: false,
 	isRulesBlockVisible: false,
 	isVictoryBlockVisible: false,
+	isLossBlockVisible: false,
 	isStartGame: false,
 	gameLoop: 0,
 	tomatoLevel: 1,

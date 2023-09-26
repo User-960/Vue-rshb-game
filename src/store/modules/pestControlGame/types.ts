@@ -2,6 +2,7 @@ export interface IPestControlGameState {
 	isInfoLinkBlockVisible: boolean
 	isRulesBlockVisible: boolean
 	isVictoryBlockVisible: boolean
+	isLossBlockVisible: boolean
 	isStartGame: boolean
 	gameLoop: number
 	tomatoLevel: number

@@ -10,6 +10,8 @@
 
         <victoryBlockGame />
 
+        <lossBlockGame />
+
         <div :class='styles.screenWrapper'>
           <pestControlGameScreen/>
         </div>
@@ -25,6 +27,7 @@ import pestControlGameScreen from '../pestControlGameScreen/pestControlGameScree
 import infoLinkBlockGame from '../infoLinkBlockGame/infoLinkBlockGame.vue'
 import rulesBlockGame from '../rulesBlockGame/rulesBlockGame.vue'
 import victoryBlockGame from '../victoryBlockGame/victoryBlockGame.vue'
+import lossBlockGame from '../lossBlockGame/lossBlockGame.vue'
 
 export default Vue.extend({
   name: 'pestControlGameBack',
@@ -33,7 +36,8 @@ export default Vue.extend({
     pestControlGameScreen,
     infoLinkBlockGame,
     rulesBlockGame,
-    victoryBlockGame
+    victoryBlockGame,
+    lossBlockGame
   }
 })
 </script>

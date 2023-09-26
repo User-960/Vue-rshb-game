@@ -10,7 +10,6 @@
 		"clear": "rd /s /q dist"
 	},
 	"dependencies": {
-		"@types/wav": "^1.0.2",
 		"@vue/composition-api": "^1.7.2",
 		"@vueuse/core": "^10.4.1",
 		"axios": "^1.5.0",
