@@ -35,13 +35,19 @@ export default Vue.extend({
   },
   methods: {
     ...mapActions([EPlayerDataActions.GET_PLAYER]),
-    ...mapMutations([EHomeScreenMutation.SHOW_MODAL_BANK, EHomeScreenMutation.SHOW_MODAL_SHOP]),
+    ...mapMutations([
+      EHomeScreenMutation.SHOW_MODAL_BANK, 
+      EHomeScreenMutation.SHOW_MODAL_SHOP, 
+      EHomeScreenMutation.STOP_BACK_MUSIC_MAP
+    ]),
     turnOffVolume() {
       let id = localStorage.getItem(ENUSER.PLAYER_ID)
 
-      if (id) {
-        this.GET_PLAYER(id)
-      }
+      // if (id) {
+      //   this.GET_PLAYER(id)
+      // }
+
+      this.STOP_BACK_MUSIC_MAP()
       console.log('turn off volume')
     },
     openBank() {

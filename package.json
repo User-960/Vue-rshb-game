@@ -10,10 +10,12 @@
 		"clear": "rd /s /q dist"
 	},
 	"dependencies": {
+		"@types/wav": "^1.0.2",
 		"@vue/composition-api": "^1.7.2",
 		"@vueuse/core": "^10.4.1",
 		"axios": "^1.5.0",
 		"core-js": "^3.8.3",
+		"ts-node": "^10.9.1",
 		"vue": "^2.6.14",
 		"vue-router": "^3.5.1",
 		"vuex": "^3.6.2"

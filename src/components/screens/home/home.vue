@@ -50,6 +50,8 @@ import mapBack from './mapBack/mapBack.vue'
 import { EPestControlGameGetters } from '@/store/modules/pestControlGame/getters'
 import { mapGetters, mapMutations } from 'vuex'
 import { EPestControlGameMutation } from '@/store/modules/pestControlGame/mutations'
+import { EMapBackGetters } from '@/store/modules/homeScreen/getters'
+import { EHomeScreenMutation } from '@/store/modules/homeScreen/mutations'
 
 export default Vue.extend({
   name: 'home',
@@ -63,12 +65,15 @@ export default Vue.extend({
   },
   computed: {
     ...mapGetters([
-      EPestControlGameGetters.GET_BACK_MUSIC_PEST_CONTROL_GAME,
+      EMapBackGetters.GET_BACK_MUSIC_MAP,
     ]),
+  },
+  created() {
+    this.PLAY_BACK_MUSIC_MAP()
   },
   methods: {
     ...mapMutations([
-      EPestControlGameMutation.STOP_BACK_MUSIC_PEST_CONTROL_GAME
+      EHomeScreenMutation.PLAY_BACK_MUSIC_MAP
     ]),
     nextFunc() {
       console.log('Next step')

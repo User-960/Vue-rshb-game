@@ -2,7 +2,6 @@ import { MutationTree } from 'vuex'
 
 import { IStartScreenState } from './types'
 import { AUDIO_CONFIG } from '@/config/audio'
-import { IUserDataForm } from '@/interfaces/player.interface'
 
 export enum EStartScreenMutation {
 	SHOW_CHOOSE_CHARACTER = 'SHOW_CHOOSE_CHARACTER',

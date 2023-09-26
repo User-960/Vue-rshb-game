@@ -19,7 +19,7 @@ export enum EPestControlGameMutation {
 	STOP_BACK_MUSIC_PEST_CONTROL_GAME = 'STOP_BACK_MUSIC_PEST_CONTROL_GAME'
 }
 
-const audio = new Audio(AUDIO_CONFIG.AUDIO_BACK_MUSIC_PEST_CONTROL_GAME)
+const audio = AUDIO_CONFIG.AUDIO_BACK_MUSIC_PEST_CONTROL_GAME
 
 export const mutations: MutationTree<IPestControlGameState> = {
 	[EPestControlGameMutation.SHOW_INFO_LINK_BLOCK](state) {

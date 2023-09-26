@@ -9,8 +9,12 @@ export enum EHomeScreenMutation {
 	SHOW_MODAL_BANK = 'SHOW_MODAL_BANK',
 	HIDE_MODAL_BANK = 'HIDE_MODAL_BANK',
 	SHOW_MODAL_SHOP = 'SHOW_MODAL_SHOP',
-	HIDE_MODAL_SHOP = 'HIDE_MODAL_SHOP'
+	HIDE_MODAL_SHOP = 'HIDE_MODAL_SHOP',
+	PLAY_BACK_MUSIC_MAP = 'PLAY_BACK_MUSIC_MAP',
+	STOP_BACK_MUSIC_MAP = 'STOP_BACK_MUSIC_MAP'
 }
+
+const audioBackMusicMap = new Audio(AUDIO_CONFIG.AUDIO_BACK_MUSIC_MAP)
 
 export const mutations: MutationTree<IHomeScreenState> = {
 	[EHomeScreenMutation.SHOW_MODAL_HOUSE](state) {
@@ -42,5 +46,16 @@ export const mutations: MutationTree<IHomeScreenState> = {
 	},
 	[EHomeScreenMutation.HIDE_MODAL_SHOP](state) {
 		state.isModalShopVisible = false
+	},
+	[EHomeScreenMutation.PLAY_BACK_MUSIC_MAP](state) {
+		audioBackMusicMap.volume = 0.1
+		audioBackMusicMap.autoplay = true
+
+		state.isPlayMusic = true
+	},
+	[EHomeScreenMutation.STOP_BACK_MUSIC_MAP](state) {
+		audioBackMusicMap.pause()
+
+		state.isPlayMusic = false
 	}
 }

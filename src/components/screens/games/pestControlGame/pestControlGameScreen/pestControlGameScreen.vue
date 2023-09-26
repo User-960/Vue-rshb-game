@@ -346,6 +346,7 @@ export default Vue.extend({
     },
     chooseTomatoLevel() {
       if (this.isDroneActive && this.isCaterpillarActive && this.isTomatoLineCritical) {
+        // const audio = AUDIO_CONFIG.AUDIO_CHOOSE_ACTION_COMPUTER
         const audio = new Audio(AUDIO_CONFIG.AUDIO_CHOOSE_ACTION_COMPUTER)
 		    audio.autoplay = true
 		    audio.volume = 1

@@ -12,7 +12,8 @@
 		"useDefineForClassFields": true,
 		"sourceMap": true,
 		"baseUrl": ".",
-		"types": ["webpack-env", "jest"],
+		// "typeRoots": ["src/audio.d.ts", "src/shims-vue.d.ts", "src/shims-tsx.d.ts"],
+		"types": ["webpack-env", "jest", "src/audio.d.ts"],
 		"paths": {
 			"@/*": ["src/*"]
 		},
