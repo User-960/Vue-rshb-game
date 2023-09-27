@@ -17,12 +17,15 @@ export enum EN_AiGameMutation {
 	GAME_LOOP_AI = 'GAME_LOOP_AI',
 	PLUS_POINTS_AI = 'PLUS_POINTS_AI',
 	MINUS_POINTS_AI = 'MINUS_POINTS_AI',
+	START_FINISH_TIMER_AI = 'START_FINISH_TIMER_AI',
 	PLAY_BACK_MUSIC_GAME_AI = 'PLAY_BACK_MUSIC_GAME_AI',
 	STOP_BACK_MUSIC_GAME_AI = 'STOP_BACK_MUSIC_GAME_AI'
 }
 
 const audioBackAi = new Audio(AUDIO_CONFIG.AUDIO_BACK_MUSIC_PEST_CONTROL_GAME)
 const audioVictory = new Audio(AUDIO_CONFIG.AUDIO_VICTORY)
+
+let timer: any
 
 export const mutations: MutationTree<IAiGameState> = {
 	[EN_AiGameMutation.SHOW_INFO_LINK_BLOCK_AI](state) {
@@ -77,6 +80,22 @@ export const mutations: MutationTree<IAiGameState> = {
 	[EN_AiGameMutation.MINUS_POINTS_AI](state) {
 		state.gameLoop -= 5
 	},
+	[EN_AiGameMutation.START_FINISH_TIMER_AI](state) {
+		if (state.timer > 0) {
+			timer = setInterval(() => {
+				state.timer -= 1
+			}, 1000)
+		}
+
+		if (state.timer === 0) {
+			clearInterval(timer)
+		}
+	},
+	// [EN_AiGameMutation.STOP_TIMER_AI](state) {
+	// 	clearInterval(() => {
+	// 		state.timer -= 1
+	// 	}, 1000)
+	// },
 	[EN_AiGameMutation.PLAY_BACK_MUSIC_GAME_AI](state) {
 		state.isPlayBackMusic = true
 

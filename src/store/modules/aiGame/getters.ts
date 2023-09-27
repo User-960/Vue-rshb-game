@@ -14,6 +14,7 @@ export enum EN_AiGameGetters {
 	GET_PEPPER_LEVEL_NUM_AI = 'GET_PEPPER_LEVEL_NUM_AI',
 	GET_STRAWBERRY_LEVEL_NUM_AI = 'GET_STRAWBERRY_LEVEL_NUM_AI',
 	GET_POINTS_AI = 'GET_POINTS_AI',
+	GET_TIMER_AI = 'GET_TIMER_AI',
 	GET_BACK_MUSIC_GAME_AI = 'GET_BACK_MUSIC_GAME_AI'
 }
 
@@ -30,5 +31,6 @@ export const getters: GetterTree<IAiGameState, IRootState> = {
 	[EN_AiGameGetters.GET_STRAWBERRY_LEVEL_NUM_AI]: state =>
 		state.strawberryLevel,
 	[EN_AiGameGetters.GET_POINTS_AI]: state => state.points,
+	[EN_AiGameGetters.GET_TIMER_AI]: state => state.timer,
 	[EN_AiGameGetters.GET_BACK_MUSIC_GAME_AI]: state => state.isPlayBackMusic
 }

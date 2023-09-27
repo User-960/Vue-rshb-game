@@ -10,4 +10,5 @@ export interface IAiGameState {
 	strawberryLevel: number
 	points: number
 	isPlayBackMusic: boolean
+	timer: number
 }

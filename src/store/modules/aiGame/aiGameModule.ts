@@ -17,7 +17,8 @@ const state: IAiGameState = {
 	pepperLevel: 2,
 	strawberryLevel: 3,
 	points: 0,
-	isPlayBackMusic: false
+	isPlayBackMusic: false,
+	timer: 20
 }
 
 export const getDefaultAiGameState = () => {

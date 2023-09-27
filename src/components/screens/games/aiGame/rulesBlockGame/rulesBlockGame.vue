@@ -52,12 +52,15 @@ export default Vue.extend({
     ...mapMutations([
       EN_AiGameMutation.HIDE_RULES_BLOCK_AI, 
       EN_AiGameMutation.START_GAME_AI,
-      EN_AiGameMutation.GAME_LOOP_AI
+      EN_AiGameMutation.GAME_LOOP_AI,
+      EN_AiGameMutation.START_FINISH_TIMER_AI
     ]),
     startGame() {
       this.HIDE_RULES_BLOCK_AI()
       this.START_GAME_AI()
       this.GAME_LOOP_AI()
+
+      this.START_FINISH_TIMER_AI()
     },
     goMap() {
       this.HIDE_RULES_BLOCK_AI()

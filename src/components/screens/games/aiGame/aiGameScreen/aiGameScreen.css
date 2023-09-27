@@ -368,13 +368,9 @@
 	animation: indicatorNumber 1s;
 }
 
-.caterpillarIconCritical {
-	color: var(--secondary-hover-red-dark);
-}
-
 .caterpillarLineFullCritical {
 	width: 50px;
-	background-color: var(--secondary-hover-red-dark);
+	background-color: var(--secondary-text-gray-dark);
 
 	animation: widthLine 1s;
 }

@@ -11,9 +11,9 @@
 }
 
 .victoryBlockGame {
-	padding: 50px;
+	padding: 40px 50px;
 	max-width: 640px;
-	min-height: 560px;
+	min-height: 500px;
 
 	display: flex;
 	flex-direction: column;
@@ -38,7 +38,7 @@
 }
 
 .contentText {
-	min-width: 600px;
+	max-width: 500px;
 	margin-top: 55px;
 	margin-bottom: 15px;
 	line-height: 24px;

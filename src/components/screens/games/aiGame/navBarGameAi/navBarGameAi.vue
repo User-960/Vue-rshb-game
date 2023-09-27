@@ -11,7 +11,7 @@
       </template>
 
       <template v-slot:contentIndicator>
-        {{ '2:45' }}
+        {{ GET_TIMER_AI }}
       </template>
       </blockButton>
     </div>
@@ -63,7 +63,8 @@ import exitButton from '../../../../ui/button/exitButton/exitButton.vue'
 import blockButton from '../../../../ui/button/blockButton/blockButton.vue'
 import iconButton from '../../../../ui/button/iconButton/iconButton.vue'
 import { EN_AiGameGetters } from '@/store/modules/aiGame/getters'
-import { mapGetters } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
+import { EN_AiGameMutation } from '@/store/modules/aiGame/mutations'
 
 export default Vue.extend({
   name: 'navBarGameAi',
@@ -72,11 +73,26 @@ export default Vue.extend({
     blockButton,
     iconButton
   },
+  watch: {
+    GET_TIMER_AI() {
+      if (this.GET_TIMER_AI === 0) {
+        this.START_FINISH_TIMER_AI()
+        this.SHOW_VICTORY_BLOCK_AI()
+      }
+    }
+  },
   computed: {
     ...mapGetters([
-      EN_AiGameGetters.GET_POINTS_AI
+      EN_AiGameGetters.GET_POINTS_AI,
+      EN_AiGameGetters.GET_TIMER_AI
     ]),
   },
+  methods: {
+    ...mapMutations([
+      EN_AiGameMutation.START_FINISH_TIMER_AI,
+      EN_AiGameMutation.SHOW_VICTORY_BLOCK_AI,
+    ]),
+  }
 })
 </script>
 
