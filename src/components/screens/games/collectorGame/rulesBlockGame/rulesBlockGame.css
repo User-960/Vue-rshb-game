@@ -1,0 +1,105 @@
+@import '../../../../../assets/styles/variables.css';
+
+.rulesBlockWrapper {
+	position: relative;
+	width: 100%;
+	height: 100%;
+
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 120;
+	animation: opacity 0.4s;
+}
+
+.rulesBlockGame {
+	padding: 45px;
+	max-width: 760px;
+	min-height: 490px;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	border-radius: 20px;
+	border: 4px solid var(--primary-green);
+	background-color: var(--primary-black);
+
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 130;
+}
+
+.title {
+	color: var(--primary-green);
+	font-size: 48px;
+	font-weight: 700;
+	line-height: 32px;
+}
+
+.contentText {
+	min-width: 600px;
+	margin-top: 55px;
+	margin-bottom: 15px;
+	line-height: 24px;
+
+	color: var(--secondary-text-gray);
+	font-size: 18px;
+	font-weight: 400;
+	letter-spacing: -0.414px;
+}
+
+.btnWrapper {
+	display: flex;
+	max-width: 600px;
+	width: 100%;
+	margin-top: 35px;
+}
+
+.btnMap {
+	width: 100%;
+	padding: 14px 26px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	border-radius: 12px;
+	border: 2px solid var(--primary-green);
+
+	color: var(--primary-green);
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 24px;
+	cursor: pointer;
+}
+
+.btnStartGame {
+	width: 100%;
+	margin-left: 20px;
+	padding: 14px 26px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	border-radius: 12px;
+	background-color: var(--primary-green);
+
+	color: var(--primary-black);
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 24px;
+	cursor: pointer;
+}
+
+/* animations */
+@keyframes opacity {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}

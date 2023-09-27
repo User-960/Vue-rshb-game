@@ -40,7 +40,7 @@
       </template>
 
       <template v-slot:contentIndicator>
-        0
+        {{ GET_POINTS_COL }}
       </template>
       </blockButton>
     </div>
@@ -64,7 +64,10 @@ export default Vue.extend({
   name: 'navBarGameCollector',
   data: () => ({}),
   computed: {
-    ...mapGetters([EN_CollectorGameGetters.GET_OPEN_GAME_FIELD_COL]),
+    ...mapGetters([
+      EN_CollectorGameGetters.GET_OPEN_GAME_FIELD_COL, 
+      EN_CollectorGameGetters.GET_POINTS_COL
+    ]),
   },
   methods: {
     ...mapMutations([EN_CollectorGameMutation.CLOSE_GAME_FIELD_COL]),

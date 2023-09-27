@@ -7,7 +7,14 @@ import { ICollectorGameState } from './types'
 import { IRootState } from '@/store/types'
 
 const state: ICollectorGameState = {
-	isOpenGameField: false
+	isOpenGameField: false,
+
+	isInfoLinkBlockVisible: false,
+	isRulesBlockVisible: false,
+	isVictoryBlockVisible: false,
+	isLossBlockVisible: false,
+	isStartGame: false,
+	points: 0
 }
 
 export const getDefaultCollectorGameState = () => {
