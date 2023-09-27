@@ -3,10 +3,11 @@ import { GetterTree } from 'vuex'
 import { ICollectorGameState } from './types'
 import { IRootState } from '@/store/types'
 
-export enum ECollectorGameGetters {
-	GET_OPEN_GAME_FIELD = 'GET_OPEN_GAME_FIELD'
+export enum EN_CollectorGameGetters {
+	GET_OPEN_GAME_FIELD_COL = 'GET_OPEN_GAME_FIELD_COL'
 }
 
 export const getters: GetterTree<ICollectorGameState, IRootState> = {
-	[ECollectorGameGetters.GET_OPEN_GAME_FIELD]: state => state.isOpenGameField
+	[EN_CollectorGameGetters.GET_OPEN_GAME_FIELD_COL]: state =>
+		state.isOpenGameField
 }

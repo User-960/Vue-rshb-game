@@ -1,5 +1,5 @@
 <template>
-  <div :class='styles.infoLinkWrapper' v-if='GET_INFO_LINK_BLOCK'>
+  <div :class='styles.infoLinkWrapper' v-if='GET_INFO_LINK_BLOCK_AI'>
     <div :class='styles.infoLinkBlockGame'>
       <div :class='styles.title'>
         Искусственный интеллект в сельском хозяйстве
@@ -38,8 +38,8 @@
 import Vue from 'vue'
 import closeButton from '../../../../ui/button/closeButton/closeButton.vue'
 import { mapGetters, mapMutations } from 'vuex'
-import { EPestControlGameGetters } from '@/store/modules/pestControlGame/getters'
-import { EPestControlGameMutation } from '@/store/modules/pestControlGame/mutations'
+import { EN_AiGameGetters } from '@/store/modules/aiGame/getters'
+import { EN_AiGameMutation } from '@/store/modules/aiGame/mutations'
 
 export default Vue.extend({
   name: 'infoLinkBlockGame',
@@ -47,10 +47,10 @@ export default Vue.extend({
     closeButton
   },
   created() {
-    this.SHOW_INFO_LINK_BLOCK()
+    this.SHOW_INFO_LINK_BLOCK_AI()
   },
   computed: {
-    ...mapGetters([EPestControlGameGetters.GET_INFO_LINK_BLOCK]),
+    ...mapGetters([EN_AiGameGetters.GET_INFO_LINK_BLOCK_AI]),
   },
   props: {
     link: {
@@ -61,19 +61,19 @@ export default Vue.extend({
   },
   methods: {
     ...mapMutations([
-      EPestControlGameMutation.SHOW_INFO_LINK_BLOCK, 
-      EPestControlGameMutation.HIDE_INFO_LINK_BLOCK, 
-      EPestControlGameMutation.SHOW_RULES_BLOCK,
-      EPestControlGameMutation.PLUS_POINTS
+      EN_AiGameMutation.SHOW_INFO_LINK_BLOCK_AI, 
+      EN_AiGameMutation.HIDE_INFO_LINK_BLOCK_AI, 
+      EN_AiGameMutation.SHOW_RULES_BLOCK_AI,
+      EN_AiGameMutation.PLUS_POINTS_AI
     ]),
     checkFollowLink() {
-      this.PLUS_POINTS()
+      this.PLUS_POINTS_AI()
     },
     closeBlock() {
-      this.HIDE_INFO_LINK_BLOCK()
+      this.HIDE_INFO_LINK_BLOCK_AI()
       
-      if (!this.GET_INFO_LINK_BLOCK) {
-        this.SHOW_RULES_BLOCK()
+      if (!this.GET_INFO_LINK_BLOCK_AI) {
+        this.SHOW_RULES_BLOCK_AI()
       }
     }
   }

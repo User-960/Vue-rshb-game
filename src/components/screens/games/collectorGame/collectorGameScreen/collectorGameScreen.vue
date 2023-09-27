@@ -34,7 +34,7 @@
 </template>
 
 <script lang='ts'>
-import { ECollectorGameMutation } from '@/store/modules/collectorGame/mutations'
+import { EN_CollectorGameMutation } from '@/store/modules/collectorGame/mutations'
 import Vue from 'vue'
 import { mapMutations } from 'vuex'
 
@@ -49,7 +49,7 @@ export default Vue.extend({
   }),
   components: {},
   methods: {
-    ...mapMutations([ECollectorGameMutation.OPEN_GAME_FIELD]),
+    ...mapMutations([EN_CollectorGameMutation.OPEN_GAME_FIELD_COL]),
     chooseTomatoLevel() {
       this.isChosenPepperLevel = false
       this.isChosenStrawberryLevel = false
@@ -67,7 +67,7 @@ export default Vue.extend({
     },
     openGame() {
       if (this.isChosenTomatoLevel || this.isChosenPepperLevel || this.isChosenStrawberryLevel) {
-        this.OPEN_GAME_FIELD()
+        this.OPEN_GAME_FIELD_COL()
       }
     }
   }

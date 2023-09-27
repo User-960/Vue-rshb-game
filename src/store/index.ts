@@ -3,6 +3,7 @@ import Vuex, { StoreOptions } from 'vuex'
 
 import { playerData } from './modules/playerData/playerDataModule'
 import { IRootState } from './types'
+import { aiGame } from '@/store/modules/aiGame/aiGameModule'
 import { collectorGame } from '@/store/modules/collectorGame/collectorGameModule'
 import { homeScreen } from '@/store/modules/homeScreen/homeScreenModule'
 import { pestControlGame } from '@/store/modules/pestControlGame/pestControlGameModule'
@@ -19,6 +20,7 @@ export const getDefaultStore = (): StoreOptions<IRootState> => {
 			homeScreen,
 			startScreen,
 			playerData,
+			aiGame,
 			pestControlGame,
 			collectorGame
 		}

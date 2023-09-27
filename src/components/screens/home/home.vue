@@ -47,9 +47,7 @@ import skipButton from '@/components/ui/button/skipButton/skipButton.vue'
 import iconButton from '@/components/ui/button/iconButton/iconButton.vue'
 
 import mapBack from './mapBack/mapBack.vue'
-import { EPestControlGameGetters } from '@/store/modules/pestControlGame/getters'
 import { mapGetters, mapMutations } from 'vuex'
-import { EPestControlGameMutation } from '@/store/modules/pestControlGame/mutations'
 import { EMapBackGetters } from '@/store/modules/homeScreen/getters'
 import { EHomeScreenMutation } from '@/store/modules/homeScreen/mutations'
 

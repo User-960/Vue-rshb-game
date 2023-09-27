@@ -3,88 +3,93 @@ import { MutationTree } from 'vuex'
 import { IPestControlGameState } from './types'
 import { AUDIO_CONFIG } from '@/config/audio'
 
-export enum EPestControlGameMutation {
-	SHOW_INFO_LINK_BLOCK = 'SHOW_INFO_LINK_BLOCK',
-	HIDE_INFO_LINK_BLOCK = 'HIDE_INFO_LINK_BLOCK',
-	SHOW_RULES_BLOCK = 'SHOW_RULES_BLOCK',
-	HIDE_RULES_BLOCK = 'HIDE_RULES_BLOCK',
-	SHOW_VICTORY_BLOCK = 'SHOW_VICTORY_BLOCK',
-	HIDE_VICTORY_BLOCK = 'HIDE_VICTORY_BLOCK',
-	SHOW_LOSS_BLOCK = 'SHOW_LOSS_BLOCK',
-	HIDE_LOSS_BLOCK = 'HIDE_LOSS_BLOCK',
-	START_GAME = 'START_GAME',
-	FINISH_GAME = 'FINISH_GAME',
-	GAME_LOOP = 'GAME_LOOP',
-	PLUS_POINTS = 'PLUS_POINTS',
-	MINUS_POINTS = 'MINUS_POINTS',
-	PLAY_BACK_MUSIC_PEST_CONTROL_GAME = 'PLAY_BACK_MUSIC_PEST_CONTROL_GAME',
-	STOP_BACK_MUSIC_PEST_CONTROL_GAME = 'STOP_BACK_MUSIC_PEST_CONTROL_GAME'
+export enum EN_PestControlGameMutation {
+	SHOW_INFO_LINK_BLOCK_PS = 'SHOW_INFO_LINK_BLOCK_PS',
+	HIDE_INFO_LINK_BLOCK_PS = 'HIDE_INFO_LINK_BLOCK_PS',
+	SHOW_RULES_BLOCK_PS = 'SHOW_RULES_BLOCK_PS',
+	HIDE_RULES_BLOCK_PS = 'HIDE_RULES_BLOCK_PS',
+	SHOW_VICTORY_BLOCK_PS = 'SHOW_VICTORY_BLOCK_PS',
+	HIDE_VICTORY_BLOCK_PS = 'HIDE_VICTORY_BLOCK_PS',
+	SHOW_LOSS_BLOCK_PS = 'SHOW_LOSS_BLOCK_PS',
+	HIDE_LOSS_BLOCK_PS = 'HIDE_LOSS_BLOCK_PS',
+	START_GAME_PS = 'START_GAME_PS',
+	FINISH_GAME_PS = 'FINISH_GAME_PS',
+	GAME_LOOP_PS = 'GAME_LOOP_PS',
+	PLUS_POINTS_PS = 'PLUS_POINTS_PS',
+	MINUS_POINTS_PS = 'MINUS_POINTS_PS',
+	PLAY_BACK_MUSIC_GAME_PS = 'PLAY_BACK_MUSIC_GAME_PS',
+	STOP_BACK_MUSIC_GAME_PS = 'STOP_BACK_MUSIC_GAME_PS'
 }
 
-const audio = AUDIO_CONFIG.AUDIO_BACK_MUSIC_PEST_CONTROL_GAME
+const audioBackPs = new Audio(AUDIO_CONFIG.AUDIO_BACK_MUSIC_PEST_CONTROL_GAME)
+const audioVictory = new Audio(AUDIO_CONFIG.AUDIO_VICTORY)
 
 export const mutations: MutationTree<IPestControlGameState> = {
-	[EPestControlGameMutation.SHOW_INFO_LINK_BLOCK](state) {
+	[EN_PestControlGameMutation.SHOW_INFO_LINK_BLOCK_PS](state) {
 		const audio = new Audio(AUDIO_CONFIG.AUDIO_NEW_MISSION)
 		audio.autoplay = true
 		audio.volume = 1
 
 		state.isInfoLinkBlockVisible = true
 	},
-	[EPestControlGameMutation.HIDE_INFO_LINK_BLOCK](state) {
+	[EN_PestControlGameMutation.HIDE_INFO_LINK_BLOCK_PS](state) {
 		state.isInfoLinkBlockVisible = false
 	},
-	[EPestControlGameMutation.SHOW_RULES_BLOCK](state) {
+	[EN_PestControlGameMutation.SHOW_RULES_BLOCK_PS](state) {
 		const audio = new Audio(AUDIO_CONFIG.AUDIO_NEW_MISSION)
 		audio.autoplay = true
 		audio.volume = 1
 
 		state.isRulesBlockVisible = true
 	},
-	[EPestControlGameMutation.HIDE_RULES_BLOCK](state) {
+	[EN_PestControlGameMutation.HIDE_RULES_BLOCK_PS](state) {
 		state.isRulesBlockVisible = false
 	},
-	[EPestControlGameMutation.SHOW_VICTORY_BLOCK](state) {
-		const audio = new Audio(AUDIO_CONFIG.AUDIO_VICTORY)
-		audio.autoplay = true
-		audio.volume = 1
+	[EN_PestControlGameMutation.SHOW_VICTORY_BLOCK_PS](state) {
+		audioVictory.autoplay = true
+		audioVictory.volume = 1
 
 		state.isVictoryBlockVisible = true
 	},
-	[EPestControlGameMutation.SHOW_LOSS_BLOCK](state) {
+	[EN_PestControlGameMutation.HIDE_VICTORY_BLOCK_PS](state) {
+		audioVictory.autoplay = false
+
+		state.isVictoryBlockVisible = false
+	},
+	[EN_PestControlGameMutation.SHOW_LOSS_BLOCK_PS](state) {
 		state.isLossBlockVisible = true
 	},
-	[EPestControlGameMutation.HIDE_LOSS_BLOCK](state) {
+	[EN_PestControlGameMutation.HIDE_LOSS_BLOCK_PS](state) {
 		state.isLossBlockVisible = false
 	},
-	[EPestControlGameMutation.START_GAME](state) {
+	[EN_PestControlGameMutation.START_GAME_PS](state) {
 		state.isStartGame = true
 	},
-	[EPestControlGameMutation.FINISH_GAME](state) {
+	[EN_PestControlGameMutation.FINISH_GAME_PS](state) {
 		state.isStartGame = false
 	},
-	[EPestControlGameMutation.GAME_LOOP](state) {
+	[EN_PestControlGameMutation.GAME_LOOP_PS](state) {
 		state.gameLoop += 1
 	},
-	[EPestControlGameMutation.PLUS_POINTS](state) {
+	[EN_PestControlGameMutation.PLUS_POINTS_PS](state) {
 		state.points += 5
 	},
-	[EPestControlGameMutation.MINUS_POINTS](state) {
+	[EN_PestControlGameMutation.MINUS_POINTS_PS](state) {
 		state.gameLoop -= 5
 	},
-	[EPestControlGameMutation.PLAY_BACK_MUSIC_PEST_CONTROL_GAME](state) {
+	[EN_PestControlGameMutation.PLAY_BACK_MUSIC_GAME_PS](state) {
 		state.isPlayBackMusic = true
 
 		if (state.isPlayBackMusic) {
-			audio.autoplay = true
-			audio.volume = 0.1
+			audioBackPs.autoplay = true
+			audioBackPs.volume = 0.1
 		}
 	},
-	[EPestControlGameMutation.STOP_BACK_MUSIC_PEST_CONTROL_GAME](state) {
+	[EN_PestControlGameMutation.STOP_BACK_MUSIC_GAME_PS](state) {
 		state.isPlayBackMusic = false
 
 		if (!state.isPlayBackMusic) {
-			audio.autoplay = false
+			audioBackPs.autoplay = false
 		}
 	}
 }

@@ -13,7 +13,7 @@
 </template>
 
 <script lang='ts'>
-import { ECollectorGameGetters } from '@/store/modules/collectorGame/getters'
+import { EN_CollectorGameGetters } from '@/store/modules/collectorGame/getters'
 import Vue from 'vue'
 import { mapGetters } from 'vuex'
 
@@ -29,7 +29,7 @@ export default Vue.extend({
     }, 2350)
   },
   computed: {
-    ...mapGetters([ECollectorGameGetters.GET_OPEN_GAME_FIELD]),
+    ...mapGetters([EN_CollectorGameGetters.GET_OPEN_GAME_FIELD_COL]),
   },
   methods: {}
 })

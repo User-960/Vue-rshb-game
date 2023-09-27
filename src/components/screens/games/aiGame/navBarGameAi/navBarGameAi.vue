@@ -46,7 +46,7 @@
       </template>
 
       <template v-slot:contentIndicator>
-        {{ GET_POINTS }}
+        {{ GET_POINTS_AI }}
       </template>
       </blockButton>
     </div>
@@ -62,7 +62,7 @@ import Vue from 'vue'
 import exitButton from '../../../../ui/button/exitButton/exitButton.vue'
 import blockButton from '../../../../ui/button/blockButton/blockButton.vue'
 import iconButton from '../../../../ui/button/iconButton/iconButton.vue'
-import { EPestControlGameGetters } from '@/store/modules/pestControlGame/getters'
+import { EN_AiGameGetters } from '@/store/modules/aiGame/getters'
 import { mapGetters } from 'vuex'
 
 export default Vue.extend({
@@ -74,7 +74,7 @@ export default Vue.extend({
   },
   computed: {
     ...mapGetters([
-      EPestControlGameGetters.GET_POINTS
+      EN_AiGameGetters.GET_POINTS_AI
     ]),
   },
 })

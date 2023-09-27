@@ -4,6 +4,6 @@ import { IRootState } from '../../types'
 
 import { ICollectorGameState } from './types'
 
-export enum ECollectorGameActions {}
+export enum EN_CollectorGameActions {}
 
 export const actions: ActionTree<ICollectorGameState, IRootState> = {}

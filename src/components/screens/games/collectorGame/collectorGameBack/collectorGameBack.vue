@@ -1,5 +1,5 @@
 <template>
-  <navBarGameCollector v-if='GET_OPEN_GAME_FIELD'>
+  <navBarGameCollector v-if='GET_OPEN_GAME_FIELD_COL'>
     <template v-slot:gameBack>
       <collectorGameField/>
     </template>
@@ -22,7 +22,7 @@ import navBarGameCollector from '../navBarGameCollector/navBarGameCollector.vue'
 import collectorGameScreen from '../collectorGameScreen/collectorGameScreen.vue'
 import collectorGameField from '../collectorGameField/collectorGameField.vue'
 import { mapGetters } from 'vuex'
-import { ECollectorGameGetters } from '@/store/modules/collectorGame/getters'
+import { EN_CollectorGameGetters } from '@/store/modules/collectorGame/getters'
 
 export default Vue.extend({
   name: 'collectorGameBack',
@@ -32,7 +32,7 @@ export default Vue.extend({
     collectorGameField
   },
   computed: {
-    ...mapGetters([ECollectorGameGetters.GET_OPEN_GAME_FIELD]),
+    ...mapGetters([EN_CollectorGameGetters.GET_OPEN_GAME_FIELD_COL]),
   },
   methods: {}
 })

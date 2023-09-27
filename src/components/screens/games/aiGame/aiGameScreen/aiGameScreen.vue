@@ -303,8 +303,8 @@
 </template>
 
 <script lang='ts'>
-import { EPestControlGameGetters } from '@/store/modules/pestControlGame/getters'
-import { EPestControlGameMutation } from '@/store/modules/pestControlGame/mutations'
+import { EN_AiGameGetters } from '@/store/modules/aiGame/getters'
+import { EN_AiGameMutation } from '@/store/modules/aiGame/mutations'
 import Vue from 'vue'
 import { mapGetters, mapMutations } from 'vuex'
 import { EN_CONFIG } from '../config/config'
@@ -341,33 +341,33 @@ export default Vue.extend({
   }),
   computed: {
     ...mapGetters([
-      EPestControlGameGetters.GET_START_GAME,
-      EPestControlGameGetters.GET_GAME_LOOP,
-      EPestControlGameGetters.GET_TOMATO_LEVEL_NUM,
-      EPestControlGameGetters.GET_PEPPER_LEVEL_NUM,
-      EPestControlGameGetters.GET_STRAWBERRY_LEVEL_NUM
+      EN_AiGameGetters.GET_START_GAME_AI,
+      EN_AiGameGetters.GET_GAME_LOOP_AI,
+      EN_AiGameGetters.GET_TOMATO_LEVEL_NUM_AI,
+      EN_AiGameGetters.GET_PEPPER_LEVEL_NUM_AI,
+      EN_AiGameGetters.GET_STRAWBERRY_LEVEL_NUM_AI
     ]),
   },
   watch: {
-    GET_GAME_LOOP() {
-      if (this.GET_GAME_LOOP < 4 && this.GET_START_GAME) {
+    GET_GAME_LOOP_AI() {
+      if (this.GET_GAME_LOOP_AI < 4 && this.GET_START_GAME_AI) {
         let numberLevel = getRandomNumber(1, 4)
 
-        if (this.GET_TOMATO_LEVEL_NUM === numberLevel) {
+        if (this.GET_TOMATO_LEVEL_NUM_AI === numberLevel) {
           this.startTomatoLevel()
         }
 
-        if (this.GET_PEPPER_LEVEL_NUM === numberLevel) {
+        if (this.GET_PEPPER_LEVEL_NUM_AI === numberLevel) {
           this.startPepperLevel()
         }
 
-        if (this.GET_STRAWBERRY_LEVEL_NUM === numberLevel) {
+        if (this.GET_STRAWBERRY_LEVEL_NUM_AI === numberLevel) {
           this.startStrawberryLevel()
         }
       } else {
-        this.FINISH_GAME()
-        if (!this.GET_START_GAME) {
-          this.SHOW_VICTORY_BLOCK()
+        this.FINISH_GAME_AI()
+        if (!this.GET_START_GAME_AI) {
+          this.SHOW_VICTORY_BLOCK_AI()
         }
       }
     },
@@ -401,8 +401,8 @@ export default Vue.extend({
             this.isCaterpillarActive = false
             this.isDroneActive = false
             
-            this.PLUS_POINTS()
-            this.GAME_LOOP()
+            this.PLUS_POINTS_AI()
+            this.GAME_LOOP_AI()
         }, EN_CONFIG.TIMING_DRONE_RETURNED_TOMATO)
       }
     },
@@ -436,8 +436,8 @@ export default Vue.extend({
             this.isBugActive = false
             this.isDroneActive = false
 
-            this.PLUS_POINTS()
-            this.GAME_LOOP()
+            this.PLUS_POINTS_AI()
+            this.GAME_LOOP_AI()
         }, EN_CONFIG.TIMING_DRONE_RETURNED_PEPPER)
       }
     },
@@ -471,8 +471,8 @@ export default Vue.extend({
             this.isLocustsActive = false
             this.isDroneActive = false
 
-            this.PLUS_POINTS()
-            this.GAME_LOOP()
+            this.PLUS_POINTS_AI()
+            this.GAME_LOOP_AI()
         }, EN_CONFIG.TIMING_DRONE_RETURNED_STRAWBERRY)
       }
     }
@@ -480,11 +480,11 @@ export default Vue.extend({
   components: {},
   methods: {
     ...mapMutations([
-      EPestControlGameMutation.START_GAME,
-      EPestControlGameMutation.FINISH_GAME,
-      EPestControlGameMutation.GAME_LOOP,
-      EPestControlGameMutation.PLUS_POINTS,
-      EPestControlGameMutation.SHOW_VICTORY_BLOCK
+      EN_AiGameMutation.START_GAME_AI,
+      EN_AiGameMutation.FINISH_GAME_AI,
+      EN_AiGameMutation.GAME_LOOP_AI,
+      EN_AiGameMutation.PLUS_POINTS_AI,
+      EN_AiGameMutation.SHOW_VICTORY_BLOCK_AI
     ]),
     startTomatoLevel() {
       setTimeout(() => {

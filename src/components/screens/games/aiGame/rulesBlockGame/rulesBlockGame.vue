@@ -1,5 +1,5 @@
 <template>
-  <div :class='styles.rulesBlockWrapper' v-if='GET_RULES_BLOCK'>
+  <div :class='styles.rulesBlockWrapper' v-if='GET_RULES_BLOCK_AI'>
     <div :class='styles.rulesBlockGame'>
       <div :class='styles.title'>
         Правила игры
@@ -37,8 +37,8 @@
 import Vue from 'vue'
 import closeButton from '../../../../ui/button/closeButton/closeButton.vue'
 import { mapGetters, mapMutations } from 'vuex'
-import { EPestControlGameGetters } from '@/store/modules/pestControlGame/getters'
-import { EPestControlGameMutation } from '@/store/modules/pestControlGame/mutations'
+import { EN_AiGameGetters } from '@/store/modules/aiGame/getters'
+import { EN_AiGameMutation } from '@/store/modules/aiGame/mutations'
 
 export default Vue.extend({
   name: 'rulesBlockGame',
@@ -46,18 +46,18 @@ export default Vue.extend({
     closeButton
   },
   computed: {
-    ...mapGetters([EPestControlGameGetters.GET_RULES_BLOCK]),
+    ...mapGetters([EN_AiGameGetters.GET_RULES_BLOCK_AI]),
   },
   methods: {
     ...mapMutations([
-      EPestControlGameMutation.HIDE_RULES_BLOCK, 
-      EPestControlGameMutation.START_GAME,
-      EPestControlGameMutation.GAME_LOOP
+      EN_AiGameMutation.HIDE_RULES_BLOCK_AI, 
+      EN_AiGameMutation.START_GAME_AI,
+      EN_AiGameMutation.GAME_LOOP_AI
     ]),
     startGame() {
-      this.HIDE_RULES_BLOCK()
-      this.START_GAME()
-      this.GAME_LOOP()
+      this.HIDE_RULES_BLOCK_AI()
+      this.START_GAME_AI()
+      this.GAME_LOOP_AI()
     },
     goMap() {
       this.$router.push({ name: 'home' })

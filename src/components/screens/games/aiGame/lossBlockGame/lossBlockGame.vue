@@ -1,5 +1,5 @@
 <template>
-  <div :class='styles.lossBlockGameWrapper' v-if='GET_LOSS_BLOCK'>
+  <div :class='styles.lossBlockGameWrapper' v-if='GET_LOSS_BLOCK_AI'>
     <div :class='styles.lossBlockGame'>
       <div :class='styles.title'>
         Проигрыш
@@ -13,7 +13,7 @@
 
       <div :class='styles.result'>
         <p>
-          Накоплено баллов: <span>+ {{ GET_POINTS }}</span>
+          Накоплено баллов: <span>+ {{ GET_POINTS_AI }}</span>
         </p>
         <div :class='styles.resultIcon'>
           <iconButton>
@@ -42,8 +42,8 @@ import Vue from 'vue'
 import closeButton from '../../../../ui/button/closeButton/closeButton.vue'
 import iconButton from '../../../../ui/button/iconButton/iconButton.vue'
 import { mapGetters, mapMutations } from 'vuex'
-import { EPestControlGameGetters } from '@/store/modules/pestControlGame/getters'
-import { EPestControlGameMutation } from '@/store/modules/pestControlGame/mutations'
+import { EN_AiGameGetters } from '@/store/modules/aiGame/getters'
+import { EN_AiGameMutation } from '@/store/modules/aiGame/mutations'
 
 export default Vue.extend({
   name: 'lossBlockGame',
@@ -53,20 +53,20 @@ export default Vue.extend({
   },
   computed: {
     ...mapGetters([
-      EPestControlGameGetters.GET_LOSS_BLOCK,
-      EPestControlGameGetters.GET_POINTS
+      EN_AiGameGetters.GET_LOSS_BLOCK_AI,
+      EN_AiGameGetters.GET_POINTS_AI
     ]),
   },
   methods: {
     ...mapMutations([
-      EPestControlGameMutation.HIDE_LOSS_BLOCK
+      EN_AiGameMutation.HIDE_LOSS_BLOCK_AI
     ]),
     restartGame() {
-      this.HIDE_LOSS_BLOCK()
+      this.HIDE_LOSS_BLOCK_AI()
       this.$router.push({ name: 'home' })
     },
     skipToMap() {
-      this.HIDE_LOSS_BLOCK()
+      this.HIDE_LOSS_BLOCK_AI()
       this.$router.push({ name: 'home' })
     }
   }

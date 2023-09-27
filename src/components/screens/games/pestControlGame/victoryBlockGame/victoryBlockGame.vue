@@ -1,5 +1,5 @@
 <template>
-  <div :class='styles.victoryBlockWrapper' v-if='GET_VICTORY_BLOCK'>
+  <div :class='styles.victoryBlockWrapper' v-if='GET_VICTORY_BLOCK_PS'>
     <div :class='styles.victoryBlockGame'>
       <div :class='styles.title'>
         Победа!
@@ -13,7 +13,7 @@
 
       <div :class='styles.result'>
         <p>
-          Накоплено баллов: <span>+ {{ GET_POINTS }}</span>
+          Накоплено баллов: <span>+ {{ GET_POINTS_PS }}</span>
         </p>
         <div :class='styles.resultIcon'>
           <iconButton>
@@ -59,8 +59,8 @@ import Vue from 'vue'
 import closeButton from '../../../../ui/button/closeButton/closeButton.vue'
 import iconButton from '../../../../ui/button/iconButton/iconButton.vue'
 import { mapGetters, mapMutations } from 'vuex'
-import { EPestControlGameGetters } from '@/store/modules/pestControlGame/getters'
-import { EPestControlGameMutation } from '@/store/modules/pestControlGame/mutations'
+import { EN_PestControlGameGetters } from '@/store/modules/pestControlGame/getters'
+import { EN_PestControlGameMutation } from '@/store/modules/pestControlGame/mutations'
 
 export default Vue.extend({
   name: 'victoryBlockGame',
@@ -70,19 +70,20 @@ export default Vue.extend({
   },
   computed: {
     ...mapGetters([
-      EPestControlGameGetters.GET_VICTORY_BLOCK,
-      EPestControlGameGetters.GET_POINTS
+      EN_PestControlGameGetters.GET_VICTORY_BLOCK_PS,
+      EN_PestControlGameGetters.GET_POINTS_PS
     ]),
   },
   methods: {
     ...mapMutations([
-      EPestControlGameMutation.HIDE_VICTORY_BLOCK
+      EN_PestControlGameMutation.HIDE_VICTORY_BLOCK_PS
     ]),
     restartGame() {
+      this.HIDE_VICTORY_BLOCK_PS()
       this.$router.push({ name: 'home' })
     },
     skipToMap() {
-      this.HIDE_VICTORY_BLOCK()
+      this.HIDE_VICTORY_BLOCK_PS()
       this.$router.push({ name: 'home' })
     }
   }

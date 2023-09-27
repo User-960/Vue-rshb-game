@@ -1,5 +1,5 @@
 <template>
-  <div :class='styles.infoLinkWrapper' v-if='GET_INFO_LINK_BLOCK'>
+  <div :class='styles.infoLinkWrapper' v-if='GET_INFO_LINK_BLOCK_PS'>
     <div :class='styles.infoLinkBlockGame'>
       <div :class='styles.title'>
         Беспилотный агроном
@@ -39,8 +39,8 @@
 import Vue from 'vue'
 import closeButton from '../../../../ui/button/closeButton/closeButton.vue'
 import { mapGetters, mapMutations } from 'vuex'
-import { EPestControlGameGetters } from '@/store/modules/pestControlGame/getters'
-import { EPestControlGameMutation } from '@/store/modules/pestControlGame/mutations'
+import { EN_PestControlGameGetters } from '@/store/modules/pestControlGame/getters'
+import { EN_PestControlGameMutation } from '@/store/modules/pestControlGame/mutations'
 
 export default Vue.extend({
   name: 'infoLinkBlockGame',
@@ -48,10 +48,10 @@ export default Vue.extend({
     closeButton
   },
   created() {
-    this.SHOW_INFO_LINK_BLOCK()
+    this.SHOW_INFO_LINK_BLOCK_PS()
   },
   computed: {
-    ...mapGetters([EPestControlGameGetters.GET_INFO_LINK_BLOCK]),
+    ...mapGetters([EN_PestControlGameGetters.GET_INFO_LINK_BLOCK_PS]),
   },
   props: {
     link: {
@@ -62,19 +62,19 @@ export default Vue.extend({
   },
   methods: {
     ...mapMutations([
-      EPestControlGameMutation.SHOW_INFO_LINK_BLOCK, 
-      EPestControlGameMutation.HIDE_INFO_LINK_BLOCK, 
-      EPestControlGameMutation.SHOW_RULES_BLOCK,
-      EPestControlGameMutation.PLUS_POINTS
+      EN_PestControlGameMutation.SHOW_INFO_LINK_BLOCK_PS, 
+      EN_PestControlGameMutation.HIDE_INFO_LINK_BLOCK_PS, 
+      EN_PestControlGameMutation.SHOW_RULES_BLOCK_PS,
+      EN_PestControlGameMutation.PLUS_POINTS_PS
     ]),
     checkFollowLink() {
-      this.PLUS_POINTS()
+      this.PLUS_POINTS_PS()
     },
     closeBlock() {
-      this.HIDE_INFO_LINK_BLOCK()
+      this.HIDE_INFO_LINK_BLOCK_PS()
       
-      if (!this.GET_INFO_LINK_BLOCK) {
-        this.SHOW_RULES_BLOCK()
+      if (!this.GET_INFO_LINK_BLOCK_PS) {
+        this.SHOW_RULES_BLOCK_PS()
       }
     }
   }

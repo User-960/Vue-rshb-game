@@ -30,7 +30,7 @@
       </template>
 
       <template v-slot:contentIndicator>
-        {{ GET_POINTS }}
+        {{ GET_POINTS_PS }}
       </template>
       </blockButton>
     </div>
@@ -46,7 +46,7 @@ import Vue from 'vue'
 import exitButton from '../../../../ui/button/exitButton/exitButton.vue'
 import blockButton from '../../../../ui/button/blockButton/blockButton.vue'
 import iconButton from '../../../../ui/button/iconButton/iconButton.vue'
-import { EPestControlGameGetters } from '@/store/modules/pestControlGame/getters'
+import { EN_PestControlGameGetters } from '@/store/modules/pestControlGame/getters'
 import { mapGetters } from 'vuex'
 
 export default Vue.extend({
@@ -58,7 +58,7 @@ export default Vue.extend({
   },
   computed: {
     ...mapGetters([
-      EPestControlGameGetters.GET_POINTS
+      EN_PestControlGameGetters.GET_POINTS_PS
     ]),
   },
 })

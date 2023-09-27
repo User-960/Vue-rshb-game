@@ -1,6 +1,6 @@
 <template>
   <div :class='styles.navBarGameCollector'>
-    <div :class='styles.exitButtonWrapper' v-if='GET_OPEN_GAME_FIELD'>
+    <div :class='styles.exitButtonWrapper' v-if='GET_OPEN_GAME_FIELD_COL'>
       <div :class='styles.exitBtnLeave'>
         <iconButton @onclick="leaveGame">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="14" viewBox="0 0 24 14" fill="none">
@@ -57,19 +57,19 @@ import exitButton from '../../../../ui/button/exitButton/exitButton.vue'
 import blockButton from '../../../../ui/button/blockButton/blockButton.vue'
 import iconButton from '../../../../ui/button/iconButton/iconButton.vue'
 import { mapGetters, mapMutations } from 'vuex'
-import { ECollectorGameGetters } from '@/store/modules/collectorGame/getters'
-import { ECollectorGameMutation } from '@/store/modules/collectorGame/mutations'
+import { EN_CollectorGameGetters } from '@/store/modules/collectorGame/getters'
+import { EN_CollectorGameMutation } from '@/store/modules/collectorGame/mutations'
 
 export default Vue.extend({
   name: 'navBarGameCollector',
   data: () => ({}),
   computed: {
-    ...mapGetters([ECollectorGameGetters.GET_OPEN_GAME_FIELD]),
+    ...mapGetters([EN_CollectorGameGetters.GET_OPEN_GAME_FIELD_COL]),
   },
   methods: {
-    ...mapMutations([ECollectorGameMutation.CLOSE_GAME_FIELD]),
+    ...mapMutations([EN_CollectorGameMutation.CLOSE_GAME_FIELD_COL]),
     leaveGame() {
-      this.CLOSE_GAME_FIELD()
+      this.CLOSE_GAME_FIELD_COL()
     }
   },
   components: {
