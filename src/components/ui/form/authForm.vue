@@ -33,11 +33,11 @@ import Vue from 'vue'
 import skipButton from '@/components/ui/button/skipButton/skipButton.vue'
 import loader from '@/components/ui/loader/loader.vue'
 import { mapMutations, mapActions, mapState, mapGetters } from 'vuex'
-import { EStartScreenMutation } from '@/store/modules/startScreen/mutations'
+import { EN_StartScreenMutation } from '@/store/modules/startScreen/mutations'
 import { IUserDataForm } from '@/interfaces/player.interface'
-import { EStartScreenGetters } from '@/store/modules/startScreen/getters'
-import { EPlayerDataActions } from '@/store/modules/playerData/actions'
-import { EPlayerDataGetters } from '@/store/modules/playerData/getters'
+import { EN_StartScreenGetters } from '@/store/modules/startScreen/getters'
+import { EN_PlayerDataActions } from '@/store/modules/playerData/actions'
+import { EN_PlayerDataGetters } from '@/store/modules/playerData/getters'
 
 export default Vue.extend({
   name: 'authForm',
@@ -62,7 +62,7 @@ export default Vue.extend({
     }
   },
   computed: {
-    ...mapGetters([EStartScreenGetters.GET_ERROR_SERVER, EPlayerDataGetters.GET_PLAYER_DATA]),
+    ...mapGetters([EN_StartScreenGetters.GET_ERROR_SERVER, EN_PlayerDataGetters.GET_PLAYER_DATA]),
     ...mapState({
       gender: ({ startScreen }: any): 'Female' | 'Male' => startScreen.player.gender,
       name: ({ startScreen }: any) => startScreen.player.name
@@ -70,10 +70,10 @@ export default Vue.extend({
   },
   methods: {
     ...mapMutations([
-      EStartScreenMutation.HIDE_AUTH_PLAYER, 
-      EStartScreenMutation.SAVE_PLAYER_NAME
+      EN_StartScreenMutation.HIDE_AUTH_PLAYER, 
+      EN_StartScreenMutation.SAVE_PLAYER_NAME
     ]),
-    ...mapActions([EPlayerDataActions.CREATE_PLAYER]),
+    ...mapActions([EN_PlayerDataActions.CREATE_PLAYER]),
     submitForm(e: Event) {
       e.preventDefault()
       let player: IUserDataForm

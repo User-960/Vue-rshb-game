@@ -42,11 +42,11 @@
 <script lang='ts'>
 import Vue from 'vue'
 import startBlock from '../../../ui/startBlock/startBlock.vue'
-import { EStartScreenGetters } from '@/store/modules/startScreen/getters'
+import { EN_StartScreenGetters } from '@/store/modules/startScreen/getters'
 import { startScreen } from '@/store/modules/startScreen/startScreenModule'
 import skipButton from '../../../ui/button/skipButton/skipButton.vue'
 import { mapGetters, mapMutations } from 'vuex'
-import { EStartScreenMutation } from '@/store/modules/startScreen/mutations'
+import { EN_StartScreenMutation } from '@/store/modules/startScreen/mutations'
 
 export default Vue.extend({
   name: 'chooseCharacter',
@@ -61,16 +61,16 @@ export default Vue.extend({
   },
   computed: {
     ...mapGetters([
-      EStartScreenGetters.GET_CHOOSE_CHARACTER_VISIBLE, 
-      EStartScreenGetters.GET_PLAYER_GENDER
+      EN_StartScreenGetters.GET_CHOOSE_CHARACTER_VISIBLE, 
+      EN_StartScreenGetters.GET_PLAYER_GENDER
     ])
   },
    methods: {
     ...mapMutations([
-      EStartScreenMutation.HIDE_CHOOSE_CHARACTER, 
-      EStartScreenMutation.SHOW_AUTH_PLAYER,
-      EStartScreenMutation.SELECT_GENDER_WOMEN,
-      EStartScreenMutation.SELECT_GENDER_MEN,
+      EN_StartScreenMutation.HIDE_CHOOSE_CHARACTER, 
+      EN_StartScreenMutation.SHOW_AUTH_PLAYER,
+      EN_StartScreenMutation.SELECT_GENDER_WOMEN,
+      EN_StartScreenMutation.SELECT_GENDER_MEN,
     ]),
     chooseWomen() {
       this.isError = false

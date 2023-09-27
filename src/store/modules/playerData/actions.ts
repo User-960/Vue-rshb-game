@@ -2,33 +2,33 @@ import { ActionTree, Commit } from 'vuex'
 
 import { IRootState } from '../../types'
 
-import { EPlayerDataMutation } from './mutations'
+import { EN_PlayerDataMutation } from './mutations'
 import { IPlayerDataState } from './types'
 import { IPlayer, IUserDataForm } from '@/interfaces/player.interface'
 import AuthService from '@/services/auth.service'
 
-export enum EPlayerDataActions {
+export enum EN_PlayerDataActions {
 	CREATE_PLAYER = 'CREATE_PLAYER',
 	GET_PLAYER = 'GET_PLAYER'
 }
 
 export const actions: ActionTree<IPlayerDataState, IRootState> = {
-	[EPlayerDataActions.CREATE_PLAYER](
+	[EN_PlayerDataActions.CREATE_PLAYER](
 		{ commit }: { commit: Commit },
 		player: IUserDataForm
 	) {
 		AuthService.createUser(player.name, player.gender)
 			.then((res: string | IPlayer) =>
-				commit(EPlayerDataMutation.CREATE_PLAYER, res)
+				commit(EN_PlayerDataMutation.CREATE_PLAYER, res)
 			)
 			.catch(error => console.log(error))
 	},
-	[EPlayerDataActions.GET_PLAYER](
+	[EN_PlayerDataActions.GET_PLAYER](
 		{ commit }: { commit: Commit },
 		id: string | number
 	) {
 		AuthService.getUser(id)
-			.then((res: any) => commit(EPlayerDataMutation.GET_PLAYER, res))
+			.then((res: any) => commit(EN_PlayerDataMutation.GET_PLAYER, res))
 			.catch(error => {
 				console.log(error)
 				return error

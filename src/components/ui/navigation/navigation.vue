@@ -25,7 +25,7 @@ import Vue from 'vue'
 import iconButton from '../button/iconButton/iconButton.vue'
 import { mapActions, mapMutations } from 'vuex'
 import { EN_HomeScreenMutation } from '@/store/modules/homeScreen/mutations'
-import { EPlayerDataActions } from '@/store/modules/playerData/actions'
+import { EN_PlayerDataActions } from '@/store/modules/playerData/actions'
 import { ENUSER } from '@/config/app.constants'
 
 export default Vue.extend({
@@ -34,7 +34,7 @@ export default Vue.extend({
     iconButton
   },
   methods: {
-    ...mapActions([EPlayerDataActions.GET_PLAYER]),
+    ...mapActions([EN_PlayerDataActions.GET_PLAYER]),
     ...mapMutations([
       EN_HomeScreenMutation.SHOW_MODAL_BANK, 
       EN_HomeScreenMutation.SHOW_MODAL_SHOP, 

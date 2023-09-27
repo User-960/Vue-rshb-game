@@ -44,7 +44,7 @@ import layout from '../../layout/layout.vue'
 import chooseCharacter from './chooseCharacter/chooseCharacter.vue'
 import authPlayer from './authPlayer/authPlayer.vue'
 import { mapMutations } from 'vuex'
-import { EStartScreenMutation } from '@/store/modules/startScreen/mutations'
+import { EN_StartScreenMutation } from '@/store/modules/startScreen/mutations'
 
 export default Vue.extend({
   name: 'start',
@@ -57,7 +57,7 @@ export default Vue.extend({
     authPlayer
   },
   methods: {
-    ...mapMutations([EStartScreenMutation.SHOW_CHOOSE_CHARACTER]),
+    ...mapMutations([EN_StartScreenMutation.SHOW_CHOOSE_CHARACTER]),
     openBlockChooseCharacter() {
       this.SHOW_CHOOSE_CHARACTER()
     }

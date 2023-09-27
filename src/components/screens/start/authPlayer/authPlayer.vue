@@ -12,7 +12,7 @@
 import Vue from 'vue'
 import skipButton from '../../../ui/button/skipButton/skipButton.vue'
 import authForm from '../../../ui/form/authForm.vue'
-import { EStartScreenGetters } from '@/store/modules/startScreen/getters'
+import { EN_StartScreenGetters } from '@/store/modules/startScreen/getters'
 import { mapGetters } from 'vuex'
 
 export default Vue.extend({
@@ -26,7 +26,7 @@ export default Vue.extend({
     skipButton
   },
   computed: {
-    ...mapGetters([EStartScreenGetters.GET_AUTH_PLAYER_VISIBLE]),
+    ...mapGetters([EN_StartScreenGetters.GET_AUTH_PLAYER_VISIBLE]),
   },
    methods: {
     nextFunc() {

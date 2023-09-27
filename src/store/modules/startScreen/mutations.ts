@@ -3,7 +3,7 @@ import { MutationTree } from 'vuex'
 import { IStartScreenState } from './types'
 import { AUDIO_CONFIG } from '@/config/audio'
 
-export enum EStartScreenMutation {
+export enum EN_StartScreenMutation {
 	SHOW_CHOOSE_CHARACTER = 'SHOW_CHOOSE_CHARACTER',
 	HIDE_CHOOSE_CHARACTER = 'HIDE_CHOOSE_CHARACTER',
 	SHOW_AUTH_PLAYER = 'SHOW_AUTH_PLAYER',
@@ -16,41 +16,41 @@ export enum EStartScreenMutation {
 }
 
 export const mutations: MutationTree<IStartScreenState> = {
-	[EStartScreenMutation.SHOW_CHOOSE_CHARACTER](state) {
+	[EN_StartScreenMutation.SHOW_CHOOSE_CHARACTER](state) {
 		const audio = new Audio(AUDIO_CONFIG.AUDIO_MODAL_WINDOW)
 		audio.autoplay = true
 		audio.volume = 1
 
 		state.isChooseCharacterVisible = true
 	},
-	[EStartScreenMutation.HIDE_CHOOSE_CHARACTER](state) {
+	[EN_StartScreenMutation.HIDE_CHOOSE_CHARACTER](state) {
 		state.isChooseCharacterVisible = false
 	},
-	[EStartScreenMutation.SHOW_AUTH_PLAYER](state) {
+	[EN_StartScreenMutation.SHOW_AUTH_PLAYER](state) {
 		const audio = new Audio(AUDIO_CONFIG.AUDIO_MODAL_WINDOW)
 		audio.autoplay = true
 		audio.volume = 1
 
 		state.isAuthPlayerVisible = true
 	},
-	[EStartScreenMutation.HIDE_AUTH_PLAYER](state) {
+	[EN_StartScreenMutation.HIDE_AUTH_PLAYER](state) {
 		state.isAuthPlayerVisible = false
 	},
-	[EStartScreenMutation.SELECT_GENDER_WOMEN](state) {
+	[EN_StartScreenMutation.SELECT_GENDER_WOMEN](state) {
 		const audio = new Audio(AUDIO_CONFIG.AUDIO_CLICK_BUTTON)
 		audio.autoplay = true
 		audio.volume = 1
 
 		state.player.gender = 'Female'
 	},
-	[EStartScreenMutation.SELECT_GENDER_MEN](state) {
+	[EN_StartScreenMutation.SELECT_GENDER_MEN](state) {
 		const audio = new Audio(AUDIO_CONFIG.AUDIO_CLICK_BUTTON)
 		audio.autoplay = true
 		audio.volume = 1
 
 		state.player.gender = 'Male'
 	},
-	[EStartScreenMutation.SAVE_PLAYER_NAME](state, name: string) {
+	[EN_StartScreenMutation.SAVE_PLAYER_NAME](state, name: string) {
 		state.player.name = name
 	}
 }
