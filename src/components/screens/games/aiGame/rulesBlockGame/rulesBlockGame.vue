@@ -60,6 +60,7 @@ export default Vue.extend({
       this.GAME_LOOP_AI()
     },
     goMap() {
+      this.HIDE_RULES_BLOCK_AI()
       this.$router.push({ name: 'home' })
     }
   }

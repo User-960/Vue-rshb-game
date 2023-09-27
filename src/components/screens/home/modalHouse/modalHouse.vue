@@ -26,8 +26,9 @@
 import Vue from 'vue'
 import linkButton from '../../../ui/button/linkButton/linkButton.vue'
 import closeButton from '../../../ui/button/closeButton/closeButton.vue'
-import { mapGetters } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 import { EN_HomeScreenGetters } from '@/store/modules/homeScreen/getters'
+import { EN_HomeScreenMutation } from '@/store/modules/homeScreen/mutations'
 
 export default Vue.extend({
   name: 'modalHouse',
@@ -44,19 +45,23 @@ export default Vue.extend({
     ...mapGetters([EN_HomeScreenGetters.GET_MODAL_HOUSE_VISIBLE]),
   },
   methods: {
+    ...mapMutations([EN_HomeScreenMutation.HIDE_MODAL_HOUSE]),
     openGameAI() {
       if (this.isGameAiAvailable) {
         this.$router.push({ name: 'ai-game' })
+        this.HIDE_MODAL_HOUSE()
       }
     },
     openGameDrone() {
       if (this.isGameDroneAvailable) {
         this.$router.push({ name: 'pest-control' })
+        this.HIDE_MODAL_HOUSE()
       }
     },
     openGameSystem() {
       if (this.isGameSystem) {
         this.$router.push({ name: 'robot-collector' })
+        this.HIDE_MODAL_HOUSE()
       }
     }
   }

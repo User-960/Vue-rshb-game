@@ -60,6 +60,7 @@ export default Vue.extend({
       this.GAME_LOOP_PS()
     },
     goMap() {
+      this.HIDE_RULES_BLOCK_PS()
       this.$router.push({ name: 'home' })
     }
   }
