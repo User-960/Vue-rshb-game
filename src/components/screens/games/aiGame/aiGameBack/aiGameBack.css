@@ -66,8 +66,10 @@
 	background-position: center;
 	background-size: contain;
 
+	overflow-x: hidden;
+
 	max-width: 452px;
-	max-height: 200px;
+	max-height: 178px;
 	width: 100%;
 	height: 100%;
 }
