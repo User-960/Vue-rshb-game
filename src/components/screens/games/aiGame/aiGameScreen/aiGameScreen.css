@@ -4,8 +4,8 @@
 	width: 772px;
 	height: 432px;
 	border-radius: 4px;
-	border: 2px solid#8990a5;
-	outline-color: #8990a5;
+	border: 2px solidvar(--secondary-text-gray-dark);
+	outline-color: var(--secondary-text-gray-dark);
 	outline-width: 2px;
 	background-color: #d9d9d9;
 
@@ -183,18 +183,18 @@
 }
 
 .moistureIconCritical {
-	color: #df1d11;
+	color: var(--secondary-hover-red-dark);
 }
 
 .moistureLineFullCritical {
 	width: 50px;
-	background-color: #df1d11;
+	background-color: var(--secondary-hover-red-dark);
 
 	animation: widthLine 1s;
 }
 
 .temperatureItem {
-	color: #d2e68a;
+	color: var(--secondary-hover-yellow);
 }
 
 .temperatureIcon {
@@ -218,7 +218,7 @@
 	left: 0px;
 	height: 12px;
 	border-radius: 4px;
-	background-color: #d2e68a;
+	background-color: var(--secondary-hover-yellow);
 }
 
 .temperatureNumber::after {
@@ -245,12 +245,12 @@
 }
 
 .temperatureIconCritical {
-	color: #df1d11;
+	color: var(--secondary-hover-red-dark);
 }
 
 .temperatureLineFullCritical {
 	width: 50px;
-	background-color: #df1d11;
+	background-color: var(--secondary-hover-red-dark);
 
 	animation: widthLine 1s;
 }
@@ -307,18 +307,18 @@
 }
 
 .autoSystemIconCritical {
-	color: #df1d11;
+	color: var(--secondary-hover-red-dark);
 }
 
 .autoSystemLineFullCritical {
 	width: 50px;
-	background-color: #df1d11;
+	background-color: var(--secondary-hover-red-dark);
 
 	animation: widthLine 1s;
 }
 
 .caterpillarItem {
-	color: #8990a5;
+	color: var(--secondary-text-gray-dark);
 }
 
 .caterpillarIcon {
@@ -342,7 +342,7 @@
 	left: 0px;
 	height: 12px;
 	border-radius: 4px;
-	background-color: #8990a5;
+	background-color: var(--secondary-text-gray-dark);
 }
 
 .caterpillarNumber::after {
@@ -369,132 +369,14 @@
 }
 
 .caterpillarIconCritical {
-	color: #df1d11;
+	color: var(--secondary-hover-red-dark);
 }
 
 .caterpillarLineFullCritical {
 	width: 50px;
-	background-color: #df1d11;
+	background-color: var(--secondary-hover-red-dark);
 
 	animation: widthLine 1s;
-}
-
-/* css li drone */
-
-.itemDrone {
-	display: flex;
-	align-items: flex-end;
-
-	margin-left: 12px;
-}
-
-.insecticideList {
-	display: flex;
-}
-
-.insecticide {
-	width: 86px;
-	height: 130px;
-
-	background-position: center;
-	background-repeat: no-repeat;
-	user-select: none;
-	cursor: pointer;
-}
-
-.insecticideBug {
-	background-image: url(../../../../../../public/images/insecticideBug.svg);
-}
-
-.insecticideBug:hover {
-	background-image: url(../../../../../../public/images/insecticideBugActive.svg);
-}
-
-.insecticideBugActive {
-	background-image: url(../../../../../../public/images/insecticideBugActive.svg);
-}
-
-.insecticideLocusts {
-	background-image: url(../../../../../../public/images/insecticideLocusts.svg);
-}
-
-.insecticideLocusts:hover {
-	background-image: url(../../../../../../public/images/insecticideLocustsActive.svg);
-}
-
-.insecticideLocustsActive {
-	background-image: url(../../../../../../public/images/insecticideLocustsActive.svg);
-}
-
-.insecticideCaterpillar {
-	background-image: url(../../../../../../public/images/insecticideCaterpillar.svg);
-}
-
-.insecticideCaterpillar:hover {
-	background-image: url(../../../../../../public/images/insecticideCaterpillarActive.svg);
-}
-
-.insecticideCaterpillarActive {
-	background-image: url(../../../../../../public/images/insecticideCaterpillarActive.svg);
-}
-
-/* css drone */
-.drone {
-	position: relative;
-	width: 148px;
-	height: 82px;
-
-	background-image: url(../../../../../../public/images/droneGame.svg);
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: contain;
-
-	user-select: none;
-	cursor: pointer;
-}
-
-.drone:hover {
-	background-image: url(../../../../../../public/images/droneGameActive.svg);
-}
-
-.droneActive {
-	background-image: url(../../../../../../public/images/droneGameActive.svg);
-}
-
-.droneMovedTomato {
-	top: -156px;
-	right: 440px;
-	animation: droneMovedTomato 7s;
-}
-
-.droneReturnTomato {
-	top: 0px;
-	right: 0px;
-	animation: droneReturnTomato 7s;
-}
-
-.droneMovedPepper {
-	top: -156px;
-	right: 146px;
-	animation: droneMovedPepper 7s;
-}
-
-.droneReturnPepper {
-	top: 0px;
-	right: 0px;
-	animation: droneReturnPepper 7s;
-}
-
-.droneMovedStrawberry {
-	top: 28px;
-	right: 440px;
-	animation: droneMovedStrawberry 7s;
-}
-
-.droneReturnStrawberry {
-	top: 0px;
-	right: 0px;
-	animation: droneReturnStrawberry 7s;
 }
 
 /* Levels states */
@@ -528,179 +410,5 @@
 
 	100% {
 		left: 40px;
-	}
-}
-
-@keyframes opacityUltra {
-	0% {
-		opacity: 0;
-	}
-
-	10% {
-		opacity: 0.5;
-		transform: rotate(0deg);
-	}
-
-	20% {
-		opacity: 1;
-		transform: rotate(12deg);
-	}
-
-	40% {
-		opacity: 0.5;
-		transform: rotate(0deg);
-	}
-
-	60% {
-		opacity: 1;
-		transform: rotate(-19deg);
-	}
-
-	80% {
-		opacity: 0.5;
-	}
-
-	100% {
-		opacity: 1;
-		transform: rotate(0deg);
-	}
-}
-
-@keyframes droneMovedTomato {
-	0% {
-		top: 0px;
-		right: 0px;
-	}
-
-	50% {
-		top: -156px;
-		right: 0px;
-	}
-
-	88% {
-		transform: rotate(-10deg);
-	}
-
-	100% {
-		top: -156px;
-		right: 440px;
-		transform: rotate(0deg);
-	}
-}
-
-@keyframes droneReturnTomato {
-	0% {
-		top: -156px;
-		right: 440px;
-	}
-
-	10% {
-		transform: rotate(10deg);
-	}
-
-	38% {
-		transform: rotate(0deg);
-	}
-
-	50% {
-		top: -156px;
-		right: 0px;
-	}
-
-	100% {
-		top: 0px;
-		right: 0px;
-	}
-}
-
-@keyframes droneMovedPepper {
-	0% {
-		top: 0px;
-		right: 0px;
-	}
-
-	50% {
-		top: -156px;
-		right: 0px;
-	}
-
-	88% {
-		transform: rotate(-10deg);
-	}
-
-	100% {
-		top: -156px;
-		right: 146px;
-		transform: rotate(0deg);
-	}
-}
-
-@keyframes droneReturnPepper {
-	0% {
-		top: -156px;
-		right: 146px;
-	}
-
-	10% {
-		transform: rotate(10deg);
-	}
-
-	38% {
-		transform: rotate(0deg);
-	}
-
-	50% {
-		top: -156px;
-		right: 0px;
-	}
-
-	100% {
-		top: 0px;
-		right: 0px;
-	}
-}
-
-@keyframes droneMovedStrawberry {
-	0% {
-		top: 0px;
-		right: 0px;
-		transform: rotate(0deg);
-	}
-
-	50% {
-		top: 28px;
-		right: 0px;
-	}
-
-	90% {
-		transform: rotate(-10deg);
-	}
-
-	100% {
-		top: 28px;
-		right: 440px;
-		transform: rotate(0deg);
-	}
-}
-
-@keyframes droneReturnStrawberry {
-	0% {
-		top: 28px;
-		right: 440px;
-	}
-
-	10% {
-		transform: rotate(10deg);
-	}
-
-	80% {
-		top: 28px;
-		right: 0px;
-		transform: rotate(0deg);
-	}
-
-	100% {
-		top: 0px;
-		right: 0px;
 	}
 }

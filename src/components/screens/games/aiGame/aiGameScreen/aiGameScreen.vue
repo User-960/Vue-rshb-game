@@ -71,7 +71,7 @@
                   {[styles.temperatureIconCritical]: isPepperLineCritical}
                 ]'
               >
-                <img src='../../../../../../public/images/worm.svg' alt='image of worm' draggable='false' />
+                <img src='../../../../../../public/images/caterpillarAiGame.svg' alt='image of worm' draggable='false' />
               </div>
 
               <div :class='styles.indicatorLine'>
@@ -169,7 +169,7 @@
                   {[styles.temperatureIconCritical]: isPepperLineCritical}
                 ]'
               >
-                <img src='../../../../../../public/images/worm.svg' alt='image of worm' draggable='false' />
+                <img src='../../../../../../public/images/bugAiGame.svg' alt='image of worm' draggable='false' />
               </div>
 
               <div :class='styles.indicatorLine'>
@@ -267,7 +267,7 @@
                   {[styles.temperatureIconCritical]: isPepperLineCritical}
                 ]'
               >
-                <img src='../../../../../../public/images/worm.svg' alt='image of worm' draggable='false' />
+                <img src='../../../../../../public/images/locustsAiGame.svg' alt='image of worm' draggable='false' />
               </div>
 
               <div :class='styles.indicatorLine'>
@@ -296,51 +296,6 @@
             <button :class='styles.restartSystemBtn'>Перезапуск системы</button>
           </div>
         </li>
-
-        <!-- <li :class='styles.itemDrone'>
-          <ul :class='styles.insecticideList'>
-            <li 
-              :class='[
-                styles.insecticide, 
-                styles.insecticideBug, 
-                {[styles.insecticideBugActive]: isBugActive}
-              ]'
-              @click='selectBug'
-            ></li>
-
-            <li 
-              :class='[
-                styles.insecticide, 
-                styles.insecticideLocusts, 
-                {[styles.insecticideLocustsActive]: isLocustsActive}
-              ]'
-              @click='selectLocusts'
-            ></li>
-
-            <li 
-              :class='[
-                styles.insecticide, 
-                styles.insecticideCaterpillar, 
-                {[styles.insecticideCaterpillarActive]: isCaterpillarActive}
-              ]'
-              @click='selectCaterpillar'
-            ></li>
-          </ul>
-
-          <div 
-            :class='[
-              styles.drone, 
-              {[styles.droneActive]: isDroneActive},
-              {[styles.droneMovedTomato]: isDroneMovedTomato},
-              {[styles.droneReturnTomato]: isDroneFinishWorkTomato},
-              {[styles.droneMovedPepper]: isDroneMovedPepper},
-              {[styles.droneReturnPepper]: isDroneFinishWorkPepper},
-              {[styles.droneMovedStrawberry]: isDroneMovedStrawberry},
-              {[styles.droneReturnStrawberry]: isDroneFinishWorkStrawberry},
-            ]' 
-            @click='selectDrone'
-          ></div>
-        </li> -->
 
       </ul>
     </div>
