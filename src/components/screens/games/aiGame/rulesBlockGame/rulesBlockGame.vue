@@ -1,0 +1,71 @@
+<template>
+  <div :class='styles.rulesBlockWrapper' v-if='GET_RULES_BLOCK'>
+    <div :class='styles.rulesBlockGame'>
+      <div :class='styles.title'>
+        Правила игры
+      </div>
+
+      <div :class='styles.contentText'>
+        <p>
+          Здорово, ты установил на своих грядках автоматизированные системы по контролю за влажностью почвы и температурой воздуха.
+        </p>
+        <br/>
+        <p>
+          Теперь тебе необходимо  проследить за работой датчиков и вовремя исправить ошибки, когда они возникнут.
+        </p>
+        <br/>
+        <p>
+          Если индикатор стал красным, кликни сначала один раз на участок, затем один раз на инструкцию, и показатели сразу нормализуются.
+        </p>
+      </div>
+
+      <div :class='styles.btnWrapper'>
+        <button :class='styles.btnMap' @click='goMap'>
+          Карта
+        </button>
+
+        <button :class='styles.btnStartGame' @click='startGame'>
+          Играть
+        </button>
+      </div>
+
+    </div>
+  </div>
+</template>
+
+<script lang='ts'>
+import Vue from 'vue'
+import closeButton from '../../../../ui/button/closeButton/closeButton.vue'
+import { mapGetters, mapMutations } from 'vuex'
+import { EPestControlGameGetters } from '@/store/modules/pestControlGame/getters'
+import { EPestControlGameMutation } from '@/store/modules/pestControlGame/mutations'
+
+export default Vue.extend({
+  name: 'rulesBlockGame',
+  components: {
+    closeButton
+  },
+  computed: {
+    ...mapGetters([EPestControlGameGetters.GET_RULES_BLOCK]),
+  },
+  methods: {
+    ...mapMutations([
+      EPestControlGameMutation.HIDE_RULES_BLOCK, 
+      EPestControlGameMutation.START_GAME,
+      EPestControlGameMutation.GAME_LOOP
+    ]),
+    startGame() {
+      this.HIDE_RULES_BLOCK()
+      this.START_GAME()
+      this.GAME_LOOP()
+    },
+    goMap() {
+      this.$router.push({ name: 'home' })
+    }
+  }
+})
+</script>
+
+<style src='./rulesBlockGame.css' module='styles'>
+  
+</style>

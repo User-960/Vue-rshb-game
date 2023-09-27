@@ -1,0 +1,413 @@
+<template>
+  <div :class='styles.border' data-testid='pestControlGameScreen'>
+    <div :class='styles.screen'>
+      <ul :class='styles.listLevels'>
+
+        <li :class='styles.itemLevels' @click='chooseTomatoLevel'>
+          <div :class='styles.pestInfo'>
+            <p :class='styles.pestTitle'>Вредители</p>
+            <ul :class='styles.pestImgList'>
+              <img src='../../../../../../public/images/worm.svg' alt='image of first level' draggable='false' />
+              <img src='../../../../../../public/images/worm.svg' alt='image of first level' draggable='false' />
+              <img src='../../../../../../public/images/worm.svg' alt='image of first level' draggable='false' />
+            </ul>
+          </div>
+
+          <div :class='styles.pestLevel'>
+            <div :class='styles.pestLevelImgWrapper'>
+              <img 
+                :class='[
+                  styles.pestLevelImg, 
+                  {[styles.pestLevelImgActive]: isChosenTomatoLevel}
+                ]' 
+                src='../../../../../../public/images/tomatoBushGreen.svg' 
+                alt='image of first level' 
+                draggable='false' 
+              />
+              <div :class='[{[styles.ultrasound]: isUltrasoundTomatoActive}]' ></div>
+            </div>
+
+            <div :class='styles.pestIndicator'>
+              <p>0%</p>
+              <div :class='styles.indicatorWrapper'>
+                <p>0</p>
+                <div :class='[styles.indicatorNumber, {[styles.indicatorNumberCritical]: isTomatoLineCritical}]'></div>
+                <div :class='[styles.indicatorLine, {[styles.indicatorLineCritical]: isTomatoLineCritical}]'></div>
+              </div>
+              <p>100%</p>
+            </div>
+          </div>
+        </li>
+        
+        <li :class='styles.itemLevels' @click='choosePepperLevel'>
+          <div :class='styles.pestInfo'>
+            <p :class='styles.pestTitle'>Вредители</p>
+            <ul :class='styles.pestImgList'>
+              <img src='../../../../../../public/images/bug.svg' alt='image of third level' draggable='false' />
+              <img src='../../../../../../public/images/bug.svg' alt='image of third level' draggable='false' />
+              <img src='../../../../../../public/images/bug.svg' alt='image of third level' draggable='false' />
+            </ul>
+          </div>
+
+          <div :class='styles.pestLevel'>
+            <div :class='styles.pestLevelImgWrapper'>
+              <img :class='[styles.pestLevelImg, {[styles.pestLevelImgActive]: isChosenPepperLevel}]' src='../../../../../../public/images/pepperBushGreen.svg' alt='image of first level' draggable='false' />
+              <div :class='[{[styles.ultrasound]: isUltrasoundPepperActive}]' ></div>
+            </div>
+
+            <div :class='styles.pestIndicator'>
+              <p>0%</p>
+              <div :class='styles.indicatorWrapper'>
+                <p>0</p>
+                <div :class='[styles.indicatorNumber, {[styles.indicatorNumberCritical]: isPepperLineCritical}]'></div>
+                <div :class='[styles.indicatorLine, {[styles.indicatorLineCritical]: isPepperLineCritical}]'></div>
+              </div>
+              <p>100%</p>
+            </div>
+          </div>
+        </li>
+
+        <li :class='styles.itemLevels' @click='chooseStrawberryLevel'>
+          <div :class='styles.pestInfo'>
+            <p :class='styles.pestTitle'>Вредители</p>
+            <ul :class='styles.pestImgList'>
+              <img src='../../../../../../public/images/locusts.svg' alt='image of second level' draggable='false' />
+              <img src='../../../../../../public/images/locusts.svg' alt='image of second level' draggable='false' />
+              <img src='../../../../../../public/images/locusts.svg' alt='image of second level' draggable='false' />
+            </ul>
+          </div>
+
+          <div :class='styles.pestLevel'>
+            <div :class='styles.pestLevelImgWrapper'>
+              <img :class='[styles.pestLevelImg, {[styles.pestLevelImgActive]: isChosenStrawberryLevel}]' src='../../../../../../public/images/strawberryBushGreen.svg' alt='image of first level' draggable='false' />
+              <div :class='[{[styles.ultrasound]: isUltrasoundStrawberryActive}]' ></div>
+            </div>
+
+            <div :class='styles.pestIndicator'>
+              <p>0%</p>
+              <div :class='styles.indicatorWrapper'>
+                <p>0</p>
+                <div :class='[styles.indicatorNumber, {[styles.indicatorNumberCritical]: isStrawberryLineCritical}]'></div>
+                <div :class='[styles.indicatorLine, {[styles.indicatorLineCritical]: isStrawberryLineCritical}]'></div>
+              </div>
+              <p>100%</p>
+            </div>
+          </div>
+        </li>
+
+        <li :class='styles.itemDrone'>
+          <ul :class='styles.insecticideList'>
+            <li 
+              :class='[
+                styles.insecticide, 
+                styles.insecticideBug, 
+                {[styles.insecticideBugActive]: isBugActive}
+              ]'
+              @click='selectBug'
+            ></li>
+
+            <li 
+              :class='[
+                styles.insecticide, 
+                styles.insecticideLocusts, 
+                {[styles.insecticideLocustsActive]: isLocustsActive}
+              ]'
+              @click='selectLocusts'
+            ></li>
+
+            <li 
+              :class='[
+                styles.insecticide, 
+                styles.insecticideCaterpillar, 
+                {[styles.insecticideCaterpillarActive]: isCaterpillarActive}
+              ]'
+              @click='selectCaterpillar'
+            ></li>
+          </ul>
+
+          <div 
+            :class='[
+              styles.drone, 
+              {[styles.droneActive]: isDroneActive},
+              {[styles.droneMovedTomato]: isDroneMovedTomato},
+              {[styles.droneReturnTomato]: isDroneFinishWorkTomato},
+              {[styles.droneMovedPepper]: isDroneMovedPepper},
+              {[styles.droneReturnPepper]: isDroneFinishWorkPepper},
+              {[styles.droneMovedStrawberry]: isDroneMovedStrawberry},
+              {[styles.droneReturnStrawberry]: isDroneFinishWorkStrawberry},
+            ]' 
+            @click='selectDrone'
+          ></div>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</template>
+
+<script lang='ts'>
+import { EPestControlGameGetters } from '@/store/modules/pestControlGame/getters'
+import { EPestControlGameMutation } from '@/store/modules/pestControlGame/mutations'
+import Vue from 'vue'
+import { mapGetters, mapMutations } from 'vuex'
+import { EN_CONFIG } from '../config/config'
+import { getRandomNumber } from '../helpers/helpers'
+import { AUDIO_CONFIG } from '@/config/audio'
+
+export default Vue.extend({
+  name: 'aiGameScreen',
+  data: () => ({
+    isChosenTomatoLevel: false,
+    isChosenPepperLevel: false,
+    isChosenStrawberryLevel: false,
+
+    isUltrasoundTomatoActive: false,
+    isUltrasoundPepperActive: false,
+    isUltrasoundStrawberryActive: false,
+
+    isTomatoLineCritical: false,
+    isPepperLineCritical: false,
+    isStrawberryLineCritical: false,
+
+    isBugActive: false,
+    isLocustsActive: false,
+    isCaterpillarActive: false,
+
+    isDroneActive: false,
+
+    isDroneMovedTomato: false,
+    isDroneFinishWorkTomato: false,
+    isDroneMovedPepper: false,
+    isDroneFinishWorkPepper: false,
+    isDroneMovedStrawberry: false,
+    isDroneFinishWorkStrawberry: false
+  }),
+  computed: {
+    ...mapGetters([
+      EPestControlGameGetters.GET_START_GAME,
+      EPestControlGameGetters.GET_GAME_LOOP,
+      EPestControlGameGetters.GET_TOMATO_LEVEL_NUM,
+      EPestControlGameGetters.GET_PEPPER_LEVEL_NUM,
+      EPestControlGameGetters.GET_STRAWBERRY_LEVEL_NUM
+    ]),
+  },
+  watch: {
+    GET_GAME_LOOP() {
+      if (this.GET_GAME_LOOP < 4 && this.GET_START_GAME) {
+        let numberLevel = getRandomNumber(1, 4)
+
+        if (this.GET_TOMATO_LEVEL_NUM === numberLevel) {
+          this.startTomatoLevel()
+        }
+
+        if (this.GET_PEPPER_LEVEL_NUM === numberLevel) {
+          this.startPepperLevel()
+        }
+
+        if (this.GET_STRAWBERRY_LEVEL_NUM === numberLevel) {
+          this.startStrawberryLevel()
+        }
+      } else {
+        this.FINISH_GAME()
+        if (!this.GET_START_GAME) {
+          this.SHOW_VICTORY_BLOCK()
+        }
+      }
+    },
+    // Tomato Level
+    isChosenTomatoLevel() {
+      if (this.isDroneActive && this.isCaterpillarActive && this.isTomatoLineCritical) {
+        this.isDroneMovedTomato = true
+      }
+
+      if (this.isDroneMovedTomato) {
+        setTimeout(() => {
+            this.isUltrasoundTomatoActive = true
+        }, EN_CONFIG.TIMING_DRONE_MOVED_TOMATO)
+      }
+    },
+    isUltrasoundTomatoActive() {
+      if (this.isUltrasoundTomatoActive && this.isChosenTomatoLevel && this.isTomatoLineCritical) {
+        setTimeout(() => {
+          this.isUltrasoundTomatoActive = false
+          this.isTomatoLineCritical = false
+          this.isChosenTomatoLevel = false
+          this.isDroneMovedTomato = false
+          this.isDroneFinishWorkTomato = true
+        }, EN_CONFIG.TIMING_ULTRASOUND_TOMATO)
+      }
+    },
+    isDroneFinishWorkTomato() {
+      if (this.isDroneFinishWorkTomato) {
+        setTimeout(() => {
+            this.isDroneFinishWorkTomato = false
+            this.isCaterpillarActive = false
+            this.isDroneActive = false
+            
+            this.PLUS_POINTS()
+            this.GAME_LOOP()
+        }, EN_CONFIG.TIMING_DRONE_RETURNED_TOMATO)
+      }
+    },
+    // Pepper Level
+    isChosenPepperLevel() {
+      if (this.isDroneActive && this.isBugActive  && this.isPepperLineCritical) {
+        this.isDroneMovedPepper = true
+      }
+
+      if (this.isDroneMovedPepper) {
+        setTimeout(() => {
+            this.isUltrasoundPepperActive = true
+        }, EN_CONFIG.TIMING_DRONE_MOVED_PEPPER)
+      }
+    },
+    isUltrasoundPepperActive() {
+      if (this.isUltrasoundPepperActive && this.isChosenPepperLevel && this.isPepperLineCritical) {
+        setTimeout(() => {
+          this.isUltrasoundPepperActive = false
+          this.isPepperLineCritical = false
+          this.isChosenPepperLevel = false
+          this.isDroneMovedPepper = false
+          this.isDroneFinishWorkPepper = true
+        }, EN_CONFIG.TIMING_ULTRASOUND_PEPPER)
+      }
+    },
+    isDroneFinishWorkPepper() {
+      if (this.isDroneFinishWorkPepper) {
+        setTimeout(() => {
+            this.isDroneFinishWorkPepper = false
+            this.isBugActive = false
+            this.isDroneActive = false
+
+            this.PLUS_POINTS()
+            this.GAME_LOOP()
+        }, EN_CONFIG.TIMING_DRONE_RETURNED_PEPPER)
+      }
+    },
+    // Strawberry Level
+    isChosenStrawberryLevel() {
+      if (this.isDroneActive && this.isLocustsActive && this.isStrawberryLineCritical) {
+        this.isDroneMovedStrawberry = true
+      }
+
+      if (this.isDroneMovedStrawberry) {
+        setTimeout(() => {
+            this.isUltrasoundStrawberryActive = true
+        }, EN_CONFIG.TIMING_DRONE_MOVED_STRAWBERRY)
+      }
+    },
+    isUltrasoundStrawberryActive() {
+      if (this.isUltrasoundStrawberryActive && this.isChosenStrawberryLevel && this.isStrawberryLineCritical) {
+        setTimeout(() => {
+          this.isUltrasoundStrawberryActive = false
+          this.isStrawberryLineCritical = false
+          this.isChosenStrawberryLevel = false
+          this.isDroneMovedStrawberry = false
+          this.isDroneFinishWorkStrawberry = true
+        }, EN_CONFIG.TIMING_ULTRASOUND_STRAWBERRY)
+      }
+    },
+    isDroneFinishWorkStrawberry() {
+      if (this.isDroneFinishWorkStrawberry) {
+        setTimeout(() => {
+            this.isDroneFinishWorkStrawberry = false
+            this.isLocustsActive = false
+            this.isDroneActive = false
+
+            this.PLUS_POINTS()
+            this.GAME_LOOP()
+        }, EN_CONFIG.TIMING_DRONE_RETURNED_STRAWBERRY)
+      }
+    }
+  },
+  components: {},
+  methods: {
+    ...mapMutations([
+      EPestControlGameMutation.START_GAME,
+      EPestControlGameMutation.FINISH_GAME,
+      EPestControlGameMutation.GAME_LOOP,
+      EPestControlGameMutation.PLUS_POINTS,
+      EPestControlGameMutation.SHOW_VICTORY_BLOCK
+    ]),
+    startTomatoLevel() {
+      setTimeout(() => {
+        this.isTomatoLineCritical = true
+      }, EN_CONFIG.TIMING_LINE_CRITICAL_TOMATO)
+    },
+    startPepperLevel() {
+      setTimeout(() => {
+        this.isPepperLineCritical = true
+      }, EN_CONFIG.TIMING_LINE_CRITICAL_PEPPER)
+    },
+    startStrawberryLevel() {
+      setTimeout(() => {
+        this.isStrawberryLineCritical = true
+      }, EN_CONFIG.TIMING_LINE_CRITICAL_STRAWBERRY)
+    },
+    chooseTomatoLevel() {
+      if (this.isDroneActive && this.isCaterpillarActive && this.isTomatoLineCritical) {
+        // const audio = AUDIO_CONFIG.AUDIO_CHOOSE_ACTION_COMPUTER
+        const audio = new Audio(AUDIO_CONFIG.AUDIO_CHOOSE_ACTION_COMPUTER)
+		    audio.autoplay = true
+		    audio.volume = 1
+
+        this.isChosenPepperLevel = false
+        this.isChosenStrawberryLevel = false
+        this.isChosenTomatoLevel = true
+      }
+    },
+    choosePepperLevel() {
+      if (this.isDroneActive && this.isBugActive && this.isPepperLineCritical) {
+        const audio = new Audio(AUDIO_CONFIG.AUDIO_CHOOSE_ACTION_COMPUTER)
+		    audio.autoplay = true
+		    audio.volume = 1
+
+        this.isChosenTomatoLevel = false
+        this.isChosenStrawberryLevel = false
+        this.isChosenPepperLevel = true
+      }
+    },
+    chooseStrawberryLevel() {
+      if (this.isDroneActive && this.isLocustsActive && this.isStrawberryLineCritical) {
+        const audio = new Audio(AUDIO_CONFIG.AUDIO_CHOOSE_ACTION_COMPUTER)
+		    audio.autoplay = true
+		    audio.volume = 1
+        
+        this.isChosenTomatoLevel = false
+        this.isChosenPepperLevel = false
+        this.isChosenStrawberryLevel = true
+      }
+    },
+    selectBug() {
+      if (this.isPepperLineCritical) {
+        this.isCaterpillarActive = false
+        this.isLocustsActive = false
+        this.isBugActive = true
+      }
+    },
+    selectLocusts() {
+      if (this.isStrawberryLineCritical) {
+        this.isCaterpillarActive = false
+        this.isBugActive = false
+        this.isLocustsActive = true
+      }
+    },
+    selectCaterpillar() {
+      if (this.isTomatoLineCritical) {
+        this.isLocustsActive = false
+        this.isBugActive = false
+        this.isCaterpillarActive = true
+      }
+    },
+    selectDrone() {
+      if (this.isBugActive || this.isLocustsActive || this.isCaterpillarActive) {
+        this.isDroneActive = true
+      }
+    }
+  }
+})
+</script>
+
+<style src='./aiGameScreen.css' module='styles'>
+  
+</style>

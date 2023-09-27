@@ -7,12 +7,12 @@
         Искусственный интеллект
       </linkButton>
 
-      <linkButton @onclick='openGameSystem' :isGameAvailable='isGameSystem'>
-        Автоматизированные системы
-      </linkButton>
-
       <linkButton @onclick='openGameDrone' :isGameAvailable='isGameDroneAvailable'>
         Дроны
+      </linkButton>
+
+      <linkButton @onclick='openGameSystem' :isGameAvailable='isGameSystem'>
+        Автоматизированные системы
       </linkButton>
 
       <div :class='styles.closeBtnWrapper'>
@@ -46,17 +46,17 @@ export default Vue.extend({
   methods: {
     openGameAI() {
       if (this.isGameAiAvailable) {
-        console.log('Open Game AI')
+        this.$router.push({ name: 'ai-game' })
       }
     },
     openGameDrone() {
       if (this.isGameDroneAvailable) {
-        this.$router.push({ name: 'robot-collector' })
+        this.$router.push({ name: 'pest-control' })
       }
     },
     openGameSystem() {
       if (this.isGameSystem) {
-        this.$router.push({ name: 'pest-control' })
+        this.$router.push({ name: 'robot-collector' })
       }
     }
   }
