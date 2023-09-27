@@ -48,8 +48,8 @@ import iconButton from '@/components/ui/button/iconButton/iconButton.vue'
 
 import mapBack from './mapBack/mapBack.vue'
 import { mapGetters, mapMutations } from 'vuex'
-import { EMapBackGetters } from '@/store/modules/homeScreen/getters'
-import { EHomeScreenMutation } from '@/store/modules/homeScreen/mutations'
+import { EN_HomeScreenGetters } from '@/store/modules/homeScreen/getters'
+import { EN_HomeScreenMutation } from '@/store/modules/homeScreen/mutations'
 
 export default Vue.extend({
   name: 'home',
@@ -63,7 +63,7 @@ export default Vue.extend({
   },
   computed: {
     ...mapGetters([
-      EMapBackGetters.GET_BACK_MUSIC_MAP,
+      EN_HomeScreenGetters.GET_BACK_MUSIC_MAP,
     ]),
   },
   created() {
@@ -71,7 +71,7 @@ export default Vue.extend({
   },
   methods: {
     ...mapMutations([
-      EHomeScreenMutation.PLAY_BACK_MUSIC_MAP
+      EN_HomeScreenMutation.PLAY_BACK_MUSIC_MAP
     ]),
     nextFunc() {
       console.log('Next step')

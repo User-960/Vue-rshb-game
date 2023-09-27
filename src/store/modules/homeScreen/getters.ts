@@ -3,7 +3,7 @@ import { GetterTree } from 'vuex'
 import { IHomeScreenState } from './types'
 import { IRootState } from '@/store/types'
 
-export enum EMapBackGetters {
+export enum EN_HomeScreenGetters {
 	GET_MODAL_HOUSE_VISIBLE = 'GET_MODAL_HOUSE_VISIBLE',
 	GET_MODAL_BANK_VISIBLE = 'GET_MODAL_BANK_VISIBLE',
 	GET_MODAL_SHOP_VISIBLE = 'GET_MODAL_SHOP_VISIBLE',
@@ -11,8 +11,11 @@ export enum EMapBackGetters {
 }
 
 export const getters: GetterTree<IHomeScreenState, IRootState> = {
-	[EMapBackGetters.GET_MODAL_HOUSE_VISIBLE]: state => state.isModalHouseVisible,
-	[EMapBackGetters.GET_MODAL_BANK_VISIBLE]: state => state.isModalBankVisible,
-	[EMapBackGetters.GET_MODAL_SHOP_VISIBLE]: state => state.isModalShopVisible,
-	[EMapBackGetters.GET_BACK_MUSIC_MAP]: state => state.isPlayMusic
+	[EN_HomeScreenGetters.GET_MODAL_HOUSE_VISIBLE]: state =>
+		state.isModalHouseVisible,
+	[EN_HomeScreenGetters.GET_MODAL_BANK_VISIBLE]: state =>
+		state.isModalBankVisible,
+	[EN_HomeScreenGetters.GET_MODAL_SHOP_VISIBLE]: state =>
+		state.isModalShopVisible,
+	[EN_HomeScreenGetters.GET_BACK_MUSIC_MAP]: state => state.isPlayMusic
 }

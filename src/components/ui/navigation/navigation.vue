@@ -24,7 +24,7 @@
 import Vue from 'vue'
 import iconButton from '../button/iconButton/iconButton.vue'
 import { mapActions, mapMutations } from 'vuex'
-import { EHomeScreenMutation } from '@/store/modules/homeScreen/mutations'
+import { EN_HomeScreenMutation } from '@/store/modules/homeScreen/mutations'
 import { EPlayerDataActions } from '@/store/modules/playerData/actions'
 import { ENUSER } from '@/config/app.constants'
 
@@ -36,9 +36,9 @@ export default Vue.extend({
   methods: {
     ...mapActions([EPlayerDataActions.GET_PLAYER]),
     ...mapMutations([
-      EHomeScreenMutation.SHOW_MODAL_BANK, 
-      EHomeScreenMutation.SHOW_MODAL_SHOP, 
-      EHomeScreenMutation.STOP_BACK_MUSIC_MAP
+      EN_HomeScreenMutation.SHOW_MODAL_BANK, 
+      EN_HomeScreenMutation.SHOW_MODAL_SHOP, 
+      EN_HomeScreenMutation.STOP_BACK_MUSIC_MAP
     ]),
     turnOffVolume() {
       let id = localStorage.getItem(ENUSER.PLAYER_ID)

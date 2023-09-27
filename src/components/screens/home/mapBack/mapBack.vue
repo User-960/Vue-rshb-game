@@ -53,7 +53,7 @@ import navBar from '../navBar/navBar.vue'
 import modalHouse from '../modalHouse/modalHouse.vue'
 import modalBank from '../modalBank/modalBank.vue'
 import { mapMutations } from 'vuex'
-import { EHomeScreenMutation } from '@/store/modules/homeScreen/mutations'
+import { EN_HomeScreenMutation } from '@/store/modules/homeScreen/mutations'
 import modalShop from '../modalShop/modalShop.vue'
 
 // import { ref } from 'vue'
@@ -80,7 +80,7 @@ export default Vue.extend({
     modalShop
   },
   methods: {
-    ...mapMutations([EHomeScreenMutation.SHOW_MODAL_HOUSE]),
+    ...mapMutations([EN_HomeScreenMutation.SHOW_MODAL_HOUSE]),
     openFirstGame() {
       console.log('Open First Game')
     },

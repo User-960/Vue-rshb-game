@@ -99,8 +99,8 @@ import Vue from 'vue'
 import linkButton from '../../../ui/button/linkButton/linkButton.vue'
 import closeButton from '../../../ui/button/closeButton/closeButton.vue'
 import { mapMutations, mapGetters } from 'vuex'
-import { EMapBackGetters } from '../../../../store/modules/homeScreen/getters'
-import { EHomeScreenMutation } from '../../../../store/modules/homeScreen/mutations'
+import { EN_HomeScreenGetters } from '../../../../store/modules/homeScreen/getters'
+import { EN_HomeScreenMutation } from '../../../../store/modules/homeScreen/mutations'
 import bank from '../../../ui/bank/bank.vue'
 import skipButton from '../../../ui/button/skipButton/skipButton.vue'
 
@@ -118,10 +118,10 @@ export default Vue.extend({
     closeButton
   },
   computed: {
-    ...mapGetters([EMapBackGetters.GET_MODAL_BANK_VISIBLE]),
+    ...mapGetters([EN_HomeScreenGetters.GET_MODAL_BANK_VISIBLE]),
   },
   methods: {
-    ...mapMutations([EHomeScreenMutation.HIDE_MODAL_BANK]),
+    ...mapMutations([EN_HomeScreenMutation.HIDE_MODAL_BANK]),
     takeCredit() {
       if (this.isFirstCredit) {
         this.isFirstCredit = false

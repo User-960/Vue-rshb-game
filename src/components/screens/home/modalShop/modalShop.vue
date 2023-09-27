@@ -94,7 +94,7 @@ import shopLinkButton from '../../../ui/button/shopButton/shopLinkButton/shopLin
 import sellButton from '../../../ui/button/shopButton/sellButton/sellButton.vue'
 import closeButton from '../../../ui/button/closeButton/closeButton.vue'
 import { mapGetters } from 'vuex'
-import { EMapBackGetters } from '@/store/modules/homeScreen/getters'
+import { EN_HomeScreenGetters } from '@/store/modules/homeScreen/getters'
 
 const mockData = [
   {
@@ -159,7 +159,7 @@ export default Vue.extend({
     sellButton
   },
   computed: {
-    ...mapGetters([EMapBackGetters.GET_MODAL_SHOP_VISIBLE]),
+    ...mapGetters([EN_HomeScreenGetters.GET_MODAL_SHOP_VISIBLE]),
   },
   methods: {
     choiceShopA() {

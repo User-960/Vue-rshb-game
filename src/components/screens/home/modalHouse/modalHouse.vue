@@ -27,7 +27,7 @@ import Vue from 'vue'
 import linkButton from '../../../ui/button/linkButton/linkButton.vue'
 import closeButton from '../../../ui/button/closeButton/closeButton.vue'
 import { mapGetters } from 'vuex'
-import { EMapBackGetters } from '@/store/modules/homeScreen/getters'
+import { EN_HomeScreenGetters } from '@/store/modules/homeScreen/getters'
 
 export default Vue.extend({
   name: 'modalHouse',
@@ -41,7 +41,7 @@ export default Vue.extend({
     closeButton
   },
   computed: {
-    ...mapGetters([EMapBackGetters.GET_MODAL_HOUSE_VISIBLE]),
+    ...mapGetters([EN_HomeScreenGetters.GET_MODAL_HOUSE_VISIBLE]),
   },
   methods: {
     openGameAI() {
