@@ -75,7 +75,7 @@ export const mutations: MutationTree<IAiGameState> = {
 		state.gameLoop += 1
 	},
 	[EN_AiGameMutation.PLUS_POINTS_AI](state) {
-		state.points += 5
+		state.points += 10
 	},
 	[EN_AiGameMutation.MINUS_POINTS_AI](state) {
 		state.gameLoop -= 5

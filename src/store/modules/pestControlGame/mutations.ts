@@ -72,7 +72,7 @@ export const mutations: MutationTree<IPestControlGameState> = {
 		state.gameLoop += 1
 	},
 	[EN_PestControlGameMutation.PLUS_POINTS_PS](state) {
-		state.points += 5
+		state.points += 10
 	},
 	[EN_PestControlGameMutation.MINUS_POINTS_PS](state) {
 		state.gameLoop -= 5

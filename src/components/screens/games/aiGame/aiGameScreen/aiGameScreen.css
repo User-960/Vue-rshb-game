@@ -61,6 +61,7 @@
 	margin-left: 20px;
 }
 
+/* Level images */
 .aiLevelImgWrapper {
 	position: relative;
 }
@@ -77,6 +78,15 @@
 	cursor: pointer;
 }
 
+.aiTomatoLevelImgActive:hover {
+	border-color: var(--primary-green);
+}
+
+.aiTomatoLevelImgActive {
+	border-color: var(--primary-green);
+}
+
+/* Restart buttons */
 .restartSystemBtn {
 	margin-top: 8px;
 	display: flex;
@@ -87,12 +97,24 @@
 	width: 100%;
 	padding: 8px 10px;
 	border-radius: 8px;
-	border: 2px solid var(--primary-green);
+	border: 2px solid var(--secondary-text-gray-dark);
 
-	color: var(--primary-green);
+	color: var(--secondary-text-gray-dark);
 	font-size: 12px;
 	font-weight: 500;
 	line-height: 20px;
+
+	cursor: not-allowed;
+}
+
+.isTomatoBtnRestartActive:hover {
+	border: 2px solid var(--primary-green);
+	color: var(--primary-green);
+}
+
+.isTomatoBtnRestartActive {
+	border: 2px solid var(--primary-green);
+	color: var(--primary-green);
 
 	cursor: pointer;
 }
@@ -161,6 +183,8 @@
 	font-size: 10px;
 	font-weight: 500;
 	line-height: 8px;
+
+	animation: indicatorNumberReturn 1s;
 }
 
 .moistureLineFull {
@@ -174,6 +198,8 @@
 	height: 12px;
 	border-radius: 4px;
 	background-color: #2e55bc;
+
+	animation: clearLine 1s;
 }
 
 .moistureNumberCritical::after {
@@ -190,7 +216,7 @@
 	width: 50px;
 	background-color: var(--secondary-hover-red-dark);
 
-	animation: widthLine 1s;
+	animation: fillLine 1s;
 }
 
 .temperatureItem {
@@ -219,6 +245,8 @@
 	height: 12px;
 	border-radius: 4px;
 	background-color: var(--secondary-hover-yellow);
+
+	animation: clearLine 1s;
 }
 
 .temperatureNumber::after {
@@ -236,11 +264,14 @@
 	font-size: 10px;
 	font-weight: 500;
 	line-height: 8px;
+
+	animation: indicatorNumberReturn 1s;
 }
 
 .temperatureNumberCritical::after {
 	left: 40px;
 	content: '50%';
+
 	animation: indicatorNumber 1s;
 }
 
@@ -252,7 +283,7 @@
 	width: 50px;
 	background-color: var(--secondary-hover-red-dark);
 
-	animation: widthLine 1s;
+	animation: fillLine 1s;
 }
 
 .autoSystemItem {
@@ -281,6 +312,8 @@
 	height: 12px;
 	border-radius: 4px;
 	background-color: var(--primary-green);
+
+	animation: clearLine 1s;
 }
 
 .autoSystemNumber::after {
@@ -298,11 +331,14 @@
 	font-size: 10px;
 	font-weight: 500;
 	line-height: 8px;
+
+	animation: indicatorNumberReturn 1s;
 }
 
 .autoSystemNumberCritical::after {
 	left: 40px;
 	content: '50%';
+
 	animation: indicatorNumber 1s;
 }
 
@@ -314,7 +350,7 @@
 	width: 50px;
 	background-color: var(--secondary-hover-red-dark);
 
-	animation: widthLine 1s;
+	animation: fillLine 1s;
 }
 
 .caterpillarItem {
@@ -330,6 +366,10 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+}
+
+.caterpillarIconCritical {
+	color: var(--secondary-text-gray-dark);
 }
 
 .caterpillarLineFull {
@@ -372,7 +412,7 @@
 	width: 50px;
 	background-color: var(--secondary-text-gray-dark);
 
-	animation: widthLine 1s;
+	animation: fillLine 1s;
 }
 
 /* Levels states */
@@ -385,7 +425,7 @@
 }
 
 /* animations */
-@keyframes widthLine {
+@keyframes fillLine {
 	0% {
 		width: 30px;
 	}
@@ -395,9 +435,19 @@
 	}
 }
 
+@keyframes clearLine {
+	0% {
+		width: 50px;
+	}
+
+	100% {
+		width: 30px;
+	}
+}
+
 @keyframes indicatorNumber {
 	0% {
-		left: 30px;
+		left: 20px;
 	}
 
 	50% {
@@ -406,5 +456,19 @@
 
 	100% {
 		left: 40px;
+	}
+}
+
+@keyframes indicatorNumberReturn {
+	0% {
+		left: 40px;
+	}
+
+	50% {
+		content: '30%';
+	}
+
+	100% {
+		left: 20px;
 	}
 }

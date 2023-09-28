@@ -3,12 +3,12 @@
     <div :class='styles.screen'>
       <ul :class='styles.levelsList'>
 
-        <li :class='styles.levelsItem' @click='chooseTomatoLevel'>
+        <li :class='styles.levelsItem'>
           <ul :class='styles.indicatorsList'>
             <li :class='[styles.indicatorsItem, styles.moistureItem]'>
               <div :class='[
                   styles.moistureIcon, 
-                  {[styles.moistureIconCritical]: isPepperLineCritical}
+                  {[styles.moistureIconCritical]: isTomatoMoistureLineCritical}
                 ]'
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="25" viewBox="0 0 20 25" fill="none">
@@ -19,8 +19,12 @@
               <div :class='styles.indicatorLine'>
                 <div :class='styles.indicatorLineWrapper'>
                   <p>0</p>
-                  <div :class='[styles.moistureNumber, {[styles.moistureNumberCritical]: isPepperLineCritical}]'></div>
-                  <div :class='[styles.moistureLineFull, {[styles.moistureLineFullCritical]: isPepperLineCritical}]'></div>
+                  <div :class='[styles.moistureNumber, {[styles.moistureNumberCritical]: isTomatoMoistureLineCritical}]'></div>
+                  <div :class='[
+                      styles.moistureLineFull, 
+                      {[styles.moistureLineFullCritical]: isTomatoMoistureLineCritical}
+                    ]'
+                  ></div>
                 </div>
               </div>
             </li>
@@ -28,7 +32,7 @@
             <li :class='[styles.indicatorsItem, styles.temperatureItem]'>
               <div :class='[
                   styles.temperatureIcon, 
-                  {[styles.temperatureIconCritical]: isPepperLineCritical}
+                  {[styles.temperatureIconCritical]: isTomatoTemperatureLineCritical}
                 ]'
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none">
@@ -39,8 +43,8 @@
               <div :class='styles.indicatorLine'>
                 <div :class='styles.indicatorLineWrapper'>
                   <p>0</p>
-                  <div :class='[styles.temperatureNumber, {[styles.temperatureNumberCritical]: isPepperLineCritical}]'></div>
-                  <div :class='[styles.temperatureLineFull, {[styles.temperatureLineFullCritical]: isPepperLineCritical}]'></div>
+                  <div :class='[styles.temperatureNumber, {[styles.temperatureNumberCritical]: isTomatoTemperatureLineCritical}]'></div>
+                  <div :class='[styles.temperatureLineFull, {[styles.temperatureLineFullCritical]: isTomatoTemperatureLineCritical}]'></div>
                 </div>
               </div>
             </li>
@@ -48,7 +52,7 @@
             <li :class='[styles.indicatorsItem, styles.autoSystemItem]'>
               <div :class='[
                   styles.autoSystemIcon, 
-                  {[styles.autoSystemIconCritical]: isPepperLineCritical}
+                  {[styles.autoSystemIconCritical]: isTomatoAutoSystemLineCritical}
                 ]'
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none">
@@ -59,16 +63,16 @@
               <div :class='styles.indicatorLine'>
                 <div :class='styles.indicatorLineWrapper'>
                   <p>0</p>
-                  <div :class='[styles.autoSystemNumber, {[styles.autoSystemNumberCritical]: isPepperLineCritical}]'></div>
-                  <div :class='[styles.autoSystemLineFull, {[styles.autoSystemLineFullCritical]: isPepperLineCritical}]'></div>
+                  <div :class='[styles.autoSystemNumber, {[styles.autoSystemNumberCritical]: isTomatoAutoSystemLineCritical}]'></div>
+                  <div :class='[styles.autoSystemLineFull, {[styles.autoSystemLineFullCritical]: isTomatoAutoSystemLineCritical}]'></div>
                 </div>
               </div>
             </li>
 
             <li :class='[styles.indicatorsItem, styles.caterpillarItem]'>
               <div :class='[
-                  styles.temperatureIcon, 
-                  {[styles.temperatureIconCritical]: isPepperLineCritical}
+                  styles.caterpillarIcon, 
+                  {[styles.caterpillarIconCritical]: isTomatoCaterpillarLineCritical}
                 ]'
               >
                 <img src='../../../../../../public/images/caterpillarAiGame.svg' alt='image of worm' draggable='false' />
@@ -77,19 +81,19 @@
               <div :class='styles.indicatorLine'>
                 <div :class='styles.indicatorLineWrapper'>
                   <p>0</p>
-                  <div :class='[styles.caterpillarNumber, {[styles.caterpillarNumberCritical]: isPepperLineCritical}]'></div>
-                  <div :class='[styles.caterpillarLineFull, {[styles.caterpillarLineFullCritical]: isPepperLineCritical}]'></div>
+                  <div :class='[styles.caterpillarNumber, {[styles.caterpillarNumberCritical]: isTomatoCaterpillarLineCritical}]'></div>
+                  <div :class='[styles.caterpillarLineFull, {[styles.caterpillarLineFullCritical]: isTomatoCaterpillarLineCritical}]'></div>
                 </div>
               </div>
             </li>
           </ul>
 
           <div :class='styles.aiLevel'>
-            <div :class='styles.aiLevelImgWrapper'>
+            <div :class='styles.aiLevelImgWrapper' @click='chooseTomatoLevel'>
               <img 
                 :class='[
                   styles.aiLevelImg, 
-                  {[styles.aiLevelImgActive]: isChosenTomatoLevel}
+                  {[styles.aiTomatoLevelImgActive]: isChosenTomatoLevel}
                 ]' 
                 src='../../../../../../public/images/tomatoBushGreen.svg' 
                 alt='image of first level' 
@@ -97,7 +101,12 @@
               />
             </div>
 
-            <button :class='styles.restartSystemBtn'>Перезапуск системы</button>
+            <button :class='[
+                styles.restartSystemBtn, 
+                {[styles.isTomatoBtnRestartActive]: isTomatoBtnRestart}
+              ]'
+              @click='restartTomatoSystem'
+            >Перезапуск системы</button>
           </div>
         </li>
         
@@ -106,7 +115,7 @@
             <li :class='[styles.indicatorsItem, styles.moistureItem]'>
               <div :class='[
                   styles.moistureIcon, 
-                  {[styles.moistureIconCritical]: isPepperLineCritical}
+                  {[styles.moistureIconCritical]: isStrawberryLineCritical}
                 ]'
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="25" viewBox="0 0 20 25" fill="none">
@@ -117,8 +126,8 @@
               <div :class='styles.indicatorLine'>
                 <div :class='styles.indicatorLineWrapper'>
                   <p>0</p>
-                  <div :class='[styles.moistureNumber, {[styles.moistureNumberCritical]: isPepperLineCritical}]'></div>
-                  <div :class='[styles.moistureLineFull, {[styles.moistureLineFullCritical]: isPepperLineCritical}]'></div>
+                  <div :class='[styles.moistureNumber, {[styles.moistureNumberCritical]: isStrawberryLineCritical}]'></div>
+                  <div :class='[styles.moistureLineFull, {[styles.moistureLineFullCritical]: isStrawberryLineCritical}]'></div>
                 </div>
               </div>
             </li>
@@ -126,7 +135,7 @@
             <li :class='[styles.indicatorsItem, styles.temperatureItem]'>
               <div :class='[
                   styles.temperatureIcon, 
-                  {[styles.temperatureIconCritical]: isPepperLineCritical}
+                  {[styles.temperatureIconCritical]: isStrawberryLineCritical}
                 ]'
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none">
@@ -137,8 +146,8 @@
               <div :class='styles.indicatorLine'>
                 <div :class='styles.indicatorLineWrapper'>
                   <p>0</p>
-                  <div :class='[styles.temperatureNumber, {[styles.temperatureNumberCritical]: isPepperLineCritical}]'></div>
-                  <div :class='[styles.temperatureLineFull, {[styles.temperatureLineFullCritical]: isPepperLineCritical}]'></div>
+                  <div :class='[styles.temperatureNumber, {[styles.temperatureNumberCritical]: isStrawberryLineCritical}]'></div>
+                  <div :class='[styles.temperatureLineFull, {[styles.temperatureLineFullCritical]: isStrawberryLineCritical}]'></div>
                 </div>
               </div>
             </li>
@@ -146,7 +155,7 @@
             <li :class='[styles.indicatorsItem, styles.autoSystemItem]'>
               <div :class='[
                   styles.autoSystemIcon, 
-                  {[styles.autoSystemIconCritical]: isPepperLineCritical}
+                  {[styles.autoSystemIconCritical]: isStrawberryLineCritical}
                 ]'
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none">
@@ -157,8 +166,8 @@
               <div :class='styles.indicatorLine'>
                 <div :class='styles.indicatorLineWrapper'>
                   <p>0</p>
-                  <div :class='[styles.autoSystemNumber, {[styles.autoSystemNumberCritical]: isPepperLineCritical}]'></div>
-                  <div :class='[styles.autoSystemLineFull, {[styles.autoSystemLineFullCritical]: isPepperLineCritical}]'></div>
+                  <div :class='[styles.autoSystemNumber, {[styles.autoSystemNumberCritical]: isStrawberryLineCritical}]'></div>
+                  <div :class='[styles.autoSystemLineFull, {[styles.autoSystemLineFullCritical]: isStrawberryLineCritical}]'></div>
                 </div>
               </div>
             </li>
@@ -166,7 +175,7 @@
             <li :class='[styles.indicatorsItem, styles.caterpillarItem]'>
               <div :class='[
                   styles.temperatureIcon, 
-                  {[styles.temperatureIconCritical]: isPepperLineCritical}
+                  {[styles.temperatureIconCritical]: isStrawberryLineCritical}
                 ]'
               >
                 <img src='../../../../../../public/images/bugAiGame.svg' alt='image of worm' draggable='false' />
@@ -175,8 +184,8 @@
               <div :class='styles.indicatorLine'>
                 <div :class='styles.indicatorLineWrapper'>
                   <p>0</p>
-                  <div :class='[styles.caterpillarNumber, {[styles.caterpillarNumberCritical]: isPepperLineCritical}]'></div>
-                  <div :class='[styles.caterpillarLineFull, {[styles.caterpillarLineFullCritical]: isPepperLineCritical}]'></div>
+                  <div :class='[styles.caterpillarNumber, {[styles.caterpillarNumberCritical]: isStrawberryLineCritical}]'></div>
+                  <div :class='[styles.caterpillarLineFull, {[styles.caterpillarLineFullCritical]: isStrawberryLineCritical}]'></div>
                 </div>
               </div>
             </li>
@@ -318,26 +327,15 @@ export default Vue.extend({
     isChosenPepperLevel: false,
     isChosenStrawberryLevel: false,
 
-    isUltrasoundTomatoActive: false,
-    isUltrasoundPepperActive: false,
-    isUltrasoundStrawberryActive: false,
+    isTomatoMoistureLineCritical: false,
+    isTomatoMoistureLineReturn: false,
+    isTomatoTemperatureLineCritical: false,
+    isTomatoAutoSystemLineCritical: false,
+    isTomatoCaterpillarLineCritical: false,
+    isTomatoBtnRestart: false,
 
-    isTomatoLineCritical: false,
     isPepperLineCritical: false,
     isStrawberryLineCritical: false,
-
-    isBugActive: false,
-    isLocustsActive: false,
-    isCaterpillarActive: false,
-
-    isDroneActive: false,
-
-    isDroneMovedTomato: false,
-    isDroneFinishWorkTomato: false,
-    isDroneMovedPepper: false,
-    isDroneFinishWorkPepper: false,
-    isDroneMovedStrawberry: false,
-    isDroneFinishWorkStrawberry: false
   }),
   computed: {
     ...mapGetters([
@@ -351,7 +349,7 @@ export default Vue.extend({
   watch: {
     GET_GAME_LOOP_AI() {
       if (this.GET_GAME_LOOP_AI < 4 && this.GET_START_GAME_AI) {
-        let numberLevel = getRandomNumber(1, 4)
+        let numberLevel = getRandomNumber(1, 2)
 
         if (this.GET_TOMATO_LEVEL_NUM_AI === numberLevel) {
           this.startTomatoLevel()
@@ -373,109 +371,38 @@ export default Vue.extend({
     },
     // Tomato Level
     isChosenTomatoLevel() {
-      if (this.isDroneActive && this.isCaterpillarActive && this.isTomatoLineCritical) {
-        this.isDroneMovedTomato = true
-      }
-
-      if (this.isDroneMovedTomato) {
-        setTimeout(() => {
-            this.isUltrasoundTomatoActive = true
-        }, EN_CONFIG.TIMING_DRONE_MOVED_TOMATO)
-      }
-    },
-    isUltrasoundTomatoActive() {
-      if (this.isUltrasoundTomatoActive && this.isChosenTomatoLevel && this.isTomatoLineCritical) {
-        setTimeout(() => {
-          this.isUltrasoundTomatoActive = false
-          this.isTomatoLineCritical = false
-          this.isChosenTomatoLevel = false
-          this.isDroneMovedTomato = false
-          this.isDroneFinishWorkTomato = true
-        }, EN_CONFIG.TIMING_ULTRASOUND_TOMATO)
-      }
-    },
-    isDroneFinishWorkTomato() {
-      if (this.isDroneFinishWorkTomato) {
-        setTimeout(() => {
-            this.isDroneFinishWorkTomato = false
-            this.isCaterpillarActive = false
-            this.isDroneActive = false
-            
-            this.PLUS_POINTS_AI()
-            this.GAME_LOOP_AI()
-        }, EN_CONFIG.TIMING_DRONE_RETURNED_TOMATO)
+      if (this.isChosenTomatoLevel &&
+          this.isTomatoMoistureLineCritical || 
+          this.isTomatoTemperatureLineCritical || 
+          this.isTomatoAutoSystemLineCritical
+        ) {
+        this.isTomatoBtnRestart = true
       }
     },
     // Pepper Level
     isChosenPepperLevel() {
-      if (this.isDroneActive && this.isBugActive  && this.isPepperLineCritical) {
-        this.isDroneMovedPepper = true
-      }
+      // if (this.isDroneActive && this.isBugActive  && this.isPepperLineCritical) {
+      //   this.isDroneMovedPepper = true
+      // }
 
-      if (this.isDroneMovedPepper) {
-        setTimeout(() => {
-            this.isUltrasoundPepperActive = true
-        }, EN_CONFIG.TIMING_DRONE_MOVED_PEPPER)
-      }
-    },
-    isUltrasoundPepperActive() {
-      if (this.isUltrasoundPepperActive && this.isChosenPepperLevel && this.isPepperLineCritical) {
-        setTimeout(() => {
-          this.isUltrasoundPepperActive = false
-          this.isPepperLineCritical = false
-          this.isChosenPepperLevel = false
-          this.isDroneMovedPepper = false
-          this.isDroneFinishWorkPepper = true
-        }, EN_CONFIG.TIMING_ULTRASOUND_PEPPER)
-      }
-    },
-    isDroneFinishWorkPepper() {
-      if (this.isDroneFinishWorkPepper) {
-        setTimeout(() => {
-            this.isDroneFinishWorkPepper = false
-            this.isBugActive = false
-            this.isDroneActive = false
-
-            this.PLUS_POINTS_AI()
-            this.GAME_LOOP_AI()
-        }, EN_CONFIG.TIMING_DRONE_RETURNED_PEPPER)
-      }
+      // if (this.isDroneMovedPepper) {
+      //   setTimeout(() => {
+      //       this.isUltrasoundPepperActive = true
+      //   }, EN_CONFIG.TIMING_DRONE_MOVED_PEPPER)
+      // }
     },
     // Strawberry Level
     isChosenStrawberryLevel() {
-      if (this.isDroneActive && this.isLocustsActive && this.isStrawberryLineCritical) {
-        this.isDroneMovedStrawberry = true
-      }
+      // if (this.isDroneActive && this.isLocustsActive && this.isStrawberryLineCritical) {
+      //   this.isDroneMovedStrawberry = true
+      // }
 
-      if (this.isDroneMovedStrawberry) {
-        setTimeout(() => {
-            this.isUltrasoundStrawberryActive = true
-        }, EN_CONFIG.TIMING_DRONE_MOVED_STRAWBERRY)
-      }
+      // if (this.isDroneMovedStrawberry) {
+      //   setTimeout(() => {
+      //       this.isUltrasoundStrawberryActive = true
+      //   }, EN_CONFIG.TIMING_DRONE_MOVED_STRAWBERRY)
+      // }
     },
-    isUltrasoundStrawberryActive() {
-      if (this.isUltrasoundStrawberryActive && this.isChosenStrawberryLevel && this.isStrawberryLineCritical) {
-        setTimeout(() => {
-          this.isUltrasoundStrawberryActive = false
-          this.isStrawberryLineCritical = false
-          this.isChosenStrawberryLevel = false
-          this.isDroneMovedStrawberry = false
-          this.isDroneFinishWorkStrawberry = true
-        }, EN_CONFIG.TIMING_ULTRASOUND_STRAWBERRY)
-      }
-    },
-    isDroneFinishWorkStrawberry() {
-      if (this.isDroneFinishWorkStrawberry) {
-        setTimeout(() => {
-            this.isDroneFinishWorkStrawberry = false
-            this.isLocustsActive = false
-            this.isDroneActive = false
-
-            this.PLUS_POINTS_AI()
-            this.GAME_LOOP_AI()
-        }, EN_CONFIG.TIMING_DRONE_RETURNED_STRAWBERRY)
-      }
-    }
   },
   components: {},
   methods: {
@@ -487,9 +414,25 @@ export default Vue.extend({
       EN_AiGameMutation.SHOW_VICTORY_BLOCK_AI
     ]),
     startTomatoLevel() {
-      setTimeout(() => {
-        this.isTomatoLineCritical = true
-      }, EN_CONFIG.TIMING_LINE_CRITICAL_TOMATO)
+      let numberIndicator = getRandomNumber(1, 4)
+
+      if (numberIndicator === 1) {
+        setTimeout(() => {
+          this.isTomatoMoistureLineCritical = true
+        }, EN_CONFIG.TIMING_LINE_CRITICAL_TOMATO)
+      }
+
+      if (numberIndicator === 2) {
+        setTimeout(() => {
+          this.isTomatoTemperatureLineCritical = true
+        }, EN_CONFIG.TIMING_LINE_CRITICAL_TOMATO)
+      }
+
+      if (numberIndicator === 3) {
+        setTimeout(() => {
+          this.isTomatoAutoSystemLineCritical = true
+        }, EN_CONFIG.TIMING_LINE_CRITICAL_TOMATO)
+      }
     },
     startPepperLevel() {
       setTimeout(() => {
@@ -502,8 +445,10 @@ export default Vue.extend({
       }, EN_CONFIG.TIMING_LINE_CRITICAL_STRAWBERRY)
     },
     chooseTomatoLevel() {
-      if (this.isDroneActive && this.isCaterpillarActive && this.isTomatoLineCritical) {
-        // const audio = AUDIO_CONFIG.AUDIO_CHOOSE_ACTION_COMPUTER
+      if (this.isTomatoMoistureLineCritical || 
+      this.isTomatoTemperatureLineCritical || 
+      this.isTomatoAutoSystemLineCritical) {
+
         const audio = new Audio(AUDIO_CONFIG.AUDIO_CHOOSE_ACTION_COMPUTER)
 		    audio.autoplay = true
 		    audio.volume = 1
@@ -514,7 +459,7 @@ export default Vue.extend({
       }
     },
     choosePepperLevel() {
-      if (this.isDroneActive && this.isBugActive && this.isPepperLineCritical) {
+      if (this.isPepperLineCritical) {
         const audio = new Audio(AUDIO_CONFIG.AUDIO_CHOOSE_ACTION_COMPUTER)
 		    audio.autoplay = true
 		    audio.volume = 1
@@ -525,7 +470,7 @@ export default Vue.extend({
       }
     },
     chooseStrawberryLevel() {
-      if (this.isDroneActive && this.isLocustsActive && this.isStrawberryLineCritical) {
+      if (this.isStrawberryLineCritical) {
         const audio = new Audio(AUDIO_CONFIG.AUDIO_CHOOSE_ACTION_COMPUTER)
 		    audio.autoplay = true
 		    audio.volume = 1
@@ -535,30 +480,22 @@ export default Vue.extend({
         this.isChosenStrawberryLevel = true
       }
     },
-    selectBug() {
-      if (this.isPepperLineCritical) {
-        this.isCaterpillarActive = false
-        this.isLocustsActive = false
-        this.isBugActive = true
-      }
-    },
-    selectLocusts() {
-      if (this.isStrawberryLineCritical) {
-        this.isCaterpillarActive = false
-        this.isBugActive = false
-        this.isLocustsActive = true
-      }
-    },
-    selectCaterpillar() {
-      if (this.isTomatoLineCritical) {
-        this.isLocustsActive = false
-        this.isBugActive = false
-        this.isCaterpillarActive = true
-      }
-    },
-    selectDrone() {
-      if (this.isBugActive || this.isLocustsActive || this.isCaterpillarActive) {
-        this.isDroneActive = true
+    restartTomatoSystem() {
+      if (this.isTomatoBtnRestart) {
+        if (this.isTomatoMoistureLineCritical || 
+            this.isTomatoTemperatureLineCritical || 
+            this.isTomatoAutoSystemLineCritical
+          ) {
+          this.isTomatoMoistureLineCritical = false
+          this.isTomatoTemperatureLineCritical = false
+          this.isTomatoAutoSystemLineCritical = false
+
+          this.isChosenTomatoLevel = false
+          this.isTomatoBtnRestart = false
+
+          this.PLUS_POINTS_AI()
+          this.GAME_LOOP_AI()
+        }
       }
     }
   }
