@@ -11,4 +11,6 @@ export interface IAiGameState {
 	points: number
 	isPlayBackMusic: boolean
 	timer: number
+	isChosenBook: boolean
+	isChosenNumPad: boolean
 }

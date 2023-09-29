@@ -19,7 +19,11 @@ export enum EN_AiGameMutation {
 	MINUS_POINTS_AI = 'MINUS_POINTS_AI',
 	START_FINISH_TIMER_AI = 'START_FINISH_TIMER_AI',
 	PLAY_BACK_MUSIC_GAME_AI = 'PLAY_BACK_MUSIC_GAME_AI',
-	STOP_BACK_MUSIC_GAME_AI = 'STOP_BACK_MUSIC_GAME_AI'
+	STOP_BACK_MUSIC_GAME_AI = 'STOP_BACK_MUSIC_GAME_AI',
+	CHOOSE_BOOK_AI = 'CHOOSE_BOOK_AI',
+	NOT_CHOOSE_BOOK_AI = 'NOT_CHOOSE_BOOK_AI',
+	CHOOSE_NUMPAD_AI = 'CHOOSE_NUMPAD_AI',
+	NOT_CHOOSE_NUMPAD_AI = 'NOT_CHOOSE_NUMPAD_AI'
 }
 
 const audioBackAi = new Audio(AUDIO_CONFIG.AUDIO_BACK_MUSIC_PEST_CONTROL_GAME)
@@ -78,13 +82,17 @@ export const mutations: MutationTree<IAiGameState> = {
 		state.points += 10
 	},
 	[EN_AiGameMutation.MINUS_POINTS_AI](state) {
-		state.gameLoop -= 5
+		state.points -= 5
 	},
 	[EN_AiGameMutation.START_FINISH_TIMER_AI](state) {
-		if (state.timer > 0) {
+		if (state.timer > 0 && !state.isLossBlockVisible) {
 			timer = setInterval(() => {
 				state.timer -= 1
 			}, 1000)
+		}
+
+		if (state.isLossBlockVisible) {
+			clearInterval(timer)
 		}
 
 		if (state.timer === 0) {
@@ -110,5 +118,17 @@ export const mutations: MutationTree<IAiGameState> = {
 		if (!state.isPlayBackMusic) {
 			audioBackAi.autoplay = false
 		}
+	},
+	[EN_AiGameMutation.CHOOSE_BOOK_AI](state) {
+		state.isChosenBook = true
+	},
+	[EN_AiGameMutation.NOT_CHOOSE_BOOK_AI](state) {
+		state.isChosenBook = false
+	},
+	[EN_AiGameMutation.CHOOSE_NUMPAD_AI](state) {
+		state.isChosenNumPad = true
+	},
+	[EN_AiGameMutation.NOT_CHOOSE_NUMPAD_AI](state) {
+		state.isChosenNumPad = false
 	}
 }

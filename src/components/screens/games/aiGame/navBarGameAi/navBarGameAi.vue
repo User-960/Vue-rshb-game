@@ -77,14 +77,17 @@ export default Vue.extend({
     GET_TIMER_AI() {
       if (this.GET_TIMER_AI === 0) {
         this.START_FINISH_TIMER_AI()
-        this.SHOW_VICTORY_BLOCK_AI()
+        if (!this.GET_LOSS_BLOCK_AI) {
+          this.SHOW_VICTORY_BLOCK_AI()
+        }
       }
     }
   },
   computed: {
     ...mapGetters([
       EN_AiGameGetters.GET_POINTS_AI,
-      EN_AiGameGetters.GET_TIMER_AI
+      EN_AiGameGetters.GET_TIMER_AI,
+      EN_AiGameGetters.GET_LOSS_BLOCK_AI
     ]),
   },
   methods: {

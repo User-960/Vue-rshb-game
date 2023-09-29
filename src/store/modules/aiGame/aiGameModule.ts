@@ -18,7 +18,9 @@ const state: IAiGameState = {
 	strawberryLevel: 3,
 	points: 0,
 	isPlayBackMusic: false,
-	timer: 20
+	timer: 20,
+	isChosenBook: false,
+	isChosenNumPad: false
 }
 
 export const getDefaultAiGameState = () => {

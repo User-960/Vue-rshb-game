@@ -172,9 +172,9 @@
 	display: block;
 	position: absolute;
 	top: -15px;
-	left: 20px;
+	left: 60px;
 
-	content: '30%';
+	content: '70%';
 	padding: 2px 4px 2px 4px;
 
 	background-color: var(--primary-black);
@@ -184,13 +184,13 @@
 	font-weight: 500;
 	line-height: 8px;
 
-	animation: indicatorNumberReturn 1s;
+	animation: indicatorMoistureNumberReturn 1s;
 }
 
 .moistureLineFull {
 	max-width: 100px;
 	min-width: 30px;
-	width: 30px;
+	width: 70px;
 
 	position: absolute;
 	top: 0px;
@@ -199,13 +199,13 @@
 	border-radius: 4px;
 	background-color: #2e55bc;
 
-	animation: clearLine 1s;
+	animation: clearMoistureLine 1s;
 }
 
 .moistureNumberCritical::after {
-	left: 40px;
-	content: '50%';
-	animation: indicatorNumber 1s;
+	left: 30px;
+	content: '40%';
+	animation: indicatorMoistureNumber 1s;
 }
 
 .moistureIconCritical {
@@ -213,10 +213,10 @@
 }
 
 .moistureLineFullCritical {
-	width: 50px;
+	width: 40px;
 	background-color: var(--secondary-hover-red-dark);
 
-	animation: fillLine 1s;
+	animation: fillMoistureLine 1s;
 }
 
 .temperatureItem {
@@ -237,7 +237,7 @@
 .temperatureLineFull {
 	max-width: 100px;
 	min-width: 20px;
-	width: 30px;
+	width: 23px;
 
 	position: absolute;
 	top: 0px;
@@ -246,16 +246,16 @@
 	border-radius: 4px;
 	background-color: var(--secondary-hover-yellow);
 
-	animation: clearLine 1s;
+	animation: clearTempLine 1s;
 }
 
 .temperatureNumber::after {
 	display: block;
 	position: absolute;
 	top: -15px;
-	left: 20px;
+	left: 13px;
 
-	content: '30%';
+	content: '23⁰C';
 	padding: 2px 4px 2px 4px;
 
 	background-color: var(--primary-black);
@@ -265,14 +265,14 @@
 	font-weight: 500;
 	line-height: 8px;
 
-	animation: indicatorNumberReturn 1s;
+	animation: indicatorTempNumberReturn 1s;
 }
 
 .temperatureNumberCritical::after {
-	left: 40px;
-	content: '50%';
+	left: 35px;
+	content: '45⁰C';
 
-	animation: indicatorNumber 1s;
+	animation: indicatorTempNumber 1s;
 }
 
 .temperatureIconCritical {
@@ -280,17 +280,17 @@
 }
 
 .temperatureLineFullCritical {
-	width: 50px;
+	width: 45px;
 	background-color: var(--secondary-hover-red-dark);
 
-	animation: fillLine 1s;
+	animation: fillTempLine 1s;
 }
 
-.autoSystemItem {
+.healthItem {
 	color: var(--primary-green);
 }
 
-.autoSystemIcon {
+.healthIcon {
 	max-width: 44px;
 	max-height: 44px;
 	width: 100%;
@@ -301,10 +301,10 @@
 	justify-content: center;
 }
 
-.autoSystemLineFull {
+.healthLineFull {
 	max-width: 100px;
 	min-width: 20px;
-	width: 30px;
+	width: 100px;
 
 	position: absolute;
 	top: 0px;
@@ -312,17 +312,15 @@
 	height: 12px;
 	border-radius: 4px;
 	background-color: var(--primary-green);
-
-	animation: clearLine 1s;
 }
 
-.autoSystemNumber::after {
+.healthNumber::after {
 	display: block;
 	position: absolute;
 	top: -15px;
-	left: 20px;
+	left: 80px;
 
-	content: '30%';
+	content: '100%';
 	padding: 2px 4px 2px 4px;
 
 	background-color: var(--primary-black);
@@ -331,26 +329,24 @@
 	font-size: 10px;
 	font-weight: 500;
 	line-height: 8px;
-
-	animation: indicatorNumberReturn 1s;
 }
 
-.autoSystemNumberCritical::after {
+.healthNumberCritical::after {
 	left: 40px;
 	content: '50%';
 
-	animation: indicatorNumber 1s;
+	animation: indicatorHealthyNumber 1s;
 }
 
-.autoSystemIconCritical {
+.healthIconCritical {
 	color: var(--secondary-hover-red-dark);
 }
 
-.autoSystemLineFullCritical {
+.healthLineFullCritical {
 	width: 50px;
 	background-color: var(--secondary-hover-red-dark);
 
-	animation: fillLine 1s;
+	animation: clearHealthyLine 1s;
 }
 
 .caterpillarItem {
@@ -425,9 +421,105 @@
 }
 
 /* animations */
-@keyframes fillLine {
+@keyframes fillMoistureLine {
 	0% {
-		width: 30px;
+		width: 70px;
+	}
+
+	100% {
+		width: 40px;
+	}
+}
+
+@keyframes clearMoistureLine {
+	0% {
+		width: 40px;
+	}
+
+	100% {
+		width: 70px;
+	}
+}
+
+@keyframes indicatorMoistureNumber {
+	0% {
+		left: 60px;
+	}
+
+	50% {
+		content: '40%';
+	}
+
+	100% {
+		left: 30px;
+	}
+}
+
+@keyframes indicatorMoistureNumberReturn {
+	0% {
+		left: 30px;
+	}
+
+	50% {
+		content: '70%';
+	}
+
+	100% {
+		left: 60px;
+	}
+}
+
+@keyframes fillTempLine {
+	0% {
+		width: 23px;
+	}
+
+	100% {
+		width: 45px;
+	}
+}
+
+@keyframes clearTempLine {
+	0% {
+		width: 45px;
+	}
+
+	100% {
+		width: 23px;
+	}
+}
+
+@keyframes indicatorTempNumber {
+	0% {
+		left: 13px;
+	}
+
+	50% {
+		content: '35⁰C';
+	}
+
+	100% {
+		left: 25px;
+	}
+}
+
+@keyframes indicatorTempNumberReturn {
+	0% {
+		left: 25px;
+	}
+
+	50% {
+		content: '23⁰C';
+	}
+
+	100% {
+		left: 13px;
+	}
+}
+
+@keyframes clearHealthyLine {
+	0% {
+		width: 100px;
 	}
 
 	100% {
@@ -435,19 +527,9 @@
 	}
 }
 
-@keyframes clearLine {
+@keyframes indicatorHealthyNumber {
 	0% {
-		width: 50px;
-	}
-
-	100% {
-		width: 30px;
-	}
-}
-
-@keyframes indicatorNumber {
-	0% {
-		left: 20px;
+		left: 80px;
 	}
 
 	50% {
@@ -456,19 +538,5 @@
 
 	100% {
 		left: 40px;
-	}
-}
-
-@keyframes indicatorNumberReturn {
-	0% {
-		left: 40px;
-	}
-
-	50% {
-		content: '30%';
-	}
-
-	100% {
-		left: 20px;
 	}
 }
