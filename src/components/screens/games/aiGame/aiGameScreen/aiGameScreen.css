@@ -303,7 +303,7 @@
 
 .healthLineFull {
 	max-width: 100px;
-	min-width: 20px;
+	min-width: 0px;
 	width: 100px;
 
 	position: absolute;
@@ -338,6 +338,13 @@
 	animation: indicatorHealthyNumber 1s;
 }
 
+.healthNumberEmpty::after {
+	left: 0px;
+	content: '0%';
+
+	animation: indicatorHealthyEmptyNumber 1s;
+}
+
 .healthIconCritical {
 	color: var(--secondary-hover-red-dark);
 }
@@ -347,6 +354,13 @@
 	background-color: var(--secondary-hover-red-dark);
 
 	animation: clearHealthyLine 1s;
+}
+
+.healthLineEmptyCritical {
+	width: 0px;
+	background-color: var(--secondary-hover-red-dark);
+
+	animation: emptyHealthyLine 1s;
 }
 
 .caterpillarItem {
@@ -546,6 +560,16 @@
 	}
 }
 
+@keyframes emptyHealthyLine {
+	0% {
+		width: 20px;
+	}
+
+	100% {
+		width: 0px;
+	}
+}
+
 @keyframes indicatorHealthyNumber {
 	0% {
 		left: 80px;
@@ -557,5 +581,19 @@
 
 	100% {
 		left: 40px;
+	}
+}
+
+@keyframes indicatorHealthyEmptyNumber {
+	0% {
+		left: 40px;
+	}
+
+	50% {
+		content: '0%';
+	}
+
+	100% {
+		left: 0px;
 	}
 }

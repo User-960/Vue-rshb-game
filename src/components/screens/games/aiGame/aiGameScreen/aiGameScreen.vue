@@ -63,8 +63,18 @@
               <div :class='styles.indicatorLine'>
                 <div :class='styles.indicatorLineWrapper'>
                   <p>0</p>
-                  <div :class='[styles.healthNumber, {[styles.healthNumberCritical]: isTomatoHealthLineCritical}]'></div>
-                  <div :class='[styles.healthLineFull, {[styles.healthLineFullCritical]: isTomatoHealthLineCritical}]'></div>
+                  <div :class='[
+                      styles.healthNumber, 
+                      {[styles.healthNumberCritical]: isTomatoHealthLineCritical,
+                      [styles.healthNumberEmpty]: isTomatoHealthLineEmpty}
+                    ]'
+                  ></div>
+                  <div :class='[
+                        styles.healthLineFull, 
+                        {[styles.healthLineFullCritical]: isTomatoHealthLineCritical,
+                        [styles.healthLineEmptyCritical]: isTomatoHealthLineEmpty}
+                      ]'
+                  ></div>
                 </div>
               </div>
             </li>
@@ -110,7 +120,7 @@
           </div>
         </li>
         
-        <li :class='styles.levelsItem' @click='chooseTomatoLevel'>
+        <li :class='styles.levelsItem' @click='choosePepperLevel'>
           <ul :class='styles.indicatorsList'>
             <li :class='[styles.indicatorsItem, styles.moistureItem]'>
               <div :class='[
@@ -196,7 +206,7 @@
               <img 
                 :class='[
                   styles.aiLevelImg, 
-                  {[styles.aiLevelImgActive]: isChosenTomatoLevel}
+                  {[styles.aiLevelImgActive]: isChosenPepperLevel}
                 ]' 
                 src='../../../../../../public/images/pepperBushGreen.svg' 
                 alt='image of first level' 
@@ -208,7 +218,7 @@
           </div>
         </li>
 
-        <li :class='styles.levelsItem' @click='chooseTomatoLevel'>
+        <li :class='styles.levelsItem' @click='chooseStrawberryLevel'>
           <ul :class='styles.indicatorsList'>
             <li :class='[styles.indicatorsItem, styles.moistureItem]'>
               <div :class='[
@@ -294,7 +304,7 @@
               <img 
                 :class='[
                   styles.aiLevelImg, 
-                  {[styles.aiLevelImgActive]: isChosenTomatoLevel}
+                  {[styles.aiLevelImgActive]: isChosenStrawberryLevel}
                 ]' 
                 src='../../../../../../public/images/strawberryBushGreen.svg' 
                 alt='image of first level' 
@@ -339,6 +349,7 @@ export default Vue.extend({
     isTomatoMoistureLineReturn: false,
     isTomatoTemperatureLineCritical: false,
     isTomatoHealthLineCritical: false,
+    isTomatoHealthLineEmpty: false,
     isTomatoCaterpillarLineCritical: false,
     isTomatoBtnRestart: false,
     tomatoLevelMistakes: 1,
@@ -412,12 +423,15 @@ export default Vue.extend({
               this.isTomatoMoistureLineCritical
             ) {
               if (this.tomatoLevelMistakes === 2) {
-                this.NOT_CHOOSE_BOOK_AI()
-                this.NOT_CHOOSE_NUMPAD_AI()
+                this.isTomatoHealthLineEmpty = true
+                setTimeout(() => {
+                  this.NOT_CHOOSE_BOOK_AI()
+                  this.NOT_CHOOSE_NUMPAD_AI()
+                  this.MINUS_POINTS_AI()
+                  this.SHOW_LOSS_BLOCK_AI()
+                  this.START_FINISH_TIMER_AI()
+                }, 1000)
 
-                this.MINUS_POINTS_AI()
-                this.SHOW_LOSS_BLOCK_AI()
-                this.START_FINISH_TIMER_AI()
               } else {
                 this.isTomatoHealthLineCritical = true
                 this.tomatoLevelMistakes += 1
@@ -443,9 +457,12 @@ export default Vue.extend({
               this.isTomatoSystemBroken
             ) {
               if (this.tomatoLevelMistakes === 2) {
-                this.MINUS_POINTS_AI()
-                this.SHOW_LOSS_BLOCK_AI()
-                this.START_FINISH_TIMER_AI()
+                this.isTomatoHealthLineEmpty = true
+                setTimeout(() => {
+                  this.MINUS_POINTS_AI()
+                  this.SHOW_LOSS_BLOCK_AI()
+                  this.START_FINISH_TIMER_AI()
+                }, 1000)
               } else {
                 this.isTomatoHealthLineCritical = true
                 this.isTomatoBtnRestart = false

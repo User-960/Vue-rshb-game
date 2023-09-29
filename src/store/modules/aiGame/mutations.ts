@@ -120,13 +120,17 @@ export const mutations: MutationTree<IAiGameState> = {
 		}
 	},
 	[EN_AiGameMutation.CHOOSE_BOOK_AI](state) {
-		state.isChosenBook = true
+		if (!state.isChosenNumPad) {
+			state.isChosenBook = true
+		}
 	},
 	[EN_AiGameMutation.NOT_CHOOSE_BOOK_AI](state) {
 		state.isChosenBook = false
 	},
 	[EN_AiGameMutation.CHOOSE_NUMPAD_AI](state) {
-		state.isChosenNumPad = true
+		if (state.isChosenBook) {
+			state.isChosenNumPad = true
+		}
 	},
 	[EN_AiGameMutation.NOT_CHOOSE_NUMPAD_AI](state) {
 		state.isChosenNumPad = false

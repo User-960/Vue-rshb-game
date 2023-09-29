@@ -69,10 +69,15 @@ export default Vue.extend({
   methods: {
     ...mapMutations([
       EN_AiGameMutation.CHOOSE_BOOK_AI,
+      EN_AiGameMutation.NOT_CHOOSE_BOOK_AI,
       EN_AiGameMutation.CHOOSE_NUMPAD_AI,
     ]),
     chooseBook() {
-      this.CHOOSE_BOOK_AI()
+      if (!this.GET_CHOSEN_BOOK_AI) {
+        this.CHOOSE_BOOK_AI()
+      } else {
+        this.NOT_CHOOSE_BOOK_AI()
+      }
     },
     chooseNumPad() {
       this.CHOOSE_NUMPAD_AI()
