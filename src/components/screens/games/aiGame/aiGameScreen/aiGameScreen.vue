@@ -105,6 +105,7 @@
                 styles.restartSystemBtn, 
                 {[styles.isTomatoBtnRestartActive]: isTomatoBtnRestart}
               ]'
+              @click='restartTomatoSystem'
             >Перезапуск системы</button>
           </div>
         </li>
@@ -305,6 +306,14 @@
           </div>
         </li>
 
+        <li :class='[
+          styles.systemNotification, 
+          {[styles.systemNotificationActive]: isTomatoSystemBroken}
+          ]'
+        >
+          Ошибка в системе участка с томатами!
+        </li>
+
       </ul>
     </div>
   </div>
@@ -332,8 +341,9 @@ export default Vue.extend({
     isTomatoHealthLineCritical: false,
     isTomatoCaterpillarLineCritical: false,
     isTomatoBtnRestart: false,
-    isTomatoLevelRestart: false,
     tomatoLevelMistakes: 1,
+    isTomatoSystemBroken: false,
+    isTomatoLevelRestart: true,
 
     isPepperLineCritical: false,
     isStrawberryLineCritical: false,
@@ -395,7 +405,7 @@ export default Vue.extend({
       }
     },
     isTomatoMoistureLineCritical() {
-      if (this.isTomatoMoistureLineCritical) {
+      if (this.isTomatoMoistureLineCritical && !this.isTomatoSystemBroken) {
         setTimeout(() => {
           if (!this.isTomatoLevelRestart && 
               this.GET_TIMER_AI > 0 && 
@@ -417,6 +427,33 @@ export default Vue.extend({
                 this.isTomatoLevelRestart = true
                 this.NOT_CHOOSE_BOOK_AI()
                 this.NOT_CHOOSE_NUMPAD_AI()
+
+                this.MINUS_POINTS_AI()
+                this.GAME_LOOP_AI()
+              }
+          }
+        }, 5000)
+      }
+    },
+    isTomatoSystemBroken() {
+      if (this.isTomatoSystemBroken && !this.isTomatoMoistureLineCritical) {
+        setTimeout(() => {
+          if (!this.isTomatoLevelRestart && 
+              this.GET_TIMER_AI > 0 && 
+              this.isTomatoSystemBroken
+            ) {
+              if (this.tomatoLevelMistakes === 2) {
+                this.MINUS_POINTS_AI()
+                this.SHOW_LOSS_BLOCK_AI()
+                this.START_FINISH_TIMER_AI()
+              } else {
+                this.isTomatoHealthLineCritical = true
+                this.isTomatoBtnRestart = false
+                this.tomatoLevelMistakes += 1
+
+                this.isTomatoSystemBroken = false
+                this.isChosenTomatoLevel = false
+                this.isTomatoLevelRestart = true
 
                 this.MINUS_POINTS_AI()
                 this.GAME_LOOP_AI()
@@ -465,10 +502,14 @@ export default Vue.extend({
       EN_AiGameMutation.START_FINISH_TIMER_AI
     ]),
     startTomatoLevel() {
-      this.isTomatoLevelRestart = false
-      setTimeout(() => {
-        this.isTomatoMoistureLineCritical = true
-      }, EN_CONFIG.TIMING_LINE_CRITICAL_TOMATO)
+      let numberIndicator = getRandomNumber(1, 3)
+
+      if (numberIndicator === 1) {
+        this.isTomatoLevelRestart = false
+        setTimeout(() => {
+          this.isTomatoMoistureLineCritical = true
+        }, EN_CONFIG.TIMING_LINE_CRITICAL_TOMATO)
+      }
 
       // if (numberIndicator === 2) {
       //   this.isTomatoLevelRestart = false
@@ -477,12 +518,12 @@ export default Vue.extend({
       //   }, EN_CONFIG.TIMING_LINE_CRITICAL_TOMATO)
       // }
 
-      // if (numberIndicator === 3) {
-      //   this.isTomatoLevelRestart = false
-      //   setTimeout(() => {
-      //     this.isTomatoHealthLineCritical = true
-      //   }, EN_CONFIG.TIMING_LINE_CRITICAL_TOMATO)
-      // }
+      if (numberIndicator === 2) {
+        this.isTomatoLevelRestart = false
+        setTimeout(() => {
+          this.isTomatoSystemBroken = true
+        }, EN_CONFIG.TIMING_SYSTEM_TOMATO)
+      }
     },
     startPepperLevel() {
       setTimeout(() => {
@@ -495,14 +536,21 @@ export default Vue.extend({
       }, EN_CONFIG.TIMING_LINE_CRITICAL_STRAWBERRY)
     },
     chooseTomatoLevel() {
-      if (this.isTomatoMoistureLineCritical) {
-        const audio = new Audio(AUDIO_CONFIG.AUDIO_CHOOSE_ACTION_COMPUTER)
-		    audio.autoplay = true
-		    audio.volume = 1
+      const audio = new Audio(AUDIO_CONFIG.AUDIO_CHOOSE_ACTION_COMPUTER)
+		  audio.autoplay = true
+		  audio.volume = 1
 
+      if (this.isTomatoMoistureLineCritical) {
         this.isChosenPepperLevel = false
         this.isChosenStrawberryLevel = false
         this.isChosenTomatoLevel = true
+      }
+
+      if (this.isTomatoSystemBroken) {
+        this.isChosenPepperLevel = false
+        this.isChosenStrawberryLevel = false
+        this.isChosenTomatoLevel = true
+        this.isTomatoBtnRestart = true
       }
     },
     choosePepperLevel() {
@@ -527,25 +575,18 @@ export default Vue.extend({
         this.isChosenStrawberryLevel = true
       }
     },
-    // restartTomatoSystem() {
-    //   if (this.isTomatoBtnRestart) {
-    //     if (this.isTomatoMoistureLineCritical || 
-    //         this.isTomatoTemperatureLineCritical || 
-    //         this.isTomatoHealthLineCritical
-    //       ) {
-    //       this.isTomatoMoistureLineCritical = false
-    //       this.isTomatoTemperatureLineCritical = false
-    //       this.isTomatoHealthLineCritical = false
+    restartTomatoSystem() {
+      if (this.isChosenTomatoLevel && this.isTomatoSystemBroken) {
+          this.isTomatoSystemBroken = false
+          this.isTomatoBtnRestart = false
+          this.isChosenTomatoLevel = false
+          this.isTomatoLevelRestart = true
 
-    //       this.isChosenTomatoLevel = false
-    //       this.isTomatoBtnRestart = false
-    //       this.isTomatoLevelRestart = true
-
-    //       this.PLUS_POINTS_AI()
-    //       this.GAME_LOOP_AI()
-    //     }
-    //   }
-    // }
+          this.PLUS_POINTS_AI()
+          this.GAME_LOOP_AI()
+        
+      }
+    }
   }
 })
 </script>
