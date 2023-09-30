@@ -400,7 +400,7 @@ import { EN_AiGameMutation } from '@/store/modules/aiGame/mutations'
 import Vue from 'vue'
 import { mapGetters, mapMutations } from 'vuex'
 import { EN_CONFIG } from '../config/config'
-import { getRandomNumber } from '../helpers/helpers'
+import { getRandomNumberLevel, getRandomNumberProblem } from '../helpers/helpers'
 import { AUDIO_CONFIG } from '@/config/audio'
 
 export default Vue.extend({
@@ -418,9 +418,10 @@ export default Vue.extend({
     isTomatoHealthLineCritical: false,
     isTomatoHealthLineEmpty: false,
     isTomatoBtnRestart: false,
-    tomatoLevelMistakes: 1,
     isTomatoSystemBroken: false,
     isTomatoLevelRestart: true,
+    tomatoLevelMistakes: 1,
+    tomatoPreviousProblem: 0,
 
     isPepperMoistureLineCritical: false,
     isPepperMoistureLineReturn: false,
@@ -428,19 +429,22 @@ export default Vue.extend({
     isPepperHealthLineCritical: false,
     isPepperHealthLineEmpty: false,
     isPepperBtnRestart: false,
-    pepperLevelMistakes: 1,
     isPepperSystemBroken: false,
     isPepperLevelRestart: true,
+    pepperLevelMistakes: 1,
+    pepperPreviousProblem: 0,
 
     isStrawberryMoistureLineCritical: false,
     isStrawberryMoistureLineReturn: false,
     isStrawberryTemperatureLineCritical: false,
+    isStrawberryTemperatureLineReturn: false,
     isStrawberryHealthLineCritical: false,
     isStrawberryHealthLineEmpty: false,
     isStrawberryBtnRestart: false,
-    strawberryLevelMistakes: 1,
     isStrawberrySystemBroken: false,
-    isStrawberryLevelRestart: true
+    isStrawberryLevelRestart: true,
+    strawberryLevelMistakes: 1,
+    strawberryPreviousProblem: 0,
 
     // isPepperLineCritical: false,
     // isStrawberryLineCritical: false,
@@ -467,7 +471,7 @@ export default Vue.extend({
       }
       
       if (this.GET_GAME_LOOP_AI < 10 && this.GET_START_GAME_AI) {
-        let numberLevel = getRandomNumber(1, 4)
+        let numberLevel = getRandomNumberLevel(1, 4)
 
         if (this.GET_TOMATO_LEVEL_NUM_AI === numberLevel) {
           this.startTomatoLevel()
@@ -491,7 +495,8 @@ export default Vue.extend({
       if (
           (this.GET_CHOSEN_TOMATO_LEVEL_AI && this.isTomatoMoistureLineCritical && this.GET_CHOSEN_BOOK_AI) || 
           (this.GET_CHOSEN_PEPPER_LEVEL_AI && this.isPepperMoistureLineCritical && this.GET_CHOSEN_BOOK_AI) || 
-          (this.GET_STRAWBERRY_LEVEL_NUM_AI && this.isStrawberryMoistureLineCritical && this.GET_CHOSEN_BOOK_AI)
+          (this.GET_STRAWBERRY_LEVEL_NUM_AI && this.isStrawberryMoistureLineCritical && this.GET_CHOSEN_BOOK_AI) || 
+          (this.GET_STRAWBERRY_LEVEL_NUM_AI && this.isStrawberryTemperatureLineCritical && this.GET_CHOSEN_BOOK_AI)
         ) {
 
         if (this.isTomatoMoistureLineCritical) {
@@ -530,6 +535,17 @@ export default Vue.extend({
           this.GAME_LOOP_AI()
         }
 
+        if (this.isStrawberryTemperatureLineCritical) {
+          this.isStrawberryTemperatureLineCritical = false
+
+          this.isStrawberryLevelRestart = true
+          this.NOT_CHOOSE_STRAWBERRY_LEVEL_AI()
+          this.NOT_CHOOSE_BOOK_AI()
+          this.NOT_CHOOSE_NUMPAD_AI()
+
+          this.PLUS_POINTS_AI()
+          this.GAME_LOOP_AI()
+        }
       }
     },
     // Tomato Level
@@ -700,6 +716,41 @@ export default Vue.extend({
         }, 5000)
       }
     },
+    isStrawberryTemperatureLineCritical() {
+      if (this.isStrawberryTemperatureLineCritical && !this.isStrawberrySystemBroken) {
+        setTimeout(() => {
+          if (!this.isStrawberryLevelRestart && 
+              this.GET_TIMER_AI > 0 && 
+              this.isStrawberryTemperatureLineCritical
+            ) {
+              if (this.strawberryLevelMistakes === 2) {
+                this.isStrawberryHealthLineEmpty = true
+                setTimeout(() => {
+                  this.NOT_CHOOSE_BOOK_AI()
+                  this.NOT_CHOOSE_NUMPAD_AI()
+                  this.MINUS_POINTS_AI()
+                  this.SHOW_LOSS_BLOCK_AI()
+                  this.START_FINISH_TIMER_AI()
+                }, 1000)
+
+              } else {
+                this.isStrawberryHealthLineCritical = true
+                this.strawberryLevelMistakes += 1
+
+                this.isStrawberryTemperatureLineCritical = false
+                this.isStrawberryLevelRestart = true
+                this.NOT_CHOOSE_STRAWBERRY_LEVEL_AI()
+  
+                this.NOT_CHOOSE_BOOK_AI()
+                this.NOT_CHOOSE_NUMPAD_AI()
+
+                this.MINUS_POINTS_AI()
+                this.GAME_LOOP_AI()
+              }
+          }
+        }, 5000)
+      }
+    },
     isStrawberrySystemBroken() {
       if (this.isStrawberrySystemBroken && !this.isStrawberryMoistureLineCritical) {
         setTimeout(() => {
@@ -752,7 +803,8 @@ export default Vue.extend({
       EN_AiGameMutation.NOT_CHOOSE_STRAWBERRY_LEVEL_AI,
     ]),
     startTomatoLevel() {
-      let numberIndicator = getRandomNumber(1, 3)
+      let numberIndicator = getRandomNumberProblem(1, 3, this.tomatoPreviousProblem)
+      this.tomatoPreviousProblem = numberIndicator
 
       if (numberIndicator === 1) {
         this.isTomatoLevelRestart = false
@@ -769,7 +821,8 @@ export default Vue.extend({
       }
     },
     startPepperLevel() {
-      let numberIndicator = getRandomNumber(1, 3)
+      let numberIndicator = getRandomNumberProblem(1, 3, this.pepperPreviousProblem)
+      this.pepperPreviousProblem = numberIndicator
 
       if (numberIndicator === 1) {
         this.isPepperLevelRestart = false
@@ -786,7 +839,8 @@ export default Vue.extend({
       }
     },
     startStrawberryLevel() {
-      let numberIndicator = getRandomNumber(1, 3)
+      let numberIndicator = getRandomNumberProblem(1, 4, this.strawberryPreviousProblem)
+      this.strawberryPreviousProblem = numberIndicator
 
       if (numberIndicator === 1) {
         this.isStrawberryLevelRestart = false
@@ -795,14 +849,14 @@ export default Vue.extend({
         }, EN_CONFIG.TIMING_LINE_CRITICAL_TOMATO)
       }
 
-      // if (numberIndicator === 2) {
-      //   this.isTomatoLevelRestart = false
-      //   setTimeout(() => {
-      //     this.isTomatoTemperatureLineCritical = true
-      //   }, EN_CONFIG.TIMING_LINE_CRITICAL_TOMATO)
-      // }
-
       if (numberIndicator === 2) {
+        this.isTomatoLevelRestart = false
+        setTimeout(() => {
+          this.isStrawberryTemperatureLineCritical = true
+        }, EN_CONFIG.TIMING_LINE_CRITICAL_TOMATO)
+      }
+
+      if (numberIndicator === 3) {
         this.isStrawberryLevelRestart = false
         setTimeout(() => {
           this.isStrawberrySystemBroken = true
@@ -850,7 +904,7 @@ export default Vue.extend({
 		  audio.autoplay = true
 		  audio.volume = 1
 
-      if (this.isStrawberryMoistureLineCritical) {
+      if (this.isStrawberryMoistureLineCritical || this.isStrawberryTemperatureLineCritical) {
         this.NOT_CHOOSE_TOMATO_LEVEL_AI()
         this.NOT_CHOOSE_PEPPER_LEVEL_AI()
         this.CHOOSE_STRAWBERRY_LEVEL_AI()

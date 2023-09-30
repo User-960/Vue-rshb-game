@@ -244,8 +244,8 @@
 }
 
 .temperatureNumberCritical::after {
-	left: 35px;
-	content: '45⁰C';
+	left: 25px;
+	content: '35⁰C';
 
 	animation: indicatorTempNumber 1s;
 }
@@ -556,28 +556,32 @@
 @keyframes indicatorTempNumber {
 	0% {
 		left: 13px;
+		content: '23⁰C';
 	}
 
 	50% {
-		content: '35⁰C';
+		content: '30⁰C';
 	}
 
 	100% {
 		left: 25px;
+		content: '35⁰C';
 	}
 }
 
 @keyframes indicatorTempNumberReturn {
 	0% {
 		left: 25px;
+		content: '35⁰C';
 	}
 
 	50% {
-		content: '23⁰C';
+		content: '30⁰C';
 	}
 
 	100% {
 		left: 13px;
+		content: '23⁰C';
 	}
 }
 
