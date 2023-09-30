@@ -408,10 +408,6 @@ export default Vue.extend({
   data: () => ({
     isPestLineCritical: false,
 
-    // isChosenTomatoLevel: false,
-    // isChosenPepperLevel: false,
-    // isChosenStrawberryLevel: false,
-
     isTomatoMoistureLineCritical: false,
     isTomatoMoistureLineReturn: false,
     isTomatoTemperatureLineCritical: false,
@@ -445,9 +441,6 @@ export default Vue.extend({
     isStrawberryLevelRestart: true,
     strawberryLevelMistakes: 1,
     strawberryPreviousProblem: 0,
-
-    // isPepperLineCritical: false,
-    // isStrawberryLineCritical: false,
   }),
   computed: {
     ...mapGetters([
@@ -564,7 +557,7 @@ export default Vue.extend({
                   this.MINUS_POINTS_AI()
                   this.SHOW_LOSS_BLOCK_AI()
                   this.START_FINISH_TIMER_AI()
-                }, 1000)
+                }, EN_CONFIG.TIMING_GAME_OVER_TOMATO)
 
               } else {
                 this.isTomatoHealthLineCritical = true
@@ -581,7 +574,7 @@ export default Vue.extend({
                 this.GAME_LOOP_AI()
               }
           }
-        }, 5000)
+        }, EN_CONFIG.TIMING_CHECKING_TOMATO_LEVEL)
       }
     },
     isTomatoSystemBroken() {
@@ -597,7 +590,7 @@ export default Vue.extend({
                   this.MINUS_POINTS_AI()
                   this.SHOW_LOSS_BLOCK_AI()
                   this.START_FINISH_TIMER_AI()
-                }, 1000)
+                }, EN_CONFIG.TIMING_GAME_OVER_TOMATO)
               } else {
                 this.isTomatoHealthLineCritical = true
                 this.isTomatoBtnRestart = false
@@ -611,7 +604,7 @@ export default Vue.extend({
                 this.GAME_LOOP_AI()
               }
           }
-        }, 5000)
+        }, EN_CONFIG.TIMING_CHECKING_TOMATO_LEVEL)
       }
     },
     // Pepper Level
@@ -630,7 +623,7 @@ export default Vue.extend({
                   this.MINUS_POINTS_AI()
                   this.SHOW_LOSS_BLOCK_AI()
                   this.START_FINISH_TIMER_AI()
-                }, 1000)
+                }, EN_CONFIG.TIMING_GAME_OVER_PEPPER)
 
               } else {
                 this.isPepperHealthLineCritical = true
@@ -647,7 +640,7 @@ export default Vue.extend({
                 this.GAME_LOOP_AI()
               }
           }
-        }, 5000)
+        }, EN_CONFIG.TIMING_CHECKING_PEPPER_LEVEL)
       }
     },
     isPepperSystemBroken() {
@@ -663,7 +656,7 @@ export default Vue.extend({
                   this.MINUS_POINTS_AI()
                   this.SHOW_LOSS_BLOCK_AI()
                   this.START_FINISH_TIMER_AI()
-                }, 1000)
+                }, EN_CONFIG.TIMING_GAME_OVER_PEPPER)
               } else {
                 this.isPepperHealthLineCritical = true
                 this.isPepperBtnRestart = false
@@ -677,7 +670,7 @@ export default Vue.extend({
                 this.GAME_LOOP_AI()
               }
           }
-        }, 5000)
+        }, EN_CONFIG.TIMING_CHECKING_PEPPER_LEVEL)
       }
     },
     // Strawberry Level
@@ -696,7 +689,7 @@ export default Vue.extend({
                   this.MINUS_POINTS_AI()
                   this.SHOW_LOSS_BLOCK_AI()
                   this.START_FINISH_TIMER_AI()
-                }, 1000)
+                }, EN_CONFIG.TIMING_GAME_OVER_STRAWBERRY)
 
               } else {
                 this.isStrawberryHealthLineCritical = true
@@ -713,7 +706,7 @@ export default Vue.extend({
                 this.GAME_LOOP_AI()
               }
           }
-        }, 5000)
+        }, EN_CONFIG.TIMING_CHECKING_STRAWBERRY_LEVEL)
       }
     },
     isStrawberryTemperatureLineCritical() {
@@ -731,7 +724,7 @@ export default Vue.extend({
                   this.MINUS_POINTS_AI()
                   this.SHOW_LOSS_BLOCK_AI()
                   this.START_FINISH_TIMER_AI()
-                }, 1000)
+                }, EN_CONFIG.TIMING_GAME_OVER_STRAWBERRY)
 
               } else {
                 this.isStrawberryHealthLineCritical = true
@@ -748,7 +741,7 @@ export default Vue.extend({
                 this.GAME_LOOP_AI()
               }
           }
-        }, 5000)
+        }, EN_CONFIG.TIMING_CHECKING_STRAWBERRY_LEVEL)
       }
     },
     isStrawberrySystemBroken() {
@@ -764,7 +757,7 @@ export default Vue.extend({
                   this.MINUS_POINTS_AI()
                   this.SHOW_LOSS_BLOCK_AI()
                   this.START_FINISH_TIMER_AI()
-                }, 1000)
+                }, EN_CONFIG.TIMING_GAME_OVER_STRAWBERRY)
               } else {
                 this.isStrawberryHealthLineCritical = true
                 this.isStrawberryBtnRestart = false
@@ -778,7 +771,7 @@ export default Vue.extend({
                 this.GAME_LOOP_AI()
               }
           }
-        }, 5000)
+        }, EN_CONFIG.TIMING_CHECKING_STRAWBERRY_LEVEL)
       }
     }
   },
@@ -828,14 +821,14 @@ export default Vue.extend({
         this.isPepperLevelRestart = false
         setTimeout(() => {
           this.isPepperMoistureLineCritical = true
-        }, EN_CONFIG.TIMING_LINE_CRITICAL_TOMATO)
+        }, EN_CONFIG.TIMING_LINE_CRITICAL_PEPPER)
       }
 
       if (numberIndicator === 2) {
         this.isPepperLevelRestart = false
         setTimeout(() => {
           this.isPepperSystemBroken = true
-        }, EN_CONFIG.TIMING_SYSTEM_TOMATO)
+        }, EN_CONFIG.TIMING_SYSTEM_PEPPER)
       }
     },
     startStrawberryLevel() {
@@ -846,21 +839,21 @@ export default Vue.extend({
         this.isStrawberryLevelRestart = false
         setTimeout(() => {
           this.isStrawberryMoistureLineCritical = true
-        }, EN_CONFIG.TIMING_LINE_CRITICAL_TOMATO)
+        }, EN_CONFIG.TIMING_LINE_CRITICAL_STRAWBERRY)
       }
 
       if (numberIndicator === 2) {
         this.isTomatoLevelRestart = false
         setTimeout(() => {
           this.isStrawberryTemperatureLineCritical = true
-        }, EN_CONFIG.TIMING_LINE_CRITICAL_TOMATO)
+        }, EN_CONFIG.TIMING_LINE_CRITICAL_STRAWBERRY)
       }
 
       if (numberIndicator === 3) {
         this.isStrawberryLevelRestart = false
         setTimeout(() => {
           this.isStrawberrySystemBroken = true
-        }, EN_CONFIG.TIMING_SYSTEM_TOMATO)
+        }, EN_CONFIG.TIMING_SYSTEM_STRAWBERRY)
       }
     },
     chooseTomatoLevel() {

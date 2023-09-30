@@ -62,8 +62,7 @@ export default Vue.extend({
       EN_PestControlGameMutation.HIDE_LOSS_BLOCK_PS
     ]),
     restartGame() {
-      this.HIDE_LOSS_BLOCK_PS()
-      this.$router.push({ name: 'home' })
+      this.$router.go(0)
     },
     skipToMap() {
       this.HIDE_LOSS_BLOCK_PS()

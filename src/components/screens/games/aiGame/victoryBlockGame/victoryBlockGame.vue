@@ -79,7 +79,7 @@ export default Vue.extend({
       EN_AiGameMutation.HIDE_VICTORY_BLOCK_AI
     ]),
     restartGame() {
-      this.$router.push({ name: 'home' })
+      this.$router.go(0)
     },
     skipToMap() {
       this.HIDE_VICTORY_BLOCK_AI()

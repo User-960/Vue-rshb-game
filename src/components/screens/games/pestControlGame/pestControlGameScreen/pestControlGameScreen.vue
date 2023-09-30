@@ -216,7 +216,10 @@ export default Vue.extend({
     },
     // Tomato Level
     isChosenTomatoLevel() {
-      if (this.isDroneActive && this.isCaterpillarActive && this.isTomatoLineCritical) {
+      if (
+        (this.isDroneActive && this.isTomatoLineCritical) && 
+        (this.isCaterpillarActive || this.isLocustsActive || this.isBugActive)
+      ) {
         this.isDroneMovedTomato = true
       }
 
@@ -227,14 +230,18 @@ export default Vue.extend({
       }
     },
     isUltrasoundTomatoActive() {
-      if (this.isUltrasoundTomatoActive && this.isChosenTomatoLevel && this.isTomatoLineCritical) {
-        setTimeout(() => {
-          this.isUltrasoundTomatoActive = false
-          this.isTomatoLineCritical = false
-          this.isChosenTomatoLevel = false
-          this.isDroneMovedTomato = false
-          this.isDroneFinishWorkTomato = true
-        }, EN_CONFIG.TIMING_ULTRASOUND_TOMATO)
+      if (this.isCaterpillarActive) {
+        if (this.isUltrasoundTomatoActive && this.isChosenTomatoLevel && this.isTomatoLineCritical) {
+          setTimeout(() => {
+            this.isUltrasoundTomatoActive = false
+            this.isTomatoLineCritical = false
+            this.isChosenTomatoLevel = false
+            this.isDroneMovedTomato = false
+            this.isDroneFinishWorkTomato = true
+          }, EN_CONFIG.TIMING_ULTRASOUND_TOMATO)
+        }
+      } else {
+        this.SHOW_LOSS_BLOCK_PS()
       }
     },
     isDroneFinishWorkTomato() {
@@ -251,7 +258,10 @@ export default Vue.extend({
     },
     // Pepper Level
     isChosenPepperLevel() {
-      if (this.isDroneActive && this.isBugActive  && this.isPepperLineCritical) {
+      if (
+        (this.isDroneActive && this.isPepperLineCritical) && 
+        (this.isCaterpillarActive || this.isLocustsActive || this.isBugActive)
+      ) {
         this.isDroneMovedPepper = true
       }
 
@@ -262,14 +272,18 @@ export default Vue.extend({
       }
     },
     isUltrasoundPepperActive() {
-      if (this.isUltrasoundPepperActive && this.isChosenPepperLevel && this.isPepperLineCritical) {
-        setTimeout(() => {
-          this.isUltrasoundPepperActive = false
-          this.isPepperLineCritical = false
-          this.isChosenPepperLevel = false
-          this.isDroneMovedPepper = false
-          this.isDroneFinishWorkPepper = true
-        }, EN_CONFIG.TIMING_ULTRASOUND_PEPPER)
+      if (this.isBugActive) {
+        if (this.isUltrasoundPepperActive && this.isChosenPepperLevel && this.isPepperLineCritical) {
+          setTimeout(() => {
+            this.isUltrasoundPepperActive = false
+            this.isPepperLineCritical = false
+            this.isChosenPepperLevel = false
+            this.isDroneMovedPepper = false
+            this.isDroneFinishWorkPepper = true
+          }, EN_CONFIG.TIMING_ULTRASOUND_PEPPER)
+        }
+      } else {
+         this.SHOW_LOSS_BLOCK_PS()
       }
     },
     isDroneFinishWorkPepper() {
@@ -286,7 +300,10 @@ export default Vue.extend({
     },
     // Strawberry Level
     isChosenStrawberryLevel() {
-      if (this.isDroneActive && this.isLocustsActive && this.isStrawberryLineCritical) {
+      if (
+          (this.isDroneActive && this.isStrawberryLineCritical) && 
+          (this.isCaterpillarActive || this.isLocustsActive || this.isBugActive)
+        ) {
         this.isDroneMovedStrawberry = true
       }
 
@@ -297,14 +314,18 @@ export default Vue.extend({
       }
     },
     isUltrasoundStrawberryActive() {
-      if (this.isUltrasoundStrawberryActive && this.isChosenStrawberryLevel && this.isStrawberryLineCritical) {
-        setTimeout(() => {
-          this.isUltrasoundStrawberryActive = false
-          this.isStrawberryLineCritical = false
-          this.isChosenStrawberryLevel = false
-          this.isDroneMovedStrawberry = false
-          this.isDroneFinishWorkStrawberry = true
-        }, EN_CONFIG.TIMING_ULTRASOUND_STRAWBERRY)
+      if (this.isLocustsActive) {
+        if (this.isUltrasoundStrawberryActive && this.isChosenStrawberryLevel && this.isStrawberryLineCritical)   {
+          setTimeout(() => {
+            this.isUltrasoundStrawberryActive = false
+            this.isStrawberryLineCritical = false
+            this.isChosenStrawberryLevel = false
+            this.isDroneMovedStrawberry = false
+            this.isDroneFinishWorkStrawberry = true
+          }, EN_CONFIG.TIMING_ULTRASOUND_STRAWBERRY)
+        }
+      } else {
+        this.SHOW_LOSS_BLOCK_PS()
       }
     },
     isDroneFinishWorkStrawberry() {
@@ -327,7 +348,8 @@ export default Vue.extend({
       EN_PestControlGameMutation.FINISH_GAME_PS,
       EN_PestControlGameMutation.GAME_LOOP_PS,
       EN_PestControlGameMutation.PLUS_POINTS_PS,
-      EN_PestControlGameMutation.SHOW_VICTORY_BLOCK_PS
+      EN_PestControlGameMutation.SHOW_VICTORY_BLOCK_PS,
+      EN_PestControlGameMutation.SHOW_LOSS_BLOCK_PS
     ]),
     startTomatoLevel() {
       setTimeout(() => {
@@ -345,8 +367,10 @@ export default Vue.extend({
       }, EN_CONFIG.TIMING_LINE_CRITICAL_STRAWBERRY)
     },
     chooseTomatoLevel() {
-      if (this.isDroneActive && this.isCaterpillarActive && this.isTomatoLineCritical) {
-        // const audio = AUDIO_CONFIG.AUDIO_CHOOSE_ACTION_COMPUTER
+      if (
+          (this.isDroneActive && this.isTomatoLineCritical) && 
+          (this.isCaterpillarActive || this.isLocustsActive || this.isBugActive)
+        ) {
         const audio = new Audio(AUDIO_CONFIG.AUDIO_CHOOSE_ACTION_COMPUTER)
 		    audio.autoplay = true
 		    audio.volume = 1
@@ -357,7 +381,10 @@ export default Vue.extend({
       }
     },
     choosePepperLevel() {
-      if (this.isDroneActive && this.isBugActive && this.isPepperLineCritical) {
+      if (
+          (this.isDroneActive && this.isPepperLineCritical) && 
+          (this.isCaterpillarActive || this.isLocustsActive || this.isBugActive)
+        ) {
         const audio = new Audio(AUDIO_CONFIG.AUDIO_CHOOSE_ACTION_COMPUTER)
 		    audio.autoplay = true
 		    audio.volume = 1
@@ -368,7 +395,10 @@ export default Vue.extend({
       }
     },
     chooseStrawberryLevel() {
-      if (this.isDroneActive && this.isLocustsActive && this.isStrawberryLineCritical) {
+      if (
+          (this.isDroneActive && this.isStrawberryLineCritical) && 
+          (this.isCaterpillarActive || this.isLocustsActive || this.isBugActive)
+        ) {
         const audio = new Audio(AUDIO_CONFIG.AUDIO_CHOOSE_ACTION_COMPUTER)
 		    audio.autoplay = true
 		    audio.volume = 1
@@ -379,21 +409,24 @@ export default Vue.extend({
       }
     },
     selectBug() {
-      if (this.isPepperLineCritical) {
+      if ((this.isTomatoLineCritical || this.isPepperLineCritical || this.isStrawberryLineCritical) 
+      && !this.isDroneActive) {
         this.isCaterpillarActive = false
         this.isLocustsActive = false
         this.isBugActive = true
       }
     },
     selectLocusts() {
-      if (this.isStrawberryLineCritical) {
+      if ((this.isTomatoLineCritical || this.isPepperLineCritical || this.isStrawberryLineCritical)
+      && !this.isDroneActive) {
         this.isCaterpillarActive = false
         this.isBugActive = false
         this.isLocustsActive = true
       }
     },
     selectCaterpillar() {
-      if (this.isTomatoLineCritical) {
+      if ((this.isTomatoLineCritical || this.isPepperLineCritical || this.isStrawberryLineCritical) 
+      && !this.isDroneActive) {
         this.isLocustsActive = false
         this.isBugActive = false
         this.isCaterpillarActive = true

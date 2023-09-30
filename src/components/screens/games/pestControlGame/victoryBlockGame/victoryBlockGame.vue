@@ -79,8 +79,7 @@ export default Vue.extend({
       EN_PestControlGameMutation.HIDE_VICTORY_BLOCK_PS
     ]),
     restartGame() {
-      this.HIDE_VICTORY_BLOCK_PS()
-      this.$router.push({ name: 'home' })
+      this.$router.go(0)
     },
     skipToMap() {
       this.HIDE_VICTORY_BLOCK_PS()
