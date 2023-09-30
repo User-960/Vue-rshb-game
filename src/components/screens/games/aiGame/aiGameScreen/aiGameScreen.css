@@ -61,31 +61,6 @@
 	margin-left: 20px;
 }
 
-/* Level images */
-.aiLevelImgWrapper {
-	position: relative;
-}
-
-.aiLevelImg {
-	width: 166px;
-	height: 127px;
-
-	border-radius: 4px;
-	border: 2px solid var(--secondary-text-gray);
-
-	user-select: none;
-	transition: all 0.3s ease-in-out;
-	cursor: pointer;
-}
-
-.aiTomatoLevelImgActive:hover {
-	border-color: var(--primary-green);
-}
-
-.aiTomatoLevelImgActive {
-	border-color: var(--primary-green);
-}
-
 /* Restart buttons */
 .restartSystemBtn {
 	margin-top: 8px;
@@ -107,12 +82,12 @@
 	cursor: not-allowed;
 }
 
-.isTomatoBtnRestartActive:hover {
+.isBtnRestartActive:hover {
 	border: 2px solid var(--primary-green);
 	color: var(--primary-green);
 }
 
-.isTomatoBtnRestartActive {
+.isBtnRestartActive {
 	border: 2px solid var(--primary-green);
 	color: var(--primary-green);
 
@@ -363,11 +338,11 @@
 	animation: emptyHealthyLine 1s;
 }
 
-.caterpillarItem {
+.pestItem {
 	color: var(--secondary-text-gray-dark);
 }
 
-.caterpillarIcon {
+.pestIcon {
 	max-width: 44px;
 	max-height: 44px;
 	width: 100%;
@@ -378,14 +353,14 @@
 	justify-content: center;
 }
 
-.caterpillarIconCritical {
+.pestIconCritical {
 	color: var(--secondary-text-gray-dark);
 }
 
-.caterpillarLineFull {
+.pestLineFull {
 	max-width: 100px;
-	min-width: 20px;
-	width: 30px;
+	min-width: 0px;
+	width: 0px;
 
 	position: absolute;
 	top: 0px;
@@ -395,13 +370,13 @@
 	background-color: var(--secondary-text-gray-dark);
 }
 
-.caterpillarNumber::after {
+.pestNumber::after {
 	display: block;
 	position: absolute;
 	top: -15px;
-	left: 20px;
+	left: 0px;
 
-	content: '30%';
+	content: '0%';
 	padding: 2px 4px 2px 4px;
 
 	background-color: var(--primary-black);
@@ -412,20 +387,36 @@
 	line-height: 8px;
 }
 
-.caterpillarNumberCritical::after {
-	left: 40px;
-	content: '50%';
-	animation: indicatorNumber 1s;
+.pestNumberCritical::after {
+	left: 20px;
+	content: '30%';
+	animation: indicatorPestNumber 15s;
 }
 
-.caterpillarLineFullCritical {
-	width: 50px;
+.pestLineFullCritical {
+	width: 30px;
 	background-color: var(--secondary-text-gray-dark);
 
-	animation: fillLine 1s;
+	animation: fillPestLine 15s;
 }
 
-/* Levels states */
+/* Level img and notification */
+.aiLevelImgWrapper {
+	position: relative;
+}
+
+.aiLevelImg {
+	width: 166px;
+	height: 127px;
+
+	border-radius: 4px;
+	border: 2px solid var(--secondary-text-gray);
+
+	user-select: none;
+	transition: all 0.3s ease-in-out;
+	cursor: pointer;
+}
+
 .aiLevelImgActive:hover {
 	border-color: var(--primary-green);
 }
@@ -454,6 +445,46 @@
 }
 
 /* animations */
+@keyframes fillPestLine {
+	0% {
+		width: 0px;
+	}
+
+	100% {
+		width: 30px;
+	}
+}
+
+@keyframes indicatorPestNumber {
+	0% {
+		left: 0px;
+	}
+
+	15% {
+		content: '5%';
+	}
+
+	35% {
+		content: '10%';
+	}
+
+	55% {
+		content: '15%';
+	}
+
+	70% {
+		content: '20%';
+	}
+
+	90% {
+		content: '30%';
+	}
+
+	100% {
+		left: 20px;
+	}
+}
+
 @keyframes fillMoistureLine {
 	0% {
 		width: 70px;

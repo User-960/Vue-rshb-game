@@ -23,7 +23,13 @@ export enum EN_AiGameMutation {
 	CHOOSE_BOOK_AI = 'CHOOSE_BOOK_AI',
 	NOT_CHOOSE_BOOK_AI = 'NOT_CHOOSE_BOOK_AI',
 	CHOOSE_NUMPAD_AI = 'CHOOSE_NUMPAD_AI',
-	NOT_CHOOSE_NUMPAD_AI = 'NOT_CHOOSE_NUMPAD_AI'
+	NOT_CHOOSE_NUMPAD_AI = 'NOT_CHOOSE_NUMPAD_AI',
+	CHOOSE_TOMATO_LEVEL_AI = 'CHOOSE_TOMATO_LEVEL_AI',
+	NOT_CHOOSE_TOMATO_LEVEL_AI = 'NOT_CHOOSE_TOMATO_LEVEL_AI',
+	CHOOSE_PEPPER_LEVEL_AI = 'CHOOSE_PEPPER_LEVEL_AI',
+	NOT_CHOOSE_PEPPER_LEVEL_AI = 'NOT_CHOOSE_PEPPER_LEVEL_AI',
+	CHOOSE_STRAWBERRY_LEVEL_AI = 'CHOOSE_STRAWBERRY_LEVEL_AI',
+	NOT_CHOOSE_STRAWBERRY_LEVEL_AI = 'NOT_CHOOSE_STRAWBERRY_LEVEL_AI'
 }
 
 const audioBackAi = new Audio(AUDIO_CONFIG.AUDIO_BACK_MUSIC_PEST_CONTROL_GAME)
@@ -128,11 +134,33 @@ export const mutations: MutationTree<IAiGameState> = {
 		state.isChosenBook = false
 	},
 	[EN_AiGameMutation.CHOOSE_NUMPAD_AI](state) {
-		if (state.isChosenBook) {
+		if (
+			(state.isChosenBook && state.isChosenTomatoLevel) ||
+			(state.isChosenBook && state.isChosenPepperLevel) ||
+			(state.isChosenBook && state.isChosenStrawberryLevel)
+		) {
 			state.isChosenNumPad = true
 		}
 	},
 	[EN_AiGameMutation.NOT_CHOOSE_NUMPAD_AI](state) {
 		state.isChosenNumPad = false
+	},
+	[EN_AiGameMutation.CHOOSE_TOMATO_LEVEL_AI](state) {
+		state.isChosenTomatoLevel = true
+	},
+	[EN_AiGameMutation.NOT_CHOOSE_TOMATO_LEVEL_AI](state) {
+		state.isChosenTomatoLevel = false
+	},
+	[EN_AiGameMutation.CHOOSE_PEPPER_LEVEL_AI](state) {
+		state.isChosenPepperLevel = true
+	},
+	[EN_AiGameMutation.NOT_CHOOSE_PEPPER_LEVEL_AI](state) {
+		state.isChosenPepperLevel = false
+	},
+	[EN_AiGameMutation.CHOOSE_STRAWBERRY_LEVEL_AI](state) {
+		state.isChosenStrawberryLevel = true
+	},
+	[EN_AiGameMutation.NOT_CHOOSE_STRAWBERRY_LEVEL_AI](state) {
+		state.isChosenStrawberryLevel = false
 	}
 }

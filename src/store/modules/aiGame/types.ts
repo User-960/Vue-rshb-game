@@ -13,4 +13,7 @@ export interface IAiGameState {
 	timer: number
 	isChosenBook: boolean
 	isChosenNumPad: boolean
+	isChosenTomatoLevel: boolean
+	isChosenPepperLevel: boolean
+	isChosenStrawberryLevel: boolean
 }

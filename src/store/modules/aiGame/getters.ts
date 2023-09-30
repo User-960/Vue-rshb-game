@@ -17,7 +17,10 @@ export enum EN_AiGameGetters {
 	GET_TIMER_AI = 'GET_TIMER_AI',
 	GET_BACK_MUSIC_GAME_AI = 'GET_BACK_MUSIC_GAME_AI',
 	GET_CHOSEN_BOOK_AI = 'GET_CHOSEN_BOOK_AI',
-	GET_CHOSEN_NUMPAD_AI = 'GET_CHOSEN_NUMPAD_AI'
+	GET_CHOSEN_NUMPAD_AI = 'GET_CHOSEN_NUMPAD_AI',
+	GET_CHOSEN_TOMATO_LEVEL_AI = 'GET_CHOSEN_TOMATO_LEVEL_AI',
+	GET_CHOSEN_PEPPER_LEVEL_AI = 'GET_CHOSEN_PEPPER_LEVEL_AI',
+	GET_CHOSEN_STRAWBERRY_LEVEL_AI = 'GET_CHOSEN_STRAWBERRY_LEVEL_AI'
 }
 
 export const getters: GetterTree<IAiGameState, IRootState> = {
@@ -36,5 +39,11 @@ export const getters: GetterTree<IAiGameState, IRootState> = {
 	[EN_AiGameGetters.GET_TIMER_AI]: state => state.timer,
 	[EN_AiGameGetters.GET_BACK_MUSIC_GAME_AI]: state => state.isPlayBackMusic,
 	[EN_AiGameGetters.GET_CHOSEN_BOOK_AI]: state => state.isChosenBook,
-	[EN_AiGameGetters.GET_CHOSEN_NUMPAD_AI]: state => state.isChosenNumPad
+	[EN_AiGameGetters.GET_CHOSEN_NUMPAD_AI]: state => state.isChosenNumPad,
+	[EN_AiGameGetters.GET_CHOSEN_TOMATO_LEVEL_AI]: state =>
+		state.isChosenTomatoLevel,
+	[EN_AiGameGetters.GET_CHOSEN_PEPPER_LEVEL_AI]: state =>
+		state.isChosenPepperLevel,
+	[EN_AiGameGetters.GET_CHOSEN_STRAWBERRY_LEVEL_AI]: state =>
+		state.isChosenStrawberryLevel
 }
