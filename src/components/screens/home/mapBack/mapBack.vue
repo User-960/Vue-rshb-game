@@ -70,7 +70,7 @@ export default Vue.extend({
     isBeforeFifthGame: false,
     // isAfterFifthGame: false,
 
-    isGreenhouseAvailable: false,
+    isGreenhouseAvailable: true,
     isHouseAvailable: true
   }),
   components: {
@@ -82,7 +82,7 @@ export default Vue.extend({
   methods: {
     ...mapMutations([EN_HomeScreenMutation.SHOW_MODAL_HOUSE]),
     openFirstGame() {
-      console.log('Open First Game')
+      this.$router.push({ name: 'genetic-game' })
     },
     openModalHouse() {
       this.SHOW_MODAL_HOUSE()

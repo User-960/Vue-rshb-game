@@ -12,8 +12,9 @@
 
 .victoryBlockGame {
 	padding: 40px 50px;
-	max-width: 640px;
+	max-width: 840px;
 	min-height: 500px;
+	width: 100%;
 
 	display: flex;
 	flex-direction: column;
@@ -30,6 +31,10 @@
 	z-index: 130;
 }
 
+.victoryContentWrapper {
+	display: flex;
+}
+
 .title {
 	color: var(--primary-green);
 	font-size: 48px;
@@ -38,9 +43,9 @@
 }
 
 .contentText {
-	max-width: 500px;
-	margin-top: 55px;
-	margin-bottom: 15px;
+	max-width: 520px;
+	margin-top: 25px;
+	margin-bottom: 16px;
 	line-height: 24px;
 
 	color: var(--secondary-text-gray);
@@ -50,7 +55,7 @@
 }
 
 .result {
-	margin-top: 32px;
+	margin-top: 16px;
 }
 
 .result p {
@@ -74,7 +79,7 @@
 }
 
 .achievement {
-	margin-top: 50px;
+	margin-top: 16px;
 }
 
 .achievementIcon {
@@ -101,9 +106,9 @@
 
 .btnWrapper {
 	display: flex;
-	max-width: 600px;
+	max-width: 840px;
 	width: 100%;
-	margin-top: 35px;
+	margin-top: 25px;
 }
 
 .btnRestart {

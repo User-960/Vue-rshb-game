@@ -80,7 +80,7 @@ export default Vue.extend({
     navigationLevels
   },
   watch: {
-    GET_TIMER_AI() {
+    GET_TIMER_GN() {
       if (this.GET_TIMER_GN === 0) {
         this.START_FINISH_TIMER_GN()
         if (!this.GET_LOSS_BLOCK_GN) {

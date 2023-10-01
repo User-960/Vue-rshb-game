@@ -12,8 +12,9 @@
 
 .rulesBlockGame {
 	padding: 45px;
-	max-width: 760px;
+	max-width: 744px;
 	min-height: 490px;
+	width: 100%;
 
 	display: flex;
 	flex-direction: column;
@@ -32,13 +33,6 @@
 
 .rulesContentWrapper {
 	display: flex;
-}
-
-.rulesContentWrapper img {
-	max-width: 200px;
-	max-height: 350xp;
-	width: 100%;
-	height: 100%;
 }
 
 .rulesTextWrapper {
@@ -67,7 +61,7 @@
 
 .btnWrapper {
 	display: flex;
-	max-width: 600px;
+	max-width: 744px;
 	width: 100%;
 	margin-top: 35px;
 }
