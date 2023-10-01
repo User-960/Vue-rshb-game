@@ -1,0 +1,73 @@
+@import '../../../../../../assets/styles/variables.css';
+
+.navigationLevels {
+	display: flex;
+	flex-direction: column;
+}
+
+.navLevel {
+	margin: 8px 0px;
+	width: 70px;
+	height: 70px;
+	padding: 11px;
+
+	opacity: 0.5;
+	border-radius: 12px;
+	border: 2px solid var(--primary-green);
+	z-index: 100;
+
+	cursor: pointer;
+}
+
+.navLevelTomato {
+	background-image: url(../../../../../../../public/images/navLevelTomatoActive.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+
+	width: 70px;
+	height: 70px;
+}
+
+.navLevelTomatoActive {
+	opacity: 1;
+	animation: opacity 0.5s;
+}
+
+.navLevelPepper {
+	background-image: url(../../../../../../../public/images/navLevelPepper.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+
+	width: 70px;
+	height: 70px;
+}
+
+.navLevelPepperActive {
+	opacity: 1;
+	animation: opacity 0.5s;
+}
+
+.navLevelStrawberry {
+	background-image: url(../../../../../../../public/images/navLevelStrawberry.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+
+	width: 70px;
+	height: 70px;
+}
+
+.navLevelStrawberryActive {
+	opacity: 1;
+	animation: opacity 0.5s;
+}
+
+/* animations */
+@keyframes opacity {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}

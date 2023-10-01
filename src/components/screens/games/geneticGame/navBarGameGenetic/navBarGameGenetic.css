@@ -6,6 +6,12 @@
 	height: 660px;
 }
 
+.navigationLevelsWrapper {
+	position: absolute;
+	bottom: 210px;
+	left: 24px;
+}
+
 .exitButtonWrapper {
 	position: absolute;
 	bottom: 24px;

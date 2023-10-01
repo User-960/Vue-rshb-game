@@ -16,6 +16,10 @@
       </blockButton>
     </div>
     
+    <div :class='styles.navigationLevelsWrapper'>
+      <navigationLevels/>
+    </div>
+
     <div :class='styles.exitButtonWrapper'>
       <exitButton/>
     </div>
@@ -62,6 +66,7 @@ import Vue from 'vue'
 import exitButton from '../../../../ui/button/exitButton/exitButton.vue'
 import blockButton from '../../../../ui/button/blockButton/blockButton.vue'
 import iconButton from '../../../../ui/button/iconButton/iconButton.vue'
+import navigationLevels from './navigationLevels/navigationLevels.vue'
 import { EN_AiGameGetters } from '@/store/modules/aiGame/getters'
 import { mapGetters, mapMutations } from 'vuex'
 import { EN_AiGameMutation } from '@/store/modules/aiGame/mutations'
@@ -71,7 +76,8 @@ export default Vue.extend({
   components: {
     exitButton,
     blockButton,
-    iconButton
+    iconButton,
+    navigationLevels
   },
   watch: {
     GET_TIMER_AI() {
