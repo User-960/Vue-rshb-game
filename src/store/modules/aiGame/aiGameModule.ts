@@ -18,7 +18,7 @@ const state: IAiGameState = {
 	strawberryLevel: 3,
 	points: 0,
 	isPlayBackMusic: false,
-	timer: 60,
+	timer: 90,
 	isChosenBook: false,
 	isChosenNumPad: false,
 	isChosenTomatoLevel: false,
