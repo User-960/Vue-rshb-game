@@ -15,6 +15,10 @@
         <div :class='styles.chemistryTableWrapper'>
           <chemistryTable/>
         </div>
+
+        <div :class='styles.dialogMariaWrapper'>
+          <dialogMaria/>
+        </div>
       </div>
     </template>
   </navBarGameGenetic>
@@ -26,6 +30,7 @@ import navBarGameGenetic from '../navBarGameGenetic/navBarGameGenetic.vue'
 import infoLinkBlockGame from '../infoLinkBlockGame/infoLinkBlockGame.vue'
 import rulesBlockGame from '../rulesBlockGame/rulesBlockGame.vue'
 import chemistryTable from '../chemistryTable/chemistryTable.vue'
+import dialogMaria from '../dialogMaria/dialogMaria.vue'
 import victoryBlockGame from '../victoryBlockGame/victoryBlockGame.vue'
 import lossBlockGame from '../lossBlockGame/lossBlockGame.vue'
 
@@ -37,7 +42,8 @@ export default Vue.extend({
     rulesBlockGame,
     victoryBlockGame,
     lossBlockGame,
-    chemistryTable
+    chemistryTable,
+    dialogMaria
   },
   methods: {}
 })

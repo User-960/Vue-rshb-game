@@ -1,0 +1,79 @@
+@import '../../../../../assets/styles/variables.css';
+
+.dialogMaria {
+	position: relative;
+
+	/* max-width: 960px;
+	max-height: 590px;
+	width: 100%;
+	height: 100%; */
+
+	width: 960px;
+	height: 590px;
+}
+
+.dialog {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+
+	padding: 24px;
+	background-image: url(../../../../../../public/images/dialogForm.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+
+	width: 572px;
+	height: 156px;
+}
+
+.textContent {
+	position: relative;
+	max-width: 442px;
+}
+
+.text {
+	color: var(--secondary-text-gray);
+	font-size: 24px;
+	line-height: 36px;
+}
+
+.timer {
+	position: absolute;
+	bottom: -5px;
+	right: 15px;
+
+	display: flex;
+}
+
+.timer span {
+	color: var(--primary-green);
+	font-size: 20px;
+	line-height: 36px;
+	margin-left: 8px;
+}
+
+.maria {
+	position: absolute;
+	bottom: 0px;
+	right: 20px;
+
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+
+	width: 501px;
+	height: 560px;
+}
+
+.taskMaria {
+	background-image: url(../../../../../../public/images/taskMaria.svg);
+}
+
+.mistakeMaria {
+	background-image: url(../../../../../../public/images/mistakeMaria.svg);
+}
+
+.correctMaria {
+	background-image: url(../../../../../../public/images/correctMaria.svg);
+}
