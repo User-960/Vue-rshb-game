@@ -38,7 +38,7 @@
         </ul>
 
         <div :class='[styles.description, {[styles.descActive] : isPc}]'>
-          <img :class='styles.img' src='../../../../../public/images/collectorShop.svg' alt='photo of robot'/>
+          <img :class='styles.img' src='../../../../../public/images/systemShop.svg' alt='photo of robot'/>
           <p :class='styles.text'>
             Собирает и обрабатывает информацию о растениях и почве
           </p>

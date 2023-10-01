@@ -1,0 +1,11 @@
+.chemistryTableBack {
+	position: relative;
+
+	background-image: url(../../../../../../public/images/table.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+
+	width: 870px;
+	height: 166px;
+}
