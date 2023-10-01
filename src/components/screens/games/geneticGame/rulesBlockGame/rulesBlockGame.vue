@@ -1,5 +1,5 @@
 <template>
-  <div :class='styles.rulesBlockWrapper' v-if='GET_RULES_BLOCK_AI'>
+  <div :class='styles.rulesBlockWrapper' v-if='GET_RULES_BLOCK_GN'>
     <div :class='styles.rulesBlockGame'>
 
       <div :class='styles.rulesContentWrapper'>
@@ -44,8 +44,8 @@
 import Vue from 'vue'
 import closeButton from '../../../../ui/button/closeButton/closeButton.vue'
 import { mapGetters, mapMutations } from 'vuex'
-import { EN_AiGameGetters } from '@/store/modules/aiGame/getters'
-import { EN_AiGameMutation } from '@/store/modules/aiGame/mutations'
+import { EN_GeneticGameGetters } from '@/store/modules/geneticGame/getters'
+import { EN_GeneticGameMutation } from '@/store/modules/geneticGame/mutations'
 
 export default Vue.extend({
   name: 'rulesBlockGame',
@@ -53,24 +53,24 @@ export default Vue.extend({
     closeButton
   },
   computed: {
-    ...mapGetters([EN_AiGameGetters.GET_RULES_BLOCK_AI]),
+    ...mapGetters([EN_GeneticGameGetters.GET_RULES_BLOCK_GN]),
   },
   methods: {
     ...mapMutations([
-      EN_AiGameMutation.HIDE_RULES_BLOCK_AI, 
-      EN_AiGameMutation.START_GAME_AI,
-      EN_AiGameMutation.GAME_LOOP_AI,
-      EN_AiGameMutation.START_FINISH_TIMER_AI
+      EN_GeneticGameMutation.HIDE_RULES_BLOCK_GN, 
+      EN_GeneticGameMutation.START_GAME_GN,
+      EN_GeneticGameMutation.GAME_LOOP_GN,
+      EN_GeneticGameMutation.START_FINISH_TIMER_GN
     ]),
     startGame() {
-      this.HIDE_RULES_BLOCK_AI()
-      this.START_GAME_AI()
-      this.GAME_LOOP_AI()
+      this.HIDE_RULES_BLOCK_GN()
+      this.START_GAME_GN()
+      this.GAME_LOOP_GN()
 
-      this.START_FINISH_TIMER_AI()
+      this.START_FINISH_TIMER_GN()
     },
     goMap() {
-      this.HIDE_RULES_BLOCK_AI()
+      this.HIDE_RULES_BLOCK_GN()
       this.$router.push({ name: 'home' })
     }
   }

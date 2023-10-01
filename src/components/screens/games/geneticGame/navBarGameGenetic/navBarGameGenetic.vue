@@ -11,7 +11,7 @@
       </template>
 
       <template v-slot:contentIndicator>
-        {{ GET_TIMER_AI }}
+        {{ GET_TIMER_GN }}
       </template>
       </blockButton>
     </div>
@@ -50,7 +50,7 @@
       </template>
 
       <template v-slot:contentIndicator>
-        {{ GET_POINTS_AI }}
+        {{ GET_POINTS_GN }}
       </template>
       </blockButton>
     </div>
@@ -67,9 +67,9 @@ import exitButton from '../../../../ui/button/exitButton/exitButton.vue'
 import blockButton from '../../../../ui/button/blockButton/blockButton.vue'
 import iconButton from '../../../../ui/button/iconButton/iconButton.vue'
 import navigationLevels from './navigationLevels/navigationLevels.vue'
-import { EN_AiGameGetters } from '@/store/modules/aiGame/getters'
+import { EN_GeneticGameGetters } from '@/store/modules/geneticGame/getters'
 import { mapGetters, mapMutations } from 'vuex'
-import { EN_AiGameMutation } from '@/store/modules/aiGame/mutations'
+import { EN_GeneticGameMutation } from '@/store/modules/geneticGame/mutations'
 
 export default Vue.extend({
   name: 'navBarGameGenetic',
@@ -81,25 +81,25 @@ export default Vue.extend({
   },
   watch: {
     GET_TIMER_AI() {
-      if (this.GET_TIMER_AI === 0) {
-        this.START_FINISH_TIMER_AI()
-        if (!this.GET_LOSS_BLOCK_AI) {
-          this.SHOW_VICTORY_BLOCK_AI()
+      if (this.GET_TIMER_GN === 0) {
+        this.START_FINISH_TIMER_GN()
+        if (!this.GET_LOSS_BLOCK_GN) {
+          this.SHOW_VICTORY_BLOCK_GN()
         }
       }
     }
   },
   computed: {
     ...mapGetters([
-      EN_AiGameGetters.GET_POINTS_AI,
-      EN_AiGameGetters.GET_TIMER_AI,
-      EN_AiGameGetters.GET_LOSS_BLOCK_AI
+      EN_GeneticGameGetters.GET_POINTS_GN,
+      EN_GeneticGameGetters.GET_TIMER_GN,
+      EN_GeneticGameGetters.GET_LOSS_BLOCK_GN
     ]),
   },
   methods: {
     ...mapMutations([
-      EN_AiGameMutation.START_FINISH_TIMER_AI,
-      EN_AiGameMutation.SHOW_VICTORY_BLOCK_AI,
+      EN_GeneticGameMutation.START_FINISH_TIMER_GN,
+      EN_GeneticGameMutation.SHOW_VICTORY_BLOCK_GN,
     ]),
   }
 })

@@ -1,5 +1,5 @@
 <template>
-  <div :class='styles.infoLinkWrapper' v-if='GET_INFO_LINK_BLOCK_AI'>
+  <div :class='styles.infoLinkWrapper' v-if='GET_INFO_LINK_BLOCK_GN'>
     <div :class='styles.infoLinkBlockGame'>
       <div :class='styles.title'>
         Генная инженерия в сельском хозяйстве
@@ -38,8 +38,8 @@
 import Vue from 'vue'
 import closeButton from '../../../../ui/button/closeButton/closeButton.vue'
 import { mapGetters, mapMutations } from 'vuex'
-import { EN_AiGameGetters } from '@/store/modules/aiGame/getters'
-import { EN_AiGameMutation } from '@/store/modules/aiGame/mutations'
+import { EN_GeneticGameGetters } from '@/store/modules/geneticGame/getters'
+import { EN_GeneticGameMutation } from '@/store/modules/geneticGame/mutations'
 
 export default Vue.extend({
   name: 'infoLinkBlockGame',
@@ -47,10 +47,10 @@ export default Vue.extend({
     closeButton
   },
   created() {
-    this.SHOW_INFO_LINK_BLOCK_AI()
+    this.SHOW_INFO_LINK_BLOCK_GN()
   },
   computed: {
-    ...mapGetters([EN_AiGameGetters.GET_INFO_LINK_BLOCK_AI]),
+    ...mapGetters([EN_GeneticGameGetters.GET_INFO_LINK_BLOCK_GN]),
   },
   props: {
     link: {
@@ -61,19 +61,19 @@ export default Vue.extend({
   },
   methods: {
     ...mapMutations([
-      EN_AiGameMutation.SHOW_INFO_LINK_BLOCK_AI, 
-      EN_AiGameMutation.HIDE_INFO_LINK_BLOCK_AI, 
-      EN_AiGameMutation.SHOW_RULES_BLOCK_AI,
-      EN_AiGameMutation.PLUS_POINTS_AI
+      EN_GeneticGameMutation.SHOW_INFO_LINK_BLOCK_GN, 
+      EN_GeneticGameMutation.HIDE_INFO_LINK_BLOCK_GN, 
+      EN_GeneticGameMutation.SHOW_RULES_BLOCK_GN,
+      EN_GeneticGameMutation.PLUS_POINTS_GN
     ]),
     checkFollowLink() {
-      this.PLUS_POINTS_AI()
+      this.PLUS_POINTS_GN()
     },
     closeBlock() {
-      this.HIDE_INFO_LINK_BLOCK_AI()
+      this.HIDE_INFO_LINK_BLOCK_GN()
       
-      if (!this.GET_INFO_LINK_BLOCK_AI) {
-        this.SHOW_RULES_BLOCK_AI()
+      if (!this.GET_INFO_LINK_BLOCK_GN) {
+        this.SHOW_RULES_BLOCK_GN()
       }
     }
   }

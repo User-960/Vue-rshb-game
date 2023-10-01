@@ -5,6 +5,7 @@ import { playerData } from './modules/playerData/playerDataModule'
 import { IRootState } from './types'
 import { aiGame } from '@/store/modules/aiGame/aiGameModule'
 import { collectorGame } from '@/store/modules/collectorGame/collectorGameModule'
+import { geneticGame } from '@/store/modules/geneticGame/geneticGameModule'
 import { homeScreen } from '@/store/modules/homeScreen/homeScreenModule'
 import { pestControlGame } from '@/store/modules/pestControlGame/pestControlGameModule'
 import { startScreen } from '@/store/modules/startScreen/startScreenModule'
@@ -20,6 +21,7 @@ export const getDefaultStore = (): StoreOptions<IRootState> => {
 			homeScreen,
 			startScreen,
 			playerData,
+			geneticGame,
 			aiGame,
 			pestControlGame,
 			collectorGame
