@@ -20,15 +20,19 @@
 
     <div :class='styles.bigFlaskEmpty'></div>
 
-    <div :class='styles.flasks'></div>
+    <flasks />
   </div>
 </template>
 
 <script lang='ts'>
 import Vue from 'vue'
+import flasks from './flasks/flasks.vue'
 
 export default Vue.extend({
   name: 'chemistryTable',
+  components: {
+    flasks
+  },
   data: () => ({
     isPlantSproutTomato: false,
     isPlantColorTomato: false,

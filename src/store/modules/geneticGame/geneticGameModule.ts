@@ -18,7 +18,7 @@ const state: IGeneticGameState = {
 	strawberryLevel: 3,
 	points: 0,
 	isPlayBackMusic: false,
-	timer: 20
+	timer: 90
 }
 
 export const getDefaultGeneticGameState = () => {
