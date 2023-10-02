@@ -2,28 +2,21 @@
 	position: absolute;
 	left: 200px;
 	bottom: 140px;
+	bottom: 170px;
 	z-index: 100;
 }
 
-.droppableZone {
-	padding: 5px;
-	border-radius: 5px;
-	background-color: #444444;
-	margin-bottom: 10px;
-
-	/* display: flex; */
+.columns {
+	display: flex;
+	justify-content: space-between;
+	width: 400px;
 }
 
-.droppable h3 {
-	color: #fff;
+.flasksBox {
+	display: flex;
 }
 
-.draggableWrapper {
-	padding: 4px;
-	margin-bottom: 10px;
-}
-
-.flask {
+.blueFlask {
 	width: 30px;
 	height: 87px;
 
@@ -31,4 +24,21 @@
 	background-repeat: no-repeat;
 	background-size: contain;
 	background-position-y: bottom;
+}
+
+.greenFlask {
+	width: 30px;
+	height: 87px;
+
+	background-image: url(../../../../../../../public/images/greenFlask.svg);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position-y: bottom;
+}
+
+.magic {
+	width: 150px;
+	height: 150px;
+
+	background-color: aqua;
 }

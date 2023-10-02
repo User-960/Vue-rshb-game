@@ -1,87 +1,91 @@
 <template>
   <div :class='styles.wrapper'>
-    <div v-for='category in categories'
-         :key='category.id'
-         @drop='onDrop($event, category.id)'
-         :class='styles.droppableZone'
-         @dragover.prevent
-         @dragenter.prevent>
-      <h4>{{ category.title }}</h4>
-      <div v-for='item in items.filter(x => x.categoryId === category.id)'
-           @dragstart='onDragStart($event, item)'
-           :class='styles.draggableWrapper'
-           draggable='true'>
-        <h5>{{ item.title }}</h5>
+    <div :class='styles.columns'>
+      
+      <div :class='styles.column'>
+        <h4 class="mb-3">Draggable 1</h4>
+        <draggable :list="myArray2" group="flasks" :move="detectMove" :class='styles.flasksBox'>
+          <div v-for="element in flasks" :key="element.id">
+            <div :class='[{[styles.blueFlask]: element.name === "blueFlask"}]'></div>
+          </div>
+        </draggable>
+        <!-- <draggable :list="flasks" group="flasks" :move="detectMove" :class='styles.flasksBox'>
+            <div v-for="element in flasks" :key="element.id">
+              <div :class='[
+                {
+                  [styles.blueFlask]: element.name === "blueFlask",
+                  [styles.greenFlask]: element.name === "greenFlask"
+                }
+              ]'></div>
+            </div>
+          </draggable> -->
+      </div>
+
+      <div :class='[{[styles.magic]: isMagicActive}]'></div>
+
+      <div :class='styles.column'>
+          <h4>Draggable 2</h4>
+          <draggable :list="flasks" group="flasks" :move="detectMove" :class='styles.flasksBox'>
+            <div v-for="element in flasks" :key="element.id">
+              <div :class='[
+                {
+                  [styles.blueFlask]: element.name === "blueFlask",
+                  [styles.greenFlask]: element.name === "greenFlask"
+                }
+              ]'></div>
+            </div>
+          </draggable>
       </div>
     </div>
-
-
-    <!-- <div :class='styles.flasks'></div> -->
   </div>
 </template>
 
 <script lang='ts'>
 import Vue from 'vue'
-import { ref } from 'vue'
+import draggable from 'vuedraggable'
 
-export default Vue.extend({
-  name: 'flasks',
-  setup() {
-    const items: any = ref([
+const flasks = [
       {
         id: 0,
-        title: 'Audi',
-        categoryId: 0
+        name: 'blueFlask'
       },
       {
         id: 1,
-        title: 'BMW',
-        categoryId: 0
+        name: 'greenFlask'
       },
       {
         id: 2,
-        title: 'Cat',
+        name: 'Cat'
+      },
+    ]
+
+const myArray2 = [
+      {
+        id: 3,
+        title: 'Mercedes',
         categoryId: 0
-      },
-    ])
-    const categories: any = ref([
-      {
-        id: 0,
-        title: 'Cars'
-      },
-      {
-        id: 1,
-        title: 'Animals'
       }
-    ])
+    ]
 
-    const onDragStart = (e: DragEvent, item: any) => {
-      if (e.dataTransfer) {
-        e.dataTransfer.dropEffect = 'move'
-        e.dataTransfer.effectAllowed = 'move'
-        e.dataTransfer.setData('itemId', item.id.toString())
-      }
+export default Vue.extend({
+  name: 'flasks',
+  data: () => ({
+    flasks,
+    myArray2,
+    isMagicActive: false
+  }),
+  components: {
+    draggable,
+  },
+  methods: {
+    detectMove(evt: any){
+       if (evt.draggedContext.element.name === 'blueFlask') {
+        setTimeout(() => {
+          this.isMagicActive = true
+        }, 2000)
+       }
     }
-
-    const onDrop = (e: DragEvent, categoryId: number) => {
-      if (e.dataTransfer) {
-        const itemId = parseInt(e.dataTransfer.getData('itemId'))
-        items.value = items.value.map((x: any) => {
-          if (x.id == itemId) {
-            x.categoryId = categoryId
-          }
-          return x
-        })
-      }
-    }
-
-    return {
-      items,
-      categories,
-      onDragStart,
-      onDrop
-    }
-  }
+  },
 })
 </script>
 
