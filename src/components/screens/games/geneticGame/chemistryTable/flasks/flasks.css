@@ -64,6 +64,7 @@
 	width: 30px;
 	height: 87px;
 
+	background-image: url(../../../../../../../public/images/emptyFlask.svg);
 	background-repeat: no-repeat;
 	background-size: contain;
 	background-position-y: bottom;
@@ -76,7 +77,11 @@
 
 .greenFlask.greenFlaskRotate {
 	transform: rotate(-150deg);
-	animation: rotateFlask 2s;
+	animation: rotateFlask 1.4s;
+}
+
+.greenFlask.greenFlaskRotate.emptyFlask {
+	background-image: url(../../../../../../../public/images/emptyFlask.svg);
 }
 
 .pinkFlask {
@@ -86,12 +91,25 @@
 
 .pinkFlask.pinkFlaskRotate {
 	transform: rotate(-150deg);
-	animation: rotateFlask 2s;
+	animation: rotateFlask 1.4s;
+}
+
+.pinkFlask.pinkFlaskRotate.emptyFlask {
+	background-image: url(../../../../../../../public/images/emptyFlask.svg);
 }
 
 .yellowFlask {
 	background-image: url(../../../../../../../public/images/yellowFlask.svg);
 	transform: rotate(0deg);
+}
+
+.yellowFlask.yellowFlaskRotate {
+	transform: rotate(-150deg);
+	animation: rotateFlask 1.4s;
+}
+
+.yellowFlask.yellowFlaskRotate.emptyFlask {
+	background-image: url(../../../../../../../public/images/emptyFlask.svg);
 }
 
 .blueFlask {
@@ -101,7 +119,11 @@
 
 .blueFlask.blueFlaskRotate {
 	transform: rotate(-150deg);
-	animation: rotateFlask 2s;
+	animation: rotateFlask 1.4s;
+}
+
+.blueFlask.blueFlaskRotate.emptyFlask {
+	background-image: url(../../../../../../../public/images/emptyFlask.svg);
 }
 
 .redFlask {
@@ -109,9 +131,27 @@
 	transform: rotate(0deg);
 }
 
+.redFlask.redFlaskRotate {
+	transform: rotate(-150deg);
+	animation: rotateFlask 1.4s;
+}
+
+.redFlask.redFlaskRotate.emptyFlask {
+	background-image: url(../../../../../../../public/images/emptyFlask.svg);
+}
+
 .cyanFlask {
 	background-image: url(../../../../../../../public/images/cyanFlask.svg);
 	transform: rotate(0deg);
+}
+
+.cyanFlask.cyanFlaskRotate {
+	transform: rotate(-150deg);
+	animation: rotateFlask 1.4s;
+}
+
+.cyanFlask.cyanFlaskRotate.emptyFlask {
+	background-image: url(../../../../../../../public/images/emptyFlask.svg);
 }
 
 .purpleFlask {
@@ -119,14 +159,41 @@
 	transform: rotate(0deg);
 }
 
+.purpleFlask.purpleFlaskRotate {
+	transform: rotate(-150deg);
+	animation: rotateFlask 1.4s;
+}
+
+.purpleFlask.purpleFlaskRotate.emptyFlask {
+	background-image: url(../../../../../../../public/images/emptyFlask.svg);
+}
+
 .orangeFlask {
 	background-image: url(../../../../../../../public/images/orangeFlask.svg);
 	transform: rotate(0deg);
 }
 
+.orangeFlask.orangeFlaskRotate {
+	transform: rotate(-150deg);
+	animation: rotateFlask 1.4s;
+}
+
+.orangeFlask.orangeFlaskRotate.emptyFlask {
+	background-image: url(../../../../../../../public/images/emptyFlask.svg);
+}
+
 .greyFlask {
 	background-image: url(../../../../../../../public/images/greyFlask.svg);
 	transform: rotate(0deg);
+}
+
+.greyFlask.greyFlaskRotate {
+	transform: rotate(-150deg);
+	animation: rotateFlask 1.4s;
+}
+
+.greyFlask.greyFlaskRotate.emptyFlask {
+	background-image: url(../../../../../../../public/images/emptyFlask.svg);
 }
 
 .effect {
@@ -146,17 +213,57 @@
 	animation: opacity 2s;
 }
 
+.greenStars {
+	background-image: url(../../../../../../../public/images/greenStars.svg);
+	animation: opacity 2s;
+}
+
+.redStars {
+	background-image: url(../../../../../../../public/images/redStars.svg);
+	animation: opacity 2s;
+}
+
+.yellowStars {
+	background-image: url(../../../../../../../public/images/yellowStars.svg);
+	animation: opacity 2s;
+}
+
+.pinkStars {
+	background-image: url(../../../../../../../public/images/pinkStars.svg);
+	animation: opacity 2s;
+}
+
+.cyanStars {
+	background-image: url(../../../../../../../public/images/cyanStars.svg);
+	animation: opacity 2s;
+}
+
+.orangeStars {
+	background-image: url(../../../../../../../public/images/orangeStars.svg);
+	animation: opacity 2s;
+}
+
+.purpleStars {
+	background-image: url(../../../../../../../public/images/purpleStars.svg);
+	animation: opacity 2s;
+}
+
+.greyStars {
+	background-image: url(../../../../../../../public/images/greyStars.svg);
+	animation: opacity 2s;
+}
+
 /* animations */
 @keyframes opacity {
 	from {
 		opacity: 0;
 	}
 
-	25% {
+	50% {
 		opacity: 0;
 	}
 
-	60% {
+	70% {
 		opacity: 1;
 	}
 

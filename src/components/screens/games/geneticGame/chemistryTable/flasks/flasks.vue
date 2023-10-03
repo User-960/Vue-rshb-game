@@ -6,7 +6,15 @@
         <div :class='[
             styles.effect, 
             {
-              [styles.blueStars]: isMagicActive,
+              [styles.blueStars]: isBlueEffectActive,
+              [styles.greenStars]: isGreenEffectActive,
+              [styles.redStars]: isRedEffectActive,
+              [styles.yellowStars]: isYellowEffectActive,
+              [styles.pinkStars]: isPinkEffectActive,
+              [styles.cyanStars]: isCyanEffectActive,
+              [styles.orangeStars]: isOrangeEffectActive,
+              [styles.purpleStars]: isPurpleEffectActive,
+              [styles.greyStars]: isGreyEffectActive,
             }
           ]'
         ></div>
@@ -35,6 +43,13 @@
                   [styles.greenFlaskRotate]: isGreenFlaskRotate,
                   [styles.blueFlaskRotate]: isBlueFlaskRotate,
                   [styles.pinkFlaskRotate]: isPinkFlaskRotate,
+                  [styles.yellowFlaskRotate]: isYellowFlaskRotate,
+                  [styles.redFlaskRotate]: isRedFlaskRotate,
+                  [styles.cyanFlaskRotate]: isCyanFlaskRotate,
+                  [styles.orangeFlaskRotate]: isOrangeFlaskRotate,
+                  [styles.purpleFlaskRotate]: isPurpleFlaskRotate,
+                  [styles.greyFlaskRotate]: isGreyFlaskRotate,
+                  [styles.emptyFlask]: isEmptyFlask,
                 }
               ]'></div>
             </div>
@@ -65,7 +80,6 @@ const flasks = [
       {
         id: 3,
         name: 'blueFlask',
-        isInDroppedZone: false,
       },
       {
         id: 4,
@@ -102,30 +116,54 @@ export default Vue.extend({
     flasks,
     flasksDropZone,
 
-    isMagicActive: false,
+    isBlueEffectActive: false,
+    isGreenEffectActive: false,
+    isRedEffectActive: false,
+    isYellowEffectActive: false,
+    isPinkEffectActive: false,
+    isCyanEffectActive: false,
+    isOrangeEffectActive: false,
+    isPurpleEffectActive: false,
+    isGreyEffectActive: false,
+
     isBlueFlaskRotate: false,
     isGreenFlaskRotate: false,
-    isPinkFlaskRotate: false
+    isPinkFlaskRotate: false,
+    isYellowFlaskRotate: false,
+    isRedFlaskRotate: false,
+    isCyanFlaskRotate: false,
+    isOrangeFlaskRotate: false,
+    isPurpleFlaskRotate: false,
+    isGreyFlaskRotate: false,
+
+    isEmptyFlask: false,
   }),
   components: {
     draggable,
   },
   methods: {
     detectMove(evt: any){
+      this.isGreenFlaskRotate = false
+      this.isBlueFlaskRotate = false
+      this.isPinkFlaskRotate = false
+      this.isYellowFlaskRotate = false
+      this.isRedFlaskRotate = false
+      this.isCyanFlaskRotate = false
+      this.isOrangeFlaskRotate = false
+      this.isPurpleFlaskRotate = false
+      this.isGreyFlaskRotate = false
+      this.isEmptyFlask = false
+
        if (
           evt.draggedContext.element.name === 'greenFlask' && 
           evt.to.attributes['id'].nodeValue === 'flasksDropZone'
         ) {
-          evt.draggedContext.element.isInDroppedZone = true
-          if (!this.isMagicActive && evt.draggedContext.element.isInDroppedZone) {
+          if (!this.isGreenEffectActive) {
             this.isGreenFlaskRotate = true
-            this.isMagicActive = true
+            this.isGreenEffectActive = true
             setTimeout(() => {
-              this.isMagicActive = false
-
-              // if (!this.isMagicActive) {
-              //   this.isGreenFlaskRotate = false
-              // }
+              this.isGreenEffectActive = false
+              this.isEmptyFlask = true
             }, 2000)
           }
         }
@@ -134,16 +172,12 @@ export default Vue.extend({
           evt.draggedContext.element.name === 'blueFlask' && 
           evt.to.attributes['id'].nodeValue === 'flasksDropZone'
         ) {
-          evt.draggedContext.element.isInDroppedZone = true
-          if (!this.isMagicActive && evt.draggedContext.element.isInDroppedZone) {
+          if (!this.isBlueEffectActive) {
             this.isBlueFlaskRotate = true
-            this.isMagicActive = true
+            this.isBlueEffectActive = true
             setTimeout(() => {
-              this.isMagicActive = false
-
-              // if (!this.isMagicActive) {
-              //   this.isBlueFlaskRotate = false
-              // }
+              this.isBlueEffectActive = false
+              this.isEmptyFlask = true
             }, 2000)
           }
         }
@@ -152,16 +186,96 @@ export default Vue.extend({
           evt.draggedContext.element.name === 'pinkFlask' && 
           evt.to.attributes['id'].nodeValue === 'flasksDropZone'
         ) {
-          evt.draggedContext.element.isInDroppedZone = true
-          if (!this.isMagicActive && evt.draggedContext.element.isInDroppedZone) {
+          if (!this.isPinkEffectActive) {
             this.isPinkFlaskRotate = true
-            this.isMagicActive = true
+            this.isPinkEffectActive = true
             setTimeout(() => {
-              this.isMagicActive = false
+              this.isPinkEffectActive = false
+              this.isEmptyFlask = true
+            }, 2000)
+          }
+        }
 
-              // if (!this.isMagicActive) {
-              //   this.isPinkFlaskRotate = false
-              // }
+        if (
+          evt.draggedContext.element.name === 'yellowFlask' && 
+          evt.to.attributes['id'].nodeValue === 'flasksDropZone'
+        ) {
+          if (!this.isYellowEffectActive) {
+            this.isYellowFlaskRotate = true
+            this.isYellowEffectActive = true
+            setTimeout(() => {
+              this.isYellowEffectActive = false
+              this.isEmptyFlask = true
+            }, 2000)
+          }
+        }
+
+        if (
+          evt.draggedContext.element.name === 'redFlask' && 
+          evt.to.attributes['id'].nodeValue === 'flasksDropZone'
+        ) {
+          if (!this.isRedEffectActive) {
+            this.isRedFlaskRotate = true
+            this.isRedEffectActive = true
+            setTimeout(() => {
+              this.isRedEffectActive = false
+              this.isEmptyFlask = true
+            }, 2000)
+          }
+        }
+
+        if (
+          evt.draggedContext.element.name === 'cyanFlask' && 
+          evt.to.attributes['id'].nodeValue === 'flasksDropZone'
+        ) {
+          if (!this.isCyanEffectActive) {
+            this.isCyanFlaskRotate = true
+            this.isCyanEffectActive = true
+            setTimeout(() => {
+              this.isCyanEffectActive = false
+              this.isEmptyFlask = true
+            }, 2000)
+          }
+        }
+
+        if (
+          evt.draggedContext.element.name === 'orangeFlask' && 
+          evt.to.attributes['id'].nodeValue === 'flasksDropZone'
+        ) {
+          if (!this.isOrangeEffectActive) {
+            this.isOrangeFlaskRotate = true
+            this.isOrangeEffectActive = true
+            setTimeout(() => {
+              this.isOrangeEffectActive = false
+              this.isEmptyFlask = true
+            }, 2000)
+          }
+        }
+
+        if (
+          evt.draggedContext.element.name === 'purpleFlask' && 
+          evt.to.attributes['id'].nodeValue === 'flasksDropZone'
+        ) {
+          if (!this.isPurpleEffectActive) {
+            this.isPurpleFlaskRotate = true
+            this.isPurpleEffectActive = true
+            setTimeout(() => {
+              this.isPurpleEffectActive = false
+              this.isEmptyFlask = true
+            }, 2000)
+          }
+        }
+
+        if (
+          evt.draggedContext.element.name === 'greyFlask' && 
+          evt.to.attributes['id'].nodeValue === 'flasksDropZone'
+        ) {
+          if (!this.isPurpleEffectActive) {
+            this.isGreyFlaskRotate = true
+            this.isGreyEffectActive = true
+            setTimeout(() => {
+              this.isGreyEffectActive = false
+              this.isEmptyFlask = true
             }, 2000)
           }
         }
@@ -170,13 +284,13 @@ export default Vue.extend({
       // console.log(evt.to.attributes['id'].nodeValue === 'flasksDropZone')
       // console.log(evt)
     },
-    detectMove2(evt: any){
-       if (evt.draggedContext.element.name === 'blueFlask') {
-        setTimeout(() => {
-          this.isMagicActive = true
-        }, 2000)
-       }
-    }
+    // detectMove2(evt: any){
+    //    if (evt.draggedContext.element.name === 'blueFlask') {
+    //     setTimeout(() => {
+    //       this.isEffectActive = true
+    //     }, 2000)
+    //    }
+    // }
   },
 })
 </script>
