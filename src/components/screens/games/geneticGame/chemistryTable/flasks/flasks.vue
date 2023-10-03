@@ -63,52 +63,7 @@
 <script lang='ts'>
 import Vue from 'vue'
 import draggable from 'vuedraggable'
-
-const flasks = [
-      {
-        id: 0,
-        name: 'greenFlask'
-      },
-      {
-        id: 1,
-        name: 'pinkFlask'
-      },
-      {
-        id: 2,
-        name: 'yellowFlask'
-      },
-      {
-        id: 3,
-        name: 'blueFlask',
-      },
-      {
-        id: 4,
-        name: 'redFlask'
-      },
-      {
-        id: 5,
-        name: 'cyanFlask'
-      },
-      {
-        id: 6,
-        name: 'purpleFlask'
-      },
-      {
-        id: 7,
-        name: 'orangeFlask'
-      },
-      {
-        id: 8,
-        name: 'greyFlask'
-      }
-    ]
-
-const flasksDropZone = [
-      {
-        id: 99,
-        name: 'flask'
-      },
-    ]
+import { EN_CONFIG, flasks, flasksDropZone } from '../../config/config'
 
 export default Vue.extend({
   name: 'flasks',
@@ -164,7 +119,7 @@ export default Vue.extend({
             setTimeout(() => {
               this.isGreenEffectActive = false
               this.isEmptyFlask = true
-            }, 2000)
+            }, EN_CONFIG.TIMING_EFFECT_FLASK)
           }
         }
 
@@ -178,7 +133,7 @@ export default Vue.extend({
             setTimeout(() => {
               this.isBlueEffectActive = false
               this.isEmptyFlask = true
-            }, 2000)
+            }, EN_CONFIG.TIMING_EFFECT_FLASK)
           }
         }
 
@@ -192,7 +147,7 @@ export default Vue.extend({
             setTimeout(() => {
               this.isPinkEffectActive = false
               this.isEmptyFlask = true
-            }, 2000)
+            }, EN_CONFIG.TIMING_EFFECT_FLASK)
           }
         }
 
@@ -206,7 +161,7 @@ export default Vue.extend({
             setTimeout(() => {
               this.isYellowEffectActive = false
               this.isEmptyFlask = true
-            }, 2000)
+            }, EN_CONFIG.TIMING_EFFECT_FLASK)
           }
         }
 
@@ -220,7 +175,7 @@ export default Vue.extend({
             setTimeout(() => {
               this.isRedEffectActive = false
               this.isEmptyFlask = true
-            }, 2000)
+            }, EN_CONFIG.TIMING_EFFECT_FLASK)
           }
         }
 
@@ -234,7 +189,7 @@ export default Vue.extend({
             setTimeout(() => {
               this.isCyanEffectActive = false
               this.isEmptyFlask = true
-            }, 2000)
+            }, EN_CONFIG.TIMING_EFFECT_FLASK)
           }
         }
 
@@ -248,7 +203,7 @@ export default Vue.extend({
             setTimeout(() => {
               this.isOrangeEffectActive = false
               this.isEmptyFlask = true
-            }, 2000)
+            }, EN_CONFIG.TIMING_EFFECT_FLASK)
           }
         }
 
@@ -262,7 +217,7 @@ export default Vue.extend({
             setTimeout(() => {
               this.isPurpleEffectActive = false
               this.isEmptyFlask = true
-            }, 2000)
+            }, EN_CONFIG.TIMING_EFFECT_FLASK)
           }
         }
 
@@ -276,21 +231,10 @@ export default Vue.extend({
             setTimeout(() => {
               this.isGreyEffectActive = false
               this.isEmptyFlask = true
-            }, 2000)
+            }, EN_CONFIG.TIMING_EFFECT_FLASK)
           }
         }
-
-      // console.log(evt.from.attributes['id'].nodeValue === 'flasksContainer')
-      // console.log(evt.to.attributes['id'].nodeValue === 'flasksDropZone')
-      // console.log(evt)
-    },
-    // detectMove2(evt: any){
-    //    if (evt.draggedContext.element.name === 'blueFlask') {
-    //     setTimeout(() => {
-    //       this.isEffectActive = true
-    //     }, 2000)
-    //    }
-    // }
+    }
   },
 })
 </script>
