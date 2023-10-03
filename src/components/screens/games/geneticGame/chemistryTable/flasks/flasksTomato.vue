@@ -100,7 +100,6 @@ export default Vue.extend({
   },
   methods: {
     ...mapMutations([
-      EN_GeneticGameMutation.FINISH_TOMATO_LEVEL,
       EN_GeneticGameMutation.SHOW_TOMATO_SPROUT,
       EN_GeneticGameMutation.HIDE_TOMATO_SPROUT,
       EN_GeneticGameMutation.SHOW_TOMATO_COLOR,
@@ -159,9 +158,7 @@ export default Vue.extend({
 
             setTimeout(() => {
               this.HIDE_TOMATO_COLOR()
-              this.SHOW_TOMATO_MODIFIED()
-
-              this.FINISH_TOMATO_LEVEL()         
+              this.SHOW_TOMATO_MODIFIED()      
             }, 1000);
 
             setTimeout(() => {

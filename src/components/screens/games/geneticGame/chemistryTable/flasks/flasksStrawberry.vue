@@ -206,8 +206,6 @@ export default Vue.extend({
             setTimeout(() => {
               this.HIDE_STRAWBERRY_COLOR()
               this.SHOW_STRAWBERRY_MODIFIED()  
-              
-              this.FINISH_STRAWBERRY_LEVEL()
             }, 1000);
 
             setTimeout(() => {

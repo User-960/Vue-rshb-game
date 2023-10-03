@@ -42,26 +42,6 @@ export default Vue.extend({
     flasksPepper,
     flasksStrawberry
   },
-  watch: {
-    GET_TOMATO_LEVEL() {
-      if (!this.GET_TOMATO_LEVEL) {
-        this.HIDE_TOMATO_MODIFIED()
-        this.START_PEPPER_LEVEL()
-      }
-    },
-    GET_PEPPER_LEVEL() {
-      if (!this.GET_PEPPER_LEVEL) {
-        this.HIDE_PEPPER_MODIFIED()
-        this.START_STRAWBERRY_LEVEL()
-      }
-    },
-    GET_STRAWBERRY_LEVEL() {
-      if (!this.GET_STRAWBERRY_LEVEL) {
-        this.HIDE_STRAWBERRY_MODIFIED()
-        this.FINISH_STRAWBERRY_LEVEL()
-      }
-    },
-  },
   computed: {
     ...mapGetters([
       EN_GeneticGameGetters.GET_TOMATO_LEVEL,

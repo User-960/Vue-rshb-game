@@ -100,7 +100,6 @@ export default Vue.extend({
   },
   methods: {
     ...mapMutations([
-      EN_GeneticGameMutation.FINISH_PEPPER_LEVEL,
       EN_GeneticGameMutation.SHOW_PEPPER_SPROUT,
       EN_GeneticGameMutation.HIDE_PEPPER_SPROUT,
       EN_GeneticGameMutation.SHOW_PEPPER_COLOR,
@@ -131,8 +130,6 @@ export default Vue.extend({
             setTimeout(() => {
               this.HIDE_PEPPER_COLOR()
               this.SHOW_PEPPER_MODIFIED()  
-              
-              this.FINISH_PEPPER_LEVEL()
             }, 1000);
 
             setTimeout(() => {
