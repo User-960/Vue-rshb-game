@@ -2,39 +2,44 @@
   <div :class='styles.wrapper'>
     <div :class='styles.columns'>
       
-      <div :class='styles.column'>
-        <h4 class="mb-3">Draggable 1</h4>
-        <draggable :list="myArray2" group="flasks" :move="detectMove" :class='styles.flasksBox'>
-          <div v-for="element in flasks" :key="element.id">
-            <div :class='[{[styles.blueFlask]: element.name === "blueFlask"}]'></div>
+      <div :class='styles.dropZoneContainer'>
+        <div :class='[
+            styles.effect, 
+            {
+              [styles.blueStars]: isMagicActive,
+            }
+          ]'
+        ></div>
+
+        <draggable :list="flasksDropZone" group="flasks" :move="detectMove" id='flasksDropZone' :class='styles.listDrop'>
+          <div v-for="flaskItem in flasksDropZone" :key="flaskItem.id">
+            <!-- <div :class='styles.flask'></div> -->
           </div>
         </draggable>
-        <!-- <draggable :list="flasks" group="flasks" :move="detectMove" :class='styles.flasksBox'>
-            <div v-for="element in flasks" :key="element.id">
-              <div :class='[
-                {
-                  [styles.blueFlask]: element.name === "blueFlask",
-                  [styles.greenFlask]: element.name === "greenFlask"
-                }
-              ]'></div>
-            </div>
-          </draggable> -->
       </div>
 
-      <div :class='[{[styles.magic]: isMagicActive}]'></div>
-
-      <div :class='styles.column'>
-          <h4>Draggable 2</h4>
-          <draggable :list="flasks" group="flasks" :move="detectMove" :class='styles.flasksBox'>
-            <div v-for="element in flasks" :key="element.id">
-              <div :class='[
+      <div :class='styles.flasksContainer'>
+          <draggable :list="flasks" group="flasks" :move="detectMove" id='flasksContainer' :class='styles.flasksList'>
+            <div v-for="flaskItem in flasks" :key="flaskItem.id">
+              <div :class='[styles.flask,
                 {
-                  [styles.blueFlask]: element.name === "blueFlask",
-                  [styles.greenFlask]: element.name === "greenFlask"
+                  [styles.greenFlask]: flaskItem.name === "greenFlask",
+                  [styles.pinkFlask]: flaskItem.name === "pinkFlask",
+                  [styles.yellowFlask]: flaskItem.name === "yellowFlask",
+                  [styles.blueFlask]: flaskItem.name === "blueFlask",
+                  [styles.redFlask]: flaskItem.name === "redFlask",
+                  [styles.cyanFlask]: flaskItem.name === "cyanFlask",
+                  [styles.purpleFlask]: flaskItem.name === "purpleFlask",
+                  [styles.orangeFlask]: flaskItem.name === "orangeFlask",
+                  [styles.greyFlask]: flaskItem.name === "greyFlask",
+                  [styles.greenFlaskRotate]: isGreenFlaskRotate,
+                  [styles.blueFlaskRotate]: isBlueFlaskRotate,
+                  [styles.pinkFlaskRotate]: isPinkFlaskRotate,
                 }
               ]'></div>
             </div>
           </draggable>
+          <div :class='styles.flasksBox'></div>
       </div>
     </div>
   </div>
@@ -47,38 +52,125 @@ import draggable from 'vuedraggable'
 const flasks = [
       {
         id: 0,
-        name: 'blueFlask'
-      },
-      {
-        id: 1,
         name: 'greenFlask'
       },
       {
-        id: 2,
-        name: 'Cat'
+        id: 1,
+        name: 'pinkFlask'
       },
-    ]
-
-const myArray2 = [
+      {
+        id: 2,
+        name: 'yellowFlask'
+      },
       {
         id: 3,
-        title: 'Mercedes',
-        categoryId: 0
+        name: 'blueFlask',
+        isInDroppedZone: false,
+      },
+      {
+        id: 4,
+        name: 'redFlask'
+      },
+      {
+        id: 5,
+        name: 'cyanFlask'
+      },
+      {
+        id: 6,
+        name: 'purpleFlask'
+      },
+      {
+        id: 7,
+        name: 'orangeFlask'
+      },
+      {
+        id: 8,
+        name: 'greyFlask'
       }
+    ]
+
+const flasksDropZone = [
+      {
+        id: 99,
+        name: 'flask'
+      },
     ]
 
 export default Vue.extend({
   name: 'flasks',
   data: () => ({
     flasks,
-    myArray2,
-    isMagicActive: false
+    flasksDropZone,
+
+    isMagicActive: false,
+    isBlueFlaskRotate: false,
+    isGreenFlaskRotate: false,
+    isPinkFlaskRotate: false
   }),
   components: {
     draggable,
   },
   methods: {
     detectMove(evt: any){
+       if (
+          evt.draggedContext.element.name === 'greenFlask' && 
+          evt.to.attributes['id'].nodeValue === 'flasksDropZone'
+        ) {
+          evt.draggedContext.element.isInDroppedZone = true
+          if (!this.isMagicActive && evt.draggedContext.element.isInDroppedZone) {
+            this.isGreenFlaskRotate = true
+            this.isMagicActive = true
+            setTimeout(() => {
+              this.isMagicActive = false
+
+              // if (!this.isMagicActive) {
+              //   this.isGreenFlaskRotate = false
+              // }
+            }, 2000)
+          }
+        }
+
+        if (
+          evt.draggedContext.element.name === 'blueFlask' && 
+          evt.to.attributes['id'].nodeValue === 'flasksDropZone'
+        ) {
+          evt.draggedContext.element.isInDroppedZone = true
+          if (!this.isMagicActive && evt.draggedContext.element.isInDroppedZone) {
+            this.isBlueFlaskRotate = true
+            this.isMagicActive = true
+            setTimeout(() => {
+              this.isMagicActive = false
+
+              // if (!this.isMagicActive) {
+              //   this.isBlueFlaskRotate = false
+              // }
+            }, 2000)
+          }
+        }
+
+        if (
+          evt.draggedContext.element.name === 'pinkFlask' && 
+          evt.to.attributes['id'].nodeValue === 'flasksDropZone'
+        ) {
+          evt.draggedContext.element.isInDroppedZone = true
+          if (!this.isMagicActive && evt.draggedContext.element.isInDroppedZone) {
+            this.isPinkFlaskRotate = true
+            this.isMagicActive = true
+            setTimeout(() => {
+              this.isMagicActive = false
+
+              // if (!this.isMagicActive) {
+              //   this.isPinkFlaskRotate = false
+              // }
+            }, 2000)
+          }
+        }
+
+      // console.log(evt.from.attributes['id'].nodeValue === 'flasksContainer')
+      // console.log(evt.to.attributes['id'].nodeValue === 'flasksDropZone')
+      // console.log(evt)
+    },
+    detectMove2(evt: any){
        if (evt.draggedContext.element.name === 'blueFlask') {
         setTimeout(() => {
           this.isMagicActive = true

@@ -7,38 +7,170 @@
 }
 
 .columns {
+	position: relative;
 	display: flex;
-	justify-content: space-between;
-	width: 400px;
+}
+
+.dropZoneContainer {
+	position: relative;
+	min-width: 120px;
+	max-height: 70px;
+}
+
+.listDrop {
+	display: flex;
+	position: relative;
+
+	display: flex;
+	justify-content: center;
+
+	width: 100%;
+	height: 100%;
+}
+
+.flasksContainer {
+	position: relative;
+	top: 67px;
+	left: 150px;
+
+	min-width: 338px;
 }
 
 .flasksBox {
-	display: flex;
+	width: 338px;
+	height: 65px;
+
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+
+	background-image: url(../../../../../../../public/images/flasksBox.svg);
+	background-repeat: no-repeat;
+
+	z-index: 40;
 }
 
-.blueFlask {
+.flasksList {
+	display: flex;
+	position: relative;
+	top: -10px;
+	left: 27px;
+
+	z-index: 50;
+}
+
+.flask {
+	margin: 0px 1px;
 	width: 30px;
 	height: 87px;
 
-	background-image: url(../../../../../../../public/images/blueFlask.svg);
 	background-repeat: no-repeat;
 	background-size: contain;
 	background-position-y: bottom;
 }
 
 .greenFlask {
-	width: 30px;
-	height: 87px;
-
 	background-image: url(../../../../../../../public/images/greenFlask.svg);
-	background-repeat: no-repeat;
-	background-size: contain;
-	background-position-y: bottom;
+	transform: rotate(0deg);
 }
 
-.magic {
-	width: 150px;
-	height: 150px;
+.greenFlask.greenFlaskRotate {
+	transform: rotate(-150deg);
+	animation: rotateFlask 2s;
+}
 
-	background-color: aqua;
+.pinkFlask {
+	background-image: url(../../../../../../../public/images/pinkFlask.svg);
+	transform: rotate(0deg);
+}
+
+.pinkFlask.pinkFlaskRotate {
+	transform: rotate(-150deg);
+	animation: rotateFlask 2s;
+}
+
+.yellowFlask {
+	background-image: url(../../../../../../../public/images/yellowFlask.svg);
+	transform: rotate(0deg);
+}
+
+.blueFlask {
+	background-image: url(../../../../../../../public/images/blueFlask.svg);
+	transform: rotate(0deg);
+}
+
+.blueFlask.blueFlaskRotate {
+	transform: rotate(-150deg);
+	animation: rotateFlask 2s;
+}
+
+.redFlask {
+	background-image: url(../../../../../../../public/images/redFlask.svg);
+	transform: rotate(0deg);
+}
+
+.cyanFlask {
+	background-image: url(../../../../../../../public/images/cyanFlask.svg);
+	transform: rotate(0deg);
+}
+
+.purpleFlask {
+	background-image: url(../../../../../../../public/images/purpleFlask.svg);
+	transform: rotate(0deg);
+}
+
+.orangeFlask {
+	background-image: url(../../../../../../../public/images/orangeFlask.svg);
+	transform: rotate(0deg);
+}
+
+.greyFlask {
+	background-image: url(../../../../../../../public/images/greyFlask.svg);
+	transform: rotate(0deg);
+}
+
+.effect {
+	position: absolute;
+	left: -38px;
+	top: -36px;
+
+	width: 200px;
+	height: 156px;
+
+	background-image: none;
+	background-repeat: no-repeat;
+}
+
+.blueStars {
+	background-image: url(../../../../../../../public/images/blueStars.svg);
+	animation: opacity 2s;
+}
+
+/* animations */
+@keyframes opacity {
+	from {
+		opacity: 0;
+	}
+
+	25% {
+		opacity: 0;
+	}
+
+	60% {
+		opacity: 1;
+	}
+
+	to {
+		opacity: 0;
+	}
+}
+
+@keyframes rotateFlask {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(-150deg);
+	}
 }
