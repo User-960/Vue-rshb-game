@@ -68,7 +68,7 @@ import { mapMutations } from 'vuex'
 import { EN_GeneticGameMutation } from '@/store/modules/geneticGame/mutations'
 
 export default Vue.extend({
-  name: 'flasks',
+  name: 'flasksStrawberry',
   data: () => ({
     flasks,
     flasksDropZone,
@@ -100,12 +100,12 @@ export default Vue.extend({
   },
   methods: {
     ...mapMutations([
-      EN_GeneticGameMutation.SHOW_TOMATO_SPROUT,
-      EN_GeneticGameMutation.HIDE_TOMATO_SPROUT,
-      EN_GeneticGameMutation.SHOW_TOMATO_COLOR,
-      EN_GeneticGameMutation.HIDE_TOMATO_COLOR,
-      EN_GeneticGameMutation.SHOW_TOMATO_MODIFIED,
-      EN_GeneticGameMutation.HIDE_TOMATO_MODIFIED,
+      EN_GeneticGameMutation.SHOW_STRAWBERRY_SPROUT,
+      EN_GeneticGameMutation.HIDE_STRAWBERRY_SPROUT,
+      EN_GeneticGameMutation.SHOW_STRAWBERRY_COLOR,
+      EN_GeneticGameMutation.HIDE_STRAWBERRY_COLOR,
+      EN_GeneticGameMutation.SHOW_STRAWBERRY_MODIFIED,
+      EN_GeneticGameMutation.HIDE_STRAWBERRY_MODIFIED,
     ]),
     detectMove(evt: any){
       this.isGreenFlaskRotate = false
@@ -141,7 +141,7 @@ export default Vue.extend({
             this.isBlueFlaskRotate = true
             this.isBlueEffectActive = true
 
-            this.SHOW_TOMATO_SPROUT()
+            this.SHOW_STRAWBERRY_SPROUT()
             setTimeout(() => {
               this.isBlueEffectActive = false
               this.isEmptyFlask = true
@@ -158,8 +158,8 @@ export default Vue.extend({
             this.isPinkEffectActive = true
 
             setTimeout(() => {
-              this.HIDE_TOMATO_COLOR()
-              this.SHOW_TOMATO_MODIFIED()              
+              this.HIDE_STRAWBERRY_COLOR()
+              this.SHOW_STRAWBERRY_MODIFIED()              
             }, 1000);
 
             setTimeout(() => {
@@ -248,8 +248,8 @@ export default Vue.extend({
             this.isGreyEffectActive = true
 
             setTimeout(() => {
-              this.HIDE_TOMATO_SPROUT()
-              this.SHOW_TOMATO_COLOR()            
+              this.HIDE_STRAWBERRY_SPROUT()
+              this.SHOW_STRAWBERRY_COLOR()            
             }, 1000);
 
             setTimeout(() => {

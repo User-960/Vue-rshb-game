@@ -22,9 +22,20 @@ export enum EN_GeneticGameGetters {
 	GET_CHOSEN_PEPPER_LEVEL_GN = 'GET_CHOSEN_PEPPER_LEVEL_GN',
 	GET_CHOSEN_STRAWBERRY_LEVEL_GN = 'GET_CHOSEN_STRAWBERRY_LEVEL_GN',
 
+	GET_TOMATO_LEVEL = 'GET_TOMATO_LEVEL',
 	GET_TOMATO_SPROUT = 'GET_TOMATO_SPROUT',
 	GET_TOMATO_COLOR = 'GET_TOMATO_COLOR',
-	GET_TOMATO_MODIFIED = 'GET_TOMATO_MODIFIED'
+	GET_TOMATO_MODIFIED = 'GET_TOMATO_MODIFIED',
+
+	GET_PEPPER_LEVEL = 'GET_PEPPER_LEVEL',
+	GET_PEPPER_SPROUT = 'GET_PEPPER_SPROUT',
+	GET_PEPPER_COLOR = 'GET_PEPPER_COLOR',
+	GET_PEPPER_MODIFIED = 'GET_PEPPER_MODIFIED',
+
+	GET_STRAWBERRY_LEVEL = 'GET_STRAWBERRY_LEVEL',
+	GET_STRAWBERRY_SPROUT = 'GET_STRAWBERRY_SPROUT',
+	GET_STRAWBERRY_COLOR = 'GET_STRAWBERRY_COLOR',
+	GET_STRAWBERRY_MODIFIED = 'GET_STRAWBERRY_MODIFIED'
 }
 
 export const getters: GetterTree<IGeneticGameState, IRootState> = {
@@ -46,7 +57,22 @@ export const getters: GetterTree<IGeneticGameState, IRootState> = {
 	[EN_GeneticGameGetters.GET_BACK_MUSIC_GAME_GN]: state =>
 		state.isPlayBackMusic,
 
+	[EN_GeneticGameGetters.GET_TOMATO_LEVEL]: state => state.isTomatoLevel,
 	[EN_GeneticGameGetters.GET_TOMATO_SPROUT]: state => state.isTomatoSprout,
 	[EN_GeneticGameGetters.GET_TOMATO_COLOR]: state => state.isTomatoColor,
-	[EN_GeneticGameGetters.GET_TOMATO_MODIFIED]: state => state.isTomatoModified
+	[EN_GeneticGameGetters.GET_TOMATO_MODIFIED]: state => state.isTomatoModified,
+
+	[EN_GeneticGameGetters.GET_PEPPER_LEVEL]: state => state.isPepperLevel,
+	[EN_GeneticGameGetters.GET_PEPPER_SPROUT]: state => state.isPepperSprout,
+	[EN_GeneticGameGetters.GET_PEPPER_COLOR]: state => state.isPepperColor,
+	[EN_GeneticGameGetters.GET_PEPPER_MODIFIED]: state => state.isPepperModified,
+
+	[EN_GeneticGameGetters.GET_STRAWBERRY_LEVEL]: state =>
+		state.isStrawberryLevel,
+	[EN_GeneticGameGetters.GET_STRAWBERRY_SPROUT]: state =>
+		state.isStrawberrySprout,
+	[EN_GeneticGameGetters.GET_STRAWBERRY_COLOR]: state =>
+		state.isStrawberryColor,
+	[EN_GeneticGameGetters.GET_STRAWBERRY_MODIFIED]: state =>
+		state.isStrawberryModified
 }

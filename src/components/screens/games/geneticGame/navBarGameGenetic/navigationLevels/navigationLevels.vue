@@ -3,36 +3,40 @@
     <li :class='[
         styles.navLevel, 
         styles.navLevelTomato,
-        {[styles.navLevelTomatoActive]: isNavLevelTomatoActive,}
+        {[styles.navLevelTomatoActive]: GET_TOMATO_LEVEL}
       ]'
     ></li>
 
     <li :class='[
         styles.navLevel, 
         styles.navLevelPepper,
-        {[styles.navLevelPepperActive]: isNavLevelPepperActive,}
+        {[styles.navLevelPepperActive]: GET_PEPPER_LEVEL,}
       ]'
     ></li>
 
     <li :class='[
         styles.navLevel, 
         styles.navLevelStrawberry,
-        {[styles.navLevelStrawberryActive]: isNavLevelStrawberryActive,}
+        {[styles.navLevelStrawberryActive]: GET_STRAWBERRY_LEVEL,}
       ]'
     ></li>
   </ul>
 </template>
 
 <script lang='ts'>
+import { EN_GeneticGameGetters } from '@/store/modules/geneticGame/getters'
 import Vue from 'vue'
+import { mapGetters } from 'vuex'
 
 export default Vue.extend({
   name: 'navigationLevels',
-  data: () => ({
-    isNavLevelTomatoActive: true,
-    isNavLevelPepperActive: false,
-    isNavLevelStrawberryActive: false
-  })
+  computed: {
+    ...mapGetters([
+      EN_GeneticGameGetters.GET_TOMATO_LEVEL,
+      EN_GeneticGameGetters.GET_PEPPER_LEVEL,
+      EN_GeneticGameGetters.GET_STRAWBERRY_LEVEL,
+    ]),
+  }
 })
 </script>
 

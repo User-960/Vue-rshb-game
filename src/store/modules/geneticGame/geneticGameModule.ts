@@ -20,7 +20,7 @@ const state: IGeneticGameState = {
 	isPlayBackMusic: false,
 	timer: 90,
 
-	isTomatoLevel: false,
+	isTomatoLevel: true,
 	isTomatoSprout: false,
 	isTomatoColor: false,
 	isTomatoModified: false,

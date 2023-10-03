@@ -70,6 +70,8 @@
 
 	width: 120px;
 	height: 90px;
+
+	animation: opacity 2s;
 }
 
 .plantColorPepper {
@@ -79,6 +81,8 @@
 
 	width: 140px;
 	height: 110px;
+
+	animation: opacity 2s;
 }
 
 .plantModifiedPepper {
@@ -88,6 +92,8 @@
 
 	width: 270px;
 	height: 234px;
+
+	animation: opacity 2s;
 }
 
 .plantSproutStrawberry {
@@ -96,6 +102,8 @@
 
 	width: 125px;
 	height: 120px;
+
+	animation: opacity 2s;
 }
 
 .plantColorStrawberry {
@@ -105,6 +113,8 @@
 
 	width: 128px;
 	height: 137px;
+
+	animation: opacity 2s;
 }
 
 .plantModifiedStrawberry {
@@ -114,6 +124,8 @@
 
 	width: 128px;
 	height: 137px;
+
+	animation: opacity 2s;
 }
 
 /* animations */
