@@ -16,7 +16,7 @@ export enum EN_CONFIG {
 	TIMING_GAME_OVER_STRAWBERRY = 1000
 }
 
-export const flasks = [
+export const flasksTomato = [
 	{
 		id: 0,
 		name: 'greenFlask'
@@ -55,7 +55,99 @@ export const flasks = [
 	}
 ]
 
-export const flasksDropZone = [
+export const flasksPepper = [
+	{
+		id: 0,
+		name: 'greenFlask'
+	},
+	{
+		id: 1,
+		name: 'pinkFlask'
+	},
+	{
+		id: 2,
+		name: 'yellowFlask'
+	},
+	{
+		id: 3,
+		name: 'blueFlask'
+	},
+	{
+		id: 4,
+		name: 'redFlask'
+	},
+	{
+		id: 5,
+		name: 'cyanFlask'
+	},
+	{
+		id: 6,
+		name: 'purpleFlask'
+	},
+	{
+		id: 7,
+		name: 'orangeFlask'
+	},
+	{
+		id: 8,
+		name: 'greyFlask'
+	}
+]
+
+export const flasksStrawberry = [
+	{
+		id: 0,
+		name: 'greenFlask'
+	},
+	{
+		id: 1,
+		name: 'pinkFlask'
+	},
+	{
+		id: 2,
+		name: 'yellowFlask'
+	},
+	{
+		id: 3,
+		name: 'blueFlask'
+	},
+	{
+		id: 4,
+		name: 'redFlask'
+	},
+	{
+		id: 5,
+		name: 'cyanFlask'
+	},
+	{
+		id: 6,
+		name: 'purpleFlask'
+	},
+	{
+		id: 7,
+		name: 'orangeFlask'
+	},
+	{
+		id: 8,
+		name: 'greyFlask'
+	}
+]
+
+export const flasksDropZoneTomato = [
+	{
+		id: 99,
+		name: 'flask'
+	}
+]
+
+export const flasksDropZonePepper = [
+	{
+		id: 99,
+		name: 'flask'
+	}
+]
+
+export const flasksDropZoneStrawberry = [
 	{
 		id: 99,
 		name: 'flask'

@@ -63,15 +63,15 @@
 <script lang='ts'>
 import Vue from 'vue'
 import draggable from 'vuedraggable'
-import { EN_CONFIG, flasks, flasksDropZone } from '../../config/config'
+import { EN_CONFIG, flasksStrawberry, flasksDropZoneStrawberry } from '../../config/config'
 import { mapMutations } from 'vuex'
 import { EN_GeneticGameMutation } from '@/store/modules/geneticGame/mutations'
 
 export default Vue.extend({
   name: 'flasksStrawberry',
   data: () => ({
-    flasks,
-    flasksDropZone,
+    flasks: flasksStrawberry,
+    flasksDropZone: flasksDropZoneStrawberry,
 
     isBlueEffectActive: false,
     isGreenEffectActive: false,
@@ -100,12 +100,12 @@ export default Vue.extend({
   },
   methods: {
     ...mapMutations([
+      EN_GeneticGameMutation.FINISH_STRAWBERRY_LEVEL,
       EN_GeneticGameMutation.SHOW_STRAWBERRY_SPROUT,
       EN_GeneticGameMutation.HIDE_STRAWBERRY_SPROUT,
       EN_GeneticGameMutation.SHOW_STRAWBERRY_COLOR,
       EN_GeneticGameMutation.HIDE_STRAWBERRY_COLOR,
-      EN_GeneticGameMutation.SHOW_STRAWBERRY_MODIFIED,
-      EN_GeneticGameMutation.HIDE_STRAWBERRY_MODIFIED,
+      EN_GeneticGameMutation.SHOW_STRAWBERRY_MODIFIED
     ]),
     detectMove(evt: any){
       this.isGreenFlaskRotate = false
@@ -140,8 +140,6 @@ export default Vue.extend({
           if (!this.isBlueEffectActive) {
             this.isBlueFlaskRotate = true
             this.isBlueEffectActive = true
-
-            this.SHOW_STRAWBERRY_SPROUT()
             setTimeout(() => {
               this.isBlueEffectActive = false
               this.isEmptyFlask = true
@@ -156,12 +154,6 @@ export default Vue.extend({
           if (!this.isPinkEffectActive) {
             this.isPinkFlaskRotate = true
             this.isPinkEffectActive = true
-
-            setTimeout(() => {
-              this.HIDE_STRAWBERRY_COLOR()
-              this.SHOW_STRAWBERRY_MODIFIED()              
-            }, 1000);
-
             setTimeout(() => {
               this.isPinkEffectActive = false
               this.isEmptyFlask = true
@@ -176,6 +168,12 @@ export default Vue.extend({
           if (!this.isYellowEffectActive) {
             this.isYellowFlaskRotate = true
             this.isYellowEffectActive = true
+
+            setTimeout(() => {
+              this.HIDE_STRAWBERRY_SPROUT()
+              this.SHOW_STRAWBERRY_COLOR()            
+            }, 1000);
+
             setTimeout(() => {
               this.isYellowEffectActive = false
               this.isEmptyFlask = true
@@ -204,6 +202,14 @@ export default Vue.extend({
           if (!this.isCyanEffectActive) {
             this.isCyanFlaskRotate = true
             this.isCyanEffectActive = true
+
+            setTimeout(() => {
+              this.HIDE_STRAWBERRY_COLOR()
+              this.SHOW_STRAWBERRY_MODIFIED()  
+              
+              this.FINISH_STRAWBERRY_LEVEL()
+            }, 1000);
+
             setTimeout(() => {
               this.isCyanEffectActive = false
               this.isEmptyFlask = true
@@ -232,6 +238,8 @@ export default Vue.extend({
           if (!this.isPurpleEffectActive) {
             this.isPurpleFlaskRotate = true
             this.isPurpleEffectActive = true
+
+            this.SHOW_STRAWBERRY_SPROUT()
             setTimeout(() => {
               this.isPurpleEffectActive = false
               this.isEmptyFlask = true
@@ -243,15 +251,9 @@ export default Vue.extend({
           evt.draggedContext.element.name === 'greyFlask' && 
           evt.to.attributes['id'].nodeValue === 'flasksDropZone'
         ) {
-          if (!this.isPurpleEffectActive) {
+          if (!this.isGreyEffectActive) {
             this.isGreyFlaskRotate = true
             this.isGreyEffectActive = true
-
-            setTimeout(() => {
-              this.HIDE_STRAWBERRY_SPROUT()
-              this.SHOW_STRAWBERRY_COLOR()            
-            }, 1000);
-
             setTimeout(() => {
               this.isGreyEffectActive = false
               this.isEmptyFlask = true

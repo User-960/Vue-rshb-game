@@ -63,15 +63,15 @@
 <script lang='ts'>
 import Vue from 'vue'
 import draggable from 'vuedraggable'
-import { EN_CONFIG, flasks, flasksDropZone } from '../../config/config'
+import { EN_CONFIG, flasksTomato, flasksDropZoneTomato } from '../../config/config'
 import { mapMutations } from 'vuex'
 import { EN_GeneticGameMutation } from '@/store/modules/geneticGame/mutations'
 
 export default Vue.extend({
   name: 'flasksTomato',
   data: () => ({
-    flasks,
-    flasksDropZone,
+    flasks: flasksTomato,
+    flasksDropZone: flasksDropZoneTomato,
 
     isBlueEffectActive: false,
     isGreenEffectActive: false,
@@ -100,12 +100,12 @@ export default Vue.extend({
   },
   methods: {
     ...mapMutations([
+      EN_GeneticGameMutation.FINISH_TOMATO_LEVEL,
       EN_GeneticGameMutation.SHOW_TOMATO_SPROUT,
       EN_GeneticGameMutation.HIDE_TOMATO_SPROUT,
       EN_GeneticGameMutation.SHOW_TOMATO_COLOR,
       EN_GeneticGameMutation.HIDE_TOMATO_COLOR,
       EN_GeneticGameMutation.SHOW_TOMATO_MODIFIED,
-      EN_GeneticGameMutation.HIDE_TOMATO_MODIFIED,
     ]),
     detectMove(evt: any){
       this.isGreenFlaskRotate = false
@@ -159,7 +159,9 @@ export default Vue.extend({
 
             setTimeout(() => {
               this.HIDE_TOMATO_COLOR()
-              this.SHOW_TOMATO_MODIFIED()              
+              this.SHOW_TOMATO_MODIFIED()
+
+              this.FINISH_TOMATO_LEVEL()         
             }, 1000);
 
             setTimeout(() => {

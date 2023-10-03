@@ -31,8 +31,9 @@ import Vue from 'vue'
 import flasksTomato from './flasks/flasksTomato.vue'
 import flasksPepper from './flasks/flasksPepper.vue'
 import flasksStrawberry from './flasks/flasksStrawberry.vue'
-import { mapGetters } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 import { EN_GeneticGameGetters } from '@/store/modules/geneticGame/getters'
+import { EN_GeneticGameMutation } from '@/store/modules/geneticGame/mutations'
 
 export default Vue.extend({
   name: 'chemistryTable',
@@ -40,6 +41,26 @@ export default Vue.extend({
     flasksTomato,
     flasksPepper,
     flasksStrawberry
+  },
+  watch: {
+    GET_TOMATO_LEVEL() {
+      if (!this.GET_TOMATO_LEVEL) {
+        this.HIDE_TOMATO_MODIFIED()
+        this.START_PEPPER_LEVEL()
+      }
+    },
+    GET_PEPPER_LEVEL() {
+      if (!this.GET_PEPPER_LEVEL) {
+        this.HIDE_PEPPER_MODIFIED()
+        this.START_STRAWBERRY_LEVEL()
+      }
+    },
+    GET_STRAWBERRY_LEVEL() {
+      if (!this.GET_STRAWBERRY_LEVEL) {
+        this.HIDE_STRAWBERRY_MODIFIED()
+        this.FINISH_STRAWBERRY_LEVEL()
+      }
+    },
   },
   computed: {
     ...mapGetters([
@@ -57,6 +78,16 @@ export default Vue.extend({
       EN_GeneticGameGetters.GET_STRAWBERRY_SPROUT,
       EN_GeneticGameGetters.GET_STRAWBERRY_COLOR,
       EN_GeneticGameGetters.GET_STRAWBERRY_MODIFIED,
+    ]),
+  },
+  methods: {
+    ...mapMutations([
+      EN_GeneticGameMutation.START_PEPPER_LEVEL,
+      EN_GeneticGameMutation.START_STRAWBERRY_LEVEL,
+      EN_GeneticGameMutation.FINISH_STRAWBERRY_LEVEL,
+      EN_GeneticGameMutation.HIDE_TOMATO_MODIFIED,
+      EN_GeneticGameMutation.HIDE_PEPPER_MODIFIED,
+      EN_GeneticGameMutation.HIDE_STRAWBERRY_MODIFIED,
     ]),
   }
 })

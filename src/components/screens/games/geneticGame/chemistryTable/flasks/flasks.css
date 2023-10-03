@@ -261,16 +261,18 @@
 		opacity: 0;
 	}
 
-	50% {
+	40% {
 		opacity: 0;
 	}
 
-	70% {
+	50% {
 		opacity: 1;
+		top: 0px;
 	}
 
 	to {
 		opacity: 0;
+		top: -30px;
 	}
 }
 

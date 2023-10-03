@@ -63,15 +63,15 @@
 <script lang='ts'>
 import Vue from 'vue'
 import draggable from 'vuedraggable'
-import { EN_CONFIG, flasks, flasksDropZone } from '../../config/config'
+import { EN_CONFIG, flasksPepper, flasksDropZonePepper } from '../../config/config'
 import { mapMutations } from 'vuex'
 import { EN_GeneticGameMutation } from '@/store/modules/geneticGame/mutations'
 
 export default Vue.extend({
   name: 'flasksPepper',
   data: () => ({
-    flasks,
-    flasksDropZone,
+    flasks: flasksPepper,
+    flasksDropZone: flasksDropZonePepper,
 
     isBlueEffectActive: false,
     isGreenEffectActive: false,
@@ -100,6 +100,7 @@ export default Vue.extend({
   },
   methods: {
     ...mapMutations([
+      EN_GeneticGameMutation.FINISH_PEPPER_LEVEL,
       EN_GeneticGameMutation.SHOW_PEPPER_SPROUT,
       EN_GeneticGameMutation.HIDE_PEPPER_SPROUT,
       EN_GeneticGameMutation.SHOW_PEPPER_COLOR,
@@ -126,6 +127,14 @@ export default Vue.extend({
           if (!this.isGreenEffectActive) {
             this.isGreenFlaskRotate = true
             this.isGreenEffectActive = true
+
+            setTimeout(() => {
+              this.HIDE_PEPPER_COLOR()
+              this.SHOW_PEPPER_MODIFIED()  
+              
+              this.FINISH_PEPPER_LEVEL()
+            }, 1000);
+
             setTimeout(() => {
               this.isGreenEffectActive = false
               this.isEmptyFlask = true
@@ -140,8 +149,6 @@ export default Vue.extend({
           if (!this.isBlueEffectActive) {
             this.isBlueFlaskRotate = true
             this.isBlueEffectActive = true
-
-            this.SHOW_PEPPER_SPROUT()
             setTimeout(() => {
               this.isBlueEffectActive = false
               this.isEmptyFlask = true
@@ -156,12 +163,6 @@ export default Vue.extend({
           if (!this.isPinkEffectActive) {
             this.isPinkFlaskRotate = true
             this.isPinkEffectActive = true
-
-            setTimeout(() => {
-              this.HIDE_PEPPER_COLOR()
-              this.SHOW_PEPPER_MODIFIED()              
-            }, 1000);
-
             setTimeout(() => {
               this.isPinkEffectActive = false
               this.isEmptyFlask = true
@@ -190,6 +191,8 @@ export default Vue.extend({
           if (!this.isRedEffectActive) {
             this.isRedFlaskRotate = true
             this.isRedEffectActive = true
+
+            this.SHOW_PEPPER_SPROUT()
             setTimeout(() => {
               this.isRedEffectActive = false
               this.isEmptyFlask = true
@@ -218,6 +221,12 @@ export default Vue.extend({
           if (!this.isOrangeEffectActive) {
             this.isOrangeFlaskRotate = true
             this.isOrangeEffectActive = true
+
+            setTimeout(() => {
+              this.HIDE_PEPPER_SPROUT()
+              this.SHOW_PEPPER_COLOR()            
+            }, 1000);
+
             setTimeout(() => {
               this.isOrangeEffectActive = false
               this.isEmptyFlask = true
@@ -243,15 +252,9 @@ export default Vue.extend({
           evt.draggedContext.element.name === 'greyFlask' && 
           evt.to.attributes['id'].nodeValue === 'flasksDropZone'
         ) {
-          if (!this.isPurpleEffectActive) {
+          if (!this.isGreyEffectActive) {
             this.isGreyFlaskRotate = true
             this.isGreyEffectActive = true
-
-            setTimeout(() => {
-              this.HIDE_PEPPER_SPROUT()
-              this.SHOW_PEPPER_COLOR()            
-            }, 1000);
-
             setTimeout(() => {
               this.isGreyEffectActive = false
               this.isEmptyFlask = true
