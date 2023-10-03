@@ -19,7 +19,14 @@ export enum EN_GeneticGameMutation {
 	MINUS_POINTS_GN = 'MINUS_POINTS_GN',
 	START_FINISH_TIMER_GN = 'START_FINISH_TIMER_GN',
 	PLAY_BACK_MUSIC_GAME_GN = 'PLAY_BACK_MUSIC_GAME_GN',
-	STOP_BACK_MUSIC_GAME_GN = 'STOP_BACK_MUSIC_GAME_GN'
+	STOP_BACK_MUSIC_GAME_GN = 'STOP_BACK_MUSIC_GAME_GN',
+
+	SHOW_TOMATO_SPROUT = 'SHOW_TOMATO_SPROUT',
+	HIDE_TOMATO_SPROUT = 'HIDE_TOMATO_SPROUT',
+	SHOW_TOMATO_COLOR = 'SHOW_TOMATO_COLOR',
+	HIDE_TOMATO_COLOR = 'HIDE_TOMATO_COLOR',
+	SHOW_TOMATO_MODIFIED = 'SHOW_TOMATO_MODIFIED',
+	HIDE_TOMATO_MODIFIED = 'HIDE_TOMATO_MODIFIED'
 }
 
 const audioBackAi = new Audio(AUDIO_CONFIG.AUDIO_BACK_MUSIC_PEST_CONTROL_GAME)
@@ -109,5 +116,23 @@ export const mutations: MutationTree<IGeneticGameState> = {
 		if (!state.isPlayBackMusic) {
 			audioBackAi.autoplay = false
 		}
+	},
+	[EN_GeneticGameMutation.SHOW_TOMATO_SPROUT](state) {
+		state.isTomatoSprout = true
+	},
+	[EN_GeneticGameMutation.HIDE_TOMATO_SPROUT](state) {
+		state.isTomatoSprout = false
+	},
+	[EN_GeneticGameMutation.SHOW_TOMATO_COLOR](state) {
+		state.isTomatoColor = true
+	},
+	[EN_GeneticGameMutation.HIDE_TOMATO_COLOR](state) {
+		state.isTomatoColor = false
+	},
+	[EN_GeneticGameMutation.SHOW_TOMATO_MODIFIED](state) {
+		state.isTomatoModified = true
+	},
+	[EN_GeneticGameMutation.HIDE_TOMATO_MODIFIED](state) {
+		state.isTomatoModified = false
 	}
 }

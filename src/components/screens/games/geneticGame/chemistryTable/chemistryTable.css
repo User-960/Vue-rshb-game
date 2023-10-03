@@ -39,6 +39,8 @@
 
 	width: 120px;
 	height: 90px;
+
+	animation: opacity 2s;
 }
 
 .plantColorTomato {
@@ -47,6 +49,8 @@
 
 	width: 140px;
 	height: 110px;
+
+	animation: opacity 2s;
 }
 
 .plantModifiedTomato {
@@ -56,6 +60,8 @@
 
 	width: 270px;
 	height: 254px;
+
+	animation: opacity 2s;
 }
 
 .plantSproutPepper {
@@ -108,4 +114,23 @@
 
 	width: 128px;
 	height: 137px;
+}
+
+/* animations */
+@keyframes opacity {
+	from {
+		opacity: 0;
+	}
+
+	60% {
+		opacity: 0;
+	}
+
+	70% {
+		opacity: 1;
+	}
+
+	to {
+		opacity: 1;
+	}
 }

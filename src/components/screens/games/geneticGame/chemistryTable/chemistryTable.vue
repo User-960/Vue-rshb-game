@@ -3,9 +3,9 @@
     <div :class='[
         styles.plant, 
         {
-          [styles.plantSproutTomato]: isPlantSproutTomato,
-          [styles.plantColorTomato]: isPlantColorTomato,
-          [styles.plantModifiedTomato]: isPlantModifiedTomato,
+          [styles.plantSproutTomato]: GET_TOMATO_SPROUT,
+          [styles.plantColorTomato]: GET_TOMATO_COLOR,
+          [styles.plantModifiedTomato]: GET_TOMATO_MODIFIED,
 
           [styles.plantSproutPepper]: isPlantSproutPepper,
           [styles.plantColorPepper]: isPlantColorPepper,
@@ -27,6 +27,8 @@
 <script lang='ts'>
 import Vue from 'vue'
 import flasks from './flasks/flasks.vue'
+import { mapGetters } from 'vuex'
+import { EN_GeneticGameGetters } from '@/store/modules/geneticGame/getters'
 
 export default Vue.extend({
   name: 'chemistryTable',
@@ -45,7 +47,14 @@ export default Vue.extend({
     isPlantSproutStrawberry: false,
     isPlantColorStrawberry: false,
     isPlantModifiedStrawberry: false
-  })
+  }),
+  computed: {
+    ...mapGetters([
+      EN_GeneticGameGetters.GET_TOMATO_SPROUT,
+      EN_GeneticGameGetters.GET_TOMATO_COLOR,
+      EN_GeneticGameGetters.GET_TOMATO_MODIFIED,
+    ]),
+  }
 })
 </script>
 

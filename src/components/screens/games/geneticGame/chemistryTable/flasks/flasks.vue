@@ -64,6 +64,8 @@
 import Vue from 'vue'
 import draggable from 'vuedraggable'
 import { EN_CONFIG, flasks, flasksDropZone } from '../../config/config'
+import { mapMutations } from 'vuex'
+import { EN_GeneticGameMutation } from '@/store/modules/geneticGame/mutations'
 
 export default Vue.extend({
   name: 'flasks',
@@ -97,6 +99,14 @@ export default Vue.extend({
     draggable,
   },
   methods: {
+    ...mapMutations([
+      EN_GeneticGameMutation.SHOW_TOMATO_SPROUT,
+      EN_GeneticGameMutation.HIDE_TOMATO_SPROUT,
+      EN_GeneticGameMutation.SHOW_TOMATO_COLOR,
+      EN_GeneticGameMutation.HIDE_TOMATO_COLOR,
+      EN_GeneticGameMutation.SHOW_TOMATO_MODIFIED,
+      EN_GeneticGameMutation.HIDE_TOMATO_MODIFIED,
+    ]),
     detectMove(evt: any){
       this.isGreenFlaskRotate = false
       this.isBlueFlaskRotate = false
@@ -130,6 +140,8 @@ export default Vue.extend({
           if (!this.isBlueEffectActive) {
             this.isBlueFlaskRotate = true
             this.isBlueEffectActive = true
+
+            this.SHOW_TOMATO_SPROUT()
             setTimeout(() => {
               this.isBlueEffectActive = false
               this.isEmptyFlask = true
@@ -144,6 +156,12 @@ export default Vue.extend({
           if (!this.isPinkEffectActive) {
             this.isPinkFlaskRotate = true
             this.isPinkEffectActive = true
+
+            setTimeout(() => {
+              this.HIDE_TOMATO_COLOR()
+              this.SHOW_TOMATO_MODIFIED()              
+            }, 1000);
+
             setTimeout(() => {
               this.isPinkEffectActive = false
               this.isEmptyFlask = true
@@ -228,6 +246,12 @@ export default Vue.extend({
           if (!this.isPurpleEffectActive) {
             this.isGreyFlaskRotate = true
             this.isGreyEffectActive = true
+
+            setTimeout(() => {
+              this.HIDE_TOMATO_SPROUT()
+              this.SHOW_TOMATO_COLOR()            
+            }, 1000);
+
             setTimeout(() => {
               this.isGreyEffectActive = false
               this.isEmptyFlask = true
