@@ -42,7 +42,7 @@
 	height: 123px;
 }
 
-.dialogFirstMistakeTomato {
+.dialogFirstMistake {
 	position: absolute;
 	top: 0px;
 	left: 90px;
@@ -57,7 +57,7 @@
 	height: 139px;
 }
 
-.dialogSecondMistakeTomato {
+.dialogSecondMistake {
 	position: absolute;
 	top: 0px;
 	left: 90px;

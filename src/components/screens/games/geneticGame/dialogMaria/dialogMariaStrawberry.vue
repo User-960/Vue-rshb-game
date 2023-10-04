@@ -1,6 +1,8 @@
 <template>
   <div :class='styles.dialogMaria'>
-    <div :class='styles.dialog' v-if='GET_STRAWBERRY_LEVEL && !GET_STRAWBERRY_MODIFIED'>
+    <div :class='styles.dialog' 
+      v-if='GET_STRAWBERRY_LEVEL && !GET_STRAWBERRY_MODIFIED && !GET_FIRST_MISTAKE_GN && !GET_SECOND_MISTAKE_GN'
+    >
 
       <div :class='styles.textContent'>
         <div v-if='GET_STRAWBERRY_LEVEL'>
@@ -33,14 +35,22 @@
 
     </div>
 
-    <div :class='styles.dialogModifiedStrawberry' v-else-if='GET_STRAWBERRY_LEVEL && GET_STRAWBERRY_MODIFIED'>
-    </div>
+    <div :class='styles.dialogModifiedTomato' v-else-if='GET_STRAWBERRY_MODIFIED'></div>
+
+    <div :class='[
+        {
+          [styles.dialogFirstMistake]: !GET_SECOND_MISTAKE_GN && GET_FIRST_MISTAKE_GN, 
+          [styles.dialogSecondMistake]: !GET_FIRST_MISTAKE_GN && GET_SECOND_MISTAKE_GN
+        }
+      ]' 
+      v-else-if='GET_STRAWBERRY_LEVEL && (GET_FIRST_MISTAKE_GN || GET_SECOND_MISTAKE_GN)'
+    ></div>
 
     <div :class='[
       styles.maria, 
       {
-        [styles.taskMaria]: (!GET_STRAWBERRY_SPROUT || !GET_STRAWBERRY_COLOR),
-        [styles.mistakeMaria]: isMistakeMaria,
+        [styles.taskMaria]: !GET_STRAWBERRY_SPROUT || !GET_STRAWBERRY_COLOR,
+        [styles.mistakeMaria]: GET_STRAWBERRY_LEVEL && (GET_FIRST_MISTAKE_GN || GET_SECOND_MISTAKE_GN),
         [styles.correctMaria]: GET_STRAWBERRY_MODIFIED
       }
       ]'
@@ -56,13 +66,19 @@ import { mapGetters, mapMutations } from 'vuex'
 
 export default Vue.extend({
   name: 'dialogMariaStrawberry',
-  data: () => ({
-    isTaskMaria: true,
-    isMistakeMaria: false,
-    isCorrectMaria: false,
-  }),
   watch: {
     GET_TIMER_STRAWBERRY_GN() {
+      if (this.GET_STRAWBERRY_LEVEL && this.GET_TIMER_STRAWBERRY_GN === 0 && this.GET_PLAYER_MISTAKES_GN < 2) {
+        this.INCREASE_PLAYER_MISTAKES_GN()
+        this.SHOW_FIRST_MISTAKE_GN()
+        this.START_FINISH_TIMER_STRAWBERRY_GN()
+        setTimeout(() => {
+          this.HIDE_FIRST_MISTAKE_GN()
+          this.UPDATE_TIMER_STRAWBERRY_GN()
+          this.START_FINISH_TIMER_STRAWBERRY_GN()
+        }, 4000)
+      }
+
       if (this.GET_STRAWBERRY_LEVEL && this.GET_TIMER_STRAWBERRY_GN === 0 && this.GET_PLAYER_MISTAKES_GN === 2) {
         this.START_FINISH_TIMER_STRAWBERRY_GN()
         this.FINISH_GAME_GN()
@@ -78,12 +94,18 @@ export default Vue.extend({
 
       EN_GeneticGameGetters.GET_TIMER_STRAWBERRY_GN,
       EN_GeneticGameGetters.GET_PLAYER_MISTAKES_GN,
+      EN_GeneticGameGetters.GET_FIRST_MISTAKE_GN,
+      EN_GeneticGameGetters.GET_SECOND_MISTAKE_GN,
     ]),
   },
   methods: {
     ...mapMutations([
       EN_GeneticGameMutation.FINISH_GAME_GN,
-      EN_GeneticGameMutation.START_FINISH_TIMER_STRAWBERRY_GN
+      EN_GeneticGameMutation.START_FINISH_TIMER_STRAWBERRY_GN,
+      EN_GeneticGameMutation.INCREASE_PLAYER_MISTAKES_GN,
+      EN_GeneticGameMutation.SHOW_FIRST_MISTAKE_GN,
+      EN_GeneticGameMutation.HIDE_FIRST_MISTAKE_GN,
+      EN_GeneticGameMutation.UPDATE_TIMER_STRAWBERRY_GN,
     ]),
   }
 })

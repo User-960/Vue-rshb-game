@@ -178,6 +178,10 @@ export const mutations: MutationTree<IGeneticGameState> = {
 		if (state.timerPepper === 0 || !state.isPepperLevel) {
 			clearInterval(timerPepper)
 		}
+
+		if (state.isFirstMistake || state.isSecondMistake) {
+			clearInterval(timerPepper)
+		}
 	},
 	[EN_GeneticGameMutation.UPDATE_TIMER_STRAWBERRY_GN](state) {
 		state.timerStrawberry = 9
@@ -202,6 +206,10 @@ export const mutations: MutationTree<IGeneticGameState> = {
 		}
 
 		if (state.timerStrawberry === 0 || !state.isStrawberryLevel) {
+			clearInterval(timerStrawberry)
+		}
+
+		if (state.isFirstMistake || state.isSecondMistake) {
 			clearInterval(timerStrawberry)
 		}
 	},

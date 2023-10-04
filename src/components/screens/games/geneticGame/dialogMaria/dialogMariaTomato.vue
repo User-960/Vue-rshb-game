@@ -39,8 +39,8 @@
     
     <div :class='[
         {
-          [styles.dialogFirstMistakeTomato]: !GET_SECOND_MISTAKE_GN && GET_FIRST_MISTAKE_GN, 
-          [styles.dialogSecondMistakeTomato]: !GET_FIRST_MISTAKE_GN && GET_SECOND_MISTAKE_GN
+          [styles.dialogFirstMistake]: !GET_SECOND_MISTAKE_GN && GET_FIRST_MISTAKE_GN, 
+          [styles.dialogSecondMistake]: !GET_FIRST_MISTAKE_GN && GET_SECOND_MISTAKE_GN
         }
       ]' 
       v-else-if='GET_TOMATO_LEVEL && (GET_FIRST_MISTAKE_GN || GET_SECOND_MISTAKE_GN)'
@@ -66,11 +66,6 @@ import { mapGetters, mapMutations } from 'vuex'
 
 export default Vue.extend({
   name: 'dialogMariaTomato',
-  data: () => ({
-    isTaskMaria: true,
-    isMistakeMaria: false,
-    isCorrectMaria: false,
-  }),
   watch: {
     GET_TIMER_TOMATO_GN() {
       if (this.GET_TOMATO_LEVEL && this.GET_TIMER_TOMATO_GN === 0 && this.GET_PLAYER_MISTAKES_GN < 2) {

@@ -102,8 +102,8 @@ export default Vue.extend({
   computed: {
     ...mapGetters([
       EN_GeneticGameGetters.GET_PLAYER_MISTAKES_GN,
-      EN_GeneticGameGetters.GET_TIMER_TOMATO_GN,
       EN_GeneticGameGetters.GET_TOMATO_SPROUT,
+      EN_GeneticGameGetters.GET_TOMATO_COLOR,
     ]),
   },
   methods: {
@@ -198,17 +198,36 @@ export default Vue.extend({
             this.isPinkFlaskRotate = true
             this.isPinkEffectActive = true
 
-            setTimeout(() => {
-              this.HIDE_TOMATO_COLOR()
-              this.SHOW_TOMATO_MODIFIED()
-            }, 1000);
+            if (this.GET_TOMATO_COLOR) {
+              setTimeout(() => {
+                this.HIDE_TOMATO_COLOR()
+                this.SHOW_TOMATO_MODIFIED()
+              }, 1000)
 
-            setTimeout(() => {
-              this.isPinkEffectActive = false
-              this.isEmptyFlask = true
+              setTimeout(() => {
+                this.isPinkEffectActive = false
+                this.isEmptyFlask = true
+                
+                this.START_FINISH_TIMER_TOMATO_GN()
+                this.FINISH_GAME_GN()
+              }, EN_CONFIG.TIMING_EFFECT_FLASK)
+            } else {
+              setTimeout(() => {
+                this.isPinkEffectActive = false
+                this.isEmptyFlask = true
 
-              this.FINISH_GAME_GN()
-            }, EN_CONFIG.TIMING_EFFECT_FLASK)
+                this.INCREASE_PLAYER_MISTAKES_GN()
+                this.INCREASE_PLAYER_MISTAKES_GN()
+
+                if (this.GET_PLAYER_MISTAKES_GN === 2) {
+                  this.SHOW_SECOND_MISTAKE_GN()
+                  this.START_FINISH_TIMER_TOMATO_GN()
+                  setTimeout(() => {
+                    this.FINISH_GAME_GN()
+                  }, EN_CONFIG.TIMING_ERROR_TEXT_MARIA)
+                }
+              }, EN_CONFIG.TIMING_EFFECT_FLASK)
+            }
           }
         }
 
