@@ -17,7 +17,9 @@
         </div>
 
         <div :class='styles.dialogMariaWrapper'>
-          <dialogMaria/>
+          <dialogMariaTomato v-if='GET_TOMATO_LEVEL' />
+          <dialogMariaPepper v-else-if='GET_PEPPER_LEVEL' />
+          <dialogMariaStrawberry v-else-if='GET_STRAWBERRY_LEVEL' />
         </div>
       </div>
     </template>
@@ -30,9 +32,13 @@ import navBarGameGenetic from '../navBarGameGenetic/navBarGameGenetic.vue'
 import infoLinkBlockGame from '../infoLinkBlockGame/infoLinkBlockGame.vue'
 import rulesBlockGame from '../rulesBlockGame/rulesBlockGame.vue'
 import chemistryTable from '../chemistryTable/chemistryTable.vue'
-import dialogMaria from '../dialogMaria/dialogMaria.vue'
+import dialogMariaTomato from '../dialogMaria/dialogMariaTomato.vue'
+import dialogMariaPepper from '../dialogMaria/dialogMariaPepper.vue'
+import dialogMariaStrawberry from '../dialogMaria/dialogMariaStrawberry.vue'
 import victoryBlockGame from '../victoryBlockGame/victoryBlockGame.vue'
 import lossBlockGame from '../lossBlockGame/lossBlockGame.vue'
+import { mapGetters } from 'vuex'
+import { EN_GeneticGameGetters } from '@/store/modules/geneticGame/getters'
 
 export default Vue.extend({
   name: 'geneticGameBack',
@@ -43,7 +49,18 @@ export default Vue.extend({
     victoryBlockGame,
     lossBlockGame,
     chemistryTable,
-    dialogMaria
+    dialogMariaTomato,
+    dialogMariaPepper,
+    dialogMariaStrawberry
+  },
+  computed: {
+    ...mapGetters([
+      EN_GeneticGameGetters.GET_TOMATO_LEVEL,
+
+      EN_GeneticGameGetters.GET_PEPPER_LEVEL,
+
+      EN_GeneticGameGetters.GET_STRAWBERRY_LEVEL,
+    ]),
   },
   methods: {}
 })

@@ -27,6 +27,65 @@
 	height: 156px;
 }
 
+.dialogModifiedTomato {
+	position: absolute;
+	top: 0px;
+	left: 90px;
+
+	padding: 24px;
+	background-image: url(../../../../../../public/images/dialogModifiedTomato.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+
+	width: 438px;
+	height: 123px;
+}
+
+.dialogModifiedPepper {
+	position: absolute;
+	top: 0px;
+	left: 90px;
+
+	padding: 24px;
+	background-image: url(../../../../../../public/images/dialogModifiedPepper.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+
+	width: 438px;
+	height: 123px;
+}
+
+.dialogModifiedStrawberry {
+	position: absolute;
+	top: 0px;
+	left: 90px;
+
+	padding: 24px;
+	background-image: url(../../../../../../public/images/dialogModifiedStrawberry.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+
+	width: 438px;
+	height: 123px;
+}
+.dialogModifiedPepper {
+	position: absolute;
+	top: 0px;
+	left: 90px;
+
+	padding: 24px;
+	background-image: url(../../../../../../public/images/dialogModifiedPepper.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+
+	width: 438px;
+	height: 123px;
+}
+
 .textContent {
 	position: relative;
 	max-width: 442px;
