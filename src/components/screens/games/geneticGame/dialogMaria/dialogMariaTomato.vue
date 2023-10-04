@@ -1,6 +1,8 @@
 <template>
   <div :class='styles.dialogMaria'>
-    <div :class='styles.dialog' v-if='GET_TOMATO_LEVEL && !GET_TOMATO_MODIFIED'>
+    <div :class='styles.dialog' 
+      v-if='GET_TOMATO_LEVEL && !GET_TOMATO_MODIFIED && !GET_FIRST_MISTAKE_GN && !GET_SECOND_MISTAKE_GN'
+    >
 
       <div :class='styles.textContent'>
         <div v-if='GET_TOMATO_LEVEL'>
@@ -33,13 +35,22 @@
 
     </div>
 
-    <div :class='styles.dialogModifiedTomato' v-else-if='GET_TOMATO_LEVEL && GET_TOMATO_MODIFIED'></div>
+    <div :class='styles.dialogModifiedTomato' v-else-if='GET_TOMATO_MODIFIED'></div>
+    
+    <div :class='[
+        {
+          [styles.dialogFirstMistakeTomato]: !GET_SECOND_MISTAKE_GN && GET_FIRST_MISTAKE_GN, 
+          [styles.dialogSecondMistakeTomato]: !GET_FIRST_MISTAKE_GN && GET_SECOND_MISTAKE_GN
+        }
+      ]' 
+      v-else-if='GET_TOMATO_LEVEL && (GET_FIRST_MISTAKE_GN || GET_SECOND_MISTAKE_GN)'
+    ></div>
 
     <div :class='[
       styles.maria, 
       {
         [styles.taskMaria]: !GET_TOMATO_SPROUT || !GET_TOMATO_COLOR,
-        [styles.mistakeMaria]: isMistakeMaria,
+        [styles.mistakeMaria]: GET_TOMATO_LEVEL && (GET_FIRST_MISTAKE_GN || GET_SECOND_MISTAKE_GN),
         [styles.correctMaria]: GET_TOMATO_MODIFIED
       }
       ]'
@@ -62,6 +73,17 @@ export default Vue.extend({
   }),
   watch: {
     GET_TIMER_TOMATO_GN() {
+      if (this.GET_TOMATO_LEVEL && this.GET_TIMER_TOMATO_GN === 0 && this.GET_PLAYER_MISTAKES_GN < 2) {
+        this.INCREASE_PLAYER_MISTAKES_GN()
+        this.SHOW_FIRST_MISTAKE_GN()
+        this.START_FINISH_TIMER_TOMATO_GN()
+        setTimeout(() => {
+          this.HIDE_FIRST_MISTAKE_GN()
+          this.UPDATE_TIMER_TOMATO_GN()
+          this.START_FINISH_TIMER_TOMATO_GN()
+        }, 4000)
+      }
+
       if (this.GET_TOMATO_LEVEL && this.GET_TIMER_TOMATO_GN === 0 && this.GET_PLAYER_MISTAKES_GN === 2) {
         this.START_FINISH_TIMER_TOMATO_GN()
         this.FINISH_GAME_GN()
@@ -77,12 +99,18 @@ export default Vue.extend({
 
       EN_GeneticGameGetters.GET_TIMER_TOMATO_GN,
       EN_GeneticGameGetters.GET_PLAYER_MISTAKES_GN,
+      EN_GeneticGameGetters.GET_FIRST_MISTAKE_GN,
+      EN_GeneticGameGetters.GET_SECOND_MISTAKE_GN,
     ]),
   },
   methods: {
     ...mapMutations([
       EN_GeneticGameMutation.FINISH_GAME_GN,
-      EN_GeneticGameMutation.START_FINISH_TIMER_TOMATO_GN
+      EN_GeneticGameMutation.START_FINISH_TIMER_TOMATO_GN,
+      EN_GeneticGameMutation.INCREASE_PLAYER_MISTAKES_GN,
+      EN_GeneticGameMutation.SHOW_FIRST_MISTAKE_GN,
+      EN_GeneticGameMutation.HIDE_FIRST_MISTAKE_GN,
+      EN_GeneticGameMutation.UPDATE_TIMER_TOMATO_GN,
     ]),
   }
 })

@@ -23,6 +23,8 @@ export enum EN_GeneticGameGetters {
 	GET_CHOSEN_STRAWBERRY_LEVEL_GN = 'GET_CHOSEN_STRAWBERRY_LEVEL_GN',
 
 	GET_PLAYER_MISTAKES_GN = 'GET_PLAYER_MISTAKES_GN',
+	GET_FIRST_MISTAKE_GN = 'GET_FIRST_MISTAKE_GN',
+	GET_SECOND_MISTAKE_GN = 'GET_SECOND_MISTAKE_GN',
 
 	GET_TIMER_TOMATO_GN = 'GET_TIMER_TOMATO_GN',
 	GET_TOMATO_LEVEL = 'GET_TOMATO_LEVEL',
@@ -62,6 +64,8 @@ export const getters: GetterTree<IGeneticGameState, IRootState> = {
 		state.isPlayBackMusic,
 
 	[EN_GeneticGameGetters.GET_PLAYER_MISTAKES_GN]: state => state.playerMistakes,
+	[EN_GeneticGameGetters.GET_FIRST_MISTAKE_GN]: state => state.isFirstMistake,
+	[EN_GeneticGameGetters.GET_SECOND_MISTAKE_GN]: state => state.isSecondMistake,
 
 	[EN_GeneticGameGetters.GET_TIMER_TOMATO_GN]: state => state.timerTomato,
 	[EN_GeneticGameGetters.GET_TOMATO_LEVEL]: state => state.isTomatoLevel,

@@ -29,6 +29,10 @@ export enum EN_GeneticGameMutation {
 	STOP_BACK_MUSIC_GAME_GN = 'STOP_BACK_MUSIC_GAME_GN',
 
 	INCREASE_PLAYER_MISTAKES_GN = 'INCREASE_PLAYER_MISTAKES_GN',
+	SHOW_FIRST_MISTAKE_GN = 'SHOW_FIRST_MISTAKE_GN',
+	HIDE_FIRST_MISTAKE_GN = 'HIDE_FIRST_MISTAKE_GN',
+	SHOW_SECOND_MISTAKE_GN = 'SHOW_SECOND_MISTAKE_GN',
+	HIDE_SECOND_MISTAKE_GN = 'HIDE_SECOND_MISTAKE_GN',
 
 	START_TOMATO_LEVEL = 'START_TOMATO_LEVEL',
 	FINISH_TOMATO_LEVEL = 'FINISH_TOMATO_LEVEL',
@@ -61,9 +65,9 @@ export enum EN_GeneticGameMutation {
 const audioBackAi = new Audio(AUDIO_CONFIG.AUDIO_BACK_MUSIC_PEST_CONTROL_GAME)
 const audioVictory = new Audio(AUDIO_CONFIG.AUDIO_VICTORY)
 
-let timerTomato: any
-let timerPepper: any
-let timerStrawberry: any
+let timerTomato: any = null
+let timerPepper: any = null
+let timerStrawberry: any = null
 
 export const mutations: MutationTree<IGeneticGameState> = {
 	[EN_GeneticGameMutation.SHOW_INFO_LINK_BLOCK_GN](state) {
@@ -144,6 +148,10 @@ export const mutations: MutationTree<IGeneticGameState> = {
 		if (state.timerTomato === 0 || !state.isTomatoLevel) {
 			clearInterval(timerTomato)
 		}
+
+		if (state.isFirstMistake || state.isSecondMistake) {
+			clearInterval(timerTomato)
+		}
 	},
 	[EN_GeneticGameMutation.UPDATE_TIMER_PEPPER_GN](state) {
 		state.timerPepper = 5
@@ -216,6 +224,22 @@ export const mutations: MutationTree<IGeneticGameState> = {
 
 	[EN_GeneticGameMutation.INCREASE_PLAYER_MISTAKES_GN](state) {
 		state.playerMistakes += 1
+	},
+	[EN_GeneticGameMutation.SHOW_FIRST_MISTAKE_GN](state) {
+		if (state.playerMistakes === 1) {
+			state.isFirstMistake = true
+		}
+	},
+	[EN_GeneticGameMutation.HIDE_FIRST_MISTAKE_GN](state) {
+		state.isFirstMistake = false
+	},
+	[EN_GeneticGameMutation.SHOW_SECOND_MISTAKE_GN](state) {
+		if (state.playerMistakes === 2) {
+			state.isSecondMistake = true
+		}
+	},
+	[EN_GeneticGameMutation.HIDE_SECOND_MISTAKE_GN](state) {
+		state.isSecondMistake = false
 	},
 
 	[EN_GeneticGameMutation.START_TOMATO_LEVEL](state) {

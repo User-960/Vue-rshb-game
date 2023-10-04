@@ -15,6 +15,8 @@ export interface IGeneticGameState {
 	timerPepper: number
 	timerStrawberry: number
 	playerMistakes: number
+	isFirstMistake: boolean
+	isSecondMistake: boolean
 
 	isTomatoLevel: boolean
 	isTomatoSprout: boolean

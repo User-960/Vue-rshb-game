@@ -22,7 +22,9 @@ const state: IGeneticGameState = {
 	timerTomato: 5,
 	timerPepper: 5,
 	timerStrawberry: 5,
-	playerMistakes: 1,
+	playerMistakes: 0,
+	isFirstMistake: false,
+	isSecondMistake: false,
 
 	isTomatoLevel: true,
 	isTomatoSprout: false,

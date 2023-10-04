@@ -64,8 +64,9 @@
 import Vue from 'vue'
 import draggable from 'vuedraggable'
 import { EN_CONFIG, flasksTomato, flasksDropZoneTomato } from '../../config/config'
-import { mapMutations } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 import { EN_GeneticGameMutation } from '@/store/modules/geneticGame/mutations'
+import { EN_GeneticGameGetters } from '@/store/modules/geneticGame/getters'
 
 export default Vue.extend({
   name: 'flasksTomato',
@@ -98,6 +99,12 @@ export default Vue.extend({
   components: {
     draggable,
   },
+  computed: {
+    ...mapGetters([
+      EN_GeneticGameGetters.GET_PLAYER_MISTAKES_GN,
+      EN_GeneticGameGetters.GET_TIMER_TOMATO_GN,
+    ]),
+  },
   methods: {
     ...mapMutations([
       EN_GeneticGameMutation.SHOW_TOMATO_SPROUT,
@@ -105,6 +112,16 @@ export default Vue.extend({
       EN_GeneticGameMutation.SHOW_TOMATO_COLOR,
       EN_GeneticGameMutation.HIDE_TOMATO_COLOR,
       EN_GeneticGameMutation.SHOW_TOMATO_MODIFIED,
+      EN_GeneticGameMutation.START_FINISH_TIMER_TOMATO_GN,
+      EN_GeneticGameMutation.UPDATE_TIMER_TOMATO_GN,
+
+      EN_GeneticGameMutation.INCREASE_PLAYER_MISTAKES_GN,
+      EN_GeneticGameMutation.SHOW_FIRST_MISTAKE_GN,
+      EN_GeneticGameMutation.HIDE_FIRST_MISTAKE_GN,
+      EN_GeneticGameMutation.SHOW_SECOND_MISTAKE_GN,
+      EN_GeneticGameMutation.HIDE_SECOND_MISTAKE_GN,
+
+      EN_GeneticGameMutation.FINISH_GAME_GN,
     ]),
     detectMove(evt: any){
       this.isGreenFlaskRotate = false
@@ -128,6 +145,26 @@ export default Vue.extend({
             setTimeout(() => {
               this.isGreenEffectActive = false
               this.isEmptyFlask = true
+
+              this.INCREASE_PLAYER_MISTAKES_GN()
+
+              if (this.GET_PLAYER_MISTAKES_GN === 1) {
+                this.SHOW_FIRST_MISTAKE_GN()
+                this.START_FINISH_TIMER_TOMATO_GN()
+                setTimeout(() => {
+                  this.HIDE_FIRST_MISTAKE_GN()
+                  this.UPDATE_TIMER_TOMATO_GN()
+                  this.START_FINISH_TIMER_TOMATO_GN()
+                }, 4000)
+              }
+
+              if (this.GET_PLAYER_MISTAKES_GN === 2) {
+                this.SHOW_SECOND_MISTAKE_GN()
+                this.START_FINISH_TIMER_TOMATO_GN()
+                setTimeout(() => {
+                  this.FINISH_GAME_GN()
+                }, 4000)
+              }
             }, EN_CONFIG.TIMING_EFFECT_FLASK)
           }
         }
@@ -178,6 +215,26 @@ export default Vue.extend({
             setTimeout(() => {
               this.isYellowEffectActive = false
               this.isEmptyFlask = true
+
+              this.INCREASE_PLAYER_MISTAKES_GN()
+
+              if (this.GET_PLAYER_MISTAKES_GN === 1) {
+                this.SHOW_FIRST_MISTAKE_GN()
+                this.START_FINISH_TIMER_TOMATO_GN()
+                setTimeout(() => {
+                  this.HIDE_FIRST_MISTAKE_GN()
+                  this.UPDATE_TIMER_TOMATO_GN()
+                  this.START_FINISH_TIMER_TOMATO_GN()
+                }, 4000)
+              }
+
+              if (this.GET_PLAYER_MISTAKES_GN === 2) {
+                this.SHOW_SECOND_MISTAKE_GN()
+                this.START_FINISH_TIMER_TOMATO_GN()
+                setTimeout(() => {
+                  this.FINISH_GAME_GN()
+                }, 4000)
+              }
             }, EN_CONFIG.TIMING_EFFECT_FLASK)
           }
         }
