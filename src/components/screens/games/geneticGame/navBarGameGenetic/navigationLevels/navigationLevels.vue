@@ -45,30 +45,53 @@ export default Vue.extend({
     ...mapMutations([
       EN_GeneticGameMutation.START_TOMATO_LEVEL,
       EN_GeneticGameMutation.FINISH_TOMATO_LEVEL,
+      EN_GeneticGameMutation.START_FINISH_TIMER_TOMATO_GN,
+      EN_GeneticGameMutation.UPDATE_TIMER_TOMATO_GN,
+
       EN_GeneticGameMutation.START_PEPPER_LEVEL,
       EN_GeneticGameMutation.FINISH_PEPPER_LEVEL,
+      EN_GeneticGameMutation.START_FINISH_TIMER_PEPPER_GN,
+      EN_GeneticGameMutation.UPDATE_TIMER_PEPPER_GN,
+
       EN_GeneticGameMutation.START_STRAWBERRY_LEVEL,
-      EN_GeneticGameMutation.FINISH_STRAWBERRY_LEVEL
+      EN_GeneticGameMutation.FINISH_STRAWBERRY_LEVEL,
+      EN_GeneticGameMutation.START_FINISH_TIMER_STRAWBERRY_GN,
+      EN_GeneticGameMutation.UPDATE_TIMER_STRAWBERRY_GN,
     ]),
     openTomatoLevel() {
       if (!this.GET_TOMATO_LEVEL) {
         this.FINISH_PEPPER_LEVEL()
+        this.START_FINISH_TIMER_PEPPER_GN()
         this.FINISH_STRAWBERRY_LEVEL()
+        this.START_FINISH_TIMER_STRAWBERRY_GN()
+
         this.START_TOMATO_LEVEL()
+        this.UPDATE_TIMER_TOMATO_GN()
+        this.START_FINISH_TIMER_TOMATO_GN()
       }
     },
     openPepperLevel() {
       if (!this.GET_PEPPER_LEVEL) {
         this.FINISH_TOMATO_LEVEL()
+        this.START_FINISH_TIMER_TOMATO_GN()
         this.FINISH_STRAWBERRY_LEVEL()
+        this.START_FINISH_TIMER_STRAWBERRY_GN()
+
         this.START_PEPPER_LEVEL()
+        this.UPDATE_TIMER_PEPPER_GN()
+        this.START_FINISH_TIMER_PEPPER_GN()
       }
     },
     openStrawberryLevel() {
       if (!this.GET_STRAWBERRY_LEVEL) {
         this.FINISH_TOMATO_LEVEL()
+        this.START_FINISH_TIMER_TOMATO_GN()
         this.FINISH_PEPPER_LEVEL()
+        this.START_FINISH_TIMER_PEPPER_GN()
+
         this.START_STRAWBERRY_LEVEL()
+        this.UPDATE_TIMER_STRAWBERRY_GN()
+        this.START_FINISH_TIMER_STRAWBERRY_GN()
       }
     }
   }

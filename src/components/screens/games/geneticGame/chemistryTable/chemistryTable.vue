@@ -1,16 +1,28 @@
 <template>
   <div :class='styles.chemistryTableBack'>
-    <div :class='[
+    <div v-if='GET_TOMATO_LEVEL' :class='[
         styles.plant, 
         {
           [styles.plantSproutTomato]: GET_TOMATO_SPROUT,
           [styles.plantColorTomato]: GET_TOMATO_COLOR,
-          [styles.plantModifiedTomato]: GET_TOMATO_MODIFIED,
+          [styles.plantModifiedTomato]: GET_TOMATO_MODIFIED
+        }
+      ]'
+    ></div>
 
+    <div v-else-if='GET_PEPPER_LEVEL' :class='[
+        styles.plant, 
+        {
           [styles.plantSproutPepper]: GET_PEPPER_SPROUT,
           [styles.plantColorPepper]: GET_PEPPER_COLOR,
-          [styles.plantModifiedPepper]: GET_PEPPER_MODIFIED,
+          [styles.plantModifiedPepper]: GET_PEPPER_MODIFIED
+        }
+      ]'
+    ></div>
 
+    <div v-else-if='GET_STRAWBERRY_LEVEL' :class='[
+        styles.plant, 
+        {
           [styles.plantSproutStrawberry]: GET_STRAWBERRY_SPROUT,
           [styles.plantColorStrawberry]: GET_STRAWBERRY_COLOR,
           [styles.plantModifiedStrawberry]: GET_STRAWBERRY_MODIFIED

@@ -17,9 +17,18 @@ export enum EN_GeneticGameMutation {
 	GAME_LOOP_GN = 'GAME_LOOP_GN',
 	PLUS_POINTS_GN = 'PLUS_POINTS_GN',
 	MINUS_POINTS_GN = 'MINUS_POINTS_GN',
-	START_FINISH_TIMER_GN = 'START_FINISH_TIMER_GN',
+
+	UPDATE_TIMER_TOMATO_GN = 'UPDATE_TIMER_TOMATO_GN',
+	START_FINISH_TIMER_TOMATO_GN = 'START_FINISH_TIMER_TOMATO_GN',
+	UPDATE_TIMER_PEPPER_GN = 'UPDATE_TIMER_PEPPER_GN',
+	START_FINISH_TIMER_PEPPER_GN = 'START_FINISH_TIMER_PEPPER_GN',
+	UPDATE_TIMER_STRAWBERRY_GN = 'UPDATE_TIMER_STRAWBERRY_GN',
+	START_FINISH_TIMER_STRAWBERRY_GN = 'START_FINISH_TIMER_STRAWBERRY_GN',
+
 	PLAY_BACK_MUSIC_GAME_GN = 'PLAY_BACK_MUSIC_GAME_GN',
 	STOP_BACK_MUSIC_GAME_GN = 'STOP_BACK_MUSIC_GAME_GN',
+
+	INCREASE_PLAYER_MISTAKES_GN = 'INCREASE_PLAYER_MISTAKES_GN',
 
 	START_TOMATO_LEVEL = 'START_TOMATO_LEVEL',
 	FINISH_TOMATO_LEVEL = 'FINISH_TOMATO_LEVEL',
@@ -52,7 +61,9 @@ export enum EN_GeneticGameMutation {
 const audioBackAi = new Audio(AUDIO_CONFIG.AUDIO_BACK_MUSIC_PEST_CONTROL_GAME)
 const audioVictory = new Audio(AUDIO_CONFIG.AUDIO_VICTORY)
 
-let timer: any
+let timerTomato: any
+let timerPepper: any
+let timerStrawberry: any
 
 export const mutations: MutationTree<IGeneticGameState> = {
 	[EN_GeneticGameMutation.SHOW_INFO_LINK_BLOCK_GN](state) {
@@ -107,21 +118,86 @@ export const mutations: MutationTree<IGeneticGameState> = {
 	[EN_GeneticGameMutation.MINUS_POINTS_GN](state) {
 		state.points -= 5
 	},
-	[EN_GeneticGameMutation.START_FINISH_TIMER_GN](state) {
-		if (state.timer > 0 && !state.isLossBlockVisible) {
-			timer = setInterval(() => {
-				state.timer -= 1
+
+	[EN_GeneticGameMutation.UPDATE_TIMER_TOMATO_GN](state) {
+		state.timerTomato = 5
+	},
+	[EN_GeneticGameMutation.START_FINISH_TIMER_TOMATO_GN](state) {
+		if (
+			state.timerTomato > 0 &&
+			!state.isLossBlockVisible &&
+			state.isTomatoLevel
+		) {
+			if (timerTomato) {
+				clearInterval(timerTomato)
+			}
+
+			timerTomato = setInterval(() => {
+				state.timerTomato -= 1
 			}, 1000)
 		}
 
 		if (state.isLossBlockVisible) {
-			clearInterval(timer)
+			clearInterval(timerTomato)
 		}
 
-		if (state.timer === 0) {
-			clearInterval(timer)
+		if (state.timerTomato === 0 || !state.isTomatoLevel) {
+			clearInterval(timerTomato)
 		}
 	},
+	[EN_GeneticGameMutation.UPDATE_TIMER_PEPPER_GN](state) {
+		state.timerPepper = 5
+	},
+	[EN_GeneticGameMutation.START_FINISH_TIMER_PEPPER_GN](state) {
+		if (
+			state.timerPepper > 0 &&
+			!state.isLossBlockVisible &&
+			state.isPepperLevel
+		) {
+			if (timerPepper) {
+				clearInterval(timerPepper)
+			}
+
+			timerPepper = setInterval(() => {
+				state.timerPepper -= 1
+			}, 1000)
+		}
+
+		if (state.isLossBlockVisible) {
+			clearInterval(timerPepper)
+		}
+
+		if (state.timerPepper === 0 || !state.isPepperLevel) {
+			clearInterval(timerPepper)
+		}
+	},
+	[EN_GeneticGameMutation.UPDATE_TIMER_STRAWBERRY_GN](state) {
+		state.timerStrawberry = 5
+	},
+	[EN_GeneticGameMutation.START_FINISH_TIMER_STRAWBERRY_GN](state) {
+		if (
+			state.timerStrawberry > 0 &&
+			!state.isLossBlockVisible &&
+			state.isStrawberryLevel
+		) {
+			if (timerStrawberry) {
+				clearInterval(timerStrawberry)
+			}
+
+			timerStrawberry = setInterval(() => {
+				state.timerStrawberry -= 1
+			}, 1000)
+		}
+
+		if (state.isLossBlockVisible) {
+			clearInterval(timerStrawberry)
+		}
+
+		if (state.timerStrawberry === 0 || !state.isStrawberryLevel) {
+			clearInterval(timerStrawberry)
+		}
+	},
+
 	[EN_GeneticGameMutation.PLAY_BACK_MUSIC_GAME_GN](state) {
 		state.isPlayBackMusic = true
 
@@ -136,6 +212,10 @@ export const mutations: MutationTree<IGeneticGameState> = {
 		if (!state.isPlayBackMusic) {
 			audioBackAi.autoplay = false
 		}
+	},
+
+	[EN_GeneticGameMutation.INCREASE_PLAYER_MISTAKES_GN](state) {
+		state.playerMistakes += 1
 	},
 
 	[EN_GeneticGameMutation.START_TOMATO_LEVEL](state) {

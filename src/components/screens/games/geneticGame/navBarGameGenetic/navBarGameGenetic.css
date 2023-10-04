@@ -49,14 +49,6 @@
 	z-index: 120;
 }
 
-.blockButtonTimer {
-	position: absolute;
-	top: 24px;
-	left: 24px;
-
-	z-index: 120;
-}
-
 .mapGame {
 	width: 100%;
 	height: 100%;

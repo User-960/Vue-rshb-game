@@ -14,7 +14,7 @@ export enum EN_GeneticGameGetters {
 	GET_PEPPER_LEVEL_NUM_GN = 'GET_PEPPER_LEVEL_NUM_GN',
 	GET_STRAWBERRY_LEVEL_NUM_GN = 'GET_STRAWBERRY_LEVEL_NUM_GN',
 	GET_POINTS_GN = 'GET_POINTS_GN',
-	GET_TIMER_GN = 'GET_TIMER_GN',
+
 	GET_BACK_MUSIC_GAME_GN = 'GET_BACK_MUSIC_GAME_GN',
 	GET_CHOSEN_BOOK_GN = 'GET_CHOSEN_BOOK_GN',
 	GET_CHOSEN_NUMPAD_GN = 'GET_CHOSEN_NUMPAD_GN',
@@ -22,16 +22,21 @@ export enum EN_GeneticGameGetters {
 	GET_CHOSEN_PEPPER_LEVEL_GN = 'GET_CHOSEN_PEPPER_LEVEL_GN',
 	GET_CHOSEN_STRAWBERRY_LEVEL_GN = 'GET_CHOSEN_STRAWBERRY_LEVEL_GN',
 
+	GET_PLAYER_MISTAKES_GN = 'GET_PLAYER_MISTAKES_GN',
+
+	GET_TIMER_TOMATO_GN = 'GET_TIMER_TOMATO_GN',
 	GET_TOMATO_LEVEL = 'GET_TOMATO_LEVEL',
 	GET_TOMATO_SPROUT = 'GET_TOMATO_SPROUT',
 	GET_TOMATO_COLOR = 'GET_TOMATO_COLOR',
 	GET_TOMATO_MODIFIED = 'GET_TOMATO_MODIFIED',
 
+	GET_TIMER_PEPPER_GN = 'GET_TIMER_PEPPER_GN',
 	GET_PEPPER_LEVEL = 'GET_PEPPER_LEVEL',
 	GET_PEPPER_SPROUT = 'GET_PEPPER_SPROUT',
 	GET_PEPPER_COLOR = 'GET_PEPPER_COLOR',
 	GET_PEPPER_MODIFIED = 'GET_PEPPER_MODIFIED',
 
+	GET_TIMER_STRAWBERRY_GN = 'GET_TIMER_STRAWBERRY_GN',
 	GET_STRAWBERRY_LEVEL = 'GET_STRAWBERRY_LEVEL',
 	GET_STRAWBERRY_SPROUT = 'GET_STRAWBERRY_SPROUT',
 	GET_STRAWBERRY_COLOR = 'GET_STRAWBERRY_COLOR',
@@ -53,20 +58,25 @@ export const getters: GetterTree<IGeneticGameState, IRootState> = {
 	[EN_GeneticGameGetters.GET_STRAWBERRY_LEVEL_NUM_GN]: state =>
 		state.strawberryLevel,
 	[EN_GeneticGameGetters.GET_POINTS_GN]: state => state.points,
-	[EN_GeneticGameGetters.GET_TIMER_GN]: state => state.timer,
 	[EN_GeneticGameGetters.GET_BACK_MUSIC_GAME_GN]: state =>
 		state.isPlayBackMusic,
 
+	[EN_GeneticGameGetters.GET_PLAYER_MISTAKES_GN]: state => state.playerMistakes,
+
+	[EN_GeneticGameGetters.GET_TIMER_TOMATO_GN]: state => state.timerTomato,
 	[EN_GeneticGameGetters.GET_TOMATO_LEVEL]: state => state.isTomatoLevel,
 	[EN_GeneticGameGetters.GET_TOMATO_SPROUT]: state => state.isTomatoSprout,
 	[EN_GeneticGameGetters.GET_TOMATO_COLOR]: state => state.isTomatoColor,
 	[EN_GeneticGameGetters.GET_TOMATO_MODIFIED]: state => state.isTomatoModified,
 
+	[EN_GeneticGameGetters.GET_TIMER_PEPPER_GN]: state => state.timerPepper,
 	[EN_GeneticGameGetters.GET_PEPPER_LEVEL]: state => state.isPepperLevel,
 	[EN_GeneticGameGetters.GET_PEPPER_SPROUT]: state => state.isPepperSprout,
 	[EN_GeneticGameGetters.GET_PEPPER_COLOR]: state => state.isPepperColor,
 	[EN_GeneticGameGetters.GET_PEPPER_MODIFIED]: state => state.isPepperModified,
 
+	[EN_GeneticGameGetters.GET_TIMER_STRAWBERRY_GN]: state =>
+		state.timerStrawberry,
 	[EN_GeneticGameGetters.GET_STRAWBERRY_LEVEL]: state =>
 		state.isStrawberryLevel,
 	[EN_GeneticGameGetters.GET_STRAWBERRY_SPROUT]: state =>

@@ -37,8 +37,9 @@ import dialogMariaPepper from '../dialogMaria/dialogMariaPepper.vue'
 import dialogMariaStrawberry from '../dialogMaria/dialogMariaStrawberry.vue'
 import victoryBlockGame from '../victoryBlockGame/victoryBlockGame.vue'
 import lossBlockGame from '../lossBlockGame/lossBlockGame.vue'
-import { mapGetters } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 import { EN_GeneticGameGetters } from '@/store/modules/geneticGame/getters'
+import { EN_GeneticGameMutation } from '@/store/modules/geneticGame/mutations'
 
 export default Vue.extend({
   name: 'geneticGameBack',
@@ -53,8 +54,17 @@ export default Vue.extend({
     dialogMariaPepper,
     dialogMariaStrawberry
   },
+  watch: {
+    GET_START_GAME_GN() {
+      if (!this.GET_START_GAME_GN) {
+        this.SHOW_LOSS_BLOCK_GN()
+      }
+    }
+  },
   computed: {
     ...mapGetters([
+      EN_GeneticGameGetters.GET_START_GAME_GN,
+      EN_GeneticGameGetters.GET_LOSS_BLOCK_GN,
       EN_GeneticGameGetters.GET_TOMATO_LEVEL,
 
       EN_GeneticGameGetters.GET_PEPPER_LEVEL,
@@ -62,7 +72,11 @@ export default Vue.extend({
       EN_GeneticGameGetters.GET_STRAWBERRY_LEVEL,
     ]),
   },
-  methods: {}
+  methods: {
+   ...mapMutations([
+     EN_GeneticGameMutation.SHOW_LOSS_BLOCK_GN,
+   ]),
+  },
 })
 </script>
 

@@ -60,14 +60,14 @@ export default Vue.extend({
       EN_GeneticGameMutation.HIDE_RULES_BLOCK_GN, 
       EN_GeneticGameMutation.START_GAME_GN,
       EN_GeneticGameMutation.GAME_LOOP_GN,
-      EN_GeneticGameMutation.START_FINISH_TIMER_GN
+      EN_GeneticGameMutation.START_FINISH_TIMER_TOMATO_GN
     ]),
     startGame() {
       this.HIDE_RULES_BLOCK_GN()
       this.START_GAME_GN()
       this.GAME_LOOP_GN()
 
-      this.START_FINISH_TIMER_GN()
+      this.START_FINISH_TIMER_TOMATO_GN()
     },
     goMap() {
       this.HIDE_RULES_BLOCK_GN()

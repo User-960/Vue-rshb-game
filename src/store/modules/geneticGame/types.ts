@@ -10,7 +10,11 @@ export interface IGeneticGameState {
 	strawberryLevel: number
 	points: number
 	isPlayBackMusic: boolean
-	timer: number
+
+	timerTomato: number
+	timerPepper: number
+	timerStrawberry: number
+	playerMistakes: number
 
 	isTomatoLevel: boolean
 	isTomatoSprout: boolean

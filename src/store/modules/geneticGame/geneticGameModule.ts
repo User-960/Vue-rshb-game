@@ -18,7 +18,11 @@ const state: IGeneticGameState = {
 	strawberryLevel: 3,
 	points: 0,
 	isPlayBackMusic: false,
-	timer: 90,
+
+	timerTomato: 5,
+	timerPepper: 5,
+	timerStrawberry: 5,
+	playerMistakes: 1,
 
 	isTomatoLevel: true,
 	isTomatoSprout: false,
