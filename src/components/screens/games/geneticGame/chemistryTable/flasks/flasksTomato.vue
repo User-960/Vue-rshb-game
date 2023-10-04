@@ -155,7 +155,7 @@ export default Vue.extend({
                   this.HIDE_FIRST_MISTAKE_GN()
                   this.UPDATE_TIMER_TOMATO_GN()
                   this.START_FINISH_TIMER_TOMATO_GN()
-                }, 4000)
+                }, EN_CONFIG.TIMING_ERROR_TEXT_MARIA)
               }
 
               if (this.GET_PLAYER_MISTAKES_GN === 2) {
@@ -163,7 +163,7 @@ export default Vue.extend({
                 this.START_FINISH_TIMER_TOMATO_GN()
                 setTimeout(() => {
                   this.FINISH_GAME_GN()
-                }, 4000)
+                }, EN_CONFIG.TIMING_ERROR_TEXT_MARIA)
               }
             }, EN_CONFIG.TIMING_EFFECT_FLASK)
           }
@@ -225,7 +225,7 @@ export default Vue.extend({
                   this.HIDE_FIRST_MISTAKE_GN()
                   this.UPDATE_TIMER_TOMATO_GN()
                   this.START_FINISH_TIMER_TOMATO_GN()
-                }, 4000)
+                }, EN_CONFIG.TIMING_ERROR_TEXT_MARIA)
               }
 
               if (this.GET_PLAYER_MISTAKES_GN === 2) {
@@ -233,7 +233,7 @@ export default Vue.extend({
                 this.START_FINISH_TIMER_TOMATO_GN()
                 setTimeout(() => {
                   this.FINISH_GAME_GN()
-                }, 4000)
+                }, EN_CONFIG.TIMING_ERROR_TEXT_MARIA)
               }
             }, EN_CONFIG.TIMING_EFFECT_FLASK)
           }
