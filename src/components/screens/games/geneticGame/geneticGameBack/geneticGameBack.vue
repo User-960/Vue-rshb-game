@@ -56,8 +56,12 @@ export default Vue.extend({
   },
   watch: {
     GET_START_GAME_GN() {
-      if (!this.GET_START_GAME_GN) {
+      if (!this.GET_START_GAME_GN && !this.GET_TOMATO_MODIFIED) {
         this.SHOW_LOSS_BLOCK_GN()
+      } 
+      
+      if (!this.GET_START_GAME_GN && this.GET_TOMATO_MODIFIED) {
+        this.SHOW_VICTORY_BLOCK_GN()
       }
     }
   },
@@ -66,15 +70,17 @@ export default Vue.extend({
       EN_GeneticGameGetters.GET_START_GAME_GN,
       EN_GeneticGameGetters.GET_LOSS_BLOCK_GN,
       EN_GeneticGameGetters.GET_TOMATO_LEVEL,
-
       EN_GeneticGameGetters.GET_PEPPER_LEVEL,
-
       EN_GeneticGameGetters.GET_STRAWBERRY_LEVEL,
+      EN_GeneticGameGetters.GET_TOMATO_MODIFIED,
+      EN_GeneticGameGetters.GET_PEPPER_MODIFIED,
+      EN_GeneticGameGetters.GET_STRAWBERRY_MODIFIED,
     ]),
   },
   methods: {
    ...mapMutations([
-     EN_GeneticGameMutation.SHOW_LOSS_BLOCK_GN,
+     EN_GeneticGameMutation.SHOW_VICTORY_BLOCK_GN,
+     EN_GeneticGameMutation.SHOW_LOSS_BLOCK_GN
    ]),
   },
 })

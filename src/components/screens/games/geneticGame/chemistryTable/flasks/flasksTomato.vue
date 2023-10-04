@@ -103,6 +103,7 @@ export default Vue.extend({
     ...mapGetters([
       EN_GeneticGameGetters.GET_PLAYER_MISTAKES_GN,
       EN_GeneticGameGetters.GET_TIMER_TOMATO_GN,
+      EN_GeneticGameGetters.GET_TOMATO_SPROUT,
     ]),
   },
   methods: {
@@ -181,6 +182,10 @@ export default Vue.extend({
             setTimeout(() => {
               this.isBlueEffectActive = false
               this.isEmptyFlask = true
+
+              this.START_FINISH_TIMER_TOMATO_GN()
+              this.UPDATE_TIMER_TOMATO_GN()
+              this.START_FINISH_TIMER_TOMATO_GN()
             }, EN_CONFIG.TIMING_EFFECT_FLASK)
           }
         }
@@ -195,12 +200,14 @@ export default Vue.extend({
 
             setTimeout(() => {
               this.HIDE_TOMATO_COLOR()
-              this.SHOW_TOMATO_MODIFIED()      
+              this.SHOW_TOMATO_MODIFIED()
             }, 1000);
 
             setTimeout(() => {
               this.isPinkEffectActive = false
               this.isEmptyFlask = true
+
+              this.FINISH_GAME_GN()
             }, EN_CONFIG.TIMING_EFFECT_FLASK)
           }
         }
@@ -249,6 +256,26 @@ export default Vue.extend({
             setTimeout(() => {
               this.isRedEffectActive = false
               this.isEmptyFlask = true
+
+              this.INCREASE_PLAYER_MISTAKES_GN()
+
+              if (this.GET_PLAYER_MISTAKES_GN === 1) {
+                this.SHOW_FIRST_MISTAKE_GN()
+                this.START_FINISH_TIMER_TOMATO_GN()
+                setTimeout(() => {
+                  this.HIDE_FIRST_MISTAKE_GN()
+                  this.UPDATE_TIMER_TOMATO_GN()
+                  this.START_FINISH_TIMER_TOMATO_GN()
+                }, EN_CONFIG.TIMING_ERROR_TEXT_MARIA)
+              }
+
+              if (this.GET_PLAYER_MISTAKES_GN === 2) {
+                this.SHOW_SECOND_MISTAKE_GN()
+                this.START_FINISH_TIMER_TOMATO_GN()
+                setTimeout(() => {
+                  this.FINISH_GAME_GN()
+                }, EN_CONFIG.TIMING_ERROR_TEXT_MARIA)
+              }
             }, EN_CONFIG.TIMING_EFFECT_FLASK)
           }
         }
@@ -263,6 +290,26 @@ export default Vue.extend({
             setTimeout(() => {
               this.isCyanEffectActive = false
               this.isEmptyFlask = true
+
+              this.INCREASE_PLAYER_MISTAKES_GN()
+
+              if (this.GET_PLAYER_MISTAKES_GN === 1) {
+                this.SHOW_FIRST_MISTAKE_GN()
+                this.START_FINISH_TIMER_TOMATO_GN()
+                setTimeout(() => {
+                  this.HIDE_FIRST_MISTAKE_GN()
+                  this.UPDATE_TIMER_TOMATO_GN()
+                  this.START_FINISH_TIMER_TOMATO_GN()
+                }, EN_CONFIG.TIMING_ERROR_TEXT_MARIA)
+              }
+
+              if (this.GET_PLAYER_MISTAKES_GN === 2) {
+                this.SHOW_SECOND_MISTAKE_GN()
+                this.START_FINISH_TIMER_TOMATO_GN()
+                setTimeout(() => {
+                  this.FINISH_GAME_GN()
+                }, EN_CONFIG.TIMING_ERROR_TEXT_MARIA)
+              }
             }, EN_CONFIG.TIMING_EFFECT_FLASK)
           }
         }
@@ -277,6 +324,26 @@ export default Vue.extend({
             setTimeout(() => {
               this.isOrangeEffectActive = false
               this.isEmptyFlask = true
+
+              this.INCREASE_PLAYER_MISTAKES_GN()
+
+              if (this.GET_PLAYER_MISTAKES_GN === 1) {
+                this.SHOW_FIRST_MISTAKE_GN()
+                this.START_FINISH_TIMER_TOMATO_GN()
+                setTimeout(() => {
+                  this.HIDE_FIRST_MISTAKE_GN()
+                  this.UPDATE_TIMER_TOMATO_GN()
+                  this.START_FINISH_TIMER_TOMATO_GN()
+                }, EN_CONFIG.TIMING_ERROR_TEXT_MARIA)
+              }
+
+              if (this.GET_PLAYER_MISTAKES_GN === 2) {
+                this.SHOW_SECOND_MISTAKE_GN()
+                this.START_FINISH_TIMER_TOMATO_GN()
+                setTimeout(() => {
+                  this.FINISH_GAME_GN()
+                }, EN_CONFIG.TIMING_ERROR_TEXT_MARIA)
+              }
             }, EN_CONFIG.TIMING_EFFECT_FLASK)
           }
         }
@@ -291,6 +358,26 @@ export default Vue.extend({
             setTimeout(() => {
               this.isPurpleEffectActive = false
               this.isEmptyFlask = true
+
+              this.INCREASE_PLAYER_MISTAKES_GN()
+
+              if (this.GET_PLAYER_MISTAKES_GN === 1) {
+                this.SHOW_FIRST_MISTAKE_GN()
+                this.START_FINISH_TIMER_TOMATO_GN()
+                setTimeout(() => {
+                  this.HIDE_FIRST_MISTAKE_GN()
+                  this.UPDATE_TIMER_TOMATO_GN()
+                  this.START_FINISH_TIMER_TOMATO_GN()
+                }, EN_CONFIG.TIMING_ERROR_TEXT_MARIA)
+              }
+
+              if (this.GET_PLAYER_MISTAKES_GN === 2) {
+                this.SHOW_SECOND_MISTAKE_GN()
+                this.START_FINISH_TIMER_TOMATO_GN()
+                setTimeout(() => {
+                  this.FINISH_GAME_GN()
+                }, EN_CONFIG.TIMING_ERROR_TEXT_MARIA)
+              }
             }, EN_CONFIG.TIMING_EFFECT_FLASK)
           }
         }
@@ -303,15 +390,37 @@ export default Vue.extend({
             this.isGreyFlaskRotate = true
             this.isGreyEffectActive = true
 
-            setTimeout(() => {
-              this.HIDE_TOMATO_SPROUT()
-              this.SHOW_TOMATO_COLOR()            
-            }, 1000);
+            if (this.GET_TOMATO_SPROUT) {
+              setTimeout(() => {
+                this.HIDE_TOMATO_SPROUT()
+                this.SHOW_TOMATO_COLOR()            
+              }, 1000);
 
-            setTimeout(() => {
-              this.isGreyEffectActive = false
-              this.isEmptyFlask = true
-            }, EN_CONFIG.TIMING_EFFECT_FLASK)
+              setTimeout(() => {
+                this.isGreyEffectActive = false
+                this.isEmptyFlask = true
+
+                this.START_FINISH_TIMER_TOMATO_GN()
+                this.UPDATE_TIMER_TOMATO_GN()
+                this.START_FINISH_TIMER_TOMATO_GN()
+              }, EN_CONFIG.TIMING_EFFECT_FLASK)
+            } else {
+              setTimeout(() => {
+                this.isGreyEffectActive = false
+                this.isEmptyFlask = true
+
+                this.INCREASE_PLAYER_MISTAKES_GN()
+                this.INCREASE_PLAYER_MISTAKES_GN()
+
+                if (this.GET_PLAYER_MISTAKES_GN === 2) {
+                  this.SHOW_SECOND_MISTAKE_GN()
+                  this.START_FINISH_TIMER_TOMATO_GN()
+                  setTimeout(() => {
+                    this.FINISH_GAME_GN()
+                  }, EN_CONFIG.TIMING_ERROR_TEXT_MARIA)
+                }
+              }, EN_CONFIG.TIMING_EFFECT_FLASK)
+            }
           }
         }
     }

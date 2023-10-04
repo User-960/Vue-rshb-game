@@ -124,7 +124,7 @@ export const mutations: MutationTree<IGeneticGameState> = {
 	},
 
 	[EN_GeneticGameMutation.UPDATE_TIMER_TOMATO_GN](state) {
-		state.timerTomato = 5
+		state.timerTomato = 9
 	},
 	[EN_GeneticGameMutation.START_FINISH_TIMER_TOMATO_GN](state) {
 		if (
@@ -154,7 +154,7 @@ export const mutations: MutationTree<IGeneticGameState> = {
 		}
 	},
 	[EN_GeneticGameMutation.UPDATE_TIMER_PEPPER_GN](state) {
-		state.timerPepper = 5
+		state.timerPepper = 9
 	},
 	[EN_GeneticGameMutation.START_FINISH_TIMER_PEPPER_GN](state) {
 		if (
@@ -180,7 +180,7 @@ export const mutations: MutationTree<IGeneticGameState> = {
 		}
 	},
 	[EN_GeneticGameMutation.UPDATE_TIMER_STRAWBERRY_GN](state) {
-		state.timerStrawberry = 5
+		state.timerStrawberry = 9
 	},
 	[EN_GeneticGameMutation.START_FINISH_TIMER_STRAWBERRY_GN](state) {
 		if (

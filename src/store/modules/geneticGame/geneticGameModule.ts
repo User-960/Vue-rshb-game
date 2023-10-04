@@ -19,9 +19,9 @@ const state: IGeneticGameState = {
 	points: 0,
 	isPlayBackMusic: false,
 
-	timerTomato: 5,
-	timerPepper: 5,
-	timerStrawberry: 5,
+	timerTomato: 9,
+	timerPepper: 9,
+	timerStrawberry: 9,
 	playerMistakes: 0,
 	isFirstMistake: false,
 	isSecondMistake: false,
