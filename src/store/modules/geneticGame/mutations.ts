@@ -242,7 +242,7 @@ export const mutations: MutationTree<IGeneticGameState> = {
 		state.isFirstMistake = false
 	},
 	[EN_GeneticGameMutation.SHOW_SECOND_MISTAKE_GN](state) {
-		if (state.playerMistakes === 2) {
+		if (state.playerMistakes === 2 || state.playerMistakes === 3) {
 			state.isSecondMistake = true
 		}
 	},

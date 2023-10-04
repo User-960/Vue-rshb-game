@@ -219,7 +219,7 @@ export default Vue.extend({
                 this.INCREASE_PLAYER_MISTAKES_GN()
                 this.INCREASE_PLAYER_MISTAKES_GN()
 
-                if (this.GET_PLAYER_MISTAKES_GN === 2) {
+                if (this.GET_PLAYER_MISTAKES_GN > 1) {
                   this.SHOW_SECOND_MISTAKE_GN()
                   this.START_FINISH_TIMER_TOMATO_GN()
                   setTimeout(() => {
@@ -431,7 +431,7 @@ export default Vue.extend({
                 this.INCREASE_PLAYER_MISTAKES_GN()
                 this.INCREASE_PLAYER_MISTAKES_GN()
 
-                if (this.GET_PLAYER_MISTAKES_GN === 2) {
+                if (this.GET_PLAYER_MISTAKES_GN > 2) {
                   this.SHOW_SECOND_MISTAKE_GN()
                   this.START_FINISH_TIMER_TOMATO_GN()
                   setTimeout(() => {

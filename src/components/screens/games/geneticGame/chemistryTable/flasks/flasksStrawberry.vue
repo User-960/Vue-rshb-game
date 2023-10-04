@@ -123,6 +123,7 @@ export default Vue.extend({
       EN_GeneticGameMutation.HIDE_SECOND_MISTAKE_GN,
 
       EN_GeneticGameMutation.FINISH_GAME_GN,
+      EN_GeneticGameMutation.SHOW_VICTORY_BLOCK_GN
     ]),
     detectMove(evt: any){
       this.isGreenFlaskRotate = false
@@ -268,7 +269,7 @@ export default Vue.extend({
                 this.INCREASE_PLAYER_MISTAKES_GN()
                 this.INCREASE_PLAYER_MISTAKES_GN()
 
-                if (this.GET_PLAYER_MISTAKES_GN === 2) {
+                if (this.GET_PLAYER_MISTAKES_GN > 1) {
                   this.SHOW_SECOND_MISTAKE_GN()
                   this.START_FINISH_TIMER_STRAWBERRY_GN()
                   setTimeout(() => {
@@ -334,6 +335,9 @@ export default Vue.extend({
                 
                 this.START_FINISH_TIMER_STRAWBERRY_GN()
                 this.FINISH_GAME_GN()
+                
+                this.SHOW_VICTORY_BLOCK_GN()
+
               }, EN_CONFIG.TIMING_EFFECT_FLASK)
             } else {
               setTimeout(() => {
@@ -343,7 +347,7 @@ export default Vue.extend({
                 this.INCREASE_PLAYER_MISTAKES_GN()
                 this.INCREASE_PLAYER_MISTAKES_GN()
 
-                if (this.GET_PLAYER_MISTAKES_GN === 2) {
+                if (this.GET_PLAYER_MISTAKES_GN > 1) {
                   this.SHOW_SECOND_MISTAKE_GN()
                   this.START_FINISH_TIMER_STRAWBERRY_GN()
                   setTimeout(() => {

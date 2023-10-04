@@ -54,30 +54,6 @@ export default Vue.extend({
     dialogMariaPepper,
     dialogMariaStrawberry
   },
-  watch: {
-    GET_START_GAME_GN() {
-      if (!this.GET_START_GAME_GN && !this.GET_TOMATO_MODIFIED) {
-        this.SHOW_LOSS_BLOCK_GN()
-      } 
-
-      if (!this.GET_START_GAME_GN && !this.GET_PEPPER_MODIFIED) {
-        this.SHOW_LOSS_BLOCK_GN()
-      } 
-
-      if (!this.GET_START_GAME_GN && !this.GET_STRAWBERRY_MODIFIED) {
-        this.SHOW_LOSS_BLOCK_GN()
-      } 
-      
-      if (
-          !this.GET_START_GAME_GN && 
-          this.GET_TOMATO_MODIFIED && 
-          this.GET_PEPPER_MODIFIED && 
-          this.GET_STRAWBERRY_MODIFIED
-        ) {
-        this.SHOW_VICTORY_BLOCK_GN()
-      }
-    }
-  },
   computed: {
     ...mapGetters([
       EN_GeneticGameGetters.GET_START_GAME_GN,
