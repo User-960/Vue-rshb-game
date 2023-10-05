@@ -64,10 +64,10 @@ export default Vue.extend({
       EN_AiGameMutation.SHOW_INFO_LINK_BLOCK_AI, 
       EN_AiGameMutation.HIDE_INFO_LINK_BLOCK_AI, 
       EN_AiGameMutation.SHOW_RULES_BLOCK_AI,
-      EN_AiGameMutation.PLUS_POINTS_AI
+      EN_AiGameMutation.PLUS_POINTS_LINK_AI
     ]),
     checkFollowLink() {
-      this.PLUS_POINTS_AI()
+      this.PLUS_POINTS_LINK_AI()
     },
     closeBlock() {
       this.HIDE_INFO_LINK_BLOCK_AI()

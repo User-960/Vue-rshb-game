@@ -59,10 +59,11 @@ export default Vue.extend({
   },
   methods: {
     ...mapMutations([
-      EN_AiGameMutation.HIDE_LOSS_BLOCK_AI
+      EN_AiGameMutation.HIDE_LOSS_BLOCK_AI,
+      EN_AiGameMutation.RESTART_GAME_AI,
     ]),
     restartGame() {
-      this.$router.go(0)
+      this.RESTART_GAME_AI()
     },
     skipToMap() {
       this.HIDE_LOSS_BLOCK_AI()

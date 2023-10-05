@@ -18,59 +18,18 @@
 	margin-left: -350px;
 }
 
-.noteWall {
-	position: absolute;
-	top: 90px;
-	left: 50px;
-
-	background-image: url(../../../../../../public/images/noteWall.svg);
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: contain;
-
-	max-width: 210px;
-	max-height: 335px;
-	width: 100%;
-	height: 100%;
-}
-
-.noteWallActive {
-	background-image: url(../../../../../../public/images/noteWallActive.svg);
-}
-
-.tabletTable {
-	position: absolute;
-	bottom: 10px;
-	left: 128px;
-
-	background-image: url(../../../../../../public/images/tabletTable.svg);
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: contain;
-
-	max-width: 263px;
-	max-height: 178px;
-	width: 100%;
-	height: 100%;
-}
-
-.tabletTableActive {
-	background-image: url(../../../../../../public/images/tabletTableActive.svg);
-}
-
 .numPadTable {
 	position: absolute;
-	bottom: 10px;
-	left: 600px;
+	bottom: 24px;
+	left: 210px;
 
-	background-color: #444444;
-	/* background-image: url(../../../../../../public/images/tabletTable.svg);
+	background-image: url(../../../../../../public/images/numPad.svg);
 	background-repeat: no-repeat;
 	background-position: center;
-	background-size: contain; */
+	background-size: contain;
 
-	max-width: 100px;
-	max-height: 100px;
+	max-width: 141px;
+	max-height: 172px;
 	width: 100%;
 	height: 100%;
 
@@ -78,13 +37,14 @@
 }
 
 .numPadTableActive {
+	background-image: url(../../../../../../public/images/numPad.svg);
 	border: 3px solid var(--primary-green);
 }
 
 .bookTable {
 	position: absolute;
 	bottom: 0px;
-	right: 0px;
+	right: 100px;
 
 	background-image: url(../../../../../../public/images/bookTable.svg);
 	background-repeat: no-repeat;
@@ -93,8 +53,8 @@
 
 	overflow-x: hidden;
 
-	max-width: 452px;
-	max-height: 178px;
+	max-width: 151px;
+	max-height: 189px;
 	width: 100%;
 	height: 100%;
 
@@ -102,5 +62,6 @@
 }
 
 .bookTableActive {
-	background-image: url(../../../../../../public/images/bookTableActive.svg);
+	background-image: url(../../../../../../public/images/bookTable.svg);
+	border: 3px solid var(--primary-green);
 }

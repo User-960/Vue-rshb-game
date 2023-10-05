@@ -428,23 +428,62 @@
 .systemNotification {
 	display: none;
 
-	max-width: 300px;
-	min-height: 50px;
-	width: 100%;
-	padding: 10px;
-	margin: auto;
-	text-align: center;
-	font-size: 14px;
+	margin: 0 auto;
 
-	color: #fff;
-	background-color: #444444;
+	background-image: url(../../../../../../public/images/warningSystem.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+
+	max-width: 240px;
+	max-height: 164px;
+	width: 100%;
+	height: 100%;
+
+	animation: opacityWarning 4.5s;
+}
+
+.systemNotification p {
+	margin-top: 68px;
+	color: var(--primary-green);
+	font-weight: 500;
+	font-size: 12px;
+	line-height: 20px;
 }
 
 .systemNotificationActive {
-	display: block;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 /* animations */
+@keyframes opacityWarning {
+	0% {
+		opacity: 0.4;
+	}
+
+	20% {
+		opacity: 1;
+	}
+
+	40% {
+		opacity: 0.4;
+	}
+
+	60% {
+		opacity: 1;
+	}
+
+	80% {
+		opacity: 0.4;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
 @keyframes fillPestLine {
 	0% {
 		width: 0px;

@@ -3,10 +3,6 @@
     <template v-slot:gameBack>
       <div :class='styles.gameBack' data-testid='aiGameBack'>
 
-        <div :class='[styles.noteWall, {[styles.noteWallActive]: isNoteWallActive}]'></div>
-
-        <div :class='[styles.tabletTable, {[styles.tabletTableActive]: isTabletTableActive}]'></div>
-
         <div 
           :class='[styles.bookTable, {[styles.bookTableActive]: GET_CHOSEN_BOOK_AI}]' @click='chooseBook'
         ></div>

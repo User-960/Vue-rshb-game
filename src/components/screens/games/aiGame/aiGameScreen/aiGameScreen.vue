@@ -384,9 +384,9 @@
             isPepperSystemBroken || isStrawberrySystemBroken}
           ]'
         >
-          <p v-if='isTomatoSystemBroken'>Ошибка в системе участка с томатами!</p>
-          <p v-else-if='isPepperSystemBroken'>Ошибка в системе участка с перцами!</p>
-          <p v-else-if='isStrawberrySystemBroken'>Ошибка в системе участка с клубникой!</p>
+          <p v-if='isTomatoSystemBroken'>ТОМАТ</p>
+          <p v-else-if='isPepperSystemBroken'>ПЕРЕЦ</p>
+          <p v-else-if='isStrawberrySystemBroken'>КЛУБНИКА</p>
         </li>
 
       </ul>
@@ -479,7 +479,7 @@ export default Vue.extend({
         }
       } else {
         this.FINISH_GAME_AI()
-        if (!this.GET_START_GAME_AI) {
+        if (!this.GET_START_GAME_AI && this.GET_GAME_LOOP_AI > 0) {
           this.SHOW_VICTORY_BLOCK_AI()
         }
       }
