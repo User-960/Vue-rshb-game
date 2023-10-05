@@ -117,7 +117,7 @@ export const mutations: MutationTree<IGeneticGameState> = {
 		state.gameLoop += 1
 	},
 	[EN_GeneticGameMutation.PLUS_POINTS_GN](state) {
-		state.points += 10
+		state.points += 15
 	},
 	[EN_GeneticGameMutation.MINUS_POINTS_GN](state) {
 		state.points -= 5

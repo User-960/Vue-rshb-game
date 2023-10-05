@@ -56,7 +56,7 @@ export default Vue.extend({
   },
   computed: {
     ...mapGetters([
-      EN_GeneticGameGetters.GET_START_GAME_GN,
+      EN_GeneticGameGetters.GET_PLAYER_MISTAKES_GN,
       EN_GeneticGameGetters.GET_LOSS_BLOCK_GN,
       EN_GeneticGameGetters.GET_TOMATO_LEVEL,
       EN_GeneticGameGetters.GET_PEPPER_LEVEL,
@@ -65,13 +65,7 @@ export default Vue.extend({
       EN_GeneticGameGetters.GET_PEPPER_MODIFIED,
       EN_GeneticGameGetters.GET_STRAWBERRY_MODIFIED,
     ]),
-  },
-  methods: {
-   ...mapMutations([
-     EN_GeneticGameMutation.SHOW_VICTORY_BLOCK_GN,
-     EN_GeneticGameMutation.SHOW_LOSS_BLOCK_GN
-   ]),
-  },
+  }
 })
 </script>
 

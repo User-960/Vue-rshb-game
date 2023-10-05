@@ -27,21 +27,6 @@
 	height: 156px;
 }
 
-.dialogModifiedTomato {
-	position: absolute;
-	top: 0px;
-	left: 90px;
-
-	padding: 24px;
-	background-image: url(../../../../../../public/images/dialogModifiedTomato.svg);
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: contain;
-
-	width: 438px;
-	height: 123px;
-}
-
 .dialogFirstMistake {
 	position: absolute;
 	top: 0px;
@@ -72,6 +57,21 @@
 	height: 139px;
 }
 
+.dialogModifiedTomato {
+	position: absolute;
+	top: 0px;
+	left: 90px;
+
+	padding: 24px;
+	background-image: url(../../../../../../public/images/dialogModifiedTomato.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+
+	width: 438px;
+	height: 123px;
+}
+
 .dialogModifiedPepper {
 	position: absolute;
 	top: 0px;
@@ -94,21 +94,6 @@
 
 	padding: 24px;
 	background-image: url(../../../../../../public/images/dialogModifiedStrawberry.svg);
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: contain;
-
-	width: 438px;
-	height: 123px;
-}
-
-.dialogModifiedPepper {
-	position: absolute;
-	top: 0px;
-	left: 90px;
-
-	padding: 24px;
-	background-image: url(../../../../../../public/images/dialogModifiedPepper.svg);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;
