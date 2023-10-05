@@ -64,10 +64,10 @@ export default Vue.extend({
       EN_GeneticGameMutation.SHOW_INFO_LINK_BLOCK_GN, 
       EN_GeneticGameMutation.HIDE_INFO_LINK_BLOCK_GN, 
       EN_GeneticGameMutation.SHOW_RULES_BLOCK_GN,
-      EN_GeneticGameMutation.PLUS_POINTS_GN
+      EN_GeneticGameMutation.PLUS_POINTS_LINK_GN
     ]),
     checkFollowLink() {
-      this.PLUS_POINTS_GN()
+      this.PLUS_POINTS_LINK_GN()
     },
     closeBlock() {
       this.HIDE_INFO_LINK_BLOCK_GN()

@@ -1,9 +1,17 @@
 import { MutationTree } from 'vuex'
 
+import { nameFlasks } from '@/components/screens/games/geneticGame/config/config'
+import {
+	generatorFlasksDropZone,
+	generatorFlasksList
+} from '@/components/screens/games/geneticGame/helpers/helpers'
+
 import { IGeneticGameState } from './types'
 import { AUDIO_CONFIG } from '@/config/audio'
 
 export enum EN_GeneticGameMutation {
+	RESTART_GAME_GN = 'RESTART_GAME_GN',
+
 	SHOW_INFO_LINK_BLOCK_GN = 'SHOW_INFO_LINK_BLOCK_GN',
 	HIDE_INFO_LINK_BLOCK_GN = 'HIDE_INFO_LINK_BLOCK_GN',
 	SHOW_RULES_BLOCK_GN = 'SHOW_RULES_BLOCK_GN',
@@ -14,8 +22,8 @@ export enum EN_GeneticGameMutation {
 	HIDE_LOSS_BLOCK_GN = 'HIDE_LOSS_BLOCK_GN',
 	START_GAME_GN = 'START_GAME_GN',
 	FINISH_GAME_GN = 'FINISH_GAME_GN',
-	GAME_LOOP_GN = 'GAME_LOOP_GN',
 	PLUS_POINTS_GN = 'PLUS_POINTS_GN',
+	PLUS_POINTS_LINK_GN = 'PLUS_POINTS_LINK_GN',
 	MINUS_POINTS_GN = 'MINUS_POINTS_GN',
 
 	UPDATE_TIMER_TOMATO_GN = 'UPDATE_TIMER_TOMATO_GN',
@@ -62,7 +70,6 @@ export enum EN_GeneticGameMutation {
 	HIDE_STRAWBERRY_MODIFIED = 'HIDE_STRAWBERRY_MODIFIED'
 }
 
-const audioBackAi = new Audio(AUDIO_CONFIG.AUDIO_BACK_MUSIC_PEST_CONTROL_GAME)
 const audioVictory = new Audio(AUDIO_CONFIG.AUDIO_VICTORY)
 
 let timerTomato: any = null
@@ -70,6 +77,43 @@ let timerPepper: any = null
 let timerStrawberry: any = null
 
 export const mutations: MutationTree<IGeneticGameState> = {
+	[EN_GeneticGameMutation.RESTART_GAME_GN](state) {
+		state.isInfoLinkBlockVisible = true
+		state.isRulesBlockVisible = false
+		state.isVictoryBlockVisible = false
+		state.isLossBlockVisible = false
+		state.isStartGame = false
+		state.points = 0
+
+		state.timerTomato = 9
+		state.timerPepper = 9
+		state.timerStrawberry = 9
+
+		state.playerMistakes = 0
+		state.isFirstMistake = false
+		state.isSecondMistake = false
+
+		state.tomatoFlasksList = generatorFlasksList(nameFlasks)
+		state.tomatoFlasksDropZone = generatorFlasksDropZone()
+		state.isTomatoLevel = true
+		state.isTomatoSprout = false
+		state.isTomatoColor = false
+		state.isTomatoModified = false
+
+		state.pepperFlasksList = generatorFlasksList(nameFlasks)
+		state.pepperFlasksDropZone = generatorFlasksDropZone()
+		state.isPepperLevel = false
+		state.isPepperSprout = false
+		state.isPepperColor = false
+		state.isPepperModified = false
+
+		state.strawberryFlasksList = generatorFlasksList(nameFlasks)
+		state.strawberryFlasksDropZone = generatorFlasksDropZone()
+		state.isStrawberryLevel = false
+		state.isStrawberrySprout = false
+		state.isStrawberryColor = false
+		state.isStrawberryModified = false
+	},
 	[EN_GeneticGameMutation.SHOW_INFO_LINK_BLOCK_GN](state) {
 		const audio = new Audio(AUDIO_CONFIG.AUDIO_NEW_MISSION)
 		audio.autoplay = true
@@ -113,11 +157,11 @@ export const mutations: MutationTree<IGeneticGameState> = {
 	[EN_GeneticGameMutation.FINISH_GAME_GN](state) {
 		state.isStartGame = false
 	},
-	[EN_GeneticGameMutation.GAME_LOOP_GN](state) {
-		state.gameLoop += 1
-	},
 	[EN_GeneticGameMutation.PLUS_POINTS_GN](state) {
 		state.points += 15
+	},
+	[EN_GeneticGameMutation.PLUS_POINTS_LINK_GN](state) {
+		state.points += 5
 	},
 	[EN_GeneticGameMutation.MINUS_POINTS_GN](state) {
 		state.points -= 5
@@ -211,22 +255,6 @@ export const mutations: MutationTree<IGeneticGameState> = {
 
 		if (state.isFirstMistake || state.isSecondMistake) {
 			clearInterval(timerStrawberry)
-		}
-	},
-
-	[EN_GeneticGameMutation.PLAY_BACK_MUSIC_GAME_GN](state) {
-		state.isPlayBackMusic = true
-
-		if (state.isPlayBackMusic) {
-			audioBackAi.autoplay = true
-			audioBackAi.volume = 0.1
-		}
-	},
-	[EN_GeneticGameMutation.STOP_BACK_MUSIC_GAME_GN](state) {
-		state.isPlayBackMusic = false
-
-		if (!state.isPlayBackMusic) {
-			audioBackAi.autoplay = false
 		}
 	},
 

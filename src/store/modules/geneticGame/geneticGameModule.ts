@@ -1,5 +1,11 @@
 import { Module } from 'vuex'
 
+import { nameFlasks } from '@/components/screens/games/geneticGame/config/config'
+import {
+	generatorFlasksDropZone,
+	generatorFlasksList
+} from '@/components/screens/games/geneticGame/helpers/helpers'
+
 import { actions } from './actions'
 import { getters } from './getters'
 import { mutations } from './mutations'
@@ -12,12 +18,7 @@ const state: IGeneticGameState = {
 	isVictoryBlockVisible: false,
 	isLossBlockVisible: false,
 	isStartGame: false,
-	gameLoop: 0,
-	tomatoLevel: 1,
-	pepperLevel: 2,
-	strawberryLevel: 3,
 	points: 0,
-	isPlayBackMusic: false,
 
 	timerTomato: 9,
 	timerPepper: 9,
@@ -26,16 +27,22 @@ const state: IGeneticGameState = {
 	isFirstMistake: false,
 	isSecondMistake: false,
 
+	tomatoFlasksList: generatorFlasksList(nameFlasks),
+	tomatoFlasksDropZone: generatorFlasksDropZone(),
 	isTomatoLevel: true,
 	isTomatoSprout: false,
 	isTomatoColor: false,
 	isTomatoModified: false,
 
+	pepperFlasksList: generatorFlasksList(nameFlasks),
+	pepperFlasksDropZone: generatorFlasksDropZone(),
 	isPepperLevel: false,
 	isPepperSprout: false,
 	isPepperColor: false,
 	isPepperModified: false,
 
+	strawberryFlasksList: generatorFlasksList(nameFlasks),
+	strawberryFlasksDropZone: generatorFlasksDropZone(),
 	isStrawberryLevel: false,
 	isStrawberrySprout: false,
 	isStrawberryColor: false,

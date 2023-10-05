@@ -19,16 +19,16 @@
           ]'
         ></div>
 
-        <draggable :list="flasksDropZone" group="flasks" :move="detectMove" id='flasksDropZone' :class='styles.listDrop'>
-          <div v-for="flaskItem in flasksDropZone" :key="flaskItem.id">
+        <draggable :list="GET_FLASKS_DROPZONE_STRAWBERRY_GN" group="flasks" :move="detectMove" id='flasksDropZone' :class='styles.listDrop'>
+          <div v-for="flaskItem in GET_FLASKS_DROPZONE_STRAWBERRY_GN" :key="flaskItem.id">
             <!-- <div :class='styles.flask'></div> -->
           </div>
         </draggable>
       </div>
 
       <div :class='styles.flasksContainer'>
-          <draggable :list="flasks" group="flasks" :move="detectMove" id='flasksContainer' :class='styles.flasksList'>
-            <div v-for="flaskItem in flasks" :key="flaskItem.id">
+          <draggable :list="GET_FLASKS_STRAWBERRY_GN" group="flasks" :move="detectMove" id='flasksContainer' :class='styles.flasksList'>
+            <div v-for="flaskItem in GET_FLASKS_STRAWBERRY_GN" :key="flaskItem.id">
               <div :class='[styles.flask,
                 {
                   [styles.greenFlask]: flaskItem.name === "greenFlask",
@@ -63,7 +63,7 @@
 <script lang='ts'>
 import Vue from 'vue'
 import draggable from 'vuedraggable'
-import { EN_CONFIG, flasksStrawberry, flasksDropZoneStrawberry } from '../../config/config'
+import { EN_CONFIG } from '../../config/config'
 import { mapGetters, mapMutations } from 'vuex'
 import { EN_GeneticGameMutation } from '@/store/modules/geneticGame/mutations'
 import { EN_GeneticGameGetters } from '@/store/modules/geneticGame/getters'
@@ -71,9 +71,6 @@ import { EN_GeneticGameGetters } from '@/store/modules/geneticGame/getters'
 export default Vue.extend({
   name: 'flasksStrawberry',
   data: () => ({
-    flasks: flasksStrawberry,
-    flasksDropZone: flasksDropZoneStrawberry,
-
     isBlueEffectActive: false,
     isGreenEffectActive: false,
     isRedEffectActive: false,
@@ -102,6 +99,8 @@ export default Vue.extend({
   computed: {
     ...mapGetters([
       EN_GeneticGameGetters.GET_PLAYER_MISTAKES_GN,
+      EN_GeneticGameGetters.GET_FLASKS_STRAWBERRY_GN,
+      EN_GeneticGameGetters.GET_FLASKS_DROPZONE_STRAWBERRY_GN,
       EN_GeneticGameGetters.GET_STRAWBERRY_SPROUT,
       EN_GeneticGameGetters.GET_STRAWBERRY_COLOR,
     ]),
@@ -158,6 +157,9 @@ export default Vue.extend({
                 this.SHOW_FIRST_MISTAKE_GN()
                 this.START_FINISH_TIMER_STRAWBERRY_GN()
                 setTimeout(() => {
+                  this.isGreenFlaskRotate = false
+                  this.isEmptyFlask = false
+
                   this.HIDE_FIRST_MISTAKE_GN()
                   this.UPDATE_TIMER_STRAWBERRY_GN()
                   this.START_FINISH_TIMER_STRAWBERRY_GN()
@@ -168,6 +170,9 @@ export default Vue.extend({
                 this.SHOW_SECOND_MISTAKE_GN()
                 this.START_FINISH_TIMER_STRAWBERRY_GN()
                 setTimeout(() => {
+                  this.isGreenFlaskRotate = false
+                  this.isEmptyFlask = false
+                  
                   this.FINISH_GAME_GN()
                   this.SHOW_LOSS_BLOCK_GN()
                 }, EN_CONFIG.TIMING_ERROR_TEXT_MARIA)
@@ -194,6 +199,9 @@ export default Vue.extend({
                 this.SHOW_FIRST_MISTAKE_GN()
                 this.START_FINISH_TIMER_STRAWBERRY_GN()
                 setTimeout(() => {
+                  this.isBlueFlaskRotate = false
+                  this.isEmptyFlask = false
+
                   this.HIDE_FIRST_MISTAKE_GN()
                   this.UPDATE_TIMER_STRAWBERRY_GN()
                   this.START_FINISH_TIMER_STRAWBERRY_GN()
@@ -204,6 +212,9 @@ export default Vue.extend({
                 this.SHOW_SECOND_MISTAKE_GN()
                 this.START_FINISH_TIMER_STRAWBERRY_GN()
                 setTimeout(() => {
+                  this.isBlueFlaskRotate = false
+                  this.isEmptyFlask = false
+
                   this.FINISH_GAME_GN()
                   this.SHOW_LOSS_BLOCK_GN()
                 }, EN_CONFIG.TIMING_ERROR_TEXT_MARIA)
@@ -230,6 +241,9 @@ export default Vue.extend({
                 this.SHOW_FIRST_MISTAKE_GN()
                 this.START_FINISH_TIMER_STRAWBERRY_GN()
                 setTimeout(() => {
+                  this.isPinkFlaskRotate = false
+                  this.isEmptyFlask = false
+
                   this.HIDE_FIRST_MISTAKE_GN()
                   this.UPDATE_TIMER_STRAWBERRY_GN()
                   this.START_FINISH_TIMER_STRAWBERRY_GN()
@@ -240,6 +254,9 @@ export default Vue.extend({
                 this.SHOW_SECOND_MISTAKE_GN()
                 this.START_FINISH_TIMER_STRAWBERRY_GN()
                 setTimeout(() => {
+                  this.isPinkFlaskRotate = false
+                  this.isEmptyFlask = false
+
                   this.FINISH_GAME_GN()
                   this.SHOW_LOSS_BLOCK_GN()
                 }, EN_CONFIG.TIMING_ERROR_TEXT_MARIA)
@@ -261,7 +278,7 @@ export default Vue.extend({
                 this.HIDE_STRAWBERRY_SPROUT()
                 this.SHOW_STRAWBERRY_COLOR()
                 this.PLUS_POINTS_GN()          
-              }, 1000);
+              }, EN_CONFIG.TIMING_GROW_PLANT)
 
               setTimeout(() => {
                 this.isYellowEffectActive = false
@@ -270,6 +287,11 @@ export default Vue.extend({
                 this.START_FINISH_TIMER_STRAWBERRY_GN()
                 this.UPDATE_TIMER_STRAWBERRY_GN()
                 this.START_FINISH_TIMER_STRAWBERRY_GN()
+
+                setTimeout(() => {
+                  this.isYellowFlaskRotate = false
+                  this.isEmptyFlask = false
+                }, EN_CONFIG.TIMING_EMPTY_FLASK)
               }, EN_CONFIG.TIMING_EFFECT_FLASK)
             } else {
               setTimeout(() => {
@@ -284,6 +306,9 @@ export default Vue.extend({
                   this.SHOW_SECOND_MISTAKE_GN()
                   this.START_FINISH_TIMER_STRAWBERRY_GN()
                   setTimeout(() => {
+                    this.isYellowFlaskRotate = false
+                    this.isEmptyFlask = false
+
                     this.FINISH_GAME_GN()
                     this.SHOW_LOSS_BLOCK_GN()
                   }, EN_CONFIG.TIMING_ERROR_TEXT_MARIA)
@@ -311,6 +336,9 @@ export default Vue.extend({
                 this.SHOW_FIRST_MISTAKE_GN()
                 this.START_FINISH_TIMER_STRAWBERRY_GN()
                 setTimeout(() => {
+                  this.isRedFlaskRotate = false
+                  this.isEmptyFlask = false
+
                   this.HIDE_FIRST_MISTAKE_GN()
                   this.UPDATE_TIMER_STRAWBERRY_GN()
                   this.START_FINISH_TIMER_STRAWBERRY_GN()
@@ -321,6 +349,9 @@ export default Vue.extend({
                 this.SHOW_SECOND_MISTAKE_GN()
                 this.START_FINISH_TIMER_STRAWBERRY_GN()
                 setTimeout(() => {
+                  this.isRedFlaskRotate = false
+                  this.isEmptyFlask = false
+
                   this.FINISH_GAME_GN()
                   this.SHOW_LOSS_BLOCK_GN()
                 }, EN_CONFIG.TIMING_ERROR_TEXT_MARIA)
@@ -342,7 +373,7 @@ export default Vue.extend({
                 this.HIDE_STRAWBERRY_COLOR()
                 this.SHOW_STRAWBERRY_MODIFIED()
                 this.PLUS_POINTS_GN()
-              }, 1000)
+              }, EN_CONFIG.TIMING_GROW_PLANT)
 
               setTimeout(() => {
                 this.isCyanEffectActive = false
@@ -350,8 +381,12 @@ export default Vue.extend({
                 
                 this.START_FINISH_TIMER_STRAWBERRY_GN()
                 this.FINISH_GAME_GN()
-                
                 this.SHOW_VICTORY_BLOCK_GN()
+
+                setTimeout(() => {
+                  this.isCyanFlaskRotate = false
+                  this.isEmptyFlask = false
+                }, EN_CONFIG.TIMING_EMPTY_FLASK)
 
               }, EN_CONFIG.TIMING_EFFECT_FLASK)
             } else {
@@ -367,6 +402,9 @@ export default Vue.extend({
                   this.SHOW_SECOND_MISTAKE_GN()
                   this.START_FINISH_TIMER_STRAWBERRY_GN()
                   setTimeout(() => {
+                    this.isCyanFlaskRotate = false
+                    this.isEmptyFlask = false
+
                     this.FINISH_GAME_GN()
                     this.SHOW_LOSS_BLOCK_GN()
                   }, EN_CONFIG.TIMING_ERROR_TEXT_MARIA)
@@ -394,6 +432,9 @@ export default Vue.extend({
                 this.SHOW_FIRST_MISTAKE_GN()
                 this.START_FINISH_TIMER_STRAWBERRY_GN()
                 setTimeout(() => {
+                  this.isOrangeFlaskRotate = false
+                  this.isEmptyFlask = false
+
                   this.HIDE_FIRST_MISTAKE_GN()
                   this.UPDATE_TIMER_STRAWBERRY_GN()
                   this.START_FINISH_TIMER_STRAWBERRY_GN()
@@ -404,6 +445,9 @@ export default Vue.extend({
                 this.SHOW_SECOND_MISTAKE_GN()
                 this.START_FINISH_TIMER_STRAWBERRY_GN()
                 setTimeout(() => {
+                  this.isOrangeFlaskRotate = false
+                  this.isEmptyFlask = false
+
                   this.FINISH_GAME_GN()
                   this.SHOW_LOSS_BLOCK_GN()
                 }, EN_CONFIG.TIMING_ERROR_TEXT_MARIA)
@@ -429,6 +473,11 @@ export default Vue.extend({
               this.START_FINISH_TIMER_STRAWBERRY_GN()
               this.UPDATE_TIMER_STRAWBERRY_GN()
               this.START_FINISH_TIMER_STRAWBERRY_GN()
+
+              setTimeout(() => {
+                this.isPurpleFlaskRotate = false
+                this.isEmptyFlask = false
+              }, EN_CONFIG.TIMING_EMPTY_FLASK)
             }, EN_CONFIG.TIMING_EFFECT_FLASK)
           }
         }
@@ -451,6 +500,9 @@ export default Vue.extend({
                 this.SHOW_FIRST_MISTAKE_GN()
                 this.START_FINISH_TIMER_STRAWBERRY_GN()
                 setTimeout(() => {
+                  this.isGreyFlaskRotate = false
+                  this.isEmptyFlask = false
+
                   this.HIDE_FIRST_MISTAKE_GN()
                   this.UPDATE_TIMER_STRAWBERRY_GN()
                   this.START_FINISH_TIMER_STRAWBERRY_GN()
@@ -461,6 +513,9 @@ export default Vue.extend({
                 this.SHOW_SECOND_MISTAKE_GN()
                 this.START_FINISH_TIMER_STRAWBERRY_GN()
                 setTimeout(() => {
+                  this.isGreyFlaskRotate = false
+                  this.isEmptyFlask = false
+
                   this.FINISH_GAME_GN()
                   this.SHOW_LOSS_BLOCK_GN()
                 }, EN_CONFIG.TIMING_ERROR_TEXT_MARIA)

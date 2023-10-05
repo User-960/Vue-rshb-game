@@ -83,10 +83,11 @@ export default Vue.extend({
   },
   methods: {
     ...mapMutations([
-      EN_GeneticGameMutation.HIDE_VICTORY_BLOCK_GN
+      EN_GeneticGameMutation.HIDE_VICTORY_BLOCK_GN,
+      EN_GeneticGameMutation.RESTART_GAME_GN
     ]),
     restartGame() {
-      this.$router.go(0)
+      this.RESTART_GAME_GN()
     },
     skipToMap() {
       this.HIDE_VICTORY_BLOCK_GN()

@@ -64,25 +64,9 @@ export default Vue.extend({
     iconButton,
     navigationLevels
   },
-  // watch: {
-  //   GET_TIMER_GN() {
-  //     if (this.GET_TIMER_GN === 0) {
-  //       this.START_FINISH_TIMER_GN()
-  //       if (!this.GET_LOSS_BLOCK_GN) {
-  //         this.SHOW_VICTORY_BLOCK_GN()
-  //       }
-  //     }
-  //   }
-  // },
   computed: {
     ...mapGetters([
       EN_GeneticGameGetters.GET_POINTS_GN,
-      EN_GeneticGameGetters.GET_LOSS_BLOCK_GN
-    ]),
-  },
-  methods: {
-    ...mapMutations([
-      EN_GeneticGameMutation.SHOW_VICTORY_BLOCK_GN,
     ]),
   }
 })
