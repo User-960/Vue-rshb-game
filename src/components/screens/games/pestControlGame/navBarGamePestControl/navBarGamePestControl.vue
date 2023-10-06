@@ -1,6 +1,6 @@
 <template>
   <div :class='styles.navBarGamePestControl'>
-    <div :class='styles.exitButtonWrapper'>
+    <div :class='styles.exitButtonWrapper' @click='exitGame'>
       <exitButton/>
     </div>
 
@@ -47,7 +47,8 @@ import exitButton from '../../../../ui/button/exitButton/exitButton.vue'
 import blockButton from '../../../../ui/button/blockButton/blockButton.vue'
 import iconButton from '../../../../ui/button/iconButton/iconButton.vue'
 import { EN_PestControlGameGetters } from '@/store/modules/pestControlGame/getters'
-import { mapGetters } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
+import { EN_PestControlGameMutation } from '@/store/modules/pestControlGame/mutations'
 
 export default Vue.extend({
   name: 'navBarGamePestControl',
@@ -61,6 +62,16 @@ export default Vue.extend({
       EN_PestControlGameGetters.GET_POINTS_PS
     ]),
   },
+  methods: {
+    ...mapMutations([
+      EN_PestControlGameMutation.RESTART_GAME_PS,
+      EN_PestControlGameMutation.FINISH_GAME_PS,
+    ]),
+    exitGame() {
+      this.RESTART_GAME_PS()
+      this.FINISH_GAME_PS()
+    }
+  }
 })
 </script>
 

@@ -17,4 +17,13 @@ export interface IPestControlGameState {
 	isTomatoLineCritical: boolean
 	isPepperLineCritical: boolean
 	isStrawberryLineCritical: boolean
+
+	isBugActive: boolean
+	isLocustsActive: boolean
+	isCaterpillarActive: boolean
+
+	isDroneActive: boolean
+	isDroneMovedTomato: boolean
+	isDroneMovedPepper: boolean
+	isDroneMovedStrawberry: boolean
 }

@@ -101,7 +101,7 @@
               :class='[
                 styles.insecticide, 
                 styles.insecticideBug, 
-                {[styles.insecticideBugActive]: isBugActive}
+                {[styles.insecticideBugActive]: GET_SELECT_BUG}
               ]'
               @click='selectBug'
             ></li>
@@ -110,7 +110,7 @@
               :class='[
                 styles.insecticide, 
                 styles.insecticideLocusts, 
-                {[styles.insecticideLocustsActive]: isLocustsActive}
+                {[styles.insecticideLocustsActive]: GET_SELECT_LOCUSTS}
               ]'
               @click='selectLocusts'
             ></li>
@@ -119,7 +119,7 @@
               :class='[
                 styles.insecticide, 
                 styles.insecticideCaterpillar, 
-                {[styles.insecticideCaterpillarActive]: isCaterpillarActive}
+                {[styles.insecticideCaterpillarActive]: GET_SELECT_CATERPILLAR}
               ]'
               @click='selectCaterpillar'
             ></li>
@@ -128,12 +128,12 @@
           <div 
             :class='[
               styles.drone, 
-              {[styles.droneActive]: isDroneActive},
-              {[styles.droneMovedTomato]: isDroneMovedTomato},
+              {[styles.droneActive]: GET_SELECT_DRONE},
+              {[styles.droneMovedTomato]: GET_MOVED_DRONE_TOMATO},
               {[styles.droneReturnTomato]: isDroneFinishWorkTomato},
-              {[styles.droneMovedPepper]: isDroneMovedPepper},
+              {[styles.droneMovedPepper]: GET_MOVED_DRONE_PEPPER},
               {[styles.droneReturnPepper]: isDroneFinishWorkPepper},
-              {[styles.droneMovedStrawberry]: isDroneMovedStrawberry},
+              {[styles.droneMovedStrawberry]: GET_MOVED_DRONE_STRAWBERRY},
               {[styles.droneReturnStrawberry]: isDroneFinishWorkStrawberry},
             ]' 
             @click='selectDrone'
@@ -169,17 +169,17 @@ export default Vue.extend({
     // isPepperLineCritical: false,
     // isStrawberryLineCritical: false,
 
-    isBugActive: false,
-    isLocustsActive: false,
-    isCaterpillarActive: false,
+    // isBugActive: false,
+    // isLocustsActive: false,
+    // isCaterpillarActive: false,
 
-    isDroneActive: false,
+    // isDroneActive: false,
 
-    isDroneMovedTomato: false,
+    // isDroneMovedTomato: false,
     isDroneFinishWorkTomato: false,
-    isDroneMovedPepper: false,
+    // isDroneMovedPepper: false,
     isDroneFinishWorkPepper: false,
-    isDroneMovedStrawberry: false,
+    // isDroneMovedStrawberry: false,
     isDroneFinishWorkStrawberry: false
   }),
   computed: {
@@ -198,9 +198,29 @@ export default Vue.extend({
 
       EN_PestControlGameGetters.GET_CHOSEN_STRAWBERRY_LEVEL,
       EN_PestControlGameGetters.GET_STRAWBERRY_LINE_CRITICAL,
+
+      EN_PestControlGameGetters.GET_SELECT_BUG,
+      EN_PestControlGameGetters.GET_SELECT_LOCUSTS,
+      EN_PestControlGameGetters.GET_SELECT_CATERPILLAR,
+      
+      EN_PestControlGameGetters.GET_SELECT_DRONE,
+      EN_PestControlGameGetters.GET_MOVED_DRONE_TOMATO,
+      EN_PestControlGameGetters.GET_MOVED_DRONE_PEPPER,
+      EN_PestControlGameGetters.GET_MOVED_DRONE_STRAWBERRY,
     ]),
   },
   watch: {
+    GET_START_GAME_PS() {
+      if (
+          !this.GET_START_GAME_PS &&
+          this.GET_GAME_LOOP_PS > 0 && 
+          !this.GET_TOMATO_LINE_CRITICAL && 
+          !this.GET_PEPPER_LINE_CRITICAL && 
+          !this.GET_STRAWBERRY_LINE_CRITICAL
+        ) {
+        this.SHOW_VICTORY_BLOCK_PS()
+      }
+    },
     GET_GAME_LOOP_PS() {
       if (this.GET_GAME_LOOP_PS < 4 && this.GET_START_GAME_PS) {
         let numberLevel = getRandomNumber(1, 4)
@@ -218,47 +238,47 @@ export default Vue.extend({
         }
       } else {
         this.FINISH_GAME_PS()
-        if (!this.GET_START_GAME_PS) {
-          this.SHOW_VICTORY_BLOCK_PS()
-        }
       }
     },
     // Tomato Level
     GET_CHOSEN_TOMATO_LEVEL() {
       if (
-        (this.isDroneActive && this.GET_TOMATO_LINE_CRITICAL) && 
-        (this.isCaterpillarActive || this.isLocustsActive || this.isBugActive)
+        (this.GET_SELECT_DRONE && this.GET_TOMATO_LINE_CRITICAL) && 
+        (this.GET_SELECT_CATERPILLAR || this.GET_SELECT_LOCUSTS || this.GET_SELECT_BUG)
       ) {
-        this.isDroneMovedTomato = true
+        this.MOVE_DRONE_TOMATO()
       }
 
-      if (this.isDroneMovedTomato) {
+      if (this.GET_MOVED_DRONE_TOMATO) {
         setTimeout(() => {
             this.isUltrasoundTomatoActive = true
         }, EN_CONFIG.TIMING_DRONE_MOVED_TOMATO)
       }
     },
     isUltrasoundTomatoActive() {
-      if (this.isCaterpillarActive) {
+      if (this.GET_SELECT_CATERPILLAR) {
         if (this.isUltrasoundTomatoActive && this.GET_CHOSEN_TOMATO_LEVEL && this.GET_TOMATO_LINE_CRITICAL) {
           setTimeout(() => {
             this.isUltrasoundTomatoActive = false
             this.REMOVE_TOMATO_LINE_CRITICAL()
             this.NOT_CHOOSE_TOMATO_LEVEL()
-            this.isDroneMovedTomato = false
+            this.NOT_MOVE_DRONE_TOMATO()
             this.isDroneFinishWorkTomato = true
           }, EN_CONFIG.TIMING_ULTRASOUND_TOMATO)
         }
       } else {
-        this.SHOW_LOSS_BLOCK_PS()
+        setTimeout(() => {
+          this.isUltrasoundTomatoActive = false
+          this.SHOW_LOSS_BLOCK_PS()
+        }, EN_CONFIG.TIMING_ULTRASOUND_TOMATO)
       }
     },
     isDroneFinishWorkTomato() {
       if (this.isDroneFinishWorkTomato) {
         setTimeout(() => {
             this.isDroneFinishWorkTomato = false
-            this.isCaterpillarActive = false
-            this.isDroneActive = false
+            this.NOT_SELECT_CATERPILLAR()
+            this.NOT_SELECT_DRONE()
             
             this.PLUS_POINTS_PS()
             this.GAME_LOOP_PS()
@@ -268,39 +288,42 @@ export default Vue.extend({
     // Pepper Level
     GET_CHOSEN_PEPPER_LEVEL() {
       if (
-        (this.isDroneActive && this.GET_PEPPER_LINE_CRITICAL) && 
-        (this.isCaterpillarActive || this.isLocustsActive || this.isBugActive)
+        (this.GET_SELECT_DRONE && this.GET_PEPPER_LINE_CRITICAL) && 
+        (this.GET_SELECT_CATERPILLAR || this.GET_SELECT_LOCUSTS || this.GET_SELECT_BUG)
       ) {
-        this.isDroneMovedPepper = true
+        this.MOVE_DRONE_PEPPER()
       }
 
-      if (this.isDroneMovedPepper) {
+      if (this.GET_MOVED_DRONE_PEPPER) {
         setTimeout(() => {
             this.isUltrasoundPepperActive = true
         }, EN_CONFIG.TIMING_DRONE_MOVED_PEPPER)
       }
     },
     isUltrasoundPepperActive() {
-      if (this.isBugActive) {
+      if (this.GET_SELECT_BUG) {
         if (this.isUltrasoundPepperActive && this.GET_CHOSEN_PEPPER_LEVEL && this.GET_PEPPER_LINE_CRITICAL) {
           setTimeout(() => {
             this.isUltrasoundPepperActive = false
             this.REMOVE_PEPPER_LINE_CRITICAL()
             this.NOT_CHOOSE_PEPPER_LEVEL()
-            this.isDroneMovedPepper = false
+            this.NOT_MOVE_DRONE_PEPPER()
             this.isDroneFinishWorkPepper = true
           }, EN_CONFIG.TIMING_ULTRASOUND_PEPPER)
         }
       } else {
-         this.SHOW_LOSS_BLOCK_PS()
+        setTimeout(() => {
+          this.isUltrasoundPepperActive = false
+          this.SHOW_LOSS_BLOCK_PS()
+        }, EN_CONFIG.TIMING_ULTRASOUND_TOMATO)
       }
     },
     isDroneFinishWorkPepper() {
       if (this.isDroneFinishWorkPepper) {
         setTimeout(() => {
             this.isDroneFinishWorkPepper = false
-            this.isBugActive = false
-            this.isDroneActive = false
+            this.NOT_SELECT_BUG()
+            this.NOT_SELECT_DRONE()
 
             this.PLUS_POINTS_PS()
             this.GAME_LOOP_PS()
@@ -310,20 +333,20 @@ export default Vue.extend({
     // Strawberry Level
     GET_CHOSEN_STRAWBERRY_LEVEL() {
       if (
-          (this.isDroneActive && this.GET_STRAWBERRY_LINE_CRITICAL) && 
-          (this.isCaterpillarActive || this.isLocustsActive || this.isBugActive)
+          (this.GET_SELECT_DRONE && this.GET_STRAWBERRY_LINE_CRITICAL) && 
+          (this.GET_SELECT_CATERPILLAR || this.GET_SELECT_LOCUSTS || this.GET_SELECT_BUG)
         ) {
-        this.isDroneMovedStrawberry = true
+        this.MOVE_DRONE_STRAWBERRY()
       }
 
-      if (this.isDroneMovedStrawberry) {
+      if (this.GET_MOVED_DRONE_STRAWBERRY) {
         setTimeout(() => {
             this.isUltrasoundStrawberryActive = true
         }, EN_CONFIG.TIMING_DRONE_MOVED_STRAWBERRY)
       }
     },
     isUltrasoundStrawberryActive() {
-      if (this.isLocustsActive) {
+      if (this.GET_SELECT_LOCUSTS) {
         if (
             this.isUltrasoundStrawberryActive && 
             this.GET_CHOSEN_STRAWBERRY_LEVEL && 
@@ -333,20 +356,23 @@ export default Vue.extend({
             this.isUltrasoundStrawberryActive = false
             this.REMOVE_STRAWBERRY_LINE_CRITICAL()
             this.NOT_CHOOSE_STRAWBERRY_LEVEL()
-            this.isDroneMovedStrawberry = false
+            this.NOT_MOVE_DRONE_STRAWBERRY()
             this.isDroneFinishWorkStrawberry = true
           }, EN_CONFIG.TIMING_ULTRASOUND_STRAWBERRY)
         }
       } else {
-        this.SHOW_LOSS_BLOCK_PS()
+        setTimeout(() => {
+          this.isUltrasoundStrawberryActive = false
+          this.SHOW_LOSS_BLOCK_PS()
+        }, EN_CONFIG.TIMING_ULTRASOUND_TOMATO)
       }
     },
     isDroneFinishWorkStrawberry() {
       if (this.isDroneFinishWorkStrawberry) {
         setTimeout(() => {
             this.isDroneFinishWorkStrawberry = false
-            this.isLocustsActive = false
-            this.isDroneActive = false
+            this.NOT_SELECT_LOCUSTS()
+            this.NOT_SELECT_DRONE()
 
             this.PLUS_POINTS_PS()
             this.GAME_LOOP_PS()
@@ -378,6 +404,22 @@ export default Vue.extend({
       EN_PestControlGameMutation.NOT_CHOOSE_STRAWBERRY_LEVEL,
       EN_PestControlGameMutation.FILL_STRAWBERRY_LINE_CRITICAL,
       EN_PestControlGameMutation.REMOVE_STRAWBERRY_LINE_CRITICAL,
+
+      EN_PestControlGameMutation.SELECT_BUG,
+      EN_PestControlGameMutation.NOT_SELECT_BUG,
+      EN_PestControlGameMutation.SELECT_LOCUSTS,
+      EN_PestControlGameMutation.NOT_SELECT_LOCUSTS,
+      EN_PestControlGameMutation.SELECT_CATERPILLAR,
+      EN_PestControlGameMutation.NOT_SELECT_CATERPILLAR,
+
+      EN_PestControlGameMutation.SELECT_DRONE,
+      EN_PestControlGameMutation.NOT_SELECT_DRONE,
+      EN_PestControlGameMutation.MOVE_DRONE_TOMATO,
+      EN_PestControlGameMutation.NOT_MOVE_DRONE_TOMATO,
+      EN_PestControlGameMutation.MOVE_DRONE_PEPPER,
+      EN_PestControlGameMutation.NOT_MOVE_DRONE_PEPPER,
+      EN_PestControlGameMutation.MOVE_DRONE_STRAWBERRY,
+      EN_PestControlGameMutation.NOT_MOVE_DRONE_STRAWBERRY,
     ]),
     startTomatoLevel() {
       setTimeout(() => {
@@ -396,8 +438,8 @@ export default Vue.extend({
     },
     chooseTomatoLevel() {
       if (
-          (this.isDroneActive && this.GET_TOMATO_LINE_CRITICAL) && 
-          (this.isCaterpillarActive || this.isLocustsActive || this.isBugActive)
+          (this.GET_SELECT_DRONE && this.GET_TOMATO_LINE_CRITICAL) && 
+          (this.GET_SELECT_CATERPILLAR || this.GET_SELECT_LOCUSTS || this.GET_SELECT_BUG)
         ) {
         const audio = new Audio(AUDIO_CONFIG.AUDIO_CHOOSE_ACTION_COMPUTER)
 		    audio.autoplay = true
@@ -410,8 +452,8 @@ export default Vue.extend({
     },
     choosePepperLevel() {
       if (
-          (this.isDroneActive && this.GET_PEPPER_LINE_CRITICAL) && 
-          (this.isCaterpillarActive || this.isLocustsActive || this.isBugActive)
+          (this.GET_SELECT_DRONE && this.GET_PEPPER_LINE_CRITICAL) && 
+          (this.GET_SELECT_CATERPILLAR || this.GET_SELECT_LOCUSTS || this.GET_SELECT_BUG)
         ) {
         const audio = new Audio(AUDIO_CONFIG.AUDIO_CHOOSE_ACTION_COMPUTER)
 		    audio.autoplay = true
@@ -424,8 +466,8 @@ export default Vue.extend({
     },
     chooseStrawberryLevel() {
       if (
-          (this.isDroneActive && this.GET_STRAWBERRY_LINE_CRITICAL) && 
-          (this.isCaterpillarActive || this.isLocustsActive || this.isBugActive)
+          (this.GET_SELECT_DRONE && this.GET_STRAWBERRY_LINE_CRITICAL) && 
+          (this.GET_SELECT_CATERPILLAR || this.GET_SELECT_LOCUSTS || this.GET_SELECT_BUG)
         ) {
         const audio = new Audio(AUDIO_CONFIG.AUDIO_CHOOSE_ACTION_COMPUTER)
 		    audio.autoplay = true
@@ -438,31 +480,31 @@ export default Vue.extend({
     },
     selectBug() {
       if ((this.GET_TOMATO_LINE_CRITICAL || this.GET_PEPPER_LINE_CRITICAL || this.GET_STRAWBERRY_LINE_CRITICAL) 
-      && !this.isDroneActive) {
-        this.isCaterpillarActive = false
-        this.isLocustsActive = false
-        this.isBugActive = true
+      && !this.GET_SELECT_DRONE) {
+        this.NOT_SELECT_CATERPILLAR()
+        this.NOT_SELECT_LOCUSTS()
+        this.SELECT_BUG()
       }
     },
     selectLocusts() {
       if ((this.GET_TOMATO_LINE_CRITICAL || this.GET_PEPPER_LINE_CRITICAL || this.GET_STRAWBERRY_LINE_CRITICAL)
-      && !this.isDroneActive) {
-        this.isCaterpillarActive = false
-        this.isBugActive = false
-        this.isLocustsActive = true
+      && !this.GET_SELECT_DRONE) {
+        this.NOT_SELECT_CATERPILLAR()
+        this.NOT_SELECT_BUG()
+        this.SELECT_LOCUSTS()
       }
     },
     selectCaterpillar() {
       if ((this.GET_TOMATO_LINE_CRITICAL || this.GET_PEPPER_LINE_CRITICAL || this.GET_STRAWBERRY_LINE_CRITICAL) 
-      && !this.isDroneActive) {
-        this.isLocustsActive = false
-        this.isBugActive = false
-        this.isCaterpillarActive = true
+      && !this.GET_SELECT_DRONE) {
+        this.NOT_SELECT_LOCUSTS()
+        this.NOT_SELECT_BUG()
+        this.SELECT_CATERPILLAR()
       }
     },
     selectDrone() {
-      if (this.isBugActive || this.isLocustsActive || this.isCaterpillarActive) {
-        this.isDroneActive = true
+      if (this.GET_SELECT_BUG || this.GET_SELECT_LOCUSTS || this.GET_SELECT_CATERPILLAR) {
+        this.SELECT_DRONE()
       }
     }
   }

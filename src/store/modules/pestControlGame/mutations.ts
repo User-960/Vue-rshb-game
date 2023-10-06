@@ -34,7 +34,23 @@ export enum EN_PestControlGameMutation {
 	CHOOSE_STRAWBERRY_LEVEL = 'CHOOSE_STRAWBERRY_LEVEL',
 	NOT_CHOOSE_STRAWBERRY_LEVEL = 'NOT_CHOOSE_STRAWBERRY_LEVEL',
 	FILL_STRAWBERRY_LINE_CRITICAL = 'FILL_STRAWBERRY_LINE_CRITICAL',
-	REMOVE_STRAWBERRY_LINE_CRITICAL = 'REMOVE_STRAWBERRY_LINE_CRITICAL'
+	REMOVE_STRAWBERRY_LINE_CRITICAL = 'REMOVE_STRAWBERRY_LINE_CRITICAL',
+
+	SELECT_BUG = 'SELECT_BUG',
+	NOT_SELECT_BUG = 'NOT_SELECT_BUG',
+	SELECT_LOCUSTS = 'SELECT_LOCUSTS',
+	NOT_SELECT_LOCUSTS = 'NOT_SELECT_LOCUSTS',
+	SELECT_CATERPILLAR = 'SELECT_CATERPILLAR',
+	NOT_SELECT_CATERPILLAR = 'NOT_SELECT_CATERPILLAR',
+
+	SELECT_DRONE = 'SELECT_DRONE',
+	NOT_SELECT_DRONE = 'NOT_SELECT_DRONE',
+	MOVE_DRONE_TOMATO = 'MOVE_DRONE_TOMATO',
+	NOT_MOVE_DRONE_TOMATO = 'NOT_MOVE_DRONE_TOMATO',
+	MOVE_DRONE_PEPPER = 'MOVE_DRONE_PEPPER',
+	NOT_MOVE_DRONE_PEPPER = 'NOT_MOVE_DRONE_PEPPER',
+	MOVE_DRONE_STRAWBERRY = 'MOVE_DRONE_STRAWBERRY',
+	NOT_MOVE_DRONE_STRAWBERRY = 'NOT_MOVE_DRONE_STRAWBERRY'
 }
 
 const audioVictory = new Audio(AUDIO_CONFIG.AUDIO_VICTORY)
@@ -56,7 +72,14 @@ export const mutations: MutationTree<IPestControlGameState> = {
 			(state.isChosenStrawberryLevel = false),
 			(state.isTomatoLineCritical = false),
 			(state.isPepperLineCritical = false),
-			(state.isStrawberryLineCritical = false)
+			(state.isStrawberryLineCritical = false),
+			(state.isBugActive = false),
+			(state.isLocustsActive = false),
+			(state.isCaterpillarActive = false),
+			(state.isDroneActive = false),
+			(state.isDroneMovedTomato = false),
+			(state.isDroneMovedPepper = false),
+			(state.isDroneMovedStrawberry = false)
 	},
 	[EN_PestControlGameMutation.SHOW_INFO_LINK_BLOCK_PS](state) {
 		const audio = new Audio(AUDIO_CONFIG.AUDIO_NEW_MISSION)
@@ -96,7 +119,28 @@ export const mutations: MutationTree<IPestControlGameState> = {
 		state.isLossBlockVisible = false
 	},
 	[EN_PestControlGameMutation.START_GAME_PS](state) {
-		state.isStartGame = true
+		;(state.isRulesBlockVisible = false),
+			(state.isVictoryBlockVisible = false),
+			(state.isLossBlockVisible = false),
+			(state.isStartGame = true),
+			(state.gameLoop = 0),
+			(state.tomatoLevel = 1),
+			(state.pepperLevel = 2),
+			(state.strawberryLevel = 3),
+			(state.points = 0),
+			(state.isChosenTomatoLevel = false),
+			(state.isChosenPepperLevel = false),
+			(state.isChosenStrawberryLevel = false),
+			(state.isTomatoLineCritical = false),
+			(state.isPepperLineCritical = false),
+			(state.isStrawberryLineCritical = false),
+			(state.isBugActive = false),
+			(state.isLocustsActive = false),
+			(state.isCaterpillarActive = false),
+			(state.isDroneActive = false),
+			(state.isDroneMovedTomato = false),
+			(state.isDroneMovedPepper = false),
+			(state.isDroneMovedStrawberry = false)
 	},
 	[EN_PestControlGameMutation.FINISH_GAME_PS](state) {
 		state.isStartGame = false
@@ -151,5 +195,49 @@ export const mutations: MutationTree<IPestControlGameState> = {
 	},
 	[EN_PestControlGameMutation.REMOVE_STRAWBERRY_LINE_CRITICAL](state) {
 		state.isStrawberryLineCritical = false
+	},
+
+	[EN_PestControlGameMutation.SELECT_BUG](state) {
+		state.isBugActive = true
+	},
+	[EN_PestControlGameMutation.NOT_SELECT_BUG](state) {
+		state.isBugActive = false
+	},
+	[EN_PestControlGameMutation.SELECT_LOCUSTS](state) {
+		state.isLocustsActive = true
+	},
+	[EN_PestControlGameMutation.NOT_SELECT_LOCUSTS](state) {
+		state.isLocustsActive = false
+	},
+	[EN_PestControlGameMutation.SELECT_CATERPILLAR](state) {
+		state.isCaterpillarActive = true
+	},
+	[EN_PestControlGameMutation.NOT_SELECT_CATERPILLAR](state) {
+		state.isCaterpillarActive = false
+	},
+
+	[EN_PestControlGameMutation.SELECT_DRONE](state) {
+		state.isDroneActive = true
+	},
+	[EN_PestControlGameMutation.NOT_SELECT_DRONE](state) {
+		state.isDroneActive = false
+	},
+	[EN_PestControlGameMutation.MOVE_DRONE_TOMATO](state) {
+		state.isDroneMovedTomato = true
+	},
+	[EN_PestControlGameMutation.NOT_MOVE_DRONE_TOMATO](state) {
+		state.isDroneMovedTomato = false
+	},
+	[EN_PestControlGameMutation.MOVE_DRONE_PEPPER](state) {
+		state.isDroneMovedPepper = true
+	},
+	[EN_PestControlGameMutation.NOT_MOVE_DRONE_PEPPER](state) {
+		state.isDroneMovedPepper = false
+	},
+	[EN_PestControlGameMutation.MOVE_DRONE_STRAWBERRY](state) {
+		state.isDroneMovedStrawberry = true
+	},
+	[EN_PestControlGameMutation.NOT_MOVE_DRONE_STRAWBERRY](state) {
+		state.isDroneMovedStrawberry = false
 	}
 }

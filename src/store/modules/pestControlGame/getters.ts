@@ -23,7 +23,16 @@ export enum EN_PestControlGameGetters {
 	GET_PEPPER_LINE_CRITICAL = 'GET_PEPPER_LINE_CRITICAL',
 
 	GET_CHOSEN_STRAWBERRY_LEVEL = 'GET_CHOSEN_STRAWBERRY_LEVEL',
-	GET_STRAWBERRY_LINE_CRITICAL = 'GET_STRAWBERRY_LINE_CRITICAL'
+	GET_STRAWBERRY_LINE_CRITICAL = 'GET_STRAWBERRY_LINE_CRITICAL',
+
+	GET_SELECT_BUG = 'GET_SELECT_BUG',
+	GET_SELECT_LOCUSTS = 'GET_SELECT_LOCUSTS',
+	GET_SELECT_CATERPILLAR = 'GET_SELECT_CATERPILLAR',
+
+	GET_SELECT_DRONE = 'GET_SELECT_DRONE',
+	GET_MOVED_DRONE_TOMATO = 'GET_MOVED_DRONE_TOMATO',
+	GET_MOVED_DRONE_PEPPER = 'GET_MOVED_DRONE_PEPPER',
+	GET_MOVED_DRONE_STRAWBERRY = 'GET_MOVED_DRONE_STRAWBERRY'
 }
 
 export const getters: GetterTree<IPestControlGameState, IRootState> = {
@@ -59,5 +68,19 @@ export const getters: GetterTree<IPestControlGameState, IRootState> = {
 	[EN_PestControlGameGetters.GET_CHOSEN_STRAWBERRY_LEVEL]: state =>
 		state.isChosenStrawberryLevel,
 	[EN_PestControlGameGetters.GET_STRAWBERRY_LINE_CRITICAL]: state =>
-		state.isStrawberryLineCritical
+		state.isStrawberryLineCritical,
+
+	[EN_PestControlGameGetters.GET_SELECT_BUG]: state => state.isBugActive,
+	[EN_PestControlGameGetters.GET_SELECT_LOCUSTS]: state =>
+		state.isLocustsActive,
+	[EN_PestControlGameGetters.GET_SELECT_CATERPILLAR]: state =>
+		state.isCaterpillarActive,
+
+	[EN_PestControlGameGetters.GET_SELECT_DRONE]: state => state.isDroneActive,
+	[EN_PestControlGameGetters.GET_MOVED_DRONE_TOMATO]: state =>
+		state.isDroneMovedTomato,
+	[EN_PestControlGameGetters.GET_MOVED_DRONE_PEPPER]: state =>
+		state.isDroneMovedPepper,
+	[EN_PestControlGameGetters.GET_MOVED_DRONE_STRAWBERRY]: state =>
+		state.isDroneMovedStrawberry
 }
