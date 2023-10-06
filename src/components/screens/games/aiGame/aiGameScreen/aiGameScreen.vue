@@ -125,7 +125,7 @@
             <li :class='[styles.indicatorsItem, styles.moistureItem]'>
               <div :class='[
                   styles.moistureIcon, 
-                  {[styles.moistureIconCritical]: isPepperMoistureLineCritical}
+                  {[styles.moistureIconCritical]: GET_PEPPER_MOISTURE_LINE_CRITICAL}
                 ]'
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="25" viewBox="0 0 20 25" fill="none">
@@ -138,12 +138,12 @@
                   <p>0</p>
                   <div :class='[
                       styles.moistureNumber, 
-                      {[styles.moistureNumberCritical]: isPepperMoistureLineCritical}
+                      {[styles.moistureNumberCritical]: GET_PEPPER_MOISTURE_LINE_CRITICAL}
                       ]'
                   ></div>
                   <div :class='[
                       styles.moistureLineFull, 
-                      {[styles.moistureLineFullCritical]: isPepperMoistureLineCritical}
+                      {[styles.moistureLineFullCritical]: GET_PEPPER_MOISTURE_LINE_CRITICAL}
                     ]'
                   ></div>
                 </div>
@@ -181,7 +181,7 @@
             <li :class='[styles.indicatorsItem, styles.healthItem]'>
               <div :class='[
                   styles.healthIcon, 
-                  {[styles.healthIconCritical]: isPepperHealthLineCritical}
+                  {[styles.healthIconCritical]: GET_PEPPER_HEALTH_LINE_CRITICAL}
                 ]'
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none">
@@ -194,14 +194,14 @@
                   <p>0</p>
                   <div :class='[
                       styles.healthNumber, 
-                      {[styles.healthNumberCritical]: isPepperHealthLineCritical,
-                      [styles.healthNumberEmpty]: isPepperHealthLineEmpty}
+                      {[styles.healthNumberCritical]: GET_PEPPER_HEALTH_LINE_CRITICAL,
+                      [styles.healthNumberEmpty]: GET_PEPPER_HEALTH_LINE_EMPTY}
                     ]'
                   ></div>
                   <div :class='[
                         styles.healthLineFull, 
-                        {[styles.healthLineFullCritical]: isPepperHealthLineCritical,
-                        [styles.healthLineEmptyCritical]: isPepperHealthLineEmpty}
+                        {[styles.healthLineFullCritical]: GET_PEPPER_HEALTH_LINE_CRITICAL,
+                        [styles.healthLineEmptyCritical]: GET_PEPPER_HEALTH_LINE_EMPTY}
                       ]'
                   ></div>
                 </div>
@@ -254,7 +254,7 @@
             <li :class='[styles.indicatorsItem, styles.moistureItem]'>
               <div :class='[
                   styles.moistureIcon, 
-                  {[styles.moistureIconCritical]: isStrawberryMoistureLineCritical}
+                  {[styles.moistureIconCritical]: GET_STRAWBERRY_MOISTURE_LINE_CRITICAL}
                 ]'
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="25" viewBox="0 0 20 25" fill="none">
@@ -267,12 +267,12 @@
                   <p>0</p>
                   <div :class='[
                       styles.moistureNumber, 
-                      {[styles.moistureNumberCritical]: isStrawberryMoistureLineCritical}
+                      {[styles.moistureNumberCritical]: GET_STRAWBERRY_MOISTURE_LINE_CRITICAL}
                       ]'
                   ></div>
                   <div :class='[
                       styles.moistureLineFull, 
-                      {[styles.moistureLineFullCritical]: isStrawberryMoistureLineCritical}
+                      {[styles.moistureLineFullCritical]: GET_STRAWBERRY_MOISTURE_LINE_CRITICAL}
                     ]'
                   ></div>
                 </div>
@@ -282,7 +282,7 @@
             <li :class='[styles.indicatorsItem, styles.temperatureItem]'>
               <div :class='[
                   styles.temperatureIcon, 
-                  {[styles.temperatureIconCritical]: isStrawberryTemperatureLineCritical}
+                  {[styles.temperatureIconCritical]: GET_STRAWBERRY_TEMPERATURE_LINE_CRITICAL}
                 ]'
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none">
@@ -295,12 +295,12 @@
                   <p>0</p>
                   <div :class='[
                         styles.temperatureNumber, 
-                        {[styles.temperatureNumberCritical]: isStrawberryTemperatureLineCritical}
+                        {[styles.temperatureNumberCritical]: GET_STRAWBERRY_TEMPERATURE_LINE_CRITICAL}
                       ]'
                   ></div>
                   <div :class='[
                         styles.temperatureLineFull, 
-                        {[styles.temperatureLineFullCritical]: isStrawberryTemperatureLineCritical}
+                        {[styles.temperatureLineFullCritical]: GET_STRAWBERRY_TEMPERATURE_LINE_CRITICAL}
                       ]'
                   ></div>
                 </div>
@@ -310,7 +310,7 @@
             <li :class='[styles.indicatorsItem, styles.healthItem]'>
               <div :class='[
                   styles.healthIcon, 
-                  {[styles.healthIconCritical]: isStrawberryHealthLineCritical}
+                  {[styles.healthIconCritical]: GET_STRAWBERRY_HEALTH_LINE_CRITICAL}
                 ]'
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none">
@@ -323,14 +323,14 @@
                   <p>0</p>
                   <div :class='[
                       styles.healthNumber, 
-                      {[styles.healthNumberCritical]: isStrawberryHealthLineCritical,
-                      [styles.healthNumberEmpty]: isStrawberryHealthLineEmpty}
+                      {[styles.healthNumberCritical]: GET_STRAWBERRY_HEALTH_LINE_CRITICAL,
+                      [styles.healthNumberEmpty]: GET_STRAWBERRY_HEALTH_LINE_EMPTY}
                     ]'
                   ></div>
                   <div :class='[
                         styles.healthLineFull, 
-                        {[styles.healthLineFullCritical]: isStrawberryHealthLineCritical,
-                        [styles.healthLineEmptyCritical]: isStrawberryHealthLineEmpty}
+                        {[styles.healthLineFullCritical]: GET_STRAWBERRY_HEALTH_LINE_CRITICAL,
+                        [styles.healthLineEmptyCritical]: GET_STRAWBERRY_HEALTH_LINE_EMPTY}
                       ]'
                   ></div>
                 </div>
@@ -381,12 +381,12 @@
         <li :class='[
           styles.systemNotification, 
           {[styles.systemNotificationActive]: GET_BROKE_TOMATO_SYSTEM || 
-            isPepperSystemBroken || isStrawberrySystemBroken}
+            GET_BROKE_PEPPER_SYSTEM || GET_BROKE_STRAWBERRY_SYSTEM}
           ]'
         >
           <p v-if='GET_BROKE_TOMATO_SYSTEM'>ТОМАТ</p>
-          <p v-else-if='isPepperSystemBroken'>ПЕРЕЦ</p>
-          <p v-else-if='isStrawberrySystemBroken'>КЛУБНИКА</p>
+          <p v-else-if='GET_BROKE_PEPPER_SYSTEM'>ПЕРЕЦ</p>
+          <p v-else-if='GET_BROKE_STRAWBERRY_SYSTEM'>КЛУБНИКА</p>
         </li>
 
       </ul>
@@ -416,24 +416,24 @@ export default Vue.extend({
     // tomatoLevelMistakes: 1,
     tomatoPreviousProblem: 0,
 
-    isPepperMoistureLineCritical: false,
+    // isPepperMoistureLineCritical: false,
     isPepperTemperatureLineCritical: false,
-    isPepperHealthLineCritical: false,
-    isPepperHealthLineEmpty: false,
+    // isPepperHealthLineCritical: false,
+    // isPepperHealthLineEmpty: false,
     isPepperBtnRestart: false,
-    isPepperSystemBroken: false,
+    // isPepperSystemBroken: false,
     isPepperLevelRestart: true,
-    pepperLevelMistakes: 1,
+    // pepperLevelMistakes: 1,
     pepperPreviousProblem: 0,
 
-    isStrawberryMoistureLineCritical: false,
-    isStrawberryTemperatureLineCritical: false,
-    isStrawberryHealthLineCritical: false,
-    isStrawberryHealthLineEmpty: false,
+    // isStrawberryMoistureLineCritical: false,
+    // isStrawberryTemperatureLineCritical: false,
+    // isStrawberryHealthLineCritical: false,
+    // isStrawberryHealthLineEmpty: false,
     isStrawberryBtnRestart: false,
-    isStrawberrySystemBroken: false,
+    // isStrawberrySystemBroken: false,
     isStrawberryLevelRestart: true,
-    strawberryLevelMistakes: 1,
+    // strawberryLevelMistakes: 1,
     strawberryPreviousProblem: 0,
   }),
   computed: {
@@ -455,8 +455,19 @@ export default Vue.extend({
       EN_AiGameGetters.GET_TOMATO_LEVEL_MISTAKES,
 
       EN_AiGameGetters.GET_CHOSEN_PEPPER_LEVEL_AI,
+      EN_AiGameGetters.GET_PEPPER_MOISTURE_LINE_CRITICAL,
+      EN_AiGameGetters.GET_BROKE_PEPPER_SYSTEM,
+      EN_AiGameGetters.GET_PEPPER_HEALTH_LINE_CRITICAL,
+      EN_AiGameGetters.GET_PEPPER_HEALTH_LINE_EMPTY,
+      EN_AiGameGetters.GET_PEPPER_LEVEL_MISTAKES,
 
       EN_AiGameGetters.GET_CHOSEN_STRAWBERRY_LEVEL_AI,
+      EN_AiGameGetters.GET_STRAWBERRY_MOISTURE_LINE_CRITICAL,
+      EN_AiGameGetters.GET_STRAWBERRY_TEMPERATURE_LINE_CRITICAL,
+      EN_AiGameGetters.GET_BROKE_STRAWBERRY_SYSTEM,
+      EN_AiGameGetters.GET_STRAWBERRY_HEALTH_LINE_CRITICAL,
+      EN_AiGameGetters.GET_STRAWBERRY_HEALTH_LINE_EMPTY,
+      EN_AiGameGetters.GET_STRAWBERRY_LEVEL_MISTAKES,
 
       EN_AiGameGetters.GET_PEST_LINE_CRITICAL,
     ]),
@@ -469,7 +480,7 @@ export default Vue.extend({
         }
 
         if (this.GET_GAME_LOOP_AI < 10 && this.GET_START_GAME_AI) {
-          let numberLevel = getRandomNumberLevel(1, 2)
+          let numberLevel = getRandomNumberLevel(1, 4)
 
           if (this.GET_TOMATO_LEVEL_NUM_AI === numberLevel) {
             this.startTomatoLevel()
@@ -483,6 +494,7 @@ export default Vue.extend({
             this.startStrawberryLevel()
           }
         } else {
+          this.START_FINISH_TIMER_AI()
           this.FINISH_GAME_AI()
           if (!this.GET_START_GAME_AI && this.GET_GAME_LOOP_AI > 0) {
             this.SHOW_VICTORY_BLOCK_AI()
@@ -493,9 +505,9 @@ export default Vue.extend({
     GET_CHOSEN_NUMPAD_AI() {
       if (
           (this.GET_CHOSEN_TOMATO_LEVEL_AI && this.GET_TOMATO_MOISTURE_LINE_CRITICAL && this.GET_CHOSEN_BOOK_AI) || 
-          (this.GET_CHOSEN_PEPPER_LEVEL_AI && this.isPepperMoistureLineCritical && this.GET_CHOSEN_BOOK_AI) || 
-          (this.GET_STRAWBERRY_LEVEL_NUM_AI && this.isStrawberryMoistureLineCritical && this.GET_CHOSEN_BOOK_AI) || 
-          (this.GET_STRAWBERRY_LEVEL_NUM_AI && this.isStrawberryTemperatureLineCritical && this.GET_CHOSEN_BOOK_AI)
+          (this.GET_CHOSEN_PEPPER_LEVEL_AI && this.GET_PEPPER_MOISTURE_LINE_CRITICAL && this.GET_CHOSEN_BOOK_AI) || 
+          (this.GET_STRAWBERRY_LEVEL_NUM_AI && this.GET_STRAWBERRY_MOISTURE_LINE_CRITICAL && this.GET_CHOSEN_BOOK_AI) || 
+          (this.GET_STRAWBERRY_LEVEL_NUM_AI && this.GET_STRAWBERRY_TEMPERATURE_LINE_CRITICAL && this.GET_CHOSEN_BOOK_AI)
         ) {
 
         if (this.GET_TOMATO_MOISTURE_LINE_CRITICAL) {
@@ -510,8 +522,8 @@ export default Vue.extend({
           this.GAME_LOOP_AI()
         }
 
-        if (this.isPepperMoistureLineCritical) {
-          this.isPepperMoistureLineCritical = false
+        if (this.GET_PEPPER_MOISTURE_LINE_CRITICAL) {
+          this.REMOVE_PEPPER_MOISTURE_LINE_CRITICAL()
 
           this.NOT_CHOOSE_PEPPER_LEVEL_AI()
           this.isPepperLevelRestart = true
@@ -522,8 +534,8 @@ export default Vue.extend({
           this.GAME_LOOP_AI()
         }
 
-        if (this.isStrawberryMoistureLineCritical) {
-          this.isStrawberryMoistureLineCritical = false
+        if (this.GET_STRAWBERRY_MOISTURE_LINE_CRITICAL) {
+          this.REMOVE_STRAWBERRY_MOISTURE_LINE_CRITICAL()
 
           this.isStrawberryLevelRestart = true
           this.NOT_CHOOSE_STRAWBERRY_LEVEL_AI()
@@ -534,8 +546,8 @@ export default Vue.extend({
           this.GAME_LOOP_AI()
         }
 
-        if (this.isStrawberryTemperatureLineCritical) {
-          this.isStrawberryTemperatureLineCritical = false
+        if (this.GET_STRAWBERRY_TEMPERATURE_LINE_CRITICAL) {
+          this.REMOVE_STRAWBERRY_TEMPERATURE_LINE_CRITICAL()
 
           this.isStrawberryLevelRestart = true
           this.NOT_CHOOSE_STRAWBERRY_LEVEL_AI()
@@ -615,15 +627,15 @@ export default Vue.extend({
       }
     },
     // Pepper Level
-    isPepperMoistureLineCritical() {
-      if (this.isPepperMoistureLineCritical && !this.isPepperSystemBroken) {
+    GET_PEPPER_MOISTURE_LINE_CRITICAL() {
+      if (this.GET_PEPPER_MOISTURE_LINE_CRITICAL && !this.GET_BROKE_PEPPER_SYSTEM) {
         setTimeout(() => {
           if (!this.isPepperLevelRestart && 
               this.GET_TIMER_AI > 0 && 
-              this.isPepperMoistureLineCritical
+              this.GET_PEPPER_MOISTURE_LINE_CRITICAL
             ) {
-              if (this.pepperLevelMistakes === 2) {
-                this.isPepperHealthLineEmpty = true
+              if (this.GET_PEPPER_LEVEL_MISTAKES === 2) {
+                this.FILL_PEPPER_HEALTH_LINE_EMPTY()
                 setTimeout(() => {
                   this.NOT_CHOOSE_BOOK_AI()
                   this.NOT_CHOOSE_NUMPAD_AI()
@@ -633,10 +645,10 @@ export default Vue.extend({
                 }, EN_CONFIG.TIMING_GAME_OVER_PEPPER)
 
               } else {
-                this.isPepperHealthLineCritical = true
-                this.pepperLevelMistakes += 1
+                this.FILL_PEPPER_HEALTH_LINE_CRITICAL()
+                this.INCREASE_PEPPER_LEVEL_MISTAKES()
 
-                this.isPepperMoistureLineCritical = false
+                this.REMOVE_PEPPER_MOISTURE_LINE_CRITICAL()
                 this.isPepperLevelRestart = true
                 this.NOT_CHOOSE_PEPPER_LEVEL_AI()
 
@@ -650,26 +662,26 @@ export default Vue.extend({
         }, EN_CONFIG.TIMING_CHECKING_PEPPER_LEVEL)
       }
     },
-    isPepperSystemBroken() {
-      if (this.isPepperSystemBroken && !this.isPepperMoistureLineCritical) {
+    GET_BROKE_PEPPER_SYSTEM() {
+      if (this.GET_BROKE_PEPPER_SYSTEM && !this.GET_PEPPER_MOISTURE_LINE_CRITICAL) {
         setTimeout(() => {
           if (!this.isPepperLevelRestart && 
               this.GET_TIMER_AI > 0 && 
-              this.isPepperSystemBroken
+              this.GET_BROKE_PEPPER_SYSTEM
             ) {
-              if (this.pepperLevelMistakes === 2) {
-                this.isPepperHealthLineEmpty = true
+              if (this.GET_PEPPER_LEVEL_MISTAKES === 2) {
+                this.FILL_PEPPER_HEALTH_LINE_EMPTY()
                 setTimeout(() => {
                   this.MINUS_POINTS_AI()
                   this.SHOW_LOSS_BLOCK_AI()
                   this.START_FINISH_TIMER_AI()
                 }, EN_CONFIG.TIMING_GAME_OVER_PEPPER)
               } else {
-                this.isPepperHealthLineCritical = true
+                this.FILL_PEPPER_HEALTH_LINE_CRITICAL()
                 this.isPepperBtnRestart = false
-                this.pepperLevelMistakes += 1
+                this.INCREASE_PEPPER_LEVEL_MISTAKES()
 
-                this.isPepperSystemBroken = false
+                this.REPAIR_PEPPER_SYSTEM()
                 this.NOT_CHOOSE_PEPPER_LEVEL_AI()
                 this.isPepperLevelRestart = true
 
@@ -681,15 +693,15 @@ export default Vue.extend({
       }
     },
     // Strawberry Level
-    isStrawberryMoistureLineCritical() {
-      if (this.isStrawberryMoistureLineCritical && !this.isStrawberrySystemBroken) {
+    GET_STRAWBERRY_MOISTURE_LINE_CRITICAL() {
+      if (this.GET_STRAWBERRY_MOISTURE_LINE_CRITICAL && !this.GET_BROKE_STRAWBERRY_SYSTEM) {
         setTimeout(() => {
           if (!this.isStrawberryLevelRestart && 
               this.GET_TIMER_AI > 0 && 
-              this.isStrawberryMoistureLineCritical
+              this.GET_STRAWBERRY_MOISTURE_LINE_CRITICAL
             ) {
-              if (this.strawberryLevelMistakes === 2) {
-                this.isStrawberryHealthLineEmpty = true
+              if (this.GET_STRAWBERRY_LEVEL_MISTAKES === 2) {
+                this.FILL_STRAWBERRY_HEALTH_LINE_EMPTY()
                 setTimeout(() => {
                   this.NOT_CHOOSE_BOOK_AI()
                   this.NOT_CHOOSE_NUMPAD_AI()
@@ -699,10 +711,10 @@ export default Vue.extend({
                 }, EN_CONFIG.TIMING_GAME_OVER_STRAWBERRY)
 
               } else {
-                this.isStrawberryHealthLineCritical = true
-                this.strawberryLevelMistakes += 1
+                this.FILL_STRAWBERRY_HEALTH_LINE_CRITICAL()
+                this.INCREASE_STRAWBERRY_LEVEL_MISTAKES()
 
-                this.isStrawberryMoistureLineCritical = false
+                this.REMOVE_STRAWBERRY_MOISTURE_LINE_CRITICAL()
                 this.isStrawberryLevelRestart = true
                 this.NOT_CHOOSE_STRAWBERRY_LEVEL_AI()
   
@@ -716,15 +728,15 @@ export default Vue.extend({
         }, EN_CONFIG.TIMING_CHECKING_STRAWBERRY_LEVEL)
       }
     },
-    isStrawberryTemperatureLineCritical() {
-      if (this.isStrawberryTemperatureLineCritical && !this.isStrawberrySystemBroken) {
+    GET_STRAWBERRY_TEMPERATURE_LINE_CRITICAL() {
+      if (this.GET_STRAWBERRY_TEMPERATURE_LINE_CRITICAL && !this.GET_BROKE_STRAWBERRY_SYSTEM) {
         setTimeout(() => {
           if (!this.isStrawberryLevelRestart && 
               this.GET_TIMER_AI > 0 && 
-              this.isStrawberryTemperatureLineCritical
+              this.GET_STRAWBERRY_TEMPERATURE_LINE_CRITICAL
             ) {
-              if (this.strawberryLevelMistakes === 2) {
-                this.isStrawberryHealthLineEmpty = true
+              if (this.GET_STRAWBERRY_LEVEL_MISTAKES === 2) {
+                this.FILL_STRAWBERRY_HEALTH_LINE_EMPTY()
                 setTimeout(() => {
                   this.NOT_CHOOSE_BOOK_AI()
                   this.NOT_CHOOSE_NUMPAD_AI()
@@ -734,10 +746,10 @@ export default Vue.extend({
                 }, EN_CONFIG.TIMING_GAME_OVER_STRAWBERRY)
 
               } else {
-                this.isStrawberryHealthLineCritical = true
-                this.strawberryLevelMistakes += 1
+                this.FILL_STRAWBERRY_HEALTH_LINE_CRITICAL()
+                this.INCREASE_STRAWBERRY_LEVEL_MISTAKES()
 
-                this.isStrawberryTemperatureLineCritical = false
+                this.REMOVE_STRAWBERRY_TEMPERATURE_LINE_CRITICAL()
                 this.isStrawberryLevelRestart = true
                 this.NOT_CHOOSE_STRAWBERRY_LEVEL_AI()
   
@@ -751,26 +763,26 @@ export default Vue.extend({
         }, EN_CONFIG.TIMING_CHECKING_STRAWBERRY_LEVEL)
       }
     },
-    isStrawberrySystemBroken() {
-      if (this.isStrawberrySystemBroken && !this.isStrawberryMoistureLineCritical) {
+    GET_BROKE_STRAWBERRY_SYSTEM() {
+      if (this.GET_BROKE_STRAWBERRY_SYSTEM && !this.GET_STRAWBERRY_MOISTURE_LINE_CRITICAL) {
         setTimeout(() => {
           if (!this.isStrawberryLevelRestart && 
               this.GET_TIMER_AI > 0 && 
-              this.isStrawberrySystemBroken
+              this.GET_BROKE_STRAWBERRY_SYSTEM
             ) {
-              if (this.strawberryLevelMistakes === 2) {
-                this.isStrawberryHealthLineEmpty = true
+              if (this.GET_STRAWBERRY_LEVEL_MISTAKES === 2) {
+                this.FILL_STRAWBERRY_HEALTH_LINE_EMPTY()
                 setTimeout(() => {
                   this.MINUS_POINTS_AI()
                   this.SHOW_LOSS_BLOCK_AI()
                   this.START_FINISH_TIMER_AI()
                 }, EN_CONFIG.TIMING_GAME_OVER_STRAWBERRY)
               } else {
-                this.isStrawberryHealthLineCritical = true
+                this.FILL_STRAWBERRY_HEALTH_LINE_CRITICAL()
                 this.isStrawberryBtnRestart = false
-                this.strawberryLevelMistakes += 1
+                this.INCREASE_STRAWBERRY_LEVEL_MISTAKES()
 
-                this.isStrawberrySystemBroken = false
+                this.REPAIR_STRAWBERRY_SYSTEM()
                 this.isStrawberryLevelRestart = true
                 this.NOT_CHOOSE_STRAWBERRY_LEVEL_AI()
 
@@ -810,9 +822,29 @@ export default Vue.extend({
 
       EN_AiGameMutation.CHOOSE_PEPPER_LEVEL_AI,
       EN_AiGameMutation.NOT_CHOOSE_PEPPER_LEVEL_AI,
+      EN_AiGameMutation.FILL_PEPPER_MOISTURE_LINE_CRITICAL,
+      EN_AiGameMutation.REMOVE_PEPPER_MOISTURE_LINE_CRITICAL,
+      EN_AiGameMutation.BROKE_PEPPER_SYSTEM,
+      EN_AiGameMutation.REPAIR_PEPPER_SYSTEM,
+      EN_AiGameMutation.FILL_PEPPER_HEALTH_LINE_CRITICAL,
+      EN_AiGameMutation.REMOVE_PEPPER_HEALTH_LINE_CRITICAL,
+      EN_AiGameMutation.FILL_PEPPER_HEALTH_LINE_EMPTY,
+      EN_AiGameMutation.REMOVE_PEPPER_HEALTH_LINE_EMPTY,
+      EN_AiGameMutation.INCREASE_PEPPER_LEVEL_MISTAKES,
 
       EN_AiGameMutation.CHOOSE_STRAWBERRY_LEVEL_AI,
       EN_AiGameMutation.NOT_CHOOSE_STRAWBERRY_LEVEL_AI,
+      EN_AiGameMutation.FILL_STRAWBERRY_MOISTURE_LINE_CRITICAL,
+      EN_AiGameMutation.REMOVE_STRAWBERRY_MOISTURE_LINE_CRITICAL,
+      EN_AiGameMutation.FILL_STRAWBERRY_TEMPERATURE_LINE_CRITICAL,
+      EN_AiGameMutation.REMOVE_STRAWBERRY_TEMPERATURE_LINE_CRITICAL,
+      EN_AiGameMutation.BROKE_STRAWBERRY_SYSTEM,
+      EN_AiGameMutation.REPAIR_STRAWBERRY_SYSTEM,
+      EN_AiGameMutation.FILL_STRAWBERRY_HEALTH_LINE_CRITICAL,
+      EN_AiGameMutation.REMOVE_STRAWBERRY_HEALTH_LINE_CRITICAL,
+      EN_AiGameMutation.FILL_STRAWBERRY_HEALTH_LINE_EMPTY,
+      EN_AiGameMutation.REMOVE_STRAWBERRY_HEALTH_LINE_EMPTY,
+      EN_AiGameMutation.INCREASE_STRAWBERRY_LEVEL_MISTAKES,
 
       EN_AiGameMutation.FILL_PEST_LINE_CRITICAL,
     ]),
@@ -841,14 +873,14 @@ export default Vue.extend({
       if (numberIndicator === 1) {
         this.isPepperLevelRestart = false
         setTimeout(() => {
-          this.isPepperMoistureLineCritical = true
+          this.FILL_PEPPER_MOISTURE_LINE_CRITICAL()
         }, EN_CONFIG.TIMING_LINE_CRITICAL_PEPPER)
       }
 
       if (numberIndicator === 2) {
         this.isPepperLevelRestart = false
         setTimeout(() => {
-          this.isPepperSystemBroken = true
+          this.BROKE_PEPPER_SYSTEM()
         }, EN_CONFIG.TIMING_SYSTEM_PEPPER)
       }
     },
@@ -859,21 +891,21 @@ export default Vue.extend({
       if (numberIndicator === 1) {
         this.isStrawberryLevelRestart = false
         setTimeout(() => {
-          this.isStrawberryMoistureLineCritical = true
+          this.FILL_STRAWBERRY_MOISTURE_LINE_CRITICAL()
         }, EN_CONFIG.TIMING_LINE_CRITICAL_STRAWBERRY)
       }
 
       if (numberIndicator === 2) {
         this.isStrawberryLevelRestart = false
         setTimeout(() => {
-          this.isStrawberryTemperatureLineCritical = true
+          this.FILL_STRAWBERRY_TEMPERATURE_LINE_CRITICAL()
         }, EN_CONFIG.TIMING_LINE_CRITICAL_STRAWBERRY)
       }
 
       if (numberIndicator === 3) {
         this.isStrawberryLevelRestart = false
         setTimeout(() => {
-          this.isStrawberrySystemBroken = true
+          this.BROKE_STRAWBERRY_SYSTEM()
         }, EN_CONFIG.TIMING_SYSTEM_STRAWBERRY)
       }
     },
@@ -900,13 +932,13 @@ export default Vue.extend({
 		  audio.autoplay = true
 		  audio.volume = 1
 
-      if (this.isPepperMoistureLineCritical) {
+      if (this.GET_PEPPER_MOISTURE_LINE_CRITICAL) {
         this.NOT_CHOOSE_STRAWBERRY_LEVEL_AI()
         this.NOT_CHOOSE_TOMATO_LEVEL_AI()
         this.CHOOSE_PEPPER_LEVEL_AI()
       }
 
-      if (this.isPepperSystemBroken) {
+      if (this.GET_BROKE_PEPPER_SYSTEM) {
         this.NOT_CHOOSE_STRAWBERRY_LEVEL_AI()
         this.NOT_CHOOSE_TOMATO_LEVEL_AI()
         this.CHOOSE_PEPPER_LEVEL_AI()
@@ -918,13 +950,14 @@ export default Vue.extend({
 		  audio.autoplay = true
 		  audio.volume = 1
 
-      if (this.isStrawberryMoistureLineCritical || this.isStrawberryTemperatureLineCritical) {
+      if (this.GET_STRAWBERRY_MOISTURE_LINE_CRITICAL || 
+      this.GET_STRAWBERRY_TEMPERATURE_LINE_CRITICAL) {
         this.NOT_CHOOSE_TOMATO_LEVEL_AI()
         this.NOT_CHOOSE_PEPPER_LEVEL_AI()
         this.CHOOSE_STRAWBERRY_LEVEL_AI()
       }
 
-      if (this.isStrawberrySystemBroken) {
+      if (this.GET_BROKE_STRAWBERRY_SYSTEM) {
         this.NOT_CHOOSE_TOMATO_LEVEL_AI()
         this.NOT_CHOOSE_PEPPER_LEVEL_AI()
         this.CHOOSE_STRAWBERRY_LEVEL_AI()
@@ -943,8 +976,8 @@ export default Vue.extend({
       }
     },
     restartPepperSystem() {
-      if (this.GET_CHOSEN_PEPPER_LEVEL_AI && this.isPepperSystemBroken) {
-          this.isPepperSystemBroken = false
+      if (this.GET_CHOSEN_PEPPER_LEVEL_AI && this.GET_BROKE_PEPPER_SYSTEM) {
+          this.REPAIR_PEPPER_SYSTEM()
           this.isPepperBtnRestart = false
           this.NOT_CHOOSE_PEPPER_LEVEL_AI()
           this.isPepperLevelRestart = true
@@ -954,8 +987,8 @@ export default Vue.extend({
       }
     },
     restartStrawberrySystem() {
-      if (this.GET_CHOSEN_STRAWBERRY_LEVEL_AI && this.isStrawberrySystemBroken) {
-          this.isStrawberrySystemBroken = false
+      if (this.GET_CHOSEN_STRAWBERRY_LEVEL_AI && this.GET_BROKE_STRAWBERRY_SYSTEM) {
+          this.REPAIR_STRAWBERRY_SYSTEM()
           this.isStrawberryBtnRestart = false
           this.NOT_CHOOSE_STRAWBERRY_LEVEL_AI()
           this.isStrawberryLevelRestart = true

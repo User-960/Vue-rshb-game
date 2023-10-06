@@ -80,7 +80,6 @@ export default Vue.extend({
       EN_AiGameMutation.RESTART_GAME_AI
     ]),
     restartGame() {
-      // this.$router.go(0)
       this.RESTART_GAME_AI()
     },
     skipToMap() {

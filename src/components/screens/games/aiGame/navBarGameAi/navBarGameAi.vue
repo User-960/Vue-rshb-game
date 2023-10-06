@@ -16,7 +16,7 @@
       </blockButton>
     </div>
     
-    <div :class='styles.exitButtonWrapper'>
+    <div :class='styles.exitButtonWrapper' @click='exitGame'>
       <exitButton/>
     </div>
 
@@ -94,7 +94,15 @@ export default Vue.extend({
     ...mapMutations([
       EN_AiGameMutation.START_FINISH_TIMER_AI,
       EN_AiGameMutation.SHOW_VICTORY_BLOCK_AI,
+      EN_AiGameMutation.FINISH_GAME_AI,
+      EN_AiGameMutation.RESTART_GAME_AI,
+      EN_AiGameMutation.START_FINISH_TIMER_AI,
     ]),
+    exitGame() {
+      this.START_FINISH_TIMER_AI()
+      this.RESTART_GAME_AI()
+      this.FINISH_GAME_AI()
+    }
   }
 })
 </script>

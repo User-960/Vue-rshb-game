@@ -14,8 +14,19 @@ export interface IAiGameState {
 	tomatoLevelMistakes: number
 
 	pepperLevel: number
+	isPepperMoistureLineCritical: boolean
+	isPepperSystemBroken: boolean
+	isPepperHealthLineCritical: boolean
+	isPepperHealthLineEmpty: boolean
+	pepperLevelMistakes: number
 
 	strawberryLevel: number
+	isStrawberryMoistureLineCritical: boolean
+	isStrawberryTemperatureLineCritical: boolean
+	isStrawberrySystemBroken: boolean
+	isStrawberryHealthLineCritical: boolean
+	isStrawberryHealthLineEmpty: boolean
+	strawberryLevelMistakes: number
 
 	points: number
 	timer: number

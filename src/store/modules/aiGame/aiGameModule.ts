@@ -22,11 +22,22 @@ const state: IAiGameState = {
 	tomatoLevelMistakes: 1,
 
 	pepperLevel: 2,
+	isPepperMoistureLineCritical: false,
+	isPepperSystemBroken: false,
+	isPepperHealthLineCritical: false,
+	isPepperHealthLineEmpty: false,
+	pepperLevelMistakes: 1,
 
 	strawberryLevel: 3,
+	isStrawberryMoistureLineCritical: false,
+	isStrawberryTemperatureLineCritical: false,
+	isStrawberrySystemBroken: false,
+	isStrawberryHealthLineCritical: false,
+	isStrawberryHealthLineEmpty: false,
+	strawberryLevelMistakes: 1,
 
 	points: 0,
-	timer: 30,
+	timer: 90,
 
 	isChosenBook: false,
 	isChosenNumPad: false,
