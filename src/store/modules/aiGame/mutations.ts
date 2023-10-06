@@ -27,12 +27,27 @@ export enum EN_AiGameMutation {
 	NOT_CHOOSE_BOOK_AI = 'NOT_CHOOSE_BOOK_AI',
 	CHOOSE_NUMPAD_AI = 'CHOOSE_NUMPAD_AI',
 	NOT_CHOOSE_NUMPAD_AI = 'NOT_CHOOSE_NUMPAD_AI',
+
 	CHOOSE_TOMATO_LEVEL_AI = 'CHOOSE_TOMATO_LEVEL_AI',
 	NOT_CHOOSE_TOMATO_LEVEL_AI = 'NOT_CHOOSE_TOMATO_LEVEL_AI',
+	FILL_TOMATO_MOISTURE_LINE_CRITICAL = 'FILL_TOMATO_MOISTURE_LINE_CRITICAL',
+	REMOVE_TOMATO_MOISTURE_LINE_CRITICAL = 'REMOVE_TOMATO_MOISTURE_LINE_CRITICAL',
+	BROKE_TOMATO_SYSTEM = 'BROKE_TOMATO_SYSTEM',
+	REPAIR_TOMATO_SYSTEM = 'REPAIR_TOMATO_SYSTEM',
+	FILL_TOMATO_HEALTH_LINE_CRITICAL = 'FILL_TOMATO_HEALTH_LINE_CRITICAL',
+	REMOVE_TOMATO_HEALTH_LINE_CRITICAL = 'REMOVE_TOMATO_HEALTH_LINE_CRITICAL',
+	FILL_TOMATO_HEALTH_LINE_EMPTY = 'FILL_TOMATO_HEALTH_LINE_EMPTY',
+	REMOVE_TOMATO_HEALTH_LINE_EMPTY = 'REMOVE_TOMATO_HEALTH_LINE_EMPTY',
+	INCREASE_TOMATO_LEVEL_MISTAKES = 'INCREASE_TOMATO_LEVEL_MISTAKES',
+
 	CHOOSE_PEPPER_LEVEL_AI = 'CHOOSE_PEPPER_LEVEL_AI',
 	NOT_CHOOSE_PEPPER_LEVEL_AI = 'NOT_CHOOSE_PEPPER_LEVEL_AI',
+
 	CHOOSE_STRAWBERRY_LEVEL_AI = 'CHOOSE_STRAWBERRY_LEVEL_AI',
-	NOT_CHOOSE_STRAWBERRY_LEVEL_AI = 'NOT_CHOOSE_STRAWBERRY_LEVEL_AI'
+	NOT_CHOOSE_STRAWBERRY_LEVEL_AI = 'NOT_CHOOSE_STRAWBERRY_LEVEL_AI',
+
+	FILL_PEST_LINE_CRITICAL = 'FILL_PEST_LINE_CRITICAL',
+	REMOVE_PEST_LINE_CRITICAL = 'REMOVE_PEST_LINE_CRITICAL'
 }
 
 const audioVictory = new Audio(AUDIO_CONFIG.AUDIO_VICTORY)
@@ -48,6 +63,11 @@ export const mutations: MutationTree<IAiGameState> = {
 			(state.isStartGame = false),
 			(state.gameLoop = 0),
 			(state.tomatoLevel = 1),
+			(state.isTomatoMoistureLineCritical = false),
+			(state.isTomatoSystemBroken = false),
+			(state.isTomatoHealthLineCritical = false),
+			(state.isTomatoHealthLineEmpty = false),
+			(state.tomatoLevelMistakes = 1),
 			(state.pepperLevel = 2),
 			(state.strawberryLevel = 3),
 			(state.points = 0),
@@ -56,7 +76,8 @@ export const mutations: MutationTree<IAiGameState> = {
 			(state.isChosenNumPad = false),
 			(state.isChosenTomatoLevel = false),
 			(state.isChosenPepperLevel = false),
-			(state.isChosenStrawberryLevel = false)
+			(state.isChosenStrawberryLevel = false),
+			(state.isPestLineCritical = false)
 	},
 	[EN_AiGameMutation.SHOW_INFO_LINK_BLOCK_AI](state) {
 		const audio = new Audio(AUDIO_CONFIG.AUDIO_NEW_MISSION)
@@ -156,12 +177,41 @@ export const mutations: MutationTree<IAiGameState> = {
 	[EN_AiGameMutation.NOT_CHOOSE_NUMPAD_AI](state) {
 		state.isChosenNumPad = false
 	},
+
 	[EN_AiGameMutation.CHOOSE_TOMATO_LEVEL_AI](state) {
 		state.isChosenTomatoLevel = true
 	},
 	[EN_AiGameMutation.NOT_CHOOSE_TOMATO_LEVEL_AI](state) {
 		state.isChosenTomatoLevel = false
 	},
+	[EN_AiGameMutation.FILL_TOMATO_MOISTURE_LINE_CRITICAL](state) {
+		state.isTomatoMoistureLineCritical = true
+	},
+	[EN_AiGameMutation.REMOVE_TOMATO_MOISTURE_LINE_CRITICAL](state) {
+		state.isTomatoMoistureLineCritical = false
+	},
+	[EN_AiGameMutation.BROKE_TOMATO_SYSTEM](state) {
+		state.isTomatoSystemBroken = true
+	},
+	[EN_AiGameMutation.REPAIR_TOMATO_SYSTEM](state) {
+		state.isTomatoSystemBroken = false
+	},
+	[EN_AiGameMutation.FILL_TOMATO_HEALTH_LINE_CRITICAL](state) {
+		state.isTomatoHealthLineCritical = true
+	},
+	[EN_AiGameMutation.REMOVE_TOMATO_HEALTH_LINE_CRITICAL](state) {
+		state.isTomatoHealthLineCritical = false
+	},
+	[EN_AiGameMutation.FILL_TOMATO_HEALTH_LINE_EMPTY](state) {
+		state.isTomatoHealthLineEmpty = true
+	},
+	[EN_AiGameMutation.REMOVE_TOMATO_HEALTH_LINE_EMPTY](state) {
+		state.isTomatoHealthLineEmpty = false
+	},
+	[EN_AiGameMutation.INCREASE_TOMATO_LEVEL_MISTAKES](state) {
+		state.tomatoLevelMistakes += 1
+	},
+
 	[EN_AiGameMutation.CHOOSE_PEPPER_LEVEL_AI](state) {
 		state.isChosenPepperLevel = true
 	},
@@ -173,5 +223,12 @@ export const mutations: MutationTree<IAiGameState> = {
 	},
 	[EN_AiGameMutation.NOT_CHOOSE_STRAWBERRY_LEVEL_AI](state) {
 		state.isChosenStrawberryLevel = false
+	},
+
+	[EN_AiGameMutation.FILL_PEST_LINE_CRITICAL](state) {
+		state.isPestLineCritical = true
+	},
+	[EN_AiGameMutation.REMOVE_PEST_LINE_CRITICAL](state) {
+		state.isPestLineCritical = false
 	}
 }

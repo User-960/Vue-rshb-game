@@ -33,12 +33,16 @@
 	width: 100%;
 	height: 100%;
 
+	cursor: not-allowed;
+}
+
+.numPadTableAvailable:hover {
+	background-image: url(../../../../../../public/images/numPadActive.svg);
 	cursor: pointer;
 }
 
 .numPadTableActive {
-	background-image: url(../../../../../../public/images/numPad.svg);
-	border: 3px solid var(--primary-green);
+	background-image: url(../../../../../../public/images/numPadActive.svg);
 }
 
 .bookTable {
@@ -62,6 +66,5 @@
 }
 
 .bookTableActive {
-	background-image: url(../../../../../../public/images/bookTable.svg);
-	border: 3px solid var(--primary-green);
+	background-image: url(../../../../../../public/images/bookTableActive.svg);
 }

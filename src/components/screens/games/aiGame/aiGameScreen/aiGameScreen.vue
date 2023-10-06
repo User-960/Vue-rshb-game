@@ -8,7 +8,7 @@
             <li :class='[styles.indicatorsItem, styles.moistureItem]'>
               <div :class='[
                   styles.moistureIcon, 
-                  {[styles.moistureIconCritical]: isTomatoMoistureLineCritical}
+                  {[styles.moistureIconCritical]: GET_TOMATO_MOISTURE_LINE_CRITICAL}
                 ]'
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="25" viewBox="0 0 20 25" fill="none">
@@ -19,10 +19,10 @@
               <div :class='styles.indicatorLine'>
                 <div :class='styles.indicatorLineWrapper'>
                   <p>0</p>
-                  <div :class='[styles.moistureNumber, {[styles.moistureNumberCritical]: isTomatoMoistureLineCritical}]'></div>
+                  <div :class='[styles.moistureNumber, {[styles.moistureNumberCritical]: GET_TOMATO_MOISTURE_LINE_CRITICAL}]'></div>
                   <div :class='[
                       styles.moistureLineFull, 
-                      {[styles.moistureLineFullCritical]: isTomatoMoistureLineCritical}
+                      {[styles.moistureLineFullCritical]: GET_TOMATO_MOISTURE_LINE_CRITICAL}
                     ]'
                   ></div>
                 </div>
@@ -52,7 +52,7 @@
             <li :class='[styles.indicatorsItem, styles.healthItem]'>
               <div :class='[
                   styles.healthIcon, 
-                  {[styles.healthIconCritical]: isTomatoHealthLineCritical}
+                  {[styles.healthIconCritical]: GET_TOMATO_HEALTH_LINE_CRITICAL}
                 ]'
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none">
@@ -65,14 +65,14 @@
                   <p>0</p>
                   <div :class='[
                       styles.healthNumber, 
-                      {[styles.healthNumberCritical]: isTomatoHealthLineCritical,
-                      [styles.healthNumberEmpty]: isTomatoHealthLineEmpty}
+                      {[styles.healthNumberCritical]: GET_TOMATO_HEALTH_LINE_CRITICAL,
+                      [styles.healthNumberEmpty]: GET_TOMATO_HEALTH_LINE_EMPTY}
                     ]'
                   ></div>
                   <div :class='[
                         styles.healthLineFull, 
-                        {[styles.healthLineFullCritical]: isTomatoHealthLineCritical,
-                        [styles.healthLineEmptyCritical]: isTomatoHealthLineEmpty}
+                        {[styles.healthLineFullCritical]: GET_TOMATO_HEALTH_LINE_CRITICAL,
+                        [styles.healthLineEmptyCritical]: GET_TOMATO_HEALTH_LINE_EMPTY}
                       ]'
                   ></div>
                 </div>
@@ -82,7 +82,7 @@
             <li :class='[styles.indicatorsItem, styles.pestItem]'>
               <div :class='[
                   styles.pestIcon, 
-                  {[styles.pestIconCritical]: isPestLineCritical}
+                  {[styles.pestIconCritical]: GET_PEST_LINE_CRITICAL}
                 ]'
               >
                 <img src='../../../../../../public/images/caterpillarAiGame.svg' alt='image of caterpillar' draggable='false' />
@@ -91,8 +91,8 @@
               <div :class='styles.indicatorLine'>
                 <div :class='styles.indicatorLineWrapper'>
                   <p>0</p>
-                  <div :class='[styles.pestNumber, {[styles.pestNumberCritical]: isPestLineCritical}]'></div>
-                  <div :class='[styles.pestLineFull, {[styles.pestLineFullCritical]: isPestLineCritical}]'></div>
+                  <div :class='[styles.pestNumber, {[styles.pestNumberCritical]: GET_PEST_LINE_CRITICAL}]'></div>
+                  <div :class='[styles.pestLineFull, {[styles.pestLineFullCritical]: GET_PEST_LINE_CRITICAL}]'></div>
                 </div>
               </div>
             </li>
@@ -211,7 +211,7 @@
             <li :class='[styles.indicatorsItem, styles.pestItem]'>
               <div :class='[
                   styles.pestIcon, 
-                  {[styles.pestIconCritical]: isPestLineCritical}
+                  {[styles.pestIconCritical]: GET_PEST_LINE_CRITICAL}
                 ]'
               >
                 <img src='../../../../../../public/images/bugAiGame.svg' alt='image of bug' draggable='false' />
@@ -220,8 +220,8 @@
               <div :class='styles.indicatorLine'>
                 <div :class='styles.indicatorLineWrapper'>
                   <p>0</p>
-                  <div :class='[styles.pestNumber, {[styles.pestNumberCritical]: isPestLineCritical}]'></div>
-                  <div :class='[styles.pestLineFull, {[styles.pestLineFullCritical]: isPestLineCritical}]'></div>
+                  <div :class='[styles.pestNumber, {[styles.pestNumberCritical]: GET_PEST_LINE_CRITICAL}]'></div>
+                  <div :class='[styles.pestLineFull, {[styles.pestLineFullCritical]: GET_PEST_LINE_CRITICAL}]'></div>
                 </div>
               </div>
             </li>
@@ -340,7 +340,7 @@
             <li :class='[styles.indicatorsItem, styles.pestItem]'>
               <div :class='[
                   styles.pestIcon, 
-                  {[styles.pestIconCritical]: isPestLineCritical}
+                  {[styles.pestIconCritical]: GET_PEST_LINE_CRITICAL}
                 ]'
               >
                 <img src='../../../../../../public/images/locustsAiGame.svg' alt='image of locusts' draggable='false' />
@@ -349,8 +349,8 @@
               <div :class='styles.indicatorLine'>
                 <div :class='styles.indicatorLineWrapper'>
                   <p>0</p>
-                  <div :class='[styles.pestNumber, {[styles.pestNumberCritical]: isPestLineCritical}]'></div>
-                  <div :class='[styles.pestLineFull, {[styles.pestLineFullCritical]: isPestLineCritical}]'></div>
+                  <div :class='[styles.pestNumber, {[styles.pestNumberCritical]: GET_PEST_LINE_CRITICAL}]'></div>
+                  <div :class='[styles.pestLineFull, {[styles.pestLineFullCritical]: GET_PEST_LINE_CRITICAL}]'></div>
                 </div>
               </div>
             </li>
@@ -380,11 +380,11 @@
 
         <li :class='[
           styles.systemNotification, 
-          {[styles.systemNotificationActive]: isTomatoSystemBroken || 
+          {[styles.systemNotificationActive]: GET_BROKE_TOMATO_SYSTEM || 
             isPepperSystemBroken || isStrawberrySystemBroken}
           ]'
         >
-          <p v-if='isTomatoSystemBroken'>ТОМАТ</p>
+          <p v-if='GET_BROKE_TOMATO_SYSTEM'>ТОМАТ</p>
           <p v-else-if='isPepperSystemBroken'>ПЕРЕЦ</p>
           <p v-else-if='isStrawberrySystemBroken'>КЛУБНИКА</p>
         </li>
@@ -406,21 +406,17 @@ import { AUDIO_CONFIG } from '@/config/audio'
 export default Vue.extend({
   name: 'aiGameScreen',
   data: () => ({
-    isPestLineCritical: false,
-
-    isTomatoMoistureLineCritical: false,
-    isTomatoMoistureLineReturn: false,
+    // isTomatoMoistureLineCritical: false,
     isTomatoTemperatureLineCritical: false,
-    isTomatoHealthLineCritical: false,
-    isTomatoHealthLineEmpty: false,
+    // isTomatoHealthLineCritical: false,
+    // isTomatoHealthLineEmpty: false,
     isTomatoBtnRestart: false,
-    isTomatoSystemBroken: false,
+    // isTomatoSystemBroken: false,
     isTomatoLevelRestart: true,
-    tomatoLevelMistakes: 1,
+    // tomatoLevelMistakes: 1,
     tomatoPreviousProblem: 0,
 
     isPepperMoistureLineCritical: false,
-    isPepperMoistureLineReturn: false,
     isPepperTemperatureLineCritical: false,
     isPepperHealthLineCritical: false,
     isPepperHealthLineEmpty: false,
@@ -431,9 +427,7 @@ export default Vue.extend({
     pepperPreviousProblem: 0,
 
     isStrawberryMoistureLineCritical: false,
-    isStrawberryMoistureLineReturn: false,
     isStrawberryTemperatureLineCritical: false,
-    isStrawberryTemperatureLineReturn: false,
     isStrawberryHealthLineCritical: false,
     isStrawberryHealthLineEmpty: false,
     isStrawberryBtnRestart: false,
@@ -452,48 +446,60 @@ export default Vue.extend({
       EN_AiGameGetters.GET_TIMER_AI,
       EN_AiGameGetters.GET_CHOSEN_BOOK_AI,
       EN_AiGameGetters.GET_CHOSEN_NUMPAD_AI,
+
       EN_AiGameGetters.GET_CHOSEN_TOMATO_LEVEL_AI,
+      EN_AiGameGetters.GET_TOMATO_MOISTURE_LINE_CRITICAL,
+      EN_AiGameGetters.GET_BROKE_TOMATO_SYSTEM,
+      EN_AiGameGetters.GET_TOMATO_HEALTH_LINE_CRITICAL,
+      EN_AiGameGetters.GET_TOMATO_HEALTH_LINE_EMPTY,
+      EN_AiGameGetters.GET_TOMATO_LEVEL_MISTAKES,
+
       EN_AiGameGetters.GET_CHOSEN_PEPPER_LEVEL_AI,
+
       EN_AiGameGetters.GET_CHOSEN_STRAWBERRY_LEVEL_AI,
+
+      EN_AiGameGetters.GET_PEST_LINE_CRITICAL,
     ]),
   },
   watch: {
     GET_GAME_LOOP_AI() {
-      if (!this.isPestLineCritical) {
-        this.isPestLineCritical = true
-      }
-      
-      if (this.GET_GAME_LOOP_AI < 10 && this.GET_START_GAME_AI) {
-        let numberLevel = getRandomNumberLevel(1, 4)
-
-        if (this.GET_TOMATO_LEVEL_NUM_AI === numberLevel) {
-          this.startTomatoLevel()
+      if (this.GET_START_GAME_AI) {
+        if (!this.GET_PEST_LINE_CRITICAL) {
+          this.FILL_PEST_LINE_CRITICAL()
         }
 
-        if (this.GET_PEPPER_LEVEL_NUM_AI === numberLevel) {
-          this.startPepperLevel()
-        }
+        if (this.GET_GAME_LOOP_AI < 10 && this.GET_START_GAME_AI) {
+          let numberLevel = getRandomNumberLevel(1, 2)
 
-        if (this.GET_STRAWBERRY_LEVEL_NUM_AI === numberLevel) {
-          this.startStrawberryLevel()
-        }
-      } else {
-        this.FINISH_GAME_AI()
-        if (!this.GET_START_GAME_AI && this.GET_GAME_LOOP_AI > 0) {
-          this.SHOW_VICTORY_BLOCK_AI()
+          if (this.GET_TOMATO_LEVEL_NUM_AI === numberLevel) {
+            this.startTomatoLevel()
+          }
+
+          if (this.GET_PEPPER_LEVEL_NUM_AI === numberLevel) {
+            this.startPepperLevel()
+          }
+
+          if (this.GET_STRAWBERRY_LEVEL_NUM_AI === numberLevel) {
+            this.startStrawberryLevel()
+          }
+        } else {
+          this.FINISH_GAME_AI()
+          if (!this.GET_START_GAME_AI && this.GET_GAME_LOOP_AI > 0) {
+            this.SHOW_VICTORY_BLOCK_AI()
+          }
         }
       }
     },
     GET_CHOSEN_NUMPAD_AI() {
       if (
-          (this.GET_CHOSEN_TOMATO_LEVEL_AI && this.isTomatoMoistureLineCritical && this.GET_CHOSEN_BOOK_AI) || 
+          (this.GET_CHOSEN_TOMATO_LEVEL_AI && this.GET_TOMATO_MOISTURE_LINE_CRITICAL && this.GET_CHOSEN_BOOK_AI) || 
           (this.GET_CHOSEN_PEPPER_LEVEL_AI && this.isPepperMoistureLineCritical && this.GET_CHOSEN_BOOK_AI) || 
           (this.GET_STRAWBERRY_LEVEL_NUM_AI && this.isStrawberryMoistureLineCritical && this.GET_CHOSEN_BOOK_AI) || 
           (this.GET_STRAWBERRY_LEVEL_NUM_AI && this.isStrawberryTemperatureLineCritical && this.GET_CHOSEN_BOOK_AI)
         ) {
 
-        if (this.isTomatoMoistureLineCritical) {
-          this.isTomatoMoistureLineCritical = false
+        if (this.GET_TOMATO_MOISTURE_LINE_CRITICAL) {
+          this.REMOVE_TOMATO_MOISTURE_LINE_CRITICAL()
 
           this.isTomatoLevelRestart = true
           this.NOT_CHOOSE_TOMATO_LEVEL_AI()
@@ -542,15 +548,15 @@ export default Vue.extend({
       }
     },
     // Tomato Level
-    isTomatoMoistureLineCritical() {
-      if (this.isTomatoMoistureLineCritical && !this.isTomatoSystemBroken) {
+    GET_TOMATO_MOISTURE_LINE_CRITICAL() {
+      if (this.GET_TOMATO_MOISTURE_LINE_CRITICAL && !this.GET_BROKE_TOMATO_SYSTEM) {
         setTimeout(() => {
           if (!this.isTomatoLevelRestart && 
               this.GET_TIMER_AI > 0 && 
-              this.isTomatoMoistureLineCritical
+              this.GET_TOMATO_MOISTURE_LINE_CRITICAL
             ) {
-              if (this.tomatoLevelMistakes === 2) {
-                this.isTomatoHealthLineEmpty = true
+              if (this.GET_TOMATO_LEVEL_MISTAKES === 2) {
+                this.FILL_TOMATO_HEALTH_LINE_EMPTY()
                 setTimeout(() => {
                   this.NOT_CHOOSE_BOOK_AI()
                   this.NOT_CHOOSE_NUMPAD_AI()
@@ -560,10 +566,10 @@ export default Vue.extend({
                 }, EN_CONFIG.TIMING_GAME_OVER_TOMATO)
 
               } else {
-                this.isTomatoHealthLineCritical = true
-                this.tomatoLevelMistakes += 1
+                this.FILL_TOMATO_HEALTH_LINE_CRITICAL()
+                this.INCREASE_TOMATO_LEVEL_MISTAKES()
 
-                this.isTomatoMoistureLineCritical = false
+                this.REMOVE_TOMATO_MOISTURE_LINE_CRITICAL()
                 this.isTomatoLevelRestart = true
                 this.NOT_CHOOSE_TOMATO_LEVEL_AI()
 
@@ -577,26 +583,27 @@ export default Vue.extend({
         }, EN_CONFIG.TIMING_CHECKING_TOMATO_LEVEL)
       }
     },
-    isTomatoSystemBroken() {
-      if (this.isTomatoSystemBroken && !this.isTomatoMoistureLineCritical) {
+    GET_BROKE_TOMATO_SYSTEM() {
+      if (this.GET_BROKE_TOMATO_SYSTEM && !this.GET_TOMATO_MOISTURE_LINE_CRITICAL) {
         setTimeout(() => {
           if (!this.isTomatoLevelRestart && 
               this.GET_TIMER_AI > 0 && 
-              this.isTomatoSystemBroken
+              this.GET_BROKE_TOMATO_SYSTEM
             ) {
-              if (this.tomatoLevelMistakes === 2) {
-                this.isTomatoHealthLineEmpty = true
+              if (this.GET_TOMATO_LEVEL_MISTAKES === 2) {
+                this.isTomatoBtnRestart = false
+                this.FILL_TOMATO_HEALTH_LINE_EMPTY()
                 setTimeout(() => {
                   this.MINUS_POINTS_AI()
                   this.SHOW_LOSS_BLOCK_AI()
                   this.START_FINISH_TIMER_AI()
                 }, EN_CONFIG.TIMING_GAME_OVER_TOMATO)
               } else {
-                this.isTomatoHealthLineCritical = true
                 this.isTomatoBtnRestart = false
-                this.tomatoLevelMistakes += 1
+                this.FILL_TOMATO_HEALTH_LINE_CRITICAL()
+                this.INCREASE_TOMATO_LEVEL_MISTAKES()
 
-                this.isTomatoSystemBroken = false
+                this.REPAIR_TOMATO_SYSTEM()
                 this.NOT_CHOOSE_TOMATO_LEVEL_AI()
                 this.isTomatoLevelRestart = true
 
@@ -788,12 +795,26 @@ export default Vue.extend({
       EN_AiGameMutation.NOT_CHOOSE_BOOK_AI,
       EN_AiGameMutation.NOT_CHOOSE_NUMPAD_AI,
       EN_AiGameMutation.START_FINISH_TIMER_AI,
+
       EN_AiGameMutation.CHOOSE_TOMATO_LEVEL_AI,
       EN_AiGameMutation.NOT_CHOOSE_TOMATO_LEVEL_AI,
+      EN_AiGameMutation.FILL_TOMATO_MOISTURE_LINE_CRITICAL,
+      EN_AiGameMutation.REMOVE_TOMATO_MOISTURE_LINE_CRITICAL,
+      EN_AiGameMutation.BROKE_TOMATO_SYSTEM,
+      EN_AiGameMutation.REPAIR_TOMATO_SYSTEM,
+      EN_AiGameMutation.FILL_TOMATO_HEALTH_LINE_CRITICAL,
+      EN_AiGameMutation.REMOVE_TOMATO_HEALTH_LINE_CRITICAL,
+      EN_AiGameMutation.FILL_TOMATO_HEALTH_LINE_EMPTY,
+      EN_AiGameMutation.REMOVE_TOMATO_HEALTH_LINE_EMPTY,
+      EN_AiGameMutation.INCREASE_TOMATO_LEVEL_MISTAKES,
+
       EN_AiGameMutation.CHOOSE_PEPPER_LEVEL_AI,
       EN_AiGameMutation.NOT_CHOOSE_PEPPER_LEVEL_AI,
+
       EN_AiGameMutation.CHOOSE_STRAWBERRY_LEVEL_AI,
       EN_AiGameMutation.NOT_CHOOSE_STRAWBERRY_LEVEL_AI,
+
+      EN_AiGameMutation.FILL_PEST_LINE_CRITICAL,
     ]),
     startTomatoLevel() {
       let numberIndicator = getRandomNumberProblem(1, 3, this.tomatoPreviousProblem)
@@ -802,14 +823,14 @@ export default Vue.extend({
       if (numberIndicator === 1) {
         this.isTomatoLevelRestart = false
         setTimeout(() => {
-          this.isTomatoMoistureLineCritical = true
+          this.FILL_TOMATO_MOISTURE_LINE_CRITICAL()
         }, EN_CONFIG.TIMING_LINE_CRITICAL_TOMATO)
       }
 
       if (numberIndicator === 2) {
         this.isTomatoLevelRestart = false
         setTimeout(() => {
-          this.isTomatoSystemBroken = true
+          this.BROKE_TOMATO_SYSTEM()
         }, EN_CONFIG.TIMING_SYSTEM_TOMATO)
       }
     },
@@ -843,7 +864,7 @@ export default Vue.extend({
       }
 
       if (numberIndicator === 2) {
-        this.isTomatoLevelRestart = false
+        this.isStrawberryLevelRestart = false
         setTimeout(() => {
           this.isStrawberryTemperatureLineCritical = true
         }, EN_CONFIG.TIMING_LINE_CRITICAL_STRAWBERRY)
@@ -861,13 +882,13 @@ export default Vue.extend({
 		  audio.autoplay = true
 		  audio.volume = 1
 
-      if (this.isTomatoMoistureLineCritical) {
+      if (this.GET_TOMATO_MOISTURE_LINE_CRITICAL) {
         this.NOT_CHOOSE_PEPPER_LEVEL_AI()
         this.NOT_CHOOSE_STRAWBERRY_LEVEL_AI()
         this.CHOOSE_TOMATO_LEVEL_AI()
       }
 
-      if (this.isTomatoSystemBroken) {
+      if (this.GET_BROKE_TOMATO_SYSTEM) {
         this.NOT_CHOOSE_PEPPER_LEVEL_AI()
         this.NOT_CHOOSE_STRAWBERRY_LEVEL_AI()
         this.CHOOSE_TOMATO_LEVEL_AI()
@@ -911,8 +932,8 @@ export default Vue.extend({
       }
     },
     restartTomatoSystem() {
-      if (this.GET_CHOSEN_TOMATO_LEVEL_AI && this.isTomatoSystemBroken) {
-          this.isTomatoSystemBroken = false
+      if (this.GET_CHOSEN_TOMATO_LEVEL_AI && this.GET_BROKE_TOMATO_SYSTEM) {
+          this.REPAIR_TOMATO_SYSTEM()
           this.isTomatoBtnRestart = false
           this.NOT_CHOOSE_TOMATO_LEVEL_AI()
           this.isTomatoLevelRestart = true

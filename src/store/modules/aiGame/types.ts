@@ -7,8 +7,16 @@ export interface IAiGameState {
 	gameLoop: number
 
 	tomatoLevel: number
+	isTomatoMoistureLineCritical: boolean
+	isTomatoSystemBroken: boolean
+	isTomatoHealthLineCritical: boolean
+	isTomatoHealthLineEmpty: boolean
+	tomatoLevelMistakes: number
+
 	pepperLevel: number
+
 	strawberryLevel: number
+
 	points: number
 	timer: number
 
@@ -17,4 +25,6 @@ export interface IAiGameState {
 	isChosenTomatoLevel: boolean
 	isChosenPepperLevel: boolean
 	isChosenStrawberryLevel: boolean
+
+	isPestLineCritical: boolean
 }

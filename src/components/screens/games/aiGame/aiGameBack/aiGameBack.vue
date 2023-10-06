@@ -8,7 +8,13 @@
         ></div>
 
         <div 
-          :class='[styles.numPadTable, {[styles.numPadTableActive]: GET_CHOSEN_NUMPAD_AI}]'
+          :class='[
+              styles.numPadTable, 
+              {
+                [styles.numPadTableAvailable]: GET_CHOSEN_BOOK_AI,
+                [styles.numPadTableActive]: GET_CHOSEN_NUMPAD_AI,
+              }
+            ]'
           @click='chooseNumPad'
         ></div>
 

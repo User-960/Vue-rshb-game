@@ -13,16 +13,28 @@ const state: IAiGameState = {
 	isLossBlockVisible: false,
 	isStartGame: false,
 	gameLoop: 0,
+
 	tomatoLevel: 1,
+	isTomatoMoistureLineCritical: false,
+	isTomatoSystemBroken: false,
+	isTomatoHealthLineCritical: false,
+	isTomatoHealthLineEmpty: false,
+	tomatoLevelMistakes: 1,
+
 	pepperLevel: 2,
+
 	strawberryLevel: 3,
+
 	points: 0,
 	timer: 30,
+
 	isChosenBook: false,
 	isChosenNumPad: false,
 	isChosenTomatoLevel: false,
 	isChosenPepperLevel: false,
-	isChosenStrawberryLevel: false
+	isChosenStrawberryLevel: false,
+
+	isPestLineCritical: false
 }
 
 export const getDefaultAiGameState = () => {

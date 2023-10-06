@@ -1,9 +1,9 @@
 <svg width="182" height="215" viewBox="0 0 182 215" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="url(#filter0_f_1400_5045)">
-<rect width="120.502" height="156.275" transform="translate(20 40.0162) rotate(-8)" fill="#141B25"/>
+<g filter="url(#filter0_f_1400_5094)">
+<rect width="120.502" height="156.275" transform="translate(20 40.0162) rotate(-8)" fill="#89E159"/>
 </g>
 <rect x="20.1963" y="38.4244" width="110.829" height="146.971" rx="4" transform="rotate(-8 20.1963 38.4244)" fill="#8990A5"/>
-<g clip-path="url(#clip0_1400_5045)">
+<g clip-path="url(#clip0_1400_5094)">
 <rect x="20.0791" y="38.5397" width="108" height="144" rx="4" transform="rotate(-8 20.0791 38.5397)" fill="#DBE2F9"/>
 <path d="M41.5966 97.1151C41.5533 96.4049 41.5742 95.648 41.6592 94.8443C41.7442 94.0407 41.874 93.2543 42.0486 92.4852C42.2312 91.7055 42.4441 90.9734 42.6872 90.2889C42.9382 89.5939 43.1996 89.0058 43.4713 88.5246L39.0487 89.1462L38.8461 87.7044L45.265 86.8022L45.4443 88.0777C45.1873 88.4625 44.9202 88.976 44.6429 89.6182C44.3656 90.2604 44.1178 90.9785 43.8995 91.7727C43.6799 92.5575 43.5097 93.392 43.3889 94.2761C43.2774 95.1589 43.253 96.0247 43.3157 96.8735L41.5966 97.1151Z" fill="black"/>
 <rect x="34.968" y="83.4042" width="19" height="19" rx="3.5" transform="rotate(-8 34.968 83.4042)" stroke="#141B25"/>
@@ -47,12 +47,12 @@
 <rect x="92.5213" y="148.023" width="19" height="19" rx="3.5" transform="rotate(-8 92.5213 148.023)" stroke="#141B25"/>
 </g>
 <defs>
-<filter id="filter0_f_1400_5045" x="0" y="3.24561" width="181.079" height="211.525" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<filter id="filter0_f_1400_5094" x="0" y="3.24561" width="181.079" height="211.525" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-<feGaussianBlur stdDeviation="10" result="effect1_foregroundBlur_1400_5045"/>
+<feGaussianBlur stdDeviation="10" result="effect1_foregroundBlur_1400_5094"/>
 </filter>
-<clipPath id="clip0_1400_5045">
+<clipPath id="clip0_1400_5094">
 <rect x="20.0791" y="38.5397" width="108" height="144" rx="4" transform="rotate(-8 20.0791 38.5397)" fill="white"/>
 </clipPath>
 </defs>
