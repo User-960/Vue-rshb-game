@@ -9,5 +9,12 @@ export interface IPestControlGameState {
 	pepperLevel: number
 	strawberryLevel: number
 	points: number
-	isPlayBackMusic: boolean
+
+	isChosenTomatoLevel: boolean
+	isChosenPepperLevel: boolean
+	isChosenStrawberryLevel: boolean
+
+	isTomatoLineCritical: boolean
+	isPepperLineCritical: boolean
+	isStrawberryLineCritical: boolean
 }

@@ -76,10 +76,11 @@ export default Vue.extend({
   },
   methods: {
     ...mapMutations([
-      EN_PestControlGameMutation.HIDE_VICTORY_BLOCK_PS
+      EN_PestControlGameMutation.HIDE_VICTORY_BLOCK_PS,
+      EN_PestControlGameMutation.RESTART_GAME_PS,
     ]),
     restartGame() {
-      this.$router.go(0)
+      this.RESTART_GAME_PS()
     },
     skipToMap() {
       this.HIDE_VICTORY_BLOCK_PS()

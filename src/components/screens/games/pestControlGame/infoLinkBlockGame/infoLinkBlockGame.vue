@@ -65,10 +65,10 @@ export default Vue.extend({
       EN_PestControlGameMutation.SHOW_INFO_LINK_BLOCK_PS, 
       EN_PestControlGameMutation.HIDE_INFO_LINK_BLOCK_PS, 
       EN_PestControlGameMutation.SHOW_RULES_BLOCK_PS,
-      EN_PestControlGameMutation.PLUS_POINTS_PS
+      EN_PestControlGameMutation.PLUS_POINTS_LINK_PS
     ]),
     checkFollowLink() {
-      this.PLUS_POINTS_PS()
+      this.PLUS_POINTS_LINK_PS()
     },
     closeBlock() {
       this.HIDE_INFO_LINK_BLOCK_PS()

@@ -18,7 +18,7 @@
               <img 
                 :class='[
                   styles.pestLevelImg, 
-                  {[styles.pestLevelImgActive]: isChosenTomatoLevel}
+                  {[styles.pestLevelImgActive]: GET_CHOSEN_TOMATO_LEVEL}
                 ]' 
                 src='../../../../../../public/images/tomatoBushGreen.svg' 
                 alt='image of first level' 
@@ -31,8 +31,8 @@
               <p>0%</p>
               <div :class='styles.indicatorWrapper'>
                 <p>0</p>
-                <div :class='[styles.indicatorNumber, {[styles.indicatorNumberCritical]: isTomatoLineCritical}]'></div>
-                <div :class='[styles.indicatorLine, {[styles.indicatorLineCritical]: isTomatoLineCritical}]'></div>
+                <div :class='[styles.indicatorNumber, {[styles.indicatorNumberCritical]: GET_TOMATO_LINE_CRITICAL}]'></div>
+                <div :class='[styles.indicatorLine, {[styles.indicatorLineCritical]: GET_TOMATO_LINE_CRITICAL}]'></div>
               </div>
               <p>100%</p>
             </div>
@@ -51,7 +51,7 @@
 
           <div :class='styles.pestLevel'>
             <div :class='styles.pestLevelImgWrapper'>
-              <img :class='[styles.pestLevelImg, {[styles.pestLevelImgActive]: isChosenPepperLevel}]' src='../../../../../../public/images/pepperBushGreen.svg' alt='image of first level' draggable='false' />
+              <img :class='[styles.pestLevelImg, {[styles.pestLevelImgActive]: GET_CHOSEN_PEPPER_LEVEL}]' src='../../../../../../public/images/pepperBushGreen.svg' alt='image of first level' draggable='false' />
               <div :class='[{[styles.ultrasound]: isUltrasoundPepperActive}]' ></div>
             </div>
 
@@ -59,8 +59,8 @@
               <p>0%</p>
               <div :class='styles.indicatorWrapper'>
                 <p>0</p>
-                <div :class='[styles.indicatorNumber, {[styles.indicatorNumberCritical]: isPepperLineCritical}]'></div>
-                <div :class='[styles.indicatorLine, {[styles.indicatorLineCritical]: isPepperLineCritical}]'></div>
+                <div :class='[styles.indicatorNumber, {[styles.indicatorNumberCritical]: GET_PEPPER_LINE_CRITICAL}]'></div>
+                <div :class='[styles.indicatorLine, {[styles.indicatorLineCritical]: GET_PEPPER_LINE_CRITICAL}]'></div>
               </div>
               <p>100%</p>
             </div>
@@ -79,7 +79,7 @@
 
           <div :class='styles.pestLevel'>
             <div :class='styles.pestLevelImgWrapper'>
-              <img :class='[styles.pestLevelImg, {[styles.pestLevelImgActive]: isChosenStrawberryLevel}]' src='../../../../../../public/images/strawberryBushGreen.svg' alt='image of first level' draggable='false' />
+              <img :class='[styles.pestLevelImg, {[styles.pestLevelImgActive]: GET_CHOSEN_STRAWBERRY_LEVEL}]' src='../../../../../../public/images/strawberryBushGreen.svg' alt='image of first level' draggable='false' />
               <div :class='[{[styles.ultrasound]: isUltrasoundStrawberryActive}]' ></div>
             </div>
 
@@ -87,8 +87,8 @@
               <p>0%</p>
               <div :class='styles.indicatorWrapper'>
                 <p>0</p>
-                <div :class='[styles.indicatorNumber, {[styles.indicatorNumberCritical]: isStrawberryLineCritical}]'></div>
-                <div :class='[styles.indicatorLine, {[styles.indicatorLineCritical]: isStrawberryLineCritical}]'></div>
+                <div :class='[styles.indicatorNumber, {[styles.indicatorNumberCritical]: GET_STRAWBERRY_LINE_CRITICAL}]'></div>
+                <div :class='[styles.indicatorLine, {[styles.indicatorLineCritical]: GET_STRAWBERRY_LINE_CRITICAL}]'></div>
               </div>
               <p>100%</p>
             </div>
@@ -157,17 +157,17 @@ import { AUDIO_CONFIG } from '@/config/audio'
 export default Vue.extend({
   name: 'pestControlGameScreen',
   data: () => ({
-    isChosenTomatoLevel: false,
-    isChosenPepperLevel: false,
-    isChosenStrawberryLevel: false,
+    // isChosenTomatoLevel: false,
+    // isChosenPepperLevel: false,
+    // isChosenStrawberryLevel: false,
 
     isUltrasoundTomatoActive: false,
     isUltrasoundPepperActive: false,
     isUltrasoundStrawberryActive: false,
 
-    isTomatoLineCritical: false,
-    isPepperLineCritical: false,
-    isStrawberryLineCritical: false,
+    // isTomatoLineCritical: false,
+    // isPepperLineCritical: false,
+    // isStrawberryLineCritical: false,
 
     isBugActive: false,
     isLocustsActive: false,
@@ -188,7 +188,16 @@ export default Vue.extend({
       EN_PestControlGameGetters.GET_GAME_LOOP_PS,
       EN_PestControlGameGetters.GET_TOMATO_LEVEL_NUM_PS,
       EN_PestControlGameGetters.GET_PEPPER_LEVEL_NUM_PS,
-      EN_PestControlGameGetters.GET_STRAWBERRY_LEVEL_NUM_PS
+      EN_PestControlGameGetters.GET_STRAWBERRY_LEVEL_NUM_PS,
+
+      EN_PestControlGameGetters.GET_CHOSEN_TOMATO_LEVEL,
+      EN_PestControlGameGetters.GET_TOMATO_LINE_CRITICAL,
+
+      EN_PestControlGameGetters.GET_CHOSEN_PEPPER_LEVEL,
+      EN_PestControlGameGetters.GET_PEPPER_LINE_CRITICAL,
+
+      EN_PestControlGameGetters.GET_CHOSEN_STRAWBERRY_LEVEL,
+      EN_PestControlGameGetters.GET_STRAWBERRY_LINE_CRITICAL,
     ]),
   },
   watch: {
@@ -215,9 +224,9 @@ export default Vue.extend({
       }
     },
     // Tomato Level
-    isChosenTomatoLevel() {
+    GET_CHOSEN_TOMATO_LEVEL() {
       if (
-        (this.isDroneActive && this.isTomatoLineCritical) && 
+        (this.isDroneActive && this.GET_TOMATO_LINE_CRITICAL) && 
         (this.isCaterpillarActive || this.isLocustsActive || this.isBugActive)
       ) {
         this.isDroneMovedTomato = true
@@ -231,11 +240,11 @@ export default Vue.extend({
     },
     isUltrasoundTomatoActive() {
       if (this.isCaterpillarActive) {
-        if (this.isUltrasoundTomatoActive && this.isChosenTomatoLevel && this.isTomatoLineCritical) {
+        if (this.isUltrasoundTomatoActive && this.GET_CHOSEN_TOMATO_LEVEL && this.GET_TOMATO_LINE_CRITICAL) {
           setTimeout(() => {
             this.isUltrasoundTomatoActive = false
-            this.isTomatoLineCritical = false
-            this.isChosenTomatoLevel = false
+            this.REMOVE_TOMATO_LINE_CRITICAL()
+            this.NOT_CHOOSE_TOMATO_LEVEL()
             this.isDroneMovedTomato = false
             this.isDroneFinishWorkTomato = true
           }, EN_CONFIG.TIMING_ULTRASOUND_TOMATO)
@@ -257,9 +266,9 @@ export default Vue.extend({
       }
     },
     // Pepper Level
-    isChosenPepperLevel() {
+    GET_CHOSEN_PEPPER_LEVEL() {
       if (
-        (this.isDroneActive && this.isPepperLineCritical) && 
+        (this.isDroneActive && this.GET_PEPPER_LINE_CRITICAL) && 
         (this.isCaterpillarActive || this.isLocustsActive || this.isBugActive)
       ) {
         this.isDroneMovedPepper = true
@@ -273,11 +282,11 @@ export default Vue.extend({
     },
     isUltrasoundPepperActive() {
       if (this.isBugActive) {
-        if (this.isUltrasoundPepperActive && this.isChosenPepperLevel && this.isPepperLineCritical) {
+        if (this.isUltrasoundPepperActive && this.GET_CHOSEN_PEPPER_LEVEL && this.GET_PEPPER_LINE_CRITICAL) {
           setTimeout(() => {
             this.isUltrasoundPepperActive = false
-            this.isPepperLineCritical = false
-            this.isChosenPepperLevel = false
+            this.REMOVE_PEPPER_LINE_CRITICAL()
+            this.NOT_CHOOSE_PEPPER_LEVEL()
             this.isDroneMovedPepper = false
             this.isDroneFinishWorkPepper = true
           }, EN_CONFIG.TIMING_ULTRASOUND_PEPPER)
@@ -299,9 +308,9 @@ export default Vue.extend({
       }
     },
     // Strawberry Level
-    isChosenStrawberryLevel() {
+    GET_CHOSEN_STRAWBERRY_LEVEL() {
       if (
-          (this.isDroneActive && this.isStrawberryLineCritical) && 
+          (this.isDroneActive && this.GET_STRAWBERRY_LINE_CRITICAL) && 
           (this.isCaterpillarActive || this.isLocustsActive || this.isBugActive)
         ) {
         this.isDroneMovedStrawberry = true
@@ -315,11 +324,15 @@ export default Vue.extend({
     },
     isUltrasoundStrawberryActive() {
       if (this.isLocustsActive) {
-        if (this.isUltrasoundStrawberryActive && this.isChosenStrawberryLevel && this.isStrawberryLineCritical)   {
+        if (
+            this.isUltrasoundStrawberryActive && 
+            this.GET_CHOSEN_STRAWBERRY_LEVEL && 
+            this.GET_STRAWBERRY_LINE_CRITICAL
+          )   {
           setTimeout(() => {
             this.isUltrasoundStrawberryActive = false
-            this.isStrawberryLineCritical = false
-            this.isChosenStrawberryLevel = false
+            this.REMOVE_STRAWBERRY_LINE_CRITICAL()
+            this.NOT_CHOOSE_STRAWBERRY_LEVEL()
             this.isDroneMovedStrawberry = false
             this.isDroneFinishWorkStrawberry = true
           }, EN_CONFIG.TIMING_ULTRASOUND_STRAWBERRY)
@@ -349,67 +362,82 @@ export default Vue.extend({
       EN_PestControlGameMutation.GAME_LOOP_PS,
       EN_PestControlGameMutation.PLUS_POINTS_PS,
       EN_PestControlGameMutation.SHOW_VICTORY_BLOCK_PS,
-      EN_PestControlGameMutation.SHOW_LOSS_BLOCK_PS
+      EN_PestControlGameMutation.SHOW_LOSS_BLOCK_PS,
+
+      EN_PestControlGameMutation.CHOOSE_TOMATO_LEVEL,
+      EN_PestControlGameMutation.NOT_CHOOSE_TOMATO_LEVEL,
+      EN_PestControlGameMutation.FILL_TOMATO_LINE_CRITICAL,
+      EN_PestControlGameMutation.REMOVE_TOMATO_LINE_CRITICAL,
+
+      EN_PestControlGameMutation.CHOOSE_PEPPER_LEVEL,
+      EN_PestControlGameMutation.NOT_CHOOSE_PEPPER_LEVEL,
+      EN_PestControlGameMutation.FILL_PEPPER_LINE_CRITICAL,
+      EN_PestControlGameMutation.REMOVE_PEPPER_LINE_CRITICAL,
+
+      EN_PestControlGameMutation.CHOOSE_STRAWBERRY_LEVEL,
+      EN_PestControlGameMutation.NOT_CHOOSE_STRAWBERRY_LEVEL,
+      EN_PestControlGameMutation.FILL_STRAWBERRY_LINE_CRITICAL,
+      EN_PestControlGameMutation.REMOVE_STRAWBERRY_LINE_CRITICAL,
     ]),
     startTomatoLevel() {
       setTimeout(() => {
-        this.isTomatoLineCritical = true
+        this.FILL_TOMATO_LINE_CRITICAL()
       }, EN_CONFIG.TIMING_LINE_CRITICAL_TOMATO)
     },
     startPepperLevel() {
       setTimeout(() => {
-        this.isPepperLineCritical = true
+        this.FILL_PEPPER_LINE_CRITICAL()
       }, EN_CONFIG.TIMING_LINE_CRITICAL_PEPPER)
     },
     startStrawberryLevel() {
       setTimeout(() => {
-        this.isStrawberryLineCritical = true
+        this.FILL_STRAWBERRY_LINE_CRITICAL()
       }, EN_CONFIG.TIMING_LINE_CRITICAL_STRAWBERRY)
     },
     chooseTomatoLevel() {
       if (
-          (this.isDroneActive && this.isTomatoLineCritical) && 
+          (this.isDroneActive && this.GET_TOMATO_LINE_CRITICAL) && 
           (this.isCaterpillarActive || this.isLocustsActive || this.isBugActive)
         ) {
         const audio = new Audio(AUDIO_CONFIG.AUDIO_CHOOSE_ACTION_COMPUTER)
 		    audio.autoplay = true
 		    audio.volume = 1
 
-        this.isChosenPepperLevel = false
-        this.isChosenStrawberryLevel = false
-        this.isChosenTomatoLevel = true
+        this.NOT_CHOOSE_PEPPER_LEVEL()
+        this.NOT_CHOOSE_STRAWBERRY_LEVEL()
+        this.CHOOSE_TOMATO_LEVEL()
       }
     },
     choosePepperLevel() {
       if (
-          (this.isDroneActive && this.isPepperLineCritical) && 
+          (this.isDroneActive && this.GET_PEPPER_LINE_CRITICAL) && 
           (this.isCaterpillarActive || this.isLocustsActive || this.isBugActive)
         ) {
         const audio = new Audio(AUDIO_CONFIG.AUDIO_CHOOSE_ACTION_COMPUTER)
 		    audio.autoplay = true
 		    audio.volume = 1
 
-        this.isChosenTomatoLevel = false
-        this.isChosenStrawberryLevel = false
-        this.isChosenPepperLevel = true
+        this.NOT_CHOOSE_TOMATO_LEVEL()
+        this.NOT_CHOOSE_STRAWBERRY_LEVEL()
+        this.CHOOSE_PEPPER_LEVEL()
       }
     },
     chooseStrawberryLevel() {
       if (
-          (this.isDroneActive && this.isStrawberryLineCritical) && 
+          (this.isDroneActive && this.GET_STRAWBERRY_LINE_CRITICAL) && 
           (this.isCaterpillarActive || this.isLocustsActive || this.isBugActive)
         ) {
         const audio = new Audio(AUDIO_CONFIG.AUDIO_CHOOSE_ACTION_COMPUTER)
 		    audio.autoplay = true
 		    audio.volume = 1
         
-        this.isChosenTomatoLevel = false
-        this.isChosenPepperLevel = false
-        this.isChosenStrawberryLevel = true
+        this.NOT_CHOOSE_TOMATO_LEVEL()
+        this.NOT_CHOOSE_PEPPER_LEVEL()
+        this.CHOOSE_STRAWBERRY_LEVEL()
       }
     },
     selectBug() {
-      if ((this.isTomatoLineCritical || this.isPepperLineCritical || this.isStrawberryLineCritical) 
+      if ((this.GET_TOMATO_LINE_CRITICAL || this.GET_PEPPER_LINE_CRITICAL || this.GET_STRAWBERRY_LINE_CRITICAL) 
       && !this.isDroneActive) {
         this.isCaterpillarActive = false
         this.isLocustsActive = false
@@ -417,7 +445,7 @@ export default Vue.extend({
       }
     },
     selectLocusts() {
-      if ((this.isTomatoLineCritical || this.isPepperLineCritical || this.isStrawberryLineCritical)
+      if ((this.GET_TOMATO_LINE_CRITICAL || this.GET_PEPPER_LINE_CRITICAL || this.GET_STRAWBERRY_LINE_CRITICAL)
       && !this.isDroneActive) {
         this.isCaterpillarActive = false
         this.isBugActive = false
@@ -425,7 +453,7 @@ export default Vue.extend({
       }
     },
     selectCaterpillar() {
-      if ((this.isTomatoLineCritical || this.isPepperLineCritical || this.isStrawberryLineCritical) 
+      if ((this.GET_TOMATO_LINE_CRITICAL || this.GET_PEPPER_LINE_CRITICAL || this.GET_STRAWBERRY_LINE_CRITICAL) 
       && !this.isDroneActive) {
         this.isLocustsActive = false
         this.isBugActive = false

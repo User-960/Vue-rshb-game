@@ -4,6 +4,7 @@ import { IPestControlGameState } from './types'
 import { AUDIO_CONFIG } from '@/config/audio'
 
 export enum EN_PestControlGameMutation {
+	RESTART_GAME_PS = 'RESTART_GAME_PS',
 	SHOW_INFO_LINK_BLOCK_PS = 'SHOW_INFO_LINK_BLOCK_PS',
 	HIDE_INFO_LINK_BLOCK_PS = 'HIDE_INFO_LINK_BLOCK_PS',
 	SHOW_RULES_BLOCK_PS = 'SHOW_RULES_BLOCK_PS',
@@ -12,19 +13,51 @@ export enum EN_PestControlGameMutation {
 	HIDE_VICTORY_BLOCK_PS = 'HIDE_VICTORY_BLOCK_PS',
 	SHOW_LOSS_BLOCK_PS = 'SHOW_LOSS_BLOCK_PS',
 	HIDE_LOSS_BLOCK_PS = 'HIDE_LOSS_BLOCK_PS',
+
 	START_GAME_PS = 'START_GAME_PS',
 	FINISH_GAME_PS = 'FINISH_GAME_PS',
 	GAME_LOOP_PS = 'GAME_LOOP_PS',
 	PLUS_POINTS_PS = 'PLUS_POINTS_PS',
+	PLUS_POINTS_LINK_PS = 'PLUS_POINTS_LINK_PS',
 	MINUS_POINTS_PS = 'MINUS_POINTS_PS',
-	PLAY_BACK_MUSIC_GAME_PS = 'PLAY_BACK_MUSIC_GAME_PS',
-	STOP_BACK_MUSIC_GAME_PS = 'STOP_BACK_MUSIC_GAME_PS'
+
+	CHOOSE_TOMATO_LEVEL = 'CHOOSE_TOMATO_LEVEL',
+	NOT_CHOOSE_TOMATO_LEVEL = 'NOT_CHOOSE_TOMATO_LEVEL',
+	FILL_TOMATO_LINE_CRITICAL = 'FILL_TOMATO_LINE_CRITICAL',
+	REMOVE_TOMATO_LINE_CRITICAL = 'REMOVE_TOMATO_LINE_CRITICAL',
+
+	CHOOSE_PEPPER_LEVEL = 'CHOOSE_PEPPER_LEVEL',
+	NOT_CHOOSE_PEPPER_LEVEL = 'NOT_CHOOSE_PEPPER_LEVEL',
+	FILL_PEPPER_LINE_CRITICAL = 'FILL_PEPPER_LINE_CRITICAL',
+	REMOVE_PEPPER_LINE_CRITICAL = 'REMOVE_PEPPER_LINE_CRITICAL',
+
+	CHOOSE_STRAWBERRY_LEVEL = 'CHOOSE_STRAWBERRY_LEVEL',
+	NOT_CHOOSE_STRAWBERRY_LEVEL = 'NOT_CHOOSE_STRAWBERRY_LEVEL',
+	FILL_STRAWBERRY_LINE_CRITICAL = 'FILL_STRAWBERRY_LINE_CRITICAL',
+	REMOVE_STRAWBERRY_LINE_CRITICAL = 'REMOVE_STRAWBERRY_LINE_CRITICAL'
 }
 
-const audioBackPs = new Audio(AUDIO_CONFIG.AUDIO_BACK_MUSIC_PEST_CONTROL_GAME)
 const audioVictory = new Audio(AUDIO_CONFIG.AUDIO_VICTORY)
 
 export const mutations: MutationTree<IPestControlGameState> = {
+	[EN_PestControlGameMutation.RESTART_GAME_PS](state) {
+		;(state.isInfoLinkBlockVisible = true),
+			(state.isRulesBlockVisible = false),
+			(state.isVictoryBlockVisible = false),
+			(state.isLossBlockVisible = false),
+			(state.isStartGame = false),
+			(state.gameLoop = 0),
+			(state.tomatoLevel = 1),
+			(state.pepperLevel = 2),
+			(state.strawberryLevel = 3),
+			(state.points = 0),
+			(state.isChosenTomatoLevel = false),
+			(state.isChosenPepperLevel = false),
+			(state.isChosenStrawberryLevel = false),
+			(state.isTomatoLineCritical = false),
+			(state.isPepperLineCritical = false),
+			(state.isStrawberryLineCritical = false)
+	},
 	[EN_PestControlGameMutation.SHOW_INFO_LINK_BLOCK_PS](state) {
 		const audio = new Audio(AUDIO_CONFIG.AUDIO_NEW_MISSION)
 		audio.autoplay = true
@@ -74,22 +107,49 @@ export const mutations: MutationTree<IPestControlGameState> = {
 	[EN_PestControlGameMutation.PLUS_POINTS_PS](state) {
 		state.points += 10
 	},
+	[EN_PestControlGameMutation.PLUS_POINTS_LINK_PS](state) {
+		state.points += 5
+	},
 	[EN_PestControlGameMutation.MINUS_POINTS_PS](state) {
 		state.gameLoop -= 5
 	},
-	[EN_PestControlGameMutation.PLAY_BACK_MUSIC_GAME_PS](state) {
-		state.isPlayBackMusic = true
 
-		if (state.isPlayBackMusic) {
-			audioBackPs.autoplay = true
-			audioBackPs.volume = 0.1
-		}
+	[EN_PestControlGameMutation.CHOOSE_TOMATO_LEVEL](state) {
+		state.isChosenTomatoLevel = true
 	},
-	[EN_PestControlGameMutation.STOP_BACK_MUSIC_GAME_PS](state) {
-		state.isPlayBackMusic = false
+	[EN_PestControlGameMutation.NOT_CHOOSE_TOMATO_LEVEL](state) {
+		state.isChosenTomatoLevel = false
+	},
+	[EN_PestControlGameMutation.FILL_TOMATO_LINE_CRITICAL](state) {
+		state.isTomatoLineCritical = true
+	},
+	[EN_PestControlGameMutation.REMOVE_TOMATO_LINE_CRITICAL](state) {
+		state.isTomatoLineCritical = false
+	},
 
-		if (!state.isPlayBackMusic) {
-			audioBackPs.autoplay = false
-		}
+	[EN_PestControlGameMutation.CHOOSE_PEPPER_LEVEL](state) {
+		state.isChosenPepperLevel = true
+	},
+	[EN_PestControlGameMutation.NOT_CHOOSE_PEPPER_LEVEL](state) {
+		state.isChosenPepperLevel = false
+	},
+	[EN_PestControlGameMutation.FILL_PEPPER_LINE_CRITICAL](state) {
+		state.isPepperLineCritical = true
+	},
+	[EN_PestControlGameMutation.REMOVE_PEPPER_LINE_CRITICAL](state) {
+		state.isPepperLineCritical = false
+	},
+
+	[EN_PestControlGameMutation.CHOOSE_STRAWBERRY_LEVEL](state) {
+		state.isChosenStrawberryLevel = true
+	},
+	[EN_PestControlGameMutation.NOT_CHOOSE_STRAWBERRY_LEVEL](state) {
+		state.isChosenStrawberryLevel = false
+	},
+	[EN_PestControlGameMutation.FILL_STRAWBERRY_LINE_CRITICAL](state) {
+		state.isStrawberryLineCritical = true
+	},
+	[EN_PestControlGameMutation.REMOVE_STRAWBERRY_LINE_CRITICAL](state) {
+		state.isStrawberryLineCritical = false
 	}
 }

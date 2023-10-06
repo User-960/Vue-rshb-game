@@ -17,7 +17,14 @@ const state: IPestControlGameState = {
 	pepperLevel: 2,
 	strawberryLevel: 3,
 	points: 0,
-	isPlayBackMusic: false
+
+	isChosenTomatoLevel: false,
+	isChosenPepperLevel: false,
+	isChosenStrawberryLevel: false,
+
+	isTomatoLineCritical: false,
+	isPepperLineCritical: false,
+	isStrawberryLineCritical: false
 }
 
 export const getDefaultPestControlGameState = () => {
