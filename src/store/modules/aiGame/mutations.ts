@@ -22,6 +22,7 @@ export enum EN_AiGameMutation {
 	MINUS_POINTS_AI = 'MINUS_POINTS_AI',
 
 	START_FINISH_TIMER_AI = 'START_FINISH_TIMER_AI',
+	STOP_TIMER_AI = 'STOP_TIMER_AI',
 
 	CHOOSE_BOOK_AI = 'CHOOSE_BOOK_AI',
 	NOT_CHOOSE_BOOK_AI = 'NOT_CHOOSE_BOOK_AI',
@@ -149,7 +150,38 @@ export const mutations: MutationTree<IAiGameState> = {
 	},
 
 	[EN_AiGameMutation.START_GAME_AI](state) {
-		state.isStartGame = true
+		;(state.isRulesBlockVisible = false),
+			(state.isVictoryBlockVisible = false),
+			(state.isLossBlockVisible = false),
+			(state.isStartGame = true),
+			(state.gameLoop = 0),
+			(state.tomatoLevel = 1),
+			(state.isTomatoMoistureLineCritical = false),
+			(state.isTomatoSystemBroken = false),
+			(state.isTomatoHealthLineCritical = false),
+			(state.isTomatoHealthLineEmpty = false),
+			(state.tomatoLevelMistakes = 1),
+			(state.pepperLevel = 2),
+			(state.isPepperMoistureLineCritical = false),
+			(state.isPepperSystemBroken = false),
+			(state.isPepperHealthLineCritical = false),
+			(state.isPepperHealthLineEmpty = false),
+			(state.pepperLevelMistakes = 1),
+			(state.strawberryLevel = 3),
+			(state.isStrawberryMoistureLineCritical = false),
+			(state.isStrawberryTemperatureLineCritical = false),
+			(state.isStrawberrySystemBroken = false),
+			(state.isStrawberryHealthLineCritical = false),
+			(state.isStrawberryHealthLineEmpty = false),
+			(state.strawberryLevelMistakes = 1),
+			(state.points = 0),
+			(state.timer = 90),
+			(state.isChosenBook = false),
+			(state.isChosenNumPad = false),
+			(state.isChosenTomatoLevel = false),
+			(state.isChosenPepperLevel = false),
+			(state.isChosenStrawberryLevel = false),
+			(state.isPestLineCritical = false)
 	},
 	[EN_AiGameMutation.FINISH_GAME_AI](state) {
 		state.isStartGame = false
@@ -188,15 +220,19 @@ export const mutations: MutationTree<IAiGameState> = {
 			clearInterval(timer)
 		}
 
+		if (state.isInfoLinkBlockVisible) {
+			clearInterval(timer)
+		}
+
 		if (state.timer === 0) {
 			clearInterval(timer)
 		}
 	},
-	// [EN_AiGameMutation.STOP_TIMER_AI](state) {
-	// 	clearInterval(() => {
-	// 		state.timer -= 1
-	// 	}, 1000)
-	// },
+	[EN_AiGameMutation.STOP_TIMER_AI](state) {
+		if (timer) {
+			clearInterval(timer)
+		}
+	},
 	[EN_AiGameMutation.CHOOSE_BOOK_AI](state) {
 		if (!state.isChosenNumPad) {
 			state.isChosenBook = true

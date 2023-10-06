@@ -63,6 +63,7 @@ export default Vue.extend({
       EN_PestControlGameMutation.RESTART_GAME_PS
     ]),
     restartGame() {
+      this.HIDE_LOSS_BLOCK_PS()
       this.RESTART_GAME_PS()
     },
     skipToMap() {

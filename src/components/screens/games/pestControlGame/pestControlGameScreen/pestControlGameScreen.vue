@@ -157,35 +157,19 @@ import { AUDIO_CONFIG } from '@/config/audio'
 export default Vue.extend({
   name: 'pestControlGameScreen',
   data: () => ({
-    // isChosenTomatoLevel: false,
-    // isChosenPepperLevel: false,
-    // isChosenStrawberryLevel: false,
-
     isUltrasoundTomatoActive: false,
     isUltrasoundPepperActive: false,
     isUltrasoundStrawberryActive: false,
 
-    // isTomatoLineCritical: false,
-    // isPepperLineCritical: false,
-    // isStrawberryLineCritical: false,
-
-    // isBugActive: false,
-    // isLocustsActive: false,
-    // isCaterpillarActive: false,
-
-    // isDroneActive: false,
-
-    // isDroneMovedTomato: false,
     isDroneFinishWorkTomato: false,
-    // isDroneMovedPepper: false,
     isDroneFinishWorkPepper: false,
-    // isDroneMovedStrawberry: false,
     isDroneFinishWorkStrawberry: false
   }),
   computed: {
     ...mapGetters([
       EN_PestControlGameGetters.GET_START_GAME_PS,
       EN_PestControlGameGetters.GET_GAME_LOOP_PS,
+      EN_PestControlGameGetters.GET_LOSS_BLOCK_PS,
       EN_PestControlGameGetters.GET_TOMATO_LEVEL_NUM_PS,
       EN_PestControlGameGetters.GET_PEPPER_LEVEL_NUM_PS,
       EN_PestControlGameGetters.GET_STRAWBERRY_LEVEL_NUM_PS,
@@ -269,7 +253,10 @@ export default Vue.extend({
       } else {
         setTimeout(() => {
           this.isUltrasoundTomatoActive = false
-          this.SHOW_LOSS_BLOCK_PS()
+
+          if (!this.GET_LOSS_BLOCK_PS && this.GET_START_GAME_PS) {
+            this.SHOW_LOSS_BLOCK_PS()
+          }
         }, EN_CONFIG.TIMING_ULTRASOUND_TOMATO)
       }
     },
@@ -314,7 +301,10 @@ export default Vue.extend({
       } else {
         setTimeout(() => {
           this.isUltrasoundPepperActive = false
-          this.SHOW_LOSS_BLOCK_PS()
+
+          if (!this.GET_LOSS_BLOCK_PS && this.GET_START_GAME_PS) {
+            this.SHOW_LOSS_BLOCK_PS()
+          }
         }, EN_CONFIG.TIMING_ULTRASOUND_TOMATO)
       }
     },
@@ -363,7 +353,10 @@ export default Vue.extend({
       } else {
         setTimeout(() => {
           this.isUltrasoundStrawberryActive = false
-          this.SHOW_LOSS_BLOCK_PS()
+
+          if (!this.GET_LOSS_BLOCK_PS && this.GET_START_GAME_PS) {
+            this.SHOW_LOSS_BLOCK_PS()
+          }
         }, EN_CONFIG.TIMING_ULTRASOUND_TOMATO)
       }
     },

@@ -81,13 +81,18 @@ export default Vue.extend({
           this.SHOW_VICTORY_BLOCK_AI()
         }
       }
+
+      if (this.GET_INFO_LINK_BLOCK_AI) {
+        this.STOP_TIMER_AI()
+      }
     }
   },
   computed: {
     ...mapGetters([
       EN_AiGameGetters.GET_POINTS_AI,
       EN_AiGameGetters.GET_TIMER_AI,
-      EN_AiGameGetters.GET_LOSS_BLOCK_AI
+      EN_AiGameGetters.GET_LOSS_BLOCK_AI,
+      EN_AiGameGetters.GET_INFO_LINK_BLOCK_AI,
     ]),
   },
   methods: {
@@ -96,10 +101,10 @@ export default Vue.extend({
       EN_AiGameMutation.SHOW_VICTORY_BLOCK_AI,
       EN_AiGameMutation.FINISH_GAME_AI,
       EN_AiGameMutation.RESTART_GAME_AI,
-      EN_AiGameMutation.START_FINISH_TIMER_AI,
+      EN_AiGameMutation.STOP_TIMER_AI,
     ]),
     exitGame() {
-      this.START_FINISH_TIMER_AI()
+      this.STOP_TIMER_AI()
       this.RESTART_GAME_AI()
       this.FINISH_GAME_AI()
     }

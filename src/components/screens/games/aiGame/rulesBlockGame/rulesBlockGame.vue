@@ -56,13 +56,10 @@ export default Vue.extend({
       EN_AiGameMutation.START_FINISH_TIMER_AI,
     ]),
     startGame() {
-      if (!this.GET_START_GAME_AI) {
-        this.HIDE_RULES_BLOCK_AI()
-        this.START_GAME_AI()
-        this.GAME_LOOP_AI()
-
-        this.START_FINISH_TIMER_AI()
-      }
+      this.HIDE_RULES_BLOCK_AI()
+      this.START_GAME_AI()
+      this.GAME_LOOP_AI()
+      this.START_FINISH_TIMER_AI()
     },
     goMap() {
       this.HIDE_RULES_BLOCK_AI()

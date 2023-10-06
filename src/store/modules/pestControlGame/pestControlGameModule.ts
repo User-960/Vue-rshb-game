@@ -7,7 +7,7 @@ import { IPestControlGameState } from './types'
 import { IRootState } from '@/store/types'
 
 const state: IPestControlGameState = {
-	isInfoLinkBlockVisible: false,
+	isInfoLinkBlockVisible: true,
 	isRulesBlockVisible: false,
 	isVictoryBlockVisible: false,
 	isLossBlockVisible: false,

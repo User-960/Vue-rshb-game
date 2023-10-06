@@ -119,28 +119,7 @@ export const mutations: MutationTree<IPestControlGameState> = {
 		state.isLossBlockVisible = false
 	},
 	[EN_PestControlGameMutation.START_GAME_PS](state) {
-		;(state.isRulesBlockVisible = false),
-			(state.isVictoryBlockVisible = false),
-			(state.isLossBlockVisible = false),
-			(state.isStartGame = true),
-			(state.gameLoop = 0),
-			(state.tomatoLevel = 1),
-			(state.pepperLevel = 2),
-			(state.strawberryLevel = 3),
-			(state.points = 0),
-			(state.isChosenTomatoLevel = false),
-			(state.isChosenPepperLevel = false),
-			(state.isChosenStrawberryLevel = false),
-			(state.isTomatoLineCritical = false),
-			(state.isPepperLineCritical = false),
-			(state.isStrawberryLineCritical = false),
-			(state.isBugActive = false),
-			(state.isLocustsActive = false),
-			(state.isCaterpillarActive = false),
-			(state.isDroneActive = false),
-			(state.isDroneMovedTomato = false),
-			(state.isDroneMovedPepper = false),
-			(state.isDroneMovedStrawberry = false)
+		state.isStartGame = true
 	},
 	[EN_PestControlGameMutation.FINISH_GAME_PS](state) {
 		state.isStartGame = false
