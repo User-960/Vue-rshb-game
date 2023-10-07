@@ -3,7 +3,7 @@
     <li :class='[
         styles.navLevel, 
         styles.navLevelTomato,
-        {[styles.navLevelTomatoActive]: GET_TOMATO_MODIFIED || GET_TOMATO_LEVEL}
+        {[styles.navLevelTomatoActive]: GET_TOMATO_MODIFIED_GH || GET_TOMATO_LEVEL_GH}
       ]'
       @click='openTomatoLevel'
     ></li>
@@ -11,7 +11,7 @@
     <li :class='[
         styles.navLevel, 
         styles.navLevelPepper,
-        {[styles.navLevelPepperActive]: GET_PEPPER_MODIFIED || GET_PEPPER_LEVEL}
+        {[styles.navLevelPepperActive]: GET_PEPPER_MODIFIED_GH || GET_PEPPER_LEVEL_GH}
       ]'
       @click='openPepperLevel'
     ></li>
@@ -19,7 +19,7 @@
     <li :class='[
         styles.navLevel, 
         styles.navLevelStrawberry,
-        {[styles.navLevelStrawberryActive]: GET_STRAWBERRY_MODIFIED || GET_STRAWBERRY_LEVEL}
+        {[styles.navLevelStrawberryActive]: GET_STRAWBERRY_MODIFIED_GH || GET_STRAWBERRY_LEVEL_GH}
       ]'
       @click='openStrawberryLevel'
     ></li>
@@ -27,8 +27,8 @@
 </template>
 
 <script lang='ts'>
-import { EN_GeneticGameGetters } from '@/store/modules/geneticGame/getters'
-import { EN_GeneticGameMutation } from '@/store/modules/geneticGame/mutations'
+import { EN_GreenhouseGameGetters } from '@/store/modules/greenhouseGame/getters'
+import { EN_GreenhouseGameMutation } from '@/store/modules/greenhouseGame/mutations'
 import Vue from 'vue'
 import { mapGetters, mapMutations } from 'vuex'
 
@@ -36,68 +36,68 @@ export default Vue.extend({
   name: 'navigationLevels',
   computed: {
     ...mapGetters([
-      EN_GeneticGameGetters.GET_TOMATO_LEVEL,
-      EN_GeneticGameGetters.GET_TOMATO_MODIFIED,
-      EN_GeneticGameGetters.GET_PEPPER_LEVEL,
-      EN_GeneticGameGetters.GET_PEPPER_MODIFIED,
-      EN_GeneticGameGetters.GET_STRAWBERRY_LEVEL,
-      EN_GeneticGameGetters.GET_STRAWBERRY_MODIFIED,
+      EN_GreenhouseGameGetters.GET_TOMATO_LEVEL_GH,
+      EN_GreenhouseGameGetters.GET_TOMATO_MODIFIED_GH,
+      EN_GreenhouseGameGetters.GET_PEPPER_LEVEL_GH,
+      EN_GreenhouseGameGetters.GET_PEPPER_MODIFIED_GH,
+      EN_GreenhouseGameGetters.GET_STRAWBERRY_LEVEL_GH,
+      EN_GreenhouseGameGetters.GET_STRAWBERRY_MODIFIED_GH,
     ]),
   },
   methods: {
     ...mapMutations([
-      EN_GeneticGameMutation.START_TOMATO_LEVEL,
-      EN_GeneticGameMutation.FINISH_TOMATO_LEVEL,
-      EN_GeneticGameMutation.START_FINISH_TIMER_TOMATO_GN,
-      EN_GeneticGameMutation.UPDATE_TIMER_TOMATO_GN,
+      EN_GreenhouseGameMutation.START_TOMATO_LEVEL_GH,
+      EN_GreenhouseGameMutation.FINISH_TOMATO_LEVEL_GH,
+      EN_GreenhouseGameMutation.START_FINISH_TIMER_TOMATO_GH,
+      EN_GreenhouseGameMutation.UPDATE_TIMER_TOMATO_GH,
 
-      EN_GeneticGameMutation.START_PEPPER_LEVEL,
-      EN_GeneticGameMutation.FINISH_PEPPER_LEVEL,
-      EN_GeneticGameMutation.START_FINISH_TIMER_PEPPER_GN,
-      EN_GeneticGameMutation.UPDATE_TIMER_PEPPER_GN,
+      EN_GreenhouseGameMutation.START_PEPPER_LEVEL_GH,
+      EN_GreenhouseGameMutation.FINISH_PEPPER_LEVEL_GH,
+      EN_GreenhouseGameMutation.START_FINISH_TIMER_PEPPER_GH,
+      EN_GreenhouseGameMutation.UPDATE_TIMER_PEPPER_GH,
 
-      EN_GeneticGameMutation.START_STRAWBERRY_LEVEL,
-      EN_GeneticGameMutation.FINISH_STRAWBERRY_LEVEL,
-      EN_GeneticGameMutation.START_FINISH_TIMER_STRAWBERRY_GN,
-      EN_GeneticGameMutation.UPDATE_TIMER_STRAWBERRY_GN,
+      EN_GreenhouseGameMutation.START_STRAWBERRY_LEVEL_GH,
+      EN_GreenhouseGameMutation.FINISH_STRAWBERRY_LEVEL_GH,
+      EN_GreenhouseGameMutation.START_FINISH_TIMER_STRAWBERRY_GH,
+      EN_GreenhouseGameMutation.UPDATE_TIMER_STRAWBERRY_GH,
     ]),
     openTomatoLevel() {
-      if (!this.GET_TOMATO_LEVEL && !this.GET_TOMATO_MODIFIED) {
-        this.FINISH_PEPPER_LEVEL()
-        this.START_FINISH_TIMER_PEPPER_GN()
-        this.FINISH_STRAWBERRY_LEVEL()
-        this.START_FINISH_TIMER_STRAWBERRY_GN()
+      if (!this.GET_TOMATO_LEVEL_GH && !this.GET_TOMATO_MODIFIED_GH) {
+        this.FINISH_PEPPER_LEVEL_GH()
+        this.START_FINISH_TIMER_PEPPER_GH()
+        this.FINISH_STRAWBERRY_LEVEL_GH()
+        this.START_FINISH_TIMER_STRAWBERRY_GH()
 
-        this.START_TOMATO_LEVEL()
-        this.UPDATE_TIMER_TOMATO_GN()
-        this.START_FINISH_TIMER_TOMATO_GN()
+        this.START_TOMATO_LEVEL_GH()
+        this.UPDATE_TIMER_TOMATO_GH()
+        this.START_FINISH_TIMER_TOMATO_GH()
       }
     },
     openPepperLevel() {
-      if (!this.GET_PEPPER_LEVEL && !this.GET_PEPPER_MODIFIED && this.GET_TOMATO_MODIFIED) {
-        this.FINISH_TOMATO_LEVEL()
-        this.START_FINISH_TIMER_TOMATO_GN()
-        this.FINISH_STRAWBERRY_LEVEL()
-        this.START_FINISH_TIMER_STRAWBERRY_GN()
+      if (!this.GET_PEPPER_LEVEL_GH && !this.GET_PEPPER_MODIFIED_GH && this.GET_TOMATO_MODIFIED_GH) {
+        this.FINISH_TOMATO_LEVEL_GH()
+        this.START_FINISH_TIMER_TOMATO_GH()
+        this.FINISH_STRAWBERRY_LEVEL_GH()
+        this.START_FINISH_TIMER_STRAWBERRY_GH()
 
-        this.START_PEPPER_LEVEL()
-        this.UPDATE_TIMER_PEPPER_GN()
-        this.START_FINISH_TIMER_PEPPER_GN()
+        this.START_PEPPER_LEVEL_GH()
+        this.UPDATE_TIMER_PEPPER_GH()
+        this.START_FINISH_TIMER_PEPPER_GH()
       }
     },
     openStrawberryLevel() {
-      if (!this.GET_STRAWBERRY_LEVEL && 
-          !this.GET_STRAWBERRY_MODIFIED && 
-          this.GET_TOMATO_MODIFIED && this.GET_PEPPER_MODIFIED
+      if (!this.GET_STRAWBERRY_LEVEL_GH && 
+          !this.GET_STRAWBERRY_MODIFIED_GH && 
+          this.GET_TOMATO_MODIFIED_GH && this.GET_PEPPER_MODIFIED_GH
         ) {
-        this.FINISH_TOMATO_LEVEL()
-        this.START_FINISH_TIMER_TOMATO_GN()
-        this.FINISH_PEPPER_LEVEL()
-        this.START_FINISH_TIMER_PEPPER_GN()
+        this.FINISH_TOMATO_LEVEL_GH()
+        this.START_FINISH_TIMER_TOMATO_GH()
+        this.FINISH_PEPPER_LEVEL_GH()
+        this.START_FINISH_TIMER_PEPPER_GH()
 
-        this.START_STRAWBERRY_LEVEL()
-        this.UPDATE_TIMER_STRAWBERRY_GN()
-        this.START_FINISH_TIMER_STRAWBERRY_GN()
+        this.START_STRAWBERRY_LEVEL_GH()
+        this.UPDATE_TIMER_STRAWBERRY_GH()
+        this.START_FINISH_TIMER_STRAWBERRY_GH()
       }
     }
   }

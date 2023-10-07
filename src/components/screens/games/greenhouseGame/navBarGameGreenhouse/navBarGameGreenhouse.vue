@@ -35,7 +35,7 @@
       </template>
 
       <template v-slot:contentIndicator>
-        {{ GET_POINTS_GN }}
+        {{ GET_POINTS_GH }}
       </template>
       </blockButton>
     </div>
@@ -52,9 +52,8 @@ import exitButton from '../../../../ui/button/exitButton/exitButton.vue'
 import blockButton from '../../../../ui/button/blockButton/blockButton.vue'
 import iconButton from '../../../../ui/button/iconButton/iconButton.vue'
 import navigationLevels from './navigationLevels/navigationLevels.vue'
-import { EN_GeneticGameGetters } from '@/store/modules/geneticGame/getters'
-import { mapGetters, mapMutations } from 'vuex'
-import { EN_GeneticGameMutation } from '@/store/modules/geneticGame/mutations'
+import { EN_GreenhouseGameGetters } from '@/store/modules/greenhouseGame/getters'
+import { mapGetters } from 'vuex'
 
 export default Vue.extend({
   name: 'navBarGameGreenhouse',
@@ -66,7 +65,7 @@ export default Vue.extend({
   },
   computed: {
     ...mapGetters([
-      EN_GeneticGameGetters.GET_POINTS_GN,
+      EN_GreenhouseGameGetters.GET_POINTS_GH,
     ]),
   }
 })

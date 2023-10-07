@@ -1,5 +1,5 @@
 <template>
-  <div :class='styles.rulesBlockWrapper' v-if='GET_RULES_BLOCK_GN'>
+  <div :class='styles.rulesBlockWrapper' v-if='GET_RULES_BLOCK_GH'>
     <div :class='styles.rulesBlockGame'>
 
       <div :class='styles.rulesContentWrapper'>
@@ -44,8 +44,8 @@
 import Vue from 'vue'
 import closeButton from '../../../../ui/button/closeButton/closeButton.vue'
 import { mapGetters, mapMutations } from 'vuex'
-import { EN_GeneticGameGetters } from '@/store/modules/geneticGame/getters'
-import { EN_GeneticGameMutation } from '@/store/modules/geneticGame/mutations'
+import { EN_GreenhouseGameGetters } from '@/store/modules/greenhouseGame/getters'
+import { EN_GreenhouseGameMutation } from '@/store/modules/greenhouseGame/mutations'
 
 export default Vue.extend({
   name: 'rulesBlockGame',
@@ -53,22 +53,22 @@ export default Vue.extend({
     closeButton
   },
   computed: {
-    ...mapGetters([EN_GeneticGameGetters.GET_RULES_BLOCK_GN]),
+    ...mapGetters([EN_GreenhouseGameGetters.GET_RULES_BLOCK_GH]),
   },
   methods: {
     ...mapMutations([
-      EN_GeneticGameMutation.HIDE_RULES_BLOCK_GN, 
-      EN_GeneticGameMutation.START_GAME_GN,
-      EN_GeneticGameMutation.START_FINISH_TIMER_TOMATO_GN
+      EN_GreenhouseGameMutation.HIDE_RULES_BLOCK_GH, 
+      EN_GreenhouseGameMutation.START_GAME_GH,
+      EN_GreenhouseGameMutation.START_FINISH_TIMER_TOMATO_GH
     ]),
     startGame() {
-      this.HIDE_RULES_BLOCK_GN()
-      this.START_GAME_GN()
+      this.HIDE_RULES_BLOCK_GH()
+      this.START_GAME_GH()
 
-      this.START_FINISH_TIMER_TOMATO_GN()
+      this.START_FINISH_TIMER_TOMATO_GH()
     },
     goMap() {
-      this.HIDE_RULES_BLOCK_GN()
+      this.HIDE_RULES_BLOCK_GH()
       this.$router.push({ name: 'home' })
     }
   }

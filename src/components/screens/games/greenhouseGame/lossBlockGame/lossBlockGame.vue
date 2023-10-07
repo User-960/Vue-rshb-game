@@ -1,5 +1,5 @@
 <template>
-  <div :class='styles.lossBlockGameWrapper' v-if='GET_LOSS_BLOCK_GN'>
+  <div :class='styles.lossBlockGameWrapper' v-if='GET_LOSS_BLOCK_GH'>
     <div :class='styles.lossBlockGame'>
       <div :class='styles.title'>
         Проигрыш
@@ -13,7 +13,7 @@
 
       <div :class='styles.result'>
         <p>
-          Накоплено баллов: <span> {{ GET_POINTS_GN }}</span>
+          Накоплено баллов: <span> {{ GET_POINTS_GH }}</span>
         </p>
         <div :class='styles.resultIcon'>
           <iconButton>
@@ -42,8 +42,8 @@ import Vue from 'vue'
 import closeButton from '../../../../ui/button/closeButton/closeButton.vue'
 import iconButton from '../../../../ui/button/iconButton/iconButton.vue'
 import { mapGetters, mapMutations } from 'vuex'
-import { EN_GeneticGameGetters } from '@/store/modules/geneticGame/getters'
-import { EN_GeneticGameMutation } from '@/store/modules/geneticGame/mutations'
+import { EN_GreenhouseGameGetters } from '@/store/modules/greenhouseGame/getters'
+import { EN_GreenhouseGameMutation } from '@/store/modules/greenhouseGame/mutations'
 
 export default Vue.extend({
   name: 'lossBlockGame',
@@ -53,20 +53,20 @@ export default Vue.extend({
   },
   computed: {
     ...mapGetters([
-      EN_GeneticGameGetters.GET_LOSS_BLOCK_GN,
-      EN_GeneticGameGetters.GET_POINTS_GN
+      EN_GreenhouseGameGetters.GET_LOSS_BLOCK_GH,
+      EN_GreenhouseGameGetters.GET_POINTS_GH
     ]),
   },
   methods: {
     ...mapMutations([
-      EN_GeneticGameMutation.HIDE_LOSS_BLOCK_GN,
-      EN_GeneticGameMutation.RESTART_GAME_GN,
+      EN_GreenhouseGameMutation.HIDE_LOSS_BLOCK_GH,
+      EN_GreenhouseGameMutation.RESTART_GAME_GH,
     ]),
     restartGame() {
-      this.RESTART_GAME_GN()
+      this.RESTART_GAME_GH()
     },
     skipToMap() {
-      this.HIDE_LOSS_BLOCK_GN()
+      this.HIDE_LOSS_BLOCK_GH()
       this.$router.push({ name: 'home' })
     }
   }

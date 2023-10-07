@@ -17,9 +17,9 @@
         </div>
 
         <div :class='styles.dialogDanilWrapper'>
-          <dialogDanilTomato v-if='GET_TOMATO_LEVEL' />
-          <dialogDanilPepper v-else-if='GET_PEPPER_LEVEL' />
-          <dialogDanilStrawberry v-else-if='GET_STRAWBERRY_LEVEL' />
+          <dialogDanilTomato v-if='GET_TOMATO_LEVEL_GH' />
+          <dialogDanilPepper v-else-if='GET_PEPPER_LEVEL_GH' />
+          <dialogDanilStrawberry v-else-if='GET_STRAWBERRY_LEVEL_GH' />
         </div>
       </div>
     </template>
@@ -37,9 +37,8 @@ import dialogDanilPepper from '../dialogDanil/dialogDanilPepper.vue'
 import dialogDanilStrawberry from '../dialogDanil/dialogDanilStrawberry.vue'
 import victoryBlockGame from '../victoryBlockGame/victoryBlockGame.vue'
 import lossBlockGame from '../lossBlockGame/lossBlockGame.vue'
-import { mapGetters, mapMutations } from 'vuex'
-import { EN_GeneticGameGetters } from '@/store/modules/geneticGame/getters'
-import { EN_GeneticGameMutation } from '@/store/modules/geneticGame/mutations'
+import { mapGetters } from 'vuex'
+import { EN_GreenhouseGameGetters } from '@/store/modules/greenhouseGame/getters'
 
 export default Vue.extend({
   name: 'greenhouseGameBack',
@@ -56,14 +55,14 @@ export default Vue.extend({
   },
   computed: {
     ...mapGetters([
-      EN_GeneticGameGetters.GET_PLAYER_MISTAKES_GN,
-      EN_GeneticGameGetters.GET_LOSS_BLOCK_GN,
-      EN_GeneticGameGetters.GET_TOMATO_LEVEL,
-      EN_GeneticGameGetters.GET_PEPPER_LEVEL,
-      EN_GeneticGameGetters.GET_STRAWBERRY_LEVEL,
-      EN_GeneticGameGetters.GET_TOMATO_MODIFIED,
-      EN_GeneticGameGetters.GET_PEPPER_MODIFIED,
-      EN_GeneticGameGetters.GET_STRAWBERRY_MODIFIED,
+      EN_GreenhouseGameGetters.GET_PLAYER_MISTAKES_GH,
+      EN_GreenhouseGameGetters.GET_LOSS_BLOCK_GH,
+      EN_GreenhouseGameGetters.GET_TOMATO_LEVEL_GH,
+      EN_GreenhouseGameGetters.GET_PEPPER_LEVEL_GH,
+      EN_GreenhouseGameGetters.GET_STRAWBERRY_LEVEL_GH,
+      EN_GreenhouseGameGetters.GET_TOMATO_MODIFIED_GH,
+      EN_GreenhouseGameGetters.GET_PEPPER_MODIFIED_GH,
+      EN_GreenhouseGameGetters.GET_STRAWBERRY_MODIFIED_GH,
     ]),
   }
 })

@@ -1,5 +1,5 @@
 <template>
-  <div :class='styles.infoLinkWrapper' v-if='GET_INFO_LINK_BLOCK_GN'>
+  <div :class='styles.infoLinkWrapper' v-if='GET_INFO_LINK_BLOCK_GH'>
     <div :class='styles.infoLinkBlockGame'>
       <div :class='styles.title'>
         <h4>Выращивание растений в закрытой среде</h4>
@@ -38,8 +38,8 @@
 import Vue from 'vue'
 import closeButton from '../../../../ui/button/closeButton/closeButton.vue'
 import { mapGetters, mapMutations } from 'vuex'
-import { EN_GeneticGameGetters } from '@/store/modules/geneticGame/getters'
-import { EN_GeneticGameMutation } from '@/store/modules/geneticGame/mutations'
+import { EN_GreenhouseGameGetters } from '@/store/modules/greenhouseGame/getters'
+import { EN_GreenhouseGameMutation } from '@/store/modules/greenhouseGame/mutations'
 
 export default Vue.extend({
   name: 'infoLinkBlockGame',
@@ -47,10 +47,10 @@ export default Vue.extend({
     closeButton
   },
   created() {
-    this.SHOW_INFO_LINK_BLOCK_GN()
+    this.SHOW_INFO_LINK_BLOCK_GH()
   },
   computed: {
-    ...mapGetters([EN_GeneticGameGetters.GET_INFO_LINK_BLOCK_GN]),
+    ...mapGetters([EN_GreenhouseGameGetters.GET_INFO_LINK_BLOCK_GH]),
   },
   props: {
     link: {
@@ -61,19 +61,19 @@ export default Vue.extend({
   },
   methods: {
     ...mapMutations([
-      EN_GeneticGameMutation.SHOW_INFO_LINK_BLOCK_GN, 
-      EN_GeneticGameMutation.HIDE_INFO_LINK_BLOCK_GN, 
-      EN_GeneticGameMutation.SHOW_RULES_BLOCK_GN,
-      EN_GeneticGameMutation.PLUS_POINTS_LINK_GN
+      EN_GreenhouseGameMutation.SHOW_INFO_LINK_BLOCK_GH, 
+      EN_GreenhouseGameMutation.HIDE_INFO_LINK_BLOCK_GH, 
+      EN_GreenhouseGameMutation.SHOW_RULES_BLOCK_GH,
+      EN_GreenhouseGameMutation.PLUS_POINTS_LINK_GH
     ]),
     checkFollowLink() {
-      this.PLUS_POINTS_LINK_GN()
+      this.PLUS_POINTS_LINK_GH()
     },
     closeBlock() {
-      this.HIDE_INFO_LINK_BLOCK_GN()
+      this.HIDE_INFO_LINK_BLOCK_GH()
       
-      if (!this.GET_INFO_LINK_BLOCK_GN) {
-        this.SHOW_RULES_BLOCK_GN()
+      if (!this.GET_INFO_LINK_BLOCK_GH) {
+        this.SHOW_RULES_BLOCK_GH()
       }
     }
   }
