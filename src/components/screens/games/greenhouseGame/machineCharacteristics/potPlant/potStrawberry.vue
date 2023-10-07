@@ -69,7 +69,7 @@ import { EN_GeneticGameMutation } from '@/store/modules/geneticGame/mutations'
 import { EN_GeneticGameGetters } from '@/store/modules/geneticGame/getters'
 
 export default Vue.extend({
-  name: 'flasksStrawberry',
+  name: 'potStrawberry',
   data: () => ({
     isBlueEffectActive: false,
     isGreenEffectActive: false,
@@ -528,6 +528,6 @@ export default Vue.extend({
 })
 </script>
 
-<style src='./flasks.css' module='styles'>
+<style src='./pot.css' module='styles'>
   
 </style>

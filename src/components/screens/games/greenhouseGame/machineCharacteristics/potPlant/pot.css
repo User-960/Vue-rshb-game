@@ -1,0 +1,139 @@
+.potWrapper {
+	position: relative;
+
+	margin-left: 150px;
+
+	width: 310px;
+}
+
+.scaleWrapper {
+	position: absolute;
+	right: 0;
+	width: 100%;
+}
+
+.health {
+	position: absolute;
+	top: 20px;
+	right: 80px;
+
+	background-image: url(../../../../../../../public/images/healthScale.svg);
+	background-repeat: no-repeat;
+	background-position: bottom;
+	background-size: contain;
+
+	display: flex;
+	justify-content: center;
+
+	width: 65px;
+	height: 59px;
+
+	padding-top: 18px;
+	font-weight: 500;
+	font-size: 15px;
+	line-height: 17px;
+}
+
+.scale {
+	position: absolute;
+	top: 70px;
+	right: 40px;
+
+	background-image: url(../../../../../../../public/images/scale.svg);
+	background-repeat: no-repeat;
+	background-position: bottom;
+	background-size: contain;
+
+	width: 23px;
+	height: 251px;
+}
+
+.scaleIndicator {
+	position: absolute;
+	right: -32px;
+	top: 50px;
+
+	background-image: url(../../../../../../../public/images/scaleIndicator.svg);
+	background-repeat: no-repeat;
+	background-position: bottom;
+	background-size: contain;
+
+	width: 89px;
+	height: 27px;
+}
+
+.tomatoSprout {
+	position: absolute;
+	bottom: 124px;
+	left: 85px;
+	z-index: 30;
+
+	background-image: url(../../../../../../../public/images/isPlantSproutTomato.svg);
+	background-repeat: no-repeat;
+	background-position: bottom;
+	background-size: contain;
+
+	width: 117px;
+	height: 90px;
+}
+
+.pot {
+	position: absolute;
+	bottom: 10px;
+	left: 85px;
+	z-index: 20;
+
+	background-image: url(../../../../../../../public/images/pot.svg);
+	background-repeat: no-repeat;
+	background-position: bottom;
+	background-size: contain;
+
+	width: 124px;
+	height: 143px;
+}
+
+.potTable {
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	z-index: 10;
+
+	background-image: url(../../../../../../../public/images/tableGreenhouse.svg);
+	background-repeat: no-repeat;
+	background-position: bottom;
+	background-size: contain;
+
+	width: 293px;
+	height: 56px;
+}
+
+/* animations */
+@keyframes opacity {
+	from {
+		opacity: 0;
+	}
+
+	40% {
+		opacity: 0;
+	}
+
+	50% {
+		opacity: 1;
+		top: 0px;
+	}
+
+	to {
+		opacity: 0;
+		top: -30px;
+	}
+}
+
+@keyframes rotateFlask {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(-150deg);
+	}
+}

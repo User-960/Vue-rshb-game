@@ -1,9 +1,12 @@
 @import '../../../../../assets/styles/variables.css';
 
 .machineCharacteristics {
+	display: flex;
 }
 
-.machineCharacteristicsTomato {
+.machineCharacteristicsTomato,
+.machineCharacteristicsPepper,
+.machineCharacteristicsStrawberry {
 	position: relative;
 	bottom: 0px;
 	left: 110px;
