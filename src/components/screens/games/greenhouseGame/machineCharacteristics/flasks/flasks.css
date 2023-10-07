@@ -1,0 +1,287 @@
+.wrapper {
+	position: absolute;
+	left: 200px;
+	bottom: 140px;
+	bottom: 170px;
+	z-index: 100;
+}
+
+.columns {
+	position: relative;
+	display: flex;
+}
+
+.dropZoneContainer {
+	position: relative;
+	min-width: 120px;
+	max-height: 70px;
+}
+
+.listDrop {
+	display: flex;
+	position: relative;
+
+	top: -50px;
+
+	display: flex;
+	justify-content: center;
+
+	width: 100%;
+	height: 100%;
+}
+
+.flasksContainer {
+	position: relative;
+	top: 67px;
+	left: 150px;
+
+	min-width: 338px;
+}
+
+.flasksBox {
+	width: 338px;
+	height: 65px;
+
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+
+	background-image: url(../../../../../../../public/images/flasksBox.svg);
+	background-repeat: no-repeat;
+
+	z-index: 40;
+}
+
+.flasksList {
+	display: flex;
+	position: relative;
+	top: -10px;
+	left: 27px;
+
+	z-index: 50;
+}
+
+.flask {
+	margin: 0px 1px;
+	width: 30px;
+	height: 87px;
+
+	background-image: url(../../../../../../../public/images/emptyFlask.svg);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position-y: bottom;
+}
+
+.greenFlask {
+	background-image: url(../../../../../../../public/images/greenFlask.svg);
+	transform: rotate(0deg);
+}
+
+.greenFlask.greenFlaskRotate {
+	transform: rotate(-150deg);
+	animation: rotateFlask 1.4s;
+}
+
+.greenFlask.greenFlaskRotate.emptyFlask {
+	background-image: url(../../../../../../../public/images/emptyFlask.svg);
+}
+
+.pinkFlask {
+	background-image: url(../../../../../../../public/images/pinkFlask.svg);
+	transform: rotate(0deg);
+}
+
+.pinkFlask.pinkFlaskRotate {
+	transform: rotate(-150deg);
+	animation: rotateFlask 1.4s;
+}
+
+.pinkFlask.pinkFlaskRotate.emptyFlask {
+	background-image: url(../../../../../../../public/images/emptyFlask.svg);
+}
+
+.yellowFlask {
+	background-image: url(../../../../../../../public/images/yellowFlask.svg);
+	transform: rotate(0deg);
+}
+
+.yellowFlask.yellowFlaskRotate {
+	transform: rotate(-150deg);
+	animation: rotateFlask 1.4s;
+}
+
+.yellowFlask.yellowFlaskRotate.emptyFlask {
+	background-image: url(../../../../../../../public/images/emptyFlask.svg);
+}
+
+.blueFlask {
+	background-image: url(../../../../../../../public/images/blueFlask.svg);
+	transform: rotate(0deg);
+}
+
+.blueFlask.blueFlaskRotate {
+	transform: rotate(-150deg);
+	animation: rotateFlask 1.4s;
+}
+
+.blueFlask.blueFlaskRotate.emptyFlask {
+	background-image: url(../../../../../../../public/images/emptyFlask.svg);
+}
+
+.redFlask {
+	background-image: url(../../../../../../../public/images/redFlask.svg);
+	transform: rotate(0deg);
+}
+
+.redFlask.redFlaskRotate {
+	transform: rotate(-150deg);
+	animation: rotateFlask 1.4s;
+}
+
+.redFlask.redFlaskRotate.emptyFlask {
+	background-image: url(../../../../../../../public/images/emptyFlask.svg);
+}
+
+.cyanFlask {
+	background-image: url(../../../../../../../public/images/cyanFlask.svg);
+	transform: rotate(0deg);
+}
+
+.cyanFlask.cyanFlaskRotate {
+	transform: rotate(-150deg);
+	animation: rotateFlask 1.4s;
+}
+
+.cyanFlask.cyanFlaskRotate.emptyFlask {
+	background-image: url(../../../../../../../public/images/emptyFlask.svg);
+}
+
+.purpleFlask {
+	background-image: url(../../../../../../../public/images/purpleFlask.svg);
+	transform: rotate(0deg);
+}
+
+.purpleFlask.purpleFlaskRotate {
+	transform: rotate(-150deg);
+	animation: rotateFlask 1.4s;
+}
+
+.purpleFlask.purpleFlaskRotate.emptyFlask {
+	background-image: url(../../../../../../../public/images/emptyFlask.svg);
+}
+
+.orangeFlask {
+	background-image: url(../../../../../../../public/images/orangeFlask.svg);
+	transform: rotate(0deg);
+}
+
+.orangeFlask.orangeFlaskRotate {
+	transform: rotate(-150deg);
+	animation: rotateFlask 1.4s;
+}
+
+.orangeFlask.orangeFlaskRotate.emptyFlask {
+	background-image: url(../../../../../../../public/images/emptyFlask.svg);
+}
+
+.greyFlask {
+	background-image: url(../../../../../../../public/images/greyFlask.svg);
+	transform: rotate(0deg);
+}
+
+.greyFlask.greyFlaskRotate {
+	transform: rotate(-150deg);
+	animation: rotateFlask 1.4s;
+}
+
+.greyFlask.greyFlaskRotate.emptyFlask {
+	background-image: url(../../../../../../../public/images/emptyFlask.svg);
+}
+
+.effect {
+	position: absolute;
+	left: -38px;
+	top: -25px;
+
+	width: 200px;
+	height: 156px;
+
+	background-image: none;
+	background-repeat: no-repeat;
+}
+
+.blueStars {
+	background-image: url(../../../../../../../public/images/blueStars.svg);
+	animation: opacity 2s;
+}
+
+.greenStars {
+	background-image: url(../../../../../../../public/images/greenStars.svg);
+	animation: opacity 2s;
+}
+
+.redStars {
+	background-image: url(../../../../../../../public/images/redStars.svg);
+	animation: opacity 2s;
+}
+
+.yellowStars {
+	background-image: url(../../../../../../../public/images/yellowStars.svg);
+	animation: opacity 2s;
+}
+
+.pinkStars {
+	background-image: url(../../../../../../../public/images/pinkStars.svg);
+	animation: opacity 2s;
+}
+
+.cyanStars {
+	background-image: url(../../../../../../../public/images/cyanStars.svg);
+	animation: opacity 2s;
+}
+
+.orangeStars {
+	background-image: url(../../../../../../../public/images/orangeStars.svg);
+	animation: opacity 2s;
+}
+
+.purpleStars {
+	background-image: url(../../../../../../../public/images/purpleStars.svg);
+	animation: opacity 2s;
+}
+
+.greyStars {
+	background-image: url(../../../../../../../public/images/greyStars.svg);
+	animation: opacity 2s;
+}
+
+/* animations */
+@keyframes opacity {
+	from {
+		opacity: 0;
+	}
+
+	40% {
+		opacity: 0;
+	}
+
+	50% {
+		opacity: 1;
+		top: 0px;
+	}
+
+	to {
+		opacity: 0;
+		top: -30px;
+	}
+}
+
+@keyframes rotateFlask {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(-150deg);
+	}
+}

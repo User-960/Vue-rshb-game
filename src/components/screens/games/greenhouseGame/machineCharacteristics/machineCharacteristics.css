@@ -1,0 +1,148 @@
+.machineCharacteristicsBack {
+	position: relative;
+
+	background-image: url(../../../../../../public/images/table.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+
+	width: 870px;
+	height: 166px;
+}
+
+.bigFlaskEmpty {
+	position: absolute;
+	bottom: 0px;
+	left: 200px;
+
+	background-image: url(../../../../../../public/images/bigFlaskEmpty.svg);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position-y: bottom;
+
+	width: 192px;
+	height: 160px;
+}
+
+.plant {
+	position: absolute;
+	left: 200px;
+
+	background-repeat: no-repeat;
+	background-size: contain;
+	z-index: 10;
+}
+
+.plantSproutTomato {
+	bottom: 110px;
+	background-image: url(../../../../../../public/images/isPlantSproutTomato.svg);
+
+	width: 120px;
+	height: 90px;
+
+	animation: opacity 2s;
+}
+
+.plantColorTomato {
+	bottom: 110px;
+	background-image: url(../../../../../../public/images/isPlantColorTomato.svg);
+
+	width: 140px;
+	height: 110px;
+
+	animation: opacity 2s;
+}
+
+.plantModifiedTomato {
+	left: 120px;
+	bottom: 110px;
+	background-image: url(../../../../../../public/images/isPlantModifiedTomato.svg);
+
+	width: 270px;
+	height: 254px;
+
+	animation: opacity 2s;
+}
+
+.plantSproutPepper {
+	bottom: 110px;
+	background-image: url(../../../../../../public/images/isPlantSproutPepper.svg);
+
+	width: 120px;
+	height: 90px;
+
+	animation: opacity 2s;
+}
+
+.plantColorPepper {
+	left: 185px;
+	bottom: 110px;
+	background-image: url(../../../../../../public/images/isPlantColorPepper.svg);
+
+	width: 140px;
+	height: 110px;
+
+	animation: opacity 2s;
+}
+
+.plantModifiedPepper {
+	left: 140px;
+	bottom: 110px;
+	background-image: url(../../../../../../public/images/isPlantModifiedPepper.svg);
+
+	width: 270px;
+	height: 234px;
+
+	animation: opacity 2s;
+}
+
+.plantSproutStrawberry {
+	bottom: 100px;
+	background-image: url(../../../../../../public/images/isPlantSproutStrawberry.svg);
+
+	width: 125px;
+	height: 120px;
+
+	animation: opacity 2s;
+}
+
+.plantColorStrawberry {
+	left: 195px;
+	bottom: 105px;
+	background-image: url(../../../../../../public/images/isPlantColorStrawberry.svg);
+
+	width: 128px;
+	height: 137px;
+
+	animation: opacity 2s;
+}
+
+.plantModifiedStrawberry {
+	left: 195px;
+	bottom: 105px;
+	background-image: url(../../../../../../public/images/isPlantModifiedStrawberry.svg);
+
+	width: 128px;
+	height: 137px;
+
+	animation: opacity 2s;
+}
+
+/* animations */
+@keyframes opacity {
+	from {
+		opacity: 0;
+	}
+
+	60% {
+		opacity: 0;
+	}
+
+	70% {
+		opacity: 1;
+	}
+
+	to {
+		opacity: 1;
+	}
+}

@@ -1,0 +1,165 @@
+@import '../../../../../assets/styles/variables.css';
+
+.dialogDanil {
+	position: relative;
+
+	/* max-width: 960px;
+	max-height: 590px;
+	width: 100%;
+	height: 100%; */
+
+	width: 960px;
+	height: 590px;
+}
+
+.dialog {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+
+	padding: 24px;
+	background-image: url(../../../../../../public/images/dialogForm.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+
+	width: 572px;
+	height: 156px;
+}
+
+.dialogFirstMistake {
+	position: absolute;
+	top: 0px;
+	left: 90px;
+
+	padding: 24px;
+	background-image: url(../../../../../../public/images/dialogFirstMistakeTomato.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+
+	width: 441px;
+	height: 139px;
+}
+
+.dialogSecondMistake {
+	position: absolute;
+	top: 0px;
+	left: 90px;
+
+	padding: 24px;
+	background-image: url(../../../../../../public/images/dialogSecondMistake.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+
+	width: 397px;
+	height: 139px;
+}
+
+.dialogModifiedTomato {
+	position: absolute;
+	top: 0px;
+	left: 90px;
+
+	padding: 24px;
+	background-image: url(../../../../../../public/images/dialogModifiedTomato.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+
+	width: 438px;
+	height: 123px;
+}
+
+.dialogModifiedPepper {
+	position: absolute;
+	top: 0px;
+	left: 90px;
+
+	padding: 24px;
+	background-image: url(../../../../../../public/images/dialogModifiedPepper.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+
+	width: 438px;
+	height: 123px;
+}
+
+.dialogModifiedStrawberry {
+	position: absolute;
+	top: 0px;
+	left: 90px;
+
+	padding: 24px;
+	background-image: url(../../../../../../public/images/dialogModifiedStrawberry.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+
+	width: 438px;
+	height: 123px;
+}
+
+.textContent {
+	position: relative;
+	max-width: 442px;
+}
+
+.text {
+	color: var(--secondary-text-gray);
+	font-size: 24px;
+	line-height: 36px;
+}
+
+.timer {
+	position: absolute;
+	bottom: -5px;
+	right: 15px;
+
+	display: flex;
+}
+
+.timer span {
+	color: var(--primary-green);
+	font-size: 20px;
+	line-height: 36px;
+	margin-left: 8px;
+}
+
+.danil {
+	max-width: 297px;
+	max-height: 415px;
+
+	position: absolute;
+	bottom: 0px;
+	right: 5px;
+
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+
+	width: 501px;
+	height: 560px;
+}
+
+.taskDanilCheck {
+	background-image: url(../../../../../../public/images/taskDanil.svg);
+}
+
+.taskDanilWrite {
+	background-image: url(../../../../../../public/images/taskDanilWrite.svg);
+}
+
+.mistakeDanil {
+	background-image: url(../../../../../../public/images/mistakeDanil.svg);
+}
+
+.correctDanil {
+	background-image: url(../../../../../../public/images/correctDanil.svg);
+}
+
+.readyDanil {
+	background-image: url(../../../../../../public/images/readyDanil.svg);
+}

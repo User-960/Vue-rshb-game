@@ -4,6 +4,7 @@ import VueRouter, { RouteConfig } from 'vue-router'
 import aiGamePage from '@/pages/aiGamePage.vue'
 import collectorGamePage from '@/pages/collectorGamePage.vue'
 import geneticGamePage from '@/pages/geneticGamePage.vue'
+import greenhouseGamePage from '@/pages/greenhouseGamePage.vue'
 import mainPage from '@/pages/mainPage.vue'
 import pestControlGamePage from '@/pages/pestControlGamePage.vue'
 
@@ -34,6 +35,11 @@ export const routes: Array<RouteConfig> = [
 		path: '/genetic-game',
 		name: 'genetic-game',
 		component: geneticGamePage
+	},
+	{
+		path: '/greenhouse-game',
+		name: 'greenhouse-game',
+		component: greenhouseGamePage
 	},
 	{
 		path: '/ai-game',
