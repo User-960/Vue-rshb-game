@@ -6,10 +6,10 @@
 
       <div :class='styles.textContent'>
         <div v-if='GET_TOMATO_LEVEL_GH'>
-          <p :class='styles.text' 
+          <p :class='[styles.text, styles.textSoilMoisture]' 
             v-if='!GET_TOMATO_SPROUT_GH && !GET_TOMATO_COLOR_GH && !GET_TOMATO_MODIFIED_GH'
           >
-            Давай вырастим помидор. Сообщи мне показатель влажности почвы.
+            Давай вырастим помидор. Сообщи мне показатель <span>влажности почвы</span>.
           </p>
 
           <p :class='styles.text' 

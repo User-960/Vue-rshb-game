@@ -12,6 +12,10 @@
 
         <lossBlockGame />
 
+        <div :class='styles.dialogTaskWrapper'>
+          <dialogTask />
+        </div>
+
         <div :class='styles.machineCharacteristicsWrapper'>
           <machineCharacteristics/>
         </div>
@@ -32,6 +36,7 @@ import navBarGameGreenhouse from '../navBarGameGreenhouse/navBarGameGreenhouse.v
 import infoLinkBlockGame from '../infoLinkBlockGame/infoLinkBlockGame.vue'
 import rulesBlockGame from '../rulesBlockGame/rulesBlockGame.vue'
 import machineCharacteristics from '../machineCharacteristics/machineCharacteristics.vue'
+import dialogTask from '../dialogTask/dialogTask.vue'
 import dialogDanilTomato from '../dialogDanil/dialogDanilTomato.vue'
 import dialogDanilPepper from '../dialogDanil/dialogDanilPepper.vue'
 import dialogDanilStrawberry from '../dialogDanil/dialogDanilStrawberry.vue'
@@ -49,6 +54,7 @@ export default Vue.extend({
     victoryBlockGame,
     lossBlockGame,
     machineCharacteristics,
+    dialogTask,
     dialogDanilTomato,
     dialogDanilPepper,
     dialogDanilStrawberry

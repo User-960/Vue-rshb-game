@@ -1,0 +1,53 @@
+@import '../../../../../assets/styles/variables.css';
+
+.dialogTask {
+	position: relative;
+
+	width: 530px;
+	height: 280px;
+}
+
+.dialog {
+	position: absolute;
+	top: 52px;
+	left: 107px;
+
+	padding: 24px;
+	background-image: url(../../../../../../public/images/dialogTask.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+
+	width: 414px;
+	height: 159px;
+}
+
+.content {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.contentTomato {
+	margin-top: 40px;
+	margin-right: 15px;
+}
+
+.characteristicsList {
+	display: flex;
+}
+
+.characteristicsItem {
+	padding: 12px 20px;
+	margin: 0 10px;
+
+	border: 2px solid #bfc6dc;
+	border-radius: 8px;
+
+	color: var(--primary-green);
+	font-weight: 500;
+	font-size: 28px;
+	line-height: 22px;
+
+	cursor: pointer;
+}

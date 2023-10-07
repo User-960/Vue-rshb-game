@@ -8,7 +8,7 @@
 	width: 100%;
 	height: 100%; */
 
-	width: 960px;
+	width: 700px;
 	height: 590px;
 }
 
@@ -18,13 +18,13 @@
 	left: 0px;
 
 	padding: 24px;
-	background-image: url(../../../../../../public/images/dialogForm.svg);
+	background-image: url(../../../../../../public/images/dialogFormGreenhouse.svg);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;
 
-	width: 572px;
-	height: 156px;
+	width: 485px;
+	height: 218px;
 }
 
 .dialogFirstMistake {
@@ -104,7 +104,7 @@
 
 .textContent {
 	position: relative;
-	max-width: 442px;
+	max-width: 390px;
 }
 
 .text {
@@ -116,7 +116,7 @@
 .timer {
 	position: absolute;
 	bottom: -5px;
-	right: 15px;
+	right: 12px;
 
 	display: flex;
 }
@@ -126,6 +126,10 @@
 	font-size: 20px;
 	line-height: 36px;
 	margin-left: 8px;
+}
+
+.textSoilMoisture span {
+	text-decoration: underline;
 }
 
 .danil {
