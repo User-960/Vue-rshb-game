@@ -1,16 +1,42 @@
 <template>
-  <div :class='styles.machineCharacteristicsBack'>
-    <div v-if='GET_TOMATO_LEVEL_GH' :class='[
-        styles.plant, 
-        {
-          [styles.plantSproutTomato]: GET_TOMATO_SPROUT_GH,
-          [styles.plantColorTomato]: GET_TOMATO_COLOR_GH,
-          [styles.plantModifiedTomato]: GET_TOMATO_MODIFIED_GH
-        }
-      ]'
-    ></div>
+  <div :class='styles.machineCharacteristics'>
 
-    <div v-else-if='GET_PEPPER_LEVEL_GH' :class='[
+    <div v-if='GET_TOMATO_LEVEL_GH' :class='styles.machineCharacteristicsTomato'>
+      <ul :class='styles.characteristicsList'>
+        <li :class='[styles.characteristicsItem, styles.soilMoisture]'>
+          <div :class='styles.soilMoistureNum'>30,1</div>
+          <div :class='styles.soilMoistureWrapper'>
+            <div :class='styles.soilMoistureText'>Влажность почвы</div>
+            <button :class='styles.soilMoistureBtn'>Полить</button>
+          </div>
+        </li>
+
+        <li :class='[styles.characteristicsItem, styles.airMoisture]'>
+          <div :class='styles.airMoistureNum'>70</div>
+          <div :class='styles.airMoistureWrapper'>
+            <div :class='styles.airMoistureText'>Влажность воздуха</div>
+            <div :class='styles.airMoistureBtnWrapper'>
+              <button :class='styles.airMoistureBtn'>Увлажнить</button>
+              <button :class='styles.airMoistureBtn'>Осушить</button>
+            </div>
+          </div>
+        </li>
+
+        <li :class='[styles.characteristicsItem, styles.airTemperature]'>
+          <div :class='styles.airTemperatureNum'>25</div>
+          <div :class='styles.airTemperatureWrapper'>
+            <div :class='styles.airTemperatureText'>Температура воздуха</div>
+            <div :class='styles.airTemperatureBtnWrapper'>
+              <div :class='styles.airTemperatureBtn'></div>
+              <div :class='styles.airTemperatureBtn'></div>
+              <div :class='styles.airTemperatureBtn'></div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- <div v-else-if='GET_PEPPER_LEVEL_GH' :class='[
         styles.plant, 
         {
           [styles.plantSproutPepper]: GET_PEPPER_SPROUT_GH,
@@ -18,9 +44,9 @@
           [styles.plantModifiedPepper]: GET_PEPPER_MODIFIED_GH
         }
       ]'
-    ></div>
+    ></div> -->
 
-    <div v-else-if='GET_STRAWBERRY_LEVEL_GH' :class='[
+    <!-- <div v-else-if='GET_STRAWBERRY_LEVEL_GH' :class='[
         styles.plant, 
         {
           [styles.plantSproutStrawberry]: GET_STRAWBERRY_SPROUT_GH,
@@ -28,9 +54,7 @@
           [styles.plantModifiedStrawberry]: GET_STRAWBERRY_MODIFIED_GH
         }
       ]'
-    ></div>
-
-    <div :class='styles.bigFlaskEmpty'></div>
+    ></div> -->
 
     <!-- <flasksTomato v-if='GET_TOMATO_LEVEL_GH' />
     <flasksPepper v-else-if='GET_PEPPER_LEVEL_GH' />

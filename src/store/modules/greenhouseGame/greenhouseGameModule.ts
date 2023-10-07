@@ -20,7 +20,7 @@ const state: IGreenhouseGameState = {
 	isStartGame: false,
 	points: 0,
 
-	timerTomato: 9,
+	timerTomato: 90,
 	timerPepper: 9,
 	timerStrawberry: 9,
 	playerMistakes: 0,
