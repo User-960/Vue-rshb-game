@@ -51,7 +51,7 @@
 .scaleIndicator {
 	position: absolute;
 	right: -32px;
-	top: 50px;
+	top: 30px;
 
 	background-image: url(../../../../../../../public/images/scaleIndicator.svg);
 	background-repeat: no-repeat;
@@ -60,6 +60,11 @@
 
 	width: 89px;
 	height: 27px;
+}
+
+.scaleIndicatorFirstMistake {
+	top: 120px;
+	animation: scaleFirstMistake 2s;
 }
 
 .tomatoSprout {
@@ -108,32 +113,12 @@
 }
 
 /* animations */
-@keyframes opacity {
+@keyframes scaleFirstMistake {
 	from {
-		opacity: 0;
-	}
-
-	40% {
-		opacity: 0;
-	}
-
-	50% {
-		opacity: 1;
-		top: 0px;
+		top: 30px;
 	}
 
 	to {
-		opacity: 0;
-		top: -30px;
-	}
-}
-
-@keyframes rotateFlask {
-	from {
-		transform: rotate(0deg);
-	}
-
-	to {
-		transform: rotate(-150deg);
+		top: 120px;
 	}
 }

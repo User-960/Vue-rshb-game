@@ -1,9 +1,13 @@
 <template>
   <div :class='styles.potWrapper'>
     <div :class='styles.scaleWrapper'>
-      <div :class='styles.health'>100%</div>
+      <div :class='styles.health'>{{ GET_TOMATO_HEALTH_PERCENTAGE_GH }}%</div>
       <div :class='styles.scale'>
-        <div :class='styles.scaleIndicator'></div>
+        <div :class='[
+            styles.scaleIndicator, 
+            {[styles.scaleIndicatorFirstMistake]: GET_FIRST_MISTAKE_GH}
+          ]'>
+        </div>
       </div>
     </div>
 
@@ -54,6 +58,8 @@ export default Vue.extend({
       EN_GreenhouseGameGetters.GET_PLAYER_MISTAKES_GH,
       EN_GreenhouseGameGetters.GET_TOMATO_SPROUT_GH,
       EN_GreenhouseGameGetters.GET_TOMATO_COLOR_GH,
+      EN_GreenhouseGameGetters.GET_TOMATO_HEALTH_PERCENTAGE_GH,
+      EN_GreenhouseGameGetters.GET_FIRST_MISTAKE_GH,
     ]),
   },
   methods: {

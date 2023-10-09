@@ -4,14 +4,11 @@
       v-if='GET_TOMATO_LEVEL_GH && 
       !GET_FIRST_MISTAKE_GH && 
       !GET_SECOND_MISTAKE_GH && 
-      (
-        GET_TOMATO_SOIL_MOISTURE_CHECK_GH || 
-        GET_TOMATO_SOIL_TEMPERATURE_CHECK_GH
-      )'
+      GET_START_GAME_GH'
     >
 
       <div :class='styles.content'>
-        <div v-if='GET_TOMATO_SOIL_MOISTURE_CHECK_GH' :class='styles.contentTomatoSoil'>
+        <div v-if='GET_TOMATO_SOIL_MOISTURE_CHECK_GH' :class='styles.contentTomato'>
           <ul :class='styles.characteristicsList'>
             <li :class='styles.characteristicsItem' @click='chooseOptionTomatoSoil'>25</li>
             <li :class='styles.characteristicsItem' @click='chooseOptionTomatoSoilCorrect'>30,1</li>
@@ -19,11 +16,19 @@
           </ul>
         </div>
 
-        <div v-if='GET_TOMATO_SOIL_TEMPERATURE_CHECK_GH' :class='styles.contentTomatoSoil'>
+        <div v-if='GET_TOMATO_AIR_HUMIDITY_CHECK_GH' :class='styles.contentTomato'>
           <ul :class='styles.characteristicsList'>
             <li :class='styles.characteristicsItem' @click='chooseOptionTomatoSoil'>70,6</li>
             <li :class='styles.characteristicsItem' @click='chooseOptionTomatoSoil'>25</li>
             <li :class='styles.characteristicsItem' @click='chooseOptionTomatoSoilCorrect'>70</li>
+          </ul>
+        </div>
+
+        <div v-if='GET_TOMATO_AIR_TEMPERATURE_CHECK_GH' :class='styles.contentTomato'>
+          <ul :class='styles.characteristicsList'>
+            <li :class='styles.characteristicsItem' @click='chooseOptionTomatoSoilCorrect'>25</li>
+            <li :class='styles.characteristicsItem' @click='chooseOptionTomatoSoil'>60</li>
+            <li :class='styles.characteristicsItem' @click='chooseOptionTomatoSoil'>70</li>
           </ul>
         </div>
       </div>
@@ -43,9 +48,12 @@ export default Vue.extend({
   name: 'dialogTask',
   computed: {
     ...mapGetters([
+      EN_GreenhouseGameGetters.GET_START_GAME_GH,
+      
       EN_GreenhouseGameGetters.GET_TOMATO_LEVEL_GH,
       EN_GreenhouseGameGetters.GET_TOMATO_SOIL_MOISTURE_CHECK_GH,
-      EN_GreenhouseGameGetters.GET_TOMATO_SOIL_TEMPERATURE_CHECK_GH,
+      EN_GreenhouseGameGetters.GET_TOMATO_AIR_HUMIDITY_CHECK_GH,
+      EN_GreenhouseGameGetters.GET_TOMATO_AIR_TEMPERATURE_CHECK_GH,
       EN_GreenhouseGameGetters.GET_TOMATO_SPROUT_GH,
       EN_GreenhouseGameGetters.GET_TOMATO_COLOR_GH,
       EN_GreenhouseGameGetters.GET_TOMATO_MODIFIED_GH,
@@ -69,21 +77,32 @@ export default Vue.extend({
 
       EN_GreenhouseGameMutation.HIDE_TOMATO_SOIL_MOISTURE_CHECK_GH,
       EN_GreenhouseGameMutation.SHOW_TOMATO_SOIL_MOISTURE_ACTION_GH,
-      EN_GreenhouseGameMutation.HIDE_TOMATO_SOIL_TEMPERATURE_CHECK_GH,
+      EN_GreenhouseGameMutation.HIDE_TOMATO_AIR_HUMIDITY_CHECK_GH,
+      EN_GreenhouseGameMutation.SHOW_TOMATO_AIR_TEMPERATURE_CHECK_GH,
+      EN_GreenhouseGameMutation.HIDE_TOMATO_AIR_TEMPERATURE_CHECK_GH,
+      EN_GreenhouseGameMutation.MINUS_TOMATO_HEALTH_PERCENTAGE_GH,
     ]),
     chooseOptionTomatoSoilCorrect() {
       if (this.GET_TOMATO_SOIL_MOISTURE_CHECK_GH) {
         this.HIDE_TOMATO_SOIL_MOISTURE_CHECK_GH()
+        this.UPDATE_TIMER_TOMATO_GH()
         this.SHOW_TOMATO_SOIL_MOISTURE_ACTION_GH()
       }
 
-      if (this.GET_TOMATO_SOIL_TEMPERATURE_CHECK_GH) {
-        this.HIDE_TOMATO_SOIL_TEMPERATURE_CHECK_GH()
-        // this.SHOW_TOMATO_SOIL_TEMPERATURE_ACTION_GH()
+      if (this.GET_TOMATO_AIR_HUMIDITY_CHECK_GH) {
+        this.HIDE_TOMATO_AIR_HUMIDITY_CHECK_GH()
+        this.UPDATE_TIMER_TOMATO_GH()
+        this.SHOW_TOMATO_AIR_TEMPERATURE_CHECK_GH()
+      }
+
+      if (this.GET_TOMATO_AIR_TEMPERATURE_CHECK_GH) {
+        this.HIDE_TOMATO_AIR_TEMPERATURE_CHECK_GH()
+        this.FINISH_GAME_GH()
       }
     },
     chooseOptionTomatoSoil() {
       if (this.GET_TOMATO_LEVEL_GH && this.GET_PLAYER_MISTAKES_GH === 0) {
+        this.MINUS_TOMATO_HEALTH_PERCENTAGE_GH()
         this.INCREASE_PLAYER_MISTAKES_GH()
         this.SHOW_FIRST_MISTAKE_GH()
         this.START_FINISH_TIMER_TOMATO_GH()
@@ -95,6 +114,7 @@ export default Vue.extend({
       }
 
       if (this.GET_TOMATO_LEVEL_GH && this.GET_PLAYER_MISTAKES_GH === 1 && !this.GET_FIRST_MISTAKE_GH) {
+        this.MINUS_TOMATO_HEALTH_PERCENTAGE_GH()
         this.INCREASE_PLAYER_MISTAKES_GH()
         this.SHOW_SECOND_MISTAKE_GH()
         this.START_FINISH_TIMER_TOMATO_GH()

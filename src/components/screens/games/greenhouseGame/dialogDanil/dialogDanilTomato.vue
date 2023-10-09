@@ -13,15 +13,21 @@
           </p>
 
           <p :class='[styles.text, styles.textSoilMoisture]' 
-            v-else-if='GET_TOMATO_SOIL_MOISTURE_ACTION_GH'
+            v-if='GET_TOMATO_SOIL_MOISTURE_ACTION_GH'
           >
             Верно. Нужно <span>полить почву</span>, чтобы увеличить показатель до 60%.
           </p>
 
-          <p :class='styles.text' 
-            v-else-if='GET_TOMATO_SOIL_TEMPERATURE_CHECK_GH'
+          <p :class='[styles.text, styles.textSoilMoisture]' 
+            v-if='GET_TOMATO_AIR_HUMIDITY_CHECK_GH'
           >
             Отлично! <br>Теперь сообщи показатель <span>влажности воздуха</span>.
+          </p>
+
+          <p :class='[styles.text, styles.textSoilMoisture]' 
+            v-if='GET_TOMATO_AIR_TEMPERATURE_CHECK_GH'
+          >
+            A сейчас проверь <span>температуру воздуха</span>.
           </p>
         </div>
 
@@ -35,7 +41,17 @@
 
     </div>
 
-    <div :class='styles.dialogModifiedTomato' v-else-if='GET_TOMATO_MODIFIED_GH'></div>
+   <div :class='styles.dialog' 
+      v-else-if='GET_TOMATO_LEVEL_GH && !GET_START_GAME_GH'
+    >
+      <div :class='styles.textContent'>
+        <div v-if='GET_TOMATO_LEVEL_GH'>
+          <p :class='[styles.text, styles.textSoilMoisture]'>
+            Супер! Мы отрегулировали все показатели, совсем скоро можно будет собирать урожай.
+          </p>
+        </div>
+      </div>
+    </div>
     
     <div :class='[
         {
@@ -56,7 +72,7 @@
           <p :class='[styles.text, styles.textSoilMoisture]' 
             v-if='GET_SECOND_MISTAKE_GH && !GET_FIRST_MISTAKE_GH'
           >
-            К сожалнию, ты выполнил неверное действие. Жизне-способность растения снижена.
+            К сожалению, ты выполнил неверное действие. Жизнеспособность растения снижена.
           </p>
         </div>
       </div>
@@ -68,8 +84,8 @@
         [styles.taskDanilCheck]: GET_TOMATO_SOIL_MOISTURE_CHECK_GH || !GET_TOMATO_SOIL_MOISTURE_ACTION_GH,
         [styles.taskDanilWrite]: !GET_TOMATO_SOIL_MOISTURE_CHECK_GH || GET_TOMATO_SOIL_MOISTURE_ACTION_GH,
         [styles.mistakeDanil]: GET_TOMATO_LEVEL_GH && (GET_FIRST_MISTAKE_GH || GET_SECOND_MISTAKE_GH),
-        [styles.correctDanil]: GET_TOMATO_SOIL_TEMPERATURE_CHECK_GH,
-        [styles.readyDanil]: GET_TOMATO_MODIFIED_GH
+        [styles.correctDanil]: GET_TOMATO_AIR_HUMIDITY_CHECK_GH || GET_TOMATO_AIR_TEMPERATURE_CHECK_GH,
+        [styles.readyDanil]: GET_START_GAME_GH
       }
       ]'
     ></div>
@@ -116,10 +132,13 @@ export default Vue.extend({
   },
   computed: {
     ...mapGetters([
+      EN_GreenhouseGameGetters.GET_START_GAME_GH,
+
       EN_GreenhouseGameGetters.GET_TOMATO_LEVEL_GH,
       EN_GreenhouseGameGetters.GET_TOMATO_SOIL_MOISTURE_CHECK_GH,
       EN_GreenhouseGameGetters.GET_TOMATO_SOIL_MOISTURE_ACTION_GH,
-      EN_GreenhouseGameGetters.GET_TOMATO_SOIL_TEMPERATURE_CHECK_GH,
+      EN_GreenhouseGameGetters.GET_TOMATO_AIR_HUMIDITY_CHECK_GH,
+      EN_GreenhouseGameGetters.GET_TOMATO_AIR_TEMPERATURE_CHECK_GH,
       EN_GreenhouseGameGetters.GET_TOMATO_SPROUT_GH,
       EN_GreenhouseGameGetters.GET_TOMATO_COLOR_GH,
       EN_GreenhouseGameGetters.GET_TOMATO_MODIFIED_GH,

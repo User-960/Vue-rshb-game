@@ -21,8 +21,9 @@ export interface IGreenhouseGameState {
 	isTomatoSoilMoistureCheck: boolean
 	isTomatoSoilMoistureAction: boolean
 	tomatoSoilMoistureNum: string
-	isTomatoSoilTemperatureCheck: boolean
-	isTomatoSoilTemperatureAction: boolean
+	healthTomatoPercentage: number
+	isTomatoAirHumidityCheck: boolean
+	isTomatoAirTemperatureCheck: boolean
 	isTomatoLevel: boolean
 	isTomatoSprout: boolean
 	isTomatoColor: boolean
