@@ -28,6 +28,10 @@ const state: IGreenhouseGameState = {
 	isSecondMistake: false,
 
 	isTomatoSoilMoistureCheck: true,
+	isTomatoSoilMoistureAction: false,
+	tomatoSoilMoistureNum: '30,1',
+	isTomatoSoilTemperatureCheck: false,
+	isTomatoSoilTemperatureAction: false,
 	isTomatoLevel: true,
 	isTomatoSprout: false,
 	isTomatoColor: false,

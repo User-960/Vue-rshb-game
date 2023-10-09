@@ -1,7 +1,13 @@
 <template>
   <div :class='styles.dialogTask'>
     <div :class='styles.dialog' 
-      v-if='GET_TOMATO_LEVEL_GH && !GET_FIRST_MISTAKE_GH && !GET_SECOND_MISTAKE_GH'
+      v-if='GET_TOMATO_LEVEL_GH && 
+      !GET_FIRST_MISTAKE_GH && 
+      !GET_SECOND_MISTAKE_GH && 
+      (
+        GET_TOMATO_SOIL_MOISTURE_CHECK_GH || 
+        GET_TOMATO_SOIL_TEMPERATURE_CHECK_GH
+      )'
     >
 
       <div :class='styles.content'>
@@ -10,6 +16,14 @@
             <li :class='styles.characteristicsItem' @click='chooseOptionTomatoSoil'>25</li>
             <li :class='styles.characteristicsItem' @click='chooseOptionTomatoSoilCorrect'>30,1</li>
             <li :class='styles.characteristicsItem' @click='chooseOptionTomatoSoil'>30</li>
+          </ul>
+        </div>
+
+        <div v-if='GET_TOMATO_SOIL_TEMPERATURE_CHECK_GH' :class='styles.contentTomatoSoil'>
+          <ul :class='styles.characteristicsList'>
+            <li :class='styles.characteristicsItem' @click='chooseOptionTomatoSoil'>70,6</li>
+            <li :class='styles.characteristicsItem' @click='chooseOptionTomatoSoil'>25</li>
+            <li :class='styles.characteristicsItem' @click='chooseOptionTomatoSoilCorrect'>70</li>
           </ul>
         </div>
       </div>
@@ -31,6 +45,7 @@ export default Vue.extend({
     ...mapGetters([
       EN_GreenhouseGameGetters.GET_TOMATO_LEVEL_GH,
       EN_GreenhouseGameGetters.GET_TOMATO_SOIL_MOISTURE_CHECK_GH,
+      EN_GreenhouseGameGetters.GET_TOMATO_SOIL_TEMPERATURE_CHECK_GH,
       EN_GreenhouseGameGetters.GET_TOMATO_SPROUT_GH,
       EN_GreenhouseGameGetters.GET_TOMATO_COLOR_GH,
       EN_GreenhouseGameGetters.GET_TOMATO_MODIFIED_GH,
@@ -53,9 +68,19 @@ export default Vue.extend({
       EN_GreenhouseGameMutation.SHOW_LOSS_BLOCK_GH,
 
       EN_GreenhouseGameMutation.HIDE_TOMATO_SOIL_MOISTURE_CHECK_GH,
+      EN_GreenhouseGameMutation.SHOW_TOMATO_SOIL_MOISTURE_ACTION_GH,
+      EN_GreenhouseGameMutation.HIDE_TOMATO_SOIL_TEMPERATURE_CHECK_GH,
     ]),
     chooseOptionTomatoSoilCorrect() {
-      this.HIDE_TOMATO_SOIL_MOISTURE_CHECK_GH()
+      if (this.GET_TOMATO_SOIL_MOISTURE_CHECK_GH) {
+        this.HIDE_TOMATO_SOIL_MOISTURE_CHECK_GH()
+        this.SHOW_TOMATO_SOIL_MOISTURE_ACTION_GH()
+      }
+
+      if (this.GET_TOMATO_SOIL_TEMPERATURE_CHECK_GH) {
+        this.HIDE_TOMATO_SOIL_TEMPERATURE_CHECK_GH()
+        // this.SHOW_TOMATO_SOIL_TEMPERATURE_ACTION_GH()
+      }
     },
     chooseOptionTomatoSoil() {
       if (this.GET_TOMATO_LEVEL_GH && this.GET_PLAYER_MISTAKES_GH === 0) {

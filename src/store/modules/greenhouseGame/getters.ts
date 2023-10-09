@@ -22,6 +22,10 @@ export enum EN_GreenhouseGameGetters {
 	GET_SECOND_MISTAKE_GH = 'GET_SECOND_MISTAKE_GH',
 
 	GET_TOMATO_SOIL_MOISTURE_CHECK_GH = 'GET_TOMATO_SOIL_MOISTURE_CHECK_GH',
+	GET_TOMATO_SOIL_MOISTURE_ACTION_GH = 'GET_TOMATO_SOIL_MOISTURE_ACTION_GH',
+	GET_TOMATO_SOIL_MOISTURE_NUM_GH = 'GET_TOMATO_SOIL_MOISTURE_NUM_GH',
+	GET_TOMATO_SOIL_TEMPERATURE_CHECK_GH = 'GET_TOMATO_SOIL_TEMPERATURE_CHECK_GH',
+	// GET_TOMATO_SOIL_TEMPERATURE_ACTION_GH = 'GET_TOMATO_SOIL_TEMPERATURE_ACTION_GH',
 	GET_TIMER_TOMATO_GH = 'GET_TIMER_TOMATO_GH',
 	GET_TOMATO_LEVEL_GH = 'GET_TOMATO_LEVEL_GH',
 	GET_TOMATO_SPROUT_GH = 'GET_TOMATO_SPROUT_GH',
@@ -66,6 +70,12 @@ export const getters: GetterTree<IGreenhouseGameState, IRootState> = {
 
 	[EN_GreenhouseGameGetters.GET_TOMATO_SOIL_MOISTURE_CHECK_GH]: state =>
 		state.isTomatoSoilMoistureCheck,
+	[EN_GreenhouseGameGetters.GET_TOMATO_SOIL_MOISTURE_ACTION_GH]: state =>
+		state.isTomatoSoilMoistureAction,
+	[EN_GreenhouseGameGetters.GET_TOMATO_SOIL_MOISTURE_NUM_GH]: state =>
+		state.tomatoSoilMoistureNum,
+	[EN_GreenhouseGameGetters.GET_TOMATO_SOIL_TEMPERATURE_CHECK_GH]: state =>
+		state.isTomatoSoilTemperatureCheck,
 	[EN_GreenhouseGameGetters.GET_TIMER_TOMATO_GH]: state => state.timerTomato,
 	[EN_GreenhouseGameGetters.GET_TOMATO_LEVEL_GH]: state => state.isTomatoLevel,
 	[EN_GreenhouseGameGetters.GET_TOMATO_SPROUT_GH]: state =>

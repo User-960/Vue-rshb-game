@@ -7,21 +7,21 @@
       <div :class='styles.textContent'>
         <div v-if='GET_TOMATO_LEVEL_GH'>
           <p :class='[styles.text, styles.textSoilMoisture]' 
-            v-if='!GET_TOMATO_SPROUT_GH'
+            v-if='GET_TOMATO_SOIL_MOISTURE_CHECK_GH'
           >
             Давай вырастим помидор. Сообщи мне показатель <span>влажности почвы</span>.
           </p>
 
-          <p :class='styles.text' 
-            v-else-if='GET_TOMATO_SPROUT_GH'
+          <p :class='[styles.text, styles.textSoilMoisture]' 
+            v-else-if='GET_TOMATO_SOIL_MOISTURE_ACTION_GH'
           >
-            Теперь предлагаю усилить структуру плода. Используй для этого серую колбу.
+            Верно. Нужно <span>полить почву</span>, чтобы увеличить показатель до 60%.
           </p>
 
           <p :class='styles.text' 
-            v-else-if='GET_TOMATO_COLOR_GH'
+            v-else-if='GET_TOMATO_SOIL_TEMPERATURE_CHECK_GH'
           >
-            Давай увеличим содержание антиоксидантов. Используй для этого розовую колбу.
+            Отлично! <br>Теперь сообщи показатель <span>влажности воздуха</span>.
           </p>
         </div>
 
@@ -65,10 +65,10 @@
     <div :class='[
       styles.danil, 
       {
-        [styles.taskDanilCheck]: !GET_TOMATO_SPROUT_GH || !GET_TOMATO_COLOR_GH,
-        [styles.taskDanilWrite]: GET_TOMATO_SPROUT_GH || GET_TOMATO_COLOR_GH,
+        [styles.taskDanilCheck]: GET_TOMATO_SOIL_MOISTURE_CHECK_GH || !GET_TOMATO_SOIL_MOISTURE_ACTION_GH,
+        [styles.taskDanilWrite]: !GET_TOMATO_SOIL_MOISTURE_CHECK_GH || GET_TOMATO_SOIL_MOISTURE_ACTION_GH,
         [styles.mistakeDanil]: GET_TOMATO_LEVEL_GH && (GET_FIRST_MISTAKE_GH || GET_SECOND_MISTAKE_GH),
-        [styles.correctDanil]: GET_TOMATO_MODIFIED_GH,
+        [styles.correctDanil]: GET_TOMATO_SOIL_TEMPERATURE_CHECK_GH,
         [styles.readyDanil]: GET_TOMATO_MODIFIED_GH
       }
       ]'
@@ -117,6 +117,9 @@ export default Vue.extend({
   computed: {
     ...mapGetters([
       EN_GreenhouseGameGetters.GET_TOMATO_LEVEL_GH,
+      EN_GreenhouseGameGetters.GET_TOMATO_SOIL_MOISTURE_CHECK_GH,
+      EN_GreenhouseGameGetters.GET_TOMATO_SOIL_MOISTURE_ACTION_GH,
+      EN_GreenhouseGameGetters.GET_TOMATO_SOIL_TEMPERATURE_CHECK_GH,
       EN_GreenhouseGameGetters.GET_TOMATO_SPROUT_GH,
       EN_GreenhouseGameGetters.GET_TOMATO_COLOR_GH,
       EN_GreenhouseGameGetters.GET_TOMATO_MODIFIED_GH,

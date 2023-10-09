@@ -4,10 +4,10 @@
     <div v-if='GET_TOMATO_LEVEL_GH' :class='styles.machineCharacteristicsTomato'>
       <ul :class='styles.characteristicsList'>
         <li :class='[styles.characteristicsItem, styles.soilMoisture]'>
-          <div :class='styles.soilMoistureNum'>30,1</div>
+          <div :class='styles.soilMoistureNum'>{{ GET_TOMATO_SOIL_MOISTURE_NUM_GH }}</div>
           <div :class='styles.soilMoistureWrapper'>
             <div :class='styles.soilMoistureText'>Влажность почвы</div>
-            <button :class='styles.soilMoistureBtn'>Полить</button>
+            <button :class='styles.soilMoistureBtn' @click='pourTomato'>Полить</button>
           </div>
         </li>
 
@@ -142,6 +142,8 @@ export default Vue.extend({
   computed: {
     ...mapGetters([
       EN_GreenhouseGameGetters.GET_TOMATO_LEVEL_GH,
+      EN_GreenhouseGameGetters.GET_TOMATO_SOIL_MOISTURE_ACTION_GH,
+      EN_GreenhouseGameGetters.GET_TOMATO_SOIL_MOISTURE_NUM_GH,
       EN_GreenhouseGameGetters.GET_TOMATO_SPROUT_GH,
       EN_GreenhouseGameGetters.GET_TOMATO_COLOR_GH,
       EN_GreenhouseGameGetters.GET_TOMATO_MODIFIED_GH,
@@ -162,10 +164,23 @@ export default Vue.extend({
       EN_GreenhouseGameMutation.START_PEPPER_LEVEL_GH,
       EN_GreenhouseGameMutation.START_STRAWBERRY_LEVEL_GH,
       EN_GreenhouseGameMutation.FINISH_STRAWBERRY_LEVEL_GH,
+
+      EN_GreenhouseGameMutation.HIDE_TOMATO_SOIL_MOISTURE_ACTION_GH,
+      EN_GreenhouseGameMutation.INCREASE_TOMATO_SOIL_MOISTURE_NUM_GH,
+      EN_GreenhouseGameMutation.SHOW_TOMATO_SOIL_TEMPERATURE_CHECK_GH,
       EN_GreenhouseGameMutation.HIDE_TOMATO_MODIFIED_GH,
+
       EN_GreenhouseGameMutation.HIDE_PEPPER_MODIFIED_GH,
+
       EN_GreenhouseGameMutation.HIDE_STRAWBERRY_MODIFIED_GH,
     ]),
+    pourTomato() {
+      if (this.GET_TOMATO_SOIL_MOISTURE_ACTION_GH) {
+        this.HIDE_TOMATO_SOIL_MOISTURE_ACTION_GH()
+        this.INCREASE_TOMATO_SOIL_MOISTURE_NUM_GH()
+        this.SHOW_TOMATO_SOIL_TEMPERATURE_CHECK_GH()
+      }
+    }
   }
 })
 </script>
