@@ -16,8 +16,8 @@
           <div :class='styles.airMoistureWrapper'>
             <div :class='styles.airMoistureText'>Влажность воздуха</div>
             <div :class='styles.airMoistureBtnWrapper'>
-              <button :class='styles.airMoistureBtn' @click='moisturizeAir'>Увлажнить</button>
-              <button :class='styles.airMoistureBtn' @click='drainAir'>Осушить</button>
+              <button :class='styles.airMoistureBtn'>Увлажнить</button>
+              <button :class='styles.airMoistureBtn'>Осушить</button>
             </div>
           </div>
         </li>
@@ -36,10 +36,10 @@
       </ul>
     </div>
 
-    <div v-if='GET_PEPPER_LEVEL_GH' :class='styles.machineCharacteristicsPepper'>
+    <div v-if='GET_PEPPER_LEVEL_GH' :class='styles.machineCharacteristicsTomato'>
       <ul :class='styles.characteristicsList'>
         <li :class='[styles.characteristicsItem, styles.soilMoisture]'>
-          <div :class='styles.soilMoistureNum'>30,1</div>
+          <div :class='styles.soilMoistureNum'>85</div>
           <div :class='styles.soilMoistureWrapper'>
             <div :class='styles.soilMoistureText'>Влажность почвы</div>
             <button :class='styles.soilMoistureBtn'>Полить</button>
@@ -47,18 +47,18 @@
         </li>
 
         <li :class='[styles.characteristicsItem, styles.airMoisture]'>
-          <div :class='styles.airMoistureNum'>70</div>
+          <div :class='styles.airMoistureNum'>{{ GET_PEPPER_AIR_HUMIDITY_NUM_GH }}</div>
           <div :class='styles.airMoistureWrapper'>
             <div :class='styles.airMoistureText'>Влажность воздуха</div>
             <div :class='styles.airMoistureBtnWrapper'>
-              <button :class='styles.airMoistureBtn'>Увлажнить</button>
+              <button :class='styles.airMoistureBtn' @click='moisturizeAir'>Увлажнить</button>
               <button :class='styles.airMoistureBtn'>Осушить</button>
             </div>
           </div>
         </li>
 
         <li :class='[styles.characteristicsItem, styles.airTemperature]'>
-          <div :class='styles.airTemperatureNum'>25</div>
+          <div :class='styles.airTemperatureNum'>27</div>
           <div :class='styles.airTemperatureWrapper'>
             <div :class='styles.airTemperatureText'>Температура воздуха</div>
             <div :class='styles.airTemperatureBtnWrapper'>
@@ -117,6 +117,7 @@
     ></div> -->
 
     <potTomato v-if='GET_TOMATO_LEVEL_GH' />
+    <potPepper v-if='GET_PEPPER_LEVEL_GH' />
 
     <!-- <flasksPepper v-else-if='GET_PEPPER_LEVEL_GH' />
     <flasksStrawberry v-else-if='GET_STRAWBERRY_LEVEL_GH' /> -->
@@ -146,9 +147,8 @@ export default Vue.extend({
       EN_GreenhouseGameGetters.GET_TOMATO_SOIL_MOISTURE_NUM_GH,
 
       EN_GreenhouseGameGetters.GET_PEPPER_LEVEL_GH,
-      EN_GreenhouseGameGetters.GET_PEPPER_SPROUT_GH,
-      EN_GreenhouseGameGetters.GET_PEPPER_COLOR_GH,
-      EN_GreenhouseGameGetters.GET_PEPPER_MODIFIED_GH,
+      EN_GreenhouseGameGetters.GET_PEPPER_AIR_HUMIDITY_ACTION_GH,
+      EN_GreenhouseGameGetters.GET_PEPPER_AIR_HUMIDITY_NUM_GH,
 
       EN_GreenhouseGameGetters.GET_STRAWBERRY_LEVEL_GH,
       EN_GreenhouseGameGetters.GET_STRAWBERRY_SPROUT_GH,
@@ -158,17 +158,10 @@ export default Vue.extend({
   },
   methods: {
     ...mapMutations([
-      EN_GreenhouseGameMutation.START_PEPPER_LEVEL_GH,
-      EN_GreenhouseGameMutation.START_STRAWBERRY_LEVEL_GH,
-      EN_GreenhouseGameMutation.FINISH_STRAWBERRY_LEVEL_GH,
       EN_GreenhouseGameMutation.PLUS_POINTS_GH,
 
       EN_GreenhouseGameMutation.HIDE_TOMATO_SOIL_MOISTURE_ACTION_GH,
-      EN_GreenhouseGameMutation.INCREASE_TOMATO_SOIL_MOISTURE_NUM_GH,
-      EN_GreenhouseGameMutation.SHOW_TOMATO_AIR_HUMIDITY_CHECK_GH,
-      EN_GreenhouseGameMutation.UPDATE_TIMER_TOMATO_GH,
-
-      EN_GreenhouseGameMutation.HIDE_PEPPER_MODIFIED_GH,
+      EN_GreenhouseGameMutation.HIDE_PEPPER_AIR_HUMIDITY_ACTION_GH,
 
       EN_GreenhouseGameMutation.HIDE_STRAWBERRY_MODIFIED_GH,
     ]),
@@ -179,12 +172,10 @@ export default Vue.extend({
       }
     },
     moisturizeAir() {
-      // if (this.GET_TOMATO_SOIL_MOISTURE_ACTION_GH) {
-      //   this.HIDE_TOMATO_SOIL_MOISTURE_ACTION_GH()
-      //   this.INCREASE_TOMATO_SOIL_MOISTURE_NUM_GH()
-      //   this.SHOW_TOMATO_SOIL_TEMPERATURE_CHECK_GH()
-      // }
-      console.log(1)
+      if (this.GET_PEPPER_LEVEL_GH && this.GET_PEPPER_AIR_HUMIDITY_ACTION_GH) {
+        this.PLUS_POINTS_GH()
+        this.HIDE_PEPPER_AIR_HUMIDITY_ACTION_GH()
+      }
     },
     drainAir() {
       // if (this.GET_TOMATO_SOIL_MOISTURE_ACTION_GH) {

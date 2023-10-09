@@ -29,6 +29,7 @@ export enum EN_GreenhouseGameMutation {
 	UPDATE_TIMER_TOMATO_GH = 'UPDATE_TIMER_TOMATO_GH',
 	START_FINISH_TIMER_TOMATO_GH = 'START_FINISH_TIMER_TOMATO_GH',
 	STOP_TIMER_TOMATO_GH = 'STOP_TIMER_TOMATO_GH',
+	STOP_TIMER_PEPPER_GH = 'STOP_TIMER_PEPPER_GH',
 	UPDATE_TIMER_PEPPER_GH = 'UPDATE_TIMER_PEPPER_GH',
 	START_FINISH_TIMER_PEPPER_GH = 'START_FINISH_TIMER_PEPPER_GH',
 	UPDATE_TIMER_STRAWBERRY_GH = 'UPDATE_TIMER_STRAWBERRY_GH',
@@ -54,14 +55,19 @@ export enum EN_GreenhouseGameMutation {
 	START_TOMATO_LEVEL_GH = 'START_TOMATO_LEVEL_GH',
 	FINISH_TOMATO_LEVEL_GH = 'FINISH_TOMATO_LEVEL_GH',
 
+	SHOW_PEPPER_SOIL_MOISTURE_CHECK_GH = 'SHOW_PEPPER_SOIL_MOISTURE_CHECK_GH',
+	HIDE_PEPPER_SOIL_MOISTURE_CHECK_GH = 'HIDE_PEPPER_SOIL_MOISTURE_CHECK_GH',
+	SHOW_PEPPER_AIR_HUMIDITY_CHECK_GH = 'SHOW_PEPPER_AIR_HUMIDITY_CHECK_GH',
+	HIDE_PEPPER_AIR_HUMIDITY_CHECK_GH = 'HIDE_PEPPER_AIR_HUMIDITY_CHECK_GH',
+	SHOW_PEPPER_AIR_HUMIDITY_ACTION_GH = 'SHOW_PEPPER_AIR_HUMIDITY_ACTION_GH',
+	HIDE_PEPPER_AIR_HUMIDITY_ACTION_GH = 'HIDE_PEPPER_AIR_HUMIDITY_ACTION_GH',
+	INCREASE_PEPPER_AIR_HUMIDITY_NUM_GH = 'INCREASE_PEPPER_AIR_HUMIDITY_NUM_GH',
+	SHOW_PEPPER_AIR_TEMPERATURE_CHECK_GH = 'SHOW_PEPPER_AIR_TEMPERATURE_CHECK_GH',
+	HIDE_PEPPER_AIR_TEMPERATURE_CHECK_GH = 'HIDE_PEPPER_AIR_TEMPERATURE_CHECK_GH',
+	PLUS_PEPPER_HEALTH_PERCENTAGE_GH = 'PLUS_PEPPER_HEALTH_PERCENTAGE_GH',
+	MINUS_PEPPER_HEALTH_PERCENTAGE_GH = 'MINUS_PEPPER_HEALTH_PERCENTAGE_GH',
 	START_PEPPER_LEVEL_GH = 'START_PEPPER_LEVEL_GH',
 	FINISH_PEPPER_LEVEL_GH = 'FINISH_PEPPER_LEVEL_GH',
-	SHOW_PEPPER_SPROUT_GH = 'SHOW_PEPPER_SPROUT_GH',
-	HIDE_PEPPER_SPROUT_GH = 'HIDE_PEPPER_SPROUT_GH',
-	SHOW_PEPPER_COLOR_GH = 'SHOW_PEPPER_COLOR_GH',
-	HIDE_PEPPER_COLOR_GH = 'HIDE_PEPPER_COLOR_GH',
-	SHOW_PEPPER_MODIFIED_GH = 'SHOW_PEPPER_MODIFIED_GH',
-	HIDE_PEPPER_MODIFIED_GH = 'HIDE_PEPPER_MODIFIED_GH',
 
 	START_STRAWBERRY_LEVEL_GH = 'START_STRAWBERRY_LEVEL_GH',
 	FINISH_STRAWBERRY_LEVEL_GH = 'FINISH_STRAWBERRY_LEVEL_GH',
@@ -88,26 +94,28 @@ export const mutations: MutationTree<IGreenhouseGameState> = {
 		state.isStartGame = false
 		state.points = 0
 
-		state.timerTomato = 9
 		state.timerPepper = 9
 		state.timerStrawberry = 9
-
 		state.playerMistakes = 0
 		state.isFirstMistake = false
 		state.isSecondMistake = false
-		;(state.isTomatoSoilMoistureCheck = true),
-			(state.isTomatoSoilMoistureAction = false),
-			(state.tomatoSoilMoistureNum = '30,1'),
-			(state.healthTomatoPercentage = 100),
-			(state.isTomatoAirHumidityCheck = false),
-			(state.isTomatoAirTemperatureCheck = false),
-			(state.isTomatoLevel = true),
-			(state.pepperFlasksList = generatorFlasksList(nameFlasks))
-		state.pepperFlasksDropZone = generatorFlasksDropZone()
+
+		state.timerTomato = 9
+		state.isTomatoSoilMoistureCheck = true
+		state.isTomatoSoilMoistureAction = false
+		state.tomatoSoilMoistureNum = '30,1'
+		state.healthTomatoPercentage = 100
+		state.isTomatoAirHumidityCheck = false
+		state.isTomatoAirTemperatureCheck = false
+		state.isTomatoLevel = true
+
+		state.isPepperSoilMoistureCheck = false
+		state.isPepperAirHumidityCheck = false
+		state.isPepperAirHumidityAction = false
+		state.isPepperAirTemperatureCheck = false
+		state.pepperAirHumidityNum = '65'
+		state.healthPepperPercentage = 100
 		state.isPepperLevel = false
-		state.isPepperSprout = false
-		state.isPepperColor = false
-		state.isPepperModified = false
 
 		state.strawberryFlasksList = generatorFlasksList(nameFlasks)
 		state.strawberryFlasksDropZone = generatorFlasksDropZone()
@@ -234,6 +242,11 @@ export const mutations: MutationTree<IGreenhouseGameState> = {
 			clearInterval(timerPepper)
 		}
 	},
+	[EN_GreenhouseGameMutation.STOP_TIMER_PEPPER_GH](state) {
+		if (timerPepper) {
+			clearInterval(timerPepper)
+		}
+	},
 	[EN_GreenhouseGameMutation.UPDATE_TIMER_STRAWBERRY_GH](state) {
 		state.timerStrawberry = 9
 	},
@@ -325,29 +338,44 @@ export const mutations: MutationTree<IGreenhouseGameState> = {
 		state.isTomatoLevel = false
 	},
 
+	[EN_GreenhouseGameMutation.SHOW_PEPPER_SOIL_MOISTURE_CHECK_GH](state) {
+		state.isPepperSoilMoistureCheck = true
+	},
+	[EN_GreenhouseGameMutation.HIDE_PEPPER_SOIL_MOISTURE_CHECK_GH](state) {
+		state.isPepperSoilMoistureCheck = false
+	},
+	[EN_GreenhouseGameMutation.SHOW_PEPPER_AIR_HUMIDITY_CHECK_GH](state) {
+		state.isPepperAirHumidityCheck = true
+	},
+	[EN_GreenhouseGameMutation.HIDE_PEPPER_AIR_HUMIDITY_CHECK_GH](state) {
+		state.isPepperAirHumidityCheck = false
+	},
+	[EN_GreenhouseGameMutation.SHOW_PEPPER_AIR_HUMIDITY_ACTION_GH](state) {
+		state.isPepperAirHumidityAction = true
+	},
+	[EN_GreenhouseGameMutation.HIDE_PEPPER_AIR_HUMIDITY_ACTION_GH](state) {
+		state.isPepperAirHumidityAction = false
+	},
+	[EN_GreenhouseGameMutation.INCREASE_PEPPER_AIR_HUMIDITY_NUM_GH](state) {
+		state.pepperAirHumidityNum = '80'
+	},
+	[EN_GreenhouseGameMutation.SHOW_PEPPER_AIR_TEMPERATURE_CHECK_GH](state) {
+		state.isPepperAirTemperatureCheck = true
+	},
+	[EN_GreenhouseGameMutation.HIDE_PEPPER_AIR_TEMPERATURE_CHECK_GH](state) {
+		state.isPepperAirTemperatureCheck = false
+	},
+	[EN_GreenhouseGameMutation.PLUS_PEPPER_HEALTH_PERCENTAGE_GH](state) {
+		state.healthPepperPercentage += 30
+	},
+	[EN_GreenhouseGameMutation.MINUS_PEPPER_HEALTH_PERCENTAGE_GH](state) {
+		state.healthPepperPercentage -= 50
+	},
 	[EN_GreenhouseGameMutation.START_PEPPER_LEVEL_GH](state) {
 		state.isPepperLevel = true
 	},
 	[EN_GreenhouseGameMutation.FINISH_PEPPER_LEVEL_GH](state) {
 		state.isPepperLevel = false
-	},
-	[EN_GreenhouseGameMutation.SHOW_PEPPER_SPROUT_GH](state) {
-		state.isPepperSprout = true
-	},
-	[EN_GreenhouseGameMutation.HIDE_PEPPER_SPROUT_GH](state) {
-		state.isPepperSprout = false
-	},
-	[EN_GreenhouseGameMutation.SHOW_PEPPER_COLOR_GH](state) {
-		state.isPepperColor = true
-	},
-	[EN_GreenhouseGameMutation.HIDE_PEPPER_COLOR_GH](state) {
-		state.isPepperColor = false
-	},
-	[EN_GreenhouseGameMutation.SHOW_PEPPER_MODIFIED_GH](state) {
-		state.isPepperModified = true
-	},
-	[EN_GreenhouseGameMutation.HIDE_PEPPER_MODIFIED_GH](state) {
-		state.isPepperModified = false
 	},
 
 	[EN_GreenhouseGameMutation.START_STRAWBERRY_LEVEL_GH](state) {

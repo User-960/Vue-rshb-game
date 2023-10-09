@@ -53,7 +53,7 @@ import { mapGetters, mapMutations } from 'vuex'
 import { EN_CONFIG } from '../config/config'
 
 export default Vue.extend({
-  name: 'dialogTask',
+  name: 'dialogTaskTomato',
   computed: {
     ...mapGetters([
       EN_GreenhouseGameGetters.GET_START_GAME_GH,

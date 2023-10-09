@@ -20,18 +20,19 @@ export interface IGreenhouseGameState {
 
 	isTomatoSoilMoistureCheck: boolean
 	isTomatoSoilMoistureAction: boolean
-	tomatoSoilMoistureNum: string
-	healthTomatoPercentage: number
 	isTomatoAirHumidityCheck: boolean
 	isTomatoAirTemperatureCheck: boolean
+	tomatoSoilMoistureNum: string
+	healthTomatoPercentage: number
 	isTomatoLevel: boolean
 
-	pepperFlasksList: IFlask[]
-	pepperFlasksDropZone: IFlask[]
+	isPepperSoilMoistureCheck: boolean
+	isPepperAirHumidityCheck: boolean
+	isPepperAirHumidityAction: boolean
+	isPepperAirTemperatureCheck: boolean
+	pepperAirHumidityNum: string
+	healthPepperPercentage: number
 	isPepperLevel: boolean
-	isPepperSprout: boolean
-	isPepperColor: boolean
-	isPepperModified: boolean
 
 	strawberryFlasksList: IFlask[]
 	strawberryFlasksDropZone: IFlask[]
