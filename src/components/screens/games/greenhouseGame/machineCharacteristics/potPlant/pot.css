@@ -67,6 +67,11 @@
 	animation: scaleFirstMistake 2s;
 }
 
+.scaleIndicatorSecondMistake {
+	top: 220px;
+	animation: scaleSecondMistake 2s;
+}
+
 .tomatoSprout {
 	position: absolute;
 	bottom: 124px;
@@ -120,5 +125,15 @@
 
 	to {
 		top: 120px;
+	}
+}
+
+@keyframes scaleSecondMistake {
+	from {
+		top: 120px;
+	}
+
+	to {
+		top: 220px;
 	}
 }

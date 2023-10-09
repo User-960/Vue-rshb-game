@@ -71,6 +71,7 @@ export const getters: GetterTree<IGreenhouseGameState, IRootState> = {
 	[EN_GreenhouseGameGetters.GET_SECOND_MISTAKE_GH]: state =>
 		state.isSecondMistake,
 
+	[EN_GreenhouseGameGetters.GET_TOMATO_LEVEL_GH]: state => state.isTomatoLevel,
 	[EN_GreenhouseGameGetters.GET_TOMATO_SOIL_MOISTURE_CHECK_GH]: state =>
 		state.isTomatoSoilMoistureCheck,
 	[EN_GreenhouseGameGetters.GET_TOMATO_SOIL_MOISTURE_ACTION_GH]: state =>
@@ -82,7 +83,6 @@ export const getters: GetterTree<IGreenhouseGameState, IRootState> = {
 	[EN_GreenhouseGameGetters.GET_TOMATO_AIR_TEMPERATURE_CHECK_GH]: state =>
 		state.isTomatoAirTemperatureCheck,
 	[EN_GreenhouseGameGetters.GET_TIMER_TOMATO_GH]: state => state.timerTomato,
-	[EN_GreenhouseGameGetters.GET_TOMATO_LEVEL_GH]: state => state.isTomatoLevel,
 	[EN_GreenhouseGameGetters.GET_TOMATO_SPROUT_GH]: state =>
 		state.isTomatoSprout,
 	[EN_GreenhouseGameGetters.GET_TOMATO_COLOR_GH]: state => state.isTomatoColor,

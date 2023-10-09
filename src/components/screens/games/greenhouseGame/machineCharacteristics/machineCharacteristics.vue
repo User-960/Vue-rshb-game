@@ -164,6 +164,7 @@ export default Vue.extend({
       EN_GreenhouseGameMutation.START_PEPPER_LEVEL_GH,
       EN_GreenhouseGameMutation.START_STRAWBERRY_LEVEL_GH,
       EN_GreenhouseGameMutation.FINISH_STRAWBERRY_LEVEL_GH,
+      EN_GreenhouseGameMutation.PLUS_POINTS_GH,
 
       EN_GreenhouseGameMutation.HIDE_TOMATO_SOIL_MOISTURE_ACTION_GH,
       EN_GreenhouseGameMutation.INCREASE_TOMATO_SOIL_MOISTURE_NUM_GH,
@@ -177,10 +178,8 @@ export default Vue.extend({
     ]),
     pourSoil() {
       if (this.GET_TOMATO_LEVEL_GH && this.GET_TOMATO_SOIL_MOISTURE_ACTION_GH) {
+        this.PLUS_POINTS_GH()
         this.HIDE_TOMATO_SOIL_MOISTURE_ACTION_GH()
-        this.INCREASE_TOMATO_SOIL_MOISTURE_NUM_GH()
-        this.UPDATE_TIMER_TOMATO_GH()
-        this.SHOW_TOMATO_AIR_HUMIDITY_CHECK_GH()
       }
     },
     moisturizeAir() {

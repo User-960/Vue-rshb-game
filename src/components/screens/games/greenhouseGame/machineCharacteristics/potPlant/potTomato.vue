@@ -5,7 +5,8 @@
       <div :class='styles.scale'>
         <div :class='[
             styles.scaleIndicator, 
-            {[styles.scaleIndicatorFirstMistake]: GET_FIRST_MISTAKE_GH}
+            {[styles.scaleIndicatorFirstMistake]: GET_PLAYER_MISTAKES_GH === 1,
+            [styles.scaleIndicatorSecondMistake]: GET_PLAYER_MISTAKES_GH === 2}
           ]'>
         </div>
       </div>
@@ -19,7 +20,6 @@
 
 <script lang='ts'>
 import Vue from 'vue'
-import draggable from 'vuedraggable'
 import { EN_CONFIG } from '../../config/config'
 import { mapGetters, mapMutations } from 'vuex'
 import { EN_GreenhouseGameMutation } from '@/store/modules/greenhouseGame/mutations'
@@ -27,39 +27,13 @@ import { EN_GreenhouseGameGetters } from '@/store/modules/greenhouseGame/getters
 
 export default Vue.extend({
   name: 'potTomato',
-  data: () => ({
-    isBlueEffectActive: false,
-    isGreenEffectActive: false,
-    isRedEffectActive: false,
-    isYellowEffectActive: false,
-    isPinkEffectActive: false,
-    isCyanEffectActive: false,
-    isOrangeEffectActive: false,
-    isPurpleEffectActive: false,
-    isGreyEffectActive: false,
-
-    isBlueFlaskRotate: false,
-    isGreenFlaskRotate: false,
-    isPinkFlaskRotate: false,
-    isYellowFlaskRotate: false,
-    isRedFlaskRotate: false,
-    isCyanFlaskRotate: false,
-    isOrangeFlaskRotate: false,
-    isPurpleFlaskRotate: false,
-    isGreyFlaskRotate: false,
-
-    isEmptyFlask: false,
-  }),
-  components: {
-    draggable,
-  },
   computed: {
     ...mapGetters([
       EN_GreenhouseGameGetters.GET_PLAYER_MISTAKES_GH,
       EN_GreenhouseGameGetters.GET_TOMATO_SPROUT_GH,
       EN_GreenhouseGameGetters.GET_TOMATO_COLOR_GH,
       EN_GreenhouseGameGetters.GET_TOMATO_HEALTH_PERCENTAGE_GH,
-      EN_GreenhouseGameGetters.GET_FIRST_MISTAKE_GH,
+      EN_GreenhouseGameGetters.GET_PLAYER_MISTAKES_GH,
     ]),
   },
   methods: {
@@ -79,9 +53,7 @@ export default Vue.extend({
       EN_GreenhouseGameMutation.HIDE_SECOND_MISTAKE_GH,
 
       EN_GreenhouseGameMutation.FINISH_GAME_GH,
-      EN_GreenhouseGameMutation.SHOW_LOSS_BLOCK_GH,
-      EN_GreenhouseGameMutation.PLUS_POINTS_GH,
-      EN_GreenhouseGameMutation.MINUS_POINTS_GH
+      EN_GreenhouseGameMutation.SHOW_LOSS_BLOCK_GH
     ]),
   },
 })

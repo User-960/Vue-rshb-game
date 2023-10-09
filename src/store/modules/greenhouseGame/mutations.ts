@@ -28,6 +28,7 @@ export enum EN_GreenhouseGameMutation {
 
 	UPDATE_TIMER_TOMATO_GH = 'UPDATE_TIMER_TOMATO_GH',
 	START_FINISH_TIMER_TOMATO_GH = 'START_FINISH_TIMER_TOMATO_GH',
+	STOP_TIMER_TOMATO_GH = 'STOP_TIMER_TOMATO_GH',
 	UPDATE_TIMER_PEPPER_GH = 'UPDATE_TIMER_PEPPER_GH',
 	START_FINISH_TIMER_PEPPER_GH = 'START_FINISH_TIMER_PEPPER_GH',
 	UPDATE_TIMER_STRAWBERRY_GH = 'UPDATE_TIMER_STRAWBERRY_GH',
@@ -200,6 +201,11 @@ export const mutations: MutationTree<IGreenhouseGameState> = {
 		}
 
 		if (state.isFirstMistake || state.isSecondMistake) {
+			clearInterval(timerTomato)
+		}
+	},
+	[EN_GreenhouseGameMutation.STOP_TIMER_TOMATO_GH](state) {
+		if (timerTomato) {
 			clearInterval(timerTomato)
 		}
 	},
