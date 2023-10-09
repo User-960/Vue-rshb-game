@@ -19,7 +19,7 @@
     <li :class='[
         styles.navLevel, 
         styles.navLevelStrawberry,
-        {[styles.navLevelStrawberryActive]: !GET_PEPPER_LEVEL_GH || GET_STRAWBERRY_LEVEL_GH}
+        {[styles.navLevelStrawberryActive]: (!GET_PEPPER_LEVEL_GH && !GET_TOMATO_LEVEL_GH) || GET_STRAWBERRY_LEVEL_GH}
       ]'
       @click='openStrawberryLevel'
     ></li>
@@ -75,7 +75,7 @@ export default Vue.extend({
       EN_GreenhouseGameMutation.SHOW_STRAWBERRY_SOIL_MOISTURE_CHECK_GH,
     ]),
     openTomatoLevel() {
-      if (!this.GET_PEPPER_LEVEL_GH) {
+      if (!this.GET_PEPPER_LEVEL_GH && !this.GET_STRAWBERRY_LEVEL_GH) {
         this.FINISH_PEPPER_LEVEL_GH()
         this.START_FINISH_TIMER_PEPPER_GH()
         this.FINISH_STRAWBERRY_LEVEL_GH()
@@ -88,7 +88,9 @@ export default Vue.extend({
     },
     openPepperLevel() {
       if (
+          this.GET_TOMATO_LEVEL_GH &&
           !this.GET_PEPPER_LEVEL_GH && 
+          !this.GET_STRAWBERRY_LEVEL_GH &&
           !this.GET_TOMATO_AIR_TEMPERATURE_CHECK_GH && 
           !this.GET_TOMATO_SOIL_MOISTURE_CHECK_GH &&
           !this.GET_TOMATO_SOIL_MOISTURE_ACTION_GH && 
@@ -109,6 +111,8 @@ export default Vue.extend({
     },
     openStrawberryLevel() {
       if (
+          this.GET_PEPPER_LEVEL_GH &&
+          !this.GET_TOMATO_LEVEL_GH &&
           !this.GET_STRAWBERRY_LEVEL_GH && 
           !this.GET_PEPPER_AIR_TEMPERATURE_CHECK_GH && 
           !this.GET_PEPPER_SOIL_MOISTURE_CHECK_GH &&

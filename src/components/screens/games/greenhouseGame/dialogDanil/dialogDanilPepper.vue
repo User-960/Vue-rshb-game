@@ -15,7 +15,7 @@
           <p :class='[styles.text, styles.textCharacteristic]' 
             v-if='GET_PEPPER_AIR_HUMIDITY_CHECK_GH'
           >
-            Теперь сообщи мне показание <span>влажности возудха</span>.
+            Хорошо. Теперь сообщи мне показание <span>влажности воздуха</span> на датчике.
           </p>
 
           <p :class='[styles.text, styles.textCharacteristic]' 
@@ -27,7 +27,7 @@
           <p :class='[styles.text, styles.textCharacteristic]' 
             v-if='GET_PEPPER_AIR_TEMPERATURE_CHECK_GH'
           >
-            Посмотри и скажи мне <span>температуру воздуха</span>.
+            Отлично! Сейчас посмотри и скажи мне <span>температуру воздуха</span> у перца.
           </p>
 
           <p :class='[styles.text, styles.textCharacteristic]' 

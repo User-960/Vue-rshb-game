@@ -16,7 +16,7 @@
     >
 
       <div :class='styles.content'>
-        <div v-if='GET_PEPPER_SOIL_MOISTURE_CHECK_GH' :class='styles.contentStrawberry'>
+        <div v-if='GET_STRAWBERRY_SOIL_MOISTURE_CHECK_GH' :class='styles.contentStrawberry'>
           <ul :class='styles.characteristicsList'>
             <li :class='styles.characteristicsItem' @click='chooseOptionStrawberry'>22</li>
             <li :class='styles.characteristicsItem' @click='chooseOptionStrawberry'>34,2</li>
@@ -24,15 +24,15 @@
           </ul>
         </div>
 
-        <div v-if='GET_PEPPER_AIR_HUMIDITY_CHECK_GH' :class='styles.contentStrawberry'>
+        <div v-if='GET_STRAWBERRY_AIR_HUMIDITY_CHECK_GH' :class='styles.contentStrawberry'>
           <ul :class='styles.characteristicsList'>
-            <li :class='styles.characteristicsItem' @click='chooseOptionStrawberry'>102,2</li>
-            <li :class='styles.characteristicsItem' @click='chooseOptionStrawberryAirCorrect'>122</li>
+            <li :class='styles.characteristicsItem' @click='chooseOptionStrawberry'>122</li>
+            <li :class='styles.characteristicsItem' @click='chooseOptionStrawberryAirCorrect'>102</li>
             <li :class='styles.characteristicsItem' @click='chooseOptionStrawberry'>2</li>
           </ul>
         </div>
 
-        <div v-if='GET_PEPPER_AIR_TEMPERATURE_CHECK_GH' :class='styles.contentStrawberry'>
+        <div v-if='GET_STRAWBERRY_AIR_TEMPERATURE_CHECK_GH' :class='styles.contentStrawberry'>
           <ul :class='styles.characteristicsList'>
             <li :class='styles.characteristicsItem' @click='chooseOptionStrawberry'>38</li>
             <li :class='styles.characteristicsItem' @click='chooseOptionStrawberryAirCorrect'>22</li>
@@ -78,7 +78,7 @@ export default Vue.extend({
       }
     },
     GET_STRAWBERRY_AIR_HUMIDITY_CHECK_GH() {
-      if (!this.GET_PEPPER_AIR_HUMIDITY_CHECK_GH) {
+      if (!this.GET_STRAWBERRY_AIR_HUMIDITY_CHECK_GH) {
         this.UPDATE_TIMER_STRAWBERRY_GH()
         this.SHOW_STRAWBERRY_AIR_HUMIDITY_ACTION_GH()
       }
@@ -93,12 +93,14 @@ export default Vue.extend({
     GET_STRAWBERRY_AIR_TEMPERATURE_CHECK_GH() {
       if (!this.GET_STRAWBERRY_AIR_TEMPERATURE_CHECK_GH) {
         this.STOP_TIMER_STRAWBERRY_GH()
+        this.FINISH_GAME_GH()
       }
     }
   },
   methods: {
     ...mapMutations([
       EN_GreenhouseGameMutation.FINISH_GAME_GH,
+      
       EN_GreenhouseGameMutation.INCREASE_PLAYER_MISTAKES_GH,
       EN_GreenhouseGameMutation.SHOW_FIRST_MISTAKE_GH,
       EN_GreenhouseGameMutation.HIDE_FIRST_MISTAKE_GH,

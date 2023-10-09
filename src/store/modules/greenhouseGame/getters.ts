@@ -75,6 +75,8 @@ export const getters: GetterTree<IGreenhouseGameState, IRootState> = {
 		state.healthTomatoPercentage,
 	[EN_GreenhouseGameGetters.GET_PEPPER_HEALTH_PERCENTAGE_GH]: state =>
 		state.healthPepperPercentage,
+	[EN_GreenhouseGameGetters.GET_STRAWBERRY_HEALTH_PERCENTAGE_GH]: state =>
+		state.healthStrawberryPercentage,
 	[EN_GreenhouseGameGetters.GET_SECOND_MISTAKE_GH]: state =>
 		state.isSecondMistake,
 

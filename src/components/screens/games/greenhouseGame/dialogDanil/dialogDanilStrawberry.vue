@@ -9,32 +9,32 @@
           <p :class='[styles.text, styles.textCharacteristic]' 
             v-if='GET_STRAWBERRY_SOIL_MOISTURE_CHECK_GH'
           >
-            Теперь настроим показатели для перца. Какая сейчас <span>влажность у почвы</span>?
+            Займёмся клубникой. Сообщи мне показатель <span>влажности почвы</span> у клубники.
           </p>
 
           <p :class='[styles.text, styles.textCharacteristic]' 
             v-if='GET_STRAWBERRY_AIR_HUMIDITY_CHECK_GH'
           >
-            Теперь сообщи мне показание <span>влажности возудха</span>.
+            Вас понял! <br>Теперь скажи какая <br><span>влажность воздуха</span> у клубники.
           </p>
 
           <p :class='[styles.text, styles.textCharacteristic]' 
             v-if='GET_STRAWBERRY_AIR_HUMIDITY_ACTION_GH'
           >
-            Верно. Теперь нужно <span>увлажнить</span> воздух, чтобы увеличить показатель до 80%.
+            Согласен. Необходимо <span>осушить</span> воздух, чтобы снизить показатель.
           </p>
 
           <p :class='[styles.text, styles.textCharacteristic]' 
             v-if='GET_STRAWBERRY_AIR_TEMPERATURE_CHECK_GH'
           >
-            Посмотри и скажи мне <span>температуру воздуха</span>.
+            Записал. Теперь посмотри и скажи мне <span>температуру воздуха</span> на датчике.
           </p>
 
           <p :class='[styles.text, styles.textCharacteristic]' 
             v-if='!GET_STRAWBERRY_AIR_TEMPERATURE_CHECK_GH && !GET_STRAWBERRY_SOIL_MOISTURE_CHECK_GH &&
                   !GET_STRAWBERRY_AIR_HUMIDITY_ACTION_GH && !GET_STRAWBERRY_AIR_HUMIDITY_CHECK_GH'
           >
-            Супер! Мы настроили все показатели.
+            Отлично! Мы настроили показатели для всех растений.
           </p>
         </div>
 

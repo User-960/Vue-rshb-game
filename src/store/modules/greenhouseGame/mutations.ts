@@ -125,7 +125,7 @@ export const mutations: MutationTree<IGreenhouseGameState> = {
 
 		state.isStrawberrySoilMoistureCheck = false
 		state.isStrawberryAirHumidityCheck = false
-		state.isStrawberryAirHumidityAction: false
+		state.isStrawberryAirHumidityAction = false
 		state.isStrawberryAirTemperatureCheck = false
 		state.strawberryAirHumidityNum = '102'
 		state.healthStrawberryPercentage = 100
