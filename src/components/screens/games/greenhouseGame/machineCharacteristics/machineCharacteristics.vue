@@ -74,7 +74,7 @@
     <div v-if='GET_STRAWBERRY_LEVEL_GH' :class='styles.machineCharacteristicsStrawberry'>
       <ul :class='styles.characteristicsList'>
         <li :class='[styles.characteristicsItem, styles.soilMoisture]'>
-          <div :class='styles.soilMoistureNum'>30,1</div>
+          <div :class='styles.soilMoistureNum'>32</div>
           <div :class='styles.soilMoistureWrapper'>
             <div :class='styles.soilMoistureText'>Влажность почвы</div>
             <button :class='styles.soilMoistureBtn'>Полить</button>
@@ -82,18 +82,18 @@
         </li>
 
         <li :class='[styles.characteristicsItem, styles.airMoisture]'>
-          <div :class='styles.airMoistureNum'>70</div>
+          <div :class='styles.airMoistureNum'>{{ GET_STRAWBERRY_AIR_HUMIDITY_NUM_GH }}</div>
           <div :class='styles.airMoistureWrapper'>
             <div :class='styles.airMoistureText'>Влажность воздуха</div>
             <div :class='styles.airMoistureBtnWrapper'>
               <button :class='styles.airMoistureBtn'>Увлажнить</button>
-              <button :class='styles.airMoistureBtn'>Осушить</button>
+              <button :class='styles.airMoistureBtn' @click='drainAir'>Осушить</button>
             </div>
           </div>
         </li>
 
         <li :class='[styles.characteristicsItem, styles.airTemperature]'>
-          <div :class='styles.airTemperatureNum'>25</div>
+          <div :class='styles.airTemperatureNum'>22</div>
           <div :class='styles.airTemperatureWrapper'>
             <div :class='styles.airTemperatureText'>Температура воздуха</div>
             <div :class='styles.airTemperatureBtnWrapper'>
@@ -106,21 +106,9 @@
       </ul>
     </div>
 
-    <!-- <div v-else-if='GET_STRAWBERRY_LEVEL_GH' :class='[
-        styles.plant, 
-        {
-          [styles.plantSproutStrawberry]: GET_STRAWBERRY_SPROUT_GH,
-          [styles.plantColorStrawberry]: GET_STRAWBERRY_COLOR_GH,
-          [styles.plantModifiedStrawberry]: GET_STRAWBERRY_MODIFIED_GH
-        }
-      ]'
-    ></div> -->
-
     <potTomato v-if='GET_TOMATO_LEVEL_GH' />
     <potPepper v-if='GET_PEPPER_LEVEL_GH' />
-
-    <!-- <flasksPepper v-else-if='GET_PEPPER_LEVEL_GH' />
-    <flasksStrawberry v-else-if='GET_STRAWBERRY_LEVEL_GH' /> -->
+    <potStrawberry v-if='GET_STRAWBERRY_LEVEL_GH' />
   </div>
 </template>
 
@@ -151,9 +139,8 @@ export default Vue.extend({
       EN_GreenhouseGameGetters.GET_PEPPER_AIR_HUMIDITY_NUM_GH,
 
       EN_GreenhouseGameGetters.GET_STRAWBERRY_LEVEL_GH,
-      EN_GreenhouseGameGetters.GET_STRAWBERRY_SPROUT_GH,
-      EN_GreenhouseGameGetters.GET_STRAWBERRY_COLOR_GH,
-      EN_GreenhouseGameGetters.GET_STRAWBERRY_MODIFIED_GH,
+      EN_GreenhouseGameGetters.GET_STRAWBERRY_AIR_HUMIDITY_ACTION_GH,
+      EN_GreenhouseGameGetters.GET_STRAWBERRY_AIR_HUMIDITY_NUM_GH,
     ]),
   },
   methods: {
@@ -162,8 +149,7 @@ export default Vue.extend({
 
       EN_GreenhouseGameMutation.HIDE_TOMATO_SOIL_MOISTURE_ACTION_GH,
       EN_GreenhouseGameMutation.HIDE_PEPPER_AIR_HUMIDITY_ACTION_GH,
-
-      EN_GreenhouseGameMutation.HIDE_STRAWBERRY_MODIFIED_GH,
+      EN_GreenhouseGameMutation.HIDE_STRAWBERRY_AIR_HUMIDITY_ACTION_GH
     ]),
     pourSoil() {
       if (this.GET_TOMATO_LEVEL_GH && this.GET_TOMATO_SOIL_MOISTURE_ACTION_GH) {
@@ -178,12 +164,10 @@ export default Vue.extend({
       }
     },
     drainAir() {
-      // if (this.GET_TOMATO_SOIL_MOISTURE_ACTION_GH) {
-      //   this.HIDE_TOMATO_SOIL_MOISTURE_ACTION_GH()
-      //   this.INCREASE_TOMATO_SOIL_MOISTURE_NUM_GH()
-      //   this.SHOW_TOMATO_SOIL_TEMPERATURE_CHECK_GH()
-      // }
-      console.log(1)
+      if (this.GET_STRAWBERRY_LEVEL_GH && this.GET_STRAWBERRY_AIR_HUMIDITY_ACTION_GH) {
+        this.PLUS_POINTS_GH()
+        this.HIDE_STRAWBERRY_AIR_HUMIDITY_ACTION_GH()
+      }
     }
   }
 })

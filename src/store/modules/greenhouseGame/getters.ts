@@ -41,12 +41,13 @@ export enum EN_GreenhouseGameGetters {
 	GET_PEPPER_HEALTH_PERCENTAGE_GH = 'GET_PEPPER_HEALTH_PERCENTAGE_GH',
 	GET_PEPPER_LEVEL_GH = 'GET_PEPPER_LEVEL_GH',
 
-	GET_FLASKS_STRAWBERRY_GH = 'GET_FLASKS_STRAWBERRY_GH',
-	GET_FLASKS_DROPZONE_STRAWBERRY_GH = 'GET_FLASKS_DROPZONE_STRAWBERRY_GH',
-	GET_STRAWBERRY_LEVEL_GH = 'GET_STRAWBERRY_LEVEL_GH',
-	GET_STRAWBERRY_SPROUT_GH = 'GET_STRAWBERRY_SPROUT_GH',
-	GET_STRAWBERRY_COLOR_GH = 'GET_STRAWBERRY_COLOR_GH',
-	GET_STRAWBERRY_MODIFIED_GH = 'GET_STRAWBERRY_MODIFIED_GH'
+	GET_STRAWBERRY_SOIL_MOISTURE_CHECK_GH = 'GET_STRAWBERRY_SOIL_MOISTURE_CHECK_GH',
+	GET_STRAWBERRY_AIR_HUMIDITY_CHECK_GH = 'GET_STRAWBERRY_AIR_HUMIDITY_CHECK_GH',
+	GET_STRAWBERRY_AIR_HUMIDITY_ACTION_GH = 'GET_STRAWBERRY_AIR_HUMIDITY_ACTION_GH',
+	GET_STRAWBERRY_AIR_HUMIDITY_NUM_GH = 'GET_STRAWBERRY_AIR_HUMIDITY_NUM_GH',
+	GET_STRAWBERRY_AIR_TEMPERATURE_CHECK_GH = 'GET_STRAWBERRY_AIR_TEMPERATURE_CHECK_GH',
+	GET_STRAWBERRY_HEALTH_PERCENTAGE_GH = 'GET_STRAWBERRY_HEALTH_PERCENTAGE_GH',
+	GET_STRAWBERRY_LEVEL_GH = 'GET_STRAWBERRY_LEVEL_GH'
 }
 
 export const getters: GetterTree<IGreenhouseGameState, IRootState> = {
@@ -101,16 +102,16 @@ export const getters: GetterTree<IGreenhouseGameState, IRootState> = {
 	[EN_GreenhouseGameGetters.GET_PEPPER_AIR_TEMPERATURE_CHECK_GH]: state =>
 		state.isPepperAirTemperatureCheck,
 
-	[EN_GreenhouseGameGetters.GET_FLASKS_STRAWBERRY_GH]: state =>
-		state.strawberryFlasksList,
-	[EN_GreenhouseGameGetters.GET_FLASKS_DROPZONE_STRAWBERRY_GH]: state =>
-		state.strawberryFlasksDropZone,
 	[EN_GreenhouseGameGetters.GET_STRAWBERRY_LEVEL_GH]: state =>
 		state.isStrawberryLevel,
-	[EN_GreenhouseGameGetters.GET_STRAWBERRY_SPROUT_GH]: state =>
-		state.isStrawberrySprout,
-	[EN_GreenhouseGameGetters.GET_STRAWBERRY_COLOR_GH]: state =>
-		state.isStrawberryColor,
-	[EN_GreenhouseGameGetters.GET_STRAWBERRY_MODIFIED_GH]: state =>
-		state.isStrawberryModified
+	[EN_GreenhouseGameGetters.GET_STRAWBERRY_SOIL_MOISTURE_CHECK_GH]: state =>
+		state.isStrawberrySoilMoistureCheck,
+	[EN_GreenhouseGameGetters.GET_STRAWBERRY_AIR_HUMIDITY_CHECK_GH]: state =>
+		state.isStrawberryAirHumidityCheck,
+	[EN_GreenhouseGameGetters.GET_STRAWBERRY_AIR_HUMIDITY_ACTION_GH]: state =>
+		state.isStrawberryAirHumidityAction,
+	[EN_GreenhouseGameGetters.GET_STRAWBERRY_AIR_HUMIDITY_NUM_GH]: state =>
+		state.strawberryAirHumidityNum,
+	[EN_GreenhouseGameGetters.GET_STRAWBERRY_AIR_TEMPERATURE_CHECK_GH]: state =>
+		state.isStrawberryAirTemperatureCheck
 }

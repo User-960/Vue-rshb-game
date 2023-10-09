@@ -6,31 +6,31 @@
 
       <div :class='styles.textContent'>
         <div v-if='GET_PEPPER_LEVEL_GH && !GET_FIRST_MISTAKE_GH && !GET_SECOND_MISTAKE_GH'>
-          <p :class='[styles.text, styles.textSoilMoisture]' 
+          <p :class='[styles.text, styles.textCharacteristic]' 
             v-if='GET_PEPPER_SOIL_MOISTURE_CHECK_GH'
           >
             Теперь настроим показатели для перца. Какая сейчас <span>влажность у почвы</span>?
           </p>
 
-          <p :class='[styles.text, styles.textSoilMoisture]' 
+          <p :class='[styles.text, styles.textCharacteristic]' 
             v-if='GET_PEPPER_AIR_HUMIDITY_CHECK_GH'
           >
             Теперь сообщи мне показание <span>влажности возудха</span>.
           </p>
 
-          <p :class='[styles.text, styles.textSoilMoisture]' 
+          <p :class='[styles.text, styles.textCharacteristic]' 
             v-if='GET_PEPPER_AIR_HUMIDITY_ACTION_GH'
           >
-            Верно. Теперь нужно <span>увлажнить</span> воздух, что увеличить показатель до 80%.
+            Верно. Теперь нужно <span>увлажнить</span> воздух, чтобы увеличить показатель до 80%.
           </p>
 
-          <p :class='[styles.text, styles.textSoilMoisture]' 
+          <p :class='[styles.text, styles.textCharacteristic]' 
             v-if='GET_PEPPER_AIR_TEMPERATURE_CHECK_GH'
           >
             Посмотри и скажи мне <span>температуру воздуха</span>.
           </p>
 
-          <p :class='[styles.text, styles.textSoilMoisture]' 
+          <p :class='[styles.text, styles.textCharacteristic]' 
             v-if='!GET_PEPPER_AIR_TEMPERATURE_CHECK_GH && !GET_PEPPER_SOIL_MOISTURE_CHECK_GH &&
                   !GET_PEPPER_AIR_HUMIDITY_ACTION_GH && !GET_PEPPER_AIR_HUMIDITY_CHECK_GH'
           >
@@ -66,13 +66,13 @@
     >
       <div :class='styles.textContent'>
         <div v-if='GET_PEPPER_LEVEL_GH'>
-          <p :class='[styles.text, styles.textSoilMoisture]' 
+          <p :class='[styles.text, styles.textCharacteristic]' 
             v-if='GET_FIRST_MISTAKE_GH'
           >
             Неверно. Давай проверим все показатели еще раз.
           </p>
 
-          <p :class='[styles.text, styles.textSoilMoisture]' 
+          <p :class='[styles.text, styles.textCharacteristic]' 
             v-if='GET_SECOND_MISTAKE_GH'
           >
             К сожалению, опять неверное действие.
@@ -111,7 +111,7 @@ export default Vue.extend({
   name: 'dialogDanilPepper',
   watch: {
     GET_TIMER_PEPPER_GH() {
-      if (this.GET_PEPPER_LEVEL_GH && this.GET_TIMER_TOMATO_GH === 0 && this.GET_PLAYER_MISTAKES_GH === 0) {
+      if (this.GET_PEPPER_LEVEL_GH && this.GET_TIMER_PEPPER_GH === 0 && this.GET_PLAYER_MISTAKES_GH === 0) {
         this.INCREASE_PLAYER_MISTAKES_GH()
         this.MINUS_PEPPER_HEALTH_PERCENTAGE_GH()
         this.SHOW_FIRST_MISTAKE_GH()

@@ -15,6 +15,7 @@
         <div :class='styles.dialogTaskWrapper'>
           <dialogTaskTomato v-if='GET_TOMATO_LEVEL_GH' />
           <dialogTaskPepper v-else-if='GET_PEPPER_LEVEL_GH' />
+          <dialogTaskStrawberry v-else-if='GET_STRAWBERRY_LEVEL_GH' />
         </div>
 
         <div :class='styles.machineCharacteristicsWrapper'>
@@ -41,6 +42,7 @@ import dialogTaskTomato from '../dialogTask/dialogTaskTomato.vue'
 import dialogTaskPepper from '../dialogTask/dialogTaskPepper.vue'
 import dialogDanilTomato from '../dialogDanil/dialogDanilTomato.vue'
 import dialogDanilPepper from '../dialogDanil/dialogDanilPepper.vue'
+import dialogTaskStrawberry from '../dialogDanil/dialogTaskStrawberry.vue'
 import dialogDanilStrawberry from '../dialogDanil/dialogDanilStrawberry.vue'
 import victoryBlockGame from '../victoryBlockGame/victoryBlockGame.vue'
 import lossBlockGame from '../lossBlockGame/lossBlockGame.vue'
@@ -58,6 +60,7 @@ export default Vue.extend({
     machineCharacteristics,
     dialogTaskTomato,
     dialogTaskPepper,
+    dialogTaskStrawberry,
     dialogDanilTomato,
     dialogDanilPepper,
     dialogDanilStrawberry
@@ -68,8 +71,7 @@ export default Vue.extend({
       EN_GreenhouseGameGetters.GET_LOSS_BLOCK_GH,
       EN_GreenhouseGameGetters.GET_TOMATO_LEVEL_GH,
       EN_GreenhouseGameGetters.GET_PEPPER_LEVEL_GH,
-      EN_GreenhouseGameGetters.GET_STRAWBERRY_LEVEL_GH,
-      EN_GreenhouseGameGetters.GET_STRAWBERRY_MODIFIED_GH,
+      EN_GreenhouseGameGetters.GET_STRAWBERRY_LEVEL_GH
     ]),
   }
 })

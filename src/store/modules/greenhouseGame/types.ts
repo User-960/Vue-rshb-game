@@ -34,10 +34,11 @@ export interface IGreenhouseGameState {
 	healthPepperPercentage: number
 	isPepperLevel: boolean
 
-	strawberryFlasksList: IFlask[]
-	strawberryFlasksDropZone: IFlask[]
+	isStrawberrySoilMoistureCheck: boolean
+	isStrawberryAirHumidityCheck: boolean
+	isStrawberryAirHumidityAction: boolean
+	isStrawberryAirTemperatureCheck: boolean
+	strawberryAirHumidityNum: string
+	healthStrawberryPercentage: number
 	isStrawberryLevel: boolean
-	isStrawberrySprout: boolean
-	isStrawberryColor: boolean
-	isStrawberryModified: boolean
 }

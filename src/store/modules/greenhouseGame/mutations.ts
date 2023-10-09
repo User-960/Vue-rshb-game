@@ -30,6 +30,7 @@ export enum EN_GreenhouseGameMutation {
 	START_FINISH_TIMER_TOMATO_GH = 'START_FINISH_TIMER_TOMATO_GH',
 	STOP_TIMER_TOMATO_GH = 'STOP_TIMER_TOMATO_GH',
 	STOP_TIMER_PEPPER_GH = 'STOP_TIMER_PEPPER_GH',
+	STOP_TIMER_STRAWBERRY_GH = 'STOP_TIMER_STRAWBERRY_GH',
 	UPDATE_TIMER_PEPPER_GH = 'UPDATE_TIMER_PEPPER_GH',
 	START_FINISH_TIMER_PEPPER_GH = 'START_FINISH_TIMER_PEPPER_GH',
 	UPDATE_TIMER_STRAWBERRY_GH = 'UPDATE_TIMER_STRAWBERRY_GH',
@@ -69,14 +70,19 @@ export enum EN_GreenhouseGameMutation {
 	START_PEPPER_LEVEL_GH = 'START_PEPPER_LEVEL_GH',
 	FINISH_PEPPER_LEVEL_GH = 'FINISH_PEPPER_LEVEL_GH',
 
+	SHOW_STRAWBERRY_SOIL_MOISTURE_CHECK_GH = 'SHOW_STRAWBERRY_SOIL_MOISTURE_CHECK_GH',
+	HIDE_STRAWBERRY_SOIL_MOISTURE_CHECK_GH = 'HIDE_STRAWBERRY_SOIL_MOISTURE_CHECK_GH',
+	SHOW_STRAWBERRY_AIR_HUMIDITY_CHECK_GH = 'SHOW_STRAWBERRY_AIR_HUMIDITY_CHECK_GH',
+	HIDE_STRAWBERRY_AIR_HUMIDITY_CHECK_GH = 'HIDE_STRAWBERRY_AIR_HUMIDITY_CHECK_GH',
+	SHOW_STRAWBERRY_AIR_HUMIDITY_ACTION_GH = 'SHOW_STRAWBERRY_AIR_HUMIDITY_ACTION_GH',
+	HIDE_STRAWBERRY_AIR_HUMIDITY_ACTION_GH = 'HIDE_STRAWBERRY_AIR_HUMIDITY_ACTION_GH',
+	REDUCE_STRAWBERRY_AIR_HUMIDITY_NUM_GH = 'REDUCE_STRAWBERRY_AIR_HUMIDITY_NUM_GH',
+	SHOW_STRAWBERRY_AIR_TEMPERATURE_CHECK_GH = 'SHOW_STRAWBERRY_AIR_TEMPERATURE_CHECK_GH',
+	HIDE_STRAWBERRY_AIR_TEMPERATURE_CHECK_GH = 'HIDE_STRAWBERRY_AIR_TEMPERATURE_CHECK_GH',
+	PLUS_STRAWBERRY_HEALTH_PERCENTAGE_GH = 'PLUS_STRAWBERRY_HEALTH_PERCENTAGE_GH',
+	MINUS_STRAWBERRY_HEALTH_PERCENTAGE_GH = 'MINUS_STRAWBERRY_HEALTH_PERCENTAGE_GH',
 	START_STRAWBERRY_LEVEL_GH = 'START_STRAWBERRY_LEVEL_GH',
-	FINISH_STRAWBERRY_LEVEL_GH = 'FINISH_STRAWBERRY_LEVEL_GH',
-	SHOW_STRAWBERRY_SPROUT_GH = 'SHOW_STRAWBERRY_SPROUT_GH',
-	HIDE_STRAWBERRY_SPROUT_GH = 'HIDE_STRAWBERRY_SPROUT_GH',
-	SHOW_STRAWBERRY_COLOR_GH = 'SHOW_STRAWBERRY_COLOR_GH',
-	HIDE_STRAWBERRY_COLOR_GH = 'HIDE_STRAWBERRY_COLOR_GH',
-	SHOW_STRAWBERRY_MODIFIED_GH = 'SHOW_STRAWBERRY_MODIFIED_GH',
-	HIDE_STRAWBERRY_MODIFIED_GH = 'HIDE_STRAWBERRY_MODIFIED_GH'
+	FINISH_STRAWBERRY_LEVEL_GH = 'FINISH_STRAWBERRY_LEVEL_GH'
 }
 
 const audioVictory = new Audio(AUDIO_CONFIG.AUDIO_VICTORY)
@@ -117,12 +123,13 @@ export const mutations: MutationTree<IGreenhouseGameState> = {
 		state.healthPepperPercentage = 100
 		state.isPepperLevel = false
 
-		state.strawberryFlasksList = generatorFlasksList(nameFlasks)
-		state.strawberryFlasksDropZone = generatorFlasksDropZone()
+		state.isStrawberrySoilMoistureCheck = false
+		state.isStrawberryAirHumidityCheck = false
+		state.isStrawberryAirHumidityAction: false
+		state.isStrawberryAirTemperatureCheck = false
+		state.strawberryAirHumidityNum = '102'
+		state.healthStrawberryPercentage = 100
 		state.isStrawberryLevel = false
-		state.isStrawberrySprout = false
-		state.isStrawberryColor = false
-		state.isStrawberryModified = false
 	},
 	[EN_GreenhouseGameMutation.SHOW_INFO_LINK_BLOCK_GH](state) {
 		const audio = new Audio(AUDIO_CONFIG.AUDIO_NEW_MISSION)
@@ -277,6 +284,11 @@ export const mutations: MutationTree<IGreenhouseGameState> = {
 			clearInterval(timerStrawberry)
 		}
 	},
+	[EN_GreenhouseGameMutation.STOP_TIMER_STRAWBERRY_GH](state) {
+		if (timerStrawberry) {
+			clearInterval(timerStrawberry)
+		}
+	},
 
 	[EN_GreenhouseGameMutation.INCREASE_PLAYER_MISTAKES_GH](state) {
 		state.playerMistakes += 1
@@ -378,28 +390,43 @@ export const mutations: MutationTree<IGreenhouseGameState> = {
 		state.isPepperLevel = false
 	},
 
+	[EN_GreenhouseGameMutation.SHOW_STRAWBERRY_SOIL_MOISTURE_CHECK_GH](state) {
+		state.isStrawberrySoilMoistureCheck = true
+	},
+	[EN_GreenhouseGameMutation.HIDE_STRAWBERRY_SOIL_MOISTURE_CHECK_GH](state) {
+		state.isStrawberrySoilMoistureCheck = false
+	},
+	[EN_GreenhouseGameMutation.SHOW_STRAWBERRY_AIR_HUMIDITY_CHECK_GH](state) {
+		state.isStrawberryAirHumidityCheck = true
+	},
+	[EN_GreenhouseGameMutation.HIDE_STRAWBERRY_AIR_HUMIDITY_CHECK_GH](state) {
+		state.isStrawberryAirHumidityCheck = false
+	},
+	[EN_GreenhouseGameMutation.SHOW_STRAWBERRY_AIR_HUMIDITY_ACTION_GH](state) {
+		state.isStrawberryAirHumidityAction = true
+	},
+	[EN_GreenhouseGameMutation.HIDE_STRAWBERRY_AIR_HUMIDITY_ACTION_GH](state) {
+		state.isStrawberryAirHumidityAction = false
+	},
+	[EN_GreenhouseGameMutation.REDUCE_STRAWBERRY_AIR_HUMIDITY_NUM_GH](state) {
+		state.strawberryAirHumidityNum = '78'
+	},
+	[EN_GreenhouseGameMutation.SHOW_STRAWBERRY_AIR_TEMPERATURE_CHECK_GH](state) {
+		state.isStrawberryAirTemperatureCheck = true
+	},
+	[EN_GreenhouseGameMutation.HIDE_STRAWBERRY_AIR_TEMPERATURE_CHECK_GH](state) {
+		state.isStrawberryAirTemperatureCheck = false
+	},
+	[EN_GreenhouseGameMutation.PLUS_STRAWBERRY_HEALTH_PERCENTAGE_GH](state) {
+		state.healthStrawberryPercentage += 30
+	},
+	[EN_GreenhouseGameMutation.MINUS_STRAWBERRY_HEALTH_PERCENTAGE_GH](state) {
+		state.healthStrawberryPercentage -= 50
+	},
 	[EN_GreenhouseGameMutation.START_STRAWBERRY_LEVEL_GH](state) {
 		state.isStrawberryLevel = true
 	},
 	[EN_GreenhouseGameMutation.FINISH_STRAWBERRY_LEVEL_GH](state) {
 		state.isStrawberryLevel = false
-	},
-	[EN_GreenhouseGameMutation.SHOW_STRAWBERRY_SPROUT_GH](state) {
-		state.isStrawberrySprout = true
-	},
-	[EN_GreenhouseGameMutation.HIDE_STRAWBERRY_SPROUT_GH](state) {
-		state.isStrawberrySprout = false
-	},
-	[EN_GreenhouseGameMutation.SHOW_STRAWBERRY_COLOR_GH](state) {
-		state.isStrawberryColor = true
-	},
-	[EN_GreenhouseGameMutation.HIDE_STRAWBERRY_COLOR_GH](state) {
-		state.isStrawberryColor = false
-	},
-	[EN_GreenhouseGameMutation.SHOW_STRAWBERRY_MODIFIED_GH](state) {
-		state.isStrawberryModified = true
-	},
-	[EN_GreenhouseGameMutation.HIDE_STRAWBERRY_MODIFIED_GH](state) {
-		state.isStrawberryModified = false
 	}
 }

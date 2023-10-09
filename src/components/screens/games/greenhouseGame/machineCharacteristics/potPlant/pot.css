@@ -87,6 +87,36 @@
 	height: 90px;
 }
 
+.pepperSprout {
+	position: absolute;
+	bottom: 124px;
+	left: 85px;
+	z-index: 30;
+
+	background-image: url(../../../../../../../public/images/isPlantSproutPepper.svg);
+	background-repeat: no-repeat;
+	background-position: bottom;
+	background-size: contain;
+
+	width: 117px;
+	height: 90px;
+}
+
+.strawberrySprout {
+	position: absolute;
+	bottom: 124px;
+	left: 85px;
+	z-index: 30;
+
+	background-image: url(../../../../../../../public/images/isPlantSproutStrawberry.svg);
+	background-repeat: no-repeat;
+	background-position: bottom;
+	background-size: contain;
+
+	width: 117px;
+	height: 90px;
+}
+
 .pot {
 	position: absolute;
 	bottom: 10px;

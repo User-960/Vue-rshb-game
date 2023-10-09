@@ -43,12 +43,13 @@ const state: IGreenhouseGameState = {
 	healthPepperPercentage: 100,
 	isPepperLevel: false,
 
-	strawberryFlasksList: generatorFlasksList(nameFlasks),
-	strawberryFlasksDropZone: generatorFlasksDropZone(),
-	isStrawberryLevel: false,
-	isStrawberrySprout: false,
-	isStrawberryColor: false,
-	isStrawberryModified: false
+	isStrawberrySoilMoistureCheck: false,
+	isStrawberryAirHumidityCheck: false,
+	isStrawberryAirHumidityAction: false,
+	isStrawberryAirTemperatureCheck: false,
+	strawberryAirHumidityNum: '102',
+	healthStrawberryPercentage: 100,
+	isStrawberryLevel: false
 }
 
 export const getDefaultGreenhouseGameState = () => {

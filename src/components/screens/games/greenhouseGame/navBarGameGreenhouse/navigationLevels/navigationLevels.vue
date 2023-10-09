@@ -19,7 +19,7 @@
     <li :class='[
         styles.navLevel, 
         styles.navLevelStrawberry,
-        {[styles.navLevelStrawberryActive]: GET_STRAWBERRY_LEVEL_GH}
+        {[styles.navLevelStrawberryActive]: !GET_PEPPER_LEVEL_GH || GET_STRAWBERRY_LEVEL_GH}
       ]'
       @click='openStrawberryLevel'
     ></li>
@@ -48,7 +48,11 @@ export default Vue.extend({
       EN_GreenhouseGameGetters.GET_PEPPER_AIR_HUMIDITY_ACTION_GH,
       EN_GreenhouseGameGetters.GET_PEPPER_AIR_HUMIDITY_CHECK_GH,
 
-      EN_GreenhouseGameGetters.GET_STRAWBERRY_LEVEL_GH
+      EN_GreenhouseGameGetters.GET_STRAWBERRY_LEVEL_GH,
+      EN_GreenhouseGameGetters.GET_STRAWBERRY_AIR_TEMPERATURE_CHECK_GH,
+      EN_GreenhouseGameGetters.GET_STRAWBERRY_SOIL_MOISTURE_CHECK_GH,
+      EN_GreenhouseGameGetters.GET_STRAWBERRY_AIR_HUMIDITY_ACTION_GH,
+      EN_GreenhouseGameGetters.GET_STRAWBERRY_AIR_HUMIDITY_CHECK_GH,
     ]),
   },
   methods: {
@@ -68,6 +72,7 @@ export default Vue.extend({
       EN_GreenhouseGameMutation.FINISH_STRAWBERRY_LEVEL_GH,
       EN_GreenhouseGameMutation.START_FINISH_TIMER_STRAWBERRY_GH,
       EN_GreenhouseGameMutation.UPDATE_TIMER_STRAWBERRY_GH,
+      EN_GreenhouseGameMutation.SHOW_STRAWBERRY_SOIL_MOISTURE_CHECK_GH,
     ]),
     openTomatoLevel() {
       if (!this.GET_PEPPER_LEVEL_GH) {
@@ -103,15 +108,24 @@ export default Vue.extend({
       }
     },
     openStrawberryLevel() {
-      if (!this.GET_STRAWBERRY_LEVEL_GH) {
+      if (
+          !this.GET_STRAWBERRY_LEVEL_GH && 
+          !this.GET_PEPPER_AIR_TEMPERATURE_CHECK_GH && 
+          !this.GET_PEPPER_SOIL_MOISTURE_CHECK_GH &&
+          !this.GET_PEPPER_AIR_HUMIDITY_ACTION_GH && 
+          !this.GET_PEPPER_AIR_HUMIDITY_CHECK_GH
+        ) {
         this.FINISH_TOMATO_LEVEL_GH()
         this.START_FINISH_TIMER_TOMATO_GH()
         this.FINISH_PEPPER_LEVEL_GH()
         this.START_FINISH_TIMER_PEPPER_GH()
 
-        this.START_STRAWBERRY_LEVEL_GH()
-        this.UPDATE_TIMER_STRAWBERRY_GH()
-        this.START_FINISH_TIMER_STRAWBERRY_GH()
+        if (!this.GET_STRAWBERRY_LEVEL_GH && !this.GET_STRAWBERRY_SOIL_MOISTURE_CHECK_GH) {
+          this.START_STRAWBERRY_LEVEL_GH()
+          this.SHOW_STRAWBERRY_SOIL_MOISTURE_CHECK_GH()
+          this.UPDATE_TIMER_STRAWBERRY_GH()
+          this.START_FINISH_TIMER_STRAWBERRY_GH()
+        }
       }
     }
   }

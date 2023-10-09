@@ -12,7 +12,7 @@
       </div>
     </div>
 
-    <div :class='styles.tomatoSprout'></div>
+    <div :class='styles.pepperSprout'></div>
     <div :class='styles.pot'></div>
     <div :class='styles.potTable'></div>
   </div>

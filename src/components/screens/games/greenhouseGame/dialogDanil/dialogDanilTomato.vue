@@ -6,31 +6,31 @@
 
       <div :class='styles.textContent'>
         <div v-if='GET_TOMATO_LEVEL_GH && !GET_FIRST_MISTAKE_GH && !GET_SECOND_MISTAKE_GH'>
-          <p :class='[styles.text, styles.textSoilMoisture]' 
+          <p :class='[styles.text, styles.textCharacteristic]' 
             v-if='GET_TOMATO_SOIL_MOISTURE_CHECK_GH'
           >
             Давай вырастим помидор. Сообщи мне показатель <span>влажности почвы</span>.
           </p>
 
-          <p :class='[styles.text, styles.textSoilMoisture]' 
+          <p :class='[styles.text, styles.textCharacteristic]' 
             v-if='GET_TOMATO_SOIL_MOISTURE_ACTION_GH'
           >
             Верно. Нужно <span>полить почву</span>, чтобы увеличить показатель до 60%.
           </p>
 
-          <p :class='[styles.text, styles.textSoilMoisture]' 
+          <p :class='[styles.text, styles.textCharacteristic]' 
             v-if='GET_TOMATO_AIR_HUMIDITY_CHECK_GH'
           >
             Отлично! <br>Теперь сообщи показатель <span>влажности воздуха</span>.
           </p>
 
-          <p :class='[styles.text, styles.textSoilMoisture]' 
+          <p :class='[styles.text, styles.textCharacteristic]' 
             v-if='GET_TOMATO_AIR_TEMPERATURE_CHECK_GH'
           >
             A сейчас посмотри на показатель <span>температуры воздуха</span> и сообщи мне его.
           </p>
 
-          <p :class='[styles.text, styles.textSoilMoisture]' 
+          <p :class='[styles.text, styles.textCharacteristic]' 
             v-if='!GET_TOMATO_AIR_TEMPERATURE_CHECK_GH && !GET_TOMATO_SOIL_MOISTURE_CHECK_GH &&
                   !GET_TOMATO_SOIL_MOISTURE_ACTION_GH && !GET_TOMATO_AIR_HUMIDITY_CHECK_GH'
           >
@@ -66,13 +66,13 @@
     >
       <div :class='styles.textContent'>
         <div v-if='GET_TOMATO_LEVEL_GH'>
-          <p :class='[styles.text, styles.textSoilMoisture]' 
+          <p :class='[styles.text, styles.textCharacteristic]' 
             v-if='GET_FIRST_MISTAKE_GH'
           >
             Уву, ты выполнил неверное действие. Жизнеспособность растения снижена.
           </p>
 
-          <p :class='[styles.text, styles.textSoilMoisture]' 
+          <p :class='[styles.text, styles.textCharacteristic]' 
             v-if='GET_SECOND_MISTAKE_GH'
           >
             К сожалению, опять неверное действие.
