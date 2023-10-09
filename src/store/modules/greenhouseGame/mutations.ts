@@ -53,12 +53,6 @@ export enum EN_GreenhouseGameMutation {
 	MINUS_TOMATO_HEALTH_PERCENTAGE_GH = 'MINUS_TOMATO_HEALTH_PERCENTAGE_GH',
 	START_TOMATO_LEVEL_GH = 'START_TOMATO_LEVEL_GH',
 	FINISH_TOMATO_LEVEL_GH = 'FINISH_TOMATO_LEVEL_GH',
-	SHOW_TOMATO_SPROUT_GH = 'SHOW_TOMATO_SPROUT_GH',
-	HIDE_TOMATO_SPROUT_GH = 'HIDE_TOMATO_SPROUT_GH',
-	SHOW_TOMATO_COLOR_GH = 'SHOW_TOMATO_COLOR_GH',
-	HIDE_TOMATO_COLOR_GH = 'HIDE_TOMATO_COLOR_GH',
-	SHOW_TOMATO_MODIFIED_GH = 'SHOW_TOMATO_MODIFIED_GH',
-	HIDE_TOMATO_MODIFIED_GH = 'HIDE_TOMATO_MODIFIED_GH',
 
 	START_PEPPER_LEVEL_GH = 'START_PEPPER_LEVEL_GH',
 	FINISH_PEPPER_LEVEL_GH = 'FINISH_PEPPER_LEVEL_GH',
@@ -101,13 +95,14 @@ export const mutations: MutationTree<IGreenhouseGameState> = {
 		state.playerMistakes = 0
 		state.isFirstMistake = false
 		state.isSecondMistake = false
-
-		state.isTomatoLevel = true
-		state.isTomatoSprout = false
-		state.isTomatoColor = false
-		state.isTomatoModified = false
-
-		state.pepperFlasksList = generatorFlasksList(nameFlasks)
+		;(state.isTomatoSoilMoistureCheck = true),
+			(state.isTomatoSoilMoistureAction = false),
+			(state.tomatoSoilMoistureNum = '30,1'),
+			(state.healthTomatoPercentage = 100),
+			(state.isTomatoAirHumidityCheck = false),
+			(state.isTomatoAirTemperatureCheck = false),
+			(state.isTomatoLevel = true),
+			(state.pepperFlasksList = generatorFlasksList(nameFlasks))
 		state.pepperFlasksDropZone = generatorFlasksDropZone()
 		state.isPepperLevel = false
 		state.isPepperSprout = false
@@ -328,24 +323,6 @@ export const mutations: MutationTree<IGreenhouseGameState> = {
 	},
 	[EN_GreenhouseGameMutation.FINISH_TOMATO_LEVEL_GH](state) {
 		state.isTomatoLevel = false
-	},
-	[EN_GreenhouseGameMutation.SHOW_TOMATO_SPROUT_GH](state) {
-		state.isTomatoSprout = true
-	},
-	[EN_GreenhouseGameMutation.HIDE_TOMATO_SPROUT_GH](state) {
-		state.isTomatoSprout = false
-	},
-	[EN_GreenhouseGameMutation.SHOW_TOMATO_COLOR_GH](state) {
-		state.isTomatoColor = true
-	},
-	[EN_GreenhouseGameMutation.HIDE_TOMATO_COLOR_GH](state) {
-		state.isTomatoColor = false
-	},
-	[EN_GreenhouseGameMutation.SHOW_TOMATO_MODIFIED_GH](state) {
-		state.isTomatoModified = true
-	},
-	[EN_GreenhouseGameMutation.HIDE_TOMATO_MODIFIED_GH](state) {
-		state.isTomatoModified = false
 	},
 
 	[EN_GreenhouseGameMutation.START_PEPPER_LEVEL_GH](state) {

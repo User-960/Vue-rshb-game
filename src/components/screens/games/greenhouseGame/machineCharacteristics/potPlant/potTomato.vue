@@ -30,19 +30,12 @@ export default Vue.extend({
   computed: {
     ...mapGetters([
       EN_GreenhouseGameGetters.GET_PLAYER_MISTAKES_GH,
-      EN_GreenhouseGameGetters.GET_TOMATO_SPROUT_GH,
-      EN_GreenhouseGameGetters.GET_TOMATO_COLOR_GH,
       EN_GreenhouseGameGetters.GET_TOMATO_HEALTH_PERCENTAGE_GH,
       EN_GreenhouseGameGetters.GET_PLAYER_MISTAKES_GH,
     ]),
   },
   methods: {
     ...mapMutations([
-      EN_GreenhouseGameMutation.SHOW_TOMATO_SPROUT_GH,
-      EN_GreenhouseGameMutation.HIDE_TOMATO_SPROUT_GH,
-      EN_GreenhouseGameMutation.SHOW_TOMATO_COLOR_GH,
-      EN_GreenhouseGameMutation.HIDE_TOMATO_COLOR_GH,
-      EN_GreenhouseGameMutation.SHOW_TOMATO_MODIFIED_GH,
       EN_GreenhouseGameMutation.START_FINISH_TIMER_TOMATO_GH,
       EN_GreenhouseGameMutation.UPDATE_TIMER_TOMATO_GH,
 

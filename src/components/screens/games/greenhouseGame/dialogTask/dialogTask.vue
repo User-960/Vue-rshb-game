@@ -63,9 +63,6 @@ export default Vue.extend({
       EN_GreenhouseGameGetters.GET_TOMATO_SOIL_MOISTURE_ACTION_GH,
       EN_GreenhouseGameGetters.GET_TOMATO_AIR_HUMIDITY_CHECK_GH,
       EN_GreenhouseGameGetters.GET_TOMATO_AIR_TEMPERATURE_CHECK_GH,
-      EN_GreenhouseGameGetters.GET_TOMATO_SPROUT_GH,
-      EN_GreenhouseGameGetters.GET_TOMATO_COLOR_GH,
-      EN_GreenhouseGameGetters.GET_TOMATO_MODIFIED_GH,
 
       EN_GreenhouseGameGetters.GET_TIMER_TOMATO_GH,
       EN_GreenhouseGameGetters.GET_PLAYER_MISTAKES_GH,

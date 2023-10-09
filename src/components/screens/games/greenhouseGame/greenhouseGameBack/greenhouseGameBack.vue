@@ -66,7 +66,6 @@ export default Vue.extend({
       EN_GreenhouseGameGetters.GET_TOMATO_LEVEL_GH,
       EN_GreenhouseGameGetters.GET_PEPPER_LEVEL_GH,
       EN_GreenhouseGameGetters.GET_STRAWBERRY_LEVEL_GH,
-      EN_GreenhouseGameGetters.GET_TOMATO_MODIFIED_GH,
       EN_GreenhouseGameGetters.GET_PEPPER_MODIFIED_GH,
       EN_GreenhouseGameGetters.GET_STRAWBERRY_MODIFIED_GH,
     ]),

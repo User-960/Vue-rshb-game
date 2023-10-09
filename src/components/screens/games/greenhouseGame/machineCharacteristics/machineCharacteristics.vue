@@ -144,9 +144,6 @@ export default Vue.extend({
       EN_GreenhouseGameGetters.GET_TOMATO_LEVEL_GH,
       EN_GreenhouseGameGetters.GET_TOMATO_SOIL_MOISTURE_ACTION_GH,
       EN_GreenhouseGameGetters.GET_TOMATO_SOIL_MOISTURE_NUM_GH,
-      EN_GreenhouseGameGetters.GET_TOMATO_SPROUT_GH,
-      EN_GreenhouseGameGetters.GET_TOMATO_COLOR_GH,
-      EN_GreenhouseGameGetters.GET_TOMATO_MODIFIED_GH,
 
       EN_GreenhouseGameGetters.GET_PEPPER_LEVEL_GH,
       EN_GreenhouseGameGetters.GET_PEPPER_SPROUT_GH,
@@ -169,7 +166,6 @@ export default Vue.extend({
       EN_GreenhouseGameMutation.HIDE_TOMATO_SOIL_MOISTURE_ACTION_GH,
       EN_GreenhouseGameMutation.INCREASE_TOMATO_SOIL_MOISTURE_NUM_GH,
       EN_GreenhouseGameMutation.SHOW_TOMATO_AIR_HUMIDITY_CHECK_GH,
-      EN_GreenhouseGameMutation.HIDE_TOMATO_MODIFIED_GH,
       EN_GreenhouseGameMutation.UPDATE_TIMER_TOMATO_GH,
 
       EN_GreenhouseGameMutation.HIDE_PEPPER_MODIFIED_GH,

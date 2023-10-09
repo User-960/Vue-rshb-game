@@ -25,9 +25,6 @@ export interface IGreenhouseGameState {
 	isTomatoAirHumidityCheck: boolean
 	isTomatoAirTemperatureCheck: boolean
 	isTomatoLevel: boolean
-	isTomatoSprout: boolean
-	isTomatoColor: boolean
-	isTomatoModified: boolean
 
 	pepperFlasksList: IFlask[]
 	pepperFlasksDropZone: IFlask[]

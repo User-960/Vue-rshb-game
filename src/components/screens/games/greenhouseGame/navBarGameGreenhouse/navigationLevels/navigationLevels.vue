@@ -3,7 +3,7 @@
     <li :class='[
         styles.navLevel, 
         styles.navLevelTomato,
-        {[styles.navLevelTomatoActive]: GET_TOMATO_MODIFIED_GH || GET_TOMATO_LEVEL_GH}
+        {[styles.navLevelTomatoActive]: GET_TOMATO_LEVEL_GH}
       ]'
       @click='openTomatoLevel'
     ></li>
@@ -37,7 +37,6 @@ export default Vue.extend({
   computed: {
     ...mapGetters([
       EN_GreenhouseGameGetters.GET_TOMATO_LEVEL_GH,
-      EN_GreenhouseGameGetters.GET_TOMATO_MODIFIED_GH,
       EN_GreenhouseGameGetters.GET_PEPPER_LEVEL_GH,
       EN_GreenhouseGameGetters.GET_PEPPER_MODIFIED_GH,
       EN_GreenhouseGameGetters.GET_STRAWBERRY_LEVEL_GH,
@@ -62,7 +61,7 @@ export default Vue.extend({
       EN_GreenhouseGameMutation.UPDATE_TIMER_STRAWBERRY_GH,
     ]),
     openTomatoLevel() {
-      if (!this.GET_TOMATO_LEVEL_GH && !this.GET_TOMATO_MODIFIED_GH) {
+      if (!this.GET_TOMATO_LEVEL_GH) {
         this.FINISH_PEPPER_LEVEL_GH()
         this.START_FINISH_TIMER_PEPPER_GH()
         this.FINISH_STRAWBERRY_LEVEL_GH()
@@ -74,7 +73,7 @@ export default Vue.extend({
       }
     },
     openPepperLevel() {
-      if (!this.GET_PEPPER_LEVEL_GH && !this.GET_PEPPER_MODIFIED_GH && this.GET_TOMATO_MODIFIED_GH) {
+      if (!this.GET_PEPPER_LEVEL_GH) {
         this.FINISH_TOMATO_LEVEL_GH()
         this.START_FINISH_TIMER_TOMATO_GH()
         this.FINISH_STRAWBERRY_LEVEL_GH()
@@ -86,10 +85,7 @@ export default Vue.extend({
       }
     },
     openStrawberryLevel() {
-      if (!this.GET_STRAWBERRY_LEVEL_GH && 
-          !this.GET_STRAWBERRY_MODIFIED_GH && 
-          this.GET_TOMATO_MODIFIED_GH && this.GET_PEPPER_MODIFIED_GH
-        ) {
+      if (!this.GET_STRAWBERRY_LEVEL_GH) {
         this.FINISH_TOMATO_LEVEL_GH()
         this.START_FINISH_TIMER_TOMATO_GH()
         this.FINISH_PEPPER_LEVEL_GH()

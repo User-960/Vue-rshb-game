@@ -29,9 +29,6 @@ export enum EN_GreenhouseGameGetters {
 	GET_TOMATO_HEALTH_PERCENTAGE_GH = 'GET_TOMATO_HEALTH_PERCENTAGE_GH',
 	GET_TIMER_TOMATO_GH = 'GET_TIMER_TOMATO_GH',
 	GET_TOMATO_LEVEL_GH = 'GET_TOMATO_LEVEL_GH',
-	GET_TOMATO_SPROUT_GH = 'GET_TOMATO_SPROUT_GH',
-	GET_TOMATO_COLOR_GH = 'GET_TOMATO_COLOR_GH',
-	GET_TOMATO_MODIFIED_GH = 'GET_TOMATO_MODIFIED_GH',
 
 	GET_FLASKS_PEPPER_GH = 'GET_FLASKS_PEPPER_GH',
 	GET_FLASKS_DROPZONE_PEPPER_GH = 'GET_FLASKS_DROPZONE_PEPPER_GH',
@@ -83,11 +80,6 @@ export const getters: GetterTree<IGreenhouseGameState, IRootState> = {
 	[EN_GreenhouseGameGetters.GET_TOMATO_AIR_TEMPERATURE_CHECK_GH]: state =>
 		state.isTomatoAirTemperatureCheck,
 	[EN_GreenhouseGameGetters.GET_TIMER_TOMATO_GH]: state => state.timerTomato,
-	[EN_GreenhouseGameGetters.GET_TOMATO_SPROUT_GH]: state =>
-		state.isTomatoSprout,
-	[EN_GreenhouseGameGetters.GET_TOMATO_COLOR_GH]: state => state.isTomatoColor,
-	[EN_GreenhouseGameGetters.GET_TOMATO_MODIFIED_GH]: state =>
-		state.isTomatoModified,
 
 	[EN_GreenhouseGameGetters.GET_FLASKS_PEPPER_GH]: state =>
 		state.pepperFlasksList,

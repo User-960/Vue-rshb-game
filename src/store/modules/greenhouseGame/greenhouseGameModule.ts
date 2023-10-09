@@ -34,9 +34,6 @@ const state: IGreenhouseGameState = {
 	isTomatoAirHumidityCheck: false,
 	isTomatoAirTemperatureCheck: false,
 	isTomatoLevel: true,
-	isTomatoSprout: false,
-	isTomatoColor: false,
-	isTomatoModified: false,
 
 	pepperFlasksList: generatorFlasksList(nameFlasks),
 	pepperFlasksDropZone: generatorFlasksDropZone(),
