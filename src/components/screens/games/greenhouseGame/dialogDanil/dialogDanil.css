@@ -27,34 +27,20 @@
 	height: 218px;
 }
 
-.dialogFirstMistake {
-	position: absolute;
-	top: 0px;
-	left: 90px;
-
-	padding: 24px;
-	background-image: url(../../../../../../public/images/dialogFirstMistakeTomato.svg);
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: contain;
-
-	width: 441px;
-	height: 139px;
-}
-
+.dialogFirstMistake,
 .dialogSecondMistake {
 	position: absolute;
 	top: 0px;
-	left: 90px;
+	left: 0px;
 
 	padding: 24px;
-	background-image: url(../../../../../../public/images/dialogSecondMistake.svg);
+	background-image: url(../../../../../../public/images/dialogFormGreenhouse.svg);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;
 
-	width: 397px;
-	height: 139px;
+	width: 485px;
+	height: 218px;
 }
 
 .dialogModifiedTomato {

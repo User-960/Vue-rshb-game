@@ -27,8 +27,7 @@ const state: IGreenhouseGameState = {
 	isFirstMistake: false,
 	isSecondMistake: false,
 
-	tomatoFlasksList: generatorFlasksList(nameFlasks),
-	tomatoFlasksDropZone: generatorFlasksDropZone(),
+	isTomatoSoilMoistureCheck: true,
 	isTomatoLevel: true,
 	isTomatoSprout: false,
 	isTomatoColor: false,

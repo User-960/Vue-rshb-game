@@ -52,8 +52,6 @@ export default Vue.extend({
   computed: {
     ...mapGetters([
       EN_GreenhouseGameGetters.GET_PLAYER_MISTAKES_GH,
-      EN_GreenhouseGameGetters.GET_FLASKS_TOMATO_GH,
-      EN_GreenhouseGameGetters.GET_FLASKS_DROPZONE_TOMATO_GH,
       EN_GreenhouseGameGetters.GET_TOMATO_SPROUT_GH,
       EN_GreenhouseGameGetters.GET_TOMATO_COLOR_GH,
     ]),

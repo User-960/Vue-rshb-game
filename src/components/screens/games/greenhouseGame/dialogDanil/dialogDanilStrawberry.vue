@@ -79,7 +79,7 @@ export default Vue.extend({
           this.HIDE_FIRST_MISTAKE_GH()
           this.UPDATE_TIMER_STRAWBERRY_GH()
           this.START_FINISH_TIMER_STRAWBERRY_GH()
-        }, EN_CONFIG.TIMING_ERROR_TEXT_MARIA)
+        }, EN_CONFIG.TIMING_ERROR_TEXT_DANIL)
       }
 
       if (
@@ -94,7 +94,7 @@ export default Vue.extend({
         setTimeout(() => {
           this.FINISH_GAME_GH()
           this.SHOW_LOSS_BLOCK_GH()
-        }, EN_CONFIG.TIMING_ERROR_TEXT_MARIA)
+        }, EN_CONFIG.TIMING_ERROR_TEXT_DANIL)
       }
     }
   },

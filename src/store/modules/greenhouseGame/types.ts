@@ -18,8 +18,7 @@ export interface IGreenhouseGameState {
 	isFirstMistake: boolean
 	isSecondMistake: boolean
 
-	tomatoFlasksList: IFlask[]
-	tomatoFlasksDropZone: IFlask[]
+	isTomatoSoilMoistureCheck: boolean
 	isTomatoLevel: boolean
 	isTomatoSprout: boolean
 	isTomatoColor: boolean

@@ -21,8 +21,7 @@ export enum EN_GreenhouseGameGetters {
 	GET_FIRST_MISTAKE_GH = 'GET_FIRST_MISTAKE_GH',
 	GET_SECOND_MISTAKE_GH = 'GET_SECOND_MISTAKE_GH',
 
-	GET_FLASKS_TOMATO_GH = 'GET_FLASKS_TOMATO_GH',
-	GET_FLASKS_DROPZONE_TOMATO_GH = 'GET_FLASKS_DROPZONE_TOMATO_GH',
+	GET_TOMATO_SOIL_MOISTURE_CHECK_GH = 'GET_TOMATO_SOIL_MOISTURE_CHECK_GH',
 	GET_TIMER_TOMATO_GH = 'GET_TIMER_TOMATO_GH',
 	GET_TOMATO_LEVEL_GH = 'GET_TOMATO_LEVEL_GH',
 	GET_TOMATO_SPROUT_GH = 'GET_TOMATO_SPROUT_GH',
@@ -65,10 +64,8 @@ export const getters: GetterTree<IGreenhouseGameState, IRootState> = {
 	[EN_GreenhouseGameGetters.GET_SECOND_MISTAKE_GH]: state =>
 		state.isSecondMistake,
 
-	[EN_GreenhouseGameGetters.GET_FLASKS_TOMATO_GH]: state =>
-		state.tomatoFlasksList,
-	[EN_GreenhouseGameGetters.GET_FLASKS_DROPZONE_TOMATO_GH]: state =>
-		state.tomatoFlasksDropZone,
+	[EN_GreenhouseGameGetters.GET_TOMATO_SOIL_MOISTURE_CHECK_GH]: state =>
+		state.isTomatoSoilMoistureCheck,
 	[EN_GreenhouseGameGetters.GET_TIMER_TOMATO_GH]: state => state.timerTomato,
 	[EN_GreenhouseGameGetters.GET_TOMATO_LEVEL_GH]: state => state.isTomatoLevel,
 	[EN_GreenhouseGameGetters.GET_TOMATO_SPROUT_GH]: state =>

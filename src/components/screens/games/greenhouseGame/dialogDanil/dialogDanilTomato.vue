@@ -1,25 +1,25 @@
 <template>
   <div :class='styles.dialogDanil'>
     <div :class='styles.dialog' 
-      v-if='GET_TOMATO_LEVEL_GH && !GET_TOMATO_MODIFIED_GH && !GET_FIRST_MISTAKE_GH && !GET_SECOND_MISTAKE_GH'
+      v-if='GET_TOMATO_LEVEL_GH && !GET_FIRST_MISTAKE_GH && !GET_SECOND_MISTAKE_GH'
     >
 
       <div :class='styles.textContent'>
         <div v-if='GET_TOMATO_LEVEL_GH'>
           <p :class='[styles.text, styles.textSoilMoisture]' 
-            v-if='!GET_TOMATO_SPROUT_GH && !GET_TOMATO_COLOR_GH && !GET_TOMATO_MODIFIED_GH'
+            v-if='!GET_TOMATO_SPROUT_GH'
           >
             Давай вырастим помидор. Сообщи мне показатель <span>влажности почвы</span>.
           </p>
 
           <p :class='styles.text' 
-            v-else-if='GET_TOMATO_SPROUT_GH && !GET_TOMATO_COLOR_GH && !GET_TOMATO_MODIFIED_GH'
+            v-else-if='GET_TOMATO_SPROUT_GH'
           >
             Теперь предлагаю усилить структуру плода. Используй для этого серую колбу.
           </p>
 
           <p :class='styles.text' 
-            v-else-if='GET_TOMATO_COLOR_GH && !GET_TOMATO_MODIFIED_GH && !GET_TOMATO_SPROUT_GH'
+            v-else-if='GET_TOMATO_COLOR_GH'
           >
             Давай увеличим содержание антиоксидантов. Используй для этого розовую колбу.
           </p>
@@ -44,7 +44,23 @@
         }
       ]' 
       v-else-if='GET_TOMATO_LEVEL_GH && (GET_FIRST_MISTAKE_GH || GET_SECOND_MISTAKE_GH)'
-    ></div>
+    >
+      <div :class='styles.textContent'>
+        <div v-if='GET_TOMATO_LEVEL_GH'>
+          <p :class='[styles.text, styles.textSoilMoisture]' 
+            v-if='!GET_SECOND_MISTAKE_GH && GET_FIRST_MISTAKE_GH'
+          >
+            Неверно, влажность почвы - 30,1%. Нужно <span>полить почву</span> и увеличить показатель.
+          </p>
+
+          <p :class='[styles.text, styles.textSoilMoisture]' 
+            v-if='GET_SECOND_MISTAKE_GH && !GET_FIRST_MISTAKE_GH'
+          >
+            К сожалнию, ты выполнил неверное действие. Жизне-способность растения снижена.
+          </p>
+        </div>
+      </div>
+    </div>
 
     <div :class='[
       styles.danil, 
@@ -79,7 +95,7 @@ export default Vue.extend({
           this.HIDE_FIRST_MISTAKE_GH()
           this.UPDATE_TIMER_TOMATO_GH()
           this.START_FINISH_TIMER_TOMATO_GH()
-        }, EN_CONFIG.TIMING_ERROR_TEXT_MARIA)
+        }, EN_CONFIG.TIMING_ERROR_TEXT_DANIL)
       }
 
       if (
@@ -94,7 +110,7 @@ export default Vue.extend({
         setTimeout(() => {
           this.FINISH_GAME_GH()
           this.SHOW_LOSS_BLOCK_GH()
-        }, EN_CONFIG.TIMING_ERROR_TEXT_MARIA)
+        }, EN_CONFIG.TIMING_ERROR_TEXT_DANIL)
       }
     }
   },

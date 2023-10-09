@@ -33,15 +33,14 @@ export enum EN_GreenhouseGameMutation {
 	UPDATE_TIMER_STRAWBERRY_GH = 'UPDATE_TIMER_STRAWBERRY_GH',
 	START_FINISH_TIMER_STRAWBERRY_GH = 'START_FINISH_TIMER_STRAWBERRY_GH',
 
-	PLAY_BACK_MUSIC_GAME_GH = 'PLAY_BACK_MUSIC_GAME_GH',
-	STOP_BACK_MUSIC_GAME_GH = 'STOP_BACK_MUSIC_GAME_GH',
-
 	INCREASE_PLAYER_MISTAKES_GH = 'INCREASE_PLAYER_MISTAKES_GH',
 	SHOW_FIRST_MISTAKE_GH = 'SHOW_FIRST_MISTAKE_GH',
 	HIDE_FIRST_MISTAKE_GH = 'HIDE_FIRST_MISTAKE_GH',
 	SHOW_SECOND_MISTAKE_GH = 'SHOW_SECOND_MISTAKE_GH',
 	HIDE_SECOND_MISTAKE_GH = 'HIDE_SECOND_MISTAKE_GH',
 
+	SHOW_TOMATO_SOIL_MOISTURE_CHECK_GH = 'SHOW_TOMATO_SOIL_MOISTURE_CHECK_GH',
+	HIDE_TOMATO_SOIL_MOISTURE_CHECK_GH = 'HIDE_TOMATO_SOIL_MOISTURE_CHECK_GH',
 	START_TOMATO_LEVEL_GH = 'START_TOMATO_LEVEL_GH',
 	FINISH_TOMATO_LEVEL_GH = 'FINISH_TOMATO_LEVEL_GH',
 	SHOW_TOMATO_SPROUT_GH = 'SHOW_TOMATO_SPROUT_GH',
@@ -93,8 +92,6 @@ export const mutations: MutationTree<IGreenhouseGameState> = {
 		state.isFirstMistake = false
 		state.isSecondMistake = false
 
-		state.tomatoFlasksList = generatorFlasksList(nameFlasks)
-		state.tomatoFlasksDropZone = generatorFlasksDropZone()
 		state.isTomatoLevel = true
 		state.isTomatoSprout = false
 		state.isTomatoColor = false
@@ -278,6 +275,12 @@ export const mutations: MutationTree<IGreenhouseGameState> = {
 		state.isSecondMistake = false
 	},
 
+	[EN_GreenhouseGameMutation.SHOW_TOMATO_SOIL_MOISTURE_CHECK_GH](state) {
+		state.isTomatoSoilMoistureCheck = true
+	},
+	[EN_GreenhouseGameMutation.HIDE_TOMATO_SOIL_MOISTURE_CHECK_GH](state) {
+		state.isTomatoSoilMoistureCheck = false
+	},
 	[EN_GreenhouseGameMutation.START_TOMATO_LEVEL_GH](state) {
 		state.isTomatoLevel = true
 	},
