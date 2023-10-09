@@ -29,7 +29,7 @@
             styles.greenhouse, 
             {[styles.greenhouseAvailable]: isGreenhouseAvailable}
           ]' 
-          @click='openThirdGame'>
+          @click='openSecondGame'>
         </div>
 
         <div 
@@ -87,11 +87,8 @@ export default Vue.extend({
     openModalHouse() {
       this.SHOW_MODAL_HOUSE()
     },
-    openThirdGame() {
-      console.log('Open Third Game')
-    },
-    nextFunc() {
-      console.log('Open Third Game')
+    openSecondGame() {
+      this.$router.push({ name: 'greenhouse-game' })
     }
   }
 })
