@@ -5,8 +5,8 @@
       <div :class='styles.scale'>
         <div :class='[
             styles.scaleIndicator, 
-            {[styles.scaleIndicatorFirstMistake]: GET_PLAYER_MISTAKES_GH === 1,
-            [styles.scaleIndicatorSecondMistake]: GET_PLAYER_MISTAKES_GH === 2}
+            {[styles.scaleIndicatorFirstMistake]: GET_PLAYER_MISTAKES_PEPPER_GH === 1,
+            [styles.scaleIndicatorSecondMistake]: GET_PLAYER_MISTAKES_PEPPER_GH === 2}
           ]'>
         </div>
       </div>
@@ -27,7 +27,7 @@ export default Vue.extend({
   name: 'potTomato',
   computed: {
     ...mapGetters([
-      EN_GreenhouseGameGetters.GET_PLAYER_MISTAKES_GH,
+      EN_GreenhouseGameGetters.GET_PLAYER_MISTAKES_PEPPER_GH,
       EN_GreenhouseGameGetters.GET_PEPPER_HEALTH_PERCENTAGE_GH
     ]),
   }

@@ -9,8 +9,8 @@
     <div 
       :class='styles.dialog' 
       v-if='GET_PEPPER_LEVEL_GH && 
-      !GET_FIRST_MISTAKE_GH && 
-      !GET_SECOND_MISTAKE_GH && 
+      !GET_FIRST_MISTAKE_PEPPER_GH && 
+      !GET_SECOND_MISTAKE_PEPPER_GH && 
       !GET_PEPPER_AIR_HUMIDITY_ACTION_GH &&
       GET_START_GAME_GH'
     >
@@ -65,9 +65,9 @@ export default Vue.extend({
       EN_GreenhouseGameGetters.GET_PEPPER_AIR_TEMPERATURE_CHECK_GH,
 
       EN_GreenhouseGameGetters.GET_TIMER_PEPPER_GH,
-      EN_GreenhouseGameGetters.GET_PLAYER_MISTAKES_GH,
-      EN_GreenhouseGameGetters.GET_FIRST_MISTAKE_GH,
-      EN_GreenhouseGameGetters.GET_SECOND_MISTAKE_GH,
+      EN_GreenhouseGameGetters.GET_PLAYER_MISTAKES_PEPPER_GH,
+      EN_GreenhouseGameGetters.GET_FIRST_MISTAKE_PEPPER_GH,
+      EN_GreenhouseGameGetters.GET_SECOND_MISTAKE_PEPPER_GH,
     ]),
   },
   watch: {
@@ -99,10 +99,12 @@ export default Vue.extend({
   methods: {
     ...mapMutations([
       EN_GreenhouseGameMutation.FINISH_GAME_GH,
-      EN_GreenhouseGameMutation.INCREASE_PLAYER_MISTAKES_GH,
-      EN_GreenhouseGameMutation.SHOW_FIRST_MISTAKE_GH,
-      EN_GreenhouseGameMutation.HIDE_FIRST_MISTAKE_GH,
-      EN_GreenhouseGameMutation.SHOW_SECOND_MISTAKE_GH,
+
+      EN_GreenhouseGameMutation.INCREASE_PLAYER_MISTAKES_PEPPER_GH,
+      EN_GreenhouseGameMutation.SHOW_FIRST_MISTAKE_PEPPER_GH,
+      EN_GreenhouseGameMutation.HIDE_FIRST_MISTAKE_PEPPER_GH,
+      EN_GreenhouseGameMutation.SHOW_SECOND_MISTAKE_PEPPER_GH,
+
       EN_GreenhouseGameMutation.SHOW_LOSS_BLOCK_GH,
       EN_GreenhouseGameMutation.PLUS_POINTS_GH,
       EN_GreenhouseGameMutation.MINUS_POINTS_GH,
@@ -138,24 +140,24 @@ export default Vue.extend({
       }
     },
     chooseOptionPepper() {
-      if (this.GET_PEPPER_LEVEL_GH && this.GET_PLAYER_MISTAKES_GH === 0) {
+      if (this.GET_PEPPER_LEVEL_GH && this.GET_PLAYER_MISTAKES_PEPPER_GH === 0) {
         this.MINUS_POINTS_GH()
         this.MINUS_PEPPER_HEALTH_PERCENTAGE_GH()
-        this.INCREASE_PLAYER_MISTAKES_GH()
-        this.SHOW_FIRST_MISTAKE_GH()
+        this.INCREASE_PLAYER_MISTAKES_PEPPER_GH()
+        this.SHOW_FIRST_MISTAKE_PEPPER_GH()
         this.START_FINISH_TIMER_PEPPER_GH()
         setTimeout(() => {
-          this.HIDE_FIRST_MISTAKE_GH()
+          this.HIDE_FIRST_MISTAKE_PEPPER_GH()
           this.UPDATE_TIMER_PEPPER_GH()
           this.START_FINISH_TIMER_PEPPER_GH()
         }, EN_CONFIG.TIMING_ERROR_TEXT_DANIL)
       }
 
-      if (this.GET_PEPPER_LEVEL_GH && this.GET_PLAYER_MISTAKES_GH === 1 && !this.GET_FIRST_MISTAKE_GH) {
+      if (this.GET_PEPPER_LEVEL_GH && this.GET_PLAYER_MISTAKES_PEPPER_GH === 1 && !this.GET_FIRST_MISTAKE_PEPPER_GH) {
         this.MINUS_POINTS_GH()
         this.MINUS_PEPPER_HEALTH_PERCENTAGE_GH()
-        this.INCREASE_PLAYER_MISTAKES_GH()
-        this.SHOW_SECOND_MISTAKE_GH()
+        this.INCREASE_PLAYER_MISTAKES_PEPPER_GH()
+        this.SHOW_SECOND_MISTAKE_PEPPER_GH()
         this.START_FINISH_TIMER_PEPPER_GH()
         setTimeout(() => {
           this.FINISH_GAME_GH()

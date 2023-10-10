@@ -23,10 +23,20 @@ export default Vue.extend({
   },
   watch: {
     GET_START_GAME_GH() {
-      if (!this.GET_START_GAME_GH && this.GET_PLAYER_MISTAKES_GH < 2 && !this.GET_INFO_LINK_BLOCK_GH) {
-        setTimeout(() => {
-          this.SHOW_VICTORY_BLOCK_GH()
-        }, EN_CONFIG.TIMING_GAME_OVER)
+      if (
+        !this.GET_START_GAME_GH && 
+        this.GET_PLAYER_MISTAKES_GH < 2 && 
+        !this.GET_INFO_LINK_BLOCK_GH &&
+        !this.GET_LOSS_BLOCK_GH
+      ) {
+        if (this.GET_PLAYER_MISTAKES_TOMATO_GH < 2 || 
+            this.GET_PLAYER_MISTAKES_PEPPER_GH < 2 || 
+            this.GET_PLAYER_MISTAKES_STRAWBERRY_GH < 2
+          ) {
+          setTimeout(() => {
+            this.SHOW_VICTORY_BLOCK_GH()
+          }, EN_CONFIG.TIMING_GAME_OVER)
+        }
       }
     }
   },
@@ -34,7 +44,11 @@ export default Vue.extend({
     ...mapGetters([
       EN_GreenhouseGameGetters.GET_START_GAME_GH, 
       EN_GreenhouseGameGetters.GET_PLAYER_MISTAKES_GH,
+      EN_GreenhouseGameGetters.GET_PLAYER_MISTAKES_TOMATO_GH,
+      EN_GreenhouseGameGetters.GET_PLAYER_MISTAKES_PEPPER_GH,
+      EN_GreenhouseGameGetters.GET_PLAYER_MISTAKES_STRAWBERRY_GH,
       EN_GreenhouseGameGetters.GET_INFO_LINK_BLOCK_GH,
+      EN_GreenhouseGameGetters.GET_LOSS_BLOCK_GH,
     ])
   },
   methods: {

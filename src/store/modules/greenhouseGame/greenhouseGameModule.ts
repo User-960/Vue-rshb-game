@@ -34,6 +34,9 @@ const state: IGreenhouseGameState = {
 	tomatoSoilMoistureNum: '30,1',
 	healthTomatoPercentage: 100,
 	isTomatoLevel: true,
+	playerMistakesTomato: 0,
+	isFirstMistakeTomato: false,
+	isSecondMistakeTomato: false,
 
 	isPepperSoilMoistureCheck: false,
 	isPepperAirHumidityCheck: false,
@@ -42,6 +45,9 @@ const state: IGreenhouseGameState = {
 	pepperAirHumidityNum: '65',
 	healthPepperPercentage: 100,
 	isPepperLevel: false,
+	playerMistakesPepper: 0,
+	isFirstMistakePepper: false,
+	isSecondMistakePepper: false,
 
 	isStrawberrySoilMoistureCheck: false,
 	isStrawberryAirHumidityCheck: false,
@@ -49,7 +55,10 @@ const state: IGreenhouseGameState = {
 	isStrawberryAirTemperatureCheck: false,
 	strawberryAirHumidityNum: '102',
 	healthStrawberryPercentage: 100,
-	isStrawberryLevel: false
+	isStrawberryLevel: false,
+	playerMistakesStrawberry: 0,
+	isFirstMistakeStrawberry: false,
+	isSecondMistakeStrawberry: false
 }
 
 export const getDefaultGreenhouseGameState = () => {

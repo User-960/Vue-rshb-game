@@ -49,6 +49,11 @@ export enum EN_GreenhouseGameMutation {
 	MINUS_TOMATO_HEALTH_PERCENTAGE_GH = 'MINUS_TOMATO_HEALTH_PERCENTAGE_GH',
 	START_TOMATO_LEVEL_GH = 'START_TOMATO_LEVEL_GH',
 	FINISH_TOMATO_LEVEL_GH = 'FINISH_TOMATO_LEVEL_GH',
+	INCREASE_PLAYER_MISTAKES_TOMATO_GH = 'INCREASE_PLAYER_MISTAKES_TOMATO_GH',
+	SHOW_FIRST_MISTAKE_TOMATO_GH = 'SHOW_FIRST_MISTAKE_TOMATO_GH',
+	HIDE_FIRST_MISTAKE_TOMATO_GH = 'HIDE_FIRST_MISTAKE_TOMATO_GH',
+	SHOW_SECOND_MISTAKE_TOMATO_GH = 'SHOW_SECOND_MISTAKE_TOMATO_GH',
+	HIDE_SECOND_MISTAKE_TOMATO_GH = 'HIDE_SECOND_MISTAKE_TOMATO_GH',
 
 	SHOW_PEPPER_SOIL_MOISTURE_CHECK_GH = 'SHOW_PEPPER_SOIL_MOISTURE_CHECK_GH',
 	HIDE_PEPPER_SOIL_MOISTURE_CHECK_GH = 'HIDE_PEPPER_SOIL_MOISTURE_CHECK_GH',
@@ -63,6 +68,11 @@ export enum EN_GreenhouseGameMutation {
 	MINUS_PEPPER_HEALTH_PERCENTAGE_GH = 'MINUS_PEPPER_HEALTH_PERCENTAGE_GH',
 	START_PEPPER_LEVEL_GH = 'START_PEPPER_LEVEL_GH',
 	FINISH_PEPPER_LEVEL_GH = 'FINISH_PEPPER_LEVEL_GH',
+	INCREASE_PLAYER_MISTAKES_PEPPER_GH = 'INCREASE_PLAYER_MISTAKES_PEPPER_GH',
+	SHOW_FIRST_MISTAKE_PEPPER_GH = 'SHOW_FIRST_MISTAKE_PEPPER_GH',
+	HIDE_FIRST_MISTAKE_PEPPER_GH = 'HIDE_FIRST_MISTAKE_PEPPER_GH',
+	SHOW_SECOND_MISTAKE_PEPPER_GH = 'SHOW_SECOND_MISTAKE_PEPPER_GH',
+	HIDE_SECOND_MISTAKE_PEPPER_GH = 'HIDE_SECOND_MISTAKE_PEPPER_GH',
 
 	SHOW_STRAWBERRY_SOIL_MOISTURE_CHECK_GH = 'SHOW_STRAWBERRY_SOIL_MOISTURE_CHECK_GH',
 	HIDE_STRAWBERRY_SOIL_MOISTURE_CHECK_GH = 'HIDE_STRAWBERRY_SOIL_MOISTURE_CHECK_GH',
@@ -76,7 +86,12 @@ export enum EN_GreenhouseGameMutation {
 	PLUS_STRAWBERRY_HEALTH_PERCENTAGE_GH = 'PLUS_STRAWBERRY_HEALTH_PERCENTAGE_GH',
 	MINUS_STRAWBERRY_HEALTH_PERCENTAGE_GH = 'MINUS_STRAWBERRY_HEALTH_PERCENTAGE_GH',
 	START_STRAWBERRY_LEVEL_GH = 'START_STRAWBERRY_LEVEL_GH',
-	FINISH_STRAWBERRY_LEVEL_GH = 'FINISH_STRAWBERRY_LEVEL_GH'
+	FINISH_STRAWBERRY_LEVEL_GH = 'FINISH_STRAWBERRY_LEVEL_GH',
+	INCREASE_PLAYER_MISTAKES_STRAWBERRY_GH = 'INCREASE_PLAYER_MISTAKES_STRAWBERRY_GH',
+	SHOW_FIRST_MISTAKE_STRAWBERRY_GH = 'SHOW_FIRST_MISTAKE_STRAWBERRY_GH',
+	HIDE_FIRST_MISTAKE_STRAWBERRY_GH = 'HIDE_FIRST_MISTAKE_STRAWBERRY_GH',
+	SHOW_SECOND_MISTAKE_STRAWBERRY_GH = 'SHOW_SECOND_MISTAKE_STRAWBERRY_GH',
+	HIDE_SECOND_MISTAKE_STRAWBERRY_GH = 'HIDE_SECOND_MISTAKE_STRAWBERRY_GH'
 }
 
 const audioVictory = new Audio(AUDIO_CONFIG.AUDIO_VICTORY)
@@ -108,6 +123,9 @@ export const mutations: MutationTree<IGreenhouseGameState> = {
 		state.isTomatoAirHumidityCheck = false
 		state.isTomatoAirTemperatureCheck = false
 		state.isTomatoLevel = false
+		state.playerMistakesTomato = 0
+		state.isFirstMistakeTomato = false
+		state.isSecondMistakeTomato = false
 
 		state.isPepperSoilMoistureCheck = false
 		state.isPepperAirHumidityCheck = false
@@ -116,6 +134,9 @@ export const mutations: MutationTree<IGreenhouseGameState> = {
 		state.pepperAirHumidityNum = '65'
 		state.healthPepperPercentage = 100
 		state.isPepperLevel = false
+		state.playerMistakesPepper = 0
+		state.isFirstMistakePepper = false
+		state.isSecondMistakePepper = false
 
 		state.isStrawberrySoilMoistureCheck = false
 		state.isStrawberryAirHumidityCheck = false
@@ -124,6 +145,9 @@ export const mutations: MutationTree<IGreenhouseGameState> = {
 		state.strawberryAirHumidityNum = '102'
 		state.healthStrawberryPercentage = 100
 		state.isStrawberryLevel = false
+		state.playerMistakesStrawberry = 0
+		state.isFirstMistakeStrawberry = false
+		state.isSecondMistakeStrawberry = false
 	},
 	[EN_GreenhouseGameMutation.SHOW_INFO_LINK_BLOCK_GH](state) {
 		const audio = new Audio(AUDIO_CONFIG.AUDIO_NEW_MISSION)
@@ -172,10 +196,16 @@ export const mutations: MutationTree<IGreenhouseGameState> = {
 		state.points += 15
 	},
 	[EN_GreenhouseGameMutation.PLUS_POINTS_LINK_GH](state) {
-		state.points += 5
+		if (state.points === 0) {
+			state.points += 5
+		}
 	},
 	[EN_GreenhouseGameMutation.MINUS_POINTS_GH](state) {
-		state.points -= 5
+		if (state.points === 0) {
+			state.points = 0
+		} else {
+			state.points -= 5
+		}
 	},
 
 	[EN_GreenhouseGameMutation.UPDATE_TIMER_TOMATO_GH](state) {
@@ -343,6 +373,25 @@ export const mutations: MutationTree<IGreenhouseGameState> = {
 	[EN_GreenhouseGameMutation.FINISH_TOMATO_LEVEL_GH](state) {
 		state.isTomatoLevel = false
 	},
+	[EN_GreenhouseGameMutation.INCREASE_PLAYER_MISTAKES_TOMATO_GH](state) {
+		state.playerMistakesTomato += 1
+	},
+	[EN_GreenhouseGameMutation.SHOW_FIRST_MISTAKE_TOMATO_GH](state) {
+		if (state.playerMistakesTomato === 1) {
+			state.isFirstMistakeTomato = true
+		}
+	},
+	[EN_GreenhouseGameMutation.HIDE_FIRST_MISTAKE_TOMATO_GH](state) {
+		state.isFirstMistakeTomato = false
+	},
+	[EN_GreenhouseGameMutation.SHOW_SECOND_MISTAKE_TOMATO_GH](state) {
+		if (state.playerMistakesTomato === 2 || state.playerMistakesTomato === 3) {
+			state.isSecondMistakeTomato = true
+		}
+	},
+	[EN_GreenhouseGameMutation.HIDE_SECOND_MISTAKE_TOMATO_GH](state) {
+		state.isSecondMistakeTomato = false
+	},
 
 	[EN_GreenhouseGameMutation.SHOW_PEPPER_SOIL_MOISTURE_CHECK_GH](state) {
 		state.isPepperSoilMoistureCheck = true
@@ -383,6 +432,25 @@ export const mutations: MutationTree<IGreenhouseGameState> = {
 	[EN_GreenhouseGameMutation.FINISH_PEPPER_LEVEL_GH](state) {
 		state.isPepperLevel = false
 	},
+	[EN_GreenhouseGameMutation.INCREASE_PLAYER_MISTAKES_PEPPER_GH](state) {
+		state.playerMistakesPepper += 1
+	},
+	[EN_GreenhouseGameMutation.SHOW_FIRST_MISTAKE_PEPPER_GH](state) {
+		if (state.playerMistakesPepper === 1) {
+			state.isFirstMistakePepper = true
+		}
+	},
+	[EN_GreenhouseGameMutation.HIDE_FIRST_MISTAKE_PEPPER_GH](state) {
+		state.isFirstMistakePepper = false
+	},
+	[EN_GreenhouseGameMutation.SHOW_SECOND_MISTAKE_PEPPER_GH](state) {
+		if (state.playerMistakesPepper === 2 || state.playerMistakesPepper === 3) {
+			state.isSecondMistakePepper = true
+		}
+	},
+	[EN_GreenhouseGameMutation.HIDE_SECOND_MISTAKE_PEPPER_GH](state) {
+		state.isSecondMistakePepper = false
+	},
 
 	[EN_GreenhouseGameMutation.SHOW_STRAWBERRY_SOIL_MOISTURE_CHECK_GH](state) {
 		state.isStrawberrySoilMoistureCheck = true
@@ -422,5 +490,27 @@ export const mutations: MutationTree<IGreenhouseGameState> = {
 	},
 	[EN_GreenhouseGameMutation.FINISH_STRAWBERRY_LEVEL_GH](state) {
 		state.isStrawberryLevel = false
+	},
+	[EN_GreenhouseGameMutation.INCREASE_PLAYER_MISTAKES_STRAWBERRY_GH](state) {
+		state.playerMistakesStrawberry += 1
+	},
+	[EN_GreenhouseGameMutation.SHOW_FIRST_MISTAKE_STRAWBERRY_GH](state) {
+		if (state.playerMistakesStrawberry === 1) {
+			state.isFirstMistakeStrawberry = true
+		}
+	},
+	[EN_GreenhouseGameMutation.HIDE_FIRST_MISTAKE_STRAWBERRY_GH](state) {
+		state.isFirstMistakeStrawberry = false
+	},
+	[EN_GreenhouseGameMutation.SHOW_SECOND_MISTAKE_STRAWBERRY_GH](state) {
+		if (
+			state.playerMistakesStrawberry === 2 ||
+			state.playerMistakesStrawberry === 3
+		) {
+			state.isSecondMistakeStrawberry = true
+		}
+	},
+	[EN_GreenhouseGameMutation.HIDE_SECOND_MISTAKE_STRAWBERRY_GH](state) {
+		state.isSecondMistakeStrawberry = false
 	}
 }

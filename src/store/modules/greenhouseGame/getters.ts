@@ -32,6 +32,9 @@ export enum EN_GreenhouseGameGetters {
 	GET_TOMATO_AIR_TEMPERATURE_CHECK_GH = 'GET_TOMATO_AIR_TEMPERATURE_CHECK_GH',
 	GET_TOMATO_HEALTH_PERCENTAGE_GH = 'GET_TOMATO_HEALTH_PERCENTAGE_GH',
 	GET_TOMATO_LEVEL_GH = 'GET_TOMATO_LEVEL_GH',
+	GET_PLAYER_MISTAKES_TOMATO_GH = 'GET_PLAYER_MISTAKES_TOMATO_GH',
+	GET_FIRST_MISTAKE_TOMATO_GH = 'GET_FIRST_MISTAKE_TOMATO_GH',
+	GET_SECOND_MISTAKE_TOMATO_GH = 'GET_SECOND_MISTAKE_TOMATO_GH',
 
 	GET_PEPPER_SOIL_MOISTURE_CHECK_GH = 'GET_PEPPER_SOIL_MOISTURE_CHECK_GH',
 	GET_PEPPER_AIR_HUMIDITY_CHECK_GH = 'GET_PEPPER_AIR_HUMIDITY_CHECK_GH',
@@ -40,6 +43,9 @@ export enum EN_GreenhouseGameGetters {
 	GET_PEPPER_AIR_TEMPERATURE_CHECK_GH = 'GET_PEPPER_AIR_TEMPERATURE_CHECK_GH',
 	GET_PEPPER_HEALTH_PERCENTAGE_GH = 'GET_PEPPER_HEALTH_PERCENTAGE_GH',
 	GET_PEPPER_LEVEL_GH = 'GET_PEPPER_LEVEL_GH',
+	GET_PLAYER_MISTAKES_PEPPER_GH = 'GET_PLAYER_MISTAKES_PEPPER_GH',
+	GET_FIRST_MISTAKE_PEPPER_GH = 'GET_FIRST_MISTAKE_PEPPER_GH',
+	GET_SECOND_MISTAKE_PEPPER_GH = 'GET_SECOND_MISTAKE_PEPPER_GH',
 
 	GET_STRAWBERRY_SOIL_MOISTURE_CHECK_GH = 'GET_STRAWBERRY_SOIL_MOISTURE_CHECK_GH',
 	GET_STRAWBERRY_AIR_HUMIDITY_CHECK_GH = 'GET_STRAWBERRY_AIR_HUMIDITY_CHECK_GH',
@@ -47,7 +53,10 @@ export enum EN_GreenhouseGameGetters {
 	GET_STRAWBERRY_AIR_HUMIDITY_NUM_GH = 'GET_STRAWBERRY_AIR_HUMIDITY_NUM_GH',
 	GET_STRAWBERRY_AIR_TEMPERATURE_CHECK_GH = 'GET_STRAWBERRY_AIR_TEMPERATURE_CHECK_GH',
 	GET_STRAWBERRY_HEALTH_PERCENTAGE_GH = 'GET_STRAWBERRY_HEALTH_PERCENTAGE_GH',
-	GET_STRAWBERRY_LEVEL_GH = 'GET_STRAWBERRY_LEVEL_GH'
+	GET_STRAWBERRY_LEVEL_GH = 'GET_STRAWBERRY_LEVEL_GH',
+	GET_PLAYER_MISTAKES_STRAWBERRY_GH = 'GET_PLAYER_MISTAKES_STRAWBERRY_GH',
+	GET_FIRST_MISTAKE_STRAWBERRY_GH = 'GET_FIRST_MISTAKE_STRAWBERRY_GH',
+	GET_SECOND_MISTAKE_STRAWBERRY_GH = 'GET_SECOND_MISTAKE_STRAWBERRY_GH'
 }
 
 export const getters: GetterTree<IGreenhouseGameState, IRootState> = {
@@ -71,14 +80,15 @@ export const getters: GetterTree<IGreenhouseGameState, IRootState> = {
 		state.playerMistakes,
 	[EN_GreenhouseGameGetters.GET_FIRST_MISTAKE_GH]: state =>
 		state.isFirstMistake,
+	[EN_GreenhouseGameGetters.GET_SECOND_MISTAKE_GH]: state =>
+		state.isSecondMistake,
+
 	[EN_GreenhouseGameGetters.GET_TOMATO_HEALTH_PERCENTAGE_GH]: state =>
 		state.healthTomatoPercentage,
 	[EN_GreenhouseGameGetters.GET_PEPPER_HEALTH_PERCENTAGE_GH]: state =>
 		state.healthPepperPercentage,
 	[EN_GreenhouseGameGetters.GET_STRAWBERRY_HEALTH_PERCENTAGE_GH]: state =>
 		state.healthStrawberryPercentage,
-	[EN_GreenhouseGameGetters.GET_SECOND_MISTAKE_GH]: state =>
-		state.isSecondMistake,
 
 	[EN_GreenhouseGameGetters.GET_TOMATO_LEVEL_GH]: state => state.isTomatoLevel,
 	[EN_GreenhouseGameGetters.GET_TOMATO_SOIL_MOISTURE_CHECK_GH]: state =>
@@ -91,6 +101,12 @@ export const getters: GetterTree<IGreenhouseGameState, IRootState> = {
 		state.isTomatoAirHumidityCheck,
 	[EN_GreenhouseGameGetters.GET_TOMATO_AIR_TEMPERATURE_CHECK_GH]: state =>
 		state.isTomatoAirTemperatureCheck,
+	[EN_GreenhouseGameGetters.GET_PLAYER_MISTAKES_TOMATO_GH]: state =>
+		state.playerMistakesTomato,
+	[EN_GreenhouseGameGetters.GET_FIRST_MISTAKE_TOMATO_GH]: state =>
+		state.isFirstMistakeTomato,
+	[EN_GreenhouseGameGetters.GET_SECOND_MISTAKE_TOMATO_GH]: state =>
+		state.isSecondMistakeTomato,
 
 	[EN_GreenhouseGameGetters.GET_PEPPER_LEVEL_GH]: state => state.isPepperLevel,
 	[EN_GreenhouseGameGetters.GET_PEPPER_SOIL_MOISTURE_CHECK_GH]: state =>
@@ -103,6 +119,12 @@ export const getters: GetterTree<IGreenhouseGameState, IRootState> = {
 		state.pepperAirHumidityNum,
 	[EN_GreenhouseGameGetters.GET_PEPPER_AIR_TEMPERATURE_CHECK_GH]: state =>
 		state.isPepperAirTemperatureCheck,
+	[EN_GreenhouseGameGetters.GET_PLAYER_MISTAKES_PEPPER_GH]: state =>
+		state.playerMistakesPepper,
+	[EN_GreenhouseGameGetters.GET_FIRST_MISTAKE_PEPPER_GH]: state =>
+		state.isFirstMistakePepper,
+	[EN_GreenhouseGameGetters.GET_SECOND_MISTAKE_PEPPER_GH]: state =>
+		state.isSecondMistakePepper,
 
 	[EN_GreenhouseGameGetters.GET_STRAWBERRY_LEVEL_GH]: state =>
 		state.isStrawberryLevel,
@@ -115,5 +137,11 @@ export const getters: GetterTree<IGreenhouseGameState, IRootState> = {
 	[EN_GreenhouseGameGetters.GET_STRAWBERRY_AIR_HUMIDITY_NUM_GH]: state =>
 		state.strawberryAirHumidityNum,
 	[EN_GreenhouseGameGetters.GET_STRAWBERRY_AIR_TEMPERATURE_CHECK_GH]: state =>
-		state.isStrawberryAirTemperatureCheck
+		state.isStrawberryAirTemperatureCheck,
+	[EN_GreenhouseGameGetters.GET_PLAYER_MISTAKES_STRAWBERRY_GH]: state =>
+		state.playerMistakesStrawberry,
+	[EN_GreenhouseGameGetters.GET_FIRST_MISTAKE_STRAWBERRY_GH]: state =>
+		state.isFirstMistakeStrawberry,
+	[EN_GreenhouseGameGetters.GET_SECOND_MISTAKE_STRAWBERRY_GH]: state =>
+		state.isSecondMistakeStrawberry
 }
