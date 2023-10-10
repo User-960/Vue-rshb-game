@@ -5,7 +5,7 @@
       <navigationLevels/>
     </div>
 
-    <div :class='styles.exitButtonWrapper'>
+    <div :class='styles.exitButtonWrapper' @click='exitGame'>
       <exitButton/>
     </div>
 
@@ -53,7 +53,8 @@ import blockButton from '../../../../ui/button/blockButton/blockButton.vue'
 import iconButton from '../../../../ui/button/iconButton/iconButton.vue'
 import navigationLevels from './navigationLevels/navigationLevels.vue'
 import { EN_GreenhouseGameGetters } from '@/store/modules/greenhouseGame/getters'
-import { mapGetters } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
+import { EN_GreenhouseGameMutation } from '@/store/modules/greenhouseGame/mutations'
 
 export default Vue.extend({
   name: 'navBarGameGreenhouse',
@@ -66,7 +67,35 @@ export default Vue.extend({
   computed: {
     ...mapGetters([
       EN_GreenhouseGameGetters.GET_POINTS_GH,
+      EN_GreenhouseGameGetters.GET_TIMER_TOMATO_GH,
+      EN_GreenhouseGameGetters.GET_TIMER_PEPPER_GH,
+      EN_GreenhouseGameGetters.GET_TIMER_STRAWBERRY_GH,
     ]),
+  },
+  methods: {
+    ...mapMutations([
+      EN_GreenhouseGameMutation.STOP_TIMER_TOMATO_GH,
+      EN_GreenhouseGameMutation.STOP_TIMER_PEPPER_GH,
+      EN_GreenhouseGameMutation.STOP_TIMER_STRAWBERRY_GH,
+      EN_GreenhouseGameMutation.RESTART_GAME_GH,
+      EN_GreenhouseGameMutation.FINISH_GAME_GH,
+    ]),
+    exitGame() {
+      if (this.GET_TIMER_TOMATO_GH) {
+        this.STOP_TIMER_TOMATO_GH()
+      }
+
+      if (this.GET_TIMER_PEPPER_GH) {
+        this.STOP_TIMER_PEPPER_GH()
+      }
+
+      if (this.GET_TIMER_STRAWBERRY_GH) {
+        this.STOP_TIMER_STRAWBERRY_GH()
+      }
+
+      this.RESTART_GAME_GH()
+      this.FINISH_GAME_GH()
+    }
   }
 })
 </script>
