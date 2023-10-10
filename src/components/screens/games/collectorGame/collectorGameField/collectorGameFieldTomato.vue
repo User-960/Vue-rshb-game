@@ -28,12 +28,22 @@
 import { EN_CollectorGameGetters } from '@/store/modules/collectorGame/getters'
 import Vue from 'vue'
 import { mapGetters } from 'vuex'
-import { generatorCells, generatorTomatoGreen, generatorTomatoRed, generatorTomatoDarkGreen } from '../helpers/helpers'
+import { 
+  generatorCells, 
+  generatorTomatoGreen, 
+  generatorTomatoRed, 
+  generatorTomatoDarkGreen 
+} from '../helpers/helpers'
 
 const cells = generatorCells()
 const firstColumn: number[] = [1, 14, 27, 40, 53, 66, 79, 92, 105, 118]
 const secondColumn: number[] = [2, 15, 28, 41, 54, 67, 80, 93, 106, 119]
+const thirdColumn: number[] = [3, 16, 29, 42, 55, 68, 81, 94, 107, 120]
+const fourthColumn: number[] = [4, 17, 30, 43, 56, 69, 80, 95, 108, 121]
 const fifthColumn: number[] = [5, 18, 31, 44, 57, 70, 83, 96, 109, 122]
+const sixthColumn: number[] = [6, 19, 32, 45, 58, 71, 84, 97, 110, 123]
+const seventhColumn: number[] = [7, 20, 33, 46, 59, 72, 85, 98, 111, 124]
+const eighthColumn: number[] = [8, 21, 34, 47, 60, 73, 86, 99, 112, 125]
 const ninthColumn: number[] = [9, 22, 35, 48, 61, 74, 87, 100, 113, 126]
 
 export default Vue.extend({
@@ -49,7 +59,6 @@ export default Vue.extend({
   created() {
     setTimeout(() => {
       this.isBlackScreenShow = true
-      this.generateTomatoGreen = true
     }, 2350)
 
     setTimeout(() => {
