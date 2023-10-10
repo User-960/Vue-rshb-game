@@ -7,4 +7,8 @@ export interface ICollectorGameState {
 	points: number
 
 	isOpenGameFieldTomato: boolean
+
+	isOpenGameFieldPepper: boolean
+
+	isOpenGameFieldStrawberry: boolean
 }

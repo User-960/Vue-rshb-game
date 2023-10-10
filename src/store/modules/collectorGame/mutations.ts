@@ -21,7 +21,13 @@ export enum EN_CollectorGameMutation {
 	FINISH_GAME_COL = 'FINISH_GAME_COL',
 
 	OPEN_GAME_FIELD_TOMATO_COL = 'OPEN_GAME_FIELD_TOMATO_COL',
-	CLOSE_GAME_FIELD_TOMATO_COL = 'CLOSE_GAME_FIELD_TOMATO_COL'
+	CLOSE_GAME_FIELD_TOMATO_COL = 'CLOSE_GAME_FIELD_TOMATO_COL',
+
+	OPEN_GAME_FIELD_PEPPER_COL = 'OPEN_GAME_FIELD_PEPPER_COL',
+	CLOSE_GAME_FIELD_PEPPER_COL = 'CLOSE_GAME_FIELD_PEPPER_COL',
+
+	OPEN_GAME_FIELD_STRAWBERRY_COL = 'OPEN_GAME_FIELD_STRAWBERRY_COL',
+	CLOSE_GAME_FIELD_STRAWBERRY_COL = 'CLOSE_GAME_FIELD_STRAWBERRY_COL'
 }
 
 const audioVictory = new Audio(AUDIO_CONFIG.AUDIO_VICTORY)
@@ -92,5 +98,19 @@ export const mutations: MutationTree<ICollectorGameState> = {
 	},
 	[EN_CollectorGameMutation.CLOSE_GAME_FIELD_TOMATO_COL](state) {
 		state.isOpenGameFieldTomato = false
+	},
+
+	[EN_CollectorGameMutation.OPEN_GAME_FIELD_PEPPER_COL](state) {
+		state.isOpenGameFieldPepper = true
+	},
+	[EN_CollectorGameMutation.CLOSE_GAME_FIELD_PEPPER_COL](state) {
+		state.isOpenGameFieldPepper = false
+	},
+
+	[EN_CollectorGameMutation.OPEN_GAME_FIELD_STRAWBERRY_COL](state) {
+		state.isOpenGameFieldStrawberry = true
+	},
+	[EN_CollectorGameMutation.CLOSE_GAME_FIELD_STRAWBERRY_COL](state) {
+		state.isOpenGameFieldStrawberry = false
 	}
 }

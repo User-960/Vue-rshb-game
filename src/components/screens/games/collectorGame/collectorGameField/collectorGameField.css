@@ -52,6 +52,54 @@
 
 	width: 100%;
 	height: 100%;
+
+	display: flex;
+	justify-content: space-between;
+}
+
+.decorations {
+	background-repeat: no-repeat;
+	background-size: contain;
+
+	max-width: 185px;
+	width: 100%;
+	height: 100%;
+}
+
+.left {
+	background-image: url(../../../../../../public/images/tomatoLeftDecorations.svg);
+	background-position: top;
+}
+
+.right {
+	background-image: url(../../../../../../public/images/tomatoRightDecorations.svg);
+	background-position: center;
+}
+
+.cellWrapper {
+	max-width: 810px;
+	max-height: 620px;
+	width: 100%;
+	height: 100%;
+
+	margin: auto;
+
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+}
+
+.cell {
+	width: 62px;
+	height: 62px;
+
+	background-color: #8990a5;
+	border: 1px solid #000;
+}
+
+.isTomatoGreen {
+	background-color: green;
 }
 
 /* animations */

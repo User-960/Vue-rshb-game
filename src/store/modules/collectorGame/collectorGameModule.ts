@@ -14,7 +14,11 @@ const state: ICollectorGameState = {
 	isStartGame: false,
 	points: 0,
 
-	isOpenGameFieldTomato: false
+	isOpenGameFieldTomato: false,
+
+	isOpenGameFieldPepper: false,
+
+	isOpenGameFieldStrawberry: false
 }
 
 export const getDefaultCollectorGameState = () => {

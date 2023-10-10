@@ -5,7 +5,15 @@
     <div :class='styles.gameWrapper'>
       <div :class='styles.border'>
         <div :class='styles.gameField'>
-          Collector Game
+          <div :class='[styles.decorations, styles.left]'></div>
+
+          <div :class='styles.cellWrapper'>
+            <div v-for='cell in cells' :key='cell.id'>
+              <div :class='[styles.cell, {[styles.isTomatoGreen]: cell.isTomatoGreen}]'></div>
+            </div>
+          </div>
+
+          <div :class='[styles.decorations, styles.right]'></div>
         </div>
       </div>
     </div>
@@ -16,11 +24,15 @@
 import { EN_CollectorGameGetters } from '@/store/modules/collectorGame/getters'
 import Vue from 'vue'
 import { mapGetters } from 'vuex'
+import { generatorCells } from '../helpers/helpers'
+
+const cells = generatorCells()
 
 export default Vue.extend({
   name: 'collectorGameFieldTomato',
   data: () => ({
-    isBlackScreenShow: false
+    isBlackScreenShow: false,
+    cells,
   }),
   components: {},
   created() {

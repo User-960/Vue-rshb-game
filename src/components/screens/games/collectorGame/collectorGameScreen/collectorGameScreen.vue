@@ -50,7 +50,11 @@ export default Vue.extend({
   }),
   components: {},
   methods: {
-    ...mapMutations([EN_CollectorGameMutation.OPEN_GAME_FIELD_TOMATO_COL]),
+    ...mapMutations([
+        EN_CollectorGameMutation.OPEN_GAME_FIELD_TOMATO_COL,
+        EN_CollectorGameMutation.OPEN_GAME_FIELD_PEPPER_COL,
+        EN_CollectorGameMutation.OPEN_GAME_FIELD_STRAWBERRY_COL,
+    ]),
     chooseTomatoLevel() {
       const audio = new Audio(AUDIO_CONFIG.AUDIO_CHOOSE_ACTION_COMPUTER)
 		  audio.autoplay = true
@@ -84,11 +88,11 @@ export default Vue.extend({
       }
 
       if (this.isChosenPepperLevel) {
-        this.OPEN_GAME_FIELD_TOMATO_COL()
+        this.OPEN_GAME_FIELD_PEPPER_COL()
       }
 
       if (this.isChosenStrawberryLevel) {
-        this.OPEN_GAME_FIELD_TOMATO_COL()
+        this.OPEN_GAME_FIELD_STRAWBERRY_COL()
       }
     }
   }
