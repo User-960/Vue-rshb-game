@@ -59,12 +59,16 @@ export default Vue.extend({
     ...mapMutations([
       EN_GreenhouseGameMutation.HIDE_RULES_BLOCK_GH, 
       EN_GreenhouseGameMutation.START_GAME_GH,
-      EN_GreenhouseGameMutation.START_FINISH_TIMER_TOMATO_GH
+      EN_GreenhouseGameMutation.START_FINISH_TIMER_TOMATO_GH,
+      EN_GreenhouseGameMutation.START_TOMATO_LEVEL_GH,
+      EN_GreenhouseGameMutation.SHOW_TOMATO_SOIL_MOISTURE_CHECK_GH,
     ]),
     startGame() {
       this.HIDE_RULES_BLOCK_GH()
       this.START_GAME_GH()
 
+      this.START_TOMATO_LEVEL_GH()
+      this.SHOW_TOMATO_SOIL_MOISTURE_CHECK_GH()
       this.START_FINISH_TIMER_TOMATO_GH()
     },
     goMap() {

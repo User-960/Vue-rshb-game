@@ -7,7 +7,7 @@
           <div :class='styles.soilMoistureNum'>{{ GET_TOMATO_SOIL_MOISTURE_NUM_GH }}</div>
           <div :class='styles.soilMoistureWrapper'>
             <div :class='styles.soilMoistureText'>Влажность почвы</div>
-            <button :class='styles.soilMoistureBtn' @click='pourSoil'>Полить</button>
+            <button :class='styles.soilMoistureBtn' @click='pourSoilWrongCorrect'>Полить</button>
           </div>
         </li>
 
@@ -16,8 +16,8 @@
           <div :class='styles.airMoistureWrapper'>
             <div :class='styles.airMoistureText'>Влажность воздуха</div>
             <div :class='styles.airMoistureBtnWrapper'>
-              <button :class='styles.airMoistureBtn'>Увлажнить</button>
-              <button :class='styles.airMoistureBtn'>Осушить</button>
+              <button :class='styles.airMoistureBtn' @click='pourSoilWrong'>Увлажнить</button>
+              <button :class='styles.airMoistureBtn' @click='pourSoilWrong'>Осушить</button>
             </div>
           </div>
         </li>
@@ -42,7 +42,7 @@
           <div :class='styles.soilMoistureNum'>85</div>
           <div :class='styles.soilMoistureWrapper'>
             <div :class='styles.soilMoistureText'>Влажность почвы</div>
-            <button :class='styles.soilMoistureBtn'>Полить</button>
+            <button :class='styles.soilMoistureBtn' @click='moisturizeAirWrong'>Полить</button>
           </div>
         </li>
 
@@ -51,8 +51,8 @@
           <div :class='styles.airMoistureWrapper'>
             <div :class='styles.airMoistureText'>Влажность воздуха</div>
             <div :class='styles.airMoistureBtnWrapper'>
-              <button :class='styles.airMoistureBtn' @click='moisturizeAir'>Увлажнить</button>
-              <button :class='styles.airMoistureBtn'>Осушить</button>
+              <button :class='styles.airMoistureBtn' @click='moisturizeAirCorrect'>Увлажнить</button>
+              <button :class='styles.airMoistureBtn' @click='moisturizeAirWrong'>Осушить</button>
             </div>
           </div>
         </li>
@@ -77,7 +77,7 @@
           <div :class='styles.soilMoistureNum'>32</div>
           <div :class='styles.soilMoistureWrapper'>
             <div :class='styles.soilMoistureText'>Влажность почвы</div>
-            <button :class='styles.soilMoistureBtn'>Полить</button>
+            <button :class='styles.soilMoistureBtn' @click='drainAirWrong'>Полить</button>
           </div>
         </li>
 
@@ -86,8 +86,8 @@
           <div :class='styles.airMoistureWrapper'>
             <div :class='styles.airMoistureText'>Влажность воздуха</div>
             <div :class='styles.airMoistureBtnWrapper'>
-              <button :class='styles.airMoistureBtn'>Увлажнить</button>
-              <button :class='styles.airMoistureBtn' @click='drainAir'>Осушить</button>
+              <button :class='styles.airMoistureBtn' @click='drainAirWrong'>Увлажнить</button>
+              <button :class='styles.airMoistureBtn' @click='drainAirCorrect'>Осушить</button>
             </div>
           </div>
         </li>
@@ -120,6 +120,7 @@ import potStrawberry from './potPlant/potStrawberry.vue'
 import { mapGetters, mapMutations } from 'vuex'
 import { EN_GreenhouseGameGetters } from '@/store/modules/greenhouseGame/getters'
 import { EN_GreenhouseGameMutation } from '@/store/modules/greenhouseGame/mutations'
+import { EN_CONFIG } from '../config/config'
 
 export default Vue.extend({
   name: 'machineCharacteristics',
@@ -130,6 +131,9 @@ export default Vue.extend({
   },
   computed: {
     ...mapGetters([
+      EN_GreenhouseGameGetters.GET_FIRST_MISTAKE_GH,
+      EN_GreenhouseGameGetters.GET_PLAYER_MISTAKES_GH,
+
       EN_GreenhouseGameGetters.GET_TOMATO_LEVEL_GH,
       EN_GreenhouseGameGetters.GET_TOMATO_SOIL_MOISTURE_ACTION_GH,
       EN_GreenhouseGameGetters.GET_TOMATO_SOIL_MOISTURE_NUM_GH,
@@ -146,29 +150,125 @@ export default Vue.extend({
   methods: {
     ...mapMutations([
       EN_GreenhouseGameMutation.PLUS_POINTS_GH,
+      EN_GreenhouseGameMutation.MINUS_POINTS_GH,
+      EN_GreenhouseGameMutation.INCREASE_PLAYER_MISTAKES_GH,
+      EN_GreenhouseGameMutation.SHOW_FIRST_MISTAKE_GH,
+      EN_GreenhouseGameMutation.HIDE_FIRST_MISTAKE_GH,
+      EN_GreenhouseGameMutation.SHOW_SECOND_MISTAKE_GH,
+      EN_GreenhouseGameMutation.FINISH_GAME_GH,
+      EN_GreenhouseGameMutation.SHOW_LOSS_BLOCK_GH,
 
       EN_GreenhouseGameMutation.HIDE_TOMATO_SOIL_MOISTURE_ACTION_GH,
+      EN_GreenhouseGameMutation.UPDATE_TIMER_TOMATO_GH,
+      EN_GreenhouseGameMutation.START_FINISH_TIMER_TOMATO_GH,
+      EN_GreenhouseGameMutation.MINUS_TOMATO_HEALTH_PERCENTAGE_GH,
+
       EN_GreenhouseGameMutation.HIDE_PEPPER_AIR_HUMIDITY_ACTION_GH,
-      EN_GreenhouseGameMutation.HIDE_STRAWBERRY_AIR_HUMIDITY_ACTION_GH
+      EN_GreenhouseGameMutation.UPDATE_TIMER_PEPPER_GH,
+      EN_GreenhouseGameMutation.START_FINISH_TIMER_PEPPER_GH,
+      EN_GreenhouseGameMutation.MINUS_PEPPER_HEALTH_PERCENTAGE_GH,
+
+      EN_GreenhouseGameMutation.HIDE_STRAWBERRY_AIR_HUMIDITY_ACTION_GH,
+      EN_GreenhouseGameMutation.UPDATE_TIMER_STRAWBERRY_GH,
+      EN_GreenhouseGameMutation.START_FINISH_TIMER_STRAWBERRY_GH,
+      EN_GreenhouseGameMutation.MINUS_STRAWBERRY_HEALTH_PERCENTAGE_GH,
     ]),
-    pourSoil() {
+    pourSoilWrongCorrect() {
       if (this.GET_TOMATO_LEVEL_GH && this.GET_TOMATO_SOIL_MOISTURE_ACTION_GH) {
         this.PLUS_POINTS_GH()
         this.HIDE_TOMATO_SOIL_MOISTURE_ACTION_GH()
       }
     },
-    moisturizeAir() {
+    pourSoilWrong() {
+      if (this.GET_TOMATO_LEVEL_GH && this.GET_PLAYER_MISTAKES_GH === 0) {
+        this.MINUS_POINTS_GH()
+        this.MINUS_TOMATO_HEALTH_PERCENTAGE_GH()
+        this.INCREASE_PLAYER_MISTAKES_GH()
+        this.SHOW_FIRST_MISTAKE_GH()
+        this.START_FINISH_TIMER_TOMATO_GH()
+        setTimeout(() => {
+          this.HIDE_FIRST_MISTAKE_GH()
+          this.UPDATE_TIMER_TOMATO_GH()
+          this.START_FINISH_TIMER_TOMATO_GH()
+        }, EN_CONFIG.TIMING_ERROR_TEXT_DANIL)
+      }
+
+      if (this.GET_TOMATO_LEVEL_GH && this.GET_PLAYER_MISTAKES_GH === 1 && !this.GET_FIRST_MISTAKE_GH) {
+        this.MINUS_POINTS_GH()
+        this.MINUS_TOMATO_HEALTH_PERCENTAGE_GH()
+        this.INCREASE_PLAYER_MISTAKES_GH()
+        this.SHOW_SECOND_MISTAKE_GH()
+        this.START_FINISH_TIMER_TOMATO_GH()
+        setTimeout(() => {
+          this.FINISH_GAME_GH()
+          this.SHOW_LOSS_BLOCK_GH()
+        }, EN_CONFIG.TIMING_ERROR_TEXT_DANIL)
+      }
+    },
+    moisturizeAirCorrect() {
       if (this.GET_PEPPER_LEVEL_GH && this.GET_PEPPER_AIR_HUMIDITY_ACTION_GH) {
         this.PLUS_POINTS_GH()
         this.HIDE_PEPPER_AIR_HUMIDITY_ACTION_GH()
       }
     },
-    drainAir() {
+    moisturizeAirWrong() {
+      if (this.GET_PEPPER_LEVEL_GH && this.GET_PLAYER_MISTAKES_GH === 0) {
+        this.MINUS_POINTS_GH()
+        this.MINUS_PEPPER_HEALTH_PERCENTAGE_GH()
+        this.INCREASE_PLAYER_MISTAKES_GH()
+        this.SHOW_FIRST_MISTAKE_GH()
+        this.START_FINISH_TIMER_PEPPER_GH()
+        setTimeout(() => {
+          this.HIDE_FIRST_MISTAKE_GH()
+          this.UPDATE_TIMER_PEPPER_GH()
+          this.START_FINISH_TIMER_PEPPER_GH()
+        }, EN_CONFIG.TIMING_ERROR_TEXT_DANIL)
+      }
+
+      if (this.GET_PEPPER_LEVEL_GH && this.GET_PLAYER_MISTAKES_GH === 1 && !this.GET_FIRST_MISTAKE_GH) {
+        this.MINUS_POINTS_GH()
+        this.MINUS_PEPPER_HEALTH_PERCENTAGE_GH()
+        this.INCREASE_PLAYER_MISTAKES_GH()
+        this.SHOW_SECOND_MISTAKE_GH()
+        this.START_FINISH_TIMER_PEPPER_GH()
+        setTimeout(() => {
+          this.FINISH_GAME_GH()
+          this.SHOW_LOSS_BLOCK_GH()
+        }, EN_CONFIG.TIMING_ERROR_TEXT_DANIL)
+      }
+    },
+    drainAirCorrect() {
       if (this.GET_STRAWBERRY_LEVEL_GH && this.GET_STRAWBERRY_AIR_HUMIDITY_ACTION_GH) {
         this.PLUS_POINTS_GH()
         this.HIDE_STRAWBERRY_AIR_HUMIDITY_ACTION_GH()
       }
-    }
+    },
+    drainAirWrong() {
+      if (this.GET_STRAWBERRY_LEVEL_GH && this.GET_PLAYER_MISTAKES_GH === 0) {
+        this.MINUS_POINTS_GH()
+        this.MINUS_STRAWBERRY_HEALTH_PERCENTAGE_GH()
+        this.INCREASE_PLAYER_MISTAKES_GH()
+        this.SHOW_FIRST_MISTAKE_GH()
+        this.START_FINISH_TIMER_STRAWBERRY_GH()
+        setTimeout(() => {
+          this.HIDE_FIRST_MISTAKE_GH()
+          this.UPDATE_TIMER_STRAWBERRY_GH()
+          this.START_FINISH_TIMER_STRAWBERRY_GH()
+        }, EN_CONFIG.TIMING_ERROR_TEXT_DANIL)
+      }
+
+      if (this.GET_STRAWBERRY_LEVEL_GH && this.GET_PLAYER_MISTAKES_GH === 1 && !this.GET_FIRST_MISTAKE_GH) {
+        this.MINUS_POINTS_GH()
+        this.MINUS_STRAWBERRY_HEALTH_PERCENTAGE_GH()
+        this.INCREASE_PLAYER_MISTAKES_GH()
+        this.SHOW_SECOND_MISTAKE_GH()
+        this.START_FINISH_TIMER_STRAWBERRY_GH()
+        setTimeout(() => {
+          this.FINISH_GAME_GH()
+          this.SHOW_LOSS_BLOCK_GH()
+        }, EN_CONFIG.TIMING_ERROR_TEXT_DANIL)
+      }
+    },
   }
 })
 </script>

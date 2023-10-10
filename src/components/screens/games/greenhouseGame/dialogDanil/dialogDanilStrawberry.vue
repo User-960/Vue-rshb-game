@@ -15,7 +15,7 @@
           <p :class='[styles.text, styles.textCharacteristic]' 
             v-if='GET_STRAWBERRY_AIR_HUMIDITY_CHECK_GH'
           >
-            Вас понял! <br>Теперь скажи какая <br><span>влажность воздуха</span> у клубники.
+            Вас понял! <br>Теперь скажи какая <br><span>влажность воздуха</span>.
           </p>
 
           <p :class='[styles.text, styles.textCharacteristic]' 

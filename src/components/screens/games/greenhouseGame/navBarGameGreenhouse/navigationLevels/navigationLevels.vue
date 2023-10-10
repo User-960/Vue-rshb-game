@@ -3,7 +3,7 @@
     <li :class='[
         styles.navLevel, 
         styles.navLevelTomato,
-        {[styles.navLevelTomatoActive]: GET_TOMATO_LEVEL_GH || !GET_TOMATO_LEVEL_GH}
+        {[styles.navLevelTomatoActive]: GET_START_GAME_GH && (GET_TOMATO_LEVEL_GH || !GET_TOMATO_LEVEL_GH)}
       ]'
       @click='openTomatoLevel'
     ></li>
@@ -11,7 +11,7 @@
     <li :class='[
         styles.navLevel, 
         styles.navLevelPepper,
-        {[styles.navLevelPepperActive]: !GET_TOMATO_LEVEL_GH || GET_PEPPER_LEVEL_GH}
+        {[styles.navLevelPepperActive]: GET_START_GAME_GH && (!GET_TOMATO_LEVEL_GH || GET_PEPPER_LEVEL_GH)}
       ]'
       @click='openPepperLevel'
     ></li>
@@ -19,7 +19,7 @@
     <li :class='[
         styles.navLevel, 
         styles.navLevelStrawberry,
-        {[styles.navLevelStrawberryActive]: (!GET_PEPPER_LEVEL_GH && !GET_TOMATO_LEVEL_GH) || GET_STRAWBERRY_LEVEL_GH}
+        {[styles.navLevelStrawberryActive]: GET_START_GAME_GH && ((!GET_PEPPER_LEVEL_GH && !GET_TOMATO_LEVEL_GH) || GET_STRAWBERRY_LEVEL_GH)}
       ]'
       @click='openStrawberryLevel'
     ></li>
@@ -36,6 +36,8 @@ export default Vue.extend({
   name: 'navigationLevels',
   computed: {
     ...mapGetters([
+      EN_GreenhouseGameGetters.GET_START_GAME_GH,
+
       EN_GreenhouseGameGetters.GET_TOMATO_LEVEL_GH,
       EN_GreenhouseGameGetters.GET_TOMATO_AIR_TEMPERATURE_CHECK_GH,
       EN_GreenhouseGameGetters.GET_TOMATO_SOIL_MOISTURE_CHECK_GH,

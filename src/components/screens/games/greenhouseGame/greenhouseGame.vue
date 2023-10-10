@@ -22,7 +22,7 @@ export default Vue.extend({
   },
   watch: {
     GET_START_GAME_GH() {
-      if (!this.GET_START_GAME_GH) {
+      if (!this.GET_START_GAME_GH && this.GET_PLAYER_MISTAKES_GH < 2) {
         setTimeout(() => {
           this.SHOW_VICTORY_BLOCK_GH()
         }, 2000)
@@ -30,7 +30,10 @@ export default Vue.extend({
     }
   },
   computed: {
-    ...mapGetters([EN_GreenhouseGameGetters.GET_START_GAME_GH])
+    ...mapGetters([
+      EN_GreenhouseGameGetters.GET_START_GAME_GH, 
+      EN_GreenhouseGameGetters.GET_PLAYER_MISTAKES_GH
+    ])
   },
   methods: {
     ...mapMutations([EN_GreenhouseGameMutation.SHOW_VICTORY_BLOCK_GH])

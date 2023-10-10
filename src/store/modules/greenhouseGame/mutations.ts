@@ -1,11 +1,5 @@
 import { MutationTree } from 'vuex'
 
-import { nameFlasks } from '@/components/screens/games/geneticGame/config/config'
-import {
-	generatorFlasksDropZone,
-	generatorFlasksList
-} from '@/components/screens/games/geneticGame/helpers/helpers'
-
 import { IGreenhouseGameState } from './types'
 import { AUDIO_CONFIG } from '@/config/audio'
 
@@ -107,13 +101,13 @@ export const mutations: MutationTree<IGreenhouseGameState> = {
 		state.isSecondMistake = false
 
 		state.timerTomato = 9
-		state.isTomatoSoilMoistureCheck = true
+		state.isTomatoSoilMoistureCheck = false
 		state.isTomatoSoilMoistureAction = false
 		state.tomatoSoilMoistureNum = '30,1'
 		state.healthTomatoPercentage = 100
 		state.isTomatoAirHumidityCheck = false
 		state.isTomatoAirTemperatureCheck = false
-		state.isTomatoLevel = true
+		state.isTomatoLevel = false
 
 		state.isPepperSoilMoistureCheck = false
 		state.isPepperAirHumidityCheck = false
