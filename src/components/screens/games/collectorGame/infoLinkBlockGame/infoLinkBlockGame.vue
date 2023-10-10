@@ -64,10 +64,10 @@ export default Vue.extend({
       EN_CollectorGameMutation.SHOW_INFO_LINK_BLOCK_COL, 
       EN_CollectorGameMutation.HIDE_INFO_LINK_BLOCK_COL, 
       EN_CollectorGameMutation.SHOW_RULES_BLOCK_COL,
-      EN_CollectorGameMutation.PLUS_POINTS_COL
+      EN_CollectorGameMutation.PLUS_POINTS_LINK_COL
     ]),
     checkFollowLink() {
-      this.PLUS_POINTS_COL()
+      this.PLUS_POINTS_LINK_COL()
     },
     closeBlock() {
       this.HIDE_INFO_LINK_BLOCK_COL()

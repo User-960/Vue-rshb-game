@@ -161,10 +161,16 @@ export const mutations: MutationTree<IGeneticGameState> = {
 		state.points += 15
 	},
 	[EN_GeneticGameMutation.PLUS_POINTS_LINK_GN](state) {
-		state.points += 5
+		if (state.points === 0) {
+			state.points += 5
+		}
 	},
 	[EN_GeneticGameMutation.MINUS_POINTS_GN](state) {
-		state.points -= 5
+		if (state.points === 0) {
+			state.points = 0
+		} else {
+			state.points -= 5
+		}
 	},
 
 	[EN_GeneticGameMutation.UPDATE_TIMER_TOMATO_GN](state) {

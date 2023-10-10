@@ -131,10 +131,16 @@ export const mutations: MutationTree<IPestControlGameState> = {
 		state.points += 10
 	},
 	[EN_PestControlGameMutation.PLUS_POINTS_LINK_PS](state) {
-		state.points += 5
+		if (state.points === 0) {
+			state.points += 5
+		}
 	},
 	[EN_PestControlGameMutation.MINUS_POINTS_PS](state) {
-		state.gameLoop -= 5
+		if (state.points === 0) {
+			state.points = 0
+		} else {
+			state.points -= 5
+		}
 	},
 
 	[EN_PestControlGameMutation.CHOOSE_TOMATO_LEVEL](state) {

@@ -194,10 +194,16 @@ export const mutations: MutationTree<IAiGameState> = {
 		state.points += 10
 	},
 	[EN_AiGameMutation.PLUS_POINTS_LINK_AI](state) {
-		state.points += 5
+		if (state.points === 0) {
+			state.points += 5
+		}
 	},
 	[EN_AiGameMutation.MINUS_POINTS_AI](state) {
-		state.points -= 5
+		if (state.points === 0) {
+			state.points = 0
+		} else {
+			state.points -= 5
+		}
 	},
 
 	[EN_AiGameMutation.START_FINISH_TIMER_AI](state) {

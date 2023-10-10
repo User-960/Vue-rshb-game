@@ -12,8 +12,11 @@ export enum EN_CollectorGameMutation {
 	HIDE_VICTORY_BLOCK_COL = 'HIDE_VICTORY_BLOCK_COL',
 	SHOW_LOSS_BLOCK_COL = 'SHOW_LOSS_BLOCK_COL',
 	HIDE_LOSS_BLOCK_COL = 'HIDE_LOSS_BLOCK_COL',
+
 	PLUS_POINTS_COL = 'PLUS_POINTS_COL',
+	PLUS_POINTS_LINK_COL = 'PLUS_POINTS_LINK_COL',
 	MINUS_POINTS_COL = 'MINUS_POINTS_COL',
+
 	START_GAME_COL = 'START_GAME_COL',
 	FINISH_GAME_COL = 'FINISH_GAME_COL',
 
@@ -64,9 +67,19 @@ export const mutations: MutationTree<ICollectorGameState> = {
 	[EN_CollectorGameMutation.PLUS_POINTS_COL](state) {
 		state.points += 5
 	},
-	[EN_CollectorGameMutation.MINUS_POINTS_COL](state) {
-		state.points -= 5
+	[EN_CollectorGameMutation.PLUS_POINTS_LINK_COL](state) {
+		if (state.points === 0) {
+			state.points += 5
+		}
 	},
+	[EN_CollectorGameMutation.MINUS_POINTS_COL](state) {
+		if (state.points === 0) {
+			state.points = 0
+		} else {
+			state.points -= 5
+		}
+	},
+
 	[EN_CollectorGameMutation.START_GAME_COL](state) {
 		state.isStartGame = true
 	},
