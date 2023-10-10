@@ -1,6 +1,6 @@
 <template>
   <div :class='styles.navBarGameCollector'>
-    <div :class='styles.exitButtonWrapper' v-if='GET_OPEN_GAME_FIELD_COL'>
+    <div :class='styles.exitButtonWrapper' v-if='GET_OPEN_GAME_FIELD_TOMATO_COL'>
       <div :class='styles.exitBtnLeave'>
         <iconButton @onclick="leaveGame">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="14" viewBox="0 0 24 14" fill="none">
@@ -65,14 +65,14 @@ export default Vue.extend({
   data: () => ({}),
   computed: {
     ...mapGetters([
-      EN_CollectorGameGetters.GET_OPEN_GAME_FIELD_COL, 
+      EN_CollectorGameGetters.GET_OPEN_GAME_FIELD_TOMATO_COL, 
       EN_CollectorGameGetters.GET_POINTS_COL
     ]),
   },
   methods: {
-    ...mapMutations([EN_CollectorGameMutation.CLOSE_GAME_FIELD_COL]),
+    ...mapMutations([EN_CollectorGameMutation.CLOSE_GAME_FIELD_TOMATO_COL]),
     leaveGame() {
-      this.CLOSE_GAME_FIELD_COL()
+      this.CLOSE_GAME_FIELD_TOMATO_COL()
     }
   },
   components: {

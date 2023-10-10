@@ -1,7 +1,7 @@
 <template>
-  <navBarGameCollector v-if='GET_OPEN_GAME_FIELD_COL'>
+  <navBarGameCollector v-if='GET_OPEN_GAME_FIELD_TOMATO_COL'>
     <template v-slot:gameBack>
-      <collectorGameField/>
+      <collectorGameFieldTomato/>
     </template>
   </navBarGameCollector>
 
@@ -30,7 +30,7 @@
 import Vue from 'vue'
 import navBarGameCollector from '../navBarGameCollector/navBarGameCollector.vue'
 import collectorGameScreen from '../collectorGameScreen/collectorGameScreen.vue'
-import collectorGameField from '../collectorGameField/collectorGameField.vue'
+import collectorGameFieldTomato from '../collectorGameField/collectorGameFieldTomato.vue'
 import { mapGetters } from 'vuex'
 import { EN_CollectorGameGetters } from '@/store/modules/collectorGame/getters'
 import infoLinkBlockGame from '../infoLinkBlockGame/infoLinkBlockGame.vue'
@@ -43,14 +43,14 @@ export default Vue.extend({
   components: {
     navBarGameCollector,
     collectorGameScreen,
-    collectorGameField,
+    collectorGameFieldTomato,
     infoLinkBlockGame,
     rulesBlockGame,
     victoryBlockGame,
     lossBlockGame
   },
   computed: {
-    ...mapGetters([EN_CollectorGameGetters.GET_OPEN_GAME_FIELD_COL]),
+    ...mapGetters([EN_CollectorGameGetters.GET_OPEN_GAME_FIELD_TOMATO_COL]),
   },
   methods: {}
 })

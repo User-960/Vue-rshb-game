@@ -18,7 +18,7 @@ import Vue from 'vue'
 import { mapGetters } from 'vuex'
 
 export default Vue.extend({
-  name: 'collectorGameField',
+  name: 'collectorGameFieldTomato',
   data: () => ({
     isBlackScreenShow: false
   }),
@@ -29,7 +29,7 @@ export default Vue.extend({
     }, 2350)
   },
   computed: {
-    ...mapGetters([EN_CollectorGameGetters.GET_OPEN_GAME_FIELD_COL]),
+    ...mapGetters([EN_CollectorGameGetters.GET_OPEN_GAME_FIELD_TOMATO_COL]),
   },
   methods: {}
 })

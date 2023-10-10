@@ -34,6 +34,7 @@
 </template>
 
 <script lang='ts'>
+import { AUDIO_CONFIG } from '@/config/audio'
 import { EN_CollectorGameMutation } from '@/store/modules/collectorGame/mutations'
 import Vue from 'vue'
 import { mapMutations } from 'vuex'
@@ -49,25 +50,45 @@ export default Vue.extend({
   }),
   components: {},
   methods: {
-    ...mapMutations([EN_CollectorGameMutation.OPEN_GAME_FIELD_COL]),
+    ...mapMutations([EN_CollectorGameMutation.OPEN_GAME_FIELD_TOMATO_COL]),
     chooseTomatoLevel() {
+      const audio = new Audio(AUDIO_CONFIG.AUDIO_CHOOSE_ACTION_COMPUTER)
+		  audio.autoplay = true
+		  audio.volume = 1
+      
       this.isChosenPepperLevel = false
       this.isChosenStrawberryLevel = false
       this.isChosenTomatoLevel = true
     },
     choosePepperLevel() {
+      const audio = new Audio(AUDIO_CONFIG.AUDIO_CHOOSE_ACTION_COMPUTER)
+		  audio.autoplay = true
+		  audio.volume = 1
+
       this.isChosenTomatoLevel = false
       this.isChosenStrawberryLevel = false
       this.isChosenPepperLevel = true
     },
     chooseStrawberryLevel() {
+      const audio = new Audio(AUDIO_CONFIG.AUDIO_CHOOSE_ACTION_COMPUTER)
+		  audio.autoplay = true
+		  audio.volume = 1
+
       this.isChosenTomatoLevel = false
       this.isChosenPepperLevel = false
       this.isChosenStrawberryLevel = true
     },
     openGame() {
-      if (this.isChosenTomatoLevel || this.isChosenPepperLevel || this.isChosenStrawberryLevel) {
-        this.OPEN_GAME_FIELD_COL()
+      if (this.isChosenTomatoLevel) {
+        this.OPEN_GAME_FIELD_TOMATO_COL()
+      }
+
+      if (this.isChosenPepperLevel) {
+        this.OPEN_GAME_FIELD_TOMATO_COL()
+      }
+
+      if (this.isChosenStrawberryLevel) {
+        this.OPEN_GAME_FIELD_TOMATO_COL()
       }
     }
   }
