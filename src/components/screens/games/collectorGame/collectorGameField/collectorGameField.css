@@ -91,6 +91,8 @@
 }
 
 .cell {
+	position: relative;
+
 	width: 62px;
 	height: 62px;
 
@@ -144,6 +146,31 @@
 	background-size: contain;
 
 	animation: gravityTomato 0.7s;
+}
+
+.isCollector {
+	position: absolute;
+	top: -62px;
+	left: -31px;
+
+	width: 124px;
+	height: 124px;
+	z-index: 100;
+
+	background-image: url(../../../../../../public/images/collectorDrone.svg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+
+	animation: moveCollector 0.3s;
+}
+
+.isCollectorMovedLeft {
+	animation: moveCollectorLeft 0.3s;
+}
+
+.isCollectorMovedRight {
+	animation: moveCollectorRight 0.3s;
 }
 
 /* animations */
@@ -245,6 +272,26 @@
 
 	100% {
 		top: 62px;
+	}
+}
+
+@keyframes moveCollectorLeft {
+	0% {
+		left: 31px;
+	}
+
+	100% {
+		left: -31px;
+	}
+}
+
+@keyframes moveCollectorRight {
+	0% {
+		left: -62px;
+	}
+
+	100% {
+		left: -31px;
 	}
 }
 

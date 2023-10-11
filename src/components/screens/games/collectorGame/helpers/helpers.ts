@@ -15,7 +15,8 @@ export const generatorCells = () => {
 			id: i,
 			isTomatoRed: false,
 			isTomatoGreen: false,
-			isTomatoDarkGreen: false
+			isTomatoDarkGreen: false,
+			isCollector: false
 		})
 	}
 
@@ -27,39 +28,13 @@ interface ICell {
 	isTomatoRed: boolean
 	isTomatoGreen: boolean
 	isTomatoDarkGreen: boolean
+	isCollector: boolean
 }
 
 const fifthColumn: number[] = [5, 18, 31, 44, 57, 70, 83, 96, 109, 122]
-
-// export const generatorTomatoGreen = (cells: ICell[], column: number[]) => {
-// 	let testTomato: ICell[]
-// 	testTomato = cells.filter(cell => cell.id === column[0])
-
-// 	if (testTomato[0].id === 5) {
-// 		testTomato[0].isTomatoGreen = true
-// 		setTimeout(() => {
-// 			testTomato[0].isTomatoGreen = false
-// 			testTomato = cells.filter(cell => cell.id === column[1])
-
-// 			if (testTomato[0].id === 18) {
-// 				testTomato[0].isTomatoGreen = true
-
-// 				setTimeout(() => {
-// 					testTomato[0].isTomatoGreen = false
-// 					testTomato = cells.filter(cell => cell.id === column[2])
-
-// 					if (testTomato[0].id === 31) {
-// 						testTomato[0].isTomatoGreen = true
-
-// 						setTimeout(() => {
-// 							testTomato[0].isTomatoGreen = false
-// 						}, 1000)
-// 					}
-// 				}, 1000)
-// 			}
-// 		}, 1000)
-// 	}
-// }
+const lastRow: number[] = [
+	118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130
+]
 
 export const generatorTomatoGreen = (
 	cells: ICell[],
@@ -139,5 +114,34 @@ export const generatorTomatoDarkGreen = (
 			columnCellIndex += 1
 			generatorTomatoDarkGreen(cells, column, columnCellId, columnCellIndex)
 		}, 700)
+	}
+}
+
+export const generatorCollector = (
+	cells: ICell[],
+	row: number[],
+	rowCellId: number,
+	rowCellIndex: number,
+	isMoving: boolean = false
+) => {
+	let testCollector: ICell[] | null = null
+	let currentCollector: ICell[] | null = null
+
+	if (!isMoving && rowCellId !== row[row.length - 1]) {
+		testCollector = cells.filter(cell => cell.id === row[rowCellIndex])
+		if (testCollector[0].id === rowCellId && !isMoving) {
+			testCollector[0].isCollector = true
+		}
+	}
+
+	if (isMoving && rowCellId !== row[row.length - 1]) {
+		currentCollector = cells.filter(cell => cell.isCollector === true)
+		currentCollector[0].isCollector = false
+
+		testCollector = cells.filter(cell => cell.id === row[rowCellIndex])
+
+		if (testCollector[0].id === rowCellId) {
+			testCollector[0].isCollector = true
+		}
 	}
 }
