@@ -145,3 +145,47 @@ export const generatorCollector = (
 		}
 	}
 }
+
+export const generatorCollectorMoveLeft = (
+	cells: ICell[],
+	row: number[],
+	rowCellId: number,
+	rowCellIndex: number,
+	isMoving: boolean = false
+) => {
+	let testCollector: ICell[] | null = null
+	let currentCollector: ICell[] | null = null
+
+	if (isMoving) {
+		currentCollector = cells.filter(cell => cell.isCollector === true)
+		currentCollector[0].isCollector = false
+
+		testCollector = cells.filter(cell => cell.id === row[rowCellIndex])
+
+		if (testCollector[0].id === rowCellId) {
+			testCollector[0].isCollector = true
+		}
+	}
+}
+
+export const generatorCollectorMoveRight = (
+	cells: ICell[],
+	row: number[],
+	rowCellId: number,
+	rowCellIndex: number,
+	isMoving: boolean = false
+) => {
+	let testCollector: ICell[] | null = null
+	let currentCollector: ICell[] | null = null
+
+	if (isMoving) {
+		currentCollector = cells.filter(cell => cell.isCollector === true)
+		currentCollector[0].isCollector = false
+
+		testCollector = cells.filter(cell => cell.id === row[rowCellIndex])
+
+		if (testCollector[0].id === rowCellId) {
+			testCollector[0].isCollector = true
+		}
+	}
+}

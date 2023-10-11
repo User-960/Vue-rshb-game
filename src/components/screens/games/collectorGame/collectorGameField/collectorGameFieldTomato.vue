@@ -40,7 +40,10 @@ import {
   generatorTomatoGreen, 
   generatorTomatoRed, 
   generatorTomatoDarkGreen,
-  generatorCollector
+  generatorCollector,
+
+  generatorCollectorMoveLeft,
+  generatorCollectorMoveRight
 } from '../helpers/helpers'
 
 const cells = generatorCells()
@@ -55,7 +58,7 @@ const eighthColumn: number[] = [8, 21, 34, 47, 60, 73, 86, 99, 112, 125]
 const ninthColumn: number[] = [9, 22, 35, 48, 61, 74, 87, 100, 113, 126]
 
 const lastRow: number[] = [
-	118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130
+	117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129
 ]
 
 export default Vue.extend({
@@ -68,13 +71,50 @@ export default Vue.extend({
     generateTomatoDarkGreen: false,
     generateCollector: false,
 
-    currentCellCollector: 118,
+    currentCellCollector: 117,
     currentIndexCellCollector: 0,
     isCollectorMovedLeft: false,
     isCollectorMovedRight: false,
+    isMovingLeft: false,
+    isMovingRight: false,
   }),
   components: {},
   created() {
+    document.addEventListener('keydown', (event) => {
+      if (event.code == 'KeyA' && !this.isMovingLeft && !this.isMovingRight && !this.isCollectorMovedLeft) {
+        this.isMovingLeft = true
+        if (this.isMovingLeft) {
+          this.currentCellCollector -= 1
+          this.currentIndexCellCollector -= 1
+
+          if (this.currentCellCollector > 116) {
+            this.moveCollectorLeft()
+          } else {
+            this.currentCellCollector = 129
+            this.currentIndexCellCollector = 12
+            this.moveCollectorLeft()
+          }
+        }
+      } 
+      
+      if (event.code == 'KeyD' && !this.isMovingRight && !this.isMovingLeft && !this.isCollectorMovedRight) {
+        this.isMovingRight = true
+        if (this.isMovingRight) {
+          this.currentCellCollector += 1
+          this.currentIndexCellCollector += 1
+
+          if (this.currentCellCollector < 130) {
+            this.moveCollectorRight()
+          } else {
+            this.currentCellCollector = 117
+            this.currentIndexCellCollector = 0
+            this.moveCollectorRight()
+          }
+        } 
+      
+      }
+    })
+
     setTimeout(() => {
       this.isBlackScreenShow = true
     }, 2350)
@@ -123,16 +163,6 @@ export default Vue.extend({
     generateCollector() {
       if (this.generateCollector) {
         generatorCollector(cells, lastRow, this.currentCellCollector, this.currentIndexCellCollector, false)
-
-        document.addEventListener('keydown', (event) => {
-          if (event.code == 'KeyA') {
-            this.moveCollectorLeft()
-          } 
-          
-          if (event.code == 'KeyD') {
-            this.moveCollectorRight()
-          }
-        });
       }
     }
   },
@@ -141,30 +171,31 @@ export default Vue.extend({
   },
   methods: {
     moveCollectorLeft() {
-      if (this.currentCellCollector > 118 && this.currentIndexCellCollector !== lastRow[0]) {
-        this.currentCellCollector -= 1
-        this.currentIndexCellCollector -= 1
-
-        generatorCollector(cells, lastRow, this.currentCellCollector, this.currentIndexCellCollector, true)
+      if (this.isCollectorMovedLeft === false) {
         this.isCollectorMovedLeft = true
+
+        generatorCollectorMoveLeft(
+          cells, lastRow, this.currentCellCollector, this.currentIndexCellCollector, this.isMovingLeft
+        )
+
         setTimeout(() => {
           this.isCollectorMovedLeft = false
-        }, 300)
-        console.log('Move Collector Left')
+          this.isMovingLeft = false
+        }, 200)
       } 
     },
     moveCollectorRight() {
-      if (this.currentCellCollector < 130 && this.currentIndexCellCollector < lastRow[lastRow.length - 1]) {
-        this.currentCellCollector += 1
-        this.currentIndexCellCollector += 1
-
-        generatorCollector(cells, lastRow, this.currentCellCollector, this.currentIndexCellCollector, true)
-
+      if (this.isCollectorMovedRight === false) {
         this.isCollectorMovedRight = true
+
+        generatorCollectorMoveRight(
+          cells, lastRow, this.currentCellCollector, this.currentIndexCellCollector, this.isMovingRight
+        )
+
         setTimeout(() => {
           this.isCollectorMovedRight = false
-        }, 300);
-        console.log('Move Collector Right')
+          this.isMovingRight = false
+        }, 200)
       } 
     }
   }
