@@ -75,7 +75,8 @@ export default Vue.extend({
     ]),
     leaveGame() {
       if (this.GET_OPEN_GAME_FIELD_TOMATO_COL) {
-        this.CLOSE_GAME_FIELD_TOMATO_COL()
+        // this.CLOSE_GAME_FIELD_TOMATO_COL()
+          this.$router.go(0)
       }
     }
   },
