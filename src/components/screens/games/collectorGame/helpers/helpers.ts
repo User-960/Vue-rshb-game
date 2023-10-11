@@ -1,3 +1,18 @@
+export const getRandomNumberGenerator = (
+	min: number,
+	max: number,
+	previous: number
+) => {
+	let newNumber: number
+	newNumber = Math.floor(Math.random() * (max - min) + min)
+
+	if (newNumber === previous) {
+		newNumber = getRandomNumberGenerator(min, max, previous)
+	}
+
+	return newNumber
+}
+
 const cells = [
 	{
 		id: 0,

@@ -36,6 +36,7 @@ import { EN_CollectorGameGetters } from '@/store/modules/collectorGame/getters'
 import Vue from 'vue'
 import { mapGetters } from 'vuex'
 import { 
+  getRandomNumberGenerator,
   generatorCells, 
   generatorTomatoGreen, 
   generatorTomatoRed, 
@@ -50,12 +51,14 @@ const cells = generatorCells()
 const firstColumn: number[] = [1, 14, 27, 40, 53, 66, 79, 92, 105, 118]
 const secondColumn: number[] = [2, 15, 28, 41, 54, 67, 80, 93, 106, 119]
 const thirdColumn: number[] = [3, 16, 29, 42, 55, 68, 81, 94, 107, 120]
-const fourthColumn: number[] = [4, 17, 30, 43, 56, 69, 80, 95, 108, 121]
+const fourthColumn: number[] = [4, 17, 30, 43, 56, 69, 82, 95, 108, 121]
 const fifthColumn: number[] = [5, 18, 31, 44, 57, 70, 83, 96, 109, 122]
 const sixthColumn: number[] = [6, 19, 32, 45, 58, 71, 84, 97, 110, 123]
 const seventhColumn: number[] = [7, 20, 33, 46, 59, 72, 85, 98, 111, 124]
 const eighthColumn: number[] = [8, 21, 34, 47, 60, 73, 86, 99, 112, 125]
 const ninthColumn: number[] = [9, 22, 35, 48, 61, 74, 87, 100, 113, 126]
+
+const allColumns: number[][] = [[], firstColumn, secondColumn, thirdColumn, fourthColumn, fifthColumn, sixthColumn, seventhColumn, eighthColumn, ninthColumn]
 
 const lastRow: number[] = [
 	117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129
@@ -66,11 +69,24 @@ export default Vue.extend({
   data: () => ({
     isBlackScreenShow: false,
     cells,
-    generateTomatoGreen: false,
-    generateTomatoRed: false,
-    generateTomatoDarkGreen: false,
-    generateCollector: false,
+    previousColumn: 0,
 
+    generateTomatoGreen: false,
+    currentCellTomatoGreen: 0,
+    currentIndexCellTomatoGreen: 0,
+    previousColumnTomatoGreen: 0,
+
+    generateTomatoRed: false,
+    currentCellTomatoRed: 0,
+    currentIndexCellTomatoRed: 0,
+    previousColumnTomatoRed: 0,
+    
+    generateTomatoDarkGreen: false,
+    currentCellTomatoDarkGreen: 0,
+    currentIndexCellTomatoDarkGreen: 0,
+    previousColumnTomatoDarkGreen: 0,
+
+    generateCollector: false,
     currentCellCollector: 117,
     currentIndexCellCollector: 0,
     isCollectorMovedLeft: false,
@@ -80,7 +96,9 @@ export default Vue.extend({
   }),
   components: {},
   created() {
-    document.addEventListener('keydown', (event) => {
+    this.generateCollector = true
+    
+    document.addEventListener('keyup', (event) => {
       if (event.code == 'KeyA' && !this.isMovingLeft && !this.isMovingRight && !this.isCollectorMovedLeft) {
         this.isMovingLeft = true
         if (this.isMovingLeft) {
@@ -88,10 +106,12 @@ export default Vue.extend({
           this.currentIndexCellCollector -= 1
 
           if (this.currentCellCollector > 116) {
+            this.isCollectorMovedLeft = true
             this.moveCollectorLeft()
           } else {
             this.currentCellCollector = 129
             this.currentIndexCellCollector = 12
+            this.isCollectorMovedLeft = true
             this.moveCollectorLeft()
           }
         }
@@ -104,58 +124,189 @@ export default Vue.extend({
           this.currentIndexCellCollector += 1
 
           if (this.currentCellCollector < 130) {
+            this.isCollectorMovedRight = true
             this.moveCollectorRight()
           } else {
             this.currentCellCollector = 117
             this.currentIndexCellCollector = 0
+            this.isCollectorMovedRight = true
             this.moveCollectorRight()
           }
         } 
-      
       }
     })
 
     setTimeout(() => {
       this.isBlackScreenShow = true
     }, 2350)
-
-    setTimeout(() => {
-      this.generateCollector = true
-    }, 2500)
-
-    setTimeout(() => {
+    
+    setInterval(() => {
       this.generateTomatoGreen = true
-    }, 2800)
 
-    setTimeout(() => {
-      this.generateTomatoRed = true
-    }, 3400)
+      setTimeout(() => {
+        this.generateTomatoRed = true
+      }, 1500)
 
-    setTimeout(() => {
-      this.generateTomatoDarkGreen = true
-    }, 4000)
+      setTimeout(() => {
+        this.generateTomatoDarkGreen = true
+      }, 2700)
+    }, 7000)
   },
   watch: {
+    currentCellCollector() {
+      if (cells[119].isCollector === true && cells[119].isTomatoGreen === true) {
+        console.log('Collector takes TomatoGreen')
+      }
+    },
     generateTomatoGreen() {
       if (this.generateTomatoGreen) {
-        const greenTomato = generatorTomatoGreen(cells, fifthColumn, 5, 0)
-        if (!greenTomato) {
+        let numberColumn = getRandomNumberGenerator(1, 10, this.previousColumn)
+        this.previousColumn = numberColumn
+
+        if (numberColumn === 1) {
+          this.makeTomatoGreen(allColumns[1], this.currentCellTomatoGreen, 0)
+          this.generateTomatoGreen = false
+        }
+
+        if (numberColumn === 2) {
+          this.makeTomatoGreen(allColumns[2], 2, 0)
+          this.generateTomatoGreen = false
+        }
+
+        if (numberColumn === 3) {
+          this.makeTomatoGreen(allColumns[3], 3, 0)
+          this.generateTomatoGreen = false
+        }
+
+        if (numberColumn === 4) {
+          this.makeTomatoGreen(allColumns[4], 4, 0)
+          this.generateTomatoGreen = false
+        }
+
+        if (numberColumn === 5) {
+          this.makeTomatoGreen(allColumns[5], 5, 0)
+          this.generateTomatoGreen = false
+        }
+
+        if (numberColumn === 6) {
+          this.makeTomatoGreen(allColumns[6], 6, 0)
+          this.generateTomatoGreen = false
+        }
+
+        if (numberColumn === 7) {
+          this.makeTomatoGreen(allColumns[7], 7, 0)
+          this.generateTomatoGreen = false
+        }
+
+        if (numberColumn === 8) {
+          this.makeTomatoGreen(allColumns[8], 8, 0)
+          this.generateTomatoGreen = false
+        }
+
+        if (numberColumn === 9) {
+          this.makeTomatoGreen(allColumns[9], 9, 0)
           this.generateTomatoGreen = false
         }
       }
     },
     generateTomatoRed() {
       if (this.generateTomatoRed) {
-        const redTomato = generatorTomatoRed(cells, secondColumn, 2, 0)
-        if (!redTomato) {
+        let numberColumn = getRandomNumberGenerator(1, 10, this.previousColumn)
+        this.previousColumn = numberColumn
+
+        if (numberColumn === 1) {
+          this.makeTomatoRed(allColumns[1], 1, 0)
+          this.generateTomatoRed = false
+        }
+
+        if (numberColumn === 2) {
+          this.makeTomatoRed(allColumns[2], 2, 0)
+          this.generateTomatoRed = false
+        }
+
+        if (numberColumn === 3) {
+          this.makeTomatoRed(allColumns[3], 3, 0)
+          this.generateTomatoRed = false
+        }
+
+        if (numberColumn === 4) {
+          this.makeTomatoRed(allColumns[4], 4, 0)
+          this.generateTomatoRed = false
+        }
+
+        if (numberColumn === 5) {
+          this.makeTomatoRed(allColumns[5], 5, 0)
+          this.generateTomatoRed = false
+        }
+
+        if (numberColumn === 6) {
+          this.makeTomatoRed(allColumns[6], 6, 0)
+          this.generateTomatoRed = false
+        }
+
+        if (numberColumn === 7) {
+          this.makeTomatoRed(allColumns[7], 7, 0)
+          this.generateTomatoRed = false
+        }
+
+        if (numberColumn === 8) {
+          this.makeTomatoRed(allColumns[8], 8, 0)
+          this.generateTomatoRed = false
+        }
+
+        if (numberColumn === 9) {
+          this.makeTomatoRed(allColumns[9], 9, 0)
           this.generateTomatoRed = false
         }
       }
     },
     generateTomatoDarkGreen() {
       if (this.generateTomatoDarkGreen) {
-        const darkGreenTomato = generatorTomatoDarkGreen(cells, ninthColumn, 9, 0)
-        if (!darkGreenTomato) {
+        let numberColumn = getRandomNumberGenerator(1, 10, this.previousColumn)
+        this.previousColumn = numberColumn
+
+        if (numberColumn === 1) {
+          this.makeTomatoDarkGreen(allColumns[1], 1, 0)
+          this.generateTomatoDarkGreen = false
+        }
+
+        if (numberColumn === 2) {
+          this.makeTomatoDarkGreen(allColumns[2], 2, 0)
+          this.generateTomatoDarkGreen = false
+        }
+
+        if (numberColumn === 3) {
+          this.makeTomatoDarkGreen(allColumns[3], 3, 0)
+          this.generateTomatoDarkGreen = false
+        }
+
+        if (numberColumn === 4) {
+          this.makeTomatoDarkGreen(allColumns[4], 4, 0)
+          this.generateTomatoDarkGreen = false
+        }
+
+        if (numberColumn === 5) {
+          this.makeTomatoDarkGreen(allColumns[5], 5, 0)
+          this.generateTomatoDarkGreen = false
+        }
+
+        if (numberColumn === 6) {
+          this.makeTomatoDarkGreen(allColumns[6], 6, 0)
+          this.generateTomatoDarkGreen = false
+        }
+
+        if (numberColumn === 7) {
+          this.makeTomatoDarkGreen(allColumns[7], 7, 0)
+          this.generateTomatoDarkGreen = false
+        }
+
+        if (numberColumn === 8) {
+          this.makeTomatoDarkGreen(allColumns[8], 8, 0)
+          this.generateTomatoDarkGreen = false
+        }
+
+        if (numberColumn === 9) {
+          this.makeTomatoDarkGreen(allColumns[9], 9, 0)
           this.generateTomatoDarkGreen = false
         }
       }
@@ -170,10 +321,23 @@ export default Vue.extend({
     ...mapGetters([EN_CollectorGameGetters.GET_OPEN_GAME_FIELD_TOMATO_COL]),
   },
   methods: {
+    makeTomatoGreen(column: number[], currentCell: number, currentIndexCell: number) {
+      if (this.generateTomatoGreen) {
+        generatorTomatoGreen(cells, column, currentCell, currentIndexCell)
+      }
+    },
+    makeTomatoRed(column: number[], currentCell: number, currentIndexCell: number) {
+      if (this.generateTomatoRed) {
+        generatorTomatoRed(cells, column, currentCell, currentIndexCell)
+      }
+    },
+    makeTomatoDarkGreen(column: number[], currentCell: number, currentIndexCell: number) {
+      if (this.generateTomatoDarkGreen) {
+        generatorTomatoDarkGreen(cells, column, currentCell, currentIndexCell)
+      }
+    },
     moveCollectorLeft() {
-      if (this.isCollectorMovedLeft === false) {
-        this.isCollectorMovedLeft = true
-
+      if (this.isCollectorMovedLeft) {
         generatorCollectorMoveLeft(
           cells, lastRow, this.currentCellCollector, this.currentIndexCellCollector, this.isMovingLeft
         )
@@ -181,13 +345,11 @@ export default Vue.extend({
         setTimeout(() => {
           this.isCollectorMovedLeft = false
           this.isMovingLeft = false
-        }, 200)
+        }, 300)
       } 
     },
     moveCollectorRight() {
-      if (this.isCollectorMovedRight === false) {
-        this.isCollectorMovedRight = true
-
+      if (this.isCollectorMovedRight) {
         generatorCollectorMoveRight(
           cells, lastRow, this.currentCellCollector, this.currentIndexCellCollector, this.isMovingRight
         )
@@ -195,7 +357,7 @@ export default Vue.extend({
         setTimeout(() => {
           this.isCollectorMovedRight = false
           this.isMovingRight = false
-        }, 200)
+        }, 300)
       } 
     }
   }

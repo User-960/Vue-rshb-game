@@ -96,8 +96,8 @@
 	width: 62px;
 	height: 62px;
 
-	background-color: #8990a5;
-	border: 1px solid #000;
+	/* background-color: #8990a5;
+	border: 1px solid #000; */
 }
 
 .isTomatoGreen {
@@ -164,11 +164,11 @@
 }
 
 .isCollectorMovedLeft {
-	animation: moveCollectorLeft 0.2s;
+	animation: moveCollectorLeft 0.1s;
 }
 
 .isCollectorMovedRight {
-	animation: moveCollectorRight 0.2s;
+	animation: moveCollectorRight 0.1s;
 }
 
 /* animations */
