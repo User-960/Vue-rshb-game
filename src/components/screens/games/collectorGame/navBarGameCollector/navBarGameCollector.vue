@@ -10,6 +10,22 @@
       </div>
     </div>
 
+    <div :class='styles.blockButtonTimer' v-if='GET_OPEN_GAME_FIELD_TOMATO_COL'>
+      <blockButton>
+      <template v-slot:contentIconBtn>
+        <iconButton>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M11.99 2C6.47 2 2 6.48 2 12C2 17.52 6.47 22 11.99 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 11.99 2ZM12 20C7.58 20 4 16.42 4 12C4 7.58 7.58 4 12 4C16.42 4 20 7.58 20 12C20 16.42 16.42 20 12 20ZM12.5 7H11V13L16.25 16.15L17 14.92L12.5 12.25V7Z" fill="currentColor"/>
+          </svg>
+        </iconButton>
+      </template>
+
+      <template v-slot:contentIndicator>
+        {{ GET_TIMER_TIMER_COL }}
+      </template>
+      </blockButton>
+    </div>
+
     <div :class='styles.exitButtonWrapper' @click='exitGame' v-else>
       <exitButton/>
     </div>
@@ -66,17 +82,27 @@ export default Vue.extend({
   computed: {
     ...mapGetters([
       EN_CollectorGameGetters.GET_OPEN_GAME_FIELD_TOMATO_COL, 
-      EN_CollectorGameGetters.GET_POINTS_COL
+      EN_CollectorGameGetters.GET_POINTS_COL,
+      EN_CollectorGameGetters.GET_TIMER_TIMER_COL,
+      EN_CollectorGameGetters.GET_TOMATO_LEVEL_COL,
     ]),
   },
   methods: {
     ...mapMutations([
-        EN_CollectorGameMutation.CLOSE_GAME_FIELD_TOMATO_COL,
         EN_CollectorGameMutation.RESTART_GAME_COL,
+
+        EN_CollectorGameMutation.CLOSE_GAME_FIELD_TOMATO_COL,
+        EN_CollectorGameMutation.RESTART_TOMATO_LEVEL_COL,
+        EN_CollectorGameMutation.FINISH_TOMATO_LEVEL_COL,
+        EN_CollectorGameMutation.START_FINISH_ALL_TOMATOES_INTERVAL_COL,
+        EN_CollectorGameMutation.START_FINISH_TIMER_TOMATO_COL,
     ]),
     leaveGame() {
-      if (this.GET_OPEN_GAME_FIELD_TOMATO_COL) {
-          this.RESTART_GAME_COL()
+      if (this.GET_OPEN_GAME_FIELD_TOMATO_COL && this.GET_TOMATO_LEVEL_COL) {
+        this.FINISH_TOMATO_LEVEL_COL()
+        this.START_FINISH_ALL_TOMATOES_INTERVAL_COL()
+        this.START_FINISH_TIMER_TOMATO_COL()
+        this.RESTART_TOMATO_LEVEL_COL()
       }
     },
     exitGame() {

@@ -44,6 +44,9 @@ export enum EN_CollectorGameMutation {
 	NOT_GENERATE_COLLECTOR_COL = 'NOT_GENERATE_COLLECTOR_COL',
 	SHOW_VICTORY_BLOCK_TOMATO_COL = 'SHOW_VICTORY_BLOCK_TOMATO_COL',
 	HIDE_VICTORY_BLOCK_TOMATO_COL = 'HIDE_VICTORY_BLOCK_TOMATO_COL',
+	COMPLETE_TOMATO_LEVEL_COL = 'COMPLETE_TOMATO_LEVEL_COL',
+	NOT_COMPLETE_TOMATO_LEVEL_COL = 'NOT_COMPLETE_TOMATO_LEVEL_COL',
+	RESTART_TOMATO_LEVEL_COL = 'RESTART_TOMATO_LEVEL_COL',
 
 	OPEN_GAME_FIELD_PEPPER_COL = 'OPEN_GAME_FIELD_PEPPER_COL',
 	CLOSE_GAME_FIELD_PEPPER_COL = 'CLOSE_GAME_FIELD_PEPPER_COL',
@@ -73,10 +76,23 @@ export const mutations: MutationTree<ICollectorGameState> = {
 		state.isGenerateTomatoDarkGreen = false
 		state.isGenerateCollector = false
 		state.isVictoryTomatoBlockVisible = false
+		state.isTomatoLevelCompleted = false
 
 		state.isOpenGameFieldPepper = false
 
 		state.isOpenGameFieldStrawberry = false
+	},
+	[EN_CollectorGameMutation.RESTART_TOMATO_LEVEL_COL](state) {
+		state.points = 0
+		state.timerTomato = 30
+		state.isOpenGameFieldTomato = false
+		state.isTomatoLevel = false
+		state.isGenerateTomatoGreen = false
+		state.isGenerateTomatoRed = false
+		state.isGenerateTomatoDarkGreen = false
+		state.isGenerateCollector = false
+		state.isVictoryTomatoBlockVisible = false
+		state.isTomatoLevelCompleted = false
 	},
 	[EN_CollectorGameMutation.SHOW_INFO_LINK_BLOCK_COL](state) {
 		const audio = new Audio(AUDIO_CONFIG.AUDIO_NEW_MISSION)
@@ -262,6 +278,12 @@ export const mutations: MutationTree<ICollectorGameState> = {
 	},
 	[EN_CollectorGameMutation.CLOSE_GAME_FIELD_PEPPER_COL](state) {
 		state.isOpenGameFieldPepper = false
+	},
+	[EN_CollectorGameMutation.COMPLETE_TOMATO_LEVEL_COL](state) {
+		state.isTomatoLevelCompleted = true
+	},
+	[EN_CollectorGameMutation.NOT_COMPLETE_TOMATO_LEVEL_COL](state) {
+		state.isTomatoLevelCompleted = false
 	},
 
 	[EN_CollectorGameMutation.OPEN_GAME_FIELD_STRAWBERRY_COL](state) {

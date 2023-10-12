@@ -116,3 +116,13 @@
 	color: var(--primary-grey);
 	background-color: var(--primary-green);
 }
+
+.btnNonActive {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+.btnNonActive:hover {
+	color: none;
+	background-color: none;
+}

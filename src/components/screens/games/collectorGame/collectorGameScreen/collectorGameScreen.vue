@@ -20,10 +20,13 @@
         <button 
           :class='[
             styles.btn, 
-            {[styles.btnActive] : isChosenTomatoLevel || 
-            isChosenPepperLevel || 
-            isChosenStrawberryLevel
-          }]'
+            {
+              [styles.btnActive]: (!GET_TOMATO_LEVEL_COMPLETED_COL && isChosenTomatoLevel) ||
+                isChosenPepperLevel || 
+                isChosenStrawberryLevel,
+              [styles.btnNonActive]: GET_TOMATO_LEVEL_COMPLETED_COL && isChosenTomatoLevel
+            }
+          ]'
           @click='openGame'
         >
           Собрать урожай
@@ -35,9 +38,10 @@
 
 <script lang='ts'>
 import { AUDIO_CONFIG } from '@/config/audio'
+import { EN_CollectorGameGetters } from '@/store/modules/collectorGame/getters'
 import { EN_CollectorGameMutation } from '@/store/modules/collectorGame/mutations'
 import Vue from 'vue'
-import { mapMutations } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 
 export default Vue.extend({
   name: 'collectorGameScreen',
@@ -48,12 +52,15 @@ export default Vue.extend({
 
     isOpenTomatoLevel: false,
   }),
-  components: {},
+  computed: {
+    ...mapGetters([EN_CollectorGameGetters.GET_TOMATO_LEVEL_COMPLETED_COL])
+  },
   methods: {
     ...mapMutations([
         EN_CollectorGameMutation.OPEN_GAME_FIELD_TOMATO_COL,
         EN_CollectorGameMutation.OPEN_GAME_FIELD_PEPPER_COL,
         EN_CollectorGameMutation.OPEN_GAME_FIELD_STRAWBERRY_COL,
+        EN_CollectorGameMutation.START_TOMATO_LEVEL_COL,
     ]),
     chooseTomatoLevel() {
       const audio = new Audio(AUDIO_CONFIG.AUDIO_CHOOSE_ACTION_COMPUTER)
@@ -83,11 +90,11 @@ export default Vue.extend({
       this.isChosenStrawberryLevel = true
     },
     openGame() {
-      if (this.isChosenTomatoLevel) {
+      if (this.isChosenTomatoLevel && !this.GET_TOMATO_LEVEL_COMPLETED_COL) {
         this.OPEN_GAME_FIELD_TOMATO_COL()
-      }
+      } 
 
-      if (this.isChosenPepperLevel) {
+      if (this.isChosenPepperLevel && this.GET_TOMATO_LEVEL_COMPLETED_COL) {
         this.OPEN_GAME_FIELD_PEPPER_COL()
       }
 

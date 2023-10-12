@@ -1,6 +1,6 @@
 <template>
-  <div :class='styles.victoryBlockWrapper' v-if='GET_VICTORY_BLOCK_TOMATO_COL'>
-    <div :class='styles.victoryBlockGame'>
+  <div :class='styles.victoryBlockTomatoLevelWrapper' v-if='GET_VICTORY_BLOCK_TOMATO_COL'>
+    <div :class='styles.victoryBlockTomatoLevel'>
       <div :class='styles.title'>
         Выполнено!
       </div>
@@ -62,12 +62,14 @@ export default Vue.extend({
   methods: {
     ...mapMutations([
       EN_CollectorGameMutation.HIDE_VICTORY_BLOCK_TOMATO_COL,
+      EN_CollectorGameMutation.CLOSE_GAME_FIELD_TOMATO_COL,
     ]),
     skipToMap() {
       this.HIDE_VICTORY_BLOCK_TOMATO_COL()
       this.$router.push({ name: 'home' })
     },
     nextLevel() {
+      this.CLOSE_GAME_FIELD_TOMATO_COL()
       this.HIDE_VICTORY_BLOCK_TOMATO_COL()
     }
   }

@@ -1,5 +1,6 @@
 <template>
   <div>
+    <victoryBlockMiniGameTomato />
     <div :class='[styles.blackScreen, {[styles.blackScreenNon]: isBlackScreenShow}]'></div>
 
     <div :class='styles.gameWrapper'>
@@ -46,8 +47,9 @@ import {
   generatorCollectorMoveRight
 } from '../helpers/helpers'
 import { EN_CollectorGameMutation } from '@/store/modules/collectorGame/mutations'
+import victoryBlockMiniGameTomato from '../victoryBlockGame/victoryBlockMiniGameTomato.vue'
 
-const cells = generatorCells()
+//const cells = generatorCells()
 const firstColumn: number[] = [1, 14, 27, 40, 53, 66, 79, 92, 105, 118]
 const secondColumn: number[] = [2, 15, 28, 41, 54, 67, 80, 93, 106, 119]
 const thirdColumn: number[] = [3, 16, 29, 42, 55, 68, 81, 94, 107, 120]
@@ -71,7 +73,7 @@ export default Vue.extend({
   name: 'collectorGameFieldTomato',
   data: () => ({
     isBlackScreenShow: false,
-    cells,
+    cells: generatorCells(),
     previousColumn: 0,
 
     // generateTomatoGreen: false,
@@ -97,48 +99,12 @@ export default Vue.extend({
     isMovingLeft: false,
     isMovingRight: false,
   }),
-  components: {},
+  components: {
+    victoryBlockMiniGameTomato
+  },
   created() {
     this.START_TOMATO_LEVEL_COL()
     this.START_FINISH_TIMER_TOMATO_COL()
-    
-    document.addEventListener('keydown', (event) => {
-      if (event.code == 'KeyA' && !this.isMovingLeft && !this.isMovingRight && !this.isCollectorMovedLeft) {
-        this.isMovingLeft = true
-        if (this.isMovingLeft) {
-          this.currentCellCollector -= 1
-          this.currentIndexCellCollector -= 1
-
-          if (this.currentCellCollector > 116) {
-            this.isCollectorMovedLeft = true
-            this.moveCollectorLeft()
-          } else {
-            this.currentCellCollector = 129
-            this.currentIndexCellCollector = 12
-            this.isCollectorMovedLeft = true
-            this.moveCollectorLeft()
-          }
-        }
-      } 
-      
-      if (event.code == 'KeyD' && !this.isMovingRight && !this.isMovingLeft && !this.isCollectorMovedRight) {
-        this.isMovingRight = true
-        if (this.isMovingRight) {
-          this.currentCellCollector += 1
-          this.currentIndexCellCollector += 1
-
-          if (this.currentCellCollector < 130) {
-            this.isCollectorMovedRight = true
-            this.moveCollectorRight()
-          } else {
-            this.currentCellCollector = 117
-            this.currentIndexCellCollector = 0
-            this.isCollectorMovedRight = true
-            this.moveCollectorRight()
-          }
-        } 
-      }
-    })
 
     setTimeout(() => {
       this.isBlackScreenShow = true
@@ -149,18 +115,58 @@ export default Vue.extend({
       if (this.GET_TIMER_TIMER_COL === 0 && this.GET_TOMATO_LEVEL_COL) {
         this.FINISH_TOMATO_LEVEL_COL()
         this.START_FINISH_TIMER_TOMATO_COL()
+        this.COMPLETE_TOMATO_LEVEL_COL()
+        
         this.SHOW_VICTORY_BLOCK_TOMATO_COL()
       }
     },
     GET_TOMATO_LEVEL_COL() {
       if (this.GET_TOMATO_LEVEL_COL) {
         this.GENERATE_COLLECTOR_COL()
-
         this.START_FINISH_ALL_TOMATOES_INTERVAL_COL()
+
+        document.addEventListener('keydown', (event) => {
+          if (event.code == 'KeyA' && !this.isMovingLeft && !this.isMovingRight && !this.isCollectorMovedLeft && this.GET_TOMATO_LEVEL_COL) {
+            this.isMovingLeft = true
+            if (this.isMovingLeft) {
+              this.currentCellCollector -= 1
+              this.currentIndexCellCollector -= 1
+
+              if (this.currentCellCollector > 116) {
+                this.isCollectorMovedLeft = true
+                this.moveCollectorLeft()
+              } else {
+                this.currentCellCollector = 129
+                this.currentIndexCellCollector = 12
+                this.isCollectorMovedLeft = true
+                this.moveCollectorLeft()
+              }
+            }
+          } 
+
+          if (event.code == 'KeyD' && !this.isMovingRight && !this.isMovingLeft && !this.isCollectorMovedRight && this.GET_TOMATO_LEVEL_COL) {
+            this.isMovingRight = true
+            if (this.isMovingRight) {
+              this.currentCellCollector += 1
+              this.currentIndexCellCollector += 1
+
+              if (this.currentCellCollector < 130) {
+                this.isCollectorMovedRight = true
+                this.moveCollectorRight()
+              } else {
+                this.currentCellCollector = 117
+                this.currentIndexCellCollector = 0
+                this.isCollectorMovedRight = true
+                this.moveCollectorRight()
+              }
+            } 
+          }
+        })
       }
 
       if (!this.GET_TOMATO_LEVEL_COL) {
-        // this.FINISH_ALL_TOMATOES_INTERVAL_COL()
+        this.cells = generatorCells()
+
         this.START_FINISH_ALL_TOMATOES_INTERVAL_COL()
 
         this.NOT_GENERATE_TOMATO_GREEN_COL()
@@ -168,9 +174,43 @@ export default Vue.extend({
         this.NOT_GENERATE_TOMATO_DARK_GREEN_COL()
         this.NOT_GENERATE_COLLECTOR_COL()
 
-        this.cells = generatorCells()
+        document.removeEventListener('keydown', (event) => {
+          if (event.code == 'KeyA' && !this.isMovingLeft && !this.isMovingRight && !this.isCollectorMovedLeft && this.GET_TOMATO_LEVEL_COL) {
+            this.isMovingLeft = true
+            if (this.isMovingLeft) {
+              this.currentCellCollector -= 1
+              this.currentIndexCellCollector -= 1
 
-        this.CLOSE_GAME_FIELD_TOMATO_COL()
+              if (this.currentCellCollector > 116) {
+                this.isCollectorMovedLeft = true
+                this.moveCollectorLeft()
+              } else {
+                this.currentCellCollector = 129
+                this.currentIndexCellCollector = 12
+                this.isCollectorMovedLeft = true
+                this.moveCollectorLeft()
+              }
+            }
+          } 
+
+          if (event.code == 'KeyD' && !this.isMovingRight && !this.isMovingLeft && !this.isCollectorMovedRight && this.GET_TOMATO_LEVEL_COL) {
+            this.isMovingRight = true
+            if (this.isMovingRight) {
+              this.currentCellCollector += 1
+              this.currentIndexCellCollector += 1
+
+              if (this.currentCellCollector < 130) {
+                this.isCollectorMovedRight = true
+                this.moveCollectorRight()
+              } else {
+                this.currentCellCollector = 117
+                this.currentIndexCellCollector = 0
+                this.isCollectorMovedRight = true
+                this.moveCollectorRight()
+              }
+            } 
+          }
+        })
       }
     },
     currentCellTomatoGreen() {
@@ -395,7 +435,7 @@ export default Vue.extend({
     },
     GET_GENERATE_COLLECTOR_COL() {
       if (this.GET_GENERATE_COLLECTOR_COL) {
-        generatorCollector(cells, lastRow, this.currentCellCollector, this.currentIndexCellCollector, false)
+        generatorCollector(this.cells, lastRow, this.currentCellCollector, this.currentIndexCellCollector, false)
       }
     }
   },
@@ -409,6 +449,7 @@ export default Vue.extend({
       EN_CollectorGameGetters.GET_GENERATE_TOMATO_RED_COL,
       EN_CollectorGameGetters.GET_GENERATE_TOMATO_DARK_GREEN_COL,
       EN_CollectorGameGetters.GET_GENERATE_COLLECTOR_COL,
+      EN_CollectorGameGetters.GET_TOMATO_LEVEL_COMPLETED_COL,
     ]),
   },
   methods: {
@@ -431,8 +472,8 @@ export default Vue.extend({
       EN_CollectorGameMutation.NOT_GENERATE_TOMATO_DARK_GREEN_COL,
       EN_CollectorGameMutation.GENERATE_COLLECTOR_COL,
       EN_CollectorGameMutation.NOT_GENERATE_COLLECTOR_COL,
-
       EN_CollectorGameMutation.SHOW_VICTORY_BLOCK_TOMATO_COL,
+      EN_CollectorGameMutation.COMPLETE_TOMATO_LEVEL_COL,
     ]),
     generatorTomatoGreen(cells: ICell[], column: number[], columnCellId: number, columnCellIndex: number = 0) {
     	let testTomato: ICell[]
@@ -542,23 +583,23 @@ export default Vue.extend({
     },
     makeTomatoGreen(column: number[], currentCell: number, currentIndexCell: number) {
       if (this.GET_GENERATE_TOMATO_GREEN_COL) {
-        this.generatorTomatoGreen(cells, column, currentCell, currentIndexCell)
+        this.generatorTomatoGreen(this.cells, column, currentCell, currentIndexCell)
       }
     },
     makeTomatoRed(column: number[], currentCell: number, currentIndexCell: number) {
       if (this.GET_GENERATE_TOMATO_RED_COL) {
-        this.generatorTomatoRed(cells, column, currentCell, currentIndexCell)
+        this.generatorTomatoRed(this.cells, column, currentCell, currentIndexCell)
       }
     },
     makeTomatoDarkGreen(column: number[], currentCell: number, currentIndexCell: number) {
       if (this.GET_GENERATE_TOMATO_DARK_GREEN_COL) {
-        this.generatorTomatoDarkGreen(cells, column, currentCell, currentIndexCell)
+        this.generatorTomatoDarkGreen(this.cells, column, currentCell, currentIndexCell)
       }
     },
     moveCollectorLeft() {
       if (this.isCollectorMovedLeft) {
         generatorCollectorMoveLeft(
-          cells, lastRow, this.currentCellCollector, this.currentIndexCellCollector, this.isMovingLeft
+          this.cells, lastRow, this.currentCellCollector, this.currentIndexCellCollector, this.isMovingLeft
         )
 
         setTimeout(() => {
@@ -570,7 +611,7 @@ export default Vue.extend({
     moveCollectorRight() {
       if (this.isCollectorMovedRight) {
         generatorCollectorMoveRight(
-          cells, lastRow, this.currentCellCollector, this.currentIndexCellCollector, this.isMovingRight
+          this.cells, lastRow, this.currentCellCollector, this.currentIndexCellCollector, this.isMovingRight
         )
 
         setTimeout(() => {

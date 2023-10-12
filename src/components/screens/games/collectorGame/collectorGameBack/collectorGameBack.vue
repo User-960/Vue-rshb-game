@@ -18,8 +18,6 @@
 
         <lossBlockGame />
 
-        <victoryBlockMiniGameTomato />
-
         <div :class='styles.screenWrapper'>
           <collectorGameScreen/>
         </div>
@@ -38,7 +36,6 @@ import { EN_CollectorGameGetters } from '@/store/modules/collectorGame/getters'
 import infoLinkBlockGame from '../infoLinkBlockGame/infoLinkBlockGame.vue'
 import rulesBlockGame from '../rulesBlockGame/rulesBlockGame.vue'
 import victoryBlockGame from '../victoryBlockGame/victoryBlockGame.vue'
-import victoryBlockMiniGameTomato from '../victoryBlockGame/victoryBlockMiniGameTomato.vue'
 import lossBlockGame from '../lossBlockGame/lossBlockGame.vue'
 
 export default Vue.extend({
@@ -50,7 +47,6 @@ export default Vue.extend({
     infoLinkBlockGame,
     rulesBlockGame,
     victoryBlockGame,
-    victoryBlockMiniGameTomato,
     lossBlockGame
   },
   computed: {
