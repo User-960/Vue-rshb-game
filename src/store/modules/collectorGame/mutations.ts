@@ -173,6 +173,11 @@ export const mutations: MutationTree<ICollectorGameState> = {
 			}, 1000)
 		}
 
+		if (state.timerTomato < 0) {
+			state.timerTomato = 0
+			clearInterval(timerTomato)
+		}
+
 		if (state.isLossBlockVisible) {
 			clearInterval(timerTomato)
 		}

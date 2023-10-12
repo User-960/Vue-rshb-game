@@ -125,6 +125,15 @@ export default Vue.extend({
       if (this.GET_TIMER_TIMER_COL === 0 && this.GET_TOMATO_LEVEL_COL && this.GET_POINTS_COL < 15) {
         this.FINISH_TOMATO_LEVEL_COL()
         this.START_FINISH_TIMER_TOMATO_COL()
+        this.START_FINISH_ALL_TOMATOES_INTERVAL_COL()
+        
+        this.SHOW_LOSS_BLOCK_TOMATO_COL()
+      }
+
+      if (this.GET_TIMER_TIMER_COL < 0) {
+        this.FINISH_TOMATO_LEVEL_COL()
+        this.START_FINISH_TIMER_TOMATO_COL()
+        this.START_FINISH_ALL_TOMATOES_INTERVAL_COL()
         
         this.SHOW_LOSS_BLOCK_TOMATO_COL()
       }
