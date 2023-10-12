@@ -38,7 +38,6 @@ import Vue from 'vue'
 import { mapGetters, mapMutations } from 'vuex'
 import { 
   ICell,
-
   getRandomNumberGenerator,
   generatorCells,
   generatorCollector,
@@ -48,8 +47,8 @@ import {
 } from '../helpers/helpers'
 import { EN_CollectorGameMutation } from '@/store/modules/collectorGame/mutations'
 import victoryBlockMiniGameTomato from '../victoryBlockGame/victoryBlockMiniGameTomato.vue'
+import { EN_CONFIG } from '../config/config'
 
-//const cells = generatorCells()
 const firstColumn: number[] = [1, 14, 27, 40, 53, 66, 79, 92, 105, 118]
 const secondColumn: number[] = [2, 15, 28, 41, 54, 67, 80, 93, 106, 119]
 const thirdColumn: number[] = [3, 16, 29, 42, 55, 68, 81, 94, 107, 120]
@@ -108,7 +107,7 @@ export default Vue.extend({
 
     setTimeout(() => {
       this.isBlackScreenShow = true
-    }, 2350)
+    }, EN_CONFIG.TIMING_BLACK_SCREEN)
   },
   watch: {
     GET_TIMER_TIMER_COL() {
@@ -475,7 +474,12 @@ export default Vue.extend({
       EN_CollectorGameMutation.SHOW_VICTORY_BLOCK_TOMATO_COL,
       EN_CollectorGameMutation.COMPLETE_TOMATO_LEVEL_COL,
     ]),
-    generatorTomatoGreen(cells: ICell[], column: number[], columnCellId: number, columnCellIndex: number = 0) {
+    generatorTomatoGreen(
+      cells: ICell[], 
+      column: number[], 
+      columnCellId: number, 
+      columnCellIndex: number = 0
+    ) {
     	let testTomato: ICell[]
     
     	testTomato = cells.filter(cell => cell.id === column[columnCellIndex])
@@ -504,7 +508,7 @@ export default Vue.extend({
     			columnCellId += 13
     			columnCellIndex += 1
     			this.generatorTomatoGreen(cells, column, columnCellId, columnCellIndex)
-    		}, 700)
+    		}, EN_CONFIG.TIMING_GENERATE_TOMATO_GREEN)
     	}
     },
     generatorTomatoRed (
@@ -541,7 +545,7 @@ export default Vue.extend({
     			columnCellId += 13
     			columnCellIndex += 1
     			this.generatorTomatoRed(cells, column, columnCellId, columnCellIndex)
-    		}, 700)
+    		}, EN_CONFIG.TIMING_GENERATE_TOMATO_RED)
     	}
     },
     generatorTomatoDarkGreen(
@@ -578,7 +582,7 @@ export default Vue.extend({
     			columnCellId += 13
     			columnCellIndex += 1
     			this.generatorTomatoDarkGreen(cells, column, columnCellId, columnCellIndex)
-    		}, 700)
+    		}, EN_CONFIG.TIMING_GENERATE_TOMATO_DARK_GREEN)
     	}
     },
     makeTomatoGreen(column: number[], currentCell: number, currentIndexCell: number) {
@@ -605,7 +609,7 @@ export default Vue.extend({
         setTimeout(() => {
           this.isCollectorMovedLeft = false
           this.isMovingLeft = false
-        }, 150)
+        }, EN_CONFIG.TIMING_MOVE_COLLECTOR_LEFT)
       } 
     },
     moveCollectorRight() {
@@ -617,7 +621,7 @@ export default Vue.extend({
         setTimeout(() => {
           this.isCollectorMovedRight = false
           this.isMovingRight = false
-        }, 150)
+        }, EN_CONFIG.TIMING_MOVE_COLLECTOR_RIGHT)
       } 
     }
   }
