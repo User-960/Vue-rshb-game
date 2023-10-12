@@ -16,6 +16,7 @@ export interface ICollectorGameState {
 	isGenerateTomatoDarkGreen: boolean
 	isGenerateCollector: boolean
 	isVictoryTomatoBlockVisible: boolean
+	isLossTomatoBlockVisible: boolean
 	isTomatoLevelCompleted: boolean
 
 	isOpenGameFieldPepper: boolean

@@ -19,6 +19,7 @@ export enum EN_CollectorGameGetters {
 	GET_GENERATE_TOMATO_DARK_GREEN_COL = 'GET_GENERATE_TOMATO_DARK_GREEN_COL',
 	GET_GENERATE_COLLECTOR_COL = 'GET_GENERATE_COLLECTOR_COL',
 	GET_VICTORY_BLOCK_TOMATO_COL = 'GET_VICTORY_BLOCK_TOMATO_COL',
+	GET_lOSS_BLOCK_TOMATO_COL = 'GET_lOSS_BLOCK_TOMATO_COL',
 	GET_TOMATO_LEVEL_COMPLETED_COL = 'GET_TOMATO_LEVEL_COMPLETED_COL'
 }
 
@@ -48,6 +49,8 @@ export const getters: GetterTree<ICollectorGameState, IRootState> = {
 		state.isGenerateCollector,
 	[EN_CollectorGameGetters.GET_VICTORY_BLOCK_TOMATO_COL]: state =>
 		state.isVictoryTomatoBlockVisible,
+	[EN_CollectorGameGetters.GET_lOSS_BLOCK_TOMATO_COL]: state =>
+		state.isLossTomatoBlockVisible,
 	[EN_CollectorGameGetters.GET_TOMATO_LEVEL_COMPLETED_COL]: state =>
 		state.isTomatoLevelCompleted
 }

@@ -1,6 +1,7 @@
 <template>
   <div>
     <victoryBlockMiniGameTomato />
+    <lossBlockMiniGameTomato />
     <div :class='[styles.blackScreen, {[styles.blackScreenNon]: isBlackScreenShow}]'></div>
 
     <div :class='styles.gameWrapper'>
@@ -47,6 +48,7 @@ import {
 } from '../helpers/helpers'
 import { EN_CollectorGameMutation } from '@/store/modules/collectorGame/mutations'
 import victoryBlockMiniGameTomato from '../victoryBlockGame/victoryBlockMiniGameTomato.vue'
+import lossBlockMiniGameTomato from '../lossBlockGame/lossBlockMiniGameTomato.vue'
 import { EN_CONFIG } from '../config/config'
 
 const firstColumn: number[] = [1, 14, 27, 40, 53, 66, 79, 92, 105, 118]
@@ -99,7 +101,8 @@ export default Vue.extend({
     isMovingRight: false,
   }),
   components: {
-    victoryBlockMiniGameTomato
+    victoryBlockMiniGameTomato,
+    lossBlockMiniGameTomato
   },
   created() {
     this.START_TOMATO_LEVEL_COL()
@@ -111,12 +114,19 @@ export default Vue.extend({
   },
   watch: {
     GET_TIMER_TIMER_COL() {
-      if (this.GET_TIMER_TIMER_COL === 0 && this.GET_TOMATO_LEVEL_COL) {
+      if (this.GET_TIMER_TIMER_COL === 0 && this.GET_TOMATO_LEVEL_COL && this.GET_POINTS_COL > 15) {
         this.FINISH_TOMATO_LEVEL_COL()
         this.START_FINISH_TIMER_TOMATO_COL()
+
         this.COMPLETE_TOMATO_LEVEL_COL()
-        
         this.SHOW_VICTORY_BLOCK_TOMATO_COL()
+      }
+
+      if (this.GET_TIMER_TIMER_COL === 0 && this.GET_TOMATO_LEVEL_COL && this.GET_POINTS_COL < 15) {
+        this.FINISH_TOMATO_LEVEL_COL()
+        this.START_FINISH_TIMER_TOMATO_COL()
+        
+        this.SHOW_LOSS_BLOCK_TOMATO_COL()
       }
     },
     GET_TOMATO_LEVEL_COL() {
@@ -126,6 +136,7 @@ export default Vue.extend({
 
         document.addEventListener('keydown', (event) => {
           if (event.code == 'KeyA' && !this.isMovingLeft && !this.isMovingRight && !this.isCollectorMovedLeft && this.GET_TOMATO_LEVEL_COL) {
+            console.log('left')
             this.isMovingLeft = true
             if (this.isMovingLeft) {
               this.currentCellCollector -= 1
@@ -144,6 +155,7 @@ export default Vue.extend({
           } 
 
           if (event.code == 'KeyD' && !this.isMovingRight && !this.isMovingLeft && !this.isCollectorMovedRight && this.GET_TOMATO_LEVEL_COL) {
+            console.log('right')
             this.isMovingRight = true
             if (this.isMovingRight) {
               this.currentCellCollector += 1
@@ -443,6 +455,7 @@ export default Vue.extend({
       EN_CollectorGameGetters.GET_OPEN_GAME_FIELD_TOMATO_COL,
       EN_CollectorGameGetters.GET_TOMATO_LEVEL_COL,
 
+      EN_CollectorGameGetters.GET_POINTS_COL,
       EN_CollectorGameGetters.GET_TIMER_TIMER_COL,
       EN_CollectorGameGetters.GET_GENERATE_TOMATO_GREEN_COL,
       EN_CollectorGameGetters.GET_GENERATE_TOMATO_RED_COL,
@@ -472,6 +485,7 @@ export default Vue.extend({
       EN_CollectorGameMutation.GENERATE_COLLECTOR_COL,
       EN_CollectorGameMutation.NOT_GENERATE_COLLECTOR_COL,
       EN_CollectorGameMutation.SHOW_VICTORY_BLOCK_TOMATO_COL,
+      EN_CollectorGameMutation.SHOW_LOSS_BLOCK_TOMATO_COL,
       EN_CollectorGameMutation.COMPLETE_TOMATO_LEVEL_COL,
     ]),
     generatorTomatoGreen(

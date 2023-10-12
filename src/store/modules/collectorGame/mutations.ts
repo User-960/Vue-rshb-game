@@ -44,6 +44,8 @@ export enum EN_CollectorGameMutation {
 	NOT_GENERATE_COLLECTOR_COL = 'NOT_GENERATE_COLLECTOR_COL',
 	SHOW_VICTORY_BLOCK_TOMATO_COL = 'SHOW_VICTORY_BLOCK_TOMATO_COL',
 	HIDE_VICTORY_BLOCK_TOMATO_COL = 'HIDE_VICTORY_BLOCK_TOMATO_COL',
+	SHOW_LOSS_BLOCK_TOMATO_COL = 'SHOW_LOSS_BLOCK_TOMATO_COL',
+	HIDE_LOSS_BLOCK_TOMATO_COL = 'HIDE_LOSS_BLOCK_TOMATO_COL',
 	COMPLETE_TOMATO_LEVEL_COL = 'COMPLETE_TOMATO_LEVEL_COL',
 	NOT_COMPLETE_TOMATO_LEVEL_COL = 'NOT_COMPLETE_TOMATO_LEVEL_COL',
 	RESTART_TOMATO_LEVEL_COL = 'RESTART_TOMATO_LEVEL_COL',
@@ -272,7 +274,12 @@ export const mutations: MutationTree<ICollectorGameState> = {
 	[EN_CollectorGameMutation.HIDE_VICTORY_BLOCK_TOMATO_COL](state) {
 		state.isVictoryTomatoBlockVisible = false
 	},
-
+	[EN_CollectorGameMutation.SHOW_LOSS_BLOCK_TOMATO_COL](state) {
+		state.isLossTomatoBlockVisible = true
+	},
+	[EN_CollectorGameMutation.HIDE_LOSS_BLOCK_TOMATO_COL](state) {
+		state.isLossTomatoBlockVisible = false
+	},
 	[EN_CollectorGameMutation.OPEN_GAME_FIELD_PEPPER_COL](state) {
 		state.isOpenGameFieldPepper = true
 	},

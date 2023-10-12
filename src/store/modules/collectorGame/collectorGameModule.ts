@@ -24,6 +24,7 @@ const state: ICollectorGameState = {
 	isGenerateTomatoDarkGreen: false,
 	isGenerateCollector: false,
 	isVictoryTomatoBlockVisible: false,
+	isLossTomatoBlockVisible: false,
 	isTomatoLevelCompleted: false,
 
 	isOpenGameFieldPepper: false,
