@@ -164,11 +164,11 @@
 }
 
 .isCollectorMovedLeft {
-	animation: moveCollectorLeft 0.1s;
+	animation: moveCollectorLeft 0.09s;
 }
 
 .isCollectorMovedRight {
-	animation: moveCollectorRight 0.1s;
+	animation: moveCollectorRight 0.09s;
 }
 
 /* animations */

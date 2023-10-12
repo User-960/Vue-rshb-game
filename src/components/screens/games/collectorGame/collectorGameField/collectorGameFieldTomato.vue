@@ -154,17 +154,24 @@ export default Vue.extend({
   },
   watch: {
     currentCellTomatoGreen() {
-      if (this.currentCellCollector - 13 === this.currentCellTomatoGreen) {
+      if (
+          this.currentCellCollector - 13 === this.currentCellTomatoGreen || 
+          this.currentCellCollector === this.currentCellTomatoGreen
+        ) {
         this.PLUS_POINTS_TOMATO_GREEN_COL()
       }
     },
     currentCellTomatoRed() {
-      if (this.currentCellCollector - 13 === this.currentCellTomatoRed) {
+      if (this.currentCellCollector - 13 === this.currentCellTomatoRed ||
+          this.currentCellCollector === this.currentCellTomatoRed
+        ) {
         this.PLUS_POINTS_TOMATO_RED_COL()
       }
     },
     currentCellTomatoDarkGreen() {
-      if (this.currentCellCollector - 13 === this.currentCellTomatoDarkGreen) {
+      if (this.currentCellCollector - 13 === this.currentCellTomatoDarkGreen ||
+          this.currentCellCollector === this.currentCellTomatoDarkGreen
+        ) {
         this.PLUS_POINTS_TOMATO_DARK_GREEN_COL()
       }
     },
@@ -349,6 +356,10 @@ export default Vue.extend({
     	}
 
     	if (testTomato[0].id === column[column.length - 1]) {
+        this.currentCellTomatoGreen = testTomato[0].id
+        if (this.currentCellTomatoGreen === this.currentCellCollector) {
+          return false
+        }
     		return false
     	}
     
@@ -380,11 +391,15 @@ export default Vue.extend({
           return false
         }
     	}
-    
-    	if (testTomato[0].id === column[column.length - 1]) {
+
+      if (testTomato[0].id === column[column.length - 1]) {
+        this.currentCellTomatoRed = testTomato[0].id
+        if (this.currentCellTomatoRed === this.currentCellCollector) {
+          return false
+        }
     		return false
     	}
-    
+
     	if (testTomato[0].id === columnCellId) {
     		testTomato[0].isTomatoRed = true
       
@@ -415,6 +430,10 @@ export default Vue.extend({
     	}
     
     	if (testTomato[0].id === column[column.length - 1]) {
+        this.currentCellTomatoDarkGreen = testTomato[0].id
+        if (this.currentCellTomatoDarkGreen === this.currentCellCollector) {
+          return false
+        }
     		return false
     	}
     
@@ -454,7 +473,7 @@ export default Vue.extend({
         setTimeout(() => {
           this.isCollectorMovedLeft = false
           this.isMovingLeft = false
-        }, 200)
+        }, 150)
       } 
     },
     moveCollectorRight() {
@@ -466,7 +485,7 @@ export default Vue.extend({
         setTimeout(() => {
           this.isCollectorMovedRight = false
           this.isMovingRight = false
-        }, 200)
+        }, 150)
       } 
     }
   }
