@@ -46,9 +46,6 @@ export default Vue.extend({
   components: {
     closeButton
   },
-  created() {
-    this.SHOW_INFO_LINK_BLOCK_COL()
-  },
   computed: {
     ...mapGetters([EN_CollectorGameGetters.GET_INFO_LINK_BLOCK_COL]),
   },
@@ -61,7 +58,6 @@ export default Vue.extend({
   },
   methods: {
     ...mapMutations([
-      EN_CollectorGameMutation.SHOW_INFO_LINK_BLOCK_COL, 
       EN_CollectorGameMutation.HIDE_INFO_LINK_BLOCK_COL, 
       EN_CollectorGameMutation.SHOW_RULES_BLOCK_COL,
       EN_CollectorGameMutation.PLUS_POINTS_LINK_COL

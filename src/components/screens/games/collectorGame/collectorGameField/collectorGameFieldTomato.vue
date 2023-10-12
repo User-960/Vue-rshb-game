@@ -57,8 +57,11 @@ const sixthColumn: number[] = [6, 19, 32, 45, 58, 71, 84, 97, 110, 123]
 const seventhColumn: number[] = [7, 20, 33, 46, 59, 72, 85, 98, 111, 124]
 const eighthColumn: number[] = [8, 21, 34, 47, 60, 73, 86, 99, 112, 125]
 const ninthColumn: number[] = [9, 22, 35, 48, 61, 74, 87, 100, 113, 126]
+const tenthColumn: number[] = [10, 23, 36, 49, 62, 75, 88, 101, 114, 127]
+const eleventhColumn: number[] = [11, 24, 37, 50, 63, 76, 89, 102, 115, 128]
+const twelfthColumn: number[] = [12, 25, 38, 51, 64, 77, 90, 103, 116, 129]
 
-const allColumns: number[][] = [[], firstColumn, secondColumn, thirdColumn, fourthColumn, fifthColumn, sixthColumn, seventhColumn, eighthColumn, ninthColumn]
+const allColumns: number[][] = [[], firstColumn, secondColumn, thirdColumn, fourthColumn, fifthColumn, sixthColumn, seventhColumn, eighthColumn, ninthColumn, tenthColumn, eleventhColumn,twelfthColumn]
 
 const lastRow: number[] = [
 	117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129
@@ -71,22 +74,22 @@ export default Vue.extend({
     cells,
     previousColumn: 0,
 
-    generateTomatoGreen: false,
+    // generateTomatoGreen: false,
     currentCellTomatoGreen: 0,
     currentIndexCellTomatoGreen: 0,
     previousColumnTomatoGreen: 0,
 
-    generateTomatoRed: false,
+    // generateTomatoRed: false,
     currentCellTomatoRed: 0,
     currentIndexCellTomatoRed: 0,
     previousColumnTomatoRed: 0,
     
-    generateTomatoDarkGreen: false,
+    // generateTomatoDarkGreen: false,
     currentCellTomatoDarkGreen: 0,
     currentIndexCellTomatoDarkGreen: 0,
     previousColumnTomatoDarkGreen: 0,
 
-    generateCollector: false,
+    // generateCollector: false,
     currentCellCollector: 117,
     currentIndexCellCollector: 0,
     isCollectorMovedLeft: false,
@@ -96,7 +99,8 @@ export default Vue.extend({
   }),
   components: {},
   created() {
-    this.generateCollector = true
+    this.START_TOMATO_LEVEL_COL()
+    this.START_FINISH_TIMER_TOMATO_COL()
     
     document.addEventListener('keydown', (event) => {
       if (event.code == 'KeyA' && !this.isMovingLeft && !this.isMovingRight && !this.isCollectorMovedLeft) {
@@ -139,20 +143,36 @@ export default Vue.extend({
     setTimeout(() => {
       this.isBlackScreenShow = true
     }, 2350)
-    
-    setInterval(() => {
-      this.generateTomatoGreen = true
-
-      setTimeout(() => {
-        this.generateTomatoRed = true
-      }, 1500)
-
-      setTimeout(() => {
-        this.generateTomatoDarkGreen = true
-      }, 2700)
-    }, 7000)
   },
   watch: {
+    GET_TIMER_TIMER_COL() {
+      if (this.GET_TIMER_TIMER_COL === 0 && this.GET_TOMATO_LEVEL_COL) {
+        this.FINISH_TOMATO_LEVEL_COL()
+        this.START_FINISH_TIMER_TOMATO_COL()
+        this.SHOW_VICTORY_BLOCK_TOMATO_COL()
+      }
+    },
+    GET_TOMATO_LEVEL_COL() {
+      if (this.GET_TOMATO_LEVEL_COL) {
+        this.GENERATE_COLLECTOR_COL()
+
+        this.START_FINISH_ALL_TOMATOES_INTERVAL_COL()
+      }
+
+      if (!this.GET_TOMATO_LEVEL_COL) {
+        // this.FINISH_ALL_TOMATOES_INTERVAL_COL()
+        this.START_FINISH_ALL_TOMATOES_INTERVAL_COL()
+
+        this.NOT_GENERATE_TOMATO_GREEN_COL()
+        this.NOT_GENERATE_TOMATO_RED_COL()
+        this.NOT_GENERATE_TOMATO_DARK_GREEN_COL()
+        this.NOT_GENERATE_COLLECTOR_COL()
+
+        this.cells = generatorCells()
+
+        this.CLOSE_GAME_FIELD_TOMATO_COL()
+      }
+    },
     currentCellTomatoGreen() {
       if (
           this.currentCellCollector - 13 === this.currentCellTomatoGreen || 
@@ -175,173 +195,244 @@ export default Vue.extend({
         this.PLUS_POINTS_TOMATO_DARK_GREEN_COL()
       }
     },
-    generateTomatoGreen() {
-      if (this.generateTomatoGreen) {
-        let numberColumn = getRandomNumberGenerator(1, 10, this.previousColumn)
+    GET_GENERATE_TOMATO_GREEN_COL() {
+      if (this.GET_GENERATE_TOMATO_GREEN_COL) {
+        let numberColumn = getRandomNumberGenerator(1, 13, this.previousColumn)
         this.previousColumn = numberColumn
 
         if (numberColumn === 1) {
           this.makeTomatoGreen(allColumns[1], this.currentCellTomatoGreen, 0)
-          this.generateTomatoGreen = false
+          this.NOT_GENERATE_TOMATO_GREEN_COL()
         }
 
         if (numberColumn === 2) {
           this.makeTomatoGreen(allColumns[2], 2, 0)
-          this.generateTomatoGreen = false
+          this.NOT_GENERATE_TOMATO_GREEN_COL()
         }
 
         if (numberColumn === 3) {
           this.makeTomatoGreen(allColumns[3], 3, 0)
-          this.generateTomatoGreen = false
+          this.NOT_GENERATE_TOMATO_GREEN_COL()
         }
 
         if (numberColumn === 4) {
           this.makeTomatoGreen(allColumns[4], 4, 0)
-          this.generateTomatoGreen = false
+          this.NOT_GENERATE_TOMATO_GREEN_COL()
         }
 
         if (numberColumn === 5) {
           this.makeTomatoGreen(allColumns[5], 5, 0)
-          this.generateTomatoGreen = false
+          this.NOT_GENERATE_TOMATO_GREEN_COL()
         }
 
         if (numberColumn === 6) {
           this.makeTomatoGreen(allColumns[6], 6, 0)
-          this.generateTomatoGreen = false
+          this.NOT_GENERATE_TOMATO_GREEN_COL()
         }
 
         if (numberColumn === 7) {
           this.makeTomatoGreen(allColumns[7], 7, 0)
-          this.generateTomatoGreen = false
+          this.NOT_GENERATE_TOMATO_GREEN_COL()
         }
 
         if (numberColumn === 8) {
           this.makeTomatoGreen(allColumns[8], 8, 0)
-          this.generateTomatoGreen = false
+          this.NOT_GENERATE_TOMATO_GREEN_COL()
         }
 
         if (numberColumn === 9) {
           this.makeTomatoGreen(allColumns[9], 9, 0)
-          this.generateTomatoGreen = false
+          this.NOT_GENERATE_TOMATO_GREEN_COL()
+        }
+
+        if (numberColumn === 10) {
+          this.makeTomatoGreen(allColumns[10], 10, 0)
+          this.NOT_GENERATE_TOMATO_GREEN_COL()
+        }
+
+        if (numberColumn === 11) {
+          this.makeTomatoGreen(allColumns[11], 11, 0)
+          this.NOT_GENERATE_TOMATO_GREEN_COL()
+        }
+
+        if (numberColumn === 12) {
+          this.makeTomatoGreen(allColumns[12], 12, 0)
+          this.NOT_GENERATE_TOMATO_GREEN_COL()
         }
       }
     },
-    generateTomatoRed() {
-      if (this.generateTomatoRed) {
-        let numberColumn = getRandomNumberGenerator(1, 10, this.previousColumn)
+    GET_GENERATE_TOMATO_RED_COL() {
+      if (this.GET_GENERATE_TOMATO_RED_COL) {
+        let numberColumn = getRandomNumberGenerator(1, 13, this.previousColumn)
         this.previousColumn = numberColumn
 
         if (numberColumn === 1) {
           this.makeTomatoRed(allColumns[1], 1, 0)
-          this.generateTomatoRed = false
+          this.NOT_GENERATE_TOMATO_RED_COL()
         }
 
         if (numberColumn === 2) {
           this.makeTomatoRed(allColumns[2], 2, 0)
-          this.generateTomatoRed = false
+          this.NOT_GENERATE_TOMATO_RED_COL()
         }
 
         if (numberColumn === 3) {
           this.makeTomatoRed(allColumns[3], 3, 0)
-          this.generateTomatoRed = false
+          this.NOT_GENERATE_TOMATO_RED_COL()
         }
 
         if (numberColumn === 4) {
           this.makeTomatoRed(allColumns[4], 4, 0)
-          this.generateTomatoRed = false
+          this.NOT_GENERATE_TOMATO_RED_COL()
         }
 
         if (numberColumn === 5) {
           this.makeTomatoRed(allColumns[5], 5, 0)
-          this.generateTomatoRed = false
+          this.NOT_GENERATE_TOMATO_RED_COL()
         }
 
         if (numberColumn === 6) {
           this.makeTomatoRed(allColumns[6], 6, 0)
-          this.generateTomatoRed = false
+          this.NOT_GENERATE_TOMATO_RED_COL()
         }
 
         if (numberColumn === 7) {
           this.makeTomatoRed(allColumns[7], 7, 0)
-          this.generateTomatoRed = false
+          this.NOT_GENERATE_TOMATO_RED_COL()
         }
 
         if (numberColumn === 8) {
           this.makeTomatoRed(allColumns[8], 8, 0)
-          this.generateTomatoRed = false
+          this.NOT_GENERATE_TOMATO_RED_COL()
         }
 
         if (numberColumn === 9) {
           this.makeTomatoRed(allColumns[9], 9, 0)
-          this.generateTomatoRed = false
+          this.NOT_GENERATE_TOMATO_RED_COL()
+        }
+
+        if (numberColumn === 10) {
+          this.makeTomatoRed(allColumns[10], 10, 0)
+          this.NOT_GENERATE_TOMATO_RED_COL()
+        }
+
+        if (numberColumn === 11) {
+          this.makeTomatoRed(allColumns[11], 11, 0)
+          this.NOT_GENERATE_TOMATO_RED_COL()
+        }
+
+        if (numberColumn === 12) {
+          this.makeTomatoRed(allColumns[12], 12, 0)
+          this.NOT_GENERATE_TOMATO_RED_COL()
         }
       }
     },
-    generateTomatoDarkGreen() {
-      if (this.generateTomatoDarkGreen) {
-        let numberColumn = getRandomNumberGenerator(1, 10, this.previousColumn)
+    GET_GENERATE_TOMATO_DARK_GREEN_COL() {
+      if (this.GET_GENERATE_TOMATO_DARK_GREEN_COL) {
+        let numberColumn = getRandomNumberGenerator(1, 13, this.previousColumn)
         this.previousColumn = numberColumn
 
         if (numberColumn === 1) {
           this.makeTomatoDarkGreen(allColumns[1], 1, 0)
-          this.generateTomatoDarkGreen = false
+          this.NOT_GENERATE_TOMATO_DARK_GREEN_COL()
         }
 
         if (numberColumn === 2) {
           this.makeTomatoDarkGreen(allColumns[2], 2, 0)
-          this.generateTomatoDarkGreen = false
+          this.NOT_GENERATE_TOMATO_DARK_GREEN_COL()
         }
 
         if (numberColumn === 3) {
           this.makeTomatoDarkGreen(allColumns[3], 3, 0)
-          this.generateTomatoDarkGreen = false
+          this.NOT_GENERATE_TOMATO_DARK_GREEN_COL()
         }
 
         if (numberColumn === 4) {
           this.makeTomatoDarkGreen(allColumns[4], 4, 0)
-          this.generateTomatoDarkGreen = false
+          this.NOT_GENERATE_TOMATO_DARK_GREEN_COL()
         }
 
         if (numberColumn === 5) {
           this.makeTomatoDarkGreen(allColumns[5], 5, 0)
-          this.generateTomatoDarkGreen = false
+          this.NOT_GENERATE_TOMATO_DARK_GREEN_COL()
         }
 
         if (numberColumn === 6) {
           this.makeTomatoDarkGreen(allColumns[6], 6, 0)
-          this.generateTomatoDarkGreen = false
+          this.NOT_GENERATE_TOMATO_DARK_GREEN_COL()
         }
 
         if (numberColumn === 7) {
           this.makeTomatoDarkGreen(allColumns[7], 7, 0)
-          this.generateTomatoDarkGreen = false
+          this.NOT_GENERATE_TOMATO_DARK_GREEN_COL()
         }
 
         if (numberColumn === 8) {
           this.makeTomatoDarkGreen(allColumns[8], 8, 0)
-          this.generateTomatoDarkGreen = false
+          this.NOT_GENERATE_TOMATO_DARK_GREEN_COL()
         }
 
         if (numberColumn === 9) {
           this.makeTomatoDarkGreen(allColumns[9], 9, 0)
-          this.generateTomatoDarkGreen = false
+          this.NOT_GENERATE_TOMATO_DARK_GREEN_COL()
+        }
+
+        if (numberColumn === 10) {
+          this.makeTomatoDarkGreen(allColumns[10], 10, 0)
+          this.NOT_GENERATE_TOMATO_DARK_GREEN_COL()
+        }
+
+        if (numberColumn === 11) {
+          this.makeTomatoDarkGreen(allColumns[11], 11, 0)
+          this.NOT_GENERATE_TOMATO_DARK_GREEN_COL()
+        }
+
+        if (numberColumn === 12) {
+          this.makeTomatoDarkGreen(allColumns[12], 12, 0)
+          this.NOT_GENERATE_TOMATO_DARK_GREEN_COL()
         }
       }
     },
-    generateCollector() {
-      if (this.generateCollector) {
+    GET_GENERATE_COLLECTOR_COL() {
+      if (this.GET_GENERATE_COLLECTOR_COL) {
         generatorCollector(cells, lastRow, this.currentCellCollector, this.currentIndexCellCollector, false)
       }
     }
   },
   computed: {
-    ...mapGetters([EN_CollectorGameGetters.GET_OPEN_GAME_FIELD_TOMATO_COL]),
+    ...mapGetters([
+      EN_CollectorGameGetters.GET_OPEN_GAME_FIELD_TOMATO_COL,
+      EN_CollectorGameGetters.GET_TOMATO_LEVEL_COL,
+
+      EN_CollectorGameGetters.GET_TIMER_TIMER_COL,
+      EN_CollectorGameGetters.GET_GENERATE_TOMATO_GREEN_COL,
+      EN_CollectorGameGetters.GET_GENERATE_TOMATO_RED_COL,
+      EN_CollectorGameGetters.GET_GENERATE_TOMATO_DARK_GREEN_COL,
+      EN_CollectorGameGetters.GET_GENERATE_COLLECTOR_COL,
+    ]),
   },
   methods: {
     ...mapMutations([
       EN_CollectorGameMutation.PLUS_POINTS_TOMATO_GREEN_COL,
       EN_CollectorGameMutation.PLUS_POINTS_TOMATO_RED_COL,
       EN_CollectorGameMutation.PLUS_POINTS_TOMATO_DARK_GREEN_COL,
+      EN_CollectorGameMutation.START_TOMATO_LEVEL_COL,
+      EN_CollectorGameMutation.FINISH_TOMATO_LEVEL_COL,
+      EN_CollectorGameMutation.START_FINISH_TIMER_TOMATO_COL,
+      EN_CollectorGameMutation.CLOSE_GAME_FIELD_TOMATO_COL,
+
+      EN_CollectorGameMutation.START_FINISH_ALL_TOMATOES_INTERVAL_COL,
+
+      EN_CollectorGameMutation.GENERATE_TOMATO_GREEN_COL,
+      EN_CollectorGameMutation.NOT_GENERATE_TOMATO_GREEN_COL,
+      EN_CollectorGameMutation.GENERATE_TOMATO_RED_COL,
+      EN_CollectorGameMutation.NOT_GENERATE_TOMATO_RED_COL,
+      EN_CollectorGameMutation.GENERATE_TOMATO_DARK_GREEN_COL,
+      EN_CollectorGameMutation.NOT_GENERATE_TOMATO_DARK_GREEN_COL,
+      EN_CollectorGameMutation.GENERATE_COLLECTOR_COL,
+      EN_CollectorGameMutation.NOT_GENERATE_COLLECTOR_COL,
+
+      EN_CollectorGameMutation.SHOW_VICTORY_BLOCK_TOMATO_COL,
     ]),
     generatorTomatoGreen(cells: ICell[], column: number[], columnCellId: number, columnCellIndex: number = 0) {
     	let testTomato: ICell[]
@@ -450,17 +541,17 @@ export default Vue.extend({
     	}
     },
     makeTomatoGreen(column: number[], currentCell: number, currentIndexCell: number) {
-      if (this.generateTomatoGreen) {
+      if (this.GET_GENERATE_TOMATO_GREEN_COL) {
         this.generatorTomatoGreen(cells, column, currentCell, currentIndexCell)
       }
     },
     makeTomatoRed(column: number[], currentCell: number, currentIndexCell: number) {
-      if (this.generateTomatoRed) {
+      if (this.GET_GENERATE_TOMATO_RED_COL) {
         this.generatorTomatoRed(cells, column, currentCell, currentIndexCell)
       }
     },
     makeTomatoDarkGreen(column: number[], currentCell: number, currentIndexCell: number) {
-      if (this.generateTomatoDarkGreen) {
+      if (this.GET_GENERATE_TOMATO_DARK_GREEN_COL) {
         this.generatorTomatoDarkGreen(cells, column, currentCell, currentIndexCell)
       }
     },

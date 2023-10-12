@@ -11,7 +11,7 @@
 	bottom: 29px;
 	left: 29px;
 
-	z-index: 120;
+	z-index: 600;
 }
 
 .exitBtnLeave {
@@ -32,7 +32,7 @@
 	top: 29px;
 	right: 29px;
 
-	z-index: 120;
+	z-index: 600;
 }
 
 .blockButtonPoints {
@@ -40,7 +40,7 @@
 	top: 129px;
 	right: 29px;
 
-	z-index: 120;
+	z-index: 600;
 }
 
 .mapGame {

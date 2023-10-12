@@ -1,3 +1,11 @@
+export interface ICell {
+	id: number
+	isTomatoRed: boolean
+	isTomatoGreen: boolean
+	isTomatoDarkGreen: boolean
+	isCollector: boolean
+}
+
 export const getRandomNumberGenerator = (
 	min: number,
 	max: number,
@@ -13,16 +21,7 @@ export const getRandomNumberGenerator = (
 	return newNumber
 }
 
-const cells = [
-	{
-		id: 0,
-		isTomatoRed: false,
-		isTomatoGreen: false,
-		isTomatoDarkGreen: false
-	}
-]
-
-export const generatorCells = () => {
+export const generatorCells = (): ICell[] => {
 	let newCells = []
 	let randomNum = 4
 	for (let i = 0; i < 130; i++) {
@@ -38,99 +37,86 @@ export const generatorCells = () => {
 	return newCells
 }
 
-export interface ICell {
-	id: number
-	isTomatoRed: boolean
-	isTomatoGreen: boolean
-	isTomatoDarkGreen: boolean
-	isCollector: boolean
-}
+// export const generatorTomatoGreen = (
+// 	cells: ICell[],
+// 	column: number[],
+// 	columnCellId: number = 5,
+// 	columnCellIndex: number = 0
+// ) => {
+// 	let testTomato: ICell[]
 
-const fifthColumn: number[] = [5, 18, 31, 44, 57, 70, 83, 96, 109, 122]
-const lastRow: number[] = [
-	118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130
-]
+// 	testTomato = cells.filter(cell => cell.id === column[columnCellIndex])
 
-export const generatorTomatoGreen = (
-	cells: ICell[],
-	column: number[],
-	columnCellId: number = 5,
-	columnCellIndex: number = 0
-) => {
-	let testTomato: ICell[]
+// 	if (testTomato[0].id === column[column.length - 1]) {
+// 		return false
+// 	}
 
-	testTomato = cells.filter(cell => cell.id === column[columnCellIndex])
+// 	if (testTomato[0].id === columnCellId) {
+// 		testTomato[0].isTomatoGreen = true
 
-	if (testTomato[0].id === column[column.length - 1]) {
-		return false
-	}
+// 		setTimeout(() => {
+// 			testTomato[0].isTomatoGreen = false
 
-	if (testTomato[0].id === columnCellId) {
-		testTomato[0].isTomatoGreen = true
+// 			columnCellId += 13
+// 			columnCellIndex += 1
+// 			generatorTomatoGreen(cells, column, columnCellId, columnCellIndex)
+// 		}, 700)
+// 	}
+// }
 
-		setTimeout(() => {
-			testTomato[0].isTomatoGreen = false
+// export const generatorTomatoRed = (
+// 	cells: ICell[],
+// 	column: number[],
+// 	columnCellId: number = 2,
+// 	columnCellIndex: number = 0
+// ) => {
+// 	let testTomato: ICell[]
 
-			columnCellId += 13
-			columnCellIndex += 1
-			generatorTomatoGreen(cells, column, columnCellId, columnCellIndex)
-		}, 700)
-	}
-}
+// 	testTomato = cells.filter(cell => cell.id === column[columnCellIndex])
 
-export const generatorTomatoRed = (
-	cells: ICell[],
-	column: number[],
-	columnCellId: number = 2,
-	columnCellIndex: number = 0
-) => {
-	let testTomato: ICell[]
+// 	if (testTomato[0].id === column[column.length - 1]) {
+// 		return false
+// 	}
 
-	testTomato = cells.filter(cell => cell.id === column[columnCellIndex])
+// 	if (testTomato[0].id === columnCellId) {
+// 		testTomato[0].isTomatoRed = true
 
-	if (testTomato[0].id === column[column.length - 1]) {
-		return false
-	}
+// 		setTimeout(() => {
+// 			testTomato[0].isTomatoRed = false
 
-	if (testTomato[0].id === columnCellId) {
-		testTomato[0].isTomatoRed = true
+// 			columnCellId += 13
+// 			columnCellIndex += 1
+// 			generatorTomatoRed(cells, column, columnCellId, columnCellIndex)
+// 		}, 700)
+// 	}
+// }
 
-		setTimeout(() => {
-			testTomato[0].isTomatoRed = false
+// export const generatorTomatoDarkGreen = (
+// 	cells: ICell[],
+// 	column: number[],
+// 	columnCellId: number,
+// 	columnCellIndex: number
+// ) => {
+// 	let testTomato: ICell[]
 
-			columnCellId += 13
-			columnCellIndex += 1
-			generatorTomatoRed(cells, column, columnCellId, columnCellIndex)
-		}, 700)
-	}
-}
+// 	testTomato = cells.filter(cell => cell.id === column[columnCellIndex])
 
-export const generatorTomatoDarkGreen = (
-	cells: ICell[],
-	column: number[],
-	columnCellId: number,
-	columnCellIndex: number
-) => {
-	let testTomato: ICell[]
+// 	if (testTomato[0].id === column[column.length - 1]) {
+// 		return false
+// 	}
 
-	testTomato = cells.filter(cell => cell.id === column[columnCellIndex])
+// 	if (testTomato[0].id === columnCellId) {
+// 		testTomato[0].isTomatoDarkGreen = true
 
-	if (testTomato[0].id === column[column.length - 1]) {
-		return false
-	}
+// 		setTimeout(() => {
+// 			testTomato[0].isTomatoDarkGreen = false
 
-	if (testTomato[0].id === columnCellId) {
-		testTomato[0].isTomatoDarkGreen = true
-
-		setTimeout(() => {
-			testTomato[0].isTomatoDarkGreen = false
-
-			columnCellId += 13
-			columnCellIndex += 1
-			generatorTomatoDarkGreen(cells, column, columnCellId, columnCellIndex)
-		}, 700)
-	}
-}
+// 			columnCellId += 13
+// 			columnCellIndex += 1
+// 			generatorTomatoDarkGreen(cells, column, columnCellId, columnCellIndex)
+// 		}, 700)
+// 	}
+// }
 
 export const generatorCollector = (
 	cells: ICell[],

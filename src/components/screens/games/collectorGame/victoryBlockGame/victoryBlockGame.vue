@@ -80,11 +80,11 @@ export default Vue.extend({
   },
   methods: {
     ...mapMutations([
-      EN_CollectorGameMutation.HIDE_VICTORY_BLOCK_COL
+      EN_CollectorGameMutation.HIDE_VICTORY_BLOCK_COL,
+      EN_CollectorGameMutation.RESTART_GAME_COL,
     ]),
     restartGame() {
-      this.HIDE_VICTORY_BLOCK_COL()
-      this.$router.push({ name: 'home' })
+      this.RESTART_GAME_COL()
     },
     skipToMap() {
       this.HIDE_VICTORY_BLOCK_COL()
