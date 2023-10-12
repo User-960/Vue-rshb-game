@@ -34,18 +34,18 @@
 <script lang='ts'>
 import { EN_CollectorGameGetters } from '@/store/modules/collectorGame/getters'
 import Vue from 'vue'
-import { mapGetters } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 import { 
+  ICell,
+
   getRandomNumberGenerator,
-  generatorCells, 
-  generatorTomatoGreen, 
-  generatorTomatoRed, 
-  generatorTomatoDarkGreen,
+  generatorCells,
   generatorCollector,
 
   generatorCollectorMoveLeft,
   generatorCollectorMoveRight
 } from '../helpers/helpers'
+import { EN_CollectorGameMutation } from '@/store/modules/collectorGame/mutations'
 
 const cells = generatorCells()
 const firstColumn: number[] = [1, 14, 27, 40, 53, 66, 79, 92, 105, 118]
@@ -98,7 +98,7 @@ export default Vue.extend({
   created() {
     this.generateCollector = true
     
-    document.addEventListener('keyup', (event) => {
+    document.addEventListener('keydown', (event) => {
       if (event.code == 'KeyA' && !this.isMovingLeft && !this.isMovingRight && !this.isCollectorMovedLeft) {
         this.isMovingLeft = true
         if (this.isMovingLeft) {
@@ -153,9 +153,19 @@ export default Vue.extend({
     }, 7000)
   },
   watch: {
-    currentCellCollector() {
-      if (cells[119].isCollector === true && cells[119].isTomatoGreen === true) {
-        console.log('Collector takes TomatoGreen')
+    currentCellTomatoGreen() {
+      if (this.currentCellCollector - 13 === this.currentCellTomatoGreen) {
+        this.PLUS_POINTS_TOMATO_GREEN_COL()
+      }
+    },
+    currentCellTomatoRed() {
+      if (this.currentCellCollector - 13 === this.currentCellTomatoRed) {
+        this.PLUS_POINTS_TOMATO_RED_COL()
+      }
+    },
+    currentCellTomatoDarkGreen() {
+      if (this.currentCellCollector - 13 === this.currentCellTomatoDarkGreen) {
+        this.PLUS_POINTS_TOMATO_DARK_GREEN_COL()
       }
     },
     generateTomatoGreen() {
@@ -321,19 +331,118 @@ export default Vue.extend({
     ...mapGetters([EN_CollectorGameGetters.GET_OPEN_GAME_FIELD_TOMATO_COL]),
   },
   methods: {
+    ...mapMutations([
+      EN_CollectorGameMutation.PLUS_POINTS_TOMATO_GREEN_COL,
+      EN_CollectorGameMutation.PLUS_POINTS_TOMATO_RED_COL,
+      EN_CollectorGameMutation.PLUS_POINTS_TOMATO_DARK_GREEN_COL,
+    ]),
+    generatorTomatoGreen(cells: ICell[], column: number[], columnCellId: number, columnCellIndex: number = 0) {
+    	let testTomato: ICell[]
+    
+    	testTomato = cells.filter(cell => cell.id === column[columnCellIndex])
+    
+    	if (testTomato[0].id === column[column.length - 2]) {
+        this.currentCellTomatoGreen = testTomato[0].id
+        if (this.currentCellTomatoGreen === this.currentCellCollector - 13) {
+          return false
+        }
+    	}
+
+    	if (testTomato[0].id === column[column.length - 1]) {
+    		return false
+    	}
+    
+    	if (testTomato[0].id === columnCellId) {
+    		testTomato[0].isTomatoGreen = true
+      
+    		setTimeout(() => {
+    			testTomato[0].isTomatoGreen = false
+        
+    			columnCellId += 13
+    			columnCellIndex += 1
+    			this.generatorTomatoGreen(cells, column, columnCellId, columnCellIndex)
+    		}, 700)
+    	}
+    },
+    generatorTomatoRed (
+    	cells: ICell[],
+    	column: number[],
+    	columnCellId: number = 2,
+    	columnCellIndex: number = 0
+    ) {
+    	let testTomato: ICell[]
+    
+    	testTomato = cells.filter(cell => cell.id === column[columnCellIndex])
+
+      if (testTomato[0].id === column[column.length - 2]) {
+        this.currentCellTomatoRed = testTomato[0].id
+        if (this.currentCellTomatoRed === this.currentCellCollector - 13) {
+          return false
+        }
+    	}
+    
+    	if (testTomato[0].id === column[column.length - 1]) {
+    		return false
+    	}
+    
+    	if (testTomato[0].id === columnCellId) {
+    		testTomato[0].isTomatoRed = true
+      
+    		setTimeout(() => {
+    			testTomato[0].isTomatoRed = false
+        
+    			columnCellId += 13
+    			columnCellIndex += 1
+    			this.generatorTomatoRed(cells, column, columnCellId, columnCellIndex)
+    		}, 700)
+    	}
+    },
+    generatorTomatoDarkGreen(
+    	cells: ICell[],
+    	column: number[],
+    	columnCellId: number,
+    	columnCellIndex: number
+    ) {
+    	let testTomato: ICell[]
+    
+    	testTomato = cells.filter(cell => cell.id === column[columnCellIndex])
+
+      if (testTomato[0].id === column[column.length - 2]) {
+        this.currentCellTomatoDarkGreen = testTomato[0].id
+        if (this.currentCellTomatoDarkGreen === this.currentCellCollector - 13) {
+          return false
+        }
+    	}
+    
+    	if (testTomato[0].id === column[column.length - 1]) {
+    		return false
+    	}
+    
+    	if (testTomato[0].id === columnCellId) {
+    		testTomato[0].isTomatoDarkGreen = true
+      
+    		setTimeout(() => {
+    			testTomato[0].isTomatoDarkGreen = false
+        
+    			columnCellId += 13
+    			columnCellIndex += 1
+    			this.generatorTomatoDarkGreen(cells, column, columnCellId, columnCellIndex)
+    		}, 700)
+    	}
+    },
     makeTomatoGreen(column: number[], currentCell: number, currentIndexCell: number) {
       if (this.generateTomatoGreen) {
-        generatorTomatoGreen(cells, column, currentCell, currentIndexCell)
+        this.generatorTomatoGreen(cells, column, currentCell, currentIndexCell)
       }
     },
     makeTomatoRed(column: number[], currentCell: number, currentIndexCell: number) {
       if (this.generateTomatoRed) {
-        generatorTomatoRed(cells, column, currentCell, currentIndexCell)
+        this.generatorTomatoRed(cells, column, currentCell, currentIndexCell)
       }
     },
     makeTomatoDarkGreen(column: number[], currentCell: number, currentIndexCell: number) {
       if (this.generateTomatoDarkGreen) {
-        generatorTomatoDarkGreen(cells, column, currentCell, currentIndexCell)
+        this.generatorTomatoDarkGreen(cells, column, currentCell, currentIndexCell)
       }
     },
     moveCollectorLeft() {
@@ -345,7 +454,7 @@ export default Vue.extend({
         setTimeout(() => {
           this.isCollectorMovedLeft = false
           this.isMovingLeft = false
-        }, 300)
+        }, 200)
       } 
     },
     moveCollectorRight() {
@@ -357,7 +466,7 @@ export default Vue.extend({
         setTimeout(() => {
           this.isCollectorMovedRight = false
           this.isMovingRight = false
-        }, 300)
+        }, 200)
       } 
     }
   }

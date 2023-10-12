@@ -16,6 +16,9 @@ export enum EN_CollectorGameMutation {
 	PLUS_POINTS_COL = 'PLUS_POINTS_COL',
 	PLUS_POINTS_LINK_COL = 'PLUS_POINTS_LINK_COL',
 	MINUS_POINTS_COL = 'MINUS_POINTS_COL',
+	PLUS_POINTS_TOMATO_GREEN_COL = 'PLUS_POINTS_TOMATO_GREEN_COL',
+	PLUS_POINTS_TOMATO_RED_COL = 'PLUS_POINTS_TOMATO_RED_COL',
+	PLUS_POINTS_TOMATO_DARK_GREEN_COL = 'PLUS_POINTS_TOMATO_DARK_GREEN_COL',
 
 	START_GAME_COL = 'START_GAME_COL',
 	FINISH_GAME_COL = 'FINISH_GAME_COL',
@@ -77,6 +80,15 @@ export const mutations: MutationTree<ICollectorGameState> = {
 		if (state.points === 0) {
 			state.points += 5
 		}
+	},
+	[EN_CollectorGameMutation.PLUS_POINTS_TOMATO_GREEN_COL](state) {
+		state.points += 1
+	},
+	[EN_CollectorGameMutation.PLUS_POINTS_TOMATO_RED_COL](state) {
+		state.points += 4
+	},
+	[EN_CollectorGameMutation.PLUS_POINTS_TOMATO_DARK_GREEN_COL](state) {
+		state.points += 2
 	},
 	[EN_CollectorGameMutation.MINUS_POINTS_COL](state) {
 		if (state.points === 0) {

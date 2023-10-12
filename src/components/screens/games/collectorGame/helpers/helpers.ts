@@ -38,7 +38,7 @@ export const generatorCells = () => {
 	return newCells
 }
 
-interface ICell {
+export interface ICell {
 	id: number
 	isTomatoRed: boolean
 	isTomatoGreen: boolean
