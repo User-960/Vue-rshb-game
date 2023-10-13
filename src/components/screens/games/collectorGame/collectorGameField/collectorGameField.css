@@ -20,7 +20,7 @@
 }
 
 .gameWrapper {
-  position: relative;
+	position: relative;
 	max-width: 1280px;
 	max-height: 660px;
 	width: 100%;
@@ -67,13 +67,23 @@
 	height: 100%;
 }
 
-.left {
+.leftTomato {
 	background-image: url(../../../../../../public/images/tomatoLeftDecorations.svg);
 	background-position: top;
 }
 
-.right {
+.rightTomato {
 	background-image: url(../../../../../../public/images/tomatoRightDecorations.svg);
+	background-position: center;
+}
+
+.leftPepper {
+	background-image: url(../../../../../../public/images/pepperLeftDecorations.svg);
+	background-position: top;
+}
+
+.rightPepper {
+	background-image: url(../../../../../../public/images/pepperRightDecorations.svg);
 	background-position: center;
 }
 
@@ -101,7 +111,8 @@
 	border: 1px solid #000; */
 }
 
-.isTomatoGreen {
+.isTomatoGreen,
+.isPepperGreen {
 	position: relative;
 	top: 62px;
 
@@ -109,31 +120,47 @@
 	height: 62px;
 	z-index: 100;
 
-	background-image: url(../../../../../../public/images/tomatoGreen.svg);
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: contain;
+}
 
+.isTomatoGreen {
+	background-image: url(../../../../../../public/images/tomatoGreen.svg);
 	animation: gravityTomato 0.7s;
+}
+
+.isPepperGreen {
+	background-image: url(../../../../../../public/images/pepperGreen.svg);
+	animation: gravityTomato 0.6s;
+}
+
+.isTomatoRed,
+.isPepperRed {
+	position: relative;
+	top: 62px;
+
+	width: 62px;
+	height: 62px;
+	z-index: 100;
+
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
 }
 
 .isTomatoRed {
-	position: relative;
-	top: 62px;
-
-	width: 62px;
-	height: 62px;
-	z-index: 100;
-
 	background-image: url(../../../../../../public/images/tomatoRed.svg);
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: contain;
-
 	animation: gravityTomato 0.7s;
 }
 
-.isTomatoDarkGreen {
+.isPepperRed {
+	background-image: url(../../../../../../public/images/pepperRed.svg);
+	animation: gravityTomato 0.6s;
+}
+
+.isTomatoDarkGreen,
+.isPepperDarkGreen {
 	position: relative;
 	top: 62px;
 
@@ -141,12 +168,19 @@
 	height: 62px;
 	z-index: 100;
 
-	background-image: url(../../../../../../public/images/tomatoDarkGreen.svg);
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: contain;
+}
 
+.isTomatoDarkGreen {
+	background-image: url(../../../../../../public/images/tomatoDarkGreen.svg);
 	animation: gravityTomato 0.7s;
+}
+
+.isPepperDarkGreen {
+	background-image: url(../../../../../../public/images/pepperDarkGreen.svg);
+	animation: gravityTomato 0.6s;
 }
 
 .isCollector {

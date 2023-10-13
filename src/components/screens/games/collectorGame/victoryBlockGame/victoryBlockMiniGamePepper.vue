@@ -1,19 +1,19 @@
 <template>
-  <div :class='styles.victoryBlockTomatoLevelWrapper' v-if='GET_VICTORY_BLOCK_TOMATO_COL'>
-    <div :class='styles.victoryBlockTomatoLevel'>
+  <div :class='styles.victoryBlockPepperLevelWrapper' v-if='GET_VICTORY_BLOCK_PEPPER_COL'>
+    <div :class='styles.victoryBlockPepperLevel'>
       <div :class='styles.title'>
         Выполнено!
       </div>
 
       <div :class='styles.contentText'>
         <p>
-          Ты умело управлял роботом - собирателем урожая, и все зрелые томаты успешно собраны. 
+          Ты умело управлял роботом - собирателем урожая, и все зрелые перцы успешно собраны. 
         </p>
       </div>
 
       <div :class='styles.result'>
         <p>
-          Накоплено баллов: <span>+ {{ GET_POINTS_TOMATO_COL }}</span>
+          Накоплено баллов: <span>+ {{ GET_POINTS_PEPPER_COL }}</span>
         </p>
         <div :class='styles.resultIcon'>
           <iconButton>
@@ -47,29 +47,29 @@ import { EN_CollectorGameGetters } from '@/store/modules/collectorGame/getters'
 import { EN_CollectorGameMutation } from '@/store/modules/collectorGame/mutations'
 
 export default Vue.extend({
-  name: 'victoryBlockMiniGameTomato',
+  name: 'victoryBlockMiniGamePepper',
   components: {
     closeButton,
     iconButton
   },
   computed: {
     ...mapGetters([
-      EN_CollectorGameGetters.GET_POINTS_TOMATO_COL,
-      EN_CollectorGameGetters.GET_VICTORY_BLOCK_TOMATO_COL,
+      EN_CollectorGameGetters.GET_POINTS_PEPPER_COL,
+      EN_CollectorGameGetters.GET_VICTORY_BLOCK_PEPPER_COL,
     ]),
   },
   methods: {
     ...mapMutations([
-      EN_CollectorGameMutation.HIDE_VICTORY_BLOCK_TOMATO_COL,
-      EN_CollectorGameMutation.CLOSE_GAME_FIELD_TOMATO_COL,
+      EN_CollectorGameMutation.HIDE_VICTORY_BLOCK_PEPPER_COL,
+      EN_CollectorGameMutation.CLOSE_GAME_FIELD_PEPPER_COL,
     ]),
     skipToMap() {
-      this.HIDE_VICTORY_BLOCK_TOMATO_COL()
+      this.HIDE_VICTORY_BLOCK_PEPPER_COL()
       this.$router.push({ name: 'home' })
     },
     nextLevel() {
-      this.CLOSE_GAME_FIELD_TOMATO_COL()
-      this.HIDE_VICTORY_BLOCK_TOMATO_COL()
+      this.CLOSE_GAME_FIELD_PEPPER_COL()
+      this.HIDE_VICTORY_BLOCK_PEPPER_COL()
     }
   }
 })

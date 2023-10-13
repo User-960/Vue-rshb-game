@@ -35,11 +35,19 @@ export const lastRow: number[] = [
 	117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129
 ]
 
-export interface ICell {
+export interface ICellTomato {
 	id: number
 	isTomatoRed: boolean
 	isTomatoGreen: boolean
 	isTomatoDarkGreen: boolean
+	isCollector: boolean
+}
+
+export interface ICellPepper {
+	id: number
+	isPepperRed: boolean
+	isPepperGreen: boolean
+	isPepperDarkGreen: boolean
 	isCollector: boolean
 }
 
@@ -58,9 +66,8 @@ export const getRandomNumberGenerator = (
 	return newNumber
 }
 
-export const generatorCells = (): ICell[] => {
+export const generatorCellsTomato = (): ICellTomato[] => {
 	let newCells = []
-	let randomNum = 4
 	for (let i = 0; i < 130; i++) {
 		newCells.push({
 			id: i,
@@ -74,13 +81,28 @@ export const generatorCells = (): ICell[] => {
 	return newCells
 }
 
+export const generatorCellsPepper = (): ICellPepper[] => {
+	let newCells = []
+	for (let i = 0; i < 130; i++) {
+		newCells.push({
+			id: i,
+			isPepperRed: false,
+			isPepperGreen: false,
+			isPepperDarkGreen: false,
+			isCollector: false
+		})
+	}
+
+	return newCells
+}
+
 // export const generatorTomatoGreen = (
-// 	cells: ICell[],
+// 	cells: ICellTomato[],
 // 	column: number[],
 // 	columnCellId: number = 5,
 // 	columnCellIndex: number = 0
 // ) => {
-// 	let testTomato: ICell[]
+// 	let testTomato: ICellTomato[]
 
 // 	testTomato = cells.filter(cell => cell.id === column[columnCellIndex])
 
@@ -102,12 +124,12 @@ export const generatorCells = (): ICell[] => {
 // }
 
 // export const generatorTomatoRed = (
-// 	cells: ICell[],
+// 	cells: ICellTomato[],
 // 	column: number[],
 // 	columnCellId: number = 2,
 // 	columnCellIndex: number = 0
 // ) => {
-// 	let testTomato: ICell[]
+// 	let testTomato: ICellTomato[]
 
 // 	testTomato = cells.filter(cell => cell.id === column[columnCellIndex])
 
@@ -129,12 +151,12 @@ export const generatorCells = (): ICell[] => {
 // }
 
 // export const generatorTomatoDarkGreen = (
-// 	cells: ICell[],
+// 	cells: ICellTomato[],
 // 	column: number[],
 // 	columnCellId: number,
 // 	columnCellIndex: number
 // ) => {
-// 	let testTomato: ICell[]
+// 	let testTomato: ICellTomato[]
 
 // 	testTomato = cells.filter(cell => cell.id === column[columnCellIndex])
 
@@ -155,15 +177,15 @@ export const generatorCells = (): ICell[] => {
 // 	}
 // }
 
-export const generatorCollector = (
-	cells: ICell[],
+export const generatorCollectorTomato = (
+	cells: ICellTomato[],
 	row: number[],
 	rowCellId: number,
 	rowCellIndex: number,
 	isMoving: boolean = false
 ) => {
-	let testCollector: ICell[] | null = null
-	let currentCollector: ICell[] | null = null
+	let testCollector: ICellTomato[] | null = null
+	let currentCollector: ICellTomato[] | null = null
 
 	if (!isMoving && rowCellId !== row[row.length - 1]) {
 		testCollector = cells.filter(cell => cell.id === row[rowCellIndex])
@@ -184,15 +206,15 @@ export const generatorCollector = (
 	}
 }
 
-export const generatorCollectorMoveLeft = (
-	cells: ICell[],
+export const generatorCollectorMoveLeftTomato = (
+	cells: ICellTomato[],
 	row: number[],
 	rowCellId: number,
 	rowCellIndex: number,
 	isMoving: boolean = false
 ) => {
-	let testCollector: ICell[] | null = null
-	let currentCollector: ICell[] | null = null
+	let testCollector: ICellTomato[] | null = null
+	let currentCollector: ICellTomato[] | null = null
 
 	if (isMoving) {
 		currentCollector = cells.filter(cell => cell.isCollector === true)
@@ -206,15 +228,88 @@ export const generatorCollectorMoveLeft = (
 	}
 }
 
-export const generatorCollectorMoveRight = (
-	cells: ICell[],
+export const generatorCollectorMoveRightTomato = (
+	cells: ICellTomato[],
 	row: number[],
 	rowCellId: number,
 	rowCellIndex: number,
 	isMoving: boolean = false
 ) => {
-	let testCollector: ICell[] | null = null
-	let currentCollector: ICell[] | null = null
+	let testCollector: ICellTomato[] | null = null
+	let currentCollector: ICellTomato[] | null = null
+
+	if (isMoving) {
+		currentCollector = cells.filter(cell => cell.isCollector === true)
+		currentCollector[0].isCollector = false
+
+		testCollector = cells.filter(cell => cell.id === row[rowCellIndex])
+
+		if (testCollector[0].id === rowCellId) {
+			testCollector[0].isCollector = true
+		}
+	}
+}
+
+export const generatorCollectorPepper = (
+	cells: ICellPepper[],
+	row: number[],
+	rowCellId: number,
+	rowCellIndex: number,
+	isMoving: boolean = false
+) => {
+	let testCollector: ICellPepper[] | null = null
+	let currentCollector: ICellPepper[] | null = null
+
+	if (!isMoving && rowCellId !== row[row.length - 1]) {
+		testCollector = cells.filter(cell => cell.id === row[rowCellIndex])
+		if (testCollector[0].id === rowCellId && !isMoving) {
+			testCollector[0].isCollector = true
+		}
+	}
+
+	if (isMoving && rowCellId !== row[row.length - 1]) {
+		currentCollector = cells.filter(cell => cell.isCollector === true)
+		currentCollector[0].isCollector = false
+
+		testCollector = cells.filter(cell => cell.id === row[rowCellIndex])
+
+		if (testCollector[0].id === rowCellId) {
+			testCollector[0].isCollector = true
+		}
+	}
+}
+
+export const generatorCollectorMoveLeftPepper = (
+	cells: ICellPepper[],
+	row: number[],
+	rowCellId: number,
+	rowCellIndex: number,
+	isMoving: boolean = false
+) => {
+	let testCollector: ICellPepper[] | null = null
+	let currentCollector: ICellPepper[] | null = null
+
+	if (isMoving) {
+		currentCollector = cells.filter(cell => cell.isCollector === true)
+		currentCollector[0].isCollector = false
+
+		testCollector = cells.filter(cell => cell.id === row[rowCellIndex])
+
+		if (testCollector[0].id === rowCellId) {
+			testCollector[0].isCollector = true
+		}
+	}
+}
+
+export const generatorCollectorMoveRightPepper = (
+	cells: ICellPepper[],
+	row: number[],
+	rowCellId: number,
+	rowCellIndex: number,
+	isMoving: boolean = false
+) => {
+	let testCollector: ICellPepper[] | null = null
+	let currentCollector: ICellPepper[] | null = null
 
 	if (isMoving) {
 		currentCollector = cells.filter(cell => cell.isCollector === true)

@@ -1,5 +1,7 @@
 import { MutationTree } from 'vuex'
 
+import { EN_CONFIG } from '@/components/screens/games/collectorGame/config/config'
+
 import { ICollectorGameState } from './types'
 import { AUDIO_CONFIG } from '@/config/audio'
 
@@ -18,18 +20,17 @@ export enum EN_CollectorGameMutation {
 	PLUS_POINTS_COL = 'PLUS_POINTS_COL',
 	PLUS_POINTS_LINK_COL = 'PLUS_POINTS_LINK_COL',
 	MINUS_POINTS_COL = 'MINUS_POINTS_COL',
-	PLUS_POINTS_TOMATO_GREEN_COL = 'PLUS_POINTS_TOMATO_GREEN_COL',
-	PLUS_POINTS_TOMATO_RED_COL = 'PLUS_POINTS_TOMATO_RED_COL',
-	PLUS_POINTS_TOMATO_DARK_GREEN_COL = 'PLUS_POINTS_TOMATO_DARK_GREEN_COL',
 
 	START_GAME_COL = 'START_GAME_COL',
 	FINISH_GAME_COL = 'FINISH_GAME_COL',
 
-	START_FINISH_TIMER_TOMATO_COL = 'START_FINISH_TIMER_TOMATO_COL',
-	STOP_TIMER_TOMATO_COL = 'STOP_TIMER_TOMATO_COL',
-
 	OPEN_GAME_FIELD_TOMATO_COL = 'OPEN_GAME_FIELD_TOMATO_COL',
 	CLOSE_GAME_FIELD_TOMATO_COL = 'CLOSE_GAME_FIELD_TOMATO_COL',
+	START_FINISH_TIMER_TOMATO_COL = 'START_FINISH_TIMER_TOMATO_COL',
+	STOP_TIMER_TOMATO_COL = 'STOP_TIMER_TOMATO_COL',
+	PLUS_POINTS_TOMATO_GREEN_COL = 'PLUS_POINTS_TOMATO_GREEN_COL',
+	PLUS_POINTS_TOMATO_RED_COL = 'PLUS_POINTS_TOMATO_RED_COL',
+	PLUS_POINTS_TOMATO_DARK_GREEN_COL = 'PLUS_POINTS_TOMATO_DARK_GREEN_COL',
 	START_TOMATO_LEVEL_COL = 'START_TOMATO_LEVEL_COL',
 	FINISH_TOMATO_LEVEL_COL = 'FINISH_TOMATO_LEVEL_COL',
 	PLUS_POINTS_TOMATO_COL = 'PLUS_POINTS_TOMATO_COL',
@@ -41,8 +42,8 @@ export enum EN_CollectorGameMutation {
 	NOT_GENERATE_TOMATO_RED_COL = 'NOT_GENERATE_TOMATO_RED_COL',
 	GENERATE_TOMATO_DARK_GREEN_COL = 'GENERATE_TOMATO_DARK_GREEN_COL',
 	NOT_GENERATE_TOMATO_DARK_GREEN_COL = 'NOT_GENERATE_TOMATO_DARK_GREEN_COL',
-	GENERATE_COLLECTOR_COL = 'GENERATE_COLLECTOR_COL',
-	NOT_GENERATE_COLLECTOR_COL = 'NOT_GENERATE_COLLECTOR_COL',
+	GENERATE_COLLECTOR_TOMATO_COL = 'GENERATE_COLLECTOR_TOMATO_COL',
+	NOT_GENERATE_COLLECTOR_TOMATO_COL = 'NOT_GENERATE_COLLECTOR_TOMATO_COL',
 	SHOW_VICTORY_BLOCK_TOMATO_COL = 'SHOW_VICTORY_BLOCK_TOMATO_COL',
 	HIDE_VICTORY_BLOCK_TOMATO_COL = 'HIDE_VICTORY_BLOCK_TOMATO_COL',
 	SHOW_LOSS_BLOCK_TOMATO_COL = 'SHOW_LOSS_BLOCK_TOMATO_COL',
@@ -53,6 +54,31 @@ export enum EN_CollectorGameMutation {
 
 	OPEN_GAME_FIELD_PEPPER_COL = 'OPEN_GAME_FIELD_PEPPER_COL',
 	CLOSE_GAME_FIELD_PEPPER_COL = 'CLOSE_GAME_FIELD_PEPPER_COL',
+	START_FINISH_TIMER_PEPPER_COL = 'START_FINISH_TIMER_PEPPER_COL',
+	STOP_TIMER_PEPPER_COL = 'STOP_TIMER_PEPPER_COL',
+	PLUS_POINTS_PEPPER_GREEN_COL = 'PLUS_POINTS_PEPPER_GREEN_COL',
+	PLUS_POINTS_PEPPER_RED_COL = 'PLUS_POINTS_PEPPER_RED_COL',
+	PLUS_POINTS_PEPPER_DARK_GREEN_COL = 'PLUS_POINTS_PEPPER_DARK_GREEN_COL',
+	START_PEPPER_LEVEL_COL = 'START_PEPPER_LEVEL_COL',
+	FINISH_PEPPER_LEVEL_COL = 'FINISH_PEPPER_LEVEL_COL',
+	PLUS_POINTS_PEPPER_COL = 'PLUS_POINTS_PEPPER_COL',
+	START_FINISH_ALL_PEPPERS_INTERVAL_COL = 'START_FINISH_ALL_PEPPERS_INTERVAL_COL',
+	FINISH_ALL_PEPPERS_INTERVAL_COL = 'FINISH_ALL_PEPPERS_INTERVAL_COL',
+	GENERATE_PEPPER_GREEN_COL = 'GENERATE_PEPPER_GREEN_COL',
+	NOT_GENERATE_PEPPER_GREEN_COL = 'NOT_GENERATE_PEPPER_GREEN_COL',
+	GENERATE_PEPPER_RED_COL = 'GENERATE_PEPPER_RED_COL',
+	NOT_GENERATE_PEPPER_RED_COL = 'NOT_GENERATE_PEPPER_RED_COL',
+	GENERATE_PEPPER_DARK_GREEN_COL = 'GENERATE_PEPPER_DARK_GREEN_COL',
+	NOT_GENERATE_PEPPER_DARK_GREEN_COL = 'NOT_GENERATE_PEPPER_DARK_GREEN_COL',
+	GENERATE_COLLECTOR_PEPPER_COL = 'GENERATE_COLLECTOR_PEPPER_COL',
+	NOT_GENERATE_COLLECTOR_PEPPER_COL = 'NOT_GENERATE_COLLECTOR_PEPPER_COL',
+	SHOW_VICTORY_BLOCK_PEPPER_COL = 'SHOW_VICTORY_BLOCK_PEPPER_COL',
+	HIDE_VICTORY_BLOCK_PEPPER_COL = 'HIDE_VICTORY_BLOCK_PEPPER_COL',
+	SHOW_LOSS_BLOCK_PEPPER_COL = 'SHOW_LOSS_BLOCK_PEPPER_COL',
+	HIDE_LOSS_BLOCK_PEPPER_COL = 'HIDE_LOSS_BLOCK_PEPPER_COL',
+	COMPLETE_PEPPER_LEVEL_COL = 'COMPLETE_PEPPER_LEVEL_COL',
+	NOT_COMPLETE_PEPPER_LEVEL_COL = 'NOT_COMPLETE_PEPPER_LEVEL_COL',
+	RESTART_PEPPER_LEVEL_COL = 'RESTART_PEPPER_LEVEL_COL',
 
 	OPEN_GAME_FIELD_STRAWBERRY_COL = 'OPEN_GAME_FIELD_STRAWBERRY_COL',
 	CLOSE_GAME_FIELD_STRAWBERRY_COL = 'CLOSE_GAME_FIELD_STRAWBERRY_COL'
@@ -61,6 +87,9 @@ export enum EN_CollectorGameMutation {
 const audioVictory = new Audio(AUDIO_CONFIG.AUDIO_VICTORY)
 let timerTomato: any = null
 let tomatoesInterval: any = null
+
+let timerPepper: any = null
+let peppersInterval: any = null
 
 export const mutations: MutationTree<ICollectorGameState> = {
 	[EN_CollectorGameMutation.RESTART_GAME_COL](state) {
@@ -78,7 +107,7 @@ export const mutations: MutationTree<ICollectorGameState> = {
 		state.isGenerateTomatoGreen = false
 		state.isGenerateTomatoRed = false
 		state.isGenerateTomatoDarkGreen = false
-		state.isGenerateCollector = false
+		state.isGenerateCollectorTomato = false
 		state.isVictoryTomatoBlockVisible = false
 		state.isTomatoLevelCompleted = false
 
@@ -124,8 +153,12 @@ export const mutations: MutationTree<ICollectorGameState> = {
 		state.isLossBlockVisible = false
 	},
 	[EN_CollectorGameMutation.PLUS_POINTS_COL](state) {
-		if (state.pointsTomato > 15) {
+		if (state.pointsTomato > 15 && state.isTomatoLevel) {
 			state.points += state.pointsTomato
+		}
+
+		if (state.pointsPepper > 15 && state.isPepperLevel) {
+			state.points += state.pointsPepper
 		}
 	},
 	[EN_CollectorGameMutation.PLUS_POINTS_LINK_COL](state) {
@@ -155,7 +188,7 @@ export const mutations: MutationTree<ICollectorGameState> = {
 		state.isGenerateTomatoGreen = false
 		state.isGenerateTomatoRed = false
 		state.isGenerateTomatoDarkGreen = false
-		state.isGenerateCollector = false
+		state.isGenerateCollectorTomato = false
 		state.isVictoryTomatoBlockVisible = false
 		state.isTomatoLevelCompleted = false
 	},
@@ -227,12 +260,12 @@ export const mutations: MutationTree<ICollectorGameState> = {
 
 			setTimeout(() => {
 				state.isGenerateTomatoRed = true
-			}, 1500)
+			}, EN_CONFIG.TIMING_GENERATE_TIMEOUT_TOMATO_RED)
 
 			setTimeout(() => {
 				state.isGenerateTomatoDarkGreen = true
-			}, 2700)
-		}, 7000)
+			}, EN_CONFIG.TIMING_GENERATE_TIMEOUT_TOMATO_DARK_GREEN)
+		}, EN_CONFIG.TIMING_GENERATE_ALL_TOMATOES_INTERVAL)
 	},
 	// [EN_CollectorGameMutation.FINISH_ALL_TOMATOES_INTERVAL_COL](state) {
 	// 	if (!state.isTomatoLevel) {
@@ -270,11 +303,11 @@ export const mutations: MutationTree<ICollectorGameState> = {
 	[EN_CollectorGameMutation.NOT_GENERATE_TOMATO_DARK_GREEN_COL](state) {
 		state.isGenerateTomatoDarkGreen = false
 	},
-	[EN_CollectorGameMutation.GENERATE_COLLECTOR_COL](state) {
-		state.isGenerateCollector = true
+	[EN_CollectorGameMutation.GENERATE_COLLECTOR_TOMATO_COL](state) {
+		state.isGenerateCollectorTomato = true
 	},
-	[EN_CollectorGameMutation.NOT_GENERATE_COLLECTOR_COL](state) {
-		state.isGenerateCollector = false
+	[EN_CollectorGameMutation.NOT_GENERATE_COLLECTOR_TOMATO_COL](state) {
+		state.isGenerateCollectorTomato = false
 	},
 	[EN_CollectorGameMutation.SHOW_VICTORY_BLOCK_TOMATO_COL](state) {
 		state.isVictoryTomatoBlockVisible = true
@@ -288,17 +321,151 @@ export const mutations: MutationTree<ICollectorGameState> = {
 	[EN_CollectorGameMutation.HIDE_LOSS_BLOCK_TOMATO_COL](state) {
 		state.isLossTomatoBlockVisible = false
 	},
+	[EN_CollectorGameMutation.COMPLETE_TOMATO_LEVEL_COL](state) {
+		state.isTomatoLevelCompleted = true
+	},
+	[EN_CollectorGameMutation.NOT_COMPLETE_TOMATO_LEVEL_COL](state) {
+		state.isTomatoLevelCompleted = false
+	},
+
+	[EN_CollectorGameMutation.RESTART_PEPPER_LEVEL_COL](state) {
+		state.timerPepper = 30
+		state.pointsPepper = 0
+		state.isOpenGameFieldPepper = false
+		state.isPepperLevel = false
+		state.isGeneratePepperGreen = false
+		state.isGeneratePepperRed = false
+		state.isGeneratePepperDarkGreen = false
+		state.isGenerateCollectorPepper = false
+		state.isVictoryPepperBlockVisible = false
+		state.isPepperLevelCompleted = false
+	},
+	[EN_CollectorGameMutation.PLUS_POINTS_PEPPER_GREEN_COL](state) {
+		state.pointsPepper += 1
+	},
+	[EN_CollectorGameMutation.PLUS_POINTS_PEPPER_RED_COL](state) {
+		state.pointsPepper += 4
+	},
+	[EN_CollectorGameMutation.PLUS_POINTS_PEPPER_DARK_GREEN_COL](state) {
+		state.pointsPepper += 2
+	},
+	[EN_CollectorGameMutation.START_FINISH_TIMER_PEPPER_COL](state) {
+		if (
+			state.timerPepper > 0 &&
+			state.isStartGame &&
+			!state.isLossBlockVisible &&
+			!state.isVictoryBlockVisible
+		) {
+			if (timerPepper) {
+				clearInterval(timerPepper)
+			}
+
+			timerPepper = setInterval(() => {
+				state.timerPepper -= 1
+			}, 1000)
+		}
+
+		if (state.timerPepper < 0) {
+			state.timerPepper = 0
+			clearInterval(timerPepper)
+		}
+
+		if (state.isLossBlockVisible) {
+			clearInterval(timerPepper)
+		}
+
+		if (state.isVictoryBlockVisible) {
+			clearInterval(timerPepper)
+		}
+
+		if (!state.isPepperLevel) {
+			clearInterval(timerPepper)
+		}
+
+		if (state.isInfoLinkBlockVisible) {
+			clearInterval(timerPepper)
+		}
+
+		if (state.timerPepper === 0) {
+			clearInterval(timerPepper)
+		}
+	},
+	[EN_CollectorGameMutation.STOP_TIMER_PEPPER_COL](state) {
+		if (timerPepper) {
+			clearInterval(timerPepper)
+		}
+	},
+	[EN_CollectorGameMutation.START_FINISH_ALL_PEPPERS_INTERVAL_COL](state) {
+		if (!state.isPepperLevel) {
+			clearInterval(peppersInterval)
+			return
+		}
+
+		peppersInterval = setInterval(() => {
+			state.isGeneratePepperGreen = true
+
+			setTimeout(() => {
+				state.isGeneratePepperRed = true
+			}, EN_CONFIG.TIMING_GENERATE_TIMEOUT_PEPPER_RED)
+
+			setTimeout(() => {
+				state.isGeneratePepperDarkGreen = true
+			}, EN_CONFIG.TIMING_GENERATE_TIMEOUT_PEPPER_DARK_GREEN)
+		}, EN_CONFIG.TIMING_GENERATE_ALL_PEPPERS_INTERVAL)
+	},
 	[EN_CollectorGameMutation.OPEN_GAME_FIELD_PEPPER_COL](state) {
 		state.isOpenGameFieldPepper = true
 	},
 	[EN_CollectorGameMutation.CLOSE_GAME_FIELD_PEPPER_COL](state) {
 		state.isOpenGameFieldPepper = false
 	},
-	[EN_CollectorGameMutation.COMPLETE_TOMATO_LEVEL_COL](state) {
-		state.isTomatoLevelCompleted = true
+	[EN_CollectorGameMutation.START_PEPPER_LEVEL_COL](state) {
+		state.isPepperLevel = true
 	},
-	[EN_CollectorGameMutation.NOT_COMPLETE_TOMATO_LEVEL_COL](state) {
-		state.isTomatoLevelCompleted = false
+	[EN_CollectorGameMutation.FINISH_PEPPER_LEVEL_COL](state) {
+		state.isPepperLevel = false
+	},
+	[EN_CollectorGameMutation.GENERATE_PEPPER_GREEN_COL](state) {
+		state.isGeneratePepperGreen = true
+	},
+	[EN_CollectorGameMutation.NOT_GENERATE_PEPPER_GREEN_COL](state) {
+		state.isGeneratePepperGreen = false
+	},
+	[EN_CollectorGameMutation.GENERATE_PEPPER_RED_COL](state) {
+		state.isGeneratePepperRed = true
+	},
+	[EN_CollectorGameMutation.NOT_GENERATE_PEPPER_RED_COL](state) {
+		state.isGeneratePepperRed = false
+	},
+	[EN_CollectorGameMutation.GENERATE_PEPPER_DARK_GREEN_COL](state) {
+		state.isGeneratePepperDarkGreen = true
+	},
+	[EN_CollectorGameMutation.NOT_GENERATE_PEPPER_DARK_GREEN_COL](state) {
+		state.isGeneratePepperDarkGreen = false
+	},
+	[EN_CollectorGameMutation.GENERATE_COLLECTOR_PEPPER_COL](state) {
+		state.isGenerateCollectorPepper = true
+	},
+	[EN_CollectorGameMutation.NOT_GENERATE_COLLECTOR_PEPPER_COL](state) {
+		state.isGenerateCollectorPepper = false
+	},
+	[EN_CollectorGameMutation.SHOW_VICTORY_BLOCK_PEPPER_COL](state) {
+		state.isVictoryPepperBlockVisible = true
+	},
+	[EN_CollectorGameMutation.HIDE_VICTORY_BLOCK_PEPPER_COL](state) {
+		state.isVictoryPepperBlockVisible = false
+	},
+	[EN_CollectorGameMutation.SHOW_LOSS_BLOCK_PEPPER_COL](state) {
+		state.isLossPepperBlockVisible = true
+	},
+	[EN_CollectorGameMutation.HIDE_LOSS_BLOCK_PEPPER_COL](state) {
+		state.isLossPepperBlockVisible = false
+	},
+	[EN_CollectorGameMutation.COMPLETE_PEPPER_LEVEL_COL](state) {
+		state.isPepperLevelCompleted = true
+	},
+	[EN_CollectorGameMutation.NOT_COMPLETE_PEPPER_LEVEL_COL](state) {
+		state.isPepperLevelCompleted = false
 	},
 
 	[EN_CollectorGameMutation.OPEN_GAME_FIELD_STRAWBERRY_COL](state) {

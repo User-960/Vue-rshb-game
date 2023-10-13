@@ -1,6 +1,9 @@
 <template>
   <div :class='styles.navBarGameCollector'>
-    <div :class='styles.exitButtonWrapper' v-if='GET_OPEN_GAME_FIELD_TOMATO_COL'>
+    <div 
+      :class='styles.exitButtonWrapper' 
+      v-if='GET_OPEN_GAME_FIELD_TOMATO_COL || GET_OPEN_GAME_FIELD_PEPPER_COL'
+    >
       <div :class='styles.exitBtnLeave' @click='leaveGame'>
         <iconButton>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="14" viewBox="0 0 24 14" fill="none">
@@ -40,6 +43,39 @@
       </blockButton>
     </div>
 
+
+    <div :class='styles.blockButtonTimer' v-if='GET_OPEN_GAME_FIELD_PEPPER_COL'>
+      <blockButton>
+      <template v-slot:contentIconBtn>
+        <iconButton>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M11.99 2C6.47 2 2 6.48 2 12C2 17.52 6.47 22 11.99 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 11.99 2ZM12 20C7.58 20 4 16.42 4 12C4 7.58 7.58 4 12 4C16.42 4 20 7.58 20 12C20 16.42 16.42 20 12 20ZM12.5 7H11V13L16.25 16.15L17 14.92L12.5 12.25V7Z" fill="currentColor"/>
+          </svg>
+        </iconButton>
+      </template>
+
+      <template v-slot:contentIndicator>
+        {{ GET_TIMER_PEPPER_COL }}
+      </template>
+      </blockButton>
+    </div>
+
+    <div :class='styles.blockButtonPoints' v-if='GET_OPEN_GAME_FIELD_PEPPER_COL'>
+      <blockButton>
+      <template v-slot:contentIconBtn>
+        <iconButton>
+          Б
+        </iconButton>
+      </template>
+
+      <template v-slot:contentIndicator>
+        {{ GET_POINTS_PEPPER_COL }}
+      </template>
+      </blockButton>
+    </div>
+
+
+
     <div :class='styles.exitButtonWrapper' @click='exitGame' v-else>
       <exitButton/>
     </div>
@@ -61,7 +97,10 @@
       </blockButton>
     </div>
 
-    <div :class='styles.blockButtonPoints' v-if='!GET_OPEN_GAME_FIELD_TOMATO_COL'>
+    <div 
+      :class='styles.blockButtonPoints' 
+      v-if='!GET_OPEN_GAME_FIELD_TOMATO_COL && !GET_OPEN_GAME_FIELD_PEPPER_COL'
+    >
       <blockButton>
       <template v-slot:contentIconBtn>
         <iconButton>
@@ -101,6 +140,11 @@ export default Vue.extend({
       EN_CollectorGameGetters.GET_POINTS_TOMATO_COL,
       EN_CollectorGameGetters.GET_TIMER_TOMATO_COL,
       EN_CollectorGameGetters.GET_TOMATO_LEVEL_COL,
+
+      EN_CollectorGameGetters.GET_OPEN_GAME_FIELD_PEPPER_COL, 
+      EN_CollectorGameGetters.GET_POINTS_PEPPER_COL,
+      EN_CollectorGameGetters.GET_TIMER_PEPPER_COL,
+      EN_CollectorGameGetters.GET_PEPPER_LEVEL_COL,
     ]),
   },
   methods: {
@@ -112,6 +156,12 @@ export default Vue.extend({
         EN_CollectorGameMutation.FINISH_TOMATO_LEVEL_COL,
         EN_CollectorGameMutation.START_FINISH_ALL_TOMATOES_INTERVAL_COL,
         EN_CollectorGameMutation.START_FINISH_TIMER_TOMATO_COL,
+        
+        EN_CollectorGameMutation.CLOSE_GAME_FIELD_PEPPER_COL,
+        EN_CollectorGameMutation.RESTART_PEPPER_LEVEL_COL,
+        EN_CollectorGameMutation.FINISH_PEPPER_LEVEL_COL,
+        EN_CollectorGameMutation.START_FINISH_ALL_PEPPERS_INTERVAL_COL,
+        EN_CollectorGameMutation.START_FINISH_TIMER_PEPPER_COL,
     ]),
     leaveGame() {
       if (this.GET_OPEN_GAME_FIELD_TOMATO_COL && this.GET_TOMATO_LEVEL_COL) {
@@ -119,6 +169,13 @@ export default Vue.extend({
         this.START_FINISH_ALL_TOMATOES_INTERVAL_COL()
         this.START_FINISH_TIMER_TOMATO_COL()
         this.RESTART_TOMATO_LEVEL_COL()
+      }
+
+      if (this.GET_OPEN_GAME_FIELD_PEPPER_COL && this.GET_PEPPER_LEVEL_COL) {
+        this.FINISH_PEPPER_LEVEL_COL()
+        this.START_FINISH_ALL_PEPPERS_INTERVAL_COL()
+        this.START_FINISH_TIMER_PEPPER_COL()
+        this.RESTART_PEPPER_LEVEL_COL()
       }
     },
     exitGame() {

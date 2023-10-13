@@ -1,7 +1,5 @@
 import { Module } from 'vuex'
 
-import { generatorCells } from '../../../components/screens/games/collectorGame/helpers/helpers'
-
 import { actions } from './actions'
 import { getters } from './getters'
 import { mutations } from './mutations'
@@ -23,12 +21,22 @@ const state: ICollectorGameState = {
 	isGenerateTomatoGreen: false,
 	isGenerateTomatoRed: false,
 	isGenerateTomatoDarkGreen: false,
-	isGenerateCollector: false,
+	isGenerateCollectorTomato: false,
 	isVictoryTomatoBlockVisible: false,
 	isLossTomatoBlockVisible: false,
 	isTomatoLevelCompleted: false,
 
+	timerPepper: 30,
+	pointsPepper: 0,
 	isOpenGameFieldPepper: false,
+	isPepperLevel: false,
+	isGeneratePepperGreen: false,
+	isGeneratePepperRed: false,
+	isGeneratePepperDarkGreen: false,
+	isGenerateCollectorPepper: false,
+	isVictoryPepperBlockVisible: false,
+	isLossPepperBlockVisible: false,
+	isPepperLevelCompleted: false,
 
 	isOpenGameFieldStrawberry: false
 }

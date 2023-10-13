@@ -7,7 +7,7 @@
     <div :class='styles.gameWrapper'>
       <div :class='styles.border'>
         <div :class='styles.gameField'>
-          <div :class='[styles.decorations, styles.left]'></div>
+          <div :class='[styles.decorations, styles.leftTomato]'></div>
 
           <div :class='styles.cellWrapper'>
             <div v-for='cell in cells' :key='cell.id'>
@@ -26,7 +26,7 @@
             </div>
           </div>
 
-          <div :class='[styles.decorations, styles.right]'></div>
+          <div :class='[styles.decorations, styles.rightTomato]'></div>
         </div>
       </div>
     </div>
@@ -38,13 +38,13 @@ import { EN_CollectorGameGetters } from '@/store/modules/collectorGame/getters'
 import Vue from 'vue'
 import { mapGetters, mapMutations } from 'vuex'
 import { 
-  ICell,
+  ICellTomato,
   getRandomNumberGenerator,
-  generatorCells,
-  generatorCollector,
+  generatorCellsTomato,
+  generatorCollectorTomato,
 
-  generatorCollectorMoveLeft,
-  generatorCollectorMoveRight,
+  generatorCollectorMoveLeftTomato,
+  generatorCollectorMoveRightTomato,
 allColumns,
 lastRow
 } from '../helpers/helpers'
@@ -57,7 +57,7 @@ export default Vue.extend({
   name: 'collectorGameFieldTomato',
   data: () => ({
     isBlackScreenShow: false,
-    cells: generatorCells(),
+    cells: generatorCellsTomato(),
     previousColumn: 0,
 
     // generateTomatoGreen: false,
@@ -98,11 +98,12 @@ export default Vue.extend({
   watch: {
     GET_TIMER_TOMATO_COL() {
       if (this.GET_TIMER_TOMATO_COL === 0 && this.GET_TOMATO_LEVEL_COL && this.GET_POINTS_TOMATO_COL > 15) {
+        this.PLUS_POINTS_COL()
+        
         this.FINISH_TOMATO_LEVEL_COL()
         this.START_FINISH_TIMER_TOMATO_COL()
 
         this.COMPLETE_TOMATO_LEVEL_COL()
-        this.PLUS_POINTS_COL()
         this.SHOW_VICTORY_BLOCK_TOMATO_COL()
       }
 
@@ -124,7 +125,7 @@ export default Vue.extend({
     },
     GET_TOMATO_LEVEL_COL() {
       if (this.GET_TOMATO_LEVEL_COL) {
-        this.GENERATE_COLLECTOR_COL()
+        this.GENERATE_COLLECTOR_TOMATO_COL()
         this.START_FINISH_ALL_TOMATOES_INTERVAL_COL()
 
         document.addEventListener('keydown', (event) => {
@@ -169,14 +170,14 @@ export default Vue.extend({
       }
 
       if (!this.GET_TOMATO_LEVEL_COL) {
-        this.cells = generatorCells()
+        this.cells = generatorCellsTomato()
 
         this.START_FINISH_ALL_TOMATOES_INTERVAL_COL()
 
         this.NOT_GENERATE_TOMATO_GREEN_COL()
         this.NOT_GENERATE_TOMATO_RED_COL()
         this.NOT_GENERATE_TOMATO_DARK_GREEN_COL()
-        this.NOT_GENERATE_COLLECTOR_COL()
+        this.NOT_GENERATE_COLLECTOR_TOMATO_COL()
 
         document.removeEventListener('keydown', (event) => {
           if (event.code == 'KeyA' && !this.isMovingLeft && !this.isMovingRight && !this.isCollectorMovedLeft && this.GET_TOMATO_LEVEL_COL) {
@@ -437,9 +438,9 @@ export default Vue.extend({
         }
       }
     },
-    GET_GENERATE_COLLECTOR_COL() {
-      if (this.GET_GENERATE_COLLECTOR_COL) {
-        generatorCollector(this.cells, lastRow, this.currentCellCollector, this.currentIndexCellCollector, false)
+    GET_GENERATE_COLLECTOR_TOMATO_COL() {
+      if (this.GET_GENERATE_COLLECTOR_TOMATO_COL) {
+        generatorCollectorTomato(this.cells, lastRow, this.currentCellCollector, this.currentIndexCellCollector, false)
       }
     }
   },
@@ -453,7 +454,7 @@ export default Vue.extend({
       EN_CollectorGameGetters.GET_GENERATE_TOMATO_GREEN_COL,
       EN_CollectorGameGetters.GET_GENERATE_TOMATO_RED_COL,
       EN_CollectorGameGetters.GET_GENERATE_TOMATO_DARK_GREEN_COL,
-      EN_CollectorGameGetters.GET_GENERATE_COLLECTOR_COL,
+      EN_CollectorGameGetters.GET_GENERATE_COLLECTOR_TOMATO_COL,
       EN_CollectorGameGetters.GET_TOMATO_LEVEL_COMPLETED_COL,
     ]),
   },
@@ -476,19 +477,19 @@ export default Vue.extend({
       EN_CollectorGameMutation.NOT_GENERATE_TOMATO_RED_COL,
       EN_CollectorGameMutation.GENERATE_TOMATO_DARK_GREEN_COL,
       EN_CollectorGameMutation.NOT_GENERATE_TOMATO_DARK_GREEN_COL,
-      EN_CollectorGameMutation.GENERATE_COLLECTOR_COL,
-      EN_CollectorGameMutation.NOT_GENERATE_COLLECTOR_COL,
+      EN_CollectorGameMutation.GENERATE_COLLECTOR_TOMATO_COL,
+      EN_CollectorGameMutation.NOT_GENERATE_COLLECTOR_TOMATO_COL,
       EN_CollectorGameMutation.SHOW_VICTORY_BLOCK_TOMATO_COL,
       EN_CollectorGameMutation.SHOW_LOSS_BLOCK_TOMATO_COL,
       EN_CollectorGameMutation.COMPLETE_TOMATO_LEVEL_COL,
     ]),
     generatorTomatoGreen(
-      cells: ICell[], 
+      cells: ICellTomato[], 
       column: number[], 
       columnCellId: number, 
       columnCellIndex: number = 0
     ) {
-    	let testTomato: ICell[]
+    	let testTomato: ICellTomato[]
     
     	testTomato = cells.filter(cell => cell.id === column[columnCellIndex])
     
@@ -520,12 +521,12 @@ export default Vue.extend({
     	}
     },
     generatorTomatoRed (
-    	cells: ICell[],
+    	cells: ICellTomato[],
     	column: number[],
     	columnCellId: number = 2,
     	columnCellIndex: number = 0
     ) {
-    	let testTomato: ICell[]
+    	let testTomato: ICellTomato[]
     
     	testTomato = cells.filter(cell => cell.id === column[columnCellIndex])
 
@@ -557,12 +558,12 @@ export default Vue.extend({
     	}
     },
     generatorTomatoDarkGreen(
-    	cells: ICell[],
+    	cells: ICellTomato[],
     	column: number[],
     	columnCellId: number,
     	columnCellIndex: number
     ) {
-    	let testTomato: ICell[]
+    	let testTomato: ICellTomato[]
     
     	testTomato = cells.filter(cell => cell.id === column[columnCellIndex])
 
@@ -610,7 +611,7 @@ export default Vue.extend({
     },
     moveCollectorLeft() {
       if (this.isCollectorMovedLeft) {
-        generatorCollectorMoveLeft(
+        generatorCollectorMoveLeftTomato(
           this.cells, lastRow, this.currentCellCollector, this.currentIndexCellCollector, this.isMovingLeft
         )
 
@@ -622,7 +623,7 @@ export default Vue.extend({
     },
     moveCollectorRight() {
       if (this.isCollectorMovedRight) {
-        generatorCollectorMoveRight(
+        generatorCollectorMoveRightTomato(
           this.cells, lastRow, this.currentCellCollector, this.currentIndexCellCollector, this.isMovingRight
         )
 

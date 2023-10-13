@@ -18,10 +18,22 @@ export enum EN_CollectorGameGetters {
 	GET_GENERATE_TOMATO_GREEN_COL = 'GET_GENERATE_TOMATO_GREEN_COL',
 	GET_GENERATE_TOMATO_RED_COL = 'GET_GENERATE_TOMATO_RED_COL',
 	GET_GENERATE_TOMATO_DARK_GREEN_COL = 'GET_GENERATE_TOMATO_DARK_GREEN_COL',
-	GET_GENERATE_COLLECTOR_COL = 'GET_GENERATE_COLLECTOR_COL',
+	GET_GENERATE_COLLECTOR_TOMATO_COL = 'GET_GENERATE_COLLECTOR_TOMATO_COL',
 	GET_VICTORY_BLOCK_TOMATO_COL = 'GET_VICTORY_BLOCK_TOMATO_COL',
 	GET_lOSS_BLOCK_TOMATO_COL = 'GET_lOSS_BLOCK_TOMATO_COL',
-	GET_TOMATO_LEVEL_COMPLETED_COL = 'GET_TOMATO_LEVEL_COMPLETED_COL'
+	GET_TOMATO_LEVEL_COMPLETED_COL = 'GET_TOMATO_LEVEL_COMPLETED_COL',
+
+	GET_TIMER_PEPPER_COL = 'GET_TIMER_PEPPER_COL',
+	GET_POINTS_PEPPER_COL = 'GET_POINTS_PEPPER_COL',
+	GET_OPEN_GAME_FIELD_PEPPER_COL = 'GET_OPEN_GAME_FIELD_PEPPER_COL',
+	GET_PEPPER_LEVEL_COL = 'GET_PEPPER_LEVEL_COL',
+	GET_GENERATE_PEPPER_GREEN_COL = 'GET_GENERATE_PEPPER_GREEN_COL',
+	GET_GENERATE_PEPPER_RED_COL = 'GET_GENERATE_PEPPER_RED_COL',
+	GET_GENERATE_PEPPER_DARK_GREEN_COL = 'GET_GENERATE_PEPPER_DARK_GREEN_COL',
+	GET_GENERATE_COLLECTOR_PEPPER_COL = 'GET_GENERATE_COLLECTOR_PEPPER_COL',
+	GET_VICTORY_BLOCK_PEPPER_COL = 'GET_VICTORY_BLOCK_PEPPER_COL',
+	GET_lOSS_BLOCK_PEPPER_COL = 'GET_lOSS_BLOCK_PEPPER_COL',
+	GET_PEPPER_LEVEL_COMPLETED_COL = 'GET_PEPPER_LEVEL_COMPLETED_COL'
 }
 
 export const getters: GetterTree<ICollectorGameState, IRootState> = {
@@ -47,12 +59,32 @@ export const getters: GetterTree<ICollectorGameState, IRootState> = {
 		state.isGenerateTomatoRed,
 	[EN_CollectorGameGetters.GET_GENERATE_TOMATO_DARK_GREEN_COL]: state =>
 		state.isGenerateTomatoDarkGreen,
-	[EN_CollectorGameGetters.GET_GENERATE_COLLECTOR_COL]: state =>
-		state.isGenerateCollector,
+	[EN_CollectorGameGetters.GET_GENERATE_COLLECTOR_TOMATO_COL]: state =>
+		state.isGenerateCollectorTomato,
 	[EN_CollectorGameGetters.GET_VICTORY_BLOCK_TOMATO_COL]: state =>
 		state.isVictoryTomatoBlockVisible,
 	[EN_CollectorGameGetters.GET_lOSS_BLOCK_TOMATO_COL]: state =>
 		state.isLossTomatoBlockVisible,
 	[EN_CollectorGameGetters.GET_TOMATO_LEVEL_COMPLETED_COL]: state =>
-		state.isTomatoLevelCompleted
+		state.isTomatoLevelCompleted,
+
+	[EN_CollectorGameGetters.GET_TIMER_PEPPER_COL]: state => state.timerPepper,
+	[EN_CollectorGameGetters.GET_POINTS_PEPPER_COL]: state => state.pointsPepper,
+	[EN_CollectorGameGetters.GET_OPEN_GAME_FIELD_PEPPER_COL]: state =>
+		state.isOpenGameFieldPepper,
+	[EN_CollectorGameGetters.GET_PEPPER_LEVEL_COL]: state => state.isPepperLevel,
+	[EN_CollectorGameGetters.GET_GENERATE_PEPPER_GREEN_COL]: state =>
+		state.isGeneratePepperGreen,
+	[EN_CollectorGameGetters.GET_GENERATE_PEPPER_RED_COL]: state =>
+		state.isGeneratePepperRed,
+	[EN_CollectorGameGetters.GET_GENERATE_PEPPER_DARK_GREEN_COL]: state =>
+		state.isGeneratePepperDarkGreen,
+	[EN_CollectorGameGetters.GET_GENERATE_COLLECTOR_PEPPER_COL]: state =>
+		state.isGenerateCollectorPepper,
+	[EN_CollectorGameGetters.GET_VICTORY_BLOCK_PEPPER_COL]: state =>
+		state.isVictoryPepperBlockVisible,
+	[EN_CollectorGameGetters.GET_lOSS_BLOCK_PEPPER_COL]: state =>
+		state.isLossPepperBlockVisible,
+	[EN_CollectorGameGetters.GET_PEPPER_LEVEL_COMPLETED_COL]: state =>
+		state.isPepperLevelCompleted
 }

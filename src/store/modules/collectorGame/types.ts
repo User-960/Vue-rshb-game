@@ -1,5 +1,3 @@
-import { ICell } from '../../../components/screens/games/collectorGame/helpers/helpers'
-
 export interface ICollectorGameState {
 	isInfoLinkBlockVisible: boolean
 	isRulesBlockVisible: boolean
@@ -15,12 +13,22 @@ export interface ICollectorGameState {
 	isGenerateTomatoGreen: boolean
 	isGenerateTomatoRed: boolean
 	isGenerateTomatoDarkGreen: boolean
-	isGenerateCollector: boolean
+	isGenerateCollectorTomato: boolean
 	isVictoryTomatoBlockVisible: boolean
 	isLossTomatoBlockVisible: boolean
 	isTomatoLevelCompleted: boolean
 
+	timerPepper: number
+	pointsPepper: number
 	isOpenGameFieldPepper: boolean
+	isPepperLevel: boolean
+	isGeneratePepperGreen: boolean
+	isGeneratePepperRed: boolean
+	isGeneratePepperDarkGreen: boolean
+	isGenerateCollectorPepper: boolean
+	isVictoryPepperBlockVisible: boolean
+	isLossPepperBlockVisible: boolean
+	isPepperLevelCompleted: boolean
 
 	isOpenGameFieldStrawberry: boolean
 }

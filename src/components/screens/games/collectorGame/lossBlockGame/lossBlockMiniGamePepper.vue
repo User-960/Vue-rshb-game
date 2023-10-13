@@ -1,5 +1,5 @@
 <template>
-  <div :class='styles.lossBlockTomatoLevelWrapper' v-if='GET_lOSS_BLOCK_TOMATO_COL'>
+  <div :class='styles.lossBlockPepperLevelWrapper' v-if='GET_lOSS_BLOCK_PEPPER_COL'>
     <div :class='styles.lossBlockGame'>
       <div :class='styles.title'>
         Проигрыш
@@ -13,7 +13,7 @@
 
       <div :class='styles.result'>
         <p>
-          Накоплено баллов: <span>+ {{ GET_POINTS_TOMATO_COL }}</span>
+          Накоплено баллов: <span>+ {{ GET_POINTS_PEPPER_COL }}</span>
         </p>
         <div :class='styles.resultIcon'>
           <iconButton>
@@ -46,40 +46,40 @@ import { EN_CollectorGameGetters } from '../../../../../store/modules/collectorG
 import { EN_CollectorGameMutation } from '../../../../../store/modules/collectorGame/mutations'
 
 export default Vue.extend({
-  name: 'lossBlockMiniGameTomato',
+  name: 'lossBlockMiniGamePepper',
   components: {
     closeButton,
     iconButton
   },
   computed: {
     ...mapGetters([
-      EN_CollectorGameGetters.GET_lOSS_BLOCK_TOMATO_COL,
-      EN_CollectorGameGetters.GET_POINTS_TOMATO_COL,
-      EN_CollectorGameGetters.GET_OPEN_GAME_FIELD_TOMATO_COL,
-      EN_CollectorGameGetters.GET_TOMATO_LEVEL_COL,
+      EN_CollectorGameGetters.GET_lOSS_BLOCK_PEPPER_COL,
+      EN_CollectorGameGetters.GET_POINTS_PEPPER_COL,
+      EN_CollectorGameGetters.GET_OPEN_GAME_FIELD_PEPPER_COL,
+      EN_CollectorGameGetters.GET_PEPPER_LEVEL_COL,
     ]),
   },
   methods: {
     ...mapMutations([
-      EN_CollectorGameMutation.HIDE_LOSS_BLOCK_TOMATO_COL,
-      EN_CollectorGameMutation.START_TOMATO_LEVEL_COL,
-      EN_CollectorGameMutation.START_FINISH_ALL_TOMATOES_INTERVAL_COL,
-      EN_CollectorGameMutation.START_FINISH_TIMER_TOMATO_COL,
-      EN_CollectorGameMutation.RESTART_TOMATO_LEVEL_COL,
-      EN_CollectorGameMutation.OPEN_GAME_FIELD_TOMATO_COL,
+      EN_CollectorGameMutation.HIDE_LOSS_BLOCK_PEPPER_COL,
+      EN_CollectorGameMutation.START_PEPPER_LEVEL_COL,
+      EN_CollectorGameMutation.START_FINISH_ALL_PEPPERS_INTERVAL_COL,
+      EN_CollectorGameMutation.START_FINISH_TIMER_PEPPER_COL,
+      EN_CollectorGameMutation.RESTART_PEPPER_LEVEL_COL,
+      EN_CollectorGameMutation.OPEN_GAME_FIELD_PEPPER_COL,
     ]),
     restartGame() {
-      if (this.GET_OPEN_GAME_FIELD_TOMATO_COL && !this.GET_TOMATO_LEVEL_COL) {
-        this.RESTART_TOMATO_LEVEL_COL()
-        this.OPEN_GAME_FIELD_TOMATO_COL()
-        this.HIDE_LOSS_BLOCK_TOMATO_COL()
+      if (this.GET_OPEN_GAME_FIELD_PEPPER_COL && !this.GET_PEPPER_LEVEL_COL) {
+        this.RESTART_PEPPER_LEVEL_COL()
+        this.OPEN_GAME_FIELD_PEPPER_COL()
+        this.HIDE_LOSS_BLOCK_PEPPER_COL()
 
-        this.START_TOMATO_LEVEL_COL()
-        this.START_FINISH_TIMER_TOMATO_COL()
+        this.START_PEPPER_LEVEL_COL()
+        this.START_FINISH_TIMER_PEPPER_COL()
       }
     },
     skipToMap() {
-      this.HIDE_LOSS_BLOCK_TOMATO_COL()
+      this.HIDE_LOSS_BLOCK_PEPPER_COL()
       this.$router.push({ name: 'home' })
     }
   }

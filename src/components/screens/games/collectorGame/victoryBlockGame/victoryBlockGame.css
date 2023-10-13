@@ -10,7 +10,8 @@
 	animation: opacity 0.8s;
 }
 
-.victoryBlockTomatoLevelWrapper {
+.victoryBlockTomatoLevelWrapper,
+.victoryBlockPepperLevelWrapper {
 	position: absolute;
 	width: 100%;
 	height: 100%;
@@ -21,7 +22,8 @@
 }
 
 .victoryBlockGame,
-.victoryBlockTomatoLevel {
+.victoryBlockTomatoLevel,
+.victoryBlockPepperLevel {
 	padding: 50px;
 	max-width: 640px;
 	min-height: 510px;
