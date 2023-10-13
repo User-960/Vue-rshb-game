@@ -87,6 +87,16 @@
 	background-position: center;
 }
 
+.leftStrawberry {
+	background-image: url(../../../../../../public/images/strawberryLeftDecorations.svg);
+	background-position: top;
+}
+
+.rightStrawberry {
+	background-image: url(../../../../../../public/images/strawberryRightDecorations.svg);
+	background-position: center;
+}
+
 .cellWrapper {
 	max-width: 810px;
 	max-height: 620px;
@@ -112,7 +122,8 @@
 }
 
 .isTomatoGreen,
-.isPepperGreen {
+.isPepperGreen,
+.isStrawberryGreen {
 	position: relative;
 	top: 62px;
 
@@ -135,8 +146,14 @@
 	animation: gravityTomato 0.6s;
 }
 
+.isStrawberryGreen {
+	background-image: url(../../../../../../public/images/strawberryGreen.svg);
+	animation: gravityTomato 0.5s;
+}
+
 .isTomatoRed,
-.isPepperRed {
+.isPepperRed,
+.isStrawberryRed {
 	position: relative;
 	top: 62px;
 
@@ -159,8 +176,14 @@
 	animation: gravityTomato 0.6s;
 }
 
+.isStrawberryRed {
+	background-image: url(../../../../../../public/images/strawberryRed.svg);
+	animation: gravityTomato 0.5s;
+}
+
 .isTomatoDarkGreen,
-.isPepperDarkGreen {
+.isPepperDarkGreen,
+.isStrawberryDarkGreen {
 	position: relative;
 	top: 62px;
 
@@ -181,6 +204,11 @@
 .isPepperDarkGreen {
 	background-image: url(../../../../../../public/images/pepperDarkGreen.svg);
 	animation: gravityTomato 0.6s;
+}
+
+.isStrawberryDarkGreen {
+	background-image: url(../../../../../../public/images/strawberryDarkGreen.svg);
+	animation: gravityTomato 0.5s;
 }
 
 .isCollector {
