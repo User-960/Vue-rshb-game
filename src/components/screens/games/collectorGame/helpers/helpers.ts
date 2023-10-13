@@ -1,3 +1,40 @@
+export const firstColumn: number[] = [1, 14, 27, 40, 53, 66, 79, 92, 105, 118]
+export const secondColumn: number[] = [2, 15, 28, 41, 54, 67, 80, 93, 106, 119]
+export const thirdColumn: number[] = [3, 16, 29, 42, 55, 68, 81, 94, 107, 120]
+export const fourthColumn: number[] = [4, 17, 30, 43, 56, 69, 82, 95, 108, 121]
+export const fifthColumn: number[] = [5, 18, 31, 44, 57, 70, 83, 96, 109, 122]
+export const sixthColumn: number[] = [6, 19, 32, 45, 58, 71, 84, 97, 110, 123]
+export const seventhColumn: number[] = [7, 20, 33, 46, 59, 72, 85, 98, 111, 124]
+export const eighthColumn: number[] = [8, 21, 34, 47, 60, 73, 86, 99, 112, 125]
+export const ninthColumn: number[] = [9, 22, 35, 48, 61, 74, 87, 100, 113, 126]
+export const tenthColumn: number[] = [10, 23, 36, 49, 62, 75, 88, 101, 114, 127]
+export const eleventhColumn: number[] = [
+	11, 24, 37, 50, 63, 76, 89, 102, 115, 128
+]
+export const twelfthColumn: number[] = [
+	12, 25, 38, 51, 64, 77, 90, 103, 116, 129
+]
+
+export const allColumns: number[][] = [
+	[],
+	firstColumn,
+	secondColumn,
+	thirdColumn,
+	fourthColumn,
+	fifthColumn,
+	sixthColumn,
+	seventhColumn,
+	eighthColumn,
+	ninthColumn,
+	tenthColumn,
+	eleventhColumn,
+	twelfthColumn
+]
+
+export const lastRow: number[] = [
+	117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129
+]
+
 export interface ICell {
 	id: number
 	isTomatoRed: boolean
