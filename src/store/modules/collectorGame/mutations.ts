@@ -32,6 +32,7 @@ export enum EN_CollectorGameMutation {
 	CLOSE_GAME_FIELD_TOMATO_COL = 'CLOSE_GAME_FIELD_TOMATO_COL',
 	START_TOMATO_LEVEL_COL = 'START_TOMATO_LEVEL_COL',
 	FINISH_TOMATO_LEVEL_COL = 'FINISH_TOMATO_LEVEL_COL',
+	PLUS_POINTS_TOMATO_COL = 'PLUS_POINTS_TOMATO_COL',
 	START_FINISH_ALL_TOMATOES_INTERVAL_COL = 'START_FINISH_ALL_TOMATOES_INTERVAL_COL',
 	FINISH_ALL_TOMATOES_INTERVAL_COL = 'FINISH_ALL_TOMATOES_INTERVAL_COL',
 	GENERATE_TOMATO_GREEN_COL = 'GENERATE_TOMATO_GREEN_COL',
@@ -71,6 +72,7 @@ export const mutations: MutationTree<ICollectorGameState> = {
 		state.points = 0
 
 		state.timerTomato = 30
+		state.pointsTomato = 0
 		state.isOpenGameFieldTomato = false
 		state.isTomatoLevel = false
 		state.isGenerateTomatoGreen = false
@@ -83,18 +85,6 @@ export const mutations: MutationTree<ICollectorGameState> = {
 		state.isOpenGameFieldPepper = false
 
 		state.isOpenGameFieldStrawberry = false
-	},
-	[EN_CollectorGameMutation.RESTART_TOMATO_LEVEL_COL](state) {
-		state.points = 0
-		state.timerTomato = 30
-		state.isOpenGameFieldTomato = false
-		state.isTomatoLevel = false
-		state.isGenerateTomatoGreen = false
-		state.isGenerateTomatoRed = false
-		state.isGenerateTomatoDarkGreen = false
-		state.isGenerateCollector = false
-		state.isVictoryTomatoBlockVisible = false
-		state.isTomatoLevelCompleted = false
 	},
 	[EN_CollectorGameMutation.SHOW_INFO_LINK_BLOCK_COL](state) {
 		const audio = new Audio(AUDIO_CONFIG.AUDIO_NEW_MISSION)
@@ -134,21 +124,14 @@ export const mutations: MutationTree<ICollectorGameState> = {
 		state.isLossBlockVisible = false
 	},
 	[EN_CollectorGameMutation.PLUS_POINTS_COL](state) {
-		state.points += 5
+		if (state.pointsTomato > 15) {
+			state.points += state.pointsTomato
+		}
 	},
 	[EN_CollectorGameMutation.PLUS_POINTS_LINK_COL](state) {
 		if (state.points === 0) {
 			state.points += 5
 		}
-	},
-	[EN_CollectorGameMutation.PLUS_POINTS_TOMATO_GREEN_COL](state) {
-		state.points += 1
-	},
-	[EN_CollectorGameMutation.PLUS_POINTS_TOMATO_RED_COL](state) {
-		state.points += 4
-	},
-	[EN_CollectorGameMutation.PLUS_POINTS_TOMATO_DARK_GREEN_COL](state) {
-		state.points += 2
 	},
 	[EN_CollectorGameMutation.MINUS_POINTS_COL](state) {
 		if (state.points === 0) {
@@ -156,6 +139,34 @@ export const mutations: MutationTree<ICollectorGameState> = {
 		} else {
 			state.points -= 5
 		}
+	},
+	[EN_CollectorGameMutation.START_GAME_COL](state) {
+		state.isStartGame = true
+	},
+	[EN_CollectorGameMutation.FINISH_GAME_COL](state) {
+		state.isStartGame = false
+	},
+
+	[EN_CollectorGameMutation.RESTART_TOMATO_LEVEL_COL](state) {
+		state.timerTomato = 30
+		state.pointsTomato = 0
+		state.isOpenGameFieldTomato = false
+		state.isTomatoLevel = false
+		state.isGenerateTomatoGreen = false
+		state.isGenerateTomatoRed = false
+		state.isGenerateTomatoDarkGreen = false
+		state.isGenerateCollector = false
+		state.isVictoryTomatoBlockVisible = false
+		state.isTomatoLevelCompleted = false
+	},
+	[EN_CollectorGameMutation.PLUS_POINTS_TOMATO_GREEN_COL](state) {
+		state.pointsTomato += 1
+	},
+	[EN_CollectorGameMutation.PLUS_POINTS_TOMATO_RED_COL](state) {
+		state.pointsTomato += 4
+	},
+	[EN_CollectorGameMutation.PLUS_POINTS_TOMATO_DARK_GREEN_COL](state) {
+		state.pointsTomato += 2
 	},
 	[EN_CollectorGameMutation.START_FINISH_TIMER_TOMATO_COL](state) {
 		if (
@@ -229,14 +240,6 @@ export const mutations: MutationTree<ICollectorGameState> = {
 	// 		clearInterval(tomatoesInterval)
 	// 	}
 	// },
-
-	[EN_CollectorGameMutation.START_GAME_COL](state) {
-		state.isStartGame = true
-	},
-	[EN_CollectorGameMutation.FINISH_GAME_COL](state) {
-		state.isStartGame = false
-	},
-
 	[EN_CollectorGameMutation.OPEN_GAME_FIELD_TOMATO_COL](state) {
 		state.isOpenGameFieldTomato = true
 	},

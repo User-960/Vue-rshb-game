@@ -113,16 +113,17 @@ export default Vue.extend({
     }, EN_CONFIG.TIMING_BLACK_SCREEN)
   },
   watch: {
-    GET_TIMER_TIMER_COL() {
-      if (this.GET_TIMER_TIMER_COL === 0 && this.GET_TOMATO_LEVEL_COL && this.GET_POINTS_COL > 15) {
+    GET_TIMER_TOMATO_COL() {
+      if (this.GET_TIMER_TOMATO_COL === 0 && this.GET_TOMATO_LEVEL_COL && this.GET_POINTS_TOMATO_COL > 15) {
         this.FINISH_TOMATO_LEVEL_COL()
         this.START_FINISH_TIMER_TOMATO_COL()
 
         this.COMPLETE_TOMATO_LEVEL_COL()
+        this.PLUS_POINTS_COL()
         this.SHOW_VICTORY_BLOCK_TOMATO_COL()
       }
 
-      if (this.GET_TIMER_TIMER_COL === 0 && this.GET_TOMATO_LEVEL_COL && this.GET_POINTS_COL < 15) {
+      if (this.GET_TIMER_TOMATO_COL === 0 && this.GET_TOMATO_LEVEL_COL && this.GET_POINTS_TOMATO_COL < 15) {
         this.FINISH_TOMATO_LEVEL_COL()
         this.START_FINISH_TIMER_TOMATO_COL()
         this.START_FINISH_ALL_TOMATOES_INTERVAL_COL()
@@ -130,7 +131,7 @@ export default Vue.extend({
         this.SHOW_LOSS_BLOCK_TOMATO_COL()
       }
 
-      if (this.GET_TIMER_TIMER_COL < 0) {
+      if (this.GET_TIMER_TOMATO_COL < 0) {
         this.FINISH_TOMATO_LEVEL_COL()
         this.START_FINISH_TIMER_TOMATO_COL()
         this.START_FINISH_ALL_TOMATOES_INTERVAL_COL()
@@ -464,8 +465,8 @@ export default Vue.extend({
       EN_CollectorGameGetters.GET_OPEN_GAME_FIELD_TOMATO_COL,
       EN_CollectorGameGetters.GET_TOMATO_LEVEL_COL,
 
-      EN_CollectorGameGetters.GET_POINTS_COL,
-      EN_CollectorGameGetters.GET_TIMER_TIMER_COL,
+      EN_CollectorGameGetters.GET_POINTS_TOMATO_COL,
+      EN_CollectorGameGetters.GET_TIMER_TOMATO_COL,
       EN_CollectorGameGetters.GET_GENERATE_TOMATO_GREEN_COL,
       EN_CollectorGameGetters.GET_GENERATE_TOMATO_RED_COL,
       EN_CollectorGameGetters.GET_GENERATE_TOMATO_DARK_GREEN_COL,
@@ -475,6 +476,8 @@ export default Vue.extend({
   },
   methods: {
     ...mapMutations([
+      EN_CollectorGameMutation.PLUS_POINTS_COL,
+
       EN_CollectorGameMutation.PLUS_POINTS_TOMATO_GREEN_COL,
       EN_CollectorGameMutation.PLUS_POINTS_TOMATO_RED_COL,
       EN_CollectorGameMutation.PLUS_POINTS_TOMATO_DARK_GREEN_COL,
@@ -482,7 +485,6 @@ export default Vue.extend({
       EN_CollectorGameMutation.FINISH_TOMATO_LEVEL_COL,
       EN_CollectorGameMutation.START_FINISH_TIMER_TOMATO_COL,
       EN_CollectorGameMutation.CLOSE_GAME_FIELD_TOMATO_COL,
-
       EN_CollectorGameMutation.START_FINISH_ALL_TOMATOES_INTERVAL_COL,
 
       EN_CollectorGameMutation.GENERATE_TOMATO_GREEN_COL,

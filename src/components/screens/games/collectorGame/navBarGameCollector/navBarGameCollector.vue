@@ -21,7 +21,21 @@
       </template>
 
       <template v-slot:contentIndicator>
-        {{ GET_TIMER_TIMER_COL }}
+        {{ GET_TIMER_TOMATO_COL }}
+      </template>
+      </blockButton>
+    </div>
+
+    <div :class='styles.blockButtonPoints' v-if='GET_OPEN_GAME_FIELD_TOMATO_COL'>
+      <blockButton>
+      <template v-slot:contentIconBtn>
+        <iconButton>
+          Б
+        </iconButton>
+      </template>
+
+      <template v-slot:contentIndicator>
+        {{ GET_POINTS_TOMATO_COL }}
       </template>
       </blockButton>
     </div>
@@ -47,7 +61,7 @@
       </blockButton>
     </div>
 
-    <div :class='styles.blockButtonPoints'>
+    <div :class='styles.blockButtonPoints' v-if='!GET_OPEN_GAME_FIELD_TOMATO_COL'>
       <blockButton>
       <template v-slot:contentIconBtn>
         <iconButton>
@@ -81,9 +95,11 @@ export default Vue.extend({
   data: () => ({}),
   computed: {
     ...mapGetters([
-      EN_CollectorGameGetters.GET_OPEN_GAME_FIELD_TOMATO_COL, 
       EN_CollectorGameGetters.GET_POINTS_COL,
-      EN_CollectorGameGetters.GET_TIMER_TIMER_COL,
+
+      EN_CollectorGameGetters.GET_OPEN_GAME_FIELD_TOMATO_COL, 
+      EN_CollectorGameGetters.GET_POINTS_TOMATO_COL,
+      EN_CollectorGameGetters.GET_TIMER_TOMATO_COL,
       EN_CollectorGameGetters.GET_TOMATO_LEVEL_COL,
     ]),
   },

@@ -17,6 +17,7 @@ const state: ICollectorGameState = {
 	points: 0,
 
 	timerTomato: 30,
+	pointsTomato: 0,
 	isOpenGameFieldTomato: false,
 	isTomatoLevel: false,
 	isGenerateTomatoGreen: false,
