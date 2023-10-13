@@ -19,7 +19,7 @@
           <iconButton>
             Б
           </iconButton>
-          <p>120</p>
+          <p>{{ GET_POINTS_COL }}</p>
         </div>
         
       </div>
@@ -54,6 +54,7 @@ export default Vue.extend({
   },
   computed: {
     ...mapGetters([
+      EN_CollectorGameGetters.GET_POINTS_COL,
       EN_CollectorGameGetters.GET_POINTS_PEPPER_COL,
       EN_CollectorGameGetters.GET_VICTORY_BLOCK_PEPPER_COL,
     ]),

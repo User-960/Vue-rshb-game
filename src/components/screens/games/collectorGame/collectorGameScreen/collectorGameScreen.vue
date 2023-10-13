@@ -56,7 +56,7 @@ export default Vue.extend({
     ...mapGetters([
       EN_CollectorGameGetters.GET_TOMATO_LEVEL_COMPLETED_COL,
       EN_CollectorGameGetters.GET_PEPPER_LEVEL_COMPLETED_COL,
-      EN_CollectorGameGetters.GET_STRAWBERRY_LEVEL_COMPLETED_COL,
+      EN_CollectorGameGetters.GET_STRAWBERRY_LEVEL_COMPLETED_COL
     ])
   },
   methods: {

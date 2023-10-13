@@ -19,18 +19,14 @@
           <iconButton>
             Б
           </iconButton>
-          <p>120</p>
+          <p>{{ GET_POINTS_COL }}</p>
         </div>
         
       </div>
 
       <div :class='styles.btnWrapper'>
-        <button :class='styles.btnRestart' @click='skipToMap'>
-          Карта
-        </button>
-
-        <button :class='styles.btnMap' @click='nextLevel'>
-          Следующий уровень
+        <button :class='styles.btnMapStrawberry' @click='endGame'>
+          Завершить
         </button>
       </div>
 
@@ -54,6 +50,7 @@ export default Vue.extend({
   },
   computed: {
     ...mapGetters([
+      EN_CollectorGameGetters.GET_POINTS_COL,
       EN_CollectorGameGetters.GET_POINTS_STRAWBERRY_COL,
       EN_CollectorGameGetters.GET_VICTORY_BLOCK_STRAWBERRY_COL,
     ]),
@@ -62,14 +59,14 @@ export default Vue.extend({
     ...mapMutations([
       EN_CollectorGameMutation.HIDE_VICTORY_BLOCK_STRAWBERRY_COL,
       EN_CollectorGameMutation.CLOSE_GAME_FIELD_STRAWBERRY_COL,
+
+      EN_CollectorGameMutation.FINISH_GAME_COL,
     ]),
-    skipToMap() {
-      this.HIDE_VICTORY_BLOCK_STRAWBERRY_COL()
-      this.$router.push({ name: 'home' })
-    },
-    nextLevel() {
+    endGame() {
       this.CLOSE_GAME_FIELD_STRAWBERRY_COL()
       this.HIDE_VICTORY_BLOCK_STRAWBERRY_COL()
+
+      this.FINISH_GAME_COL()
     }
   }
 })
