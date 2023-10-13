@@ -87,6 +87,7 @@ export default Vue.extend({
       this.RESTART_GAME_COL()
     },
     skipToMap() {
+      this.RESTART_GAME_COL()
       this.HIDE_VICTORY_BLOCK_COL()
       this.$router.push({ name: 'home' })
     }

@@ -130,7 +130,6 @@ export default Vue.extend({
 
         document.addEventListener('keydown', (event) => {
           if (event.code == 'KeyA' && !this.isMovingLeft && !this.isMovingRight && !this.isCollectorMovedLeft && this.GET_STRAWBERRY_LEVEL_COL) {
-            console.log('left')
             this.isMovingLeft = true
             if (this.isMovingLeft) {
               this.currentCellCollector -= 1
@@ -149,7 +148,6 @@ export default Vue.extend({
           } 
 
           if (event.code == 'KeyD' && !this.isMovingRight && !this.isMovingLeft && !this.isCollectorMovedRight && this.GET_STRAWBERRY_LEVEL_COL) {
-            console.log('right')
             this.isMovingRight = true
             if (this.isMovingRight) {
               this.currentCellCollector += 1

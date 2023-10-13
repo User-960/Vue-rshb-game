@@ -128,7 +128,7 @@ export default Vue.extend({
         this.GENERATE_COLLECTOR_TOMATO_COL()
         this.START_FINISH_ALL_TOMATOES_INTERVAL_COL()
 
-        document.addEventListener('keydown', (event) => {
+        document.addEventListener('keyup', (event) => {
           if (event.code == 'KeyA' && !this.isMovingLeft && !this.isMovingRight && !this.isCollectorMovedLeft && this.GET_TOMATO_LEVEL_COL) {
             console.log('left')
             this.isMovingLeft = true
@@ -179,7 +179,7 @@ export default Vue.extend({
         this.NOT_GENERATE_TOMATO_DARK_GREEN_COL()
         this.NOT_GENERATE_COLLECTOR_TOMATO_COL()
 
-        document.removeEventListener('keydown', (event) => {
+        document.removeEventListener('keyup', (event) => {
           if (event.code == 'KeyA' && !this.isMovingLeft && !this.isMovingRight && !this.isCollectorMovedLeft && this.GET_TOMATO_LEVEL_COL) {
             this.isMovingLeft = true
             if (this.isMovingLeft) {

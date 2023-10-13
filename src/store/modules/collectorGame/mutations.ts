@@ -139,9 +139,27 @@ export const mutations: MutationTree<ICollectorGameState> = {
 		state.isVictoryTomatoBlockVisible = false
 		state.isTomatoLevelCompleted = false
 
+		state.timerPepper = 30
+		state.pointsPepper = 0
 		state.isOpenGameFieldPepper = false
+		state.isPepperLevel = false
+		state.isGeneratePepperGreen = false
+		state.isGeneratePepperRed = false
+		state.isGeneratePepperDarkGreen = false
+		state.isGenerateCollectorPepper = false
+		state.isVictoryPepperBlockVisible = false
+		state.isPepperLevelCompleted = false
 
+		state.timerStrawberry = 30
+		state.pointsStrawberry = 0
 		state.isOpenGameFieldStrawberry = false
+		state.isStrawberryLevel = false
+		state.isGenerateStrawberryGreen = false
+		state.isGenerateStrawberryRed = false
+		state.isGenerateStrawberryDarkGreen = false
+		state.isGenerateCollectorStrawberry = false
+		state.isVictoryStrawberryBlockVisible = false
+		state.isStrawberryLevelCompleted = false
 	},
 	[EN_CollectorGameMutation.SHOW_INFO_LINK_BLOCK_COL](state) {
 		const audio = new Audio(AUDIO_CONFIG.AUDIO_NEW_MISSION)

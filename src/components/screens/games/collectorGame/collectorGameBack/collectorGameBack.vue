@@ -52,6 +52,7 @@ import rulesBlockGame from '../rulesBlockGame/rulesBlockGame.vue'
 import victoryBlockGame from '../victoryBlockGame/victoryBlockGame.vue'
 import lossBlockGame from '../lossBlockGame/lossBlockGame.vue'
 import { EN_CollectorGameMutation } from '@/store/modules/collectorGame/mutations'
+import { EN_CONFIG } from '../config/config'
 
 export default Vue.extend({
   name: 'collectorGameBack',
@@ -76,7 +77,7 @@ export default Vue.extend({
       ) {
         setTimeout(() => {
           this.SHOW_VICTORY_BLOCK_COL()
-        }, 1000)
+        }, EN_CONFIG.TIMING_VICTORY_BLOCK)
       }
     }
   },
