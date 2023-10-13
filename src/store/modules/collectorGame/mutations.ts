@@ -81,7 +81,32 @@ export enum EN_CollectorGameMutation {
 	RESTART_PEPPER_LEVEL_COL = 'RESTART_PEPPER_LEVEL_COL',
 
 	OPEN_GAME_FIELD_STRAWBERRY_COL = 'OPEN_GAME_FIELD_STRAWBERRY_COL',
-	CLOSE_GAME_FIELD_STRAWBERRY_COL = 'CLOSE_GAME_FIELD_STRAWBERRY_COL'
+	CLOSE_GAME_FIELD_STRAWBERRY_COL = 'CLOSE_GAME_FIELD_STRAWBERRY_COL',
+	START_FINISH_TIMER_STRAWBERRY_COL = 'START_FINISH_TIMER_STRAWBERRY_COL',
+	STOP_TIMER_STRAWBERRY_COL = 'STOP_TIMER_STRAWBERRY_COL',
+	PLUS_POINTS_STRAWBERRY_GREEN_COL = 'PLUS_POINTS_STRAWBERRY_GREEN_COL',
+	PLUS_POINTS_STRAWBERRY_RED_COL = 'PLUS_POINTS_STRAWBERRY_RED_COL',
+	PLUS_POINTS_STRAWBERRY_DARK_GREEN_COL = 'PLUS_POINTS_STRAWBERRY_DARK_GREEN_COL',
+	START_STRAWBERRY_LEVEL_COL = 'START_STRAWBERRY_LEVEL_COL',
+	FINISH_STRAWBERRY_LEVEL_COL = 'FINISH_STRAWBERRY_LEVEL_COL',
+	PLUS_POINTS_STRAWBERRY_COL = 'PLUS_POINTS_STRAWBERRY_COL',
+	START_FINISH_ALL_STRAWBERRIES_INTERVAL_COL = 'START_FINISH_ALL_STRAWBERRIES_INTERVAL_COL',
+	FINISH_ALL_STRAWBERRIES_INTERVAL_COL = 'FINISH_ALL_STRAWBERRIES_INTERVAL_COL',
+	GENERATE_STRAWBERRY_GREEN_COL = 'GENERATE_STRAWBERRY_GREEN_COL',
+	NOT_GENERATE_STRAWBERRY_GREEN_COL = 'NOT_GENERATE_STRAWBERRY_GREEN_COL',
+	GENERATE_STRAWBERRY_RED_COL = 'GENERATE_STRAWBERRY_RED_COL',
+	NOT_GENERATE_STRAWBERRY_RED_COL = 'NOT_GENERATE_STRAWBERRY_RED_COL',
+	GENERATE_STRAWBERRY_DARK_GREEN_COL = 'GENERATE_STRAWBERRY_DARK_GREEN_COL',
+	NOT_GENERATE_STRAWBERRY_DARK_GREEN_COL = 'NOT_GENERATE_STRAWBERRY_DARK_GREEN_COL',
+	GENERATE_COLLECTOR_STRAWBERRY_COL = 'GENERATE_COLLECTOR_STRAWBERRY_COL',
+	NOT_GENERATE_COLLECTOR_STRAWBERRY_COL = 'NOT_GENERATE_COLLECTOR_STRAWBERRY_COL',
+	SHOW_VICTORY_BLOCK_STRAWBERRY_COL = 'SHOW_VICTORY_BLOCK_STRAWBERRY_COL',
+	HIDE_VICTORY_BLOCK_STRAWBERRY_COL = 'HIDE_VICTORY_BLOCK_STRAWBERRY_COL',
+	SHOW_LOSS_BLOCK_STRAWBERRY_COL = 'SHOW_LOSS_BLOCK_STRAWBERRY_COL',
+	HIDE_LOSS_BLOCK_STRAWBERRY_COL = 'HIDE_LOSS_BLOCK_STRAWBERRY_COL',
+	COMPLETE_STRAWBERRY_LEVEL_COL = 'COMPLETE_STRAWBERRY_LEVEL_COL',
+	NOT_COMPLETE_STRAWBERRY_LEVEL_COL = 'NOT_COMPLETE_STRAWBERRY_LEVEL_COL',
+	RESTART_STRAWBERRY_LEVEL_COL = 'RESTART_STRAWBERRY_LEVEL_COL'
 }
 
 const audioVictory = new Audio(AUDIO_CONFIG.AUDIO_VICTORY)
@@ -90,6 +115,9 @@ let tomatoesInterval: any = null
 
 let timerPepper: any = null
 let peppersInterval: any = null
+
+let timerStrawberry: any = null
+let strawberriesInterval: any = null
 
 export const mutations: MutationTree<ICollectorGameState> = {
 	[EN_CollectorGameMutation.RESTART_GAME_COL](state) {
@@ -157,8 +185,12 @@ export const mutations: MutationTree<ICollectorGameState> = {
 			state.points += state.pointsTomato
 		}
 
-		if (state.pointsPepper > 15 && state.isPepperLevel) {
+		if (state.pointsPepper > 12 && state.isPepperLevel) {
 			state.points += state.pointsPepper
+		}
+
+		if (state.pointsStrawberry > 10 && state.isStrawberryLevel) {
+			state.points += state.pointsStrawberry
 		}
 	},
 	[EN_CollectorGameMutation.PLUS_POINTS_LINK_COL](state) {
@@ -222,11 +254,11 @@ export const mutations: MutationTree<ICollectorGameState> = {
 			clearInterval(timerTomato)
 		}
 
-		if (state.isLossBlockVisible) {
+		if (state.isLossTomatoBlockVisible) {
 			clearInterval(timerTomato)
 		}
 
-		if (state.isVictoryBlockVisible) {
+		if (state.isVictoryTomatoBlockVisible) {
 			clearInterval(timerTomato)
 		}
 
@@ -370,11 +402,11 @@ export const mutations: MutationTree<ICollectorGameState> = {
 			clearInterval(timerPepper)
 		}
 
-		if (state.isLossBlockVisible) {
+		if (state.isLossPepperBlockVisible) {
 			clearInterval(timerPepper)
 		}
 
-		if (state.isVictoryBlockVisible) {
+		if (state.isVictoryPepperBlockVisible) {
 			clearInterval(timerPepper)
 		}
 
@@ -468,10 +500,143 @@ export const mutations: MutationTree<ICollectorGameState> = {
 		state.isPepperLevelCompleted = false
 	},
 
+	[EN_CollectorGameMutation.RESTART_STRAWBERRY_LEVEL_COL](state) {
+		state.timerStrawberry = 30
+		state.pointsStrawberry = 0
+		state.isOpenGameFieldStrawberry = false
+		state.isStrawberryLevel = false
+		state.isGenerateStrawberryGreen = false
+		state.isGenerateStrawberryRed = false
+		state.isGenerateStrawberryDarkGreen = false
+		state.isGenerateCollectorStrawberry = false
+		state.isVictoryStrawberryBlockVisible = false
+		state.isStrawberryLevelCompleted = false
+	},
+	[EN_CollectorGameMutation.PLUS_POINTS_STRAWBERRY_GREEN_COL](state) {
+		state.pointsStrawberry += 1
+	},
+	[EN_CollectorGameMutation.PLUS_POINTS_STRAWBERRY_RED_COL](state) {
+		state.pointsStrawberry += 4
+	},
+	[EN_CollectorGameMutation.PLUS_POINTS_STRAWBERRY_DARK_GREEN_COL](state) {
+		state.pointsStrawberry += 2
+	},
+	[EN_CollectorGameMutation.START_FINISH_TIMER_STRAWBERRY_COL](state) {
+		if (
+			state.timerStrawberry > 0 &&
+			state.isStartGame &&
+			!state.isLossBlockVisible &&
+			!state.isVictoryBlockVisible
+		) {
+			if (timerStrawberry) {
+				clearInterval(timerStrawberry)
+			}
+
+			timerStrawberry = setInterval(() => {
+				state.timerStrawberry -= 1
+			}, 1000)
+		}
+
+		if (state.timerStrawberry < 0) {
+			state.timerStrawberry = 0
+			clearInterval(timerStrawberry)
+		}
+
+		if (state.isLossStrawberryBlockVisible) {
+			clearInterval(timerStrawberry)
+		}
+
+		if (state.isVictoryStrawberryBlockVisible) {
+			clearInterval(timerStrawberry)
+		}
+
+		if (!state.isStrawberryLevel) {
+			clearInterval(timerStrawberry)
+		}
+
+		if (state.isInfoLinkBlockVisible) {
+			clearInterval(timerStrawberry)
+		}
+
+		if (state.timerStrawberry === 0) {
+			clearInterval(timerStrawberry)
+		}
+	},
+	[EN_CollectorGameMutation.STOP_TIMER_STRAWBERRY_COL](state) {
+		if (timerStrawberry) {
+			clearInterval(timerStrawberry)
+		}
+	},
+	[EN_CollectorGameMutation.START_FINISH_ALL_STRAWBERRIES_INTERVAL_COL](state) {
+		if (!state.isStrawberryLevel) {
+			clearInterval(strawberriesInterval)
+			return
+		}
+
+		strawberriesInterval = setInterval(() => {
+			state.isGenerateStrawberryGreen = true
+
+			setTimeout(() => {
+				state.isGenerateStrawberryRed = true
+			}, EN_CONFIG.TIMING_GENERATE_TIMEOUT_STRAWBERRY_RED)
+
+			setTimeout(() => {
+				state.isGenerateStrawberryDarkGreen = true
+			}, EN_CONFIG.TIMING_GENERATE_TIMEOUT_STRAWBERRY_DARK_GREEN)
+		}, EN_CONFIG.TIMING_GENERATE_ALL_STRAWBERRIES_INTERVAL)
+	},
 	[EN_CollectorGameMutation.OPEN_GAME_FIELD_STRAWBERRY_COL](state) {
 		state.isOpenGameFieldStrawberry = true
 	},
 	[EN_CollectorGameMutation.CLOSE_GAME_FIELD_STRAWBERRY_COL](state) {
 		state.isOpenGameFieldStrawberry = false
+	},
+	[EN_CollectorGameMutation.START_STRAWBERRY_LEVEL_COL](state) {
+		state.isStrawberryLevel = true
+	},
+	[EN_CollectorGameMutation.FINISH_STRAWBERRY_LEVEL_COL](state) {
+		state.isStrawberryLevel = false
+	},
+	[EN_CollectorGameMutation.GENERATE_STRAWBERRY_GREEN_COL](state) {
+		state.isGenerateStrawberryGreen = true
+	},
+	[EN_CollectorGameMutation.NOT_GENERATE_STRAWBERRY_GREEN_COL](state) {
+		state.isGenerateStrawberryGreen = false
+	},
+	[EN_CollectorGameMutation.GENERATE_STRAWBERRY_RED_COL](state) {
+		state.isGenerateStrawberryRed = true
+	},
+	[EN_CollectorGameMutation.NOT_GENERATE_STRAWBERRY_RED_COL](state) {
+		state.isGenerateStrawberryRed = false
+	},
+	[EN_CollectorGameMutation.GENERATE_STRAWBERRY_DARK_GREEN_COL](state) {
+		state.isGenerateStrawberryDarkGreen = true
+	},
+	[EN_CollectorGameMutation.NOT_GENERATE_STRAWBERRY_DARK_GREEN_COL](state) {
+		state.isGenerateStrawberryDarkGreen = false
+	},
+	[EN_CollectorGameMutation.GENERATE_COLLECTOR_STRAWBERRY_COL](state) {
+		state.isGenerateCollectorStrawberry = true
+	},
+	[EN_CollectorGameMutation.NOT_GENERATE_COLLECTOR_STRAWBERRY_COL](state) {
+		state.isGenerateCollectorStrawberry = false
+	},
+	[EN_CollectorGameMutation.SHOW_VICTORY_BLOCK_STRAWBERRY_COL](state) {
+		state.isVictoryStrawberryBlockVisible = true
+	},
+	[EN_CollectorGameMutation.HIDE_VICTORY_BLOCK_STRAWBERRY_COL](state) {
+		state.isVictoryStrawberryBlockVisible = false
+	},
+	[EN_CollectorGameMutation.SHOW_LOSS_BLOCK_STRAWBERRY_COL](state) {
+		state.isLossStrawberryBlockVisible = true
+	},
+	[EN_CollectorGameMutation.HIDE_LOSS_BLOCK_STRAWBERRY_COL](state) {
+		state.isLossStrawberryBlockVisible = false
+	},
+	[EN_CollectorGameMutation.COMPLETE_STRAWBERRY_LEVEL_COL](state) {
+		state.isStrawberryLevelCompleted = true
+	},
+	[EN_CollectorGameMutation.NOT_COMPLETE_STRAWBERRY_LEVEL_COL](state) {
+		state.isStrawberryLevelCompleted = false
 	}
 }

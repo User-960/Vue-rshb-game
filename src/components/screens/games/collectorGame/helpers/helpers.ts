@@ -51,6 +51,14 @@ export interface ICellPepper {
 	isCollector: boolean
 }
 
+export interface ICellStrawberry {
+	id: number
+	isStrawberryRed: boolean
+	isStrawberryGreen: boolean
+	isStrawberryDarkGreen: boolean
+	isCollector: boolean
+}
+
 export const getRandomNumberGenerator = (
 	min: number,
 	max: number,
@@ -89,6 +97,21 @@ export const generatorCellsPepper = (): ICellPepper[] => {
 			isPepperRed: false,
 			isPepperGreen: false,
 			isPepperDarkGreen: false,
+			isCollector: false
+		})
+	}
+
+	return newCells
+}
+
+export const generatorCellsStrawberry = (): ICellStrawberry[] => {
+	let newCells = []
+	for (let i = 0; i < 130; i++) {
+		newCells.push({
+			id: i,
+			isStrawberryRed: false,
+			isStrawberryGreen: false,
+			isStrawberryDarkGreen: false,
 			isCollector: false
 		})
 	}
@@ -310,6 +333,79 @@ export const generatorCollectorMoveRightPepper = (
 ) => {
 	let testCollector: ICellPepper[] | null = null
 	let currentCollector: ICellPepper[] | null = null
+
+	if (isMoving) {
+		currentCollector = cells.filter(cell => cell.isCollector === true)
+		currentCollector[0].isCollector = false
+
+		testCollector = cells.filter(cell => cell.id === row[rowCellIndex])
+
+		if (testCollector[0].id === rowCellId) {
+			testCollector[0].isCollector = true
+		}
+	}
+}
+
+export const generatorCollectorStrawberry = (
+	cells: ICellStrawberry[],
+	row: number[],
+	rowCellId: number,
+	rowCellIndex: number,
+	isMoving: boolean = false
+) => {
+	let testCollector: ICellStrawberry[] | null = null
+	let currentCollector: ICellStrawberry[] | null = null
+
+	if (!isMoving && rowCellId !== row[row.length - 1]) {
+		testCollector = cells.filter(cell => cell.id === row[rowCellIndex])
+		if (testCollector[0].id === rowCellId && !isMoving) {
+			testCollector[0].isCollector = true
+		}
+	}
+
+	if (isMoving && rowCellId !== row[row.length - 1]) {
+		currentCollector = cells.filter(cell => cell.isCollector === true)
+		currentCollector[0].isCollector = false
+
+		testCollector = cells.filter(cell => cell.id === row[rowCellIndex])
+
+		if (testCollector[0].id === rowCellId) {
+			testCollector[0].isCollector = true
+		}
+	}
+}
+
+export const generatorCollectorMoveLeftStrawberry = (
+	cells: ICellStrawberry[],
+	row: number[],
+	rowCellId: number,
+	rowCellIndex: number,
+	isMoving: boolean = false
+) => {
+	let testCollector: ICellStrawberry[] | null = null
+	let currentCollector: ICellStrawberry[] | null = null
+
+	if (isMoving) {
+		currentCollector = cells.filter(cell => cell.isCollector === true)
+		currentCollector[0].isCollector = false
+
+		testCollector = cells.filter(cell => cell.id === row[rowCellIndex])
+
+		if (testCollector[0].id === rowCellId) {
+			testCollector[0].isCollector = true
+		}
+	}
+}
+
+export const generatorCollectorMoveRightStrawberry = (
+	cells: ICellStrawberry[],
+	row: number[],
+	rowCellId: number,
+	rowCellIndex: number,
+	isMoving: boolean = false
+) => {
+	let testCollector: ICellStrawberry[] | null = null
+	let currentCollector: ICellStrawberry[] | null = null
 
 	if (isMoving) {
 		currentCollector = cells.filter(cell => cell.isCollector === true)

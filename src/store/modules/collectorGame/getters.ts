@@ -33,7 +33,19 @@ export enum EN_CollectorGameGetters {
 	GET_GENERATE_COLLECTOR_PEPPER_COL = 'GET_GENERATE_COLLECTOR_PEPPER_COL',
 	GET_VICTORY_BLOCK_PEPPER_COL = 'GET_VICTORY_BLOCK_PEPPER_COL',
 	GET_lOSS_BLOCK_PEPPER_COL = 'GET_lOSS_BLOCK_PEPPER_COL',
-	GET_PEPPER_LEVEL_COMPLETED_COL = 'GET_PEPPER_LEVEL_COMPLETED_COL'
+	GET_PEPPER_LEVEL_COMPLETED_COL = 'GET_PEPPER_LEVEL_COMPLETED_COL',
+
+	GET_TIMER_STRAWBERRY_COL = 'GET_TIMER_STRAWBERRY_COL',
+	GET_POINTS_STRAWBERRY_COL = 'GET_POINTS_STRAWBERRY_COL',
+	GET_OPEN_GAME_FIELD_STRAWBERRY_COL = 'GET_OPEN_GAME_FIELD_STRAWBERRY_COL',
+	GET_STRAWBERRY_LEVEL_COL = 'GET_STRAWBERRY_LEVEL_COL',
+	GET_GENERATE_STRAWBERRY_GREEN_COL = 'GET_GENERATE_STRAWBERRY_GREEN_COL',
+	GET_GENERATE_STRAWBERRY_RED_COL = 'GET_GENERATE_STRAWBERRY_RED_COL',
+	GET_GENERATE_STRAWBERRY_DARK_GREEN_COL = 'GET_GENERATE_STRAWBERRY_DARK_GREEN_COL',
+	GET_GENERATE_COLLECTOR_STRAWBERRY_COL = 'GET_GENERATE_COLLECTOR_STRAWBERRY_COL',
+	GET_VICTORY_BLOCK_STRAWBERRY_COL = 'GET_VICTORY_BLOCK_STRAWBERRY_COL',
+	GET_lOSS_BLOCK_STRAWBERRY_COL = 'GET_lOSS_BLOCK_STRAWBERRY_COL',
+	GET_STRAWBERRY_LEVEL_COMPLETED_COL = 'GET_STRAWBERRY_LEVEL_COMPLETED_COL'
 }
 
 export const getters: GetterTree<ICollectorGameState, IRootState> = {
@@ -86,5 +98,28 @@ export const getters: GetterTree<ICollectorGameState, IRootState> = {
 	[EN_CollectorGameGetters.GET_lOSS_BLOCK_PEPPER_COL]: state =>
 		state.isLossPepperBlockVisible,
 	[EN_CollectorGameGetters.GET_PEPPER_LEVEL_COMPLETED_COL]: state =>
-		state.isPepperLevelCompleted
+		state.isPepperLevelCompleted,
+
+	[EN_CollectorGameGetters.GET_TIMER_STRAWBERRY_COL]: state =>
+		state.timerStrawberry,
+	[EN_CollectorGameGetters.GET_POINTS_STRAWBERRY_COL]: state =>
+		state.pointsStrawberry,
+	[EN_CollectorGameGetters.GET_OPEN_GAME_FIELD_STRAWBERRY_COL]: state =>
+		state.isOpenGameFieldStrawberry,
+	[EN_CollectorGameGetters.GET_STRAWBERRY_LEVEL_COL]: state =>
+		state.isStrawberryLevel,
+	[EN_CollectorGameGetters.GET_GENERATE_STRAWBERRY_GREEN_COL]: state =>
+		state.isGenerateStrawberryGreen,
+	[EN_CollectorGameGetters.GET_GENERATE_STRAWBERRY_RED_COL]: state =>
+		state.isGenerateStrawberryRed,
+	[EN_CollectorGameGetters.GET_GENERATE_STRAWBERRY_DARK_GREEN_COL]: state =>
+		state.isGenerateStrawberryDarkGreen,
+	[EN_CollectorGameGetters.GET_GENERATE_COLLECTOR_STRAWBERRY_COL]: state =>
+		state.isGenerateCollectorStrawberry,
+	[EN_CollectorGameGetters.GET_VICTORY_BLOCK_STRAWBERRY_COL]: state =>
+		state.isVictoryStrawberryBlockVisible,
+	[EN_CollectorGameGetters.GET_lOSS_BLOCK_STRAWBERRY_COL]: state =>
+		state.isLossStrawberryBlockVisible,
+	[EN_CollectorGameGetters.GET_STRAWBERRY_LEVEL_COMPLETED_COL]: state =>
+		state.isStrawberryLevelCompleted
 }

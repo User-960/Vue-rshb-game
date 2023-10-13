@@ -11,7 +11,8 @@
 }
 
 .lossBlockTomatoLevelWrapper,
-.lossBlockPepperLevelWrapper {
+.lossBlockPepperLevelWrapper,
+.lossBlockStrawberryLevelWrapper {
 	position: absolute;
 	width: 100%;
 	height: 100%;

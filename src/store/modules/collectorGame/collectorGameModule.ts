@@ -38,7 +38,17 @@ const state: ICollectorGameState = {
 	isLossPepperBlockVisible: false,
 	isPepperLevelCompleted: false,
 
-	isOpenGameFieldStrawberry: false
+	timerStrawberry: 30,
+	pointsStrawberry: 0,
+	isOpenGameFieldStrawberry: false,
+	isStrawberryLevel: false,
+	isGenerateStrawberryGreen: false,
+	isGenerateStrawberryRed: false,
+	isGenerateStrawberryDarkGreen: false,
+	isGenerateCollectorStrawberry: false,
+	isVictoryStrawberryBlockVisible: false,
+	isLossStrawberryBlockVisible: false,
+	isStrawberryLevelCompleted: false
 }
 
 export const getDefaultCollectorGameState = () => {

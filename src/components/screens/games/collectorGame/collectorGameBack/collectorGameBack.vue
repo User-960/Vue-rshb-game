@@ -11,6 +11,12 @@
     </template>
   </navBarGameCollector>
 
+  <navBarGameCollector v-else-if='GET_OPEN_GAME_FIELD_STRAWBERRY_COL'>
+    <template v-slot:gameBack>
+      <collectorGameFieldStrawberry/>
+    </template>
+  </navBarGameCollector>
+
   <navBarGameCollector v-else>
     <template v-slot:gameBack>
       <div :class='styles.gameBack' data-testid='collectorGameBack'>
@@ -38,6 +44,7 @@ import navBarGameCollector from '../navBarGameCollector/navBarGameCollector.vue'
 import collectorGameScreen from '../collectorGameScreen/collectorGameScreen.vue'
 import collectorGameFieldTomato from '../collectorGameField/collectorGameFieldTomato.vue'
 import collectorGameFieldPepper from '../collectorGameField/collectorGameFieldPepper.vue'
+import collectorGameFieldStrawberry from '../collectorGameField/collectorGameFieldStrawberry.vue'
 import { mapGetters } from 'vuex'
 import { EN_CollectorGameGetters } from '@/store/modules/collectorGame/getters'
 import infoLinkBlockGame from '../infoLinkBlockGame/infoLinkBlockGame.vue'
@@ -52,6 +59,7 @@ export default Vue.extend({
     collectorGameScreen,
     collectorGameFieldTomato,
     collectorGameFieldPepper,
+    collectorGameFieldStrawberry,
     infoLinkBlockGame,
     rulesBlockGame,
     victoryBlockGame,
@@ -61,6 +69,7 @@ export default Vue.extend({
     ...mapGetters([
       EN_CollectorGameGetters.GET_OPEN_GAME_FIELD_TOMATO_COL,
       EN_CollectorGameGetters.GET_OPEN_GAME_FIELD_PEPPER_COL,
+      EN_CollectorGameGetters.GET_OPEN_GAME_FIELD_STRAWBERRY_COL
     ]),
   },
   methods: {}

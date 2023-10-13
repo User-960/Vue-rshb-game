@@ -11,7 +11,8 @@
 }
 
 .victoryBlockTomatoLevelWrapper,
-.victoryBlockPepperLevelWrapper {
+.victoryBlockPepperLevelWrapper,
+.victoryBlockStrawberryLevelWrapper {
 	position: absolute;
 	width: 100%;
 	height: 100%;
@@ -23,7 +24,8 @@
 
 .victoryBlockGame,
 .victoryBlockTomatoLevel,
-.victoryBlockPepperLevel {
+.victoryBlockPepperLevel,
+.victoryBlockStrawberryLevel {
 	padding: 50px;
 	max-width: 640px;
 	min-height: 510px;

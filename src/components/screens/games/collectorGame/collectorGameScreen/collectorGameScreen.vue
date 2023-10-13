@@ -23,9 +23,10 @@
             {
               [styles.btnActive]: (!GET_TOMATO_LEVEL_COMPLETED_COL && isChosenTomatoLevel) ||
                 (!GET_PEPPER_LEVEL_COMPLETED_COL && isChosenPepperLevel) || 
-                isChosenStrawberryLevel,
+                (!GET_STRAWBERRY_LEVEL_COMPLETED_COL && isChosenStrawberryLevel),
               [styles.btnNonActive]: (GET_TOMATO_LEVEL_COMPLETED_COL && isChosenTomatoLevel) || 
-              (GET_PEPPER_LEVEL_COMPLETED_COL && isChosenPepperLevel)
+              (GET_PEPPER_LEVEL_COMPLETED_COL && isChosenPepperLevel) ||
+              (GET_STRAWBERRY_LEVEL_COMPLETED_COL && isChosenStrawberryLevel)
             }
           ]'
           @click='openGame'
@@ -49,14 +50,13 @@ export default Vue.extend({
   data: () => ({
     isChosenTomatoLevel: false,
     isChosenPepperLevel: false,
-    isChosenStrawberryLevel: false,
-
-    isOpenTomatoLevel: false,
+    isChosenStrawberryLevel: false
   }),
   computed: {
     ...mapGetters([
       EN_CollectorGameGetters.GET_TOMATO_LEVEL_COMPLETED_COL,
       EN_CollectorGameGetters.GET_PEPPER_LEVEL_COMPLETED_COL,
+      EN_CollectorGameGetters.GET_STRAWBERRY_LEVEL_COMPLETED_COL,
     ])
   },
   methods: {
@@ -67,6 +67,7 @@ export default Vue.extend({
 
         EN_CollectorGameMutation.START_TOMATO_LEVEL_COL,
         EN_CollectorGameMutation.START_PEPPER_LEVEL_COL,
+        EN_CollectorGameMutation.START_STRAWBERRY_LEVEL_COL
     ]),
     chooseTomatoLevel() {
       const audio = new Audio(AUDIO_CONFIG.AUDIO_CHOOSE_ACTION_COMPUTER)
@@ -108,7 +109,11 @@ export default Vue.extend({
         this.OPEN_GAME_FIELD_PEPPER_COL()
       }
 
-      if (this.isChosenStrawberryLevel) {
+      if (
+          this.isChosenStrawberryLevel && 
+          !this.GET_STRAWBERRY_LEVEL_COMPLETED_COL && 
+          this.GET_PEPPER_LEVEL_COMPLETED_COL
+        ) {
         this.OPEN_GAME_FIELD_STRAWBERRY_COL()
       }
     }

@@ -30,5 +30,15 @@ export interface ICollectorGameState {
 	isLossPepperBlockVisible: boolean
 	isPepperLevelCompleted: boolean
 
+	timerStrawberry: number
+	pointsStrawberry: number
 	isOpenGameFieldStrawberry: boolean
+	isStrawberryLevel: boolean
+	isGenerateStrawberryGreen: boolean
+	isGenerateStrawberryRed: boolean
+	isGenerateStrawberryDarkGreen: boolean
+	isGenerateCollectorStrawberry: boolean
+	isVictoryStrawberryBlockVisible: boolean
+	isLossStrawberryBlockVisible: boolean
+	isStrawberryLevelCompleted: boolean
 }
