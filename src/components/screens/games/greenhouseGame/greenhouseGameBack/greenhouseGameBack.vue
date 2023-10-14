@@ -10,6 +10,10 @@
 
         <victoryBlockGame />
 
+        <bonusBlock />
+
+        <bonusBlockPayed />
+
         <lossBlockGame />
 
         <div :class='styles.dialogTaskWrapper'>
@@ -45,6 +49,8 @@ import dialogDanilTomato from '../dialogDanil/dialogDanilTomato.vue'
 import dialogDanilPepper from '../dialogDanil/dialogDanilPepper.vue'
 import dialogDanilStrawberry from '../dialogDanil/dialogDanilStrawberry.vue'
 import victoryBlockGame from '../victoryBlockGame/victoryBlockGame.vue'
+import bonusBlock from '../bonusBlock/bonusBlock.vue'
+import bonusBlockPayed from '../bonusBlock/bonusBlockPayed.vue'
 import lossBlockGame from '../lossBlockGame/lossBlockGame.vue'
 import { mapGetters } from 'vuex'
 import { EN_GreenhouseGameGetters } from '@/store/modules/greenhouseGame/getters'
@@ -56,6 +62,8 @@ export default Vue.extend({
     infoLinkBlockGame,
     rulesBlockGame,
     victoryBlockGame,
+    bonusBlock,
+    bonusBlockPayed,
     lossBlockGame,
     machineCharacteristics,
     dialogTaskTomato,

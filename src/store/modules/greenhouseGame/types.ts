@@ -8,6 +8,8 @@ export interface IGreenhouseGameState {
 	isRulesBlockVisible: boolean
 	isVictoryBlockVisible: boolean
 	isLossBlockVisible: boolean
+	isBonusBlockVisible: boolean
+	isBonusBlockPayedVisible: boolean
 	isStartGame: boolean
 	points: number
 

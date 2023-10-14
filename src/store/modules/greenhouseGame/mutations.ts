@@ -14,6 +14,10 @@ export enum EN_GreenhouseGameMutation {
 	HIDE_VICTORY_BLOCK_GH = 'HIDE_VICTORY_BLOCK_GH',
 	SHOW_LOSS_BLOCK_GH = 'SHOW_LOSS_BLOCK_GH',
 	HIDE_LOSS_BLOCK_GH = 'HIDE_LOSS_BLOCK_GH',
+	SHOW_BONUS_BLOCK_GH = 'SHOW_BONUS_BLOCK_GH',
+	HIDE_BONUS_BLOCK_GH = 'HIDE_BONUS_BLOCK_GH',
+	SHOW_BONUS_BLOCK_PAYED_GH = 'SHOW_BONUS_BLOCK_PAYED_GH',
+	HIDE_BONUS_BLOCK_PAYED_GH = 'HIDE_BONUS_BLOCK_PAYED_GH',
 	START_GAME_GH = 'START_GAME_GH',
 	FINISH_GAME_GH = 'FINISH_GAME_GH',
 	PLUS_POINTS_GH = 'PLUS_POINTS_GH',
@@ -106,6 +110,8 @@ export const mutations: MutationTree<IGreenhouseGameState> = {
 		state.isRulesBlockVisible = false
 		state.isVictoryBlockVisible = false
 		state.isLossBlockVisible = false
+		state.isBonusBlockVisible = false
+		state.isBonusBlockPayedVisible = false
 		state.isStartGame = false
 		state.points = 0
 
@@ -118,7 +124,7 @@ export const mutations: MutationTree<IGreenhouseGameState> = {
 		state.timerTomato = 9
 		state.isTomatoSoilMoistureCheck = false
 		state.isTomatoSoilMoistureAction = false
-		;(state.tomatoSoilMoistureNum = 30), 1
+		state.tomatoSoilMoistureNum = 30.1
 		state.healthTomatoPercentage = 100
 		state.isTomatoAirHumidityCheck = false
 		state.isTomatoAirTemperatureCheck = false
@@ -185,6 +191,19 @@ export const mutations: MutationTree<IGreenhouseGameState> = {
 	},
 	[EN_GreenhouseGameMutation.HIDE_LOSS_BLOCK_GH](state) {
 		state.isLossBlockVisible = false
+	},
+	[EN_GreenhouseGameMutation.SHOW_BONUS_BLOCK_GH](state) {
+		state.isBonusBlockVisible = true
+	},
+	[EN_GreenhouseGameMutation.HIDE_BONUS_BLOCK_GH](state) {
+		state.isBonusBlockVisible = false
+	},
+	[EN_GreenhouseGameMutation.SHOW_BONUS_BLOCK_PAYED_GH](state) {
+		state.points += 100
+		state.isBonusBlockPayedVisible = true
+	},
+	[EN_GreenhouseGameMutation.HIDE_BONUS_BLOCK_PAYED_GH](state) {
+		state.isBonusBlockPayedVisible = false
 	},
 	[EN_GreenhouseGameMutation.START_GAME_GH](state) {
 		state.isStartGame = true

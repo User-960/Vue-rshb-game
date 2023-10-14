@@ -8,6 +8,8 @@ export enum EN_GreenhouseGameGetters {
 	GET_RULES_BLOCK_GH = 'GET_RULES_BLOCK_GH',
 	GET_VICTORY_BLOCK_GH = 'GET_VICTORY_BLOCK_GH',
 	GET_LOSS_BLOCK_GH = 'GET_LOSS_BLOCK_GH',
+	GET_BONUS_BLOCK_GH = 'GET_BONUS_BLOCK_GH',
+	GET_BONUS_BLOCK_PAYED_GH = 'GET_BONUS_BLOCK_PAYED_GH',
 	GET_START_GAME_GH = 'GET_START_GAME_GH',
 	GET_POINTS_GH = 'GET_POINTS_GH',
 
@@ -68,6 +70,10 @@ export const getters: GetterTree<IGreenhouseGameState, IRootState> = {
 		state.isVictoryBlockVisible,
 	[EN_GreenhouseGameGetters.GET_LOSS_BLOCK_GH]: state =>
 		state.isLossBlockVisible,
+	[EN_GreenhouseGameGetters.GET_BONUS_BLOCK_GH]: state =>
+		state.isBonusBlockVisible,
+	[EN_GreenhouseGameGetters.GET_BONUS_BLOCK_PAYED_GH]: state =>
+		state.isBonusBlockPayedVisible,
 	[EN_GreenhouseGameGetters.GET_START_GAME_GH]: state => state.isStartGame,
 	[EN_GreenhouseGameGetters.GET_POINTS_GH]: state => state.points,
 

@@ -27,7 +27,7 @@
           
           </div>
         
-          <div :class='styles.achievement'>
+          <div :class='styles.achievement' v-if='GET_POINTS_GH >= 180'>
             <div :class='styles.achievementIcon'>
               <p :class='styles.achievementName'>
                 “Экспертный наблюдатель”
@@ -89,15 +89,15 @@ export default Vue.extend({
   methods: {
     ...mapMutations([
       EN_GreenhouseGameMutation.HIDE_VICTORY_BLOCK_GH,
-      EN_GreenhouseGameMutation.RESTART_GAME_GH
+      EN_GreenhouseGameMutation.RESTART_GAME_GH,
+      EN_GreenhouseGameMutation.SHOW_BONUS_BLOCK_GH,
     ]),
     restartGame() {
       this.RESTART_GAME_GH()
     },
     skipToMap() {
       this.HIDE_VICTORY_BLOCK_GH()
-      this.RESTART_GAME_GH()
-      this.$router.push({ name: 'home' })
+      this.SHOW_BONUS_BLOCK_GH()
     }
   }
 })
