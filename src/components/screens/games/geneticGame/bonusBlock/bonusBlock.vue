@@ -1,11 +1,11 @@
 <template>
-  <div :class='styles.bonusBlockWrapper' v-if='GET_BONUS_BLOCK_GH'>
+  <div :class='styles.bonusBlockWrapper' v-if='GET_BONUS_BLOCK_GN'>
     <div :class='styles.bonusBlock'>
 
       <div :class='styles.contentWrapper'>
         <div :class='styles.contentText'>
           <p>
-            У тебя есть возможность отблагодарить Данила и заплатить ему 100 гринкоинов!
+            У тебя есть возможность отблагодарить Машу и заплатить ей 100 гринкоинов!
           </p>
         </div>
       
@@ -29,7 +29,7 @@
         </button>
 
         <button :class='styles.payDanilBtn' @click='payDanil'>
-          Отблагодарить Данила
+          Отблагодарить Машу
         </button>
       </div>
 
@@ -42,8 +42,8 @@ import Vue from 'vue'
 import closeButton from '../../../../ui/button/closeButton/closeButton.vue'
 import iconButton from '../../../../ui/button/iconButton/iconButton.vue'
 import { mapGetters, mapMutations } from 'vuex'
-import { EN_GreenhouseGameGetters } from '@/store/modules/greenhouseGame/getters'
-import { EN_GreenhouseGameMutation } from '@/store/modules/greenhouseGame/mutations'
+import { EN_GeneticGameGetters } from '@/store/modules/geneticGame/getters'
+import { EN_GeneticGameMutation } from '@/store/modules/geneticGame/mutations'
 
 export default Vue.extend({
   name: 'bonusBlock',
@@ -53,23 +53,23 @@ export default Vue.extend({
   },
   computed: {
     ...mapGetters([
-      EN_GreenhouseGameGetters.GET_BONUS_BLOCK_GH,
+      EN_GeneticGameGetters.GET_BONUS_BLOCK_GN,
     ]),
   },
   methods: {
     ...mapMutations([
-      EN_GreenhouseGameMutation.HIDE_BONUS_BLOCK_GH,
-      EN_GreenhouseGameMutation.SHOW_BONUS_BLOCK_PAYED_GH,
-      EN_GreenhouseGameMutation.RESTART_GAME_GH
+      EN_GeneticGameMutation.HIDE_BONUS_BLOCK_GN,
+      EN_GeneticGameMutation.SHOW_BONUS_BLOCK_PAYED_GN,
+      EN_GeneticGameMutation.RESTART_GAME_GN
     ]),
     skipGame() {
-      this.HIDE_BONUS_BLOCK_GH()
-      this.RESTART_GAME_GH()
+      this.HIDE_BONUS_BLOCK_GN()
+      this.RESTART_GAME_GN()
       this.$router.push({ name: 'home' })
     },
     payDanil() {
-      this.HIDE_BONUS_BLOCK_GH()
-      this.SHOW_BONUS_BLOCK_PAYED_GH()
+      this.HIDE_BONUS_BLOCK_GN()
+      this.SHOW_BONUS_BLOCK_PAYED_GN()
     }
   }
 })

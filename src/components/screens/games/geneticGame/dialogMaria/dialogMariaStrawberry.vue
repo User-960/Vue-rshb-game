@@ -69,7 +69,11 @@ export default Vue.extend({
   name: 'dialogMariaStrawberry',
   watch: {
     GET_TIMER_STRAWBERRY_GN() {
-      if (this.GET_STRAWBERRY_LEVEL && this.GET_TIMER_STRAWBERRY_GN === 0 && this.GET_PLAYER_MISTAKES_GN === 0) {
+      if (
+          this.GET_STRAWBERRY_LEVEL && 
+          this.GET_TIMER_STRAWBERRY_GN === 0 && 
+          this.GET_PLAYER_MISTAKES_GN === 0
+        ) {
         this.INCREASE_PLAYER_MISTAKES_GN()
         this.SHOW_FIRST_MISTAKE_GN()
         this.START_FINISH_TIMER_STRAWBERRY_GN()
@@ -98,6 +102,8 @@ export default Vue.extend({
   },
   computed: {
     ...mapGetters([
+      EN_GeneticGameGetters.GET_START_GAME_GN,
+
       EN_GeneticGameGetters.GET_STRAWBERRY_LEVEL,
       EN_GeneticGameGetters.GET_STRAWBERRY_SPROUT,
       EN_GeneticGameGetters.GET_STRAWBERRY_COLOR,

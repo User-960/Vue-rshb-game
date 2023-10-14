@@ -1,17 +1,17 @@
 <template>
-  <div :class='styles.bonusBlockWrapper' v-if='GET_BONUS_BLOCK_GH'>
+  <div :class='styles.bonusBlockWrapper' v-if='GET_BONUS_BLOCK_PAYED_GN'>
     <div :class='styles.bonusBlock'>
 
       <div :class='styles.contentWrapper'>
         <div :class='styles.contentText'>
           <p>
-            У тебя есть возможность отблагодарить Данила и заплатить ему 100 гринкоинов!
+            За твой благородный поступок тебе было дополнительно начислено 100 баллов!
           </p>
         </div>
       
         <div :class='styles.balance'>
           <p>
-            Мой баланс:
+            Накоплено баллов: <span>+ {{ GET_POINTS_GN }}</span>
           </p>
           <div :class='styles.balanceIcon'>
             <iconButton>
@@ -24,12 +24,8 @@
       </div>
 
       <div :class='styles.btnWrapper'>
-        <button :class='styles.skipBtn' @click='skipGame'>
-          Назад
-        </button>
-
-        <button :class='styles.payDanilBtn' @click='payDanil'>
-          Отблагодарить Данила
+        <button :class='styles.btnMap' @click='skipToMap'>
+          Карта
         </button>
       </div>
 
@@ -42,34 +38,30 @@ import Vue from 'vue'
 import closeButton from '../../../../ui/button/closeButton/closeButton.vue'
 import iconButton from '../../../../ui/button/iconButton/iconButton.vue'
 import { mapGetters, mapMutations } from 'vuex'
-import { EN_GreenhouseGameGetters } from '@/store/modules/greenhouseGame/getters'
-import { EN_GreenhouseGameMutation } from '@/store/modules/greenhouseGame/mutations'
+import { EN_GeneticGameGetters } from '@/store/modules/geneticGame/getters'
+import { EN_GeneticGameMutation } from '@/store/modules/geneticGame/mutations'
 
 export default Vue.extend({
-  name: 'bonusBlock',
+  name: 'bonusBlockPayed',
   components: {
     closeButton,
     iconButton
   },
   computed: {
     ...mapGetters([
-      EN_GreenhouseGameGetters.GET_BONUS_BLOCK_GH,
+      EN_GeneticGameGetters.GET_BONUS_BLOCK_PAYED_GN,
+      EN_GeneticGameGetters.GET_POINTS_GN,
     ]),
   },
   methods: {
     ...mapMutations([
-      EN_GreenhouseGameMutation.HIDE_BONUS_BLOCK_GH,
-      EN_GreenhouseGameMutation.SHOW_BONUS_BLOCK_PAYED_GH,
-      EN_GreenhouseGameMutation.RESTART_GAME_GH
+      EN_GeneticGameMutation.HIDE_BONUS_BLOCK_PAYED_GN,
+      EN_GeneticGameMutation.RESTART_GAME_GN
     ]),
-    skipGame() {
-      this.HIDE_BONUS_BLOCK_GH()
-      this.RESTART_GAME_GH()
+    skipToMap() {
+      this.HIDE_BONUS_BLOCK_PAYED_GN()
+      this.RESTART_GAME_GN()
       this.$router.push({ name: 'home' })
-    },
-    payDanil() {
-      this.HIDE_BONUS_BLOCK_GH()
-      this.SHOW_BONUS_BLOCK_PAYED_GH()
     }
   }
 })

@@ -17,6 +17,8 @@ const state: IGeneticGameState = {
 	isRulesBlockVisible: false,
 	isVictoryBlockVisible: false,
 	isLossBlockVisible: false,
+	isBonusBlockVisible: false,
+	isBonusBlockPayedVisible: false,
 	isStartGame: false,
 	points: 0,
 

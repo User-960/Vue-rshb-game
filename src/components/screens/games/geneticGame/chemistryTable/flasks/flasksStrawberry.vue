@@ -125,7 +125,8 @@ export default Vue.extend({
       EN_GeneticGameMutation.SHOW_LOSS_BLOCK_GN,
       EN_GeneticGameMutation.SHOW_VICTORY_BLOCK_GN,
       EN_GeneticGameMutation.PLUS_POINTS_GN,
-      EN_GeneticGameMutation.MINUS_POINTS_GN
+      EN_GeneticGameMutation.MINUS_POINTS_GN,
+      EN_GeneticGameMutation.STOP_TIMER_STRAWBERRY_GN
     ]),
     detectMove(evt: any){
       this.isGreenFlaskRotate = false
@@ -380,6 +381,7 @@ export default Vue.extend({
                 this.isEmptyFlask = true
                 
                 this.START_FINISH_TIMER_STRAWBERRY_GN()
+                this.STOP_TIMER_STRAWBERRY_GN()
                 this.FINISH_GAME_GN()
                 this.SHOW_VICTORY_BLOCK_GN()
 

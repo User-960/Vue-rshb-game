@@ -24,7 +24,7 @@
         
       </div>
 
-      <div :class='styles.achievement'>
+      <div :class='styles.achievement' v-if='GET_POINTS_COL >= 80'>
         <div :class='styles.achievementIcon'>
           <p :class='styles.achievementName'>
             “Великий сборщик”

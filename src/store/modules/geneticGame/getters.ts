@@ -8,6 +8,8 @@ export enum EN_GeneticGameGetters {
 	GET_RULES_BLOCK_GN = 'GET_RULES_BLOCK_GN',
 	GET_VICTORY_BLOCK_GN = 'GET_VICTORY_BLOCK_GN',
 	GET_LOSS_BLOCK_GN = 'GET_LOSS_BLOCK_GN',
+	GET_BONUS_BLOCK_GN = 'GET_BONUS_BLOCK_GN',
+	GET_BONUS_BLOCK_PAYED_GN = 'GET_BONUS_BLOCK_PAYED_GN',
 	GET_START_GAME_GN = 'GET_START_GAME_GN',
 	GET_POINTS_GN = 'GET_POINTS_GN',
 
@@ -53,6 +55,10 @@ export const getters: GetterTree<IGeneticGameState, IRootState> = {
 		state.isRulesBlockVisible,
 	[EN_GeneticGameGetters.GET_VICTORY_BLOCK_GN]: state =>
 		state.isVictoryBlockVisible,
+	[EN_GeneticGameGetters.GET_BONUS_BLOCK_GN]: state =>
+		state.isBonusBlockVisible,
+	[EN_GeneticGameGetters.GET_BONUS_BLOCK_PAYED_GN]: state =>
+		state.isBonusBlockPayedVisible,
 	[EN_GeneticGameGetters.GET_LOSS_BLOCK_GN]: state => state.isLossBlockVisible,
 	[EN_GeneticGameGetters.GET_START_GAME_GN]: state => state.isStartGame,
 	[EN_GeneticGameGetters.GET_POINTS_GN]: state => state.points,

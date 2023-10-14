@@ -10,6 +10,10 @@
 
         <victoryBlockGame />
 
+        <bonusBlock />
+
+        <bonusBlockPayed />
+
         <lossBlockGame />
 
         <div :class='styles.chemistryTableWrapper'>
@@ -37,6 +41,8 @@ import dialogMariaPepper from '../dialogMaria/dialogMariaPepper.vue'
 import dialogMariaStrawberry from '../dialogMaria/dialogMariaStrawberry.vue'
 import victoryBlockGame from '../victoryBlockGame/victoryBlockGame.vue'
 import lossBlockGame from '../lossBlockGame/lossBlockGame.vue'
+import bonusBlock from '../bonusBlock/bonusBlock.vue'
+import bonusBlockPayed from '../bonusBlock/bonusBlockPayed.vue'
 import { mapGetters, mapMutations } from 'vuex'
 import { EN_GeneticGameGetters } from '@/store/modules/geneticGame/getters'
 import { EN_GeneticGameMutation } from '@/store/modules/geneticGame/mutations'
@@ -49,6 +55,8 @@ export default Vue.extend({
     rulesBlockGame,
     victoryBlockGame,
     lossBlockGame,
+    bonusBlock,
+    bonusBlockPayed,
     chemistryTable,
     dialogMariaTomato,
     dialogMariaPepper,

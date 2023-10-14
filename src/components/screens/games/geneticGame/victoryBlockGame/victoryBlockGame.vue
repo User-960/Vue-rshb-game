@@ -27,7 +27,7 @@
           
           </div>
         
-          <div :class='styles.achievement'>
+          <div :class='styles.achievement' v-if='GET_POINTS_GN >= 135'>
             <div :class='styles.achievementIcon'>
               <p :class='styles.achievementName'>
                 “Мастер скрещивания”
@@ -84,15 +84,15 @@ export default Vue.extend({
   methods: {
     ...mapMutations([
       EN_GeneticGameMutation.HIDE_VICTORY_BLOCK_GN,
-      EN_GeneticGameMutation.RESTART_GAME_GN
+      EN_GeneticGameMutation.RESTART_GAME_GN,
+      EN_GeneticGameMutation.SHOW_BONUS_BLOCK_GN,
     ]),
     restartGame() {
       this.RESTART_GAME_GN()
     },
     skipToMap() {
       this.HIDE_VICTORY_BLOCK_GN()
-      this.RESTART_GAME_GN()
-      this.$router.push({ name: 'home' })
+      this.SHOW_BONUS_BLOCK_GN()
     }
   }
 })

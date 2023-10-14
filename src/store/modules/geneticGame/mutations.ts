@@ -20,6 +20,10 @@ export enum EN_GeneticGameMutation {
 	HIDE_VICTORY_BLOCK_GN = 'HIDE_VICTORY_BLOCK_GN',
 	SHOW_LOSS_BLOCK_GN = 'SHOW_LOSS_BLOCK_GN',
 	HIDE_LOSS_BLOCK_GN = 'HIDE_LOSS_BLOCK_GN',
+	SHOW_BONUS_BLOCK_GN = 'SHOW_BONUS_BLOCK_GN',
+	HIDE_BONUS_BLOCK_GN = 'HIDE_BONUS_BLOCK_GN',
+	SHOW_BONUS_BLOCK_PAYED_GN = 'SHOW_BONUS_BLOCK_PAYED_GN',
+	HIDE_BONUS_BLOCK_PAYED_GN = 'HIDE_BONUS_BLOCK_PAYED_GN',
 	START_GAME_GN = 'START_GAME_GN',
 	FINISH_GAME_GN = 'FINISH_GAME_GN',
 	PLUS_POINTS_GN = 'PLUS_POINTS_GN',
@@ -32,6 +36,7 @@ export enum EN_GeneticGameMutation {
 	START_FINISH_TIMER_PEPPER_GN = 'START_FINISH_TIMER_PEPPER_GN',
 	UPDATE_TIMER_STRAWBERRY_GN = 'UPDATE_TIMER_STRAWBERRY_GN',
 	START_FINISH_TIMER_STRAWBERRY_GN = 'START_FINISH_TIMER_STRAWBERRY_GN',
+	STOP_TIMER_STRAWBERRY_GN = 'STOP_TIMER_STRAWBERRY_GN',
 
 	PLAY_BACK_MUSIC_GAME_GN = 'PLAY_BACK_MUSIC_GAME_GN',
 	STOP_BACK_MUSIC_GAME_GN = 'STOP_BACK_MUSIC_GAME_GN',
@@ -82,6 +87,8 @@ export const mutations: MutationTree<IGeneticGameState> = {
 		state.isRulesBlockVisible = false
 		state.isVictoryBlockVisible = false
 		state.isLossBlockVisible = false
+		state.isBonusBlockVisible = false
+		state.isBonusBlockPayedVisible = false
 		state.isStartGame = false
 		state.points = 0
 
@@ -151,6 +158,19 @@ export const mutations: MutationTree<IGeneticGameState> = {
 	[EN_GeneticGameMutation.HIDE_LOSS_BLOCK_GN](state) {
 		state.isLossBlockVisible = false
 	},
+	[EN_GeneticGameMutation.SHOW_BONUS_BLOCK_GN](state) {
+		state.isBonusBlockVisible = true
+	},
+	[EN_GeneticGameMutation.HIDE_BONUS_BLOCK_GN](state) {
+		state.isBonusBlockVisible = false
+	},
+	[EN_GeneticGameMutation.SHOW_BONUS_BLOCK_PAYED_GN](state) {
+		state.points += 100
+		state.isBonusBlockPayedVisible = true
+	},
+	[EN_GeneticGameMutation.HIDE_BONUS_BLOCK_PAYED_GN](state) {
+		state.isBonusBlockPayedVisible = false
+	},
 	[EN_GeneticGameMutation.START_GAME_GN](state) {
 		state.isStartGame = true
 	},
@@ -195,6 +215,18 @@ export const mutations: MutationTree<IGeneticGameState> = {
 			clearInterval(timerTomato)
 		}
 
+		if (state.isVictoryBlockVisible) {
+			clearInterval(timerPepper)
+		}
+
+		if (state.isBonusBlockVisible) {
+			clearInterval(timerTomato)
+		}
+
+		if (state.isBonusBlockPayedVisible) {
+			clearInterval(timerTomato)
+		}
+
 		if (state.timerTomato === 0 || !state.isTomatoLevel) {
 			clearInterval(timerTomato)
 		}
@@ -222,6 +254,18 @@ export const mutations: MutationTree<IGeneticGameState> = {
 		}
 
 		if (state.isLossBlockVisible) {
+			clearInterval(timerPepper)
+		}
+
+		if (state.isVictoryBlockVisible) {
+			clearInterval(timerPepper)
+		}
+
+		if (state.isBonusBlockVisible) {
+			clearInterval(timerPepper)
+		}
+
+		if (state.isBonusBlockPayedVisible) {
 			clearInterval(timerPepper)
 		}
 
@@ -255,11 +299,28 @@ export const mutations: MutationTree<IGeneticGameState> = {
 			clearInterval(timerStrawberry)
 		}
 
+		if (state.isVictoryBlockVisible) {
+			clearInterval(timerStrawberry)
+		}
+
+		if (state.isBonusBlockVisible) {
+			clearInterval(timerStrawberry)
+		}
+
+		if (state.isBonusBlockPayedVisible) {
+			clearInterval(timerStrawberry)
+		}
+
 		if (state.timerStrawberry === 0 || !state.isStrawberryLevel) {
 			clearInterval(timerStrawberry)
 		}
 
 		if (state.isFirstMistake || state.isSecondMistake) {
+			clearInterval(timerStrawberry)
+		}
+	},
+	[EN_GeneticGameMutation.STOP_TIMER_STRAWBERRY_GN](state) {
+		if (timerStrawberry) {
 			clearInterval(timerStrawberry)
 		}
 	},
