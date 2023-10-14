@@ -19,7 +19,7 @@
           <iconButton>
             Б
           </iconButton>
-          <p>120</p>
+          <p>{{ GET_POINTS_COL }}</p>
         </div>
       </div>
 
@@ -57,6 +57,8 @@ export default Vue.extend({
       EN_CollectorGameGetters.GET_POINTS_TOMATO_COL,
       EN_CollectorGameGetters.GET_OPEN_GAME_FIELD_TOMATO_COL,
       EN_CollectorGameGetters.GET_TOMATO_LEVEL_COL,
+
+      EN_CollectorGameGetters.GET_POINTS_COL,
     ]),
   },
   methods: {
