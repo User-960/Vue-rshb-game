@@ -67,6 +67,7 @@ export default Vue.extend({
     },
     skipToMap() {
       this.HIDE_LOSS_BLOCK_GN()
+      this.RESTART_GAME_GN()
       this.$router.push({ name: 'home' })
     }
   }

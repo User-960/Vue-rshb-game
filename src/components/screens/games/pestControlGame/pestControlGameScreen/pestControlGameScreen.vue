@@ -151,12 +151,14 @@ import { EN_PestControlGameMutation } from '@/store/modules/pestControlGame/muta
 import Vue from 'vue'
 import { mapGetters, mapMutations } from 'vuex'
 import { EN_CONFIG } from '../config/config'
-import { getRandomNumber } from '../helpers/helpers'
+import { getRandomNumber, getRandomNumberProblem } from '../helpers/helpers'
 import { AUDIO_CONFIG } from '@/config/audio'
 
 export default Vue.extend({
   name: 'pestControlGameScreen',
   data: () => ({
+    previousProblem: 0,
+
     isUltrasoundTomatoActive: false,
     isUltrasoundPepperActive: false,
     isUltrasoundStrawberryActive: false,
@@ -206,8 +208,9 @@ export default Vue.extend({
       }
     },
     GET_GAME_LOOP_PS() {
-      if (this.GET_GAME_LOOP_PS < 4 && this.GET_START_GAME_PS) {
-        let numberLevel = getRandomNumber(1, 4)
+      if (this.GET_GAME_LOOP_PS < EN_CONFIG.QUANTITY_GAME_LOOP && this.GET_START_GAME_PS) {
+        let numberLevel = getRandomNumberProblem(1, 4, this.previousProblem)
+        this.previousProblem = numberLevel
 
         if (this.GET_TOMATO_LEVEL_NUM_PS === numberLevel) {
           this.startTomatoLevel()

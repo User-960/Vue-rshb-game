@@ -63,9 +63,11 @@ export default Vue.extend({
     ...mapMutations([
       EN_CollectorGameMutation.HIDE_VICTORY_BLOCK_TOMATO_COL,
       EN_CollectorGameMutation.CLOSE_GAME_FIELD_TOMATO_COL,
+      EN_CollectorGameMutation.RESTART_GAME_COL,
     ]),
     skipToMap() {
       this.HIDE_VICTORY_BLOCK_TOMATO_COL()
+      this.RESTART_GAME_COL()
       this.$router.push({ name: 'home' })
     },
     nextLevel() {

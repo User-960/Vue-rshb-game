@@ -91,6 +91,7 @@ export default Vue.extend({
     },
     skipToMap() {
       this.HIDE_VICTORY_BLOCK_GN()
+      this.RESTART_GAME_GN()
       this.$router.push({ name: 'home' })
     }
   }

@@ -253,7 +253,13 @@ export const mutations: MutationTree<IAiGameState> = {
 			(state.isChosenBook && state.isChosenPepperLevel) ||
 			(state.isChosenBook && state.isChosenStrawberryLevel)
 		) {
-			state.isChosenNumPad = true
+			if (
+				!state.isTomatoSystemBroken &&
+				!state.isPepperSystemBroken &&
+				!state.isStrawberrySystemBroken
+			) {
+				state.isChosenNumPad = true
+			}
 		}
 	},
 	[EN_AiGameMutation.NOT_CHOOSE_NUMPAD_AI](state) {

@@ -84,6 +84,7 @@ export default Vue.extend({
     },
     skipToMap() {
       this.HIDE_VICTORY_BLOCK_AI()
+      this.RESTART_GAME_AI()
       this.$router.push({ name: 'home' })
     }
   }

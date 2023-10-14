@@ -479,7 +479,7 @@ export default Vue.extend({
           this.FILL_PEST_LINE_CRITICAL()
         }
 
-        if (this.GET_GAME_LOOP_AI < 10 && this.GET_START_GAME_AI) {
+        if (this.GET_GAME_LOOP_AI < EN_CONFIG.QUANTITY_GAME_LOOP && this.GET_START_GAME_AI) {
           let numberLevel = getRandomNumberLevel(1, 4)
 
           if (this.GET_TOMATO_LEVEL_NUM_AI === numberLevel) {
