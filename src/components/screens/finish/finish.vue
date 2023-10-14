@@ -1,6 +1,10 @@
 <template>
     <layout>
-      <template v-slot:default>
+      <template v-slot:default v-if='GET_TABLE_RATING'>
+        <ratingTable/>
+      </template>
+
+      <template v-slot:default v-else-if='!GET_TABLE_RATING'>
         <div :class='styles.finishScreen'>
           <topSection/>
 
@@ -51,7 +55,11 @@ import topSection from '../../ui/section/topSection/topSection.vue'
 import layout from '../../layout/layout.vue'
 import iconButton from '../../ui/button/iconButton/iconButton.vue'
 import exitButton from '../../ui/button/exitButton/exitButton.vue'
+import ratingTable from '../../ratingTable/ratingTable.vue'
 import social from '../../ui/social/social.vue'
+import { mapGetters, mapMutations } from 'vuex'
+import { EN_PlayerDataMutation } from '@/store/modules/playerData/mutations'
+import { EN_PlayerDataGetters } from '@/store/modules/playerData/getters'
 
 export default Vue.extend({
   name: 'finish',
@@ -62,11 +70,16 @@ export default Vue.extend({
     topSection,
     iconButton,
     exitButton,
-    social
+    social,
+    ratingTable
+  },
+  computed: {
+    ...mapGetters([EN_PlayerDataGetters.GET_TABLE_RATING])
   },
   methods: {
+    ...mapMutations([EN_PlayerDataMutation.SHOW_TABLE_RATING]),
     restartFunc() {
-      console.log('Restart game')
+      this.SHOW_TABLE_RATING()
     },
     showAwardsFunc() {
       console.log('Show Awards')

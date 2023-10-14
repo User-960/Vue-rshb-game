@@ -20,7 +20,9 @@ const state: IPlayerDataState = {
 		equipment: [],
 		harvest: [],
 		minigame: []
-	}
+	},
+
+	isTableRatingVisible: false
 }
 
 export const getDefaultPlayerDataState = () => {

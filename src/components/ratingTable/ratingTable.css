@@ -1,0 +1,226 @@
+@import '../../assets/styles/variables.css';
+
+.ratingTable {
+	background-image: url(../../../public/images/backgroundRatingTable.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+
+	/* max-width: 1280px;
+	max-height: 660px; */
+	/* width: 100%;
+	height: 100%; */
+
+	width: 1280px;
+	height: 660px;
+
+	padding-top: 25px;
+}
+
+.main {
+	margin: 0 auto;
+	max-width: 620px;
+	width: 100%;
+
+	border-radius: 12px;
+	backdrop-filter: blur(3px);
+}
+
+.tableWrapper {
+	padding: 0px 20px;
+}
+
+.tableTitle {
+	display: flex;
+}
+
+.tableTitle h6 {
+	font-weight: 700;
+	font-size: 24px;
+	line-height: 48px;
+
+	max-width: 322px;
+	width: 100%;
+
+	color: var(--secondary-text-gray);
+}
+
+.quantityPlayers {
+	display: flex;
+	align-items: center;
+}
+
+.quantityPlayers p {
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 32px;
+
+	margin-left: 16px;
+
+	color: var(--primary-green);
+}
+
+.iconPlayers {
+	width: 28px;
+	height: 28px;
+}
+
+.tablePlayer {
+	display: flex;
+	margin-top: 20px;
+}
+
+.tablePlayerWrapper {
+	display: flex;
+}
+
+.tablePlayerId,
+.tablePlayerName {
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 32px;
+
+	color: var(--primary-green);
+}
+
+.tablePlayerId {
+	width: 40px;
+	margin-right: 8px;
+}
+
+.tablePlayerName {
+	width: 260px;
+}
+
+.award {
+	display: flex;
+	align-items: center;
+	margin-left: 14px;
+}
+
+.award p {
+	margin-left: 10px;
+
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 32px;
+
+	color: var(--primary-green);
+}
+
+.iconAward {
+	width: 28px;
+	height: 28px;
+}
+
+.playerRating {
+	width: 80px;
+	margin-left: 50px;
+	align-items: center;
+
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 32px;
+
+	color: var(--primary-green);
+}
+
+.table {
+	margin-top: 20px;
+}
+
+.tableTop {
+	display: flex;
+}
+
+.tableN,
+.tableName,
+.tableAward,
+.tableProfit {
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 32px;
+
+	color: var(--secondary-text-gray);
+}
+
+.tableName {
+	margin-left: 32px;
+}
+
+.tableAward {
+	margin-left: 245px;
+}
+
+.tableProfit {
+	margin-left: 58px;
+}
+
+.playerList {
+	display: flex;
+	flex-direction: column;
+	height: 340px;
+
+	overflow: auto;
+}
+
+.playerItem {
+	display: flex;
+	align-items: center;
+	height: 41px;
+
+	margin-top: 10px;
+	margin-right: 15px;
+	padding-bottom: 5px;
+
+	border-bottom: 0.8px solid var(--secondary-text-gray);
+}
+
+.playerItemWrapper {
+	display: flex;
+}
+
+.playerItemId,
+.playerItemName {
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 32px;
+}
+
+.playerItemId {
+	width: 40px;
+	margin-right: 8px;
+}
+
+.playerItemName {
+	width: 260px;
+}
+
+.playerItemAward {
+	display: flex;
+	align-items: center;
+	margin-left: 14px;
+}
+
+.playerItemAward p {
+	margin-left: 10px;
+
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 32px;
+}
+
+.iconAward {
+	width: 28px;
+	height: 28px;
+}
+
+.playerItemRating {
+	width: 80px;
+	margin-left: 50px;
+	align-items: center;
+
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 32px;
+}
