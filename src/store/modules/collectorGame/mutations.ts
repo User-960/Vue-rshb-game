@@ -128,7 +128,7 @@ export const mutations: MutationTree<ICollectorGameState> = {
 		state.isStartGame = false
 		state.points = 0
 
-		state.timerTomato = 30
+		state.timerTomato = EN_CONFIG.TIMING_TOMATO_LEVEL_TIMER
 		state.pointsTomato = 0
 		state.isOpenGameFieldTomato = false
 		state.isTomatoLevel = false
@@ -139,7 +139,7 @@ export const mutations: MutationTree<ICollectorGameState> = {
 		state.isVictoryTomatoBlockVisible = false
 		state.isTomatoLevelCompleted = false
 
-		state.timerPepper = 30
+		state.timerPepper = EN_CONFIG.TIMING_PEPPER_LEVEL_TIMER
 		state.pointsPepper = 0
 		state.isOpenGameFieldPepper = false
 		state.isPepperLevel = false
@@ -150,7 +150,7 @@ export const mutations: MutationTree<ICollectorGameState> = {
 		state.isVictoryPepperBlockVisible = false
 		state.isPepperLevelCompleted = false
 
-		state.timerStrawberry = 30
+		state.timerStrawberry = EN_CONFIG.TIMING_STRAWBERRY_LEVEL_TIMER
 		state.pointsStrawberry = 0
 		state.isOpenGameFieldStrawberry = false
 		state.isStrawberryLevel = false
@@ -199,15 +199,24 @@ export const mutations: MutationTree<ICollectorGameState> = {
 		state.isLossBlockVisible = false
 	},
 	[EN_CollectorGameMutation.PLUS_POINTS_COL](state) {
-		if (state.pointsTomato > 15 && state.isTomatoLevel) {
+		if (
+			state.pointsTomato > EN_CONFIG.MINIMAL_POINTS_TOMATO &&
+			state.isTomatoLevel
+		) {
 			state.points += state.pointsTomato
 		}
 
-		if (state.pointsPepper > 12 && state.isPepperLevel) {
+		if (
+			state.pointsPepper > EN_CONFIG.MINIMAL_POINTS_PEPPER &&
+			state.isPepperLevel
+		) {
 			state.points += state.pointsPepper
 		}
 
-		if (state.pointsStrawberry > 10 && state.isStrawberryLevel) {
+		if (
+			state.pointsStrawberry > EN_CONFIG.MINIMAL_POINTS_STRAWBERRY &&
+			state.isStrawberryLevel
+		) {
 			state.points += state.pointsStrawberry
 		}
 	},
@@ -231,7 +240,7 @@ export const mutations: MutationTree<ICollectorGameState> = {
 	},
 
 	[EN_CollectorGameMutation.RESTART_TOMATO_LEVEL_COL](state) {
-		state.timerTomato = 30
+		state.timerTomato = EN_CONFIG.TIMING_TOMATO_LEVEL_TIMER
 		state.pointsTomato = 0
 		state.isOpenGameFieldTomato = false
 		state.isTomatoLevel = false
@@ -379,7 +388,7 @@ export const mutations: MutationTree<ICollectorGameState> = {
 	},
 
 	[EN_CollectorGameMutation.RESTART_PEPPER_LEVEL_COL](state) {
-		state.timerPepper = 30
+		state.timerPepper = EN_CONFIG.TIMING_PEPPER_LEVEL_TIMER
 		state.pointsPepper = 0
 		state.isOpenGameFieldPepper = false
 		state.isPepperLevel = false
@@ -519,7 +528,7 @@ export const mutations: MutationTree<ICollectorGameState> = {
 	},
 
 	[EN_CollectorGameMutation.RESTART_STRAWBERRY_LEVEL_COL](state) {
-		state.timerStrawberry = 30
+		state.timerStrawberry = EN_CONFIG.TIMING_STRAWBERRY_LEVEL_TIMER
 		state.pointsStrawberry = 0
 		state.isOpenGameFieldStrawberry = false
 		state.isStrawberryLevel = false

@@ -1,5 +1,7 @@
 import { Module } from 'vuex'
 
+import { EN_CONFIG } from '@/components/screens/games/collectorGame/config/config'
+
 import { actions } from './actions'
 import { getters } from './getters'
 import { mutations } from './mutations'
@@ -14,7 +16,7 @@ const state: ICollectorGameState = {
 	isStartGame: false,
 	points: 0,
 
-	timerTomato: 30,
+	timerTomato: EN_CONFIG.TIMING_TOMATO_LEVEL_TIMER,
 	pointsTomato: 0,
 	isOpenGameFieldTomato: false,
 	isTomatoLevel: false,
@@ -26,7 +28,7 @@ const state: ICollectorGameState = {
 	isLossTomatoBlockVisible: false,
 	isTomatoLevelCompleted: false,
 
-	timerPepper: 30,
+	timerPepper: EN_CONFIG.TIMING_PEPPER_LEVEL_TIMER,
 	pointsPepper: 0,
 	isOpenGameFieldPepper: false,
 	isPepperLevel: false,
@@ -38,7 +40,7 @@ const state: ICollectorGameState = {
 	isLossPepperBlockVisible: false,
 	isPepperLevelCompleted: false,
 
-	timerStrawberry: 30,
+	timerStrawberry: EN_CONFIG.TIMING_STRAWBERRY_LEVEL_TIMER,
 	pointsStrawberry: 0,
 	isOpenGameFieldStrawberry: false,
 	isStrawberryLevel: false,

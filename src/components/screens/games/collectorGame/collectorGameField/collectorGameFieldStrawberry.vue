@@ -97,7 +97,7 @@ export default Vue.extend({
   },
   watch: {
     GET_TIMER_STRAWBERRY_COL() {
-      if (this.GET_TIMER_STRAWBERRY_COL === 0 && this.GET_STRAWBERRY_LEVEL_COL && this.GET_POINTS_STRAWBERRY_COL > 15) {
+      if (this.GET_TIMER_STRAWBERRY_COL === 0 && this.GET_STRAWBERRY_LEVEL_COL && this.GET_POINTS_STRAWBERRY_COL > EN_CONFIG.MINIMAL_POINTS_STRAWBERRY) {
         this.PLUS_POINTS_COL()
         
         this.FINISH_STRAWBERRY_LEVEL_COL()
@@ -107,7 +107,7 @@ export default Vue.extend({
         this.SHOW_VICTORY_BLOCK_STRAWBERRY_COL()
       }
 
-      if (this.GET_TIMER_STRAWBERRY_COL === 0 && this.GET_STRAWBERRY_LEVEL_COL && this.GET_POINTS_STRAWBERRY_COL < 15) {
+      if (this.GET_TIMER_STRAWBERRY_COL === 0 && this.GET_STRAWBERRY_LEVEL_COL && this.GET_POINTS_STRAWBERRY_COL < EN_CONFIG.MINIMAL_POINTS_STRAWBERRY) {
         this.FINISH_STRAWBERRY_LEVEL_COL()
         this.START_FINISH_TIMER_STRAWBERRY_COL()
         this.START_FINISH_ALL_STRAWBERRIES_INTERVAL_COL()
@@ -128,7 +128,7 @@ export default Vue.extend({
         this.GENERATE_COLLECTOR_STRAWBERRY_COL()
         this.START_FINISH_ALL_STRAWBERRIES_INTERVAL_COL()
 
-        document.addEventListener('keydown', (event) => {
+        document.addEventListener('keyup', (event) => {
           if (event.code == 'KeyA' && !this.isMovingLeft && !this.isMovingRight && !this.isCollectorMovedLeft && this.GET_STRAWBERRY_LEVEL_COL) {
             this.isMovingLeft = true
             if (this.isMovingLeft) {
@@ -177,7 +177,7 @@ export default Vue.extend({
         this.NOT_GENERATE_STRAWBERRY_DARK_GREEN_COL()
         this.NOT_GENERATE_COLLECTOR_STRAWBERRY_COL()
 
-        document.removeEventListener('keydown', (event) => {
+        document.removeEventListener('keyup', (event) => {
           if (event.code == 'KeyA' && !this.isMovingLeft && !this.isMovingRight && !this.isCollectorMovedLeft && this.GET_STRAWBERRY_LEVEL_COL) {
             this.isMovingLeft = true
             if (this.isMovingLeft) {
