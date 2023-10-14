@@ -19,7 +19,7 @@
         <div v-if='GET_TOMATO_SOIL_MOISTURE_CHECK_GH' :class='styles.contentTomato'>
           <ul :class='styles.characteristicsList'>
             <li :class='styles.characteristicsItem' @click='chooseOptionTomato'>25</li>
-            <li :class='styles.characteristicsItem' @click='chooseOptionTomatoSoilCorrect'>30,1</li>
+            <li :class='styles.characteristicsItem' @click='chooseOptionTomatoSoilCorrect'>30.1</li>
             <li :class='styles.characteristicsItem' @click='chooseOptionTomato'>30</li>
           </ul>
         </div>
@@ -141,9 +141,9 @@ export default Vue.extend({
     chooseOptionTomato() {
       if (this.GET_TOMATO_LEVEL_GH && this.GET_PLAYER_MISTAKES_TOMATO_GH === 0) {
         this.MINUS_POINTS_GH()
-        this.MINUS_TOMATO_HEALTH_PERCENTAGE_GH()
         this.INCREASE_PLAYER_MISTAKES_TOMATO_GH()
         this.SHOW_FIRST_MISTAKE_TOMATO_GH()
+        this.MINUS_TOMATO_HEALTH_PERCENTAGE_GH()
         this.START_FINISH_TIMER_TOMATO_GH()
         setTimeout(() => {
           this.HIDE_FIRST_MISTAKE_TOMATO_GH()
@@ -154,9 +154,9 @@ export default Vue.extend({
 
       if (this.GET_TOMATO_LEVEL_GH && this.GET_PLAYER_MISTAKES_TOMATO_GH === 1 && !this.GET_FIRST_MISTAKE_TOMATO_GH) {
         this.MINUS_POINTS_GH()
-        this.MINUS_TOMATO_HEALTH_PERCENTAGE_GH()
         this.INCREASE_PLAYER_MISTAKES_TOMATO_GH()
         this.SHOW_SECOND_MISTAKE_TOMATO_GH()
+        this.MINUS_TOMATO_HEALTH_PERCENTAGE_GH()
         this.START_FINISH_TIMER_TOMATO_GH()
         setTimeout(() => {
           this.FINISH_GAME_GH()

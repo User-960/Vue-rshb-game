@@ -142,9 +142,9 @@ export default Vue.extend({
     chooseOptionPepper() {
       if (this.GET_PEPPER_LEVEL_GH && this.GET_PLAYER_MISTAKES_PEPPER_GH === 0) {
         this.MINUS_POINTS_GH()
-        this.MINUS_PEPPER_HEALTH_PERCENTAGE_GH()
         this.INCREASE_PLAYER_MISTAKES_PEPPER_GH()
         this.SHOW_FIRST_MISTAKE_PEPPER_GH()
+        this.MINUS_PEPPER_HEALTH_PERCENTAGE_GH()
         this.START_FINISH_TIMER_PEPPER_GH()
         setTimeout(() => {
           this.HIDE_FIRST_MISTAKE_PEPPER_GH()
@@ -155,9 +155,9 @@ export default Vue.extend({
 
       if (this.GET_PEPPER_LEVEL_GH && this.GET_PLAYER_MISTAKES_PEPPER_GH === 1 && !this.GET_FIRST_MISTAKE_PEPPER_GH) {
         this.MINUS_POINTS_GH()
-        this.MINUS_PEPPER_HEALTH_PERCENTAGE_GH()
         this.INCREASE_PLAYER_MISTAKES_PEPPER_GH()
         this.SHOW_SECOND_MISTAKE_PEPPER_GH()
+        this.MINUS_PEPPER_HEALTH_PERCENTAGE_GH()
         this.START_FINISH_TIMER_PEPPER_GH()
         setTimeout(() => {
           this.FINISH_GAME_GH()

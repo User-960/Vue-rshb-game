@@ -194,9 +194,9 @@ export default Vue.extend({
     pourSoilWrong() {
       if (this.GET_TOMATO_LEVEL_GH && this.GET_PLAYER_MISTAKES_TOMATO_GH === 0) {
         this.MINUS_POINTS_GH()
-        this.MINUS_TOMATO_HEALTH_PERCENTAGE_GH()
         this.INCREASE_PLAYER_MISTAKES_TOMATO_GH()
         this.SHOW_FIRST_MISTAKE_TOMATO_GH()
+        this.MINUS_TOMATO_HEALTH_PERCENTAGE_GH()
         this.START_FINISH_TIMER_TOMATO_GH()
         setTimeout(() => {
           this.HIDE_FIRST_MISTAKE_TOMATO_GH()
@@ -207,9 +207,9 @@ export default Vue.extend({
 
       if (this.GET_TOMATO_LEVEL_GH && this.GET_PLAYER_MISTAKES_TOMATO_GH === 1 && !this.GET_FIRST_MISTAKE_TOMATO_GH) {
         this.MINUS_POINTS_GH()
-        this.MINUS_TOMATO_HEALTH_PERCENTAGE_GH()
         this.INCREASE_PLAYER_MISTAKES_TOMATO_GH()
         this.SHOW_SECOND_MISTAKE_TOMATO_GH()
+        this.MINUS_TOMATO_HEALTH_PERCENTAGE_GH()
         this.START_FINISH_TIMER_TOMATO_GH()
         setTimeout(() => {
           this.FINISH_GAME_GH()
@@ -226,9 +226,9 @@ export default Vue.extend({
     moisturizeAirWrong() {
       if (this.GET_PEPPER_LEVEL_GH && this.GET_PLAYER_MISTAKES_PEPPER_GH === 0) {
         this.MINUS_POINTS_GH()
-        this.MINUS_PEPPER_HEALTH_PERCENTAGE_GH()
         this.INCREASE_PLAYER_MISTAKES_PEPPER_GH()
         this.SHOW_FIRST_MISTAKE_PEPPER_GH()
+        this.MINUS_PEPPER_HEALTH_PERCENTAGE_GH()
         this.START_FINISH_TIMER_PEPPER_GH()
         setTimeout(() => {
           this.HIDE_FIRST_MISTAKE_PEPPER_GH()
@@ -239,9 +239,9 @@ export default Vue.extend({
 
       if (this.GET_PEPPER_LEVEL_GH && this.GET_PLAYER_MISTAKES_PEPPER_GH === 1 && !this.GET_FIRST_MISTAKE_PEPPER_GH) {
         this.MINUS_POINTS_GH()
-        this.MINUS_PEPPER_HEALTH_PERCENTAGE_GH()
         this.INCREASE_PLAYER_MISTAKES_PEPPER_GH()
         this.SHOW_SECOND_MISTAKE_PEPPER_GH()
+        this.MINUS_PEPPER_HEALTH_PERCENTAGE_GH()
         this.START_FINISH_TIMER_PEPPER_GH()
         setTimeout(() => {
           this.FINISH_GAME_GH()
@@ -258,9 +258,9 @@ export default Vue.extend({
     drainAirWrong() {
       if (this.GET_STRAWBERRY_LEVEL_GH && this.GET_PLAYER_MISTAKES_STRAWBERRY_GH === 0) {
         this.MINUS_POINTS_GH()
-        this.MINUS_STRAWBERRY_HEALTH_PERCENTAGE_GH()
         this.INCREASE_PLAYER_MISTAKES_STRAWBERRY_GH()
         this.SHOW_FIRST_MISTAKE_STRAWBERRY_GH()
+        this.MINUS_STRAWBERRY_HEALTH_PERCENTAGE_GH()
         this.START_FINISH_TIMER_STRAWBERRY_GH()
         setTimeout(() => {
           this.HIDE_FIRST_MISTAKE_STRAWBERRY_GH()
@@ -271,9 +271,9 @@ export default Vue.extend({
 
       if (this.GET_STRAWBERRY_LEVEL_GH && this.GET_PLAYER_MISTAKES_STRAWBERRY_GH === 1 && !this.GET_FIRST_MISTAKE_STRAWBERRY_GH) {
         this.MINUS_POINTS_GH()
-        this.MINUS_STRAWBERRY_HEALTH_PERCENTAGE_GH()
         this.INCREASE_PLAYER_MISTAKES_STRAWBERRY_GH()
         this.SHOW_SECOND_MISTAKE_STRAWBERRY_GH()
+        this.MINUS_STRAWBERRY_HEALTH_PERCENTAGE_GH()
         this.START_FINISH_TIMER_STRAWBERRY_GH()
         setTimeout(() => {
           this.FINISH_GAME_GH()

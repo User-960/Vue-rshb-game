@@ -22,7 +22,7 @@ export interface IGreenhouseGameState {
 	isTomatoSoilMoistureAction: boolean
 	isTomatoAirHumidityCheck: boolean
 	isTomatoAirTemperatureCheck: boolean
-	tomatoSoilMoistureNum: string
+	tomatoSoilMoistureNum: number
 	healthTomatoPercentage: number
 	isTomatoLevel: boolean
 	playerMistakesTomato: number
@@ -33,7 +33,7 @@ export interface IGreenhouseGameState {
 	isPepperAirHumidityCheck: boolean
 	isPepperAirHumidityAction: boolean
 	isPepperAirTemperatureCheck: boolean
-	pepperAirHumidityNum: string
+	pepperAirHumidityNum: number
 	healthPepperPercentage: number
 	isPepperLevel: boolean
 	playerMistakesPepper: number
@@ -44,7 +44,7 @@ export interface IGreenhouseGameState {
 	isStrawberryAirHumidityCheck: boolean
 	isStrawberryAirHumidityAction: boolean
 	isStrawberryAirTemperatureCheck: boolean
-	strawberryAirHumidityNum: string
+	strawberryAirHumidityNum: number
 	healthStrawberryPercentage: number
 	isStrawberryLevel: boolean
 	playerMistakesStrawberry: number

@@ -118,7 +118,7 @@ export const mutations: MutationTree<IGreenhouseGameState> = {
 		state.timerTomato = 9
 		state.isTomatoSoilMoistureCheck = false
 		state.isTomatoSoilMoistureAction = false
-		state.tomatoSoilMoistureNum = '30,1'
+		;(state.tomatoSoilMoistureNum = 30), 1
 		state.healthTomatoPercentage = 100
 		state.isTomatoAirHumidityCheck = false
 		state.isTomatoAirTemperatureCheck = false
@@ -131,7 +131,7 @@ export const mutations: MutationTree<IGreenhouseGameState> = {
 		state.isPepperAirHumidityCheck = false
 		state.isPepperAirHumidityAction = false
 		state.isPepperAirTemperatureCheck = false
-		state.pepperAirHumidityNum = '65'
+		state.pepperAirHumidityNum = 65
 		state.healthPepperPercentage = 100
 		state.isPepperLevel = false
 		state.playerMistakesPepper = 0
@@ -142,7 +142,7 @@ export const mutations: MutationTree<IGreenhouseGameState> = {
 		state.isStrawberryAirHumidityCheck = false
 		state.isStrawberryAirHumidityAction = false
 		state.isStrawberryAirTemperatureCheck = false
-		state.strawberryAirHumidityNum = '102'
+		state.strawberryAirHumidityNum = 102
 		state.healthStrawberryPercentage = 100
 		state.isStrawberryLevel = false
 		state.playerMistakesStrawberry = 0
@@ -347,7 +347,15 @@ export const mutations: MutationTree<IGreenhouseGameState> = {
 		state.isTomatoSoilMoistureAction = false
 	},
 	[EN_GreenhouseGameMutation.INCREASE_TOMATO_SOIL_MOISTURE_NUM_GH](state) {
-		state.tomatoSoilMoistureNum = '60'
+		state.tomatoSoilMoistureNum = 35
+
+		const tomatoSoilMoistureInt = setInterval(() => {
+			console.log(1)
+			state.tomatoSoilMoistureNum += 1
+			if (state.tomatoSoilMoistureNum === 60) {
+				clearInterval(tomatoSoilMoistureInt)
+			}
+		}, 60)
 	},
 	[EN_GreenhouseGameMutation.SHOW_TOMATO_AIR_HUMIDITY_CHECK_GH](state) {
 		state.isTomatoAirHumidityCheck = true
@@ -365,7 +373,25 @@ export const mutations: MutationTree<IGreenhouseGameState> = {
 		state.healthTomatoPercentage += 30
 	},
 	[EN_GreenhouseGameMutation.MINUS_TOMATO_HEALTH_PERCENTAGE_GH](state) {
-		state.healthTomatoPercentage -= 50
+		if (state.isFirstMistakeTomato && !state.isSecondMistakeTomato) {
+			const healthTomatoInt = setInterval(() => {
+				console.log(1)
+				state.healthTomatoPercentage -= 5
+				if (state.healthTomatoPercentage === 50) {
+					clearInterval(healthTomatoInt)
+				}
+			}, 50)
+		}
+
+		if (!state.isFirstMistakeTomato && state.isSecondMistakeTomato) {
+			const healthTomatoInt = setInterval(() => {
+				console.log(1)
+				state.healthTomatoPercentage -= 5
+				if (state.healthTomatoPercentage === 0) {
+					clearInterval(healthTomatoInt)
+				}
+			}, 50)
+		}
 	},
 	[EN_GreenhouseGameMutation.START_TOMATO_LEVEL_GH](state) {
 		state.isTomatoLevel = true
@@ -412,7 +438,12 @@ export const mutations: MutationTree<IGreenhouseGameState> = {
 		state.isPepperAirHumidityAction = false
 	},
 	[EN_GreenhouseGameMutation.INCREASE_PEPPER_AIR_HUMIDITY_NUM_GH](state) {
-		state.pepperAirHumidityNum = '80'
+		const pepperSoilMoistureInt = setInterval(() => {
+			state.pepperAirHumidityNum += 1
+			if (state.pepperAirHumidityNum === 80) {
+				clearInterval(pepperSoilMoistureInt)
+			}
+		}, 60)
 	},
 	[EN_GreenhouseGameMutation.SHOW_PEPPER_AIR_TEMPERATURE_CHECK_GH](state) {
 		state.isPepperAirTemperatureCheck = true
@@ -424,7 +455,23 @@ export const mutations: MutationTree<IGreenhouseGameState> = {
 		state.healthPepperPercentage += 30
 	},
 	[EN_GreenhouseGameMutation.MINUS_PEPPER_HEALTH_PERCENTAGE_GH](state) {
-		state.healthPepperPercentage -= 50
+		if (state.isFirstMistakePepper && !state.isSecondMistakePepper) {
+			const healthPepperInt = setInterval(() => {
+				state.healthPepperPercentage -= 5
+				if (state.healthPepperPercentage === 50) {
+					clearInterval(healthPepperInt)
+				}
+			}, 50)
+		}
+
+		if (!state.isFirstMistakePepper && state.isSecondMistakePepper) {
+			const healthPepperInt = setInterval(() => {
+				state.healthPepperPercentage -= 5
+				if (state.healthPepperPercentage === 0) {
+					clearInterval(healthPepperInt)
+				}
+			}, 50)
+		}
 	},
 	[EN_GreenhouseGameMutation.START_PEPPER_LEVEL_GH](state) {
 		state.isPepperLevel = true
@@ -471,7 +518,12 @@ export const mutations: MutationTree<IGreenhouseGameState> = {
 		state.isStrawberryAirHumidityAction = false
 	},
 	[EN_GreenhouseGameMutation.REDUCE_STRAWBERRY_AIR_HUMIDITY_NUM_GH](state) {
-		state.strawberryAirHumidityNum = '78'
+		const strawberrySoilMoistureInt = setInterval(() => {
+			state.strawberryAirHumidityNum -= 1
+			if (state.strawberryAirHumidityNum === 78) {
+				clearInterval(strawberrySoilMoistureInt)
+			}
+		}, 60)
 	},
 	[EN_GreenhouseGameMutation.SHOW_STRAWBERRY_AIR_TEMPERATURE_CHECK_GH](state) {
 		state.isStrawberryAirTemperatureCheck = true
@@ -483,7 +535,23 @@ export const mutations: MutationTree<IGreenhouseGameState> = {
 		state.healthStrawberryPercentage += 30
 	},
 	[EN_GreenhouseGameMutation.MINUS_STRAWBERRY_HEALTH_PERCENTAGE_GH](state) {
-		state.healthStrawberryPercentage -= 50
+		if (state.isFirstMistakeStrawberry && !state.isSecondMistakeStrawberry) {
+			const healthStrawberryInt = setInterval(() => {
+				state.healthStrawberryPercentage -= 5
+				if (state.healthStrawberryPercentage === 50) {
+					clearInterval(healthStrawberryInt)
+				}
+			}, 50)
+		}
+
+		if (!state.isFirstMistakeStrawberry && state.isSecondMistakeStrawberry) {
+			const healthStrawberryInt = setInterval(() => {
+				state.healthStrawberryPercentage -= 5
+				if (state.healthStrawberryPercentage === 0) {
+					clearInterval(healthStrawberryInt)
+				}
+			}, 50)
+		}
 	},
 	[EN_GreenhouseGameMutation.START_STRAWBERRY_LEVEL_GH](state) {
 		state.isStrawberryLevel = true

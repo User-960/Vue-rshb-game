@@ -143,9 +143,9 @@ export default Vue.extend({
     chooseOptionStrawberry() {
       if (this.GET_STRAWBERRY_LEVEL_GH && this.GET_PLAYER_MISTAKES_STRAWBERRY_GH === 0) {
         this.MINUS_POINTS_GH()
-        this.MINUS_STRAWBERRY_HEALTH_PERCENTAGE_GH()
         this.INCREASE_PLAYER_MISTAKES_STRAWBERRY_GH()
         this.SHOW_FIRST_MISTAKE_STRAWBERRY_GH()
+        this.MINUS_STRAWBERRY_HEALTH_PERCENTAGE_GH()
         this.START_FINISH_TIMER_STRAWBERRY_GH()
         setTimeout(() => {
           this.HIDE_FIRST_MISTAKE_STRAWBERRY_GH()
@@ -156,9 +156,9 @@ export default Vue.extend({
 
       if (this.GET_STRAWBERRY_LEVEL_GH && this.GET_PLAYER_MISTAKES_STRAWBERRY_GH === 1 && !this.GET_FIRST_MISTAKE_STRAWBERRY_GH) {
         this.MINUS_POINTS_GH()
-        this.MINUS_STRAWBERRY_HEALTH_PERCENTAGE_GH()
         this.INCREASE_PLAYER_MISTAKES_STRAWBERRY_GH()
         this.SHOW_SECOND_MISTAKE_STRAWBERRY_GH()
+        this.MINUS_STRAWBERRY_HEALTH_PERCENTAGE_GH()
         this.START_FINISH_TIMER_STRAWBERRY_GH()
         setTimeout(() => {
           this.FINISH_GAME_GH()
