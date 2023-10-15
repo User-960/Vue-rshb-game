@@ -10,7 +10,7 @@ const state: IPlayerDataState = {
 	playerData: {
 		id: 0,
 		name: null,
-		gender: 'Male',
+		gender: null,
 		own_money: 0,
 		own_coins: 0,
 		credit: 0,

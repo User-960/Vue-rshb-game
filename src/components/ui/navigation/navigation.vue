@@ -26,7 +26,7 @@ import iconButton from '../button/iconButton/iconButton.vue'
 import { mapActions, mapMutations } from 'vuex'
 import { EN_HomeScreenMutation } from '@/store/modules/homeScreen/mutations'
 import { EN_PlayerDataActions } from '@/store/modules/playerData/actions'
-import { ENUSER } from '@/config/app.constants'
+import { EN_USER } from '@/config/app.constants'
 
 export default Vue.extend({
   name: 'navigation',
@@ -41,14 +41,7 @@ export default Vue.extend({
       EN_HomeScreenMutation.STOP_BACK_MUSIC_MAP
     ]),
     turnOffVolume() {
-      let id = localStorage.getItem(ENUSER.PLAYER_ID)
-
-      // if (id) {
-      //   this.GET_PLAYER(id)
-      // }
-
       this.STOP_BACK_MUSIC_MAP()
-      console.log('turn off volume')
     },
     openBank() {
       this.SHOW_MODAL_BANK()

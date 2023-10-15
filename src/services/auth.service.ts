@@ -1,5 +1,5 @@
 import { $axios } from '@/api/api'
-import { ENUSER } from '@/config/app.constants'
+import { EN_USER } from '@/config/app.constants'
 import { IPlayer } from '@/interfaces/player.interface'
 
 export enum EN_ENDPOINTS {
@@ -15,7 +15,7 @@ class AuthService {
 			})
 
 			if (data.name) {
-				localStorage.setItem(ENUSER.PLAYER_ID, String(data.id))
+				localStorage.setItem(EN_USER.PLAYER_ID, String(data.id))
 			}
 
 			return data
@@ -27,11 +27,33 @@ class AuthService {
 
 	async getUser(id: string | number) {
 		try {
-			const { data } = await $axios.get<any>(`${EN_ENDPOINTS.PLAYER}/${id}/`)
+			const { data } = await $axios.get<IPlayer>(
+				`${EN_ENDPOINTS.PLAYER}/${id}/1`
+			)
+
+			if (data.name) {
+				localStorage.setItem(EN_USER.PLAYER_DATA, JSON.stringify(data))
+			}
 
 			return data
 		} catch (error: any) {
-			return error.response.data.message
+			let errorMessage = 'Возникла ошибка при регистрации!'
+			return errorMessage
+		}
+	}
+
+	async updatePlayerMoney(id: string | number, own_money: number) {
+		try {
+			const { data } = await $axios.patch<IPlayer>(
+				`${EN_ENDPOINTS.PLAYER}/${id}/`,
+				{
+					own_money
+				}
+			)
+
+			return data
+		} catch (error: any) {
+			return error
 		}
 	}
 }

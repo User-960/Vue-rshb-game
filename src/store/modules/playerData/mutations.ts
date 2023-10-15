@@ -6,6 +6,7 @@ import { IPlayer, IUserDataForm } from '@/interfaces/player.interface'
 export enum EN_PlayerDataMutation {
 	CREATE_PLAYER = 'CREATE_PLAYER',
 	GET_PLAYER = 'GET_PLAYER',
+	UPDATE_PLAYER = 'UPDATE_PLAYER',
 
 	TAKE_CREDIT = 'TAKE_CREDIT',
 	RETURN_CREDIT = 'RETURN_CREDIT',
@@ -21,12 +22,15 @@ export const mutations: MutationTree<IPlayerDataState> = {
 	[EN_PlayerDataMutation.CREATE_PLAYER](state, player: IPlayer) {
 		state.playerData = player
 	},
-	[EN_PlayerDataMutation.GET_PLAYER](state, player: IPlayer) {},
+	[EN_PlayerDataMutation.GET_PLAYER](state, player: IPlayer) {
+		state.playerData = player
+	},
+	[EN_PlayerDataMutation.UPDATE_PLAYER](state, player: IPlayer) {
+		state.playerData = player
+	},
 
 	[EN_PlayerDataMutation.TAKE_CREDIT](state, player: IPlayer) {
-		if (state.playerData.own_money === 0) {
-			state.playerData.own_money = 9000
-		}
+		state.playerData.own_money = 9000
 	},
 	[EN_PlayerDataMutation.RETURN_CREDIT](state, player: IPlayer) {
 		if (state.playerData.own_money >= 9270) {
@@ -35,7 +39,7 @@ export const mutations: MutationTree<IPlayerDataState> = {
 	},
 
 	[EN_PlayerDataMutation.PAY_MONEY_MARIA](state, player: IPlayer) {
-		if (state.playerData.own_money !== 0) {
+		if (state.playerData?.own_money !== 0) {
 			state.playerData.own_money -= 100
 		}
 	},

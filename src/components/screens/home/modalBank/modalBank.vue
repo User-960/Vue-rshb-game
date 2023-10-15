@@ -5,7 +5,7 @@
         <closeButton @onclick='HIDE_MODAL_BANK'/>
       </div>
 
-      <bank v-if='isFirstCredit && GET_PLAYER_DATA.own_money === 0'>
+      <bank v-if='isFirstCredit && GET_PLAYER_DATA.own_money === 1000 || GET_PLAYER_DATA.own_money === 0'>
         <template v-slot:contentImg>
           <img 
             src='../../../../../public/images/bank.svg' 
@@ -28,7 +28,7 @@
 
       </bank>
 
-      <bank v-if='isCongrats && GET_PLAYER_DATA.own_money === 9000'>
+      <bank v-if='!isFirstCredit && isCongrats && GET_PLAYER_DATA.own_money === 9000'>
         <template v-slot:contentImg>
           <img 
             src='../../../../../public/images/flowers.svg' 
@@ -104,7 +104,7 @@
 import Vue from 'vue'
 import linkButton from '../../../ui/button/linkButton/linkButton.vue'
 import closeButton from '../../../ui/button/closeButton/closeButton.vue'
-import { mapMutations, mapGetters } from 'vuex'
+import { mapMutations, mapGetters, mapActions } from 'vuex'
 import { EN_HomeScreenGetters } from '../../../../store/modules/homeScreen/getters'
 import { EN_HomeScreenMutation } from '../../../../store/modules/homeScreen/mutations'
 import bank from '../../../ui/bank/bank.vue'
@@ -112,6 +112,7 @@ import skipButton from '../../../ui/button/skipButton/skipButton.vue'
 import { EN_PlayerDataMutation } from '@/store/modules/playerData/mutations'
 import { EN_PlayerDataGetters } from '@/store/modules/playerData/getters'
 import vClickOutside from 'v-click-outside'
+import { EN_PlayerDataActions } from '@/store/modules/playerData/actions'
 
 export default Vue.extend({
   name: 'modalBank',
@@ -140,9 +141,14 @@ export default Vue.extend({
       EN_PlayerDataMutation.TAKE_CREDIT,
       EN_PlayerDataMutation.RETURN_CREDIT,
     ]),
+    ...mapActions([
+      EN_PlayerDataActions.UPDATE_PLAYER_MONEY
+    ]),
     takeCredit() {
       if (this.isFirstCredit) {
         this.TAKE_CREDIT()
+        this.UPDATE_PLAYER_MONEY(this.GET_PLAYER_DATA)
+
         this.isFirstCredit = false
         this.isCongrats = true
       }

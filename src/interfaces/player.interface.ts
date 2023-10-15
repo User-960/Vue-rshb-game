@@ -6,7 +6,7 @@ export interface IUserDataForm {
 export interface IPlayer {
 	id: string | number
 	name: string | null
-	gender: 'Femala' | 'Male'
+	gender: 'Female' | 'Male' | null
 	own_money: number
 	own_coins?: number
 	credit: number

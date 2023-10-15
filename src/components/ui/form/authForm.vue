@@ -54,7 +54,7 @@ export default Vue.extend({
   },
   watch: {
     GET_PLAYER_DATA() {
-      if (this.GET_PLAYER_DATA.name !== null && this.GET_PLAYER_DATA.name) {
+      if (this.GET_PLAYER_DATA.name !== null && this.GET_PLAYER_DATA.gender !== null) {
         this.HIDE_AUTH_PLAYER()
         this.$router.push({ name: 'home' })
       } else {
