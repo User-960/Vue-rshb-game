@@ -68,7 +68,10 @@ export enum EN_AiGameMutation {
 	INCREASE_STRAWBERRY_LEVEL_MISTAKES = 'INCREASE_STRAWBERRY_LEVEL_MISTAKES',
 
 	FILL_PEST_LINE_CRITICAL = 'FILL_PEST_LINE_CRITICAL',
-	REMOVE_PEST_LINE_CRITICAL = 'REMOVE_PEST_LINE_CRITICAL'
+	REMOVE_PEST_LINE_CRITICAL = 'REMOVE_PEST_LINE_CRITICAL',
+
+	COMPLETE_AI_GAME = 'COMPLETE_AI_GAME',
+	NOT_COMPLETE_AI_GAME = 'NOT_COMPLETE_AI_GAME'
 }
 
 const audioVictory = new Audio(AUDIO_CONFIG.AUDIO_VICTORY)
@@ -379,5 +382,12 @@ export const mutations: MutationTree<IAiGameState> = {
 	},
 	[EN_AiGameMutation.REMOVE_PEST_LINE_CRITICAL](state) {
 		state.isPestLineCritical = false
+	},
+
+	[EN_AiGameMutation.COMPLETE_AI_GAME](state) {
+		state.isAiGameCompleted = true
+	},
+	[EN_AiGameMutation.NOT_COMPLETE_AI_GAME](state) {
+		state.isAiGameCompleted = false
 	}
 }

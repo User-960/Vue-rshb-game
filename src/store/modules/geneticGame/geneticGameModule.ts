@@ -48,7 +48,9 @@ const state: IGeneticGameState = {
 	isStrawberryLevel: false,
 	isStrawberrySprout: false,
 	isStrawberryColor: false,
-	isStrawberryModified: false
+	isStrawberryModified: false,
+
+	isGeneticGameCompleted: false
 }
 
 export const getDefaultGeneticGameState = () => {

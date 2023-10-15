@@ -45,7 +45,9 @@ export enum EN_CollectorGameGetters {
 	GET_GENERATE_COLLECTOR_STRAWBERRY_COL = 'GET_GENERATE_COLLECTOR_STRAWBERRY_COL',
 	GET_VICTORY_BLOCK_STRAWBERRY_COL = 'GET_VICTORY_BLOCK_STRAWBERRY_COL',
 	GET_lOSS_BLOCK_STRAWBERRY_COL = 'GET_lOSS_BLOCK_STRAWBERRY_COL',
-	GET_STRAWBERRY_LEVEL_COMPLETED_COL = 'GET_STRAWBERRY_LEVEL_COMPLETED_COL'
+	GET_STRAWBERRY_LEVEL_COMPLETED_COL = 'GET_STRAWBERRY_LEVEL_COMPLETED_COL',
+
+	GET_COMPLETE_COLLECTOR_GAME = 'GET_COMPLETE_COLLECTOR_GAME'
 }
 
 export const getters: GetterTree<ICollectorGameState, IRootState> = {
@@ -121,5 +123,8 @@ export const getters: GetterTree<ICollectorGameState, IRootState> = {
 	[EN_CollectorGameGetters.GET_lOSS_BLOCK_STRAWBERRY_COL]: state =>
 		state.isLossStrawberryBlockVisible,
 	[EN_CollectorGameGetters.GET_STRAWBERRY_LEVEL_COMPLETED_COL]: state =>
-		state.isStrawberryLevelCompleted
+		state.isStrawberryLevelCompleted,
+
+	[EN_CollectorGameGetters.GET_COMPLETE_COLLECTOR_GAME]: state =>
+		state.isCollectorGameCompleted
 }

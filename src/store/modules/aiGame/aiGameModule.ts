@@ -45,7 +45,8 @@ const state: IAiGameState = {
 	isChosenPepperLevel: false,
 	isChosenStrawberryLevel: false,
 
-	isPestLineCritical: false
+	isPestLineCritical: false,
+	isAiGameCompleted: false
 }
 
 export const getDefaultAiGameState = () => {

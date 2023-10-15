@@ -90,35 +90,42 @@
 }
 
 .gardenBed {
-	background-image: url(../../../../../public/images/gardenBed.svg);
 	background-repeat: no-repeat;
 	background-position: center;
 
 	position: absolute;
 	width: 50%;
-	height: 260px;
+	height: 270px;
 
 	left: 320px;
-	bottom: 82px;
+	bottom: 80px;
 }
 
-.afterFirstGame.gardenBed {
+.gardenBed.startGame {
+	background-image: url(../../../../../public/images/gardenBed.svg);
+}
+
+.gardenBed.afterFirstGame {
 	background-image: url(../../../../../public/images/plantedSeeds.svg);
 }
 
-.afterSecondGame.gardenBed {
+.gardenBed.afterSecondGame {
 	background-image: url(../../../../../public/images/sproutedSeeds.svg);
 }
 
-.beforeThirdGame.trees {
+.trees.beforeThirdGame {
 	background-image: url(../../../../../public/images/treesYellow.svg);
+
+	animation: opacityBeforeTrirdGame 5s;
 }
 
-.beforeThirdGame.gardenBed {
+.gardenBed.beforeThirdGame {
 	background-image: url(../../../../../public/images/gardenBedYellow.svg);
+
+	animation: opacityBeforeTrirdGame 5s;
 }
 
-.beforeFourthGame.gardenBed {
+.gardenBed.beforeFourthGame {
 	background-image: url(../../../../../public/images/pestAttack.svg);
 
 	width: 54%;
@@ -128,11 +135,11 @@
 	bottom: 35px;
 }
 
-.beforeFifthGame.trees {
+.trees.beforeFifthGame {
 	background-image: url(../../../../../public/images/treesApples.svg);
 }
 
-.beforeFifthGame.gardenBed {
+.gardenBed.beforeFifthGame {
 	background-image: url(../../../../../public/images/harvestRiped.svg);
 
 	width: 51%;
@@ -140,4 +147,31 @@
 
 	left: 316px;
 	bottom: 62px;
+}
+
+/* animations */
+@keyframes opacityBeforeTrirdGame {
+	from {
+		opacity: 0;
+	}
+
+	20% {
+		opacity: 0.2;
+	}
+
+	40% {
+		opacity: 0.4;
+	}
+
+	60% {
+		opacity: 0.6;
+	}
+
+	80% {
+		opacity: 0.8;
+	}
+
+	to {
+		opacity: 1;
+	}
 }

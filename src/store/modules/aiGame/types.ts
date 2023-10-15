@@ -38,4 +38,6 @@ export interface IAiGameState {
 	isChosenStrawberryLevel: boolean
 
 	isPestLineCritical: boolean
+
+	isAiGameCompleted: boolean
 }

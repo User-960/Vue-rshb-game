@@ -61,12 +61,21 @@ import iconButton from '../../../../ui/button/iconButton/iconButton.vue'
 import { mapGetters, mapMutations } from 'vuex'
 import { EN_PestControlGameGetters } from '@/store/modules/pestControlGame/getters'
 import { EN_PestControlGameMutation } from '@/store/modules/pestControlGame/mutations'
+import { EN_HomeScreenMutation } from '@/store/modules/homeScreen/mutations'
 
 export default Vue.extend({
   name: 'victoryBlockGame',
   components: {
     closeButton,
     iconButton
+  },
+  watch: {
+    GET_VICTORY_BLOCK_PS() {
+      if (this.GET_VICTORY_BLOCK_PS) {
+        this.COMPLETE_PEST_CONTROL_GAME()
+        this.SHOW_MAP_BEFORE_FIFTH_GAME()
+      }
+    }
   },
   computed: {
     ...mapGetters([
@@ -78,6 +87,9 @@ export default Vue.extend({
     ...mapMutations([
       EN_PestControlGameMutation.HIDE_VICTORY_BLOCK_PS,
       EN_PestControlGameMutation.RESTART_GAME_PS,
+      EN_PestControlGameMutation.COMPLETE_PEST_CONTROL_GAME,
+
+      EN_HomeScreenMutation.SHOW_MAP_BEFORE_FIFTH_GAME
     ]),
     restartGame() {
       this.RESTART_GAME_PS()

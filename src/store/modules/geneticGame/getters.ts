@@ -45,7 +45,9 @@ export enum EN_GeneticGameGetters {
 	GET_STRAWBERRY_LEVEL = 'GET_STRAWBERRY_LEVEL',
 	GET_STRAWBERRY_SPROUT = 'GET_STRAWBERRY_SPROUT',
 	GET_STRAWBERRY_COLOR = 'GET_STRAWBERRY_COLOR',
-	GET_STRAWBERRY_MODIFIED = 'GET_STRAWBERRY_MODIFIED'
+	GET_STRAWBERRY_MODIFIED = 'GET_STRAWBERRY_MODIFIED',
+
+	GET_COMPLETE_GENETIC_GAME = 'GET_COMPLETE_GENETIC_GAME'
 }
 
 export const getters: GetterTree<IGeneticGameState, IRootState> = {
@@ -98,5 +100,8 @@ export const getters: GetterTree<IGeneticGameState, IRootState> = {
 	[EN_GeneticGameGetters.GET_STRAWBERRY_COLOR]: state =>
 		state.isStrawberryColor,
 	[EN_GeneticGameGetters.GET_STRAWBERRY_MODIFIED]: state =>
-		state.isStrawberryModified
+		state.isStrawberryModified,
+
+	[EN_GeneticGameGetters.GET_COMPLETE_GENETIC_GAME]: state =>
+		state.isGeneticGameCompleted
 }

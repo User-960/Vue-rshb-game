@@ -40,4 +40,6 @@ export interface IGeneticGameState {
 	isStrawberrySprout: boolean
 	isStrawberryColor: boolean
 	isStrawberryModified: boolean
+
+  isGeneticGameCompleted: boolean
 }

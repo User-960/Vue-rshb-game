@@ -44,6 +44,7 @@ import iconButton from '../../../../ui/button/iconButton/iconButton.vue'
 import { mapGetters, mapMutations } from 'vuex'
 import { EN_GreenhouseGameGetters } from '@/store/modules/greenhouseGame/getters'
 import { EN_GreenhouseGameMutation } from '@/store/modules/greenhouseGame/mutations'
+import { EN_HomeScreenMutation } from '@/store/modules/homeScreen/mutations'
 
 export default Vue.extend({
   name: 'bonusBlock',
@@ -60,14 +61,20 @@ export default Vue.extend({
     ...mapMutations([
       EN_GreenhouseGameMutation.HIDE_BONUS_BLOCK_GH,
       EN_GreenhouseGameMutation.SHOW_BONUS_BLOCK_PAYED_GH,
-      EN_GreenhouseGameMutation.RESTART_GAME_GH
+      EN_GreenhouseGameMutation.RESTART_GAME_GH,
+      
+      EN_HomeScreenMutation.SHOW_MAP_BEFORE_THIRD_GAME,
     ]),
     skipGame() {
       this.HIDE_BONUS_BLOCK_GH()
       this.RESTART_GAME_GH()
+
+      this.SHOW_MAP_BEFORE_THIRD_GAME()
       this.$router.push({ name: 'home' })
     },
     payDanil() {
+      this.SHOW_MAP_BEFORE_THIRD_GAME()
+
       this.HIDE_BONUS_BLOCK_GH()
       this.SHOW_BONUS_BLOCK_PAYED_GH()
     }

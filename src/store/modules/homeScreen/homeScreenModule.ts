@@ -9,7 +9,14 @@ const state: IHomeScreenState = {
 	isModalHouseVisible: false,
 	isModalBankVisible: false,
 	isModalShopVisible: false,
-	isPlayMusic: true
+	isPlayMusic: true,
+
+  isStartGame: true,
+	isAfterFirstGame: false,
+	isAfterSecondGame: false,
+	isBeforeThirdGame: false,
+	isBeforeFourthGame: false,
+	isBeforeFifthGame: false
 }
 
 export const getDefaultHomeScreenState = () => {

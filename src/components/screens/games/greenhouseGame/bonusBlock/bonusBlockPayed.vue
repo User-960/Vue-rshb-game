@@ -56,11 +56,12 @@ export default Vue.extend({
   methods: {
     ...mapMutations([
       EN_GreenhouseGameMutation.HIDE_BONUS_BLOCK_PAYED_GH,
-      EN_GreenhouseGameMutation.RESTART_GAME_GH
+      EN_GreenhouseGameMutation.RESTART_GAME_GH,
     ]),
     skipToMap() {
       this.HIDE_BONUS_BLOCK_PAYED_GH()
       this.RESTART_GAME_GH()
+
       this.$router.push({ name: 'home' })
     }
   }

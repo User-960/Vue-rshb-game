@@ -32,7 +32,9 @@ export enum EN_PestControlGameGetters {
 	GET_SELECT_DRONE = 'GET_SELECT_DRONE',
 	GET_MOVED_DRONE_TOMATO = 'GET_MOVED_DRONE_TOMATO',
 	GET_MOVED_DRONE_PEPPER = 'GET_MOVED_DRONE_PEPPER',
-	GET_MOVED_DRONE_STRAWBERRY = 'GET_MOVED_DRONE_STRAWBERRY'
+	GET_MOVED_DRONE_STRAWBERRY = 'GET_MOVED_DRONE_STRAWBERRY',
+
+	GET_COMPLETE_PEST_CONTROL_GAME = 'GET_COMPLETE_PEST_CONTROL_GAME'
 }
 
 export const getters: GetterTree<IPestControlGameState, IRootState> = {
@@ -82,5 +84,8 @@ export const getters: GetterTree<IPestControlGameState, IRootState> = {
 	[EN_PestControlGameGetters.GET_MOVED_DRONE_PEPPER]: state =>
 		state.isDroneMovedPepper,
 	[EN_PestControlGameGetters.GET_MOVED_DRONE_STRAWBERRY]: state =>
-		state.isDroneMovedStrawberry
+		state.isDroneMovedStrawberry,
+
+	[EN_PestControlGameGetters.GET_COMPLETE_PEST_CONTROL_GAME]: state =>
+		state.isPestControlGameCompleted
 }

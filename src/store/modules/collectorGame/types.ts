@@ -41,4 +41,6 @@ export interface ICollectorGameState {
 	isVictoryStrawberryBlockVisible: boolean
 	isLossStrawberryBlockVisible: boolean
 	isStrawberryLevelCompleted: boolean
+
+	isCollectorGameCompleted: boolean
 }

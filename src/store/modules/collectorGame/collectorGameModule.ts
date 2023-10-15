@@ -50,7 +50,9 @@ const state: ICollectorGameState = {
 	isGenerateCollectorStrawberry: false,
 	isVictoryStrawberryBlockVisible: false,
 	isLossStrawberryBlockVisible: false,
-	isStrawberryLevelCompleted: false
+	isStrawberryLevelCompleted: false,
+
+	isCollectorGameCompleted: false
 }
 
 export const getDefaultCollectorGameState = () => {

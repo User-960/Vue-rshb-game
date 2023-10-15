@@ -33,7 +33,9 @@ const state: IPestControlGameState = {
 	isDroneActive: false,
 	isDroneMovedTomato: false,
 	isDroneMovedPepper: false,
-	isDroneMovedStrawberry: false
+	isDroneMovedStrawberry: false,
+
+	isPestControlGameCompleted: false
 }
 
 export const getDefaultPestControlGameState = () => {

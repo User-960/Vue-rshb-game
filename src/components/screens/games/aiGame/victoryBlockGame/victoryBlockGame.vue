@@ -61,12 +61,21 @@ import iconButton from '../../../../ui/button/iconButton/iconButton.vue'
 import { mapGetters, mapMutations } from 'vuex'
 import { EN_AiGameGetters } from '@/store/modules/aiGame/getters'
 import { EN_AiGameMutation } from '@/store/modules/aiGame/mutations'
+import { EN_HomeScreenMutation } from '@/store/modules/homeScreen/mutations'
 
 export default Vue.extend({
   name: 'victoryBlockGame',
   components: {
     closeButton,
     iconButton
+  },
+  watch: {
+    GET_VICTORY_BLOCK_AI() {
+      if (this.GET_VICTORY_BLOCK_AI) {
+        this.COMPLETE_AI_GAME()
+        this.SHOW_MAP_BEFORE_FOURTH_GAME()
+      }
+    }
   },
   computed: {
     ...mapGetters([
@@ -77,7 +86,10 @@ export default Vue.extend({
   methods: {
     ...mapMutations([
       EN_AiGameMutation.HIDE_VICTORY_BLOCK_AI,
-      EN_AiGameMutation.RESTART_GAME_AI
+      EN_AiGameMutation.RESTART_GAME_AI,
+      EN_AiGameMutation.COMPLETE_AI_GAME,
+
+      EN_HomeScreenMutation.SHOW_MAP_BEFORE_FOURTH_GAME
     ]),
     restartGame() {
       this.RESTART_GAME_AI()

@@ -24,7 +24,7 @@
         
       </div>
 
-      <div :class='styles.achievement' v-if='GET_POINTS_COL >= 80'>
+      <div :class='styles.achievement' v-if='GET_POINTS_COL >= 100'>
         <div :class='styles.achievementIcon'>
           <p :class='styles.achievementName'>
             “Великий сборщик”
@@ -65,12 +65,21 @@ import iconButton from '../../../../ui/button/iconButton/iconButton.vue'
 import { mapGetters, mapMutations } from 'vuex'
 import { EN_CollectorGameGetters } from '@/store/modules/collectorGame/getters'
 import { EN_CollectorGameMutation } from '@/store/modules/collectorGame/mutations'
+import { EN_HomeScreenMutation } from '@/store/modules/homeScreen/mutations'
 
 export default Vue.extend({
   name: 'victoryBlockGame',
   components: {
     closeButton,
     iconButton
+  },
+  watch: {
+    GET_VICTORY_BLOCK_COL() {
+      if (this.GET_VICTORY_BLOCK_COL) {
+        this.COMPLETE_COLLECTOR_GAME()
+        this.SHOW_MAP_AFTER_FIFTH_GAME()
+      }
+    }
   },
   computed: {
     ...mapGetters([
@@ -82,6 +91,9 @@ export default Vue.extend({
     ...mapMutations([
       EN_CollectorGameMutation.HIDE_VICTORY_BLOCK_COL,
       EN_CollectorGameMutation.RESTART_GAME_COL,
+      EN_CollectorGameMutation.COMPLETE_COLLECTOR_GAME,
+
+      EN_HomeScreenMutation.SHOW_MAP_AFTER_FIFTH_GAME
     ]),
     restartGame() {
       this.RESTART_GAME_COL()

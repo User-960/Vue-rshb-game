@@ -42,7 +42,9 @@ export enum EN_AiGameGetters {
 	GET_STRAWBERRY_HEALTH_LINE_EMPTY = 'GET_STRAWBERRY_HEALTH_LINE_EMPTY',
 	GET_STRAWBERRY_LEVEL_MISTAKES = 'GET_STRAWBERRY_LEVEL_MISTAKES',
 
-	GET_PEST_LINE_CRITICAL = 'GET_PEST_LINE_CRITICAL'
+	GET_PEST_LINE_CRITICAL = 'GET_PEST_LINE_CRITICAL',
+
+	GET_COMPLETE_AI_GAME = 'GET_COMPLETE_AI_GAME'
 }
 
 export const getters: GetterTree<IAiGameState, IRootState> = {
@@ -103,5 +105,6 @@ export const getters: GetterTree<IAiGameState, IRootState> = {
 	[EN_AiGameGetters.GET_STRAWBERRY_LEVEL_MISTAKES]: state =>
 		state.strawberryLevelMistakes,
 
-	[EN_AiGameGetters.GET_PEST_LINE_CRITICAL]: state => state.isPestLineCritical
+	[EN_AiGameGetters.GET_PEST_LINE_CRITICAL]: state => state.isPestLineCritical,
+	[EN_AiGameGetters.GET_COMPLETE_AI_GAME]: state => state.isAiGameCompleted
 }

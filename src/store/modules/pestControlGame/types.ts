@@ -26,4 +26,6 @@ export interface IPestControlGameState {
 	isDroneMovedTomato: boolean
 	isDroneMovedPepper: boolean
 	isDroneMovedStrawberry: boolean
+
+	isPestControlGameCompleted: boolean
 }

@@ -72,7 +72,10 @@ export enum EN_GeneticGameMutation {
 	SHOW_STRAWBERRY_COLOR = 'SHOW_STRAWBERRY_COLOR',
 	HIDE_STRAWBERRY_COLOR = 'HIDE_STRAWBERRY_COLOR',
 	SHOW_STRAWBERRY_MODIFIED = 'SHOW_STRAWBERRY_MODIFIED',
-	HIDE_STRAWBERRY_MODIFIED = 'HIDE_STRAWBERRY_MODIFIED'
+	HIDE_STRAWBERRY_MODIFIED = 'HIDE_STRAWBERRY_MODIFIED',
+
+	COMPLETE_GENETIC_GAME = 'COMPLETE_GENETIC_GAME',
+	NOT_COMPLETE_GENETIC_GAME = 'NOT_COMPLETE_GENETIC_GAME'
 }
 
 const audioVictory = new Audio(AUDIO_CONFIG.AUDIO_VICTORY)
@@ -418,5 +421,12 @@ export const mutations: MutationTree<IGeneticGameState> = {
 	},
 	[EN_GeneticGameMutation.HIDE_STRAWBERRY_MODIFIED](state) {
 		state.isStrawberryModified = false
+	},
+
+	[EN_GeneticGameMutation.COMPLETE_GENETIC_GAME](state) {
+		state.isGeneticGameCompleted = true
+	},
+	[EN_GeneticGameMutation.NOT_COMPLETE_GENETIC_GAME](state) {
+		state.isGeneticGameCompleted = false
 	}
 }

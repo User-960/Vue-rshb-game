@@ -60,7 +60,9 @@ const state: IGreenhouseGameState = {
 	isStrawberryLevel: false,
 	playerMistakesStrawberry: 0,
 	isFirstMistakeStrawberry: false,
-	isSecondMistakeStrawberry: false
+	isSecondMistakeStrawberry: false,
+
+	isGreenhouseGameCompleted: false
 }
 
 export const getDefaultGreenhouseGameState = () => {

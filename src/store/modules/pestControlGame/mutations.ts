@@ -50,7 +50,10 @@ export enum EN_PestControlGameMutation {
 	MOVE_DRONE_PEPPER = 'MOVE_DRONE_PEPPER',
 	NOT_MOVE_DRONE_PEPPER = 'NOT_MOVE_DRONE_PEPPER',
 	MOVE_DRONE_STRAWBERRY = 'MOVE_DRONE_STRAWBERRY',
-	NOT_MOVE_DRONE_STRAWBERRY = 'NOT_MOVE_DRONE_STRAWBERRY'
+	NOT_MOVE_DRONE_STRAWBERRY = 'NOT_MOVE_DRONE_STRAWBERRY',
+
+	COMPLETE_PEST_CONTROL_GAME = 'COMPLETE_PEST_CONTROL_GAME',
+	NOT_COMPLETE_PEST_CONTROL_GAME = 'NOT_COMPLETE_PEST_CONTROL_GAME'
 }
 
 const audioVictory = new Audio(AUDIO_CONFIG.AUDIO_VICTORY)
@@ -224,5 +227,12 @@ export const mutations: MutationTree<IPestControlGameState> = {
 	},
 	[EN_PestControlGameMutation.NOT_MOVE_DRONE_STRAWBERRY](state) {
 		state.isDroneMovedStrawberry = false
+	},
+
+	[EN_PestControlGameMutation.COMPLETE_PEST_CONTROL_GAME](state) {
+		state.isPestControlGameCompleted = true
+	},
+	[EN_PestControlGameMutation.NOT_COMPLETE_PEST_CONTROL_GAME](state) {
+		state.isPestControlGameCompleted = false
 	}
 }

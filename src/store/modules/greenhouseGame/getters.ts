@@ -58,7 +58,9 @@ export enum EN_GreenhouseGameGetters {
 	GET_STRAWBERRY_LEVEL_GH = 'GET_STRAWBERRY_LEVEL_GH',
 	GET_PLAYER_MISTAKES_STRAWBERRY_GH = 'GET_PLAYER_MISTAKES_STRAWBERRY_GH',
 	GET_FIRST_MISTAKE_STRAWBERRY_GH = 'GET_FIRST_MISTAKE_STRAWBERRY_GH',
-	GET_SECOND_MISTAKE_STRAWBERRY_GH = 'GET_SECOND_MISTAKE_STRAWBERRY_GH'
+	GET_SECOND_MISTAKE_STRAWBERRY_GH = 'GET_SECOND_MISTAKE_STRAWBERRY_GH',
+
+	GET_COMPLETE_GREENHOUSE_GAME = 'GET_COMPLETE_GREENHOUSE_GAME'
 }
 
 export const getters: GetterTree<IGreenhouseGameState, IRootState> = {
@@ -149,5 +151,8 @@ export const getters: GetterTree<IGreenhouseGameState, IRootState> = {
 	[EN_GreenhouseGameGetters.GET_FIRST_MISTAKE_STRAWBERRY_GH]: state =>
 		state.isFirstMistakeStrawberry,
 	[EN_GreenhouseGameGetters.GET_SECOND_MISTAKE_STRAWBERRY_GH]: state =>
-		state.isSecondMistakeStrawberry
+		state.isSecondMistakeStrawberry,
+
+	[EN_GreenhouseGameGetters.GET_COMPLETE_GREENHOUSE_GAME]: state =>
+		state.isGreenhouseGameCompleted
 }

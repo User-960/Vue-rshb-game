@@ -52,4 +52,6 @@ export interface IGreenhouseGameState {
 	playerMistakesStrawberry: number
 	isFirstMistakeStrawberry: boolean
 	isSecondMistakeStrawberry: boolean
+
+	isGreenhouseGameCompleted: boolean
 }

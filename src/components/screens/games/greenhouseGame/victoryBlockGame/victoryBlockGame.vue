@@ -73,12 +73,21 @@ import iconButton from '../../../../ui/button/iconButton/iconButton.vue'
 import { mapGetters, mapMutations } from 'vuex'
 import { EN_GreenhouseGameGetters } from '@/store/modules/greenhouseGame/getters'
 import { EN_GreenhouseGameMutation } from '@/store/modules/greenhouseGame/mutations'
+import { EN_HomeScreenMutation } from '@/store/modules/homeScreen/mutations'
 
 export default Vue.extend({
   name: 'victoryBlockGame',
   components: {
     closeButton,
     iconButton
+  },
+  watch: {
+    GET_VICTORY_BLOCK_GH() {
+      if (this.GET_VICTORY_BLOCK_GH) {
+        this.COMPLETE_GREENHOUSE_GAME()
+        this.SHOW_MAP_AFTER_SECOND_GAME()
+      }
+    }
   },
   computed: {
     ...mapGetters([
@@ -91,6 +100,9 @@ export default Vue.extend({
       EN_GreenhouseGameMutation.HIDE_VICTORY_BLOCK_GH,
       EN_GreenhouseGameMutation.RESTART_GAME_GH,
       EN_GreenhouseGameMutation.SHOW_BONUS_BLOCK_GH,
+      EN_GreenhouseGameMutation.COMPLETE_GREENHOUSE_GAME,
+
+      EN_HomeScreenMutation.SHOW_MAP_AFTER_SECOND_GAME
     ]),
     restartGame() {
       this.RESTART_GAME_GH()

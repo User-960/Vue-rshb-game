@@ -106,7 +106,10 @@ export enum EN_CollectorGameMutation {
 	HIDE_LOSS_BLOCK_STRAWBERRY_COL = 'HIDE_LOSS_BLOCK_STRAWBERRY_COL',
 	COMPLETE_STRAWBERRY_LEVEL_COL = 'COMPLETE_STRAWBERRY_LEVEL_COL',
 	NOT_COMPLETE_STRAWBERRY_LEVEL_COL = 'NOT_COMPLETE_STRAWBERRY_LEVEL_COL',
-	RESTART_STRAWBERRY_LEVEL_COL = 'RESTART_STRAWBERRY_LEVEL_COL'
+	RESTART_STRAWBERRY_LEVEL_COL = 'RESTART_STRAWBERRY_LEVEL_COL',
+
+	COMPLETE_COLLECTOR_GAME = 'COMPLETE_COLLECTOR_GAME',
+	NOT_COMPLETE_COLLECTOR_GAME = 'NOT_COMPLETE_COLLECTOR_GAME'
 }
 
 const audioVictory = new Audio(AUDIO_CONFIG.AUDIO_VICTORY)
@@ -665,5 +668,12 @@ export const mutations: MutationTree<ICollectorGameState> = {
 	},
 	[EN_CollectorGameMutation.NOT_COMPLETE_STRAWBERRY_LEVEL_COL](state) {
 		state.isStrawberryLevelCompleted = false
+	},
+
+	[EN_CollectorGameMutation.COMPLETE_COLLECTOR_GAME](state) {
+		state.isCollectorGameCompleted = true
+	},
+	[EN_CollectorGameMutation.NOT_COMPLETE_COLLECTOR_GAME](state) {
+		state.isCollectorGameCompleted = false
 	}
 }
