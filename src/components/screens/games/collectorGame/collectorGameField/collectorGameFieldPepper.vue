@@ -244,7 +244,8 @@ export default Vue.extend({
         this.previousColumn = numberColumn
 
         if (numberColumn === 1) {
-          this.makePepperGreen(allColumns[1], this.currentCellPepperGreen, 0)
+          this.makePepperGreen(allColumns[1], 1, 0)
+          this.makePepperGreenDouble(allColumns[1 + 3], 1 + 3, 0)
           this.NOT_GENERATE_PEPPER_GREEN_COL()
         }
 
@@ -255,6 +256,7 @@ export default Vue.extend({
 
         if (numberColumn === 3) {
           this.makePepperGreen(allColumns[3], 3, 0)
+          this.makePepperGreenDouble(allColumns[3 + 5], 3 + 5, 0)
           this.NOT_GENERATE_PEPPER_GREEN_COL()
         }
 
@@ -265,6 +267,7 @@ export default Vue.extend({
 
         if (numberColumn === 5) {
           this.makePepperGreen(allColumns[5], 5, 0)
+          this.makePepperGreenDouble(allColumns[5 + 3], 5 + 3, 0)
           this.NOT_GENERATE_PEPPER_GREEN_COL()
         }
 
@@ -275,6 +278,7 @@ export default Vue.extend({
 
         if (numberColumn === 7) {
           this.makePepperGreen(allColumns[7], 7, 0)
+          this.makePepperGreenDouble(allColumns[7 + 3], 7 + 3, 0)
           this.NOT_GENERATE_PEPPER_GREEN_COL()
         }
 
@@ -285,6 +289,7 @@ export default Vue.extend({
 
         if (numberColumn === 9) {
           this.makePepperGreen(allColumns[9], 9, 0)
+          this.makePepperGreenDouble(allColumns[9 - 3], 9 - 3, 0)
           this.NOT_GENERATE_PEPPER_GREEN_COL()
         }
 
@@ -295,6 +300,7 @@ export default Vue.extend({
 
         if (numberColumn === 11) {
           this.makePepperGreen(allColumns[11], 11, 0)
+          this.makePepperGreenDouble(allColumns[11 - 5], 11 - 5, 0)
           this.NOT_GENERATE_PEPPER_GREEN_COL()
         }
 
@@ -311,6 +317,7 @@ export default Vue.extend({
 
         if (numberColumn === 1) {
           this.makePepperRed(allColumns[1], 1, 0)
+          this.makePepperRedDouble(allColumns[1 + 3], 1 + 3, 0)
           this.NOT_GENERATE_PEPPER_RED_COL()
         }
 
@@ -321,6 +328,7 @@ export default Vue.extend({
 
         if (numberColumn === 3) {
           this.makePepperRed(allColumns[3], 3, 0)
+          this.makePepperRedDouble(allColumns[3 + 5], 3 + 5, 0)
           this.NOT_GENERATE_PEPPER_RED_COL()
         }
 
@@ -331,6 +339,7 @@ export default Vue.extend({
 
         if (numberColumn === 5) {
           this.makePepperRed(allColumns[5], 5, 0)
+          this.makePepperRedDouble(allColumns[5 + 3], 5 + 3, 0)
           this.NOT_GENERATE_PEPPER_RED_COL()
         }
 
@@ -341,6 +350,7 @@ export default Vue.extend({
 
         if (numberColumn === 7) {
           this.makePepperRed(allColumns[7], 7, 0)
+          this.makePepperRedDouble(allColumns[7 + 3], 7 + 3, 0)
           this.NOT_GENERATE_PEPPER_RED_COL()
         }
 
@@ -351,6 +361,7 @@ export default Vue.extend({
 
         if (numberColumn === 9) {
           this.makePepperRed(allColumns[9], 9, 0)
+          this.makePepperRedDouble(allColumns[9 - 3], 9 - 3, 0)
           this.NOT_GENERATE_PEPPER_RED_COL()
         }
 
@@ -361,6 +372,7 @@ export default Vue.extend({
 
         if (numberColumn === 11) {
           this.makePepperRed(allColumns[11], 11, 0)
+          this.makePepperRedDouble(allColumns[11 - 5], 11 - 5, 0)
           this.NOT_GENERATE_PEPPER_RED_COL()
         }
 
@@ -377,6 +389,7 @@ export default Vue.extend({
 
         if (numberColumn === 1) {
           this.makePepperDarkGreen(allColumns[1], 1, 0)
+          this.makePepperDarkGreenDouble(allColumns[1 + 3], 1 + 3, 0)
           this.NOT_GENERATE_PEPPER_DARK_GREEN_COL()
         }
 
@@ -387,6 +400,7 @@ export default Vue.extend({
 
         if (numberColumn === 3) {
           this.makePepperDarkGreen(allColumns[3], 3, 0)
+          this.makePepperDarkGreenDouble(allColumns[3 + 5], 3 + 5, 0)
           this.NOT_GENERATE_PEPPER_DARK_GREEN_COL()
         }
 
@@ -397,6 +411,7 @@ export default Vue.extend({
 
         if (numberColumn === 5) {
           this.makePepperDarkGreen(allColumns[5], 5, 0)
+          this.makePepperDarkGreenDouble(allColumns[5 + 3], 5 + 3, 0)
           this.NOT_GENERATE_PEPPER_DARK_GREEN_COL()
         }
 
@@ -407,6 +422,7 @@ export default Vue.extend({
 
         if (numberColumn === 7) {
           this.makePepperDarkGreen(allColumns[7], 7, 0)
+          this.makePepperDarkGreenDouble(allColumns[7 + 3], 7 + 3, 0)
           this.NOT_GENERATE_PEPPER_DARK_GREEN_COL()
         }
 
@@ -417,6 +433,7 @@ export default Vue.extend({
 
         if (numberColumn === 9) {
           this.makePepperDarkGreen(allColumns[9], 9, 0)
+          this.makePepperDarkGreenDouble(allColumns[9 - 3], 9 - 3, 0)
           this.NOT_GENERATE_PEPPER_DARK_GREEN_COL()
         }
 
@@ -427,6 +444,7 @@ export default Vue.extend({
 
         if (numberColumn === 11) {
           this.makePepperDarkGreen(allColumns[11], 11, 0)
+          this.makePepperDarkGreenDouble(allColumns[11 - 5], 11 - 5, 0)
           this.NOT_GENERATE_PEPPER_DARK_GREEN_COL()
         }
 
@@ -597,12 +615,27 @@ export default Vue.extend({
         this.generatorPepperGreen(this.cells, column, currentCell, currentIndexCell)
       }
     },
+    makePepperGreenDouble(column: number[], currentCell: number, currentIndexCell: number) {
+      if (this.GET_GENERATE_PEPPER_GREEN_COL) {
+        this.generatorPepperGreen(this.cells, column, currentCell, currentIndexCell)
+      }
+    },
     makePepperRed(column: number[], currentCell: number, currentIndexCell: number) {
       if (this.GET_GENERATE_PEPPER_RED_COL) {
         this.generatorPepperRed(this.cells, column, currentCell, currentIndexCell)
       }
     },
+    makePepperRedDouble(column: number[], currentCell: number, currentIndexCell: number) {
+      if (this.GET_GENERATE_PEPPER_RED_COL) {
+        this.generatorPepperRed(this.cells, column, currentCell, currentIndexCell)
+      }
+    },
     makePepperDarkGreen(column: number[], currentCell: number, currentIndexCell: number) {
+      if (this.GET_GENERATE_PEPPER_DARK_GREEN_COL) {
+        this.generatorPepperDarkGreen(this.cells, column, currentCell, currentIndexCell)
+      }
+    },
+    makePepperDarkGreenDouble(column: number[], currentCell: number, currentIndexCell: number) {
       if (this.GET_GENERATE_PEPPER_DARK_GREEN_COL) {
         this.generatorPepperDarkGreen(this.cells, column, currentCell, currentIndexCell)
       }

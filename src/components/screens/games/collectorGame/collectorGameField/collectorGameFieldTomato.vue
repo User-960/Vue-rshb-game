@@ -246,7 +246,8 @@ export default Vue.extend({
         this.previousColumn = numberColumn
 
         if (numberColumn === 1) {
-          this.makeTomatoGreen(allColumns[1], this.currentCellTomatoGreen, 0)
+          this.makeTomatoGreen(allColumns[1], 1, 0)
+          this.makeTomatoGreenDouble(allColumns[1 + 3], 1 + 3, 0)
           this.NOT_GENERATE_TOMATO_GREEN_COL()
         }
 
@@ -257,6 +258,7 @@ export default Vue.extend({
 
         if (numberColumn === 3) {
           this.makeTomatoGreen(allColumns[3], 3, 0)
+          this.makeTomatoGreenDouble(allColumns[3 + 5], 3 + 5, 0)
           this.NOT_GENERATE_TOMATO_GREEN_COL()
         }
 
@@ -267,6 +269,7 @@ export default Vue.extend({
 
         if (numberColumn === 5) {
           this.makeTomatoGreen(allColumns[5], 5, 0)
+          this.makeTomatoGreenDouble(allColumns[5 + 3], 5 + 3, 0)
           this.NOT_GENERATE_TOMATO_GREEN_COL()
         }
 
@@ -277,6 +280,7 @@ export default Vue.extend({
 
         if (numberColumn === 7) {
           this.makeTomatoGreen(allColumns[7], 7, 0)
+          this.makeTomatoGreenDouble(allColumns[7 + 3], 7 + 3, 0)
           this.NOT_GENERATE_TOMATO_GREEN_COL()
         }
 
@@ -287,6 +291,7 @@ export default Vue.extend({
 
         if (numberColumn === 9) {
           this.makeTomatoGreen(allColumns[9], 9, 0)
+          this.makeTomatoGreenDouble(allColumns[9 - 3], 9 - 3, 0)
           this.NOT_GENERATE_TOMATO_GREEN_COL()
         }
 
@@ -297,6 +302,7 @@ export default Vue.extend({
 
         if (numberColumn === 11) {
           this.makeTomatoGreen(allColumns[11], 11, 0)
+          this.makeTomatoGreenDouble(allColumns[11 - 5], 11 - 5, 0)
           this.NOT_GENERATE_TOMATO_GREEN_COL()
         }
 
@@ -313,6 +319,7 @@ export default Vue.extend({
 
         if (numberColumn === 1) {
           this.makeTomatoRed(allColumns[1], 1, 0)
+          this.makeTomatoRedDouble(allColumns[1 + 3], 1 + 3, 0)
           this.NOT_GENERATE_TOMATO_RED_COL()
         }
 
@@ -323,6 +330,7 @@ export default Vue.extend({
 
         if (numberColumn === 3) {
           this.makeTomatoRed(allColumns[3], 3, 0)
+          this.makeTomatoRedDouble(allColumns[3 + 5], 3 + 5, 0)
           this.NOT_GENERATE_TOMATO_RED_COL()
         }
 
@@ -333,6 +341,7 @@ export default Vue.extend({
 
         if (numberColumn === 5) {
           this.makeTomatoRed(allColumns[5], 5, 0)
+          this.makeTomatoRedDouble(allColumns[5 + 3], 5 + 3, 0)
           this.NOT_GENERATE_TOMATO_RED_COL()
         }
 
@@ -343,6 +352,7 @@ export default Vue.extend({
 
         if (numberColumn === 7) {
           this.makeTomatoRed(allColumns[7], 7, 0)
+          this.makeTomatoRedDouble(allColumns[7 + 3], 7 + 3, 0)
           this.NOT_GENERATE_TOMATO_RED_COL()
         }
 
@@ -353,6 +363,7 @@ export default Vue.extend({
 
         if (numberColumn === 9) {
           this.makeTomatoRed(allColumns[9], 9, 0)
+          this.makeTomatoRedDouble(allColumns[9 - 3], 9 - 3, 0)
           this.NOT_GENERATE_TOMATO_RED_COL()
         }
 
@@ -363,6 +374,7 @@ export default Vue.extend({
 
         if (numberColumn === 11) {
           this.makeTomatoRed(allColumns[11], 11, 0)
+          this.makeTomatoRedDouble(allColumns[11 - 5], 11 - 5, 0)
           this.NOT_GENERATE_TOMATO_RED_COL()
         }
 
@@ -379,6 +391,7 @@ export default Vue.extend({
 
         if (numberColumn === 1) {
           this.makeTomatoDarkGreen(allColumns[1], 1, 0)
+          this.makeTomatoDarkGreenDouble(allColumns[1 + 3], 1 + 3, 0)
           this.NOT_GENERATE_TOMATO_DARK_GREEN_COL()
         }
 
@@ -389,6 +402,7 @@ export default Vue.extend({
 
         if (numberColumn === 3) {
           this.makeTomatoDarkGreen(allColumns[3], 3, 0)
+          this.makeTomatoDarkGreenDouble(allColumns[3 + 5], 3 + 5, 0)
           this.NOT_GENERATE_TOMATO_DARK_GREEN_COL()
         }
 
@@ -399,6 +413,7 @@ export default Vue.extend({
 
         if (numberColumn === 5) {
           this.makeTomatoDarkGreen(allColumns[5], 5, 0)
+          this.makeTomatoDarkGreenDouble(allColumns[5 + 3], 5 + 3, 0)
           this.NOT_GENERATE_TOMATO_DARK_GREEN_COL()
         }
 
@@ -409,6 +424,7 @@ export default Vue.extend({
 
         if (numberColumn === 7) {
           this.makeTomatoDarkGreen(allColumns[7], 7, 0)
+          this.makeTomatoDarkGreenDouble(allColumns[7 + 3], 7 + 3, 0)
           this.NOT_GENERATE_TOMATO_DARK_GREEN_COL()
         }
 
@@ -419,6 +435,7 @@ export default Vue.extend({
 
         if (numberColumn === 9) {
           this.makeTomatoDarkGreen(allColumns[9], 9, 0)
+          this.makeTomatoDarkGreenDouble(allColumns[9 - 3], 9 - 3, 0)
           this.NOT_GENERATE_TOMATO_DARK_GREEN_COL()
         }
 
@@ -429,6 +446,7 @@ export default Vue.extend({
 
         if (numberColumn === 11) {
           this.makeTomatoDarkGreen(allColumns[11], 11, 0)
+          this.makeTomatoDarkGreenDouble(allColumns[11 - 5], 11 - 5, 0)
           this.NOT_GENERATE_TOMATO_DARK_GREEN_COL()
         }
 
@@ -599,12 +617,27 @@ export default Vue.extend({
         this.generatorTomatoGreen(this.cells, column, currentCell, currentIndexCell)
       }
     },
+    makeTomatoGreenDouble(column: number[], currentCell: number, currentIndexCell: number) {
+      if (this.GET_GENERATE_TOMATO_GREEN_COL) {
+        this.generatorTomatoGreen(this.cells, column, currentCell, currentIndexCell)
+      }
+    },
     makeTomatoRed(column: number[], currentCell: number, currentIndexCell: number) {
       if (this.GET_GENERATE_TOMATO_RED_COL) {
         this.generatorTomatoRed(this.cells, column, currentCell, currentIndexCell)
       }
     },
+    makeTomatoRedDouble(column: number[], currentCell: number, currentIndexCell: number) {
+      if (this.GET_GENERATE_TOMATO_RED_COL) {
+        this.generatorTomatoRed(this.cells, column, currentCell, currentIndexCell)
+      }
+    },
     makeTomatoDarkGreen(column: number[], currentCell: number, currentIndexCell: number) {
+      if (this.GET_GENERATE_TOMATO_DARK_GREEN_COL) {
+        this.generatorTomatoDarkGreen(this.cells, column, currentCell, currentIndexCell)
+      }
+    },
+    makeTomatoDarkGreenDouble(column: number[], currentCell: number, currentIndexCell: number) {
       if (this.GET_GENERATE_TOMATO_DARK_GREEN_COL) {
         this.generatorTomatoDarkGreen(this.cells, column, currentCell, currentIndexCell)
       }

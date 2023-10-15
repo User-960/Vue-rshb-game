@@ -244,7 +244,8 @@ export default Vue.extend({
         this.previousColumn = numberColumn
 
         if (numberColumn === 1) {
-          this.makeStrawberryGreen(allColumns[1], this.currentCellStrawberryGreen, 0)
+          this.makeStrawberryGreen(allColumns[1], 1, 0)
+          this.makeStrawberryGreenDouble(allColumns[1 + 3], 1 + 3, 0)
           this.NOT_GENERATE_STRAWBERRY_GREEN_COL()
         }
 
@@ -255,6 +256,7 @@ export default Vue.extend({
 
         if (numberColumn === 3) {
           this.makeStrawberryGreen(allColumns[3], 3, 0)
+          this.makeStrawberryGreenDouble(allColumns[3 + 5], 3 + 5, 0)
           this.NOT_GENERATE_STRAWBERRY_GREEN_COL()
         }
 
@@ -265,6 +267,7 @@ export default Vue.extend({
 
         if (numberColumn === 5) {
           this.makeStrawberryGreen(allColumns[5], 5, 0)
+          this.makeStrawberryGreenDouble(allColumns[5 + 3], 5 + 3, 0)
           this.NOT_GENERATE_STRAWBERRY_GREEN_COL()
         }
 
@@ -275,6 +278,7 @@ export default Vue.extend({
 
         if (numberColumn === 7) {
           this.makeStrawberryGreen(allColumns[7], 7, 0)
+          this.makeStrawberryGreenDouble(allColumns[7 + 3], 7 + 3, 0)
           this.NOT_GENERATE_STRAWBERRY_GREEN_COL()
         }
 
@@ -285,6 +289,7 @@ export default Vue.extend({
 
         if (numberColumn === 9) {
           this.makeStrawberryGreen(allColumns[9], 9, 0)
+          this.makeStrawberryGreenDouble(allColumns[9 - 3], 9 - 3, 0)
           this.NOT_GENERATE_STRAWBERRY_GREEN_COL()
         }
 
@@ -295,6 +300,7 @@ export default Vue.extend({
 
         if (numberColumn === 11) {
           this.makeStrawberryGreen(allColumns[11], 11, 0)
+          this.makeStrawberryGreenDouble(allColumns[11 - 5], 11 - 5, 0)
           this.NOT_GENERATE_STRAWBERRY_GREEN_COL()
         }
 
@@ -311,6 +317,7 @@ export default Vue.extend({
 
         if (numberColumn === 1) {
           this.makeStrawberryRed(allColumns[1], 1, 0)
+          this.makeStrawberryRedDouble(allColumns[1 + 3], 1 + 3, 0)
           this.NOT_GENERATE_STRAWBERRY_RED_COL()
         }
 
@@ -321,6 +328,7 @@ export default Vue.extend({
 
         if (numberColumn === 3) {
           this.makeStrawberryRed(allColumns[3], 3, 0)
+          this.makeStrawberryRedDouble(allColumns[3 + 5], 3 + 5, 0)
           this.NOT_GENERATE_STRAWBERRY_RED_COL()
         }
 
@@ -331,6 +339,7 @@ export default Vue.extend({
 
         if (numberColumn === 5) {
           this.makeStrawberryRed(allColumns[5], 5, 0)
+          this.makeStrawberryRedDouble(allColumns[5 + 3], 5 + 3, 0)
           this.NOT_GENERATE_STRAWBERRY_RED_COL()
         }
 
@@ -341,6 +350,7 @@ export default Vue.extend({
 
         if (numberColumn === 7) {
           this.makeStrawberryRed(allColumns[7], 7, 0)
+          this.makeStrawberryRedDouble(allColumns[7 + 3], 7 + 3, 0)
           this.NOT_GENERATE_STRAWBERRY_RED_COL()
         }
 
@@ -351,6 +361,7 @@ export default Vue.extend({
 
         if (numberColumn === 9) {
           this.makeStrawberryRed(allColumns[9], 9, 0)
+          this.makeStrawberryRedDouble(allColumns[9 - 3], 9 - 3, 0)
           this.NOT_GENERATE_STRAWBERRY_RED_COL()
         }
 
@@ -361,6 +372,7 @@ export default Vue.extend({
 
         if (numberColumn === 11) {
           this.makeStrawberryRed(allColumns[11], 11, 0)
+          this.makeStrawberryRedDouble(allColumns[11 - 5], 11 - 5, 0)
           this.NOT_GENERATE_STRAWBERRY_RED_COL()
         }
 
@@ -377,6 +389,7 @@ export default Vue.extend({
 
         if (numberColumn === 1) {
           this.makeStrawberryDarkGreen(allColumns[1], 1, 0)
+          this.makeStrawberryDarkGreenDouble(allColumns[1 + 3], 1 + 3, 0)
           this.NOT_GENERATE_STRAWBERRY_DARK_GREEN_COL()
         }
 
@@ -387,6 +400,7 @@ export default Vue.extend({
 
         if (numberColumn === 3) {
           this.makeStrawberryDarkGreen(allColumns[3], 3, 0)
+          this.makeStrawberryDarkGreenDouble(allColumns[3 + 5], 3 + 5, 0)
           this.NOT_GENERATE_STRAWBERRY_DARK_GREEN_COL()
         }
 
@@ -397,6 +411,7 @@ export default Vue.extend({
 
         if (numberColumn === 5) {
           this.makeStrawberryDarkGreen(allColumns[5], 5, 0)
+          this.makeStrawberryDarkGreenDouble(allColumns[5 + 3], 5 + 3, 0)
           this.NOT_GENERATE_STRAWBERRY_DARK_GREEN_COL()
         }
 
@@ -407,6 +422,7 @@ export default Vue.extend({
 
         if (numberColumn === 7) {
           this.makeStrawberryDarkGreen(allColumns[7], 7, 0)
+          this.makeStrawberryDarkGreenDouble(allColumns[7 + 3], 7 + 3, 0)
           this.NOT_GENERATE_STRAWBERRY_DARK_GREEN_COL()
         }
 
@@ -417,6 +433,7 @@ export default Vue.extend({
 
         if (numberColumn === 9) {
           this.makeStrawberryDarkGreen(allColumns[9], 9, 0)
+          this.makeStrawberryDarkGreenDouble(allColumns[9 - 3], 9 - 3, 0)
           this.NOT_GENERATE_STRAWBERRY_DARK_GREEN_COL()
         }
 
@@ -427,6 +444,7 @@ export default Vue.extend({
 
         if (numberColumn === 11) {
           this.makeStrawberryDarkGreen(allColumns[11], 11, 0)
+          this.makeStrawberryDarkGreenDouble(allColumns[11 - 5], 11 - 5, 0)
           this.NOT_GENERATE_STRAWBERRY_DARK_GREEN_COL()
         }
 
@@ -597,12 +615,27 @@ export default Vue.extend({
         this.generatorStrawberryGreen(this.cells, column, currentCell, currentIndexCell)
       }
     },
+    makeStrawberryGreenDouble(column: number[], currentCell: number, currentIndexCell: number) {
+      if (this.GET_GENERATE_STRAWBERRY_GREEN_COL) {
+        this.generatorStrawberryGreen(this.cells, column, currentCell, currentIndexCell)
+      }
+    },
     makeStrawberryRed(column: number[], currentCell: number, currentIndexCell: number) {
       if (this.GET_GENERATE_STRAWBERRY_RED_COL) {
         this.generatorStrawberryRed(this.cells, column, currentCell, currentIndexCell)
       }
     },
+    makeStrawberryRedDouble(column: number[], currentCell: number, currentIndexCell: number) {
+      if (this.GET_GENERATE_STRAWBERRY_RED_COL) {
+        this.generatorStrawberryRed(this.cells, column, currentCell, currentIndexCell)
+      }
+    },
     makeStrawberryDarkGreen(column: number[], currentCell: number, currentIndexCell: number) {
+      if (this.GET_GENERATE_STRAWBERRY_DARK_GREEN_COL) {
+        this.generatorStrawberryDarkGreen(this.cells, column, currentCell, currentIndexCell)
+      }
+    },
+    makeStrawberryDarkGreenDouble(column: number[], currentCell: number, currentIndexCell: number) {
       if (this.GET_GENERATE_STRAWBERRY_DARK_GREEN_COL) {
         this.generatorStrawberryDarkGreen(this.cells, column, currentCell, currentIndexCell)
       }
