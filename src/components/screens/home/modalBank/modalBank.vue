@@ -1,6 +1,6 @@
 <template>
   <div :class='styles.modalBankWrapper' v-if='GET_MODAL_BANK_VISIBLE'>
-    <div :class='styles.modalBank' data-testid='modalBank'>
+    <div :class='styles.modalBank' data-testid='modalBank' v-click-outside='onClickOutside'>
       <div :class='styles.closeBtnWrapper'>
         <closeButton @onclick='HIDE_MODAL_BANK'/>
       </div>
@@ -111,6 +111,7 @@ import bank from '../../../ui/bank/bank.vue'
 import skipButton from '../../../ui/button/skipButton/skipButton.vue'
 import { EN_PlayerDataMutation } from '@/store/modules/playerData/mutations'
 import { EN_PlayerDataGetters } from '@/store/modules/playerData/getters'
+import vClickOutside from 'v-click-outside'
 
 export default Vue.extend({
   name: 'modalBank',
@@ -157,8 +158,14 @@ export default Vue.extend({
         this.RETURN_CREDIT()
         this.isReturnCredit = false
       }
+    },
+    onClickOutside (event: any) {
+      this.HIDE_MODAL_BANK()
     }
-  }
+  },
+  directives: {
+    clickOutside: vClickOutside.directive
+  },
 })
 </script>
 

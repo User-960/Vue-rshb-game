@@ -1,6 +1,6 @@
 <template>
   <div :class='styles.infoLinkWrapper' v-if='GET_INFO_LINK_BLOCK_AI'>
-    <div :class='styles.infoLinkBlockGame'>
+    <div :class='styles.infoLinkBlockGame' v-click-outside='onClickOutside'>
       <div :class='styles.title'>
         Искусственный интеллект в сельском хозяйстве
         <div :class='styles.closeBtnWrapper'>
@@ -40,6 +40,7 @@ import closeButton from '../../../../ui/button/closeButton/closeButton.vue'
 import { mapGetters, mapMutations } from 'vuex'
 import { EN_AiGameGetters } from '@/store/modules/aiGame/getters'
 import { EN_AiGameMutation } from '@/store/modules/aiGame/mutations'
+import vClickOutside from 'v-click-outside'
 
 export default Vue.extend({
   name: 'infoLinkBlockGame',
@@ -75,7 +76,13 @@ export default Vue.extend({
       if (!this.GET_INFO_LINK_BLOCK_AI) {
         this.SHOW_RULES_BLOCK_AI()
       }
+    },
+    onClickOutside (event: any) {
+      this.closeBlock()
     }
+  },
+  directives: {
+    clickOutside: vClickOutside.directive
   }
 })
 </script>

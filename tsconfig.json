@@ -13,7 +13,12 @@
 		"sourceMap": true,
 		"baseUrl": ".",
 		// "typeRoots": ["src/audio.d.ts", "src/shims-vue.d.ts", "src/shims-tsx.d.ts"],
-		"types": ["webpack-env", "jest", "src/audio.d.ts"],
+		"types": [
+			"webpack-env",
+			"jest",
+			"src/audio.d.ts",
+			"types/v-click-outside.d.ts"
+		],
 		"paths": {
 			"@/*": ["src/*"]
 		},

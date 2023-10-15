@@ -1,6 +1,6 @@
 <template>
   <div :class='styles.infoLinkWrapper' v-if='GET_INFO_LINK_BLOCK_GH'>
-    <div :class='styles.infoLinkBlockGame'>
+    <div :class='styles.infoLinkBlockGame' v-click-outside='onClickOutside'>
       <div :class='styles.title'>
         <h4>Выращивание растений в закрытой среде</h4>
         <div :class='styles.closeBtnWrapper'>
@@ -40,6 +40,7 @@ import closeButton from '../../../../ui/button/closeButton/closeButton.vue'
 import { mapGetters, mapMutations } from 'vuex'
 import { EN_GreenhouseGameGetters } from '@/store/modules/greenhouseGame/getters'
 import { EN_GreenhouseGameMutation } from '@/store/modules/greenhouseGame/mutations'
+import vClickOutside from 'v-click-outside'
 
 export default Vue.extend({
   name: 'infoLinkBlockGame',
@@ -75,7 +76,13 @@ export default Vue.extend({
       if (!this.GET_INFO_LINK_BLOCK_GH) {
         this.SHOW_RULES_BLOCK_GH()
       }
+    },
+    onClickOutside (event: any) {
+      this.closeBlock()
     }
+  },
+  directives: {
+    clickOutside: vClickOutside.directive
   }
 })
 </script>

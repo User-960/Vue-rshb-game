@@ -1,6 +1,6 @@
 <template>
   <div :class='styles.infoLinkWrapper' v-if='GET_INFO_LINK_BLOCK_COL'>
-    <div :class='styles.infoLinkBlockGame'>
+    <div :class='styles.infoLinkBlockGame' v-click-outside='onClickOutside'>
       <div :class='styles.title'>
         Новый робот для сбора урожая
         <div :class='styles.closeBtnWrapper'>
@@ -40,6 +40,7 @@ import closeButton from '../../../../ui/button/closeButton/closeButton.vue'
 import { mapGetters, mapMutations } from 'vuex'
 import { EN_CollectorGameGetters } from '../../../../../store/modules/collectorGame/getters'
 import { EN_CollectorGameMutation } from '../../../../../store/modules/collectorGame/mutations'
+import vClickOutside from 'v-click-outside'
 
 export default Vue.extend({
   name: 'infoLinkBlockGame',
@@ -71,7 +72,13 @@ export default Vue.extend({
       if (!this.GET_INFO_LINK_BLOCK_COL) {
         this.SHOW_RULES_BLOCK_COL()
       }
+    },
+    onClickOutside (event: any) {
+      this.closeBlock()
     }
+  },
+  directives: {
+    clickOutside: vClickOutside.directive
   }
 })
 </script>

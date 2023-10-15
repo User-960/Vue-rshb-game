@@ -1,10 +1,10 @@
 <template>
   <div :class='styles.modalHouseWrapper' v-if='GET_MODAL_SHOP_VISIBLE'>
 
-    <div :class='styles.modalShop'>
+    <div :class='styles.modalShop' v-click-outside='onClickOutside'>
       <div :class='styles.navShop'>
         <div :class='styles.closeBtnWrapper'>
-          <closeButton @onclick="$store.commit('HIDE_MODAL_SHOP')"/>
+          <closeButton @onclick='HIDE_MODAL_SHOP'/>
         </div>
         
         <button 
@@ -89,12 +89,13 @@
 <script lang='ts'>
 import Vue from 'vue'
 import listSells from './listSells/listSells.vue'
-import choiceButton from '../../../ui/button/shopButton/choiceButton/choiceButton.vue'
 import shopLinkButton from '../../../ui/button/shopButton/shopLinkButton/shopLinkButton.vue'
 import sellButton from '../../../ui/button/shopButton/sellButton/sellButton.vue'
 import closeButton from '../../../ui/button/closeButton/closeButton.vue'
-import { mapGetters } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 import { EN_HomeScreenGetters } from '@/store/modules/homeScreen/getters'
+import vClickOutside from 'v-click-outside'
+import { EN_HomeScreenMutation } from '@/store/modules/homeScreen/mutations'
 
 const mockData = [
   {
@@ -162,6 +163,7 @@ export default Vue.extend({
     ...mapGetters([EN_HomeScreenGetters.GET_MODAL_SHOP_VISIBLE]),
   },
   methods: {
+    ...mapMutations([EN_HomeScreenMutation.HIDE_MODAL_SHOP]),
     choiceShopA() {
       this.isShopB = false
       this.isShopA = true
@@ -188,8 +190,14 @@ export default Vue.extend({
       this.isPc = false
       this.isDrone = false
       this.isRobotCollector = true
+    },
+    onClickOutside (event: any) {
+      this.HIDE_MODAL_SHOP()
     }
   },
+  directives: {
+    clickOutside: vClickOutside.directive
+  }
 })
 </script>
 

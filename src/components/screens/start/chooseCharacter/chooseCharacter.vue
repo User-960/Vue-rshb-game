@@ -3,7 +3,7 @@
     :class='styles.chooseCharacterWrapper' 
     v-if='GET_CHOOSE_CHARACTER_VISIBLE' 
   >
-    <startBlock data-testid='chooseCharacter'>
+    <startBlock data-testid='chooseCharacter' v-click-outside='onClickOutside'>
       <template v-slot:title>
         Выбери своего персонажа
       </template>
@@ -47,6 +47,7 @@ import { startScreen } from '@/store/modules/startScreen/startScreenModule'
 import skipButton from '../../../ui/button/skipButton/skipButton.vue'
 import { mapGetters, mapMutations } from 'vuex'
 import { EN_StartScreenMutation } from '@/store/modules/startScreen/mutations'
+import vClickOutside from 'v-click-outside'
 
 export default Vue.extend({
   name: 'chooseCharacter',
@@ -85,13 +86,21 @@ export default Vue.extend({
       this.SELECT_GENDER_MEN()
     },
     hideBlockChooseCharacter() {
-      if (this.GET_PLAYER_GENDER !== null) {
+      if (this.GET_PLAYER_GENDER !== null && (this.isChooseWomen || this.isChooseMen)) {
         this.HIDE_CHOOSE_CHARACTER()
         this.SHOW_AUTH_PLAYER()
-      } else {
+      } 
+      
+      if (!this.isChooseWomen || !this.isChooseMen) {
         this.isError = true
       }
+    },
+    onClickOutside (event: any) {
+      this.HIDE_CHOOSE_CHARACTER()
     }
+  },
+  directives: {
+    clickOutside: vClickOutside.directive
   }
 })
 </script>

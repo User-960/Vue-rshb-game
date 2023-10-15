@@ -14,6 +14,7 @@ import skipButton from '../../../ui/button/skipButton/skipButton.vue'
 import authForm from '../../../ui/form/authForm.vue'
 import { EN_StartScreenGetters } from '@/store/modules/startScreen/getters'
 import { mapGetters } from 'vuex'
+import vClickOutside from 'v-click-outside'
 
 export default Vue.extend({
   name: 'authPlayer',
@@ -27,11 +28,6 @@ export default Vue.extend({
   },
   computed: {
     ...mapGetters([EN_StartScreenGetters.GET_AUTH_PLAYER_VISIBLE]),
-  },
-   methods: {
-    nextFunc() {
-      console.log('Next step')
-    }
   }
 })
 </script>

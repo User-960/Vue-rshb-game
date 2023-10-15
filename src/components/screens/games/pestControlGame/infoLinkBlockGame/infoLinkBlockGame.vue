@@ -1,6 +1,6 @@
 <template>
   <div :class='styles.infoLinkWrapper' v-if='GET_INFO_LINK_BLOCK_PS'>
-    <div :class='styles.infoLinkBlockGame'>
+    <div :class='styles.infoLinkBlockGame' v-click-outside='onClickOutside'>
       <div :class='styles.title'>
         Беспилотный агроном
         <div :class='styles.closeBtnWrapper'>
@@ -41,6 +41,7 @@ import closeButton from '../../../../ui/button/closeButton/closeButton.vue'
 import { mapGetters, mapMutations } from 'vuex'
 import { EN_PestControlGameGetters } from '@/store/modules/pestControlGame/getters'
 import { EN_PestControlGameMutation } from '@/store/modules/pestControlGame/mutations'
+import vClickOutside from 'v-click-outside'
 
 export default Vue.extend({
   name: 'infoLinkBlockGame',
@@ -76,7 +77,13 @@ export default Vue.extend({
       if (!this.GET_INFO_LINK_BLOCK_PS) {
         this.SHOW_RULES_BLOCK_PS()
       }
+    },
+    onClickOutside (event: any) {
+      this.closeBlock()
     }
+  },
+  directives: {
+    clickOutside: vClickOutside.directive
   }
 })
 </script>

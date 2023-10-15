@@ -2,6 +2,7 @@
   <div :class='styles.modalHouseWrapper' v-if='GET_MODAL_HOUSE_VISIBLE' data-testid='modalHouse'>
     <div 
       :class='styles.modalHouse'
+      v-click-outside='onClickOutside'
     >
       <linkButton @onclick='openGameAI' :isGameAvailable='isGameAiAvailable'>
         Искусственный интеллект
@@ -16,7 +17,7 @@
       </linkButton>
 
       <div :class='styles.closeBtnWrapper'>
-        <closeButton @onclick="$store.commit('HIDE_MODAL_HOUSE')"/>
+        <closeButton @onclick='HIDE_MODAL_HOUSE'/>
       </div>
     </div>
   </div>
@@ -29,6 +30,7 @@ import closeButton from '../../../ui/button/closeButton/closeButton.vue'
 import { mapGetters, mapMutations } from 'vuex'
 import { EN_HomeScreenGetters } from '@/store/modules/homeScreen/getters'
 import { EN_HomeScreenMutation } from '@/store/modules/homeScreen/mutations'
+import vClickOutside from 'v-click-outside'
 
 export default Vue.extend({
   name: 'modalHouse',
@@ -63,8 +65,14 @@ export default Vue.extend({
         this.$router.push({ name: 'robot-collector' })
         this.HIDE_MODAL_HOUSE()
       }
+    },
+    onClickOutside (event: any) {
+      this.HIDE_MODAL_HOUSE()
     }
-  }
+  },
+  directives: {
+    clickOutside: vClickOutside.directive
+  },
 })
 </script>
 

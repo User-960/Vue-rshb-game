@@ -1,6 +1,6 @@
 <template>
   <div :class='styles.infoLinkWrapper' v-if='GET_INFO_LINK_BLOCK_GN'>
-    <div :class='styles.infoLinkBlockGame'>
+    <div :class='styles.infoLinkBlockGame' v-click-outside='onClickOutside'>
       <div :class='styles.title'>
         Генная инженерия в сельском хозяйстве
         <div :class='styles.closeBtnWrapper'>
@@ -40,6 +40,7 @@ import closeButton from '../../../../ui/button/closeButton/closeButton.vue'
 import { mapGetters, mapMutations } from 'vuex'
 import { EN_GeneticGameGetters } from '@/store/modules/geneticGame/getters'
 import { EN_GeneticGameMutation } from '@/store/modules/geneticGame/mutations'
+import vClickOutside from 'v-click-outside'
 
 export default Vue.extend({
   name: 'infoLinkBlockGame',
@@ -75,7 +76,13 @@ export default Vue.extend({
       if (!this.GET_INFO_LINK_BLOCK_GN) {
         this.SHOW_RULES_BLOCK_GN()
       }
+    },
+    onClickOutside (event: any) {
+      this.closeBlock()
     }
+  },
+  directives: {
+    clickOutside: vClickOutside.directive
   }
 })
 </script>

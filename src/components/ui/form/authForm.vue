@@ -1,5 +1,5 @@
 <template>
-  <div :class='styles.startBlock'>
+  <div :class='styles.startBlock' v-click-outside='onClickOutside'>
     <div :class='styles.spinnerWrapper' v-if='isLoading'>
       <loader/>
     </div>
@@ -38,6 +38,7 @@ import { IUserDataForm } from '@/interfaces/player.interface'
 import { EN_StartScreenGetters } from '@/store/modules/startScreen/getters'
 import { EN_PlayerDataActions } from '@/store/modules/playerData/actions'
 import { EN_PlayerDataGetters } from '@/store/modules/playerData/getters'
+import vClickOutside from 'v-click-outside'
 
 export default Vue.extend({
   name: 'authForm',
@@ -54,6 +55,7 @@ export default Vue.extend({
   watch: {
     GET_PLAYER_DATA() {
       if (this.GET_PLAYER_DATA.name !== null && this.GET_PLAYER_DATA.name) {
+        this.HIDE_AUTH_PLAYER()
         this.$router.push({ name: 'home' })
       } else {
         this.isLoading = false
@@ -94,7 +96,13 @@ export default Vue.extend({
       } else {
         this.isErrorEmptyName = true
       }
+    },
+    onClickOutside (event: any) {
+      this.HIDE_AUTH_PLAYER()
     }
+  },
+  directives: {
+    clickOutside: vClickOutside.directive
   }
 })
 </script>
