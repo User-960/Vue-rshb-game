@@ -11,7 +11,7 @@
       
         <div :class='styles.balance'>
           <p>
-            Мой баланс:
+            Мой баланс: {{ GET_PLAYER_DATA.own_money }} гринкоинов
           </p>
           <div :class='styles.balanceIcon'>
             <iconButton>
@@ -41,12 +41,13 @@
 import Vue from 'vue'
 import closeButton from '../../../../ui/button/closeButton/closeButton.vue'
 import iconButton from '../../../../ui/button/iconButton/iconButton.vue'
-import { mapGetters, mapMutations } from 'vuex'
+import { mapActions, mapGetters, mapMutations } from 'vuex'
 import { EN_GreenhouseGameGetters } from '@/store/modules/greenhouseGame/getters'
 import { EN_GreenhouseGameMutation } from '@/store/modules/greenhouseGame/mutations'
 import { EN_HomeScreenMutation } from '@/store/modules/homeScreen/mutations'
 import { EN_PlayerDataMutation } from '@/store/modules/playerData/mutations'
 import { EN_PlayerDataGetters } from '@/store/modules/playerData/getters'
+import { EN_PlayerDataActions } from '@/store/modules/playerData/actions'
 
 export default Vue.extend({
   name: 'bonusBlock',
@@ -69,6 +70,9 @@ export default Vue.extend({
       EN_PlayerDataMutation.PAY_MONEY_DANIL,
       EN_HomeScreenMutation.SHOW_MAP_BEFORE_THIRD_GAME,
     ]),
+    ...mapActions([
+      EN_PlayerDataActions.UPDATE_PLAYER_MONEY
+    ]),
     skipGame() {
       this.HIDE_BONUS_BLOCK_GH()
       this.RESTART_GAME_GH()
@@ -77,9 +81,10 @@ export default Vue.extend({
       this.$router.push({ name: 'home' })
     },
     payDanil() {
-      this.SHOW_MAP_BEFORE_THIRD_GAME()
-
       this.PAY_MONEY_DANIL()
+      this.UPDATE_PLAYER_MONEY(this.GET_PLAYER_DATA)
+
+      this.SHOW_MAP_BEFORE_THIRD_GAME()
       this.HIDE_BONUS_BLOCK_GH()
       this.SHOW_BONUS_BLOCK_PAYED_GH()
     }

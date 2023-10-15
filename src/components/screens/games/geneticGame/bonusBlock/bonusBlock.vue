@@ -11,7 +11,7 @@
       
         <div :class='styles.balance'>
           <p>
-            Мой баланс:
+            Мой баланс: {{ GET_PLAYER_DATA.own_money }} гринкоинов
           </p>
           <div :class='styles.balanceIcon'>
             <iconButton>
@@ -41,11 +41,12 @@
 import Vue from 'vue'
 import closeButton from '../../../../ui/button/closeButton/closeButton.vue'
 import iconButton from '../../../../ui/button/iconButton/iconButton.vue'
-import { mapGetters, mapMutations } from 'vuex'
+import { mapActions, mapGetters, mapMutations } from 'vuex'
 import { EN_GeneticGameGetters } from '@/store/modules/geneticGame/getters'
 import { EN_GeneticGameMutation } from '@/store/modules/geneticGame/mutations'
 import { EN_PlayerDataMutation } from '@/store/modules/playerData/mutations'
 import { EN_PlayerDataGetters } from '@/store/modules/playerData/getters'
+import { EN_PlayerDataActions } from '@/store/modules/playerData/actions'
 
 export default Vue.extend({
   name: 'bonusBlock',
@@ -67,6 +68,9 @@ export default Vue.extend({
 
       EN_PlayerDataMutation.PAY_MONEY_MARIA
     ]),
+    ...mapActions([
+      EN_PlayerDataActions.UPDATE_PLAYER_MONEY
+    ]),
     skipGame() {
       this.HIDE_BONUS_BLOCK_GN()
       this.RESTART_GAME_GN()
@@ -74,6 +78,8 @@ export default Vue.extend({
     },
     payMaria() {
       this.PAY_MONEY_MARIA()
+      this.UPDATE_PLAYER_MONEY(this.GET_PLAYER_DATA)
+
       this.HIDE_BONUS_BLOCK_GN()
       this.SHOW_BONUS_BLOCK_PAYED_GN()
     }

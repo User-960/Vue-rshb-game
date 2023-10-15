@@ -14,7 +14,7 @@ class AuthService {
 				gender
 			})
 
-			if (data.name) {
+			if (data.name !== null && data.gender !== null) {
 				localStorage.setItem(EN_USER.PLAYER_ID, String(data.id))
 			}
 
@@ -31,8 +31,8 @@ class AuthService {
 				`${EN_ENDPOINTS.PLAYER}/${id}/`
 			)
 
-			if (data.name) {
-				localStorage.setItem(EN_USER.PLAYER_DATA, JSON.stringify(data))
+			if (data.name !== null && data.gender !== null) {
+				localStorage.setItem(EN_USER.PLAYER_ID, String(data.id))
 			}
 
 			return data
@@ -50,6 +50,10 @@ class AuthService {
 					own_money
 				}
 			)
+
+			if (data.name !== null && data.gender !== null) {
+				localStorage.setItem(EN_USER.PLAYER_ID, String(data.id))
+			}
 
 			return data
 		} catch (error: any) {

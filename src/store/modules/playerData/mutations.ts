@@ -14,10 +14,10 @@ export enum EN_PlayerDataMutation {
 	PAY_MONEY_MARIA = 'PAY_MONEY_MARIA',
 	PAY_MONEY_DANIL = 'PAY_MONEY_DANIL',
 
-	SHOW_TABLE_RATING = 'SHOW_TABLE_RATING',
-	HIDE_TABLE_RATING = 'HIDE_TABLE_RATING',
+	SHOW_ALERT = 'SHOW_ALERT',
 
-	SHOW_ALERT = 'SHOW_ALERT'
+	SHOW_TABLE_RATING = 'SHOW_TABLE_RATING',
+	HIDE_TABLE_RATING = 'HIDE_TABLE_RATING'
 }
 
 export const mutations: MutationTree<IPlayerDataState> = {
@@ -51,13 +51,6 @@ export const mutations: MutationTree<IPlayerDataState> = {
 		}
 	},
 
-	[EN_PlayerDataMutation.SHOW_TABLE_RATING](state, player: IPlayer) {
-		state.isTableRatingVisible = true
-	},
-	[EN_PlayerDataMutation.HIDE_TABLE_RATING](state, player: IPlayer) {
-		state.isTableRatingVisible = false
-	},
-
 	[EN_PlayerDataMutation.SHOW_ALERT](state, text: string) {
 		state.alertText = text
 		state.isAlertVisible = true
@@ -65,5 +58,12 @@ export const mutations: MutationTree<IPlayerDataState> = {
 		setTimeout(() => {
 			state.isAlertVisible = false
 		}, 3200)
+	},
+
+	[EN_PlayerDataMutation.SHOW_TABLE_RATING](state, player: IPlayer) {
+		state.isTableRatingVisible = true
+	},
+	[EN_PlayerDataMutation.HIDE_TABLE_RATING](state, player: IPlayer) {
+		state.isTableRatingVisible = false
 	}
 }

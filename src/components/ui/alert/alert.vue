@@ -1,5 +1,5 @@
 <template>
-  <div :class='[styles.alert, styles.error, styles.checked]' v-if='GET_ALERT'>
+  <div :class='[styles.alert, styles.error, {[styles.checked]: GET_ALERT}]' v-if='GET_ALERT'>
 		<p :class='styles.alertText'>{{ GET_ALERT_TEXT }}</p>
 		<div :class='styles.alertProgress'></div>
 	</div>
