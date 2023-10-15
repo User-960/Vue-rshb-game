@@ -21,7 +21,7 @@
       </template>
 
       <template v-slot:contentIndicator>
-        0
+        {{ GET_PLAYER_DATA.own_money }}
       </template>
       </blockButton>
     </div>
@@ -55,6 +55,7 @@ import navigationLevels from './navigationLevels/navigationLevels.vue'
 import { EN_GreenhouseGameGetters } from '@/store/modules/greenhouseGame/getters'
 import { mapGetters, mapMutations } from 'vuex'
 import { EN_GreenhouseGameMutation } from '@/store/modules/greenhouseGame/mutations'
+import { EN_PlayerDataGetters } from '@/store/modules/playerData/getters'
 
 export default Vue.extend({
   name: 'navBarGameGreenhouse',
@@ -70,6 +71,8 @@ export default Vue.extend({
       EN_GreenhouseGameGetters.GET_TIMER_TOMATO_GH,
       EN_GreenhouseGameGetters.GET_TIMER_PEPPER_GH,
       EN_GreenhouseGameGetters.GET_TIMER_STRAWBERRY_GH,
+
+      EN_PlayerDataGetters.GET_PLAYER_DATA
     ]),
   },
   methods: {

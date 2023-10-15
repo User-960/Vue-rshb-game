@@ -23,6 +23,7 @@ export const actions: ActionTree<IPlayerDataState, IRootState> = {
 			)
 			.catch(error => console.log(error))
 	},
+
 	[EN_PlayerDataActions.GET_PLAYER](
 		{ commit }: { commit: Commit },
 		id: string | number

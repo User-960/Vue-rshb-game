@@ -143,7 +143,7 @@
       </template>
 
       <template v-slot:contentIndicator>
-        0
+        {{ GET_PLAYER_DATA.own_money }}
       </template>
       </blockButton>
     </div>
@@ -179,12 +179,15 @@ import iconButton from '../../../../ui/button/iconButton/iconButton.vue'
 import { mapGetters, mapMutations } from 'vuex'
 import { EN_CollectorGameGetters } from '@/store/modules/collectorGame/getters'
 import { EN_CollectorGameMutation } from '@/store/modules/collectorGame/mutations'
+import { EN_PlayerDataGetters } from '@/store/modules/playerData/getters'
 
 export default Vue.extend({
   name: 'navBarGameCollector',
   data: () => ({}),
   computed: {
     ...mapGetters([
+      EN_PlayerDataGetters.GET_PLAYER_DATA,
+      
       EN_CollectorGameGetters.GET_POINTS_COL,
 
       EN_CollectorGameGetters.GET_OPEN_GAME_FIELD_TOMATO_COL, 

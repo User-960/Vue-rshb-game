@@ -21,7 +21,7 @@
       </template>
 
       <template v-slot:contentIndicator>
-        0
+        {{ GET_PLAYER_DATA.own_money }}
       </template>
       </blockButton>
     </div>
@@ -55,6 +55,7 @@ import navigationLevels from './navigationLevels/navigationLevels.vue'
 import { EN_GeneticGameGetters } from '@/store/modules/geneticGame/getters'
 import { mapGetters, mapMutations } from 'vuex'
 import { EN_GeneticGameMutation } from '@/store/modules/geneticGame/mutations'
+import { EN_PlayerDataGetters } from '@/store/modules/playerData/getters'
 
 export default Vue.extend({
   name: 'navBarGameGenetic',
@@ -67,6 +68,7 @@ export default Vue.extend({
   computed: {
     ...mapGetters([
       EN_GeneticGameGetters.GET_POINTS_GN,
+      EN_PlayerDataGetters.GET_PLAYER_DATA
     ]),
   }
 })

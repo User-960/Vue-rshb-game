@@ -20,7 +20,7 @@
       </template>
 
       <template v-slot:contentIndicator>
-        0
+        {{ GET_PLAYER_DATA.own_money }}
       </template>
       </blockButton>
     </div>
@@ -51,6 +51,8 @@ import navigation from '../../../ui/navigation/navigation.vue'
 import exitButton from '../../../ui/button/exitButton/exitButton.vue'
 import blockButton from '../../../ui/button/blockButton/blockButton.vue'
 import iconButton from '../../../ui/button/iconButton/iconButton.vue'
+import { mapGetters } from 'vuex'
+import { EN_PlayerDataGetters } from '@/store/modules/playerData/getters'
 
 export default Vue.extend({
   name: 'navBar',
@@ -60,6 +62,9 @@ export default Vue.extend({
     exitButton,
     blockButton,
     iconButton
+  },
+  computed: {
+    ...mapGetters([EN_PlayerDataGetters.GET_PLAYER_DATA])
   }
 })
 </script>

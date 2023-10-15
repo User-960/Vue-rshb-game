@@ -2,10 +2,10 @@
   <div :class='styles.modalBankWrapper' v-if='GET_MODAL_BANK_VISIBLE'>
     <div :class='styles.modalBank' data-testid='modalBank'>
       <div :class='styles.closeBtnWrapper'>
-        <closeButton @onclick="$store.commit('HIDE_MODAL_BANK')"/>
+        <closeButton @onclick='HIDE_MODAL_BANK'/>
       </div>
 
-      <bank v-if='isFirstCredit'>
+      <bank v-if='isFirstCredit && GET_PLAYER_DATA.own_money === 0'>
         <template v-slot:contentImg>
           <img 
             src='../../../../../public/images/bank.svg' 
@@ -22,13 +22,13 @@
 
         <template v-slot:nextBtn>
           <skipButton @onclick="takeCredit">
-            Взять деньги
+            Взять гринкоины
           </skipButton>
         </template>
 
       </bank>
 
-      <bank v-if='isCongrats'>
+      <bank v-if='isCongrats && GET_PLAYER_DATA.own_money === 9000'>
         <template v-slot:contentImg>
           <img 
             src='../../../../../public/images/flowers.svg' 
@@ -39,7 +39,7 @@
 
         <template v-slot:contentText>
           <p>
-            Благодарим, что выбрали наш банк! Денежные средства будут перечислены на ваш счет.
+            Благодарим, что выбрали наш банк! Гринкоины будут перечислены на ваш счет.
           </p>
         </template>
 
@@ -50,7 +50,7 @@
         </template>
       </bank>
 
-      <bank v-if='isReturnCredit'>
+      <bank v-if='!isCongrats && GET_PLAYER_DATA.own_money > 0'>
         <template v-slot:contentImgs>
           <div>
             <img 
@@ -73,7 +73,7 @@
               alt='bank'  
               draggable='false'
             />
-            <span>% за пользование заемными средствами</span>
+            <span>3% за пользование заемными средствами</span>
           </div>
         </template>
 
@@ -84,9 +84,15 @@
         </template>
 
         <template v-slot:nextBtn>
-          <skipButton @onclick="returnCredit">
+          <button 
+            :class='[
+              styles.returnCreditBtn,
+              {[styles.returnCreditBtnNonActive]: GET_PLAYER_DATA.own_money < 9270}
+            ]' 
+            @click='returnCredit'
+          >
             Вернуть деньги
-          </skipButton>
+          </button>
         </template>
       </bank>
 
@@ -103,6 +109,8 @@ import { EN_HomeScreenGetters } from '../../../../store/modules/homeScreen/gette
 import { EN_HomeScreenMutation } from '../../../../store/modules/homeScreen/mutations'
 import bank from '../../../ui/bank/bank.vue'
 import skipButton from '../../../ui/button/skipButton/skipButton.vue'
+import { EN_PlayerDataMutation } from '@/store/modules/playerData/mutations'
+import { EN_PlayerDataGetters } from '@/store/modules/playerData/getters'
 
 export default Vue.extend({
   name: 'modalBank',
@@ -118,27 +126,36 @@ export default Vue.extend({
     closeButton
   },
   computed: {
-    ...mapGetters([EN_HomeScreenGetters.GET_MODAL_BANK_VISIBLE]),
+    ...mapGetters([
+      EN_HomeScreenGetters.GET_MODAL_BANK_VISIBLE,
+
+      EN_PlayerDataGetters.GET_PLAYER_DATA
+    ]),
   },
   methods: {
-    ...mapMutations([EN_HomeScreenMutation.HIDE_MODAL_BANK]),
+    ...mapMutations([
+      EN_HomeScreenMutation.HIDE_MODAL_BANK,
+
+      EN_PlayerDataMutation.TAKE_CREDIT,
+      EN_PlayerDataMutation.RETURN_CREDIT,
+    ]),
     takeCredit() {
       if (this.isFirstCredit) {
+        this.TAKE_CREDIT()
         this.isFirstCredit = false
         this.isCongrats = true
       }
     },
     skipCongrats() {
       if (this.isCongrats) {
+        this.HIDE_MODAL_BANK()
         this.isCongrats = false
-        this.isReturnCredit = true
       }
     },
     returnCredit() {
-      if (this.isReturnCredit) {
+      if (this.isReturnCredit && this.GET_PLAYER_DATA.own_money >= 9270) {
+        this.RETURN_CREDIT()
         this.isReturnCredit = false
-        this.isFirstCredit = true
-        this.HIDE_MODAL_BANK()
       }
     }
   }

@@ -32,7 +32,7 @@
       </template>
 
       <template v-slot:contentIndicator>
-        0
+        {{ GET_PLAYER_DATA.own_money }}
       </template>
       </blockButton>
     </div>
@@ -65,6 +65,7 @@ import iconButton from '../../../../ui/button/iconButton/iconButton.vue'
 import { EN_AiGameGetters } from '@/store/modules/aiGame/getters'
 import { mapGetters, mapMutations } from 'vuex'
 import { EN_AiGameMutation } from '@/store/modules/aiGame/mutations'
+import { EN_PlayerDataGetters } from '@/store/modules/playerData/getters'
 
 export default Vue.extend({
   name: 'navBarGameAi',
@@ -93,6 +94,8 @@ export default Vue.extend({
       EN_AiGameGetters.GET_TIMER_AI,
       EN_AiGameGetters.GET_LOSS_BLOCK_AI,
       EN_AiGameGetters.GET_INFO_LINK_BLOCK_AI,
+
+      EN_PlayerDataGetters.GET_PLAYER_DATA
     ]),
   },
   methods: {
