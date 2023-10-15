@@ -17,7 +17,7 @@
             <iconButton>
               Б
             </iconButton>
-            <p>120</p>
+            <p>{{ GET_PLAYER_DATA.own_coins }}</p>
           </div>
         
         </div>
@@ -28,7 +28,7 @@
           Назад
         </button>
 
-        <button :class='styles.payDanilBtn' @click='payDanil'>
+        <button :class='styles.payMariaBtn' @click='payMaria'>
           Отблагодарить Машу
         </button>
       </div>
@@ -44,6 +44,8 @@ import iconButton from '../../../../ui/button/iconButton/iconButton.vue'
 import { mapGetters, mapMutations } from 'vuex'
 import { EN_GeneticGameGetters } from '@/store/modules/geneticGame/getters'
 import { EN_GeneticGameMutation } from '@/store/modules/geneticGame/mutations'
+import { EN_PlayerDataMutation } from '@/store/modules/playerData/mutations'
+import { EN_PlayerDataGetters } from '@/store/modules/playerData/getters'
 
 export default Vue.extend({
   name: 'bonusBlock',
@@ -54,20 +56,24 @@ export default Vue.extend({
   computed: {
     ...mapGetters([
       EN_GeneticGameGetters.GET_BONUS_BLOCK_GN,
+      EN_PlayerDataGetters.GET_PLAYER_DATA
     ]),
   },
   methods: {
     ...mapMutations([
       EN_GeneticGameMutation.HIDE_BONUS_BLOCK_GN,
       EN_GeneticGameMutation.SHOW_BONUS_BLOCK_PAYED_GN,
-      EN_GeneticGameMutation.RESTART_GAME_GN
+      EN_GeneticGameMutation.RESTART_GAME_GN,
+
+      EN_PlayerDataMutation.PAY_MONEY_MARIA
     ]),
     skipGame() {
       this.HIDE_BONUS_BLOCK_GN()
       this.RESTART_GAME_GN()
       this.$router.push({ name: 'home' })
     },
-    payDanil() {
+    payMaria() {
+      this.PAY_MONEY_MARIA()
       this.HIDE_BONUS_BLOCK_GN()
       this.SHOW_BONUS_BLOCK_PAYED_GN()
     }

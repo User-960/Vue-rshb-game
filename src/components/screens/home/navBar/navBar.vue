@@ -34,7 +34,7 @@
       </template>
 
       <template v-slot:contentIndicator>
-        0
+        {{ GET_PLAYER_DATA.own_coins }}
       </template>
       </blockButton>
     </div>
