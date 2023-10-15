@@ -1,0 +1,113 @@
+.alert {
+	position: fixed;
+	top: 90px;
+	right: 16px;
+	z-index: 1000;
+
+	width: 280px;
+	margin: 0 auto 25px auto;
+	padding: 30px 20px;
+	text-align: left;
+	border-radius: 12px;
+	opacity: 0;
+	-ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=0)';
+	filter: alpha(opacity=0);
+	cursor: default;
+	display: none;
+}
+
+.alertText {
+	text-align: left;
+	font-weight: bold;
+	width: 180px;
+	font-size: 16px;
+	margin: 0;
+}
+
+.alertText:before {
+	text-align: center;
+	border: 3px solid rgba(255, 255, 255, 1);
+	margin-top: -18px;
+	top: 50%;
+	right: 25px;
+	width: 36px;
+	height: 36px;
+	content: '!';
+	font-size: 30px;
+	color: rgba(255, 255, 255, 1);
+	position: absolute;
+	line-height: 30px;
+	border-radius: 50%;
+}
+
+.alertProgress {
+	width: 0;
+	height: 10px;
+	background-color: rgba(255, 255, 255, 0.5);
+	position: absolute;
+	bottom: 5px;
+	left: 3%;
+	border-radius: 12px;
+}
+
+.alert.error {
+	background-color: #ff2e63;
+	color: #fff;
+}
+.alert.info {
+	background-color: #50c1e9;
+}
+.alert.warning {
+	background-color: #f75940;
+	color: #fff;
+}
+.alert.success {
+	background-color: #00b16a;
+	color: #fff;
+}
+
+@keyframes fadeOut {
+	0% {
+		opacity: 0;
+	}
+	10% {
+		opacity: 1;
+	}
+	90% {
+		opacity: 1;
+		-webkit-transform: translateY(0px);
+	}
+	99% {
+		opacity: 0;
+		-webkit-transform: translateY(-25px);
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+@keyframes runProgress {
+	0% {
+		width: 0%;
+	}
+	100% {
+		width: 94%;
+	}
+}
+
+.checked.alert {
+	display: block;
+	-webkit-animation: fadeOut 3s linear forwards;
+	-moz-animation: fadeOut 3s linear forwards;
+	-o-animation: fadeOut 3s linear forwards;
+	-ms-animation: fadeOut 3s linear forwards;
+	animation: fadeOut 3s linear forwards;
+}
+
+.checked.alert .alertProgress {
+	-webkit-animation: runProgress 2s linear forwards 0.7s;
+	-moz-animation: runProgress 2s linear forwards 0.7s;
+	-o-animation: runProgress 2s linear forwards 0.7s;
+	-ms-animation: runProgress 2s linear forwards 0.7s;
+	animation: runProgress 2s linear forwards 0.7s;
+}

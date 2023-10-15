@@ -22,6 +22,9 @@ const state: IPlayerDataState = {
 		minigame: []
 	},
 
+	isAlertVisible: false,
+	alertText: '',
+
 	isTableRatingVisible: false
 }
 

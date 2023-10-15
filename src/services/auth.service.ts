@@ -28,7 +28,7 @@ class AuthService {
 	async getUser(id: string | number) {
 		try {
 			const { data } = await $axios.get<IPlayer>(
-				`${EN_ENDPOINTS.PLAYER}/${id}/1`
+				`${EN_ENDPOINTS.PLAYER}/${id}/`
 			)
 
 			if (data.name) {
@@ -37,7 +37,7 @@ class AuthService {
 
 			return data
 		} catch (error: any) {
-			let errorMessage = 'Возникла ошибка при регистрации!'
+			let errorMessage = 'Возникла ошибка при получение данных!'
 			return errorMessage
 		}
 	}
@@ -53,7 +53,8 @@ class AuthService {
 
 			return data
 		} catch (error: any) {
-			return error
+			let errorMessage = 'Возникла ошибка при получение данных!'
+			return errorMessage
 		}
 	}
 }

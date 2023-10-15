@@ -22,7 +22,7 @@ export const actions: ActionTree<IPlayerDataState, IRootState> = {
 			.then((res: IPlayer | string) => {
 				typeof res !== 'string'
 					? commit(EN_PlayerDataMutation.CREATE_PLAYER, res)
-					: alert(res)
+					: commit(EN_PlayerDataMutation.SHOW_ALERT, res)
 			})
 			.catch(error => console.log(error))
 	},
@@ -35,7 +35,7 @@ export const actions: ActionTree<IPlayerDataState, IRootState> = {
 			.then((res: IPlayer | string) => {
 				typeof res !== 'string'
 					? commit(EN_PlayerDataMutation.GET_PLAYER, res)
-					: alert(res)
+					: commit(EN_PlayerDataMutation.SHOW_ALERT, res)
 			})
 			.catch(error => {
 				return error
@@ -47,7 +47,11 @@ export const actions: ActionTree<IPlayerDataState, IRootState> = {
 		player: IPlayer
 	) {
 		AuthService.updatePlayerMoney(player.id, player.own_money)
-			.then((res: IPlayer) => commit(EN_PlayerDataMutation.UPDATE_PLAYER, res))
+			.then((res: IPlayer | string) => {
+				typeof res !== 'string'
+					? commit(EN_PlayerDataMutation.UPDATE_PLAYER, res)
+					: commit(EN_PlayerDataMutation.SHOW_ALERT, res)
+			})
 			.catch(error => console.log(error))
 	}
 }
