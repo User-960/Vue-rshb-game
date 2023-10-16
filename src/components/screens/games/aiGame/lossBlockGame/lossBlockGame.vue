@@ -19,7 +19,7 @@
           <iconButton>
             Б
           </iconButton>
-          <p>120</p>
+          <p>{{ GET_PLAYER_DATA.own_coins }}</p>
         </div>
       </div>
 
@@ -44,6 +44,7 @@ import iconButton from '../../../../ui/button/iconButton/iconButton.vue'
 import { mapGetters, mapMutations } from 'vuex'
 import { EN_AiGameGetters } from '@/store/modules/aiGame/getters'
 import { EN_AiGameMutation } from '@/store/modules/aiGame/mutations'
+import { EN_PlayerDataGetters } from '@/store/modules/playerData/getters'
 
 export default Vue.extend({
   name: 'lossBlockGame',
@@ -54,7 +55,9 @@ export default Vue.extend({
   computed: {
     ...mapGetters([
       EN_AiGameGetters.GET_LOSS_BLOCK_AI,
-      EN_AiGameGetters.GET_POINTS_AI
+      EN_AiGameGetters.GET_POINTS_AI,
+
+      EN_PlayerDataGetters.GET_PLAYER_DATA
     ]),
   },
   methods: {

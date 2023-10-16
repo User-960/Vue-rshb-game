@@ -45,12 +45,8 @@ import layout from '../../layout/layout.vue'
 import chooseCharacter from './chooseCharacter/chooseCharacter.vue'
 import authPlayer from './authPlayer/authPlayer.vue'
 import alert from '../../ui/alert/alert.vue'
-import { mapActions, mapGetters, mapMutations } from 'vuex'
+import { mapMutations } from 'vuex'
 import { EN_StartScreenMutation } from '@/store/modules/startScreen/mutations'
-import { EN_PlayerDataActions } from '@/store/modules/playerData/actions'
-import { EN_USER } from '@/config/app.constants'
-import { EN_PlayerDataGetters } from '@/store/modules/playerData/getters'
-import { EN_PlayerDataMutation } from '@/store/modules/playerData/mutations'
 
 export default Vue.extend({
   name: 'start',
@@ -63,33 +59,9 @@ export default Vue.extend({
     authPlayer,
     alert
   },
-  created() {
-    // const localPlayerId = localStorage.getItem(EN_USER.PLAYER_ID)
-    const playerData = localStorage.getItem(EN_USER.PLAYER_DATA)
-
-    if (playerData) {
-      this.GET_PLAYER(JSON.parse(playerData).id)
-    }
-  },
-  watch: {
-    GET_PLAYER_DATA() {
-      if (this.GET_PLAYER_DATA.name !== null && this.GET_PLAYER_DATA.gender !== null) {
-        this.$router.push({ name: 'home' })
-      }
-    }
-  },
-  computed: {
-    ...mapGetters([
-      EN_PlayerDataGetters.GET_PLAYER_DATA
-    ])
-  },
   methods: {
     ...mapMutations([
       EN_StartScreenMutation.SHOW_CHOOSE_CHARACTER,
-      EN_PlayerDataMutation.SHOW_ALERT,
-    ]),
-    ...mapActions([
-      EN_PlayerDataActions.GET_PLAYER
     ]),
     openBlockChooseCharacter() {
       this.SHOW_CHOOSE_CHARACTER()

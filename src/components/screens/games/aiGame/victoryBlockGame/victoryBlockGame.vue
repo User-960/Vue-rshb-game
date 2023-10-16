@@ -19,7 +19,7 @@
           <iconButton>
             Б
           </iconButton>
-          <p>120</p>
+          <p>{{ GET_PLAYER_DATA.own_coins }}</p>
         </div>
         
       </div>
@@ -58,10 +58,13 @@
 import Vue from 'vue'
 import closeButton from '../../../../ui/button/closeButton/closeButton.vue'
 import iconButton from '../../../../ui/button/iconButton/iconButton.vue'
-import { mapGetters, mapMutations } from 'vuex'
+import { mapActions, mapGetters, mapMutations } from 'vuex'
 import { EN_AiGameGetters } from '@/store/modules/aiGame/getters'
 import { EN_AiGameMutation } from '@/store/modules/aiGame/mutations'
 import { EN_HomeScreenMutation } from '@/store/modules/homeScreen/mutations'
+import { EN_PlayerDataActions } from '@/store/modules/playerData/actions'
+import { EN_PlayerDataMutation } from '@/store/modules/playerData/mutations'
+import { EN_PlayerDataGetters } from '@/store/modules/playerData/getters'
 
 export default Vue.extend({
   name: 'victoryBlockGame',
@@ -72,6 +75,9 @@ export default Vue.extend({
   watch: {
     GET_VICTORY_BLOCK_AI() {
       if (this.GET_VICTORY_BLOCK_AI) {
+        this.SUM_COINS(this.GET_POINTS_AI)
+        this.UPDATE_PLAYER_COINS(this.GET_PLAYER_DATA)
+
         this.COMPLETE_AI_GAME()
         this.SHOW_MAP_BEFORE_FOURTH_GAME()
       }
@@ -80,7 +86,9 @@ export default Vue.extend({
   computed: {
     ...mapGetters([
       EN_AiGameGetters.GET_VICTORY_BLOCK_AI,
-      EN_AiGameGetters.GET_POINTS_AI
+      EN_AiGameGetters.GET_POINTS_AI,
+
+      EN_PlayerDataGetters.GET_PLAYER_DATA
     ]),
   },
   methods: {
@@ -89,8 +97,11 @@ export default Vue.extend({
       EN_AiGameMutation.RESTART_GAME_AI,
       EN_AiGameMutation.COMPLETE_AI_GAME,
 
-      EN_HomeScreenMutation.SHOW_MAP_BEFORE_FOURTH_GAME
+      EN_HomeScreenMutation.SHOW_MAP_BEFORE_FOURTH_GAME,
+
+      EN_PlayerDataMutation.SUM_COINS,
     ]),
+    ...mapActions([EN_PlayerDataActions.UPDATE_PLAYER_COINS]),
     restartGame() {
       this.RESTART_GAME_AI()
     },

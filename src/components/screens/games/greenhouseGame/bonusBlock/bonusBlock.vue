@@ -58,7 +58,9 @@ export default Vue.extend({
   computed: {
     ...mapGetters([
       EN_GreenhouseGameGetters.GET_BONUS_BLOCK_GH,
-      EN_PlayerDataGetters.GET_PLAYER_DATA
+      EN_GreenhouseGameGetters.GET_POINTS_GH,
+
+      EN_PlayerDataGetters.GET_PLAYER_DATA,
     ]),
   },
   methods: {
@@ -68,10 +70,13 @@ export default Vue.extend({
       EN_GreenhouseGameMutation.RESTART_GAME_GH,
       
       EN_PlayerDataMutation.PAY_MONEY_DANIL,
+      EN_PlayerDataMutation.SUM_COINS,
+
       EN_HomeScreenMutation.SHOW_MAP_BEFORE_THIRD_GAME,
     ]),
     ...mapActions([
-      EN_PlayerDataActions.UPDATE_PLAYER_MONEY
+      EN_PlayerDataActions.UPDATE_PLAYER_MONEY,
+      EN_PlayerDataActions.UPDATE_PLAYER_COINS
     ]),
     skipGame() {
       this.HIDE_BONUS_BLOCK_GH()
@@ -83,6 +88,9 @@ export default Vue.extend({
     payDanil() {
       this.PAY_MONEY_DANIL()
       this.UPDATE_PLAYER_MONEY(this.GET_PLAYER_DATA)
+      
+      this.SUM_COINS(this.GET_POINTS_GH)
+      this.UPDATE_PLAYER_COINS(this.GET_PLAYER_DATA)
 
       this.SHOW_MAP_BEFORE_THIRD_GAME()
       this.HIDE_BONUS_BLOCK_GH()

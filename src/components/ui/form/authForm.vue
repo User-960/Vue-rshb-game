@@ -11,18 +11,22 @@
         id='name' 
         type='text'
         v-model='newPlayerName'
-        min='2'
+        min='3'
         :class='[styles.input, {[styles.inputError] : isErrorDuplicateName || isErrorEmptyName}]'
         data-testid='inputName'
       />
 
-      <p class='error' v-if='isErrorEmptyName'>Недостаточно символов.</p>
+      <p class='error' v-if='newPlayerName.length < 3 && newPlayerName.length > 0'>
+        Недостаточно символов.
+      </p>
       <p class='error' v-if='isErrorDuplicateName'>К сожалению, данное имя уже используется.</p>
 
       <div :class='styles.wrapperBtn'>
-          <skipButton data-testid='formBtn'>
-            Далее
-          </skipButton>
+        <button 
+          :class='[styles.btnForm, {[styles.btnFormNonActive]: newPlayerName.length < 3}]' data-testid='formBtn'
+        >
+          Далее
+        </button>
       </div>
     </form>
   </div>
@@ -78,23 +82,23 @@ export default Vue.extend({
     ...mapActions([EN_PlayerDataActions.CREATE_PLAYER]),
     submitForm(e: Event) {
       e.preventDefault()
-      let player: IUserDataForm
+      if (this.newPlayerName.length >= 3) {
+        let player: IUserDataForm
+        this.isLoading = true
+        this.isErrorEmptyName = false
+        this.SAVE_PLAYER_NAME(this.newPlayerName)
 
-      this.isLoading = true
-      this.isErrorEmptyName = false
-      this.SAVE_PLAYER_NAME(this.newPlayerName)
+        if (this.name.length >= 3) {
+          player = {
+            name: this.name,
+            gender: this.gender
+          }
 
-      if (this.name.length >= 2) {
-        player = {
-          name: this.name,
-          gender: this.gender
+          this.CREATE_PLAYER(player)
+          this.newPlayerName = ''
+        } else {
+          this.isErrorEmptyName = true
         }
-        
-        this.CREATE_PLAYER(player)
-
-        this.newPlayerName = ''
-      } else {
-        this.isErrorEmptyName = true
       }
     },
     onClickOutside (event: any) {

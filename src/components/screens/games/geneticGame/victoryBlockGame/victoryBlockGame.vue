@@ -82,11 +82,11 @@ export default Vue.extend({
   watch: {
     GET_VICTORY_BLOCK_GN() {
       if (this.GET_VICTORY_BLOCK_GN) {
-        this.SUM_COINS(this.GET_POINTS_GN)
-        this.UPDATE_PLAYER_COINS(this.GET_PLAYER_DATA)
-
         this.COMPLETE_GENETIC_GAME()
         this.SHOW_MAP_AFTER_FIRST_GAME()
+        
+        this.SUM_COINS(this.GET_POINTS_GN)
+        this.UPDATE_PLAYER_COINS(this.GET_PLAYER_DATA)
       }
     }
   },
