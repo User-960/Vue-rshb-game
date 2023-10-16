@@ -14,6 +14,8 @@ export enum EN_PlayerDataMutation {
 	PAY_MONEY_MARIA = 'PAY_MONEY_MARIA',
 	PAY_MONEY_DANIL = 'PAY_MONEY_DANIL',
 
+	SUM_COINS = 'SUM_COINS',
+
 	SHOW_ALERT = 'SHOW_ALERT',
 
 	SHOW_TABLE_RATING = 'SHOW_TABLE_RATING',
@@ -40,15 +42,19 @@ export const mutations: MutationTree<IPlayerDataState> = {
 		}
 	},
 
-	[EN_PlayerDataMutation.PAY_MONEY_MARIA](state, player: IPlayer) {
+	[EN_PlayerDataMutation.PAY_MONEY_MARIA](state) {
 		if (state.playerData?.own_money !== 0) {
 			state.playerData.own_money -= 100
 		}
 	},
-	[EN_PlayerDataMutation.PAY_MONEY_DANIL](state, player: IPlayer) {
+	[EN_PlayerDataMutation.PAY_MONEY_DANIL](state) {
 		if (state.playerData.own_money !== 0) {
 			state.playerData.own_money -= 100
 		}
+	},
+
+	[EN_PlayerDataMutation.SUM_COINS](state, coins: number) {
+		state.playerData.own_coins += coins
 	},
 
 	[EN_PlayerDataMutation.SHOW_ALERT](state, text: string) {

@@ -22,7 +22,7 @@
               <iconButton>
                 Б
               </iconButton>
-              <p>120</p>
+              <p>{{ GET_PLAYER_DATA.own_coins }}</p>
             </div>
           
           </div>
@@ -65,10 +65,13 @@
 import Vue from 'vue'
 import closeButton from '../../../../ui/button/closeButton/closeButton.vue'
 import iconButton from '../../../../ui/button/iconButton/iconButton.vue'
-import { mapGetters, mapMutations } from 'vuex'
+import { mapActions, mapGetters, mapMutations } from 'vuex'
 import { EN_GeneticGameGetters } from '@/store/modules/geneticGame/getters'
 import { EN_GeneticGameMutation } from '@/store/modules/geneticGame/mutations'
 import { EN_HomeScreenMutation } from '@/store/modules/homeScreen/mutations'
+import { EN_PlayerDataMutation } from '@/store/modules/playerData/mutations'
+import { EN_PlayerDataActions } from '@/store/modules/playerData/actions'
+import { EN_PlayerDataGetters } from '@/store/modules/playerData/getters'
 
 export default Vue.extend({
   name: 'victoryBlockGame',
@@ -79,6 +82,9 @@ export default Vue.extend({
   watch: {
     GET_VICTORY_BLOCK_GN() {
       if (this.GET_VICTORY_BLOCK_GN) {
+        this.SUM_COINS(this.GET_POINTS_GN)
+        this.UPDATE_PLAYER_COINS(this.GET_PLAYER_DATA)
+
         this.COMPLETE_GENETIC_GAME()
         this.SHOW_MAP_AFTER_FIRST_GAME()
       }
@@ -87,7 +93,9 @@ export default Vue.extend({
   computed: {
     ...mapGetters([
       EN_GeneticGameGetters.GET_VICTORY_BLOCK_GN,
-      EN_GeneticGameGetters.GET_POINTS_GN
+      EN_GeneticGameGetters.GET_POINTS_GN,
+
+      EN_PlayerDataGetters.GET_PLAYER_DATA
     ]),
   },
   methods: {
@@ -98,7 +106,10 @@ export default Vue.extend({
       EN_GeneticGameMutation.COMPLETE_GENETIC_GAME,
 
       EN_HomeScreenMutation.SHOW_MAP_AFTER_FIRST_GAME,
+
+      EN_PlayerDataMutation.SUM_COINS,
     ]),
+    ...mapActions([EN_PlayerDataActions.UPDATE_PLAYER_COINS]),
     restartGame() {
       this.RESTART_GAME_GN()
     },

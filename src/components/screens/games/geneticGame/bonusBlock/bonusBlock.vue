@@ -57,6 +57,8 @@ export default Vue.extend({
   computed: {
     ...mapGetters([
       EN_GeneticGameGetters.GET_BONUS_BLOCK_GN,
+      EN_GeneticGameGetters.GET_POINTS_GN,
+      
       EN_PlayerDataGetters.GET_PLAYER_DATA
     ]),
   },
@@ -66,10 +68,12 @@ export default Vue.extend({
       EN_GeneticGameMutation.SHOW_BONUS_BLOCK_PAYED_GN,
       EN_GeneticGameMutation.RESTART_GAME_GN,
 
-      EN_PlayerDataMutation.PAY_MONEY_MARIA
+      EN_PlayerDataMutation.PAY_MONEY_MARIA,
+      EN_PlayerDataMutation.SUM_COINS
     ]),
     ...mapActions([
-      EN_PlayerDataActions.UPDATE_PLAYER_MONEY
+      EN_PlayerDataActions.UPDATE_PLAYER_MONEY,
+      EN_PlayerDataActions.UPDATE_PLAYER_COINS
     ]),
     skipGame() {
       this.HIDE_BONUS_BLOCK_GN()
@@ -79,6 +83,9 @@ export default Vue.extend({
     payMaria() {
       this.PAY_MONEY_MARIA()
       this.UPDATE_PLAYER_MONEY(this.GET_PLAYER_DATA)
+      
+      this.SUM_COINS(this.GET_POINTS_GN)
+      this.UPDATE_PLAYER_COINS(this.GET_PLAYER_DATA)
 
       this.HIDE_BONUS_BLOCK_GN()
       this.SHOW_BONUS_BLOCK_PAYED_GN()

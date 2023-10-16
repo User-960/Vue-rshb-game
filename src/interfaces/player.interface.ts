@@ -8,7 +8,7 @@ export interface IPlayer {
 	name: string | null
 	gender: 'Female' | 'Male' | null
 	own_money: number
-	own_coins?: number
+	own_coins: number
 	credit: number
 	bank: number
 	equipment_shop_id?: number

@@ -14,8 +14,12 @@ class AuthService {
 				gender
 			})
 
+			// if (data.name !== null && data.gender !== null) {
+			// 	localStorage.setItem(EN_USER.PLAYER_DATA, String(data.id))
+			// }
+
 			if (data.name !== null && data.gender !== null) {
-				localStorage.setItem(EN_USER.PLAYER_ID, String(data.id))
+				localStorage.setItem(EN_USER.PLAYER_DATA, JSON.stringify(data))
 			}
 
 			return data
@@ -32,7 +36,7 @@ class AuthService {
 			)
 
 			if (data.name !== null && data.gender !== null) {
-				localStorage.setItem(EN_USER.PLAYER_ID, String(data.id))
+				localStorage.setItem(EN_USER.PLAYER_DATA, JSON.stringify(data))
 			}
 
 			return data
@@ -52,7 +56,27 @@ class AuthService {
 			)
 
 			if (data.name !== null && data.gender !== null) {
-				localStorage.setItem(EN_USER.PLAYER_ID, String(data.id))
+				localStorage.setItem(EN_USER.PLAYER_DATA, JSON.stringify(data))
+			}
+
+			return data
+		} catch (error: any) {
+			let errorMessage = 'Возникла ошибка при получение данных!'
+			return errorMessage
+		}
+	}
+
+	async updatePlayerCoins(id: string | number, own_coins: number) {
+		try {
+			const { data } = await $axios.patch<IPlayer>(
+				`${EN_ENDPOINTS.PLAYER}/${id}/`,
+				{
+					own_coins
+				}
+			)
+
+			if (data.name !== null && data.gender !== null) {
+				localStorage.setItem(EN_USER.PLAYER_DATA, JSON.stringify(data))
 			}
 
 			return data

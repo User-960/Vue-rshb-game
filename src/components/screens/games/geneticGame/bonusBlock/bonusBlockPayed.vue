@@ -17,7 +17,7 @@
             <iconButton>
               Б
             </iconButton>
-            <p>120</p>
+            <p>{{ GET_PLAYER_DATA.own_coins }}</p>
           </div>
         
         </div>
@@ -40,6 +40,7 @@ import iconButton from '../../../../ui/button/iconButton/iconButton.vue'
 import { mapGetters, mapMutations } from 'vuex'
 import { EN_GeneticGameGetters } from '@/store/modules/geneticGame/getters'
 import { EN_GeneticGameMutation } from '@/store/modules/geneticGame/mutations'
+import { EN_PlayerDataGetters } from '@/store/modules/playerData/getters'
 
 export default Vue.extend({
   name: 'bonusBlockPayed',
@@ -51,6 +52,8 @@ export default Vue.extend({
     ...mapGetters([
       EN_GeneticGameGetters.GET_BONUS_BLOCK_PAYED_GN,
       EN_GeneticGameGetters.GET_POINTS_GN,
+
+      EN_PlayerDataGetters.GET_PLAYER_DATA
     ]),
   },
   methods: {
