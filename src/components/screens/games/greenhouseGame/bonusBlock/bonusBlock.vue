@@ -71,31 +71,50 @@ export default Vue.extend({
       
       EN_PlayerDataMutation.PAY_MONEY_DANIL,
       EN_PlayerDataMutation.SUM_COINS,
+      EN_PlayerDataMutation.COMPLETE_MINI_GAME,
+      EN_PlayerDataMutation.SAVE_SCORE_MINI_GAME_TWO,
+      EN_PlayerDataMutation.PERFORM_ACHIEVEMENT,
 
       EN_HomeScreenMutation.SHOW_MAP_BEFORE_THIRD_GAME,
     ]),
     ...mapActions([
-      EN_PlayerDataActions.UPDATE_PLAYER_MONEY,
-      EN_PlayerDataActions.UPDATE_PLAYER_COINS
+      EN_PlayerDataActions.UPDATE_PLAYER_COINS,
+      EN_PlayerDataActions.UPDATE_PLAYER_MINI_GAME,
     ]),
+    payDanil() {
+      if (!this.GET_PLAYER_DATA.minigame.gameTwo.complete) {
+        this.PAY_MONEY_DANIL()
+        this.SUM_COINS(100)
+        this.SAVE_SCORE_MINI_GAME_TWO(this.GET_POINTS_GH)
+        if (this.GET_POINTS_GH >= 185) {
+          this.PERFORM_ACHIEVEMENT('gameTwo')
+        }
+        this.COMPLETE_MINI_GAME('gameTwo')
+
+        this.UPDATE_PLAYER_MINI_GAME(this.GET_PLAYER_DATA)
+      }
+
+      this.SHOW_MAP_BEFORE_THIRD_GAME()
+      this.HIDE_BONUS_BLOCK_GH()
+      this.SHOW_BONUS_BLOCK_PAYED_GH()
+    },
     skipGame() {
+      if (!this.GET_PLAYER_DATA.minigame.gameTwo.complete) {
+        this.SAVE_SCORE_MINI_GAME_TWO(this.GET_POINTS_GH)
+        if (this.GET_POINTS_GH >= 185) {
+          this.PERFORM_ACHIEVEMENT('gameTwo')
+        }
+        this.COMPLETE_MINI_GAME('gameTwo')
+
+        this.UPDATE_PLAYER_MINI_GAME(this.GET_PLAYER_DATA)
+      }
+
       this.HIDE_BONUS_BLOCK_GH()
       this.RESTART_GAME_GH()
 
       this.SHOW_MAP_BEFORE_THIRD_GAME()
       this.$router.push({ name: 'home' })
     },
-    payDanil() {
-      this.PAY_MONEY_DANIL()
-      this.UPDATE_PLAYER_MONEY(this.GET_PLAYER_DATA)
-      
-      this.SUM_COINS(this.GET_POINTS_GH)
-      this.UPDATE_PLAYER_COINS(this.GET_PLAYER_DATA)
-
-      this.SHOW_MAP_BEFORE_THIRD_GAME()
-      this.HIDE_BONUS_BLOCK_GH()
-      this.SHOW_BONUS_BLOCK_PAYED_GH()
-    }
   }
 })
 </script>

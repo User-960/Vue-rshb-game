@@ -27,7 +27,7 @@
           
           </div>
         
-          <div :class='styles.achievement' v-if='GET_POINTS_GN >= 135'>
+          <div :class='styles.achievement' v-if='GET_POINTS_GN >= 140'>
             <div :class='styles.achievementIcon'>
               <p :class='styles.achievementName'>
                 “Мастер скрещивания”
@@ -65,13 +65,12 @@
 import Vue from 'vue'
 import closeButton from '../../../../ui/button/closeButton/closeButton.vue'
 import iconButton from '../../../../ui/button/iconButton/iconButton.vue'
-import { mapActions, mapGetters, mapMutations } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 import { EN_GeneticGameGetters } from '@/store/modules/geneticGame/getters'
 import { EN_GeneticGameMutation } from '@/store/modules/geneticGame/mutations'
 import { EN_HomeScreenMutation } from '@/store/modules/homeScreen/mutations'
-import { EN_PlayerDataMutation } from '@/store/modules/playerData/mutations'
-import { EN_PlayerDataActions } from '@/store/modules/playerData/actions'
 import { EN_PlayerDataGetters } from '@/store/modules/playerData/getters'
+import { EN_PlayerDataMutation } from '@/store/modules/playerData/mutations'
 
 export default Vue.extend({
   name: 'victoryBlockGame',
@@ -82,11 +81,9 @@ export default Vue.extend({
   watch: {
     GET_VICTORY_BLOCK_GN() {
       if (this.GET_VICTORY_BLOCK_GN) {
+        this.SUM_COINS(this.GET_POINTS_GN)
         this.COMPLETE_GENETIC_GAME()
         this.SHOW_MAP_AFTER_FIRST_GAME()
-        
-        this.SUM_COINS(this.GET_POINTS_GN)
-        this.UPDATE_PLAYER_COINS(this.GET_PLAYER_DATA)
       }
     }
   },
@@ -104,12 +101,9 @@ export default Vue.extend({
       EN_GeneticGameMutation.RESTART_GAME_GN,
       EN_GeneticGameMutation.SHOW_BONUS_BLOCK_GN,
       EN_GeneticGameMutation.COMPLETE_GENETIC_GAME,
-
       EN_HomeScreenMutation.SHOW_MAP_AFTER_FIRST_GAME,
-
       EN_PlayerDataMutation.SUM_COINS,
     ]),
-    ...mapActions([EN_PlayerDataActions.UPDATE_PLAYER_COINS]),
     restartGame() {
       this.RESTART_GAME_GN()
     },

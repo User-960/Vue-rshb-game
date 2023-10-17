@@ -14,12 +14,9 @@ const state: IPlayerDataState = {
 		own_money: 0,
 		own_coins: 0,
 		credit: 0,
-		bank: 0,
-		equipment_shop_id: 0,
-		harvest_shop_id: 0,
-		equipment: [],
-		harvest: [],
-		minigame: []
+		equipment: null,
+		harvest: null,
+		minigame: null
 	},
 
 	isAlertVisible: false,

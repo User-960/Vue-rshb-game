@@ -69,27 +69,46 @@ export default Vue.extend({
       EN_GeneticGameMutation.RESTART_GAME_GN,
 
       EN_PlayerDataMutation.PAY_MONEY_MARIA,
-      EN_PlayerDataMutation.SUM_COINS
+      EN_PlayerDataMutation.SUM_COINS,
+      EN_PlayerDataMutation.COMPLETE_MINI_GAME,
+      EN_PlayerDataMutation.SAVE_SCORE_MINI_GAME_ONE,
+      EN_PlayerDataMutation.PERFORM_ACHIEVEMENT,
     ]),
     ...mapActions([
-      EN_PlayerDataActions.UPDATE_PLAYER_MONEY,
-      EN_PlayerDataActions.UPDATE_PLAYER_COINS
+      EN_PlayerDataActions.UPDATE_PLAYER_COINS,
+      EN_PlayerDataActions.UPDATE_PLAYER_MINI_GAME,
     ]),
+    payMaria() {
+      if (!this.GET_PLAYER_DATA.minigame.gameOne.complete) {
+        this.PAY_MONEY_MARIA()
+        this.SUM_COINS(100)
+        this.SAVE_SCORE_MINI_GAME_ONE(this.GET_POINTS_GN)
+        if (this.GET_POINTS_GN >= 140) {
+          this.PERFORM_ACHIEVEMENT('gameOne')
+        }
+        this.COMPLETE_MINI_GAME('gameOne')
+
+        this.UPDATE_PLAYER_MINI_GAME(this.GET_PLAYER_DATA)
+      }
+
+      this.HIDE_BONUS_BLOCK_GN()
+      this.SHOW_BONUS_BLOCK_PAYED_GN()
+    },
     skipGame() {
+      if (!this.GET_PLAYER_DATA.minigame.gameOne.complete) {
+        this.SAVE_SCORE_MINI_GAME_ONE(this.GET_POINTS_GN)
+        if (this.GET_POINTS_GN >= 140) {
+          this.PERFORM_ACHIEVEMENT('gameOne')
+        }
+        this.COMPLETE_MINI_GAME('gameOne')
+
+        this.UPDATE_PLAYER_MINI_GAME(this.GET_PLAYER_DATA)
+      }
+
       this.HIDE_BONUS_BLOCK_GN()
       this.RESTART_GAME_GN()
       this.$router.push({ name: 'home' })
     },
-    payMaria() {
-      this.PAY_MONEY_MARIA()
-      this.UPDATE_PLAYER_MONEY(this.GET_PLAYER_DATA)
-      
-      this.SUM_COINS(this.GET_POINTS_GN)
-      this.UPDATE_PLAYER_COINS(this.GET_PLAYER_DATA)
-
-      this.HIDE_BONUS_BLOCK_GN()
-      this.SHOW_BONUS_BLOCK_PAYED_GN()
-    }
   }
 })
 </script>

@@ -15,6 +15,10 @@ export enum EN_PlayerDataMutation {
 	PAY_MONEY_DANIL = 'PAY_MONEY_DANIL',
 
 	SUM_COINS = 'SUM_COINS',
+	COMPLETE_MINI_GAME = 'COMPLETE_MINI_GAME',
+	PERFORM_ACHIEVEMENT = 'PERFORM_ACHIEVEMENT',
+	SAVE_SCORE_MINI_GAME_ONE = 'SAVE_SCORE_MINI_GAME_ONE',
+	SAVE_SCORE_MINI_GAME_TWO = 'SAVE_SCORE_MINI_GAME_TWO',
 
 	SHOW_ALERT = 'SHOW_ALERT',
 
@@ -43,18 +47,42 @@ export const mutations: MutationTree<IPlayerDataState> = {
 	},
 
 	[EN_PlayerDataMutation.PAY_MONEY_MARIA](state) {
-		if (state.playerData?.own_money !== 0) {
-			state.playerData.own_money -= 100
-		}
+		state.playerData.own_money -= 100
 	},
 	[EN_PlayerDataMutation.PAY_MONEY_DANIL](state) {
-		if (state.playerData.own_money !== 0) {
-			state.playerData.own_money -= 100
-		}
+		state.playerData.own_money -= 100
 	},
 
 	[EN_PlayerDataMutation.SUM_COINS](state, coins: number) {
 		state.playerData.own_coins += coins
+	},
+	[EN_PlayerDataMutation.COMPLETE_MINI_GAME](state, miniGame: string) {
+		if (miniGame === 'gameOne' && state.playerData.minigame !== null) {
+			state.playerData.minigame.gameOne.complete = true
+		}
+
+		if (miniGame === 'gameTwo' && state.playerData.minigame !== null) {
+			state.playerData.minigame.gameTwo.complete = true
+		}
+	},
+	[EN_PlayerDataMutation.PERFORM_ACHIEVEMENT](state, miniGame: string) {
+		if (miniGame === 'gameOne' && state.playerData.minigame !== null) {
+			state.playerData.minigame.gameOne.achievement = true
+		}
+
+		if (miniGame === 'gameTwo' && state.playerData.minigame !== null) {
+			state.playerData.minigame.gameTwo.achievement = true
+		}
+	},
+	[EN_PlayerDataMutation.SAVE_SCORE_MINI_GAME_ONE](state, coins: number) {
+		if (state.playerData.minigame !== null) {
+			state.playerData.minigame.gameOne.score = coins
+		}
+	},
+	[EN_PlayerDataMutation.SAVE_SCORE_MINI_GAME_TWO](state, coins: number) {
+		if (state.playerData.minigame !== null) {
+			state.playerData.minigame.gameTwo.score = coins
+		}
 	},
 
 	[EN_PlayerDataMutation.SHOW_ALERT](state, text: string) {

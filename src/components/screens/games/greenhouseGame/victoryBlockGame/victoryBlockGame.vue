@@ -27,7 +27,7 @@
           
           </div>
         
-          <div :class='styles.achievement' v-if='GET_POINTS_GH >= 180'>
+          <div :class='styles.achievement' v-if='GET_POINTS_GH >= 185'>
             <div :class='styles.achievementIcon'>
               <p :class='styles.achievementName'>
                 “Экспертный наблюдатель”
@@ -70,13 +70,12 @@
 import Vue from 'vue'
 import closeButton from '../../../../ui/button/closeButton/closeButton.vue'
 import iconButton from '../../../../ui/button/iconButton/iconButton.vue'
-import { mapActions, mapGetters, mapMutations } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 import { EN_GreenhouseGameGetters } from '@/store/modules/greenhouseGame/getters'
 import { EN_GreenhouseGameMutation } from '@/store/modules/greenhouseGame/mutations'
 import { EN_HomeScreenMutation } from '@/store/modules/homeScreen/mutations'
 import { EN_PlayerDataGetters } from '@/store/modules/playerData/getters'
 import { EN_PlayerDataMutation } from '@/store/modules/playerData/mutations'
-import { EN_PlayerDataActions } from '@/store/modules/playerData/actions'
 
 export default Vue.extend({
   name: 'victoryBlockGame',
@@ -87,11 +86,9 @@ export default Vue.extend({
   watch: {
     GET_VICTORY_BLOCK_GH() {
       if (this.GET_VICTORY_BLOCK_GH) {
+        this.SUM_COINS(this.GET_POINTS_GH)
         this.COMPLETE_GREENHOUSE_GAME()
         this.SHOW_MAP_AFTER_SECOND_GAME()
-
-        this.SUM_COINS(this.GET_POINTS_GH)
-        this.UPDATE_PLAYER_COINS(this.GET_PLAYER_DATA)
       }
     }
   },
@@ -99,8 +96,7 @@ export default Vue.extend({
     ...mapGetters([
       EN_GreenhouseGameGetters.GET_VICTORY_BLOCK_GH,
       EN_GreenhouseGameGetters.GET_POINTS_GH,
-
-      EN_PlayerDataGetters.GET_PLAYER_DATA
+      EN_PlayerDataGetters.GET_PLAYER_DATA,
     ]),
   },
   methods: {
@@ -111,10 +107,8 @@ export default Vue.extend({
       EN_GreenhouseGameMutation.COMPLETE_GREENHOUSE_GAME,
 
       EN_HomeScreenMutation.SHOW_MAP_AFTER_SECOND_GAME,
-
       EN_PlayerDataMutation.SUM_COINS,
     ]),
-    ...mapActions([EN_PlayerDataActions.UPDATE_PLAYER_COINS]),
     restartGame() {
       this.RESTART_GAME_GH()
     },
