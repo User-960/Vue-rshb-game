@@ -32,6 +32,12 @@
 		#b9f598 100%
 	);
 
+	--secondary-gradient-green-hard: linear-gradient(
+		0deg,
+		#89e159 0%,
+		#b9f598 100%
+	);
+
 	--secondary-gradient-green-dark: linear-gradient(
 		329deg,
 		rgba(30, 78, 78, 0.6) -13.26%,

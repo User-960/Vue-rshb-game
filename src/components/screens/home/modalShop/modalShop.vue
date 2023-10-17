@@ -46,11 +46,19 @@
           <shopLinkButton link='https://vc.ru/rshb/626952-rosselhozbank-opredelil-optimalnuyu-strategiyu-razvitiya-rynka-otechestvennogo-bankovskogo-po'/>
 
           <button 
+            v-if='!GET_PLAYER_DATA.equipment.software.available'
             :class='[styles.buyBtn, 
             {[styles.buyBtnNonActive]: !GET_PLAYER_DATA.minigame.gameTwo.complete}]'
             @click='buySoftware'
           >
             {{ !GET_PLAYER_DATA.minigame.gameTwo.complete ? 'Заблокировано' : 'Купить за 1800' }}
+          </button>
+
+          <button 
+            v-else-if='GET_PLAYER_DATA.equipment.software.available'
+            :class='styles.buyInventory'
+          >
+            В инвентаре
           </button>
         </div>
 
@@ -63,11 +71,19 @@
           <shopLinkButton link='https://vc.ru/future/592705-perspektivy-bespilotnyh-tehnologiy-v-selskom-hozyaystve'/>
 
           <button 
+            v-if='!GET_PLAYER_DATA.equipment.bpla.available'
             :class='[styles.buyBtn, 
             {[styles.buyBtnNonActive]: !GET_PLAYER_DATA.minigame.gameThree.complete}]'
             @click='buyDrone'
           >
             {{ !GET_PLAYER_DATA.minigame.gameThree.complete ? 'Заблокировано' : 'Купить за 2500' }}
+          </button>
+
+          <button 
+            v-else-if='GET_PLAYER_DATA.equipment.bpla.available'
+            :class='styles.buyInventory'
+          >
+            В инвентаре
           </button>
         </div>
 
@@ -80,11 +96,19 @@
           <shopLinkButton link='https://vc.ru/future/584306-ces-2023-spasut-li-mir-roboty-i-selskoe-hozyaystvo'/>
 
           <button 
+            v-if='!GET_PLAYER_DATA.equipment.robot.available'
             :class='[styles.buyBtn, 
             {[styles.buyBtnNonActive]: !GET_PLAYER_DATA.minigame.gameFour.complete}]'
             @click='buyRobot'
           >
             {{ !GET_PLAYER_DATA.minigame.gameFour.complete ? 'Заблокировано' : 'Купить за 4200' }}
+          </button>
+
+          <button 
+            v-else-if='GET_PLAYER_DATA.equipment.robot.available'
+            :class='styles.buyInventory'
+          >
+            В инвентаре
           </button>
         </div>
       </div>
