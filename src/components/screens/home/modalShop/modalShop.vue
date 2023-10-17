@@ -43,7 +43,7 @@
             Собирает и обрабатывает информацию о растениях и почве
           </p>
           
-          <shopLinkButton @onclick='checkLinkSoftware' link='https://vc.ru/rshb/626952-rosselhozbank-opredelil-optimalnuyu-strategiyu-razvitiya-rynka-otechestvennogo-bankovskogo-po'/>
+          <shopLinkButton link='https://vc.ru/rshb/626952-rosselhozbank-opredelil-optimalnuyu-strategiyu-razvitiya-rynka-otechestvennogo-bankovskogo-po'/>
 
           <button 
             :class='[styles.buyBtn, 
@@ -60,7 +60,7 @@
             Эффективно и быстро производит опрыскивание растений средствами защиты
           </p>
 
-          <shopLinkButton @onclick='checkLinkDrone' link='https://vc.ru/future/592705-perspektivy-bespilotnyh-tehnologiy-v-selskom-hozyaystve'/>
+          <shopLinkButton link='https://vc.ru/future/592705-perspektivy-bespilotnyh-tehnologiy-v-selskom-hozyaystve'/>
 
           <button 
             :class='[styles.buyBtn, 
@@ -77,7 +77,7 @@
             Автоматически собирает фрукты или овощи с помощью датчиков и робозахвата
           </p>
 
-          <shopLinkButton @onclick='checkLinkRobot' link='https://vc.ru/future/584306-ces-2023-spasut-li-mir-roboty-i-selskoe-hozyaystvo'/>
+          <shopLinkButton link='https://vc.ru/future/584306-ces-2023-spasut-li-mir-roboty-i-selskoe-hozyaystvo'/>
 
           <button 
             :class='[styles.buyBtn, 
@@ -193,8 +193,13 @@ export default Vue.extend({
       EN_PlayerDataMutation.PLUS_POINTS_LINK_SOFTWARE,
       EN_PlayerDataMutation.PLUS_POINTS_LINK_DRONE,
       EN_PlayerDataMutation.PLUS_POINTS_LINK_ROBOT,
+
+      EN_PlayerDataMutation.BUY_EQUIPMENT_SOFTWARE,
     ]),
-    ...mapActions([EN_PlayerDataActions.UPDATE_PLAYER_COINS]),
+    ...mapActions([
+      EN_PlayerDataActions.UPDATE_PLAYER_COINS,
+      EN_PlayerDataActions.UPDATE_PLAYER_EQUIPMENT,
+    ]),
     choiceShopA() {
       this.isShopB = false
       this.isShopA = true
@@ -242,17 +247,20 @@ export default Vue.extend({
     },
     buySoftware() {
       if (this.GET_PLAYER_DATA.minigame.gameTwo.complete && !this.GET_PLAYER_DATA.equipment.software.available) {
-        console.log('Buy Pc')
+        this.BUY_EQUIPMENT_SOFTWARE('software')
+        this.UPDATE_PLAYER_EQUIPMENT(this.GET_PLAYER_DATA)
       }
     },
     buyDrone() {
       if (this.GET_PLAYER_DATA.minigame.gameThree.complete && !this.GET_PLAYER_DATA.equipment.bpla.available) {
-        console.log('Buy Bpla')
+        this.BUY_EQUIPMENT_SOFTWARE('bpla')
+        this.UPDATE_PLAYER_EQUIPMENT(this.GET_PLAYER_DATA)
       }
     },
     buyRobot() {
       if (this.GET_PLAYER_DATA.minigame.gameFour.complete && !this.GET_PLAYER_DATA.equipment.robot.available) {
-        console.log('Buy Robot')
+        this.BUY_EQUIPMENT_SOFTWARE('robot')
+        this.UPDATE_PLAYER_EQUIPMENT(this.GET_PLAYER_DATA)
       }
     },
     onClickOutside (event: any) {

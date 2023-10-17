@@ -1,6 +1,10 @@
 import { $axios } from '@/api/api'
 import { EN_USER } from '@/config/app.constants'
-import { IMiniGame, IPlayer } from '@/interfaces/player.interface'
+import {
+	IEquipmentStack,
+	IMiniGame,
+	IPlayer
+} from '@/interfaces/player.interface'
 
 export enum EN_ENDPOINTS {
 	PLAYER = '/v1/player'
@@ -100,6 +104,29 @@ class AuthService {
 					own_money,
 					own_coins,
 					minigame
+				}
+			)
+
+			if (data.name !== null && data.gender !== null) {
+				localStorage.setItem(EN_USER.PLAYER_DATA, JSON.stringify(data))
+			}
+
+			return data
+		} catch (error: any) {
+			let errorMessage = 'Возникла ошибка при получение данных!'
+			return errorMessage
+		}
+	}
+
+	async updatePlayerEquipment(
+		id: string | number,
+		equipment: IEquipmentStack | null
+	) {
+		try {
+			const { data } = await $axios.patch<IPlayer>(
+				`${EN_ENDPOINTS.PLAYER}/${id}/`,
+				{
+					equipment
 				}
 			)
 

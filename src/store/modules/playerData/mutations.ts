@@ -17,6 +17,9 @@ export enum EN_PlayerDataMutation {
 	PLUS_POINTS_LINK_SOFTWARE = 'PLUS_POINTS_LINK_SOFTWARE',
 	PLUS_POINTS_LINK_DRONE = 'PLUS_POINTS_LINK_DRONE',
 	PLUS_POINTS_LINK_ROBOT = 'PLUS_POINTS_LINK_ROBOT',
+	BUY_EQUIPMENT_SOFTWARE = 'BUY_EQUIPMENT_SOFTWARE',
+	BUY_EQUIPMENT_DRONE = 'BUY_EQUIPMENT_DRONE',
+	BUY_EQUIPMENT_ROBOT = 'BUY_EQUIPMENT_ROBOT',
 
 	SUM_COINS = 'SUM_COINS',
 	COMPLETE_MINI_GAME = 'COMPLETE_MINI_GAME',
@@ -70,6 +73,20 @@ export const mutations: MutationTree<IPlayerDataState> = {
 	},
 	[EN_PlayerDataMutation.PLUS_POINTS_LINK_ROBOT](state) {
 		state.playerData.own_coins += 5
+	},
+
+	[EN_PlayerDataMutation.BUY_EQUIPMENT_SOFTWARE](state, equipment: string) {
+		if (equipment === 'software' && state.playerData.equipment?.software) {
+			state.playerData.equipment.software.available = true
+		}
+
+		if (equipment === 'bpla' && state.playerData.equipment?.bpla) {
+			state.playerData.equipment.bpla.available = true
+		}
+
+		if (equipment === 'robot' && state.playerData.equipment?.robot) {
+			state.playerData.equipment.robot.available = true
+		}
 	},
 
 	[EN_PlayerDataMutation.SUM_COINS](state, coins: number) {
