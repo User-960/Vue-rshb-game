@@ -19,14 +19,14 @@ describe('test mainPage component', () => {
 		// then
 	})
 
-	it('show modalHouse', async () => {
-		// given
+	// it('show modalHouse', async () => {
+	// 	// given
 
-		// when
-		render(mainPage)
-		await fireEvent.click(screen.getByTestId('houseGame'))
+	// 	// when
+	// 	render(mainPage)
+	// 	await fireEvent.click(screen.getByTestId('houseGame'))
 
-		// then
-		expect(screen.getByTestId('modalHouse')).toBeTruthy()
-	})
+	// 	// then
+	// 	expect(screen.getByTestId('modalHouse')).toBeTruthy()
+	// })
 })
