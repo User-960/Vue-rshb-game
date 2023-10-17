@@ -42,12 +42,17 @@ class AuthService {
 		}
 	}
 
-	async updatePlayerMoney(id: string | number, own_money: number) {
+	async updatePlayerMoney(
+		id: string | number,
+		own_money: number,
+		credit: number
+	) {
 		try {
 			const { data } = await $axios.patch<IPlayer>(
 				`${EN_ENDPOINTS.PLAYER}/${id}/`,
 				{
-					own_money
+					own_money,
+					credit
 				}
 			)
 

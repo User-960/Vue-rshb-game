@@ -86,7 +86,10 @@ export default Vue.extend({
   watch: {
     GET_VICTORY_BLOCK_GH() {
       if (this.GET_VICTORY_BLOCK_GH) {
-        this.SUM_COINS(this.GET_POINTS_GH)
+        if (!this.GET_PLAYER_DATA.minigame.gameTwo.complete) {
+          this.SUM_COINS(this.GET_POINTS_GH)
+        }
+        
         this.COMPLETE_GREENHOUSE_GAME()
         this.SHOW_MAP_AFTER_SECOND_GAME()
       }

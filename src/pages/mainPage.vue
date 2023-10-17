@@ -34,5 +34,5 @@ export default Vue.extend({
       EN_PlayerDataActions.GET_PLAYER
     ])
   }
-});
+})
 </script>

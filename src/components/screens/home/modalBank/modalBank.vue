@@ -5,7 +5,7 @@
         <closeButton @onclick='HIDE_MODAL_BANK'/>
       </div>
 
-      <bank v-if='isFirstCredit && !isReturnCredit && GET_PLAYER_DATA.own_money === 1000 || GET_PLAYER_DATA.own_money === 0'>
+      <bank v-if='isFirstCredit && GET_PLAYER_DATA.own_money <= 1000'>
         <template v-slot:contentImg>
           <img 
             src='../../../../../public/images/bank.svg' 
@@ -50,7 +50,7 @@
         </template>
       </bank>
 
-      <bank v-if='isReturnCredit && !isCongrats && GET_PLAYER_DATA.own_money > 0'>
+      <bank v-if='isReturnCredit && !isCongrats && GET_PLAYER_DATA.own_money >= 9000'>
         <template v-slot:contentImgs>
           <div>
             <img 
