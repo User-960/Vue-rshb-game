@@ -1,5 +1,5 @@
 <template>
-  <greenhouseGame v-if='GET_PLAYER_DATA.name !== null && GET_PLAYER_DATA.gender !== null' />
+  <greenhouseGame v-if='GET_PLAYER_DATA.minigame.gameOne.complete' />
 </template>
 
 <script lang="ts">
@@ -22,6 +22,12 @@ export default Vue.extend({
       this.GET_PLAYER(JSON.parse(playerData).id)
     } else {
       this.$router.push({ name: 'start' })
+    }
+
+    if (playerData) {
+      if (JSON.parse(playerData).minigame.gameOne.complete !== true) {
+        this.$router.push({ name: 'home' })
+      }
     }
   },
   computed: {

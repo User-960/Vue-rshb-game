@@ -1,5 +1,5 @@
 <template>
-  <collectorGame v-if='GET_PLAYER_DATA.name !== null && GET_PLAYER_DATA.gender !== null' />
+  <collectorGame v-if='GET_PLAYER_DATA.minigame.gameFour.complete && GET_PLAYER_DATA.equipment.robot.available' />
 </template>
 
 <script lang="ts">
@@ -22,6 +22,15 @@ export default Vue.extend({
       this.GET_PLAYER(JSON.parse(playerData).id)
     } else {
       this.$router.push({ name: 'start' })
+    }
+
+    if (playerData) {
+      if (
+          JSON.parse(playerData).minigame.gameFour.complete !== true && 
+          JSON.parse(playerData).equipment.robot.available !== true
+         ) {
+        this.$router.push({ name: 'home' })
+      }
     }
   },
   computed: {

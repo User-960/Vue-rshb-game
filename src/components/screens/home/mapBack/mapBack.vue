@@ -17,7 +17,7 @@
         <modalHouse/>
         <div :class='[
             styles.house, 
-            {[styles.houseAvailable]: isHouseAvailable}
+            {[styles.houseAvailable]: GET_PLAYER_DATA.minigame.gameTwo.complete}
           ]' 
           @click='openModalHouse'
           data-testid='houseGame'
@@ -27,7 +27,7 @@
         <div 
           :class='[
             styles.greenhouse, 
-            {[styles.greenhouseAvailable]: isGreenhouseAvailable}
+            {[styles.greenhouseAvailable]: GET_PLAYER_DATA.minigame.gameOne.complete}
           ]' 
           @click='openSecondGame'>
         </div>
@@ -58,6 +58,7 @@ import { EN_HomeScreenMutation } from '@/store/modules/homeScreen/mutations'
 import modalShop from '../modalShop/modalShop.vue'
 import { EN_GeneticGameGetters } from '@/store/modules/geneticGame/getters'
 import { EN_HomeScreenGetters } from '@/store/modules/homeScreen/getters'
+import { EN_PlayerDataGetters } from '@/store/modules/playerData/getters'
 
 // import { ref } from 'vue'
 // import { onClickOutside } from '@vueuse/core'
@@ -76,7 +77,7 @@ export default Vue.extend({
   },
   computed: {
     ...mapGetters([
-      EN_GeneticGameGetters.GET_COMPLETE_GENETIC_GAME,
+      EN_PlayerDataGetters.GET_PLAYER_DATA,
 
       EN_HomeScreenGetters.GET_MAP_START_GAME,
       EN_HomeScreenGetters.GET_MAP_AFTER_FIRST_GAME,
@@ -94,10 +95,14 @@ export default Vue.extend({
       this.$router.push({ name: 'genetic-game' })
     },
     openModalHouse() {
-      this.SHOW_MODAL_HOUSE()
+      if (this.GET_PLAYER_DATA.minigame.gameTwo.complete) {
+        this.SHOW_MODAL_HOUSE()
+      }
     },
     openSecondGame() {
-      this.$router.push({ name: 'greenhouse-game' })
+      if (this.GET_PLAYER_DATA.minigame.gameOne.complete) {
+        this.$router.push({ name: 'greenhouse-game' })
+      }
     }
   }
 })

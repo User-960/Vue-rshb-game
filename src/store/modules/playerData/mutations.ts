@@ -48,10 +48,14 @@ export const mutations: MutationTree<IPlayerDataState> = {
 	},
 
 	[EN_PlayerDataMutation.PAY_MONEY_MARIA](state) {
-		state.playerData.own_money -= 100
+		if (state.playerData.own_money >= 100) {
+			state.playerData.own_money -= 100
+		}
 	},
 	[EN_PlayerDataMutation.PAY_MONEY_DANIL](state) {
-		state.playerData.own_money -= 100
+		if (state.playerData.own_money >= 100) {
+			state.playerData.own_money -= 100
+		}
 	},
 
 	[EN_PlayerDataMutation.SUM_COINS](state, coins: number) {

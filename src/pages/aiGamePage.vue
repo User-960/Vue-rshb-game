@@ -1,5 +1,5 @@
 <template>
-  <aiGame v-if='GET_PLAYER_DATA.name !== null && GET_PLAYER_DATA.gender !== null' />
+  <aiGame v-if='GET_PLAYER_DATA.minigame.gameTwo.complete && GET_PLAYER_DATA.equipment.software.available' />
 </template>
 
 <script lang="ts">
@@ -22,6 +22,15 @@ export default Vue.extend({
       this.GET_PLAYER(JSON.parse(playerData).id)
     } else {
       this.$router.push({ name: 'start' })
+    }
+
+    if (playerData) {
+      if (
+          JSON.parse(playerData).minigame.gameTwo.complete !== true && 
+          JSON.parse(playerData).equipment.software.available !== true
+         ) {
+        this.$router.push({ name: 'home' })
+      }
     }
   },
   computed: {
