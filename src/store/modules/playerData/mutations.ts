@@ -14,6 +14,10 @@ export enum EN_PlayerDataMutation {
 	PAY_MONEY_MARIA = 'PAY_MONEY_MARIA',
 	PAY_MONEY_DANIL = 'PAY_MONEY_DANIL',
 
+	PLUS_POINTS_LINK_SOFTWARE = 'PLUS_POINTS_LINK_SOFTWARE',
+	PLUS_POINTS_LINK_DRONE = 'PLUS_POINTS_LINK_DRONE',
+	PLUS_POINTS_LINK_ROBOT = 'PLUS_POINTS_LINK_ROBOT',
+
 	SUM_COINS = 'SUM_COINS',
 	COMPLETE_MINI_GAME = 'COMPLETE_MINI_GAME',
 	PERFORM_ACHIEVEMENT = 'PERFORM_ACHIEVEMENT',
@@ -56,6 +60,16 @@ export const mutations: MutationTree<IPlayerDataState> = {
 		if (state.playerData.own_money >= 100) {
 			state.playerData.own_money -= 100
 		}
+	},
+
+	[EN_PlayerDataMutation.PLUS_POINTS_LINK_SOFTWARE](state) {
+		state.playerData.own_coins += 5
+	},
+	[EN_PlayerDataMutation.PLUS_POINTS_LINK_DRONE](state) {
+		state.playerData.own_coins += 5
+	},
+	[EN_PlayerDataMutation.PLUS_POINTS_LINK_ROBOT](state) {
+		state.playerData.own_coins += 5
 	},
 
 	[EN_PlayerDataMutation.SUM_COINS](state, coins: number) {

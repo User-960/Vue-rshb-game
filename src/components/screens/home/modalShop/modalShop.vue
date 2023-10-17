@@ -43,7 +43,7 @@
             Собирает и обрабатывает информацию о растениях и почве
           </p>
           
-          <shopLinkButton link='/vc.ru'/>
+          <shopLinkButton @onclick='checkLinkSoftware' link='https://vc.ru/rshb/626952-rosselhozbank-opredelil-optimalnuyu-strategiyu-razvitiya-rynka-otechestvennogo-bankovskogo-po'/>
 
           <button 
             :class='[styles.buyBtn, 
@@ -60,7 +60,7 @@
             Эффективно и быстро производит опрыскивание растений средствами защиты
           </p>
 
-          <shopLinkButton link='/vc.ru'/>
+          <shopLinkButton @onclick='checkLinkDrone' link='https://vc.ru/future/592705-perspektivy-bespilotnyh-tehnologiy-v-selskom-hozyaystve'/>
 
           <button 
             :class='[styles.buyBtn, 
@@ -77,7 +77,7 @@
             Автоматически собирает фрукты или овощи с помощью датчиков и робозахвата
           </p>
 
-          <shopLinkButton link='/vc.ru'/>
+          <shopLinkButton @onclick='checkLinkRobot' link='https://vc.ru/future/584306-ces-2023-spasut-li-mir-roboty-i-selskoe-hozyaystvo'/>
 
           <button 
             :class='[styles.buyBtn, 
@@ -110,11 +110,13 @@ import listSells from './listSells/listSells.vue'
 import shopLinkButton from '../../../ui/button/shopButton/shopLinkButton/shopLinkButton.vue'
 import sellButton from '../../../ui/button/shopButton/sellButton/sellButton.vue'
 import closeButton from '../../../ui/button/closeButton/closeButton.vue'
-import { mapGetters, mapMutations } from 'vuex'
+import { mapActions, mapGetters, mapMutations } from 'vuex'
 import { EN_HomeScreenGetters } from '@/store/modules/homeScreen/getters'
 import vClickOutside from 'v-click-outside'
 import { EN_HomeScreenMutation } from '@/store/modules/homeScreen/mutations'
 import { EN_PlayerDataGetters } from '@/store/modules/playerData/getters'
+import { EN_PlayerDataMutation } from '@/store/modules/playerData/mutations'
+import { EN_PlayerDataActions } from '@/store/modules/playerData/actions'
 
 const mockData = [
   {
@@ -185,7 +187,14 @@ export default Vue.extend({
     ]),
   },
   methods: {
-    ...mapMutations([EN_HomeScreenMutation.HIDE_MODAL_SHOP]),
+    ...mapMutations([
+      EN_HomeScreenMutation.HIDE_MODAL_SHOP,
+
+      EN_PlayerDataMutation.PLUS_POINTS_LINK_SOFTWARE,
+      EN_PlayerDataMutation.PLUS_POINTS_LINK_DRONE,
+      EN_PlayerDataMutation.PLUS_POINTS_LINK_ROBOT,
+    ]),
+    ...mapActions([EN_PlayerDataActions.UPDATE_PLAYER_COINS]),
     choiceShopA() {
       this.isShopB = false
       this.isShopA = true
@@ -212,6 +221,24 @@ export default Vue.extend({
       this.isPc = false
       this.isDrone = false
       this.isRobotCollector = true
+    },
+    checkLinkSoftware() {
+      if (!this.GET_PLAYER_DATA.equipment.software.available) {
+        this.PLUS_POINTS_LINK_SOFTWARE()
+        this.UPDATE_PLAYER_COINS()
+      }
+    },
+    checkLinkDrone() {
+      if (!this.GET_PLAYER_DATA.equipment.bpla.available) {
+        this.PLUS_POINTS_LINK_DRONE()
+        this.UPDATE_PLAYER_COINS()
+      }
+    },
+    checkLinkRobot() {
+      if (!this.GET_PLAYER_DATA.equipment.robot.available) {
+        this.PLUS_POINTS_LINK_ROBOT()
+        this.UPDATE_PLAYER_COINS()
+      }
     },
     buySoftware() {
       if (this.GET_PLAYER_DATA.minigame.gameTwo.complete && !this.GET_PLAYER_DATA.equipment.software.available) {
