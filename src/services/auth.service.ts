@@ -142,13 +142,15 @@ class AuthService {
 
 	async updatePlayerEquipment(
 		id: string | number,
-		equipment: IEquipmentStack | null
+		equipment: IEquipmentStack | null,
+		own_money: number
 	) {
 		try {
 			const { data } = await $axios.patch<IPlayer>(
 				`${EN_ENDPOINTS.PLAYER}/${id}/`,
 				{
-					equipment
+					equipment,
+					own_money
 				}
 			)
 

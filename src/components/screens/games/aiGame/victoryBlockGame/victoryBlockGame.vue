@@ -75,8 +75,16 @@ export default Vue.extend({
   watch: {
     GET_VICTORY_BLOCK_AI() {
       if (this.GET_VICTORY_BLOCK_AI) {
-        this.SUM_COINS(this.GET_POINTS_AI)
-        this.UPDATE_PLAYER_COINS(this.GET_PLAYER_DATA)
+        if (!this.GET_PLAYER_DATA.minigame.gameThree.complete) {
+          this.SUM_COINS(this.GET_POINTS_AI)
+          this.SAVE_SCORE_MINI_GAME_THREE(this.GET_POINTS_AI)
+          if (this.GET_POINTS_AI >= 95) {
+            this.PERFORM_ACHIEVEMENT('gameThree')
+          }
+          this.COMPLETE_MINI_GAME('gameThree')
+        
+          this.UPDATE_PLAYER_MINI_GAME(this.GET_PLAYER_DATA)
+        }
 
         this.COMPLETE_AI_GAME()
         this.SHOW_MAP_BEFORE_FOURTH_GAME()
@@ -100,8 +108,14 @@ export default Vue.extend({
       EN_HomeScreenMutation.SHOW_MAP_BEFORE_FOURTH_GAME,
 
       EN_PlayerDataMutation.SUM_COINS,
+      EN_PlayerDataMutation.COMPLETE_MINI_GAME,
+      EN_PlayerDataMutation.SAVE_SCORE_MINI_GAME_THREE,
+      EN_PlayerDataMutation.PERFORM_ACHIEVEMENT,
     ]),
-    ...mapActions([EN_PlayerDataActions.UPDATE_PLAYER_COINS]),
+    ...mapActions([
+      EN_PlayerDataActions.UPDATE_PLAYER_COINS,
+      EN_PlayerDataActions.UPDATE_PLAYER_MINI_GAME,
+    ]),
     restartGame() {
       this.RESTART_GAME_AI()
     },

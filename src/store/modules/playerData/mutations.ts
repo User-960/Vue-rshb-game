@@ -17,6 +17,7 @@ export enum EN_PlayerDataMutation {
 	PLUS_POINTS_LINK_SOFTWARE = 'PLUS_POINTS_LINK_SOFTWARE',
 	PLUS_POINTS_LINK_DRONE = 'PLUS_POINTS_LINK_DRONE',
 	PLUS_POINTS_LINK_ROBOT = 'PLUS_POINTS_LINK_ROBOT',
+
 	BUY_EQUIPMENT_SOFTWARE = 'BUY_EQUIPMENT_SOFTWARE',
 	BUY_EQUIPMENT_DRONE = 'BUY_EQUIPMENT_DRONE',
 	BUY_EQUIPMENT_ROBOT = 'BUY_EQUIPMENT_ROBOT',
@@ -26,6 +27,9 @@ export enum EN_PlayerDataMutation {
 	PERFORM_ACHIEVEMENT = 'PERFORM_ACHIEVEMENT',
 	SAVE_SCORE_MINI_GAME_ONE = 'SAVE_SCORE_MINI_GAME_ONE',
 	SAVE_SCORE_MINI_GAME_TWO = 'SAVE_SCORE_MINI_GAME_TWO',
+	SAVE_SCORE_MINI_GAME_THREE = 'SAVE_SCORE_MINI_GAME_THREE',
+	SAVE_SCORE_MINI_GAME_FOUR = 'SAVE_SCORE_MINI_GAME_FOUR',
+	SAVE_SCORE_MINI_GAME_FIVE = 'SAVE_SCORE_MINI_GAME_FIVE',
 
 	SHOW_ALERT = 'SHOW_ALERT',
 
@@ -81,14 +85,17 @@ export const mutations: MutationTree<IPlayerDataState> = {
 
 	[EN_PlayerDataMutation.BUY_EQUIPMENT_SOFTWARE](state, equipment: string) {
 		if (equipment === 'software' && state.playerData.equipment?.software) {
+			state.playerData.own_money -= 1800
 			state.playerData.equipment.software.available = true
 		}
 
 		if (equipment === 'bpla' && state.playerData.equipment?.bpla) {
+			state.playerData.own_money -= 2500
 			state.playerData.equipment.bpla.available = true
 		}
 
 		if (equipment === 'robot' && state.playerData.equipment?.robot) {
+			state.playerData.own_money -= 4200
 			state.playerData.equipment.robot.available = true
 		}
 	},
@@ -99,10 +106,26 @@ export const mutations: MutationTree<IPlayerDataState> = {
 	[EN_PlayerDataMutation.COMPLETE_MINI_GAME](state, miniGame: string) {
 		if (miniGame === 'gameOne' && state.playerData.minigame !== null) {
 			state.playerData.minigame.gameOne.complete = true
+			state.playerData.minigame.gameTwo.available = true
 		}
 
 		if (miniGame === 'gameTwo' && state.playerData.minigame !== null) {
 			state.playerData.minigame.gameTwo.complete = true
+			state.playerData.minigame.gameThree.available = true
+		}
+
+		if (miniGame === 'gameThree' && state.playerData.minigame !== null) {
+			state.playerData.minigame.gameThree.complete = true
+			state.playerData.minigame.gameFour.available = true
+		}
+
+		if (miniGame === 'gameFour' && state.playerData.minigame !== null) {
+			state.playerData.minigame.gameFour.complete = true
+			state.playerData.minigame.gameFive.available = true
+		}
+
+		if (miniGame === 'gameFive' && state.playerData.minigame !== null) {
+			state.playerData.minigame.gameFour.complete = true
 		}
 	},
 	[EN_PlayerDataMutation.PERFORM_ACHIEVEMENT](state, miniGame: string) {
@@ -113,6 +136,18 @@ export const mutations: MutationTree<IPlayerDataState> = {
 		if (miniGame === 'gameTwo' && state.playerData.minigame !== null) {
 			state.playerData.minigame.gameTwo.achievement = true
 		}
+
+		if (miniGame === 'gameThree' && state.playerData.minigame !== null) {
+			state.playerData.minigame.gameThree.achievement = true
+		}
+
+		if (miniGame === 'gameFour' && state.playerData.minigame !== null) {
+			state.playerData.minigame.gameFour.achievement = true
+		}
+
+		if (miniGame === 'gameFive' && state.playerData.minigame !== null) {
+			state.playerData.minigame.gameFive.achievement = true
+		}
 	},
 	[EN_PlayerDataMutation.SAVE_SCORE_MINI_GAME_ONE](state, coins: number) {
 		if (state.playerData.minigame !== null) {
@@ -122,6 +157,21 @@ export const mutations: MutationTree<IPlayerDataState> = {
 	[EN_PlayerDataMutation.SAVE_SCORE_MINI_GAME_TWO](state, coins: number) {
 		if (state.playerData.minigame !== null) {
 			state.playerData.minigame.gameTwo.score = coins
+		}
+	},
+	[EN_PlayerDataMutation.SAVE_SCORE_MINI_GAME_THREE](state, coins: number) {
+		if (state.playerData.minigame !== null) {
+			state.playerData.minigame.gameThree.score = coins
+		}
+	},
+	[EN_PlayerDataMutation.SAVE_SCORE_MINI_GAME_FOUR](state, coins: number) {
+		if (state.playerData.minigame !== null) {
+			state.playerData.minigame.gameFour.score = coins
+		}
+	},
+	[EN_PlayerDataMutation.SAVE_SCORE_MINI_GAME_FIVE](state, coins: number) {
+		if (state.playerData.minigame !== null) {
+			state.playerData.minigame.gameFive.score = coins
 		}
 	},
 
