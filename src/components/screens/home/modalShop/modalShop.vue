@@ -38,25 +38,37 @@
         </ul>
 
         <div :class='[styles.description, {[styles.descActive] : isPc}]'>
-          <img :class='styles.img' src='../../../../../public/images/systemShop.svg' alt='photo of robot'/>
+          <img :class='styles.img' src='../../../../../public/images/systemShop.svg' alt='photo of PC'/>
           <p :class='styles.text'>
             Собирает и обрабатывает информацию о растениях и почве
           </p>
           
           <shopLinkButton link='/vc.ru'/>
 
-          <button :class='styles.buyBtn'>Купить за 1000</button>
+          <button 
+            :class='[styles.buyBtn, 
+            {[styles.buyBtnNonActive]: !GET_PLAYER_DATA.minigame.gameTwo.complete}]'
+            @click='buySoftware'
+          >
+            {{ !GET_PLAYER_DATA.minigame.gameTwo.complete ? 'Заблокировано' : 'Купить за 1800' }}
+          </button>
         </div>
 
         <div :class='[styles.description, {[styles.descActive] : isDrone}]'>
-          <img :class='styles.img' src='../../../../../public/images/droneShop.svg' alt='photo of robot'/>
+          <img :class='styles.img' src='../../../../../public/images/droneShop.svg' alt='photo of drone'/>
           <p :class='styles.text'>
             Эффективно и быстро производит опрыскивание растений средствами защиты
           </p>
 
           <shopLinkButton link='/vc.ru'/>
 
-          <button :class='styles.buyBtn'>Купить за 1000</button>
+          <button 
+            :class='[styles.buyBtn, 
+            {[styles.buyBtnNonActive]: !GET_PLAYER_DATA.minigame.gameThree.complete}]'
+            @click='buyDrone'
+          >
+            {{ !GET_PLAYER_DATA.minigame.gameThree.complete ? 'Заблокировано' : 'Купить за 2500' }}
+          </button>
         </div>
 
         <div :class='[styles.description, {[styles.descActive] : isRobotCollector}]'>
@@ -67,7 +79,13 @@
 
           <shopLinkButton link='/vc.ru'/>
 
-          <button :class='styles.buyBtn'>Купить за 1000</button>
+          <button 
+            :class='[styles.buyBtn, 
+            {[styles.buyBtnNonActive]: !GET_PLAYER_DATA.minigame.gameFour.complete}]'
+            @click='buyRobot'
+          >
+            {{ !GET_PLAYER_DATA.minigame.gameFour.complete ? 'Заблокировано' : 'Купить за 4200' }}
+          </button>
         </div>
       </div>
 
@@ -96,6 +114,7 @@ import { mapGetters, mapMutations } from 'vuex'
 import { EN_HomeScreenGetters } from '@/store/modules/homeScreen/getters'
 import vClickOutside from 'v-click-outside'
 import { EN_HomeScreenMutation } from '@/store/modules/homeScreen/mutations'
+import { EN_PlayerDataGetters } from '@/store/modules/playerData/getters'
 
 const mockData = [
   {
@@ -160,7 +179,10 @@ export default Vue.extend({
     sellButton
   },
   computed: {
-    ...mapGetters([EN_HomeScreenGetters.GET_MODAL_SHOP_VISIBLE]),
+    ...mapGetters([
+      EN_HomeScreenGetters.GET_MODAL_SHOP_VISIBLE,
+      EN_PlayerDataGetters.GET_PLAYER_DATA
+    ]),
   },
   methods: {
     ...mapMutations([EN_HomeScreenMutation.HIDE_MODAL_SHOP]),
@@ -190,6 +212,21 @@ export default Vue.extend({
       this.isPc = false
       this.isDrone = false
       this.isRobotCollector = true
+    },
+    buySoftware() {
+      if (this.GET_PLAYER_DATA.minigame.gameTwo.complete && !this.GET_PLAYER_DATA.equipment.software.available) {
+        console.log('Buy Pc')
+      }
+    },
+    buyDrone() {
+      if (this.GET_PLAYER_DATA.minigame.gameThree.complete && !this.GET_PLAYER_DATA.equipment.bpla.available) {
+        console.log('Buy Bpla')
+      }
+    },
+    buyRobot() {
+      if (this.GET_PLAYER_DATA.minigame.gameFour.complete && !this.GET_PLAYER_DATA.equipment.robot.available) {
+        console.log('Buy Robot')
+      }
     },
     onClickOutside (event: any) {
       this.HIDE_MODAL_SHOP()

@@ -185,6 +185,13 @@
 	color: var(--primary-green);
 	font-weight: 500;
 	line-height: 24px;
+
+	cursor: pointer;
+}
+
+.buyBtnNonActive {
+	opacity: 0.5;
+	cursor: not-allowed;
 }
 
 .listSellsWrapper {
