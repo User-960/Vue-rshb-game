@@ -12,7 +12,12 @@
         <modalBank/>
         <modalShop/>
 
-        <div :class='styles.lab' @click='openFirstGame'></div>
+        <div :class='[
+            styles.lab, {[styles.labAvailable]: GET_PLAYER_DATA.minigame.gameOne.available}
+          ]' 
+          @click='openFirstGame'
+        >
+        </div>
         
         <modalHouse/>
         <div :class='[
@@ -92,7 +97,9 @@ export default Vue.extend({
       EN_HomeScreenMutation.SHOW_MODAL_HOUSE,
     ]),
     openFirstGame() {
-      this.$router.push({ name: 'genetic-game' })
+      if (this.GET_PLAYER_DATA.minigame.gameOne.available) {
+        this.$router.push({ name: 'genetic-game' })
+      }
     },
     openModalHouse() {
       if (this.GET_PLAYER_DATA.minigame.gameTwo.complete) {

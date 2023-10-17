@@ -47,6 +47,10 @@ export const mutations: MutationTree<IPlayerDataState> = {
 	[EN_PlayerDataMutation.TAKE_CREDIT](state, player: IPlayer) {
 		state.playerData.own_money = 9000
 		state.playerData.credit = 9000
+
+		if (state.playerData.minigame?.gameOne) {
+			state.playerData.minigame.gameOne.available = true
+		}
 	},
 	[EN_PlayerDataMutation.RETURN_CREDIT](state, player: IPlayer) {
 		if (state.playerData.own_money >= 9270) {

@@ -27,8 +27,13 @@
 	width: 350px;
 	height: 350px;
 
-	cursor: pointer;
+	cursor: not-allowed;
 	z-index: 100;
+}
+
+.labAvailable {
+	background-image: url(../../../../../public/images/labTableAvailable.svg);
+	cursor: pointer;
 }
 
 .house {

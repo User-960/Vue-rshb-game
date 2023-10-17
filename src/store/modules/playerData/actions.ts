@@ -50,7 +50,12 @@ export const actions: ActionTree<IPlayerDataState, IRootState> = {
 		{ commit }: { commit: Commit },
 		player: IPlayer
 	) {
-		AuthService.updatePlayerMoney(player.id, player.own_money, player.credit)
+		AuthService.updatePlayerTakeCredit(
+			player.id,
+			player.own_money,
+			player.credit,
+			player.minigame
+		)
 			.then((res: IPlayer | string) => {
 				typeof res !== 'string'
 					? commit(EN_PlayerDataMutation.UPDATE_PLAYER, res)
