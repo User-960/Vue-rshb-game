@@ -5,7 +5,7 @@
         <div :class='[
             styles.trees, 
             {[styles.beforeThirdGame]: GET_MAP_BEFORE_THIRD_GAME},
-            {[styles.beforeFifthGame]: GET_MAP_BEFORE_FIFTH_GAME} 
+            {[styles.beforeFifthGame]: GET_PLAYER_DATA.minigame.gameFour.complete ||GET_MAP_BEFORE_FIFTH_GAME} 
           ]'>
         </div>
 
