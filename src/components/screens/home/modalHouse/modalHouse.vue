@@ -53,11 +53,6 @@ export default Vue.extend({
   methods: {
     ...mapMutations([EN_HomeScreenMutation.HIDE_MODAL_HOUSE]),
     openGameAI() {
-      // if (this.isGameAiAvailable) {
-      //   this.$router.push({ name: 'ai-game' })
-      //   this.HIDE_MODAL_HOUSE()
-      // }
-
       if (
         this.GET_PLAYER_DATA.minigame.gameTwo.complete && 
         this.GET_PLAYER_DATA.equipment.software.available
@@ -67,11 +62,6 @@ export default Vue.extend({
       }
     },
     openGameDrone() {
-      // if (this.isGameDroneAvailable) {
-      //   this.$router.push({ name: 'pest-control' })
-      //   this.HIDE_MODAL_HOUSE()
-      // }
-
       if (
         this.GET_PLAYER_DATA.minigame.gameThree.complete && 
         this.GET_PLAYER_DATA.equipment.bpla.available
@@ -81,11 +71,6 @@ export default Vue.extend({
       }
     },
     openGameSystem() {
-      // if (this.isGameSystem) {
-      //   this.$router.push({ name: 'robot-collector' })
-      //   this.HIDE_MODAL_HOUSE()
-      // }
-
       if (
         this.GET_PLAYER_DATA.minigame.gameFour.complete && 
         this.GET_PLAYER_DATA.equipment.robot.available

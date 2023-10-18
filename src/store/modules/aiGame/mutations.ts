@@ -177,7 +177,6 @@ export const mutations: MutationTree<IAiGameState> = {
 			(state.isStrawberryHealthLineCritical = false),
 			(state.isStrawberryHealthLineEmpty = false),
 			(state.strawberryLevelMistakes = 1),
-			(state.points = 0),
 			(state.timer = 90),
 			(state.isChosenBook = false),
 			(state.isChosenNumPad = false),

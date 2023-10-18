@@ -40,12 +40,12 @@
         <div 
           :class='[
             styles.gardenBed,
-            {[styles.startGame]: GET_MAP_START_GAME}, 
-            {[styles.afterFirstGame]: GET_MAP_AFTER_FIRST_GAME}, 
-            {[styles.afterSecondGame]: GET_MAP_AFTER_SECOND_GAME}, 
-            {[styles.beforeThirdGame]: GET_MAP_BEFORE_THIRD_GAME},
-            {[styles.beforeFourthGame]: GET_MAP_BEFORE_FOURTH_GAME},
-            {[styles.beforeFifthGame]: GET_MAP_BEFORE_FIFTH_GAME} 
+            {[styles.startGame]: !GET_PLAYER_DATA.minigame.gameOne.complete || GET_MAP_START_GAME}, 
+            {[styles.afterFirstGame]: GET_PLAYER_DATA.minigame.gameOne.complete || GET_MAP_AFTER_FIRST_GAME}, 
+            {[styles.afterSecondGame]: GET_PLAYER_DATA.minigame.gameTwo.complete || GET_MAP_AFTER_SECOND_GAME}, 
+            {[styles.beforeThirdGame]:  GET_MAP_BEFORE_THIRD_GAME},
+            {[styles.beforeFourthGame]: GET_PLAYER_DATA.minigame.gameThree.complete || GET_MAP_BEFORE_FOURTH_GAME},
+            {[styles.beforeFifthGame]: GET_PLAYER_DATA.minigame.gameFour.complete || GET_MAP_BEFORE_FIFTH_GAME} 
           ]'
         ></div>
       </div>
