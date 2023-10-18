@@ -78,6 +78,8 @@ const state: IPlayerDataState = {
 
 	isAlertVisible: false,
 	alertText: '',
+	newUniqueName: '',
+	isLoading: false,
 
 	playersRating: [],
 

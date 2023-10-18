@@ -31,10 +31,10 @@ export const actions: ActionTree<IPlayerDataState, IRootState> = {
 		player: IUserDataForm
 	) {
 		AuthService.createUser(player.name, player.gender)
-			.then((res: IPlayer | string) => {
+			.then((res: IPlayer | string | string[]) => {
 				typeof res !== 'string'
 					? commit(EN_PlayerDataMutation.CREATE_PLAYER, res)
-					: commit(EN_PlayerDataMutation.SHOW_ALERT, res)
+					: commit(EN_PlayerDataMutation.FIND_UNIQUE_NAME, res)
 			})
 			.catch(error => console.log(error))
 	},

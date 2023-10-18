@@ -1,8 +1,8 @@
+import { generateRandomString } from './helpers/helpers'
 import { $axios } from '@/api/api'
 import { EN_USER } from '@/config/app.constants'
 import {
 	IEquipmentStack,
-	IMiniGame,
 	IPlayer,
 	IPlayerLiderboard
 } from '@/interfaces/player.interface'
@@ -26,8 +26,13 @@ class AuthService {
 
 			return data
 		} catch (error: any) {
-			let errorMessage = 'К сожалению, данное имя уже используется'
-			return errorMessage
+			if (error.response.status === 400) {
+				let errorMessage = generateRandomString(name, 3)
+				return errorMessage
+			} else {
+				let errorMessage = 'Возникла ошибка при получение данных!'
+				return errorMessage
+			}
 		}
 	}
 

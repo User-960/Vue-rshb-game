@@ -5,6 +5,8 @@ export interface IPlayerDataState {
 
 	isAlertVisible: boolean
 	alertText: string
+	newUniqueName: string
+	isLoading: boolean
 
 	playersRating: IPlayerLiderboard[]
 

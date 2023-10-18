@@ -31,6 +31,10 @@ export enum EN_PlayerDataMutation {
 	SAVE_SCORE_MINI_GAME_FIVE = 'SAVE_SCORE_MINI_GAME_FIVE',
 
 	SHOW_ALERT = 'SHOW_ALERT',
+	SHOW_LOADING = 'SHOW_LOADING',
+	HIDE_LOADING = 'HIDE_LOADING',
+	FIND_UNIQUE_NAME = 'FIND_UNIQUE_NAME',
+	DELETE_UNIQUE_NAME = 'DELETE_UNIQUE_NAME',
 
 	GET_PLAYERS_RATING = 'GET_PLAYERS_RATING',
 
@@ -191,9 +195,35 @@ export const mutations: MutationTree<IPlayerDataState> = {
 		state.alertText = text
 		state.isAlertVisible = true
 
+		if (state.isLoading) {
+			state.isLoading = false
+		}
+
 		setTimeout(() => {
 			state.isAlertVisible = false
 		}, 3200)
+	},
+	[EN_PlayerDataMutation.FIND_UNIQUE_NAME](state, nameText: string) {
+		if (typeof nameText === 'string') {
+			state.alertText = 'К сожалению, данное имя уже используется.'
+			state.newUniqueName = nameText
+		}
+
+		state.isAlertVisible = true
+
+		setTimeout(() => {
+			state.isAlertVisible = false
+			state.isLoading = false
+		}, 3200)
+	},
+	[EN_PlayerDataMutation.DELETE_UNIQUE_NAME](state) {
+		state.newUniqueName = ''
+	},
+	[EN_PlayerDataMutation.SHOW_LOADING](state) {
+		state.isLoading = true
+	},
+	[EN_PlayerDataMutation.HIDE_LOADING](state) {
+		state.isLoading = false
 	},
 
 	[EN_PlayerDataMutation.GET_PLAYERS_RATING](state, players: any) {

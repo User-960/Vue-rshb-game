@@ -1,6 +1,6 @@
 <template>
   <div :class='styles.startBlock' v-click-outside='onClickOutside'>
-    <div :class='styles.spinnerWrapper' v-if='isLoading'>
+    <div :class='styles.spinnerWrapper' v-if='GET_LOADING'>
       <loader/>
     </div>
 
@@ -19,7 +19,19 @@
       <p class='error' v-if='newPlayerName.length < 3 && newPlayerName.length > 0'>
         Недостаточно символов.
       </p>
+
       <p class='error' v-if='isErrorDuplicateName'>К сожалению, данное имя уже используется.</p>
+
+      <ul :class='styles.uniqueNames' v-if='GET_UNIQUE_NAMES.length > 0'>
+        <li 
+          v-if='name'
+          :class='styles.uniqueName' 
+          v-for='(name, i) in GET_UNIQUE_NAMES' :key='i'
+          @click='chooseUniqueName(name)'
+        >
+          {{ name }}
+        </li>
+      </ul>
 
       <div :class='styles.wrapperBtn'>
         <button 
@@ -43,14 +55,14 @@ import { EN_StartScreenGetters } from '@/store/modules/startScreen/getters'
 import { EN_PlayerDataActions } from '@/store/modules/playerData/actions'
 import { EN_PlayerDataGetters } from '@/store/modules/playerData/getters'
 import vClickOutside from 'v-click-outside'
+import { EN_PlayerDataMutation } from '@/store/modules/playerData/mutations'
 
 export default Vue.extend({
   name: 'authForm',
   data: () => ({
     newPlayerName: '',
     isErrorEmptyName: false,
-    isErrorDuplicateName: false,
-    isLoading: false
+    isErrorDuplicateName: false
   }),
   components: {
     skipButton,
@@ -62,13 +74,17 @@ export default Vue.extend({
         this.HIDE_AUTH_PLAYER()
         this.$router.push({ name: 'home' })
       } else {
-        this.isLoading = false
         this.isErrorDuplicateName = true
       }
     }
   },
   computed: {
-    ...mapGetters([EN_StartScreenGetters.GET_ERROR_SERVER, EN_PlayerDataGetters.GET_PLAYER_DATA]),
+    ...mapGetters([
+      EN_StartScreenGetters.GET_ERROR_SERVER, 
+      EN_PlayerDataGetters.GET_PLAYER_DATA,
+      EN_PlayerDataGetters.GET_LOADING,
+      EN_PlayerDataGetters.GET_UNIQUE_NAMES,
+    ]),
     ...mapState({
       gender: ({ startScreen }: any): 'Female' | 'Male' => startScreen.player.gender,
       name: ({ startScreen }: any) => startScreen.player.name
@@ -77,14 +93,17 @@ export default Vue.extend({
   methods: {
     ...mapMutations([
       EN_StartScreenMutation.HIDE_AUTH_PLAYER, 
-      EN_StartScreenMutation.SAVE_PLAYER_NAME
+      EN_StartScreenMutation.SAVE_PLAYER_NAME,
+      EN_PlayerDataMutation.SHOW_LOADING,
+      EN_PlayerDataMutation.HIDE_LOADING,
+      EN_PlayerDataMutation.DELETE_UNIQUE_NAME,
     ]),
     ...mapActions([EN_PlayerDataActions.CREATE_PLAYER]),
     submitForm(e: Event) {
       e.preventDefault()
       if (this.newPlayerName.length >= 3) {
         let player: IUserDataForm
-        this.isLoading = true
+        this.SHOW_LOADING()
         this.isErrorEmptyName = false
         this.SAVE_PLAYER_NAME(this.newPlayerName)
 
@@ -95,11 +114,15 @@ export default Vue.extend({
           }
 
           this.CREATE_PLAYER(player)
+          this.DELETE_UNIQUE_NAME()
           this.newPlayerName = ''
         } else {
           this.isErrorEmptyName = true
         }
       }
+    },
+    chooseUniqueName(name: string) {
+      this.newPlayerName = name
     },
     onClickOutside (event: any) {
       this.HIDE_AUTH_PLAYER()
