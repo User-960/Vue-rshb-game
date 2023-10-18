@@ -126,7 +126,7 @@
             @click='sellHarvest' 
             aria-label='button sell'
           >
-            Продать за {{ GET_PLAYER_DATA.own_coins * 13 }}
+            Продать за {{ GET_PLAYER_DATA.own_coins * 13 > 9270 ? GET_PLAYER_DATA.own_coins * 13 : 0 }}
           </button>
         </div>
       </div>
