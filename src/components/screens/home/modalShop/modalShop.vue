@@ -142,51 +142,6 @@ import { EN_PlayerDataGetters } from '@/store/modules/playerData/getters'
 import { EN_PlayerDataMutation } from '@/store/modules/playerData/mutations'
 import { EN_PlayerDataActions } from '@/store/modules/playerData/actions'
 
-const mockData = [
-  {
-    id: 1,
-    name: 'Программное обеспечение',
-    description: 'Собирает и обрабатывает информацию о растениях и почве',
-    img: '/',
-    price: 1000
-  },
-  {
-    id: 2,
-    name: 'Беспилотный летательный аппарат',
-    description: 'Эффективно и быстро производит опрыскивание растений средствами защиты',
-    img: '/',
-    price: 1000
-  },
-  {
-    id: 3,
-    name: 'Робот-собиратель урожая',
-    description: 'Автоматически собирает фрукты или овощи с помощью датчиков и робозахвата',
-    img: '/',
-    price: 1000
-  }
-]
-
-const mockDataCards = [
-  {
-    id: 4,
-    name: 'Помидоры',
-    weight: '65',
-    img: ''
-  },
-  {
-    id: 5,
-    name: 'Перцы',
-    weight: '65',
-    img: '/'
-  },
-  {
-    id: 6,
-    name: 'Клубника',
-    weight: '65',
-    img: '/'
-  }
-]
-
 export default Vue.extend({
   name: 'modalShop',
   data: () => ({
