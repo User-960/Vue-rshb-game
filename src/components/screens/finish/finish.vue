@@ -39,7 +39,7 @@
 
             <div :class='styles.wrapperBtn'>
               <skipButton @onclick="restartFunc">
-                Начать заново
+                Таблица
               </skipButton>
             </div>
           </section>

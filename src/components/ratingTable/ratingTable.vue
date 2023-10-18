@@ -33,7 +33,7 @@
               <p :class='styles.tableN'>№</p>
               <p :class='styles.tableName'>Имя</p>
               <p :class='styles.tableAward'>Награда</p>
-              <p :class='styles.tableProfit'>Прибыль</p>
+              <p :class='styles.tableProfit'>Очки</p>
             </div>
 
             <ul :class='styles.playerList'>
@@ -48,7 +48,7 @@
                   <p>{{ countAchievement(playerItem) }}/5</p>
                 </div>
               
-                <div :class='styles.playerItemRating'>{{ playerItem.own_money }}</div>
+                <div :class='styles.playerItemRating'>{{ playerItem.own_coins}}</div>
               </li>
             </ul>
           </div>
