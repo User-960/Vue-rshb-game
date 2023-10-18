@@ -267,7 +267,6 @@ export default Vue.extend({
 
         if (numberColumn === 5) {
           this.makePepperGreen(allColumns[5], 5, 0)
-          this.makePepperGreenDouble(allColumns[5 + 3], 5 + 3, 0)
           this.NOT_GENERATE_PEPPER_GREEN_COL()
         }
 
@@ -361,7 +360,6 @@ export default Vue.extend({
 
         if (numberColumn === 9) {
           this.makePepperRed(allColumns[9], 9, 0)
-          this.makePepperRedDouble(allColumns[9 - 3], 9 - 3, 0)
           this.NOT_GENERATE_PEPPER_RED_COL()
         }
 
@@ -400,7 +398,6 @@ export default Vue.extend({
 
         if (numberColumn === 3) {
           this.makePepperDarkGreen(allColumns[3], 3, 0)
-          this.makePepperDarkGreenDouble(allColumns[3 + 5], 3 + 5, 0)
           this.NOT_GENERATE_PEPPER_DARK_GREEN_COL()
         }
 

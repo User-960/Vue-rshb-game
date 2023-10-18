@@ -119,9 +119,15 @@
         </div>
 
         <div :class='styles.sellBtnWrapper'>
-          <sellButton>
-            Продать за 1000
-          </sellButton>
+          <button :class='[
+              styles.sellBtn, 
+              {[styles.sellBtnNoActive]: GET_PLAYER_DATA.own_coins * 13 < 9270}
+            ]' 
+            @click='sellHarvest' 
+            aria-label='button sell'
+          >
+            Продать за {{ GET_PLAYER_DATA.own_coins * 13 }}
+          </button>
         </div>
       </div>
     </div>
@@ -132,7 +138,6 @@
 import Vue from 'vue'
 import listSells from './listSells/listSells.vue'
 import shopLinkButton from '../../../ui/button/shopButton/shopLinkButton/shopLinkButton.vue'
-import sellButton from '../../../ui/button/shopButton/sellButton/sellButton.vue'
 import closeButton from '../../../ui/button/closeButton/closeButton.vue'
 import { mapActions, mapGetters, mapMutations } from 'vuex'
 import { EN_HomeScreenGetters } from '@/store/modules/homeScreen/getters'
@@ -156,8 +161,7 @@ export default Vue.extend({
   components: {
     listSells,
     shopLinkButton,
-    closeButton,
-    sellButton
+    closeButton
   },
   computed: {
     ...mapGetters([
@@ -173,11 +177,13 @@ export default Vue.extend({
       EN_PlayerDataMutation.PLUS_POINTS_LINK_DRONE,
       EN_PlayerDataMutation.PLUS_POINTS_LINK_ROBOT,
 
-      EN_PlayerDataMutation.BUY_EQUIPMENT_SOFTWARE,
+      EN_PlayerDataMutation.BUY_EQUIPMENT,
+      EN_PlayerDataMutation.SELL_HARVEST,
     ]),
     ...mapActions([
       EN_PlayerDataActions.UPDATE_PLAYER_COINS,
       EN_PlayerDataActions.UPDATE_PLAYER_EQUIPMENT,
+      EN_PlayerDataActions.UPDATE_PLAYER_HARVEST
     ]),
     choiceShopA() {
       this.isShopB = false
@@ -226,20 +232,26 @@ export default Vue.extend({
     },
     buySoftware() {
       if (this.GET_PLAYER_DATA.minigame.gameTwo.complete && !this.GET_PLAYER_DATA.equipment.software.available) {
-        this.BUY_EQUIPMENT_SOFTWARE('software')
+        this.BUY_EQUIPMENT('software')
         this.UPDATE_PLAYER_EQUIPMENT(this.GET_PLAYER_DATA)
       }
     },
     buyDrone() {
       if (this.GET_PLAYER_DATA.minigame.gameThree.complete && !this.GET_PLAYER_DATA.equipment.bpla.available) {
-        this.BUY_EQUIPMENT_SOFTWARE('bpla')
+        this.BUY_EQUIPMENT('bpla')
         this.UPDATE_PLAYER_EQUIPMENT(this.GET_PLAYER_DATA)
       }
     },
     buyRobot() {
       if (this.GET_PLAYER_DATA.minigame.gameFour.complete && !this.GET_PLAYER_DATA.equipment.robot.available) {
-        this.BUY_EQUIPMENT_SOFTWARE('robot')
+        this.BUY_EQUIPMENT('robot')
         this.UPDATE_PLAYER_EQUIPMENT(this.GET_PLAYER_DATA)
+      }
+    },
+    sellHarvest() {
+      if (this.GET_PLAYER_DATA.own_coins * 13 >= 9270) {
+        this.SELL_HARVEST()
+        this.UPDATE_PLAYER_HARVEST(this.GET_PLAYER_DATA)
       }
     },
     onClickOutside (event: any) {

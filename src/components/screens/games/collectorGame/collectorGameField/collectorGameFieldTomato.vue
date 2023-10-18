@@ -258,7 +258,6 @@ export default Vue.extend({
 
         if (numberColumn === 3) {
           this.makeTomatoGreen(allColumns[3], 3, 0)
-          this.makeTomatoGreenDouble(allColumns[3 + 5], 3 + 5, 0)
           this.NOT_GENERATE_TOMATO_GREEN_COL()
         }
 
@@ -374,7 +373,6 @@ export default Vue.extend({
 
         if (numberColumn === 11) {
           this.makeTomatoRed(allColumns[11], 11, 0)
-          this.makeTomatoRedDouble(allColumns[11 - 5], 11 - 5, 0)
           this.NOT_GENERATE_TOMATO_RED_COL()
         }
 
@@ -424,7 +422,6 @@ export default Vue.extend({
 
         if (numberColumn === 7) {
           this.makeTomatoDarkGreen(allColumns[7], 7, 0)
-          this.makeTomatoDarkGreenDouble(allColumns[7 + 3], 7 + 3, 0)
           this.NOT_GENERATE_TOMATO_DARK_GREEN_COL()
         }
 

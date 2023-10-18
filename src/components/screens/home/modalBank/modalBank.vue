@@ -142,12 +142,12 @@ export default Vue.extend({
       EN_PlayerDataMutation.RETURN_CREDIT,
     ]),
     ...mapActions([
-      EN_PlayerDataActions.UPDATE_PLAYER_MONEY
+      EN_PlayerDataActions.UPDATE_PLAYER_CREDIT
     ]),
     takeCredit() {
       if (this.isFirstCredit) {
         this.TAKE_CREDIT()
-        this.UPDATE_PLAYER_MONEY(this.GET_PLAYER_DATA)
+        this.UPDATE_PLAYER_CREDIT(this.GET_PLAYER_DATA)
 
         this.isFirstCredit = false
         this.isCongrats = true
@@ -162,6 +162,8 @@ export default Vue.extend({
     returnCredit() {
       if (this.isReturnCredit && this.GET_PLAYER_DATA.own_money >= 9270) {
         this.RETURN_CREDIT()
+        this.UPDATE_PLAYER_CREDIT(this.GET_PLAYER_DATA)
+
         this.isReturnCredit = false
       }
     },

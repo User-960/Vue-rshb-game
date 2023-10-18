@@ -18,9 +18,8 @@ export enum EN_PlayerDataMutation {
 	PLUS_POINTS_LINK_DRONE = 'PLUS_POINTS_LINK_DRONE',
 	PLUS_POINTS_LINK_ROBOT = 'PLUS_POINTS_LINK_ROBOT',
 
-	BUY_EQUIPMENT_SOFTWARE = 'BUY_EQUIPMENT_SOFTWARE',
-	BUY_EQUIPMENT_DRONE = 'BUY_EQUIPMENT_DRONE',
-	BUY_EQUIPMENT_ROBOT = 'BUY_EQUIPMENT_ROBOT',
+	BUY_EQUIPMENT = 'BUY_EQUIPMENT',
+	SELL_HARVEST = 'SELL_HARVEST',
 
 	SUM_COINS = 'SUM_COINS',
 	COMPLETE_MINI_GAME = 'COMPLETE_MINI_GAME',
@@ -59,6 +58,7 @@ export const mutations: MutationTree<IPlayerDataState> = {
 	[EN_PlayerDataMutation.RETURN_CREDIT](state, player: IPlayer) {
 		if (state.playerData.own_money >= 9270) {
 			state.playerData.own_money -= 9270
+			state.playerData.credit = 0
 		}
 	},
 
@@ -83,7 +83,7 @@ export const mutations: MutationTree<IPlayerDataState> = {
 		state.playerData.own_coins += 5
 	},
 
-	[EN_PlayerDataMutation.BUY_EQUIPMENT_SOFTWARE](state, equipment: string) {
+	[EN_PlayerDataMutation.BUY_EQUIPMENT](state, equipment: string) {
 		if (equipment === 'software' && state.playerData.equipment?.software) {
 			state.playerData.own_money -= 1800
 			state.playerData.equipment.software.available = true
@@ -97,6 +97,13 @@ export const mutations: MutationTree<IPlayerDataState> = {
 		if (equipment === 'robot' && state.playerData.equipment?.robot) {
 			state.playerData.own_money -= 4200
 			state.playerData.equipment.robot.available = true
+		}
+	},
+	[EN_PlayerDataMutation.SELL_HARVEST](state, equipment: string) {
+		if (state.playerData.own_coins * 13 >= 9270) {
+			let convertCoins = state.playerData.own_coins * 13
+			state.playerData.own_money += convertCoins
+			state.playerData.own_coins -= convertCoins / 13
 		}
 	},
 

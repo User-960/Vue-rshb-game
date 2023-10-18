@@ -66,7 +66,7 @@ class AuthService {
 		}
 	}
 
-	async updatePlayerTakeCredit(
+	async updatePlayerCredit(
 		id: string | number,
 		own_money: number,
 		credit: number,
@@ -150,6 +150,31 @@ class AuthService {
 				`${EN_ENDPOINTS.PLAYER}/${id}/`,
 				{
 					equipment,
+					own_money
+				}
+			)
+
+			if (data.name !== null && data.gender !== null) {
+				localStorage.setItem(EN_USER.PLAYER_DATA, JSON.stringify(data))
+			}
+
+			return data
+		} catch (error: any) {
+			let errorMessage = 'Возникла ошибка при получение данных!'
+			return errorMessage
+		}
+	}
+
+	async updatePlayerHarvest(
+		id: string | number,
+		own_coins: number,
+		own_money: number
+	) {
+		try {
+			const { data } = await $axios.patch<IPlayer>(
+				`${EN_ENDPOINTS.PLAYER}/${id}/`,
+				{
+					own_coins,
 					own_money
 				}
 			)
