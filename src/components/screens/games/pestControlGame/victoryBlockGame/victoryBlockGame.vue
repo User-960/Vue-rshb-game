@@ -24,7 +24,7 @@
         
       </div>
 
-      <div :class='styles.achievement' v-if='GET_POINTS_PS >= 60'>
+      <div :class='styles.achievement' v-if='GET_POINTS_PS >= 65'>
         <div :class='styles.achievementIcon'>
           <p :class='styles.achievementName'>
             “Гроза вредителей”
@@ -58,10 +58,13 @@
 import Vue from 'vue'
 import closeButton from '../../../../ui/button/closeButton/closeButton.vue'
 import iconButton from '../../../../ui/button/iconButton/iconButton.vue'
-import { mapGetters, mapMutations } from 'vuex'
+import { mapActions, mapGetters, mapMutations } from 'vuex'
 import { EN_PestControlGameGetters } from '@/store/modules/pestControlGame/getters'
 import { EN_PestControlGameMutation } from '@/store/modules/pestControlGame/mutations'
 import { EN_HomeScreenMutation } from '@/store/modules/homeScreen/mutations'
+import { EN_PlayerDataGetters } from '@/store/modules/playerData/getters'
+import { EN_PlayerDataMutation } from '@/store/modules/playerData/mutations'
+import { EN_PlayerDataActions } from '@/store/modules/playerData/actions'
 
 export default Vue.extend({
   name: 'victoryBlockGame',
@@ -72,6 +75,17 @@ export default Vue.extend({
   watch: {
     GET_VICTORY_BLOCK_PS() {
       if (this.GET_VICTORY_BLOCK_PS) {
+        if (!this.GET_PLAYER_DATA.minigame.gameFour.complete) {
+          this.SUM_COINS(this.GET_POINTS_PS)
+          this.SAVE_SCORE_MINI_GAME_FOUR(this.GET_POINTS_PS)
+          if (this.GET_POINTS_PS >= 65) {
+            this.PERFORM_ACHIEVEMENT('gameFour')
+          }
+          this.COMPLETE_MINI_GAME('gameFour')
+        
+          this.UPDATE_PLAYER_MINI_GAME(this.GET_PLAYER_DATA)
+        }
+        
         this.COMPLETE_PEST_CONTROL_GAME()
         this.SHOW_MAP_BEFORE_FIFTH_GAME()
       }
@@ -80,7 +94,9 @@ export default Vue.extend({
   computed: {
     ...mapGetters([
       EN_PestControlGameGetters.GET_VICTORY_BLOCK_PS,
-      EN_PestControlGameGetters.GET_POINTS_PS
+      EN_PestControlGameGetters.GET_POINTS_PS,
+
+      EN_PlayerDataGetters.GET_PLAYER_DATA
     ]),
   },
   methods: {
@@ -89,7 +105,15 @@ export default Vue.extend({
       EN_PestControlGameMutation.RESTART_GAME_PS,
       EN_PestControlGameMutation.COMPLETE_PEST_CONTROL_GAME,
 
+      EN_PlayerDataMutation.SUM_COINS,
+      EN_PlayerDataMutation.COMPLETE_MINI_GAME,
+      EN_PlayerDataMutation.SAVE_SCORE_MINI_GAME_FOUR,
+      EN_PlayerDataMutation.PERFORM_ACHIEVEMENT,
       EN_HomeScreenMutation.SHOW_MAP_BEFORE_FIFTH_GAME
+    ]),
+    ...mapActions([
+      EN_PlayerDataActions.UPDATE_PLAYER_COINS,
+      EN_PlayerDataActions.UPDATE_PLAYER_MINI_GAME,
     ]),
     restartGame() {
       this.RESTART_GAME_PS()

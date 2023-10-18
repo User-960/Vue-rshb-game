@@ -125,7 +125,7 @@ export const mutations: MutationTree<IPlayerDataState> = {
 		}
 
 		if (miniGame === 'gameFive' && state.playerData.minigame !== null) {
-			state.playerData.minigame.gameFour.complete = true
+			state.playerData.minigame.gameFive.complete = true
 		}
 	},
 	[EN_PlayerDataMutation.PERFORM_ACHIEVEMENT](state, miniGame: string) {

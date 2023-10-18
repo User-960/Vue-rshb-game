@@ -62,10 +62,13 @@
 import Vue from 'vue'
 import closeButton from '../../../../ui/button/closeButton/closeButton.vue'
 import iconButton from '../../../../ui/button/iconButton/iconButton.vue'
-import { mapGetters, mapMutations } from 'vuex'
+import { mapActions, mapGetters, mapMutations } from 'vuex'
 import { EN_CollectorGameGetters } from '@/store/modules/collectorGame/getters'
 import { EN_CollectorGameMutation } from '@/store/modules/collectorGame/mutations'
 import { EN_HomeScreenMutation } from '@/store/modules/homeScreen/mutations'
+import { EN_PlayerDataGetters } from '@/store/modules/playerData/getters'
+import { EN_PlayerDataMutation } from '@/store/modules/playerData/mutations'
+import { EN_PlayerDataActions } from '@/store/modules/playerData/actions'
 
 export default Vue.extend({
   name: 'victoryBlockGame',
@@ -76,6 +79,17 @@ export default Vue.extend({
   watch: {
     GET_VICTORY_BLOCK_COL() {
       if (this.GET_VICTORY_BLOCK_COL) {
+        if (!this.GET_PLAYER_DATA.minigame.gameFive.complete) {
+          this.SUM_COINS(this.GET_POINTS_COL)
+          this.SAVE_SCORE_MINI_GAME_FIVE(this.GET_POINTS_COL)
+          if (this.GET_POINTS_COL >= 100) {
+            this.PERFORM_ACHIEVEMENT('gameFive')
+          }
+          this.COMPLETE_MINI_GAME('gameFive')
+        
+          this.UPDATE_PLAYER_MINI_GAME(this.GET_PLAYER_DATA)
+        }
+
         this.COMPLETE_COLLECTOR_GAME()
         this.SHOW_MAP_AFTER_FIFTH_GAME()
       }
@@ -84,7 +98,9 @@ export default Vue.extend({
   computed: {
     ...mapGetters([
       EN_CollectorGameGetters.GET_VICTORY_BLOCK_COL,
-      EN_CollectorGameGetters.GET_POINTS_COL
+      EN_CollectorGameGetters.GET_POINTS_COL,
+
+      EN_PlayerDataGetters.GET_PLAYER_DATA
     ]),
   },
   methods: {
@@ -93,7 +109,15 @@ export default Vue.extend({
       EN_CollectorGameMutation.RESTART_GAME_COL,
       EN_CollectorGameMutation.COMPLETE_COLLECTOR_GAME,
 
+      EN_PlayerDataMutation.SUM_COINS,
+      EN_PlayerDataMutation.COMPLETE_MINI_GAME,
+      EN_PlayerDataMutation.SAVE_SCORE_MINI_GAME_FIVE,
+      EN_PlayerDataMutation.PERFORM_ACHIEVEMENT,
       EN_HomeScreenMutation.SHOW_MAP_AFTER_FIFTH_GAME
+    ]),
+    ...mapActions([
+      EN_PlayerDataActions.UPDATE_PLAYER_COINS,
+      EN_PlayerDataActions.UPDATE_PLAYER_MINI_GAME,
     ]),
     restartGame() {
       this.RESTART_GAME_COL()
