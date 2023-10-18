@@ -145,7 +145,7 @@ export default Vue.extend({
       EN_PlayerDataActions.UPDATE_PLAYER_CREDIT
     ]),
     takeCredit() {
-      if (this.isFirstCredit) {
+      if (this.isFirstCredit && !this.GET_PLAYER_DATA.minigame.gameFive.complete) {
         this.TAKE_CREDIT()
         this.UPDATE_PLAYER_CREDIT(this.GET_PLAYER_DATA)
 
@@ -165,6 +165,10 @@ export default Vue.extend({
         this.UPDATE_PLAYER_CREDIT(this.GET_PLAYER_DATA)
 
         this.isReturnCredit = false
+
+        if (!this.isReturnCredit) {
+          this.$router.push({ name: 'finish' })
+        }
       }
     },
     onClickOutside (event: any) {
