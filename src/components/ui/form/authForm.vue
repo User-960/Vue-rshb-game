@@ -22,7 +22,7 @@
 
       <p class='error' v-if='isErrorDuplicateName'>К сожалению, данное имя уже используется.</p>
 
-      <ul :class='styles.uniqueNames' v-if='GET_UNIQUE_NAMES.length > 0'>
+      <ul :class='styles.uniqueNames' v-if='GET_UNIQUE_NAMES'>
         <li 
           v-if='name'
           :class='styles.uniqueName' 
@@ -126,6 +126,10 @@ export default Vue.extend({
     },
     onClickOutside (event: any) {
       this.HIDE_AUTH_PLAYER()
+
+      if (this.GET_UNIQUE_NAMES) {
+        this.DELETE_UNIQUE_NAME()
+      }
     }
   },
   directives: {
