@@ -29,7 +29,8 @@
 	right: 20px;
 }
 
-.returnCreditBtn {
+.returnCreditBtn,
+.finishBtn {
 	width: 100%;
 	padding: 14px 40px;
 	text-align: center;

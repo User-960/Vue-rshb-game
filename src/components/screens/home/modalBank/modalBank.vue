@@ -5,7 +5,7 @@
         <closeButton @onclick='HIDE_MODAL_BANK'/>
       </div>
 
-      <bank v-if='isFirstCredit && GET_PLAYER_DATA.credit === 0'>
+      <bank v-if='isFirstCredit && GET_PLAYER_DATA.credit === 0 && GET_PLAYER_DATA.own_coins === 0'>
         <template v-slot:contentImg>
           <img 
             src='../../../../../public/images/bank.svg' 
@@ -50,7 +50,12 @@
         </template>
       </bank>
 
-      <bank v-if='isReturnCredit && !isCongrats && GET_PLAYER_DATA.credit > 0'>
+      <bank 
+        v-if='isReturnCredit && 
+        !isCongrats && 
+        GET_PLAYER_DATA.own_coins >= 0 && 
+        GET_PLAYER_DATA.credit === 9000'
+      >
         <template v-slot:contentImgs>
           <div>
             <img 
@@ -92,6 +97,35 @@
             @click='returnCredit'
           >
             Вернуть деньги
+          </button>
+        </template>
+      </bank>
+
+      <bank 
+        v-if='GET_PLAYER_DATA.minigame.gameFive.complete && 
+        GET_PLAYER_DATA.own_coins > 0 && 
+        GET_PLAYER_DATA.credit === 0'
+      >
+        <template v-slot:contentImg>
+          <img 
+            src='../../../../../public/images/flowers.svg' 
+            alt='bank'  
+            draggable='false'
+          />
+        </template>
+
+        <template v-slot:contentText>
+          <p>
+            Благодарим, что выбрали наш банк!
+          </p>
+        </template>
+
+        <template v-slot:nextBtn>
+          <button 
+            :class='styles.finishBtn' 
+            @click='finishGame'
+          >
+            Завершить
           </button>
         </template>
       </bank>
@@ -165,11 +199,11 @@ export default Vue.extend({
         this.UPDATE_PLAYER_CREDIT(this.GET_PLAYER_DATA)
 
         this.isReturnCredit = false
-
-        if (!this.isReturnCredit) {
-          this.$router.push({ name: 'finish' })
-        }
       }
+    },
+    finishGame() {
+      this.HIDE_MODAL_BANK()
+      this.$router.push({ name: 'finish' })
     },
     onClickOutside (event: any) {
       this.HIDE_MODAL_BANK()
