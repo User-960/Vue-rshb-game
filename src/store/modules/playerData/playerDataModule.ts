@@ -14,9 +14,66 @@ const state: IPlayerDataState = {
 		own_money: 0,
 		own_coins: 0,
 		credit: 0,
-		equipment: null,
-		harvest: null,
-		minigame: null
+		equipment: {
+			software: {
+				available: false
+			},
+			bpla: {
+				available: false
+			},
+			robot: {
+				available: false
+			}
+		},
+		harvest: {
+			tomatoes: {
+				harvest_amount: 0,
+				available: false,
+				gen_modified: false
+			},
+			peppers: {
+				harvest_amount: 0,
+				available: false,
+				gen_modified: false
+			},
+			strawberries: {
+				harvest_amount: 0,
+				available: false,
+				gen_modified: false
+			}
+		},
+		minigame: {
+			gameOne: {
+				achievement: false,
+				available: false,
+				complete: false,
+				score: 0
+			},
+			gameTwo: {
+				achievement: false,
+				available: false,
+				complete: false,
+				score: 0
+			},
+			gameThree: {
+				achievement: false,
+				available: false,
+				complete: false,
+				score: 0
+			},
+			gameFour: {
+				achievement: false,
+				available: false,
+				complete: false,
+				score: 0
+			},
+			gameFive: {
+				achievement: false,
+				available: false,
+				complete: false,
+				score: 0
+			}
+		}
 	},
 
 	isAlertVisible: false,

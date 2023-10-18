@@ -16,7 +16,7 @@ export interface IEquipmentStack {
 }
 
 export interface IHarvestStack {
-	tomatos: {
+	tomatoes: {
 		harvest_amount: number
 		available: boolean
 		gen_modified: boolean

@@ -1,5 +1,5 @@
 <template>
-  <finish v-if='GET_PLAYER_DATA.name !== null && GET_PLAYER_DATA.gender !== null' />
+  <finish v-if='GET_PLAYER_DATA.credit === 0 && GET_PLAYER_DATA.minigame.gameFive.complete' />
 </template>
 
 <script lang="ts">
@@ -22,6 +22,18 @@ export default Vue.extend({
       this.GET_PLAYER(JSON.parse(playerData).id)
     } else {
       this.$router.push({ name: 'start' })
+    }
+
+    if (playerData) {
+      if (
+          JSON.parse(playerData).minigame.gameOne.complete !== true && 
+          JSON.parse(playerData).minigame.gameTwo.complete !== true && 
+          JSON.parse(playerData).minigame.gameThree.complete !== true && 
+          JSON.parse(playerData).minigame.gameFour.complete !== true && 
+          JSON.parse(playerData).minigame.gameFive.complete !== true
+         ) {
+        this.$router.push({ name: 'home' })
+      }
     }
   },
   computed: {
