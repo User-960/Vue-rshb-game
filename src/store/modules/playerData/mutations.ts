@@ -32,6 +32,8 @@ export enum EN_PlayerDataMutation {
 
 	SHOW_ALERT = 'SHOW_ALERT',
 
+	GET_PLAYERS_RATING = 'GET_PLAYERS_RATING',
+
 	SHOW_TABLE_RATING = 'SHOW_TABLE_RATING',
 	HIDE_TABLE_RATING = 'HIDE_TABLE_RATING'
 }
@@ -100,10 +102,13 @@ export const mutations: MutationTree<IPlayerDataState> = {
 		}
 	},
 	[EN_PlayerDataMutation.SELL_HARVEST](state, equipment: string) {
-		if (state.playerData.own_coins * 13 >= 9270) {
+		if (
+			state.playerData.own_coins * 13 >= 9270 &&
+			state.playerData.own_money < 9270 &&
+			state.playerData.credit === 9000
+		) {
 			let convertCoins = state.playerData.own_coins * 13
 			state.playerData.own_money += convertCoins
-			state.playerData.own_coins -= convertCoins / 13
 		}
 	},
 
@@ -189,6 +194,10 @@ export const mutations: MutationTree<IPlayerDataState> = {
 		setTimeout(() => {
 			state.isAlertVisible = false
 		}, 3200)
+	},
+
+	[EN_PlayerDataMutation.GET_PLAYERS_RATING](state, players: any) {
+		state.playersRating = players
 	},
 
 	[EN_PlayerDataMutation.SHOW_TABLE_RATING](state, player: IPlayer) {

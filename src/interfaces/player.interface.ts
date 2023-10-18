@@ -59,3 +59,18 @@ export interface IPlayer {
 	harvest: IHarvestStack | null
 	minigame: IMiniGames | null
 }
+
+export interface IPlayerLiderboard {
+	achievement: IPlayerLiderboardAchievement
+	name: string
+	own_money: number
+	own_coins: number
+}
+
+export interface IPlayerLiderboardAchievement {
+	gameOne: { achievement: boolean }
+	gameTwo: { achievement: boolean }
+	gameThree: { achievement: boolean }
+	gameFour: { achievement: boolean }
+	gameFive: { achievement: boolean }
+}

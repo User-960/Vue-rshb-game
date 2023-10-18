@@ -4,7 +4,11 @@ import { IRootState } from '../../types'
 
 import { EN_PlayerDataMutation } from './mutations'
 import { IPlayerDataState } from './types'
-import { IPlayer, IUserDataForm } from '@/interfaces/player.interface'
+import {
+	IPlayer,
+	IPlayerLiderboard,
+	IUserDataForm
+} from '@/interfaces/player.interface'
 import AuthService from '@/services/auth.service'
 
 export enum EN_PlayerDataActions {
@@ -16,7 +20,9 @@ export enum EN_PlayerDataActions {
 
 	UPDATE_PLAYER_MINI_GAME = 'UPDATE_PLAYER_MINI_GAME',
 	UPDATE_PLAYER_EQUIPMENT = 'UPDATE_PLAYER_EQUIPMENT',
-	UPDATE_PLAYER_HARVEST = 'UPDATE_PLAYER_HARVEST'
+	UPDATE_PLAYER_HARVEST = 'UPDATE_PLAYER_HARVEST',
+
+	GET_PLAYERS_RATING = 'GET_PLAYERS_RATING'
 }
 
 export const actions: ActionTree<IPlayerDataState, IRootState> = {
@@ -131,16 +137,24 @@ export const actions: ActionTree<IPlayerDataState, IRootState> = {
 		{ commit }: { commit: Commit },
 		player: IPlayer
 	) {
-		AuthService.updatePlayerHarvest(
-			player.id,
-			player.own_coins,
-			player.own_money
-		)
+		AuthService.updatePlayerMoney(player.id, player.own_money)
 			.then((res: IPlayer | string) => {
 				typeof res !== 'string'
 					? commit(EN_PlayerDataMutation.UPDATE_PLAYER, res)
 					: commit(EN_PlayerDataMutation.SHOW_ALERT, res)
 			})
 			.catch(error => console.log(error))
+	},
+
+	[EN_PlayerDataActions.GET_PLAYERS_RATING]({ commit }: { commit: Commit }) {
+		AuthService.getUsersRating()
+			.then((res: IPlayerLiderboard[] | string) => {
+				typeof res !== 'string'
+					? commit(EN_PlayerDataMutation.GET_PLAYERS_RATING, res)
+					: commit(EN_PlayerDataMutation.SHOW_ALERT, res)
+			})
+			.catch(error => {
+				return error
+			})
 	}
 }

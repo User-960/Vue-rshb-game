@@ -121,12 +121,17 @@
         <div :class='styles.sellBtnWrapper'>
           <button :class='[
               styles.sellBtn, 
-              {[styles.sellBtnNoActive]: GET_PLAYER_DATA.own_coins * 13 < 9270}
+              {[styles.sellBtnNoActive]: GET_PLAYER_DATA.own_coins * 13 < 9270 || GET_PLAYER_DATA.own_money >= 9270}
             ]' 
             @click='sellHarvest' 
             aria-label='button sell'
           >
-            Продать за {{ GET_PLAYER_DATA.own_coins * 13 > 9270 ? GET_PLAYER_DATA.own_coins * 13 : 0 }}
+            Продать за {{ 
+              GET_PLAYER_DATA.own_coins * 13 > 9270 && 
+              GET_PLAYER_DATA.own_money < 9270 && 
+              GET_PLAYER_DATA.credit === 9000 ? 
+              GET_PLAYER_DATA.own_coins * 13 : 0 
+            }}
           </button>
         </div>
       </div>
@@ -249,7 +254,11 @@ export default Vue.extend({
       }
     },
     sellHarvest() {
-      if (this.GET_PLAYER_DATA.own_coins * 13 >= 9270) {
+      if (
+          this.GET_PLAYER_DATA.own_coins * 13 >= 9270 && 
+          this.GET_PLAYER_DATA.own_money < 9270 && 
+          this.GET_PLAYER_DATA.credit === 9000
+        ) {
         this.SELL_HARVEST()
         this.UPDATE_PLAYER_HARVEST(this.GET_PLAYER_DATA)
       }

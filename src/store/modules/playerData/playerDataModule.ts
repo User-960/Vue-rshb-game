@@ -79,6 +79,8 @@ const state: IPlayerDataState = {
 	isAlertVisible: false,
 	alertText: '',
 
+	playersRating: [],
+
 	isTableRatingVisible: false
 }
 

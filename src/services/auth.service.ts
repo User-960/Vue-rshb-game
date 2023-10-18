@@ -3,11 +3,13 @@ import { EN_USER } from '@/config/app.constants'
 import {
 	IEquipmentStack,
 	IMiniGame,
-	IPlayer
+	IPlayer,
+	IPlayerLiderboard
 } from '@/interfaces/player.interface'
 
 export enum EN_ENDPOINTS {
-	PLAYER = '/v1/player'
+	PLAYER = '/v1/player',
+	LIDERBOARD = '/v1/liderboard'
 }
 
 class AuthService {
@@ -165,23 +167,11 @@ class AuthService {
 		}
 	}
 
-	async updatePlayerHarvest(
-		id: string | number,
-		own_coins: number,
-		own_money: number
-	) {
+	async getUsersRating() {
 		try {
-			const { data } = await $axios.patch<IPlayer>(
-				`${EN_ENDPOINTS.PLAYER}/${id}/`,
-				{
-					own_coins,
-					own_money
-				}
+			const { data } = await $axios.get<IPlayerLiderboard[]>(
+				`${EN_ENDPOINTS.LIDERBOARD}/`
 			)
-
-			if (data.name !== null && data.gender !== null) {
-				localStorage.setItem(EN_USER.PLAYER_DATA, JSON.stringify(data))
-			}
 
 			return data
 		} catch (error: any) {
