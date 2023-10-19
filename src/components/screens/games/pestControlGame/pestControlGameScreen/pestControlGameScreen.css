@@ -274,37 +274,37 @@
 .droneMovedTomato {
 	top: -156px;
 	right: 440px;
-	animation: droneMovedTomato 7s;
+	animation: droneMovedTomato 4s;
 }
 
 .droneReturnTomato {
 	top: 0px;
 	right: 0px;
-	animation: droneReturnTomato 7s;
+	animation: droneReturnTomato 4s;
 }
 
 .droneMovedPepper {
 	top: -156px;
 	right: 146px;
-	animation: droneMovedPepper 7s;
+	animation: droneMovedPepper 4s;
 }
 
 .droneReturnPepper {
 	top: 0px;
 	right: 0px;
-	animation: droneReturnPepper 7s;
+	animation: droneReturnPepper 4s;
 }
 
 .droneMovedStrawberry {
 	top: 28px;
 	right: 440px;
-	animation: droneMovedStrawberry 7s;
+	animation: droneMovedStrawberry 4s;
 }
 
 .droneReturnStrawberry {
 	top: 0px;
 	right: 0px;
-	animation: droneReturnStrawberry 7s;
+	animation: droneReturnStrawberry 4s;
 }
 
 /* Levels states */
@@ -412,11 +412,11 @@
 		right: 440px;
 	}
 
-	10% {
+	30% {
 		transform: rotate(10deg);
 	}
 
-	38% {
+	48% {
 		transform: rotate(0deg);
 	}
 
@@ -459,11 +459,11 @@
 		right: 146px;
 	}
 
-	10% {
+	30% {
 		transform: rotate(10deg);
 	}
 
-	38% {
+	48% {
 		transform: rotate(0deg);
 	}
 
@@ -507,7 +507,7 @@
 		right: 440px;
 	}
 
-	10% {
+	30% {
 		transform: rotate(10deg);
 	}
 

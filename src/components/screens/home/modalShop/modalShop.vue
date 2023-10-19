@@ -119,9 +119,12 @@
         </div>
 
         <div :class='styles.sellBtnWrapper'>
-          <button :class='[
-              styles.sellBtn, 
-              {[styles.sellBtnNoActive]: GET_PLAYER_DATA.own_coins * 13 < 9270 || GET_PLAYER_DATA.own_money >= 9270}
+          <button :class='[ 
+              {
+                [styles.sellBtn]: GET_PLAYER_DATA.minigame.gameFive.complete,
+                [styles.sellBtnNoActive]: GET_PLAYER_DATA.own_money >= 9270 || !GET_PLAYER_DATA.minigame.gameFive.complete,
+                [styles.sellBtnNoActiveFinish]: GET_PLAYER_DATA.own_money < 9270
+              }
             ]' 
             @click='sellHarvest' 
             aria-label='button sell'

@@ -4,15 +4,15 @@
       :class='styles.modalHouse'
       v-click-outside='onClickOutside'
     >
-      <linkButton @onclick='openGameAI' :isGameAvailable='isGameAiAvailable'>
+      <linkButton @onclick='openGameAI' :isGameAvailable='GET_PLAYER_DATA.equipment.software.available'>
         Искусственный интеллект
       </linkButton>
 
-      <linkButton @onclick='openGameDrone' :isGameAvailable='isGameDroneAvailable'>
+      <linkButton @onclick='openGameDrone' :isGameAvailable='GET_PLAYER_DATA.equipment.bpla.available'>
         Дроны
       </linkButton>
 
-      <linkButton @onclick='openGameSystem' :isGameAvailable='isGameSystem'>
+      <linkButton @onclick='openGameSystem' :isGameAvailable='GET_PLAYER_DATA.equipment.robot.available'>
         Автоматизированные системы
       </linkButton>
 
