@@ -58,7 +58,7 @@
             v-else-if='GET_PLAYER_DATA.equipment.software.available'
             :class='styles.buyInventory'
           >
-            В инвентаре
+            Приобретено
           </button>
         </div>
 
@@ -83,7 +83,7 @@
             v-else-if='GET_PLAYER_DATA.equipment.bpla.available'
             :class='styles.buyInventory'
           >
-            В инвентаре
+            Приобретено
           </button>
         </div>
 
@@ -108,7 +108,7 @@
             v-else-if='GET_PLAYER_DATA.equipment.robot.available'
             :class='styles.buyInventory'
           >
-            В инвентаре
+            Приобретено
           </button>
         </div>
       </div>

@@ -1,3 +1,5 @@
+@import '../../../../assets/styles/variables.css';
+
 .navBar {
 	position: relative;
 	width: 1280px;
@@ -28,6 +30,20 @@
 
 	z-index: 120;
 }
+
+/* .blockButtonWallet:hover::after {
+	content: attr(data-title);
+	position: absolute;
+	left: 20%;
+	top: 30%;
+	z-index: 1;
+	background: var(--primary-green);
+	color: var(--primary-grey);
+	font-size: 11px;
+	padding: 5px;
+	border-radius: 10px 10px 10px 10px;
+	border: 1px solid #333;
+} */
 
 .blockButtonPoints {
 	position: absolute;

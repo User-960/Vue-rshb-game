@@ -8,7 +8,7 @@
       <exitButton/>
     </div>
 
-    <div :class='styles.blockButtonWallet'>
+    <div :class='styles.blockButtonWallet' data-title='Кошелёк'>
       <blockButton>
       <template v-slot:contentIconBtn>
         <iconButton>

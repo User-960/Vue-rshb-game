@@ -32,8 +32,10 @@ export enum EN_GeneticGameMutation {
 
 	UPDATE_TIMER_TOMATO_GN = 'UPDATE_TIMER_TOMATO_GN',
 	START_FINISH_TIMER_TOMATO_GN = 'START_FINISH_TIMER_TOMATO_GN',
+	STOP_TIMER_TOMATO_GN = 'STOP_TIMER_TOMATO_GN',
 	UPDATE_TIMER_PEPPER_GN = 'UPDATE_TIMER_PEPPER_GN',
 	START_FINISH_TIMER_PEPPER_GN = 'START_FINISH_TIMER_PEPPER_GN',
+	STOP_TIMER_PEPPER_GN = 'STOP_TIMER_PEPPER_GN',
 	UPDATE_TIMER_STRAWBERRY_GN = 'UPDATE_TIMER_STRAWBERRY_GN',
 	START_FINISH_TIMER_STRAWBERRY_GN = 'START_FINISH_TIMER_STRAWBERRY_GN',
 	STOP_TIMER_STRAWBERRY_GN = 'STOP_TIMER_STRAWBERRY_GN',
@@ -238,6 +240,11 @@ export const mutations: MutationTree<IGeneticGameState> = {
 			clearInterval(timerTomato)
 		}
 	},
+	[EN_GeneticGameMutation.STOP_TIMER_TOMATO_GN](state) {
+		if (timerTomato) {
+			clearInterval(timerTomato)
+		}
+	},
 	[EN_GeneticGameMutation.UPDATE_TIMER_PEPPER_GN](state) {
 		state.timerPepper = 9
 	},
@@ -277,6 +284,11 @@ export const mutations: MutationTree<IGeneticGameState> = {
 		}
 
 		if (state.isFirstMistake || state.isSecondMistake) {
+			clearInterval(timerPepper)
+		}
+	},
+	[EN_GeneticGameMutation.STOP_TIMER_PEPPER_GN](state) {
+		if (timerPepper) {
 			clearInterval(timerPepper)
 		}
 	},

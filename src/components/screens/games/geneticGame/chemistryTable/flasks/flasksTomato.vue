@@ -113,6 +113,7 @@ export default Vue.extend({
       EN_GeneticGameMutation.HIDE_TOMATO_COLOR,
       EN_GeneticGameMutation.SHOW_TOMATO_MODIFIED,
       EN_GeneticGameMutation.START_FINISH_TIMER_TOMATO_GN,
+      EN_GeneticGameMutation.STOP_TIMER_TOMATO_GN,
       EN_GeneticGameMutation.UPDATE_TIMER_TOMATO_GN,
 
       EN_GeneticGameMutation.INCREASE_PLAYER_MISTAKES_GN,
@@ -226,6 +227,7 @@ export default Vue.extend({
                 this.isEmptyFlask = true
                 
                 this.START_FINISH_TIMER_TOMATO_GN()
+                this.STOP_TIMER_TOMATO_GN()
                 this.FINISH_GAME_GN()
 
                 setTimeout(() => {

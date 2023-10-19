@@ -113,6 +113,7 @@ export default Vue.extend({
       EN_GeneticGameMutation.HIDE_PEPPER_COLOR,
       EN_GeneticGameMutation.SHOW_PEPPER_MODIFIED,
       EN_GeneticGameMutation.START_FINISH_TIMER_PEPPER_GN,
+      EN_GeneticGameMutation.STOP_TIMER_PEPPER_GN,
       EN_GeneticGameMutation.UPDATE_TIMER_PEPPER_GN,
 
       EN_GeneticGameMutation.INCREASE_PLAYER_MISTAKES_GN,
@@ -158,6 +159,7 @@ export default Vue.extend({
                 this.isEmptyFlask = true
                 
                 this.START_FINISH_TIMER_PEPPER_GN()
+                this.STOP_TIMER_PEPPER_GN()
                 this.FINISH_GAME_GN()
 
                 setTimeout(() => {

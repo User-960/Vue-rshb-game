@@ -1,10 +1,6 @@
 <template>
   <div :class='styles.modalBankWrapper' v-if='GET_MODAL_BANK_VISIBLE'>
     <div :class='styles.modalBank' data-testid='modalBank' v-click-outside='onClickOutside'>
-      <div :class='styles.closeBtnWrapper'>
-        <closeButton @onclick='HIDE_MODAL_BANK'/>
-      </div>
-
       <bank v-if='isFirstCredit && GET_PLAYER_DATA.credit === 0 && GET_PLAYER_DATA.own_coins === 0'>
         <template v-slot:contentImg>
           <img 
@@ -137,7 +133,6 @@
 <script lang='ts'>
 import Vue from 'vue'
 import linkButton from '../../../ui/button/linkButton/linkButton.vue'
-import closeButton from '../../../ui/button/closeButton/closeButton.vue'
 import { mapMutations, mapGetters, mapActions } from 'vuex'
 import { EN_HomeScreenGetters } from '../../../../store/modules/homeScreen/getters'
 import { EN_HomeScreenMutation } from '../../../../store/modules/homeScreen/mutations'
@@ -158,8 +153,7 @@ export default Vue.extend({
   components: {
     skipButton,
     linkButton,
-    bank,
-    closeButton
+    bank
   },
   computed: {
     ...mapGetters([

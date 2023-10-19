@@ -25,7 +25,7 @@
 
       <div :class='styles.btnWrapper'>
         <button :class='styles.skipBtn' @click='skipGame'>
-          Назад
+          Отказаться
         </button>
 
         <button :class='styles.payMariaBtn' @click='payMaria'>

@@ -11,7 +11,10 @@
     <li :class='[
         styles.navLevel, 
         styles.navLevelPepper,
-        {[styles.navLevelPepperActive]: GET_PEPPER_MODIFIED || GET_PEPPER_LEVEL}
+        {
+          [styles.navLevelPepperActive]: GET_PEPPER_MODIFIED || GET_PEPPER_LEVEL,
+          [styles.navLevelPepperActiveAccess]: isNavPepperLevelAccess
+        }
       ]'
       @click='openPepperLevel'
     ></li>
@@ -19,7 +22,10 @@
     <li :class='[
         styles.navLevel, 
         styles.navLevelStrawberry,
-        {[styles.navLevelStrawberryActive]: GET_STRAWBERRY_MODIFIED || GET_STRAWBERRY_LEVEL}
+        {
+          [styles.navLevelStrawberryActive]: GET_STRAWBERRY_MODIFIED || GET_STRAWBERRY_LEVEL,
+          [styles.navLevelStrawberryActiveAccess]: isNavStrawberryLevelAccess
+        }
       ]'
       @click='openStrawberryLevel'
     ></li>
@@ -34,6 +40,22 @@ import { mapGetters, mapMutations } from 'vuex'
 
 export default Vue.extend({
   name: 'navigationLevels',
+  data: () => ({
+    isNavPepperLevelAccess: false,
+    isNavStrawberryLevelAccess: false,
+  }),
+  watch: {
+    GET_TOMATO_MODIFIED() {
+      if (this.GET_TOMATO_MODIFIED) {
+        this.isNavPepperLevelAccess = true
+      }
+    },
+    GET_PEPPER_MODIFIED() {
+      if (this.GET_PEPPER_MODIFIED) {
+        this.isNavStrawberryLevelAccess = true
+      }
+    }
+  },
   computed: {
     ...mapGetters([
       EN_GeneticGameGetters.GET_TOMATO_LEVEL,
@@ -75,6 +97,8 @@ export default Vue.extend({
     },
     openPepperLevel() {
       if (!this.GET_PEPPER_LEVEL && !this.GET_PEPPER_MODIFIED && this.GET_TOMATO_MODIFIED) {
+        this.isNavPepperLevelAccess = false
+
         this.FINISH_TOMATO_LEVEL()
         this.START_FINISH_TIMER_TOMATO_GN()
         this.FINISH_STRAWBERRY_LEVEL()
@@ -90,6 +114,8 @@ export default Vue.extend({
           !this.GET_STRAWBERRY_MODIFIED && 
           this.GET_TOMATO_MODIFIED && this.GET_PEPPER_MODIFIED
         ) {
+        this.isNavStrawberryLevelAccess = false
+
         this.FINISH_TOMATO_LEVEL()
         this.START_FINISH_TIMER_TOMATO_GN()
         this.FINISH_PEPPER_LEVEL()

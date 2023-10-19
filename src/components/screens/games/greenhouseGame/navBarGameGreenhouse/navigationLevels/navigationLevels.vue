@@ -11,7 +11,10 @@
     <li :class='[
         styles.navLevel, 
         styles.navLevelPepper,
-        {[styles.navLevelPepperActive]: GET_START_GAME_GH && (!GET_TOMATO_LEVEL_GH || GET_PEPPER_LEVEL_GH)}
+        {
+          [styles.navLevelPepperActive]: GET_START_GAME_GH && (!GET_TOMATO_LEVEL_GH || GET_PEPPER_LEVEL_GH),
+          [styles.navLevelPepperActiveAccess]: isNavPepperLevelAccess
+        }
       ]'
       @click='openPepperLevel'
     ></li>
@@ -19,7 +22,10 @@
     <li :class='[
         styles.navLevel, 
         styles.navLevelStrawberry,
-        {[styles.navLevelStrawberryActive]: GET_START_GAME_GH && ((!GET_PEPPER_LEVEL_GH && !GET_TOMATO_LEVEL_GH) || GET_STRAWBERRY_LEVEL_GH)}
+        {
+          [styles.navLevelStrawberryActive]: GET_START_GAME_GH && ((!GET_PEPPER_LEVEL_GH && !GET_TOMATO_LEVEL_GH) || GET_STRAWBERRY_LEVEL_GH),
+          [styles.navLevelStrawberryActiveAccess]: isNavStrawberryLevelAccess
+        }
       ]'
       @click='openStrawberryLevel'
     ></li>
@@ -34,6 +40,22 @@ import { mapGetters, mapMutations } from 'vuex'
 
 export default Vue.extend({
   name: 'navigationLevels',
+  data: () => ({
+    isNavPepperLevelAccess: false,
+    isNavStrawberryLevelAccess: false,
+  }),
+  watch: {
+    GET_TOMATO_AIR_TEMPERATURE_CHECK_GH() {
+      if (!this.GET_TOMATO_AIR_TEMPERATURE_CHECK_GH) {
+        this.isNavPepperLevelAccess = true
+      }
+    },
+    GET_PEPPER_AIR_TEMPERATURE_CHECK_GH() {
+      if (!this.GET_PEPPER_AIR_TEMPERATURE_CHECK_GH) {
+        this.isNavStrawberryLevelAccess = true
+      }
+    }
+  },
   computed: {
     ...mapGetters([
       EN_GreenhouseGameGetters.GET_START_GAME_GH,
@@ -98,6 +120,8 @@ export default Vue.extend({
           !this.GET_TOMATO_SOIL_MOISTURE_ACTION_GH && 
           !this.GET_TOMATO_AIR_HUMIDITY_CHECK_GH
         ) {
+        this.isNavPepperLevelAccess = false
+
         this.FINISH_TOMATO_LEVEL_GH()
         this.START_FINISH_TIMER_TOMATO_GH()
         this.FINISH_STRAWBERRY_LEVEL_GH()
@@ -121,6 +145,8 @@ export default Vue.extend({
           !this.GET_PEPPER_AIR_HUMIDITY_ACTION_GH && 
           !this.GET_PEPPER_AIR_HUMIDITY_CHECK_GH
         ) {
+        this.isNavStrawberryLevelAccess = false
+
         this.FINISH_TOMATO_LEVEL_GH()
         this.START_FINISH_TIMER_TOMATO_GH()
         this.FINISH_PEPPER_LEVEL_GH()
