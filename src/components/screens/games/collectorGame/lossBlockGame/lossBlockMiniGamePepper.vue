@@ -81,6 +81,7 @@ export default Vue.extend({
       }
     },
     skipToMap() {
+      this.RESTART_PEPPER_LEVEL_COL()
       this.HIDE_LOSS_BLOCK_PEPPER_COL()
       this.$router.push({ name: 'home' })
     }

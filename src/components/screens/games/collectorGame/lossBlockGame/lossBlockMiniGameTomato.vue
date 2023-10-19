@@ -65,6 +65,7 @@ export default Vue.extend({
     ...mapMutations([
       EN_CollectorGameMutation.HIDE_LOSS_BLOCK_TOMATO_COL,
       EN_CollectorGameMutation.START_TOMATO_LEVEL_COL,
+      EN_CollectorGameMutation.FINISH_TOMATO_LEVEL_COL,
       EN_CollectorGameMutation.START_FINISH_ALL_TOMATOES_INTERVAL_COL,
       EN_CollectorGameMutation.START_FINISH_TIMER_TOMATO_COL,
       EN_CollectorGameMutation.RESTART_TOMATO_LEVEL_COL,
@@ -81,6 +82,7 @@ export default Vue.extend({
       }
     },
     skipToMap() {
+      this.RESTART_TOMATO_LEVEL_COL()
       this.HIDE_LOSS_BLOCK_TOMATO_COL()
       this.$router.push({ name: 'home' })
     }
