@@ -244,6 +244,7 @@ export default Vue.extend({
     },
     GET_TIMER_PS() {
       if (this.GET_TIMER_PS === 0 && this.GET_PLAYER_MISTAKES_PS === 0) {
+        this.MINUS_POINTS_PS()
         this.INCREASE_PLAYER_MISTAKES_PS()
         this.STOP_TIMER_PS()
         this.UPDATE_TIMER_PS()
@@ -280,6 +281,7 @@ export default Vue.extend({
       }
 
       if (this.GET_TIMER_PS === 0 && this.GET_PLAYER_MISTAKES_PS === 1) {
+        this.MINUS_POINTS_PS()
         this.INCREASE_PLAYER_MISTAKES_PS()
         this.STOP_TIMER_PS()
 
@@ -345,6 +347,7 @@ export default Vue.extend({
           this.isUltrasoundTomatoActive = false
 
           if (!this.GET_LOSS_BLOCK_PS && this.GET_START_GAME_PS) {
+            this.MINUS_POINTS_PS()
             this.SHOW_LOSS_BLOCK_PS()
           }
         }, EN_CONFIG.TIMING_ULTRASOUND_TOMATO)
@@ -394,6 +397,7 @@ export default Vue.extend({
           this.isUltrasoundPepperActive = false
 
           if (!this.GET_LOSS_BLOCK_PS && this.GET_START_GAME_PS) {
+            this.MINUS_POINTS_PS()
             this.SHOW_LOSS_BLOCK_PS()
           }
         }, EN_CONFIG.TIMING_ULTRASOUND_TOMATO)
@@ -447,6 +451,7 @@ export default Vue.extend({
           this.isUltrasoundStrawberryActive = false
 
           if (!this.GET_LOSS_BLOCK_PS && this.GET_START_GAME_PS) {
+            this.MINUS_POINTS_PS()
             this.SHOW_LOSS_BLOCK_PS()
           }
         }, EN_CONFIG.TIMING_ULTRASOUND_TOMATO)
@@ -472,6 +477,7 @@ export default Vue.extend({
       EN_PestControlGameMutation.FINISH_GAME_PS,
       EN_PestControlGameMutation.GAME_LOOP_PS,
       EN_PestControlGameMutation.PLUS_POINTS_PS,
+      EN_PestControlGameMutation.MINUS_POINTS_PS,
       EN_PestControlGameMutation.SHOW_VICTORY_BLOCK_PS,
       EN_PestControlGameMutation.SHOW_LOSS_BLOCK_PS,
 

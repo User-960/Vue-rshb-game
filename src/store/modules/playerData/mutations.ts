@@ -1,6 +1,7 @@
 import { MutationTree } from 'vuex'
 
 import { IPlayerDataState } from './types'
+import { EN_CONFIG } from '@/config/config.player'
 import { IPlayer, IUserDataForm } from '@/interfaces/player.interface'
 
 export enum EN_PlayerDataMutation {
@@ -105,13 +106,14 @@ export const mutations: MutationTree<IPlayerDataState> = {
 			state.playerData.equipment.robot.available = true
 		}
 	},
-	[EN_PlayerDataMutation.SELL_HARVEST](state, equipment: string) {
+	[EN_PlayerDataMutation.SELL_HARVEST](state) {
 		if (
-			state.playerData.own_coins * 13 >= 9270 &&
+			state.playerData.own_coins * EN_CONFIG.NUMBER_MULTIPLIER >= 9270 &&
 			state.playerData.own_money < 9270 &&
 			state.playerData.credit === 9000
 		) {
-			let convertCoins = state.playerData.own_coins * 13
+			let convertCoins =
+				state.playerData.own_coins * EN_CONFIG.NUMBER_MULTIPLIER
 			state.playerData.own_money += convertCoins
 		}
 	},

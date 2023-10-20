@@ -129,10 +129,10 @@
             aria-label='button sell'
           >
             Продать за {{ 
-              GET_PLAYER_DATA.own_coins * 13 > 9270 && 
+              GET_PLAYER_DATA.own_coins * GET_NUMBER_MULTIPLIER > 9270 && 
               GET_PLAYER_DATA.own_money < 9270 && 
               GET_PLAYER_DATA.credit === 9000 ? 
-              GET_PLAYER_DATA.own_coins * 13 : 0 
+              GET_PLAYER_DATA.own_coins * GET_NUMBER_MULTIPLIER : 0 
             }}
           </button>
 
@@ -180,7 +180,8 @@ export default Vue.extend({
   computed: {
     ...mapGetters([
       EN_HomeScreenGetters.GET_MODAL_SHOP_VISIBLE,
-      EN_PlayerDataGetters.GET_PLAYER_DATA
+      EN_PlayerDataGetters.GET_PLAYER_DATA,
+      EN_PlayerDataGetters.GET_NUMBER_MULTIPLIER,
     ]),
   },
   methods: {
@@ -264,7 +265,7 @@ export default Vue.extend({
     },
     sellHarvest() {
       if (
-          this.GET_PLAYER_DATA.own_coins * 13 >= 9270 && 
+          this.GET_PLAYER_DATA.own_coins * this.GET_NUMBER_MULTIPLIER >= 9270 && 
           this.GET_PLAYER_DATA.own_money < 9270 && 
           this.GET_PLAYER_DATA.credit === 9000
         ) {

@@ -19,7 +19,7 @@
           <iconButton>
             Б
           </iconButton>
-          <p>120</p>
+          <p>{{ GET_POINTS_COL }}</p>
         </div>
         
       </div>

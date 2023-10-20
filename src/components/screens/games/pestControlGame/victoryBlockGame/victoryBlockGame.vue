@@ -19,7 +19,7 @@
           <iconButton>
             Б
           </iconButton>
-          <p>120</p>
+          <p>{{ GET_PLAYER_DATA.own_coins }}</p>
         </div>
         
       </div>

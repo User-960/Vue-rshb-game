@@ -8,6 +8,8 @@ export interface IPlayerDataState {
 	newUniqueName: string
 	isLoading: boolean
 
+	numberMultiplier: number
+
 	playersRating: IPlayerLiderboard[]
 
 	isTableRatingVisible: boolean

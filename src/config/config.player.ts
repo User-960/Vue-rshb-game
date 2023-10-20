@@ -1,0 +1,3 @@
+export enum EN_CONFIG {
+	NUMBER_MULTIPLIER = 23
+}

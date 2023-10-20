@@ -13,6 +13,8 @@ export enum EN_PlayerDataGetters {
 	GET_LOADING = 'GET_LOADING',
 	GET_UNIQUE_NAMES = 'GET_UNIQUE_NAMES',
 
+	GET_NUMBER_MULTIPLIER = 'GET_NUMBER_MULTIPLIER',
+
 	GET_PLAYERS_RATING_DATA = 'GET_PLAYERS_RATING_DATA'
 }
 
@@ -26,6 +28,8 @@ export const getters: GetterTree<IPlayerDataState, IRootState> = {
 	[EN_PlayerDataGetters.GET_LOADING]: state => state.isLoading,
 	[EN_PlayerDataGetters.GET_UNIQUE_NAMES]: state =>
 		state.newUniqueName.split(','),
+
+	[EN_PlayerDataGetters.GET_NUMBER_MULTIPLIER]: state => state.numberMultiplier,
 
 	[EN_PlayerDataGetters.GET_PLAYERS_RATING_DATA]: state => state.playersRating
 }

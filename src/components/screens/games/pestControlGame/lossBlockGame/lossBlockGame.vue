@@ -19,7 +19,7 @@
           <iconButton>
             Б
           </iconButton>
-          <p>120</p>
+          <p>{{ GET_PLAYER_DATA.own_coins }}</p>
         </div>
       </div>
 
@@ -44,6 +44,7 @@ import iconButton from '../../../../ui/button/iconButton/iconButton.vue'
 import { mapGetters, mapMutations } from 'vuex'
 import { EN_PestControlGameGetters } from '@/store/modules/pestControlGame/getters'
 import { EN_PestControlGameMutation } from '@/store/modules/pestControlGame/mutations'
+import { EN_PlayerDataGetters } from '@/store/modules/playerData/getters'
 
 export default Vue.extend({
   name: 'lossBlockGame',
@@ -54,7 +55,8 @@ export default Vue.extend({
   computed: {
     ...mapGetters([
       EN_PestControlGameGetters.GET_LOSS_BLOCK_PS,
-      EN_PestControlGameGetters.GET_POINTS_PS
+      EN_PestControlGameGetters.GET_POINTS_PS,
+      EN_PlayerDataGetters.GET_PLAYER_DATA
     ]),
   },
   methods: {
