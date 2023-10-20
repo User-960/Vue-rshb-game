@@ -26,7 +26,7 @@
 .victoryBlockTomatoLevel,
 .victoryBlockPepperLevel,
 .victoryBlockStrawberryLevel {
-	padding: 50px;
+	padding: 35px 50px;
 	max-width: 640px;
 	min-height: 510px;
 
@@ -54,8 +54,7 @@
 
 .contentText {
 	max-width: 500px;
-	margin-top: 55px;
-	margin-bottom: 15px;
+	margin-top: 25px;
 	line-height: 24px;
 
 	color: var(--secondary-text-gray);
@@ -65,7 +64,7 @@
 }
 
 .result {
-	margin-top: 32px;
+	margin-top: 25px;
 }
 
 .result p {
@@ -89,7 +88,7 @@
 }
 
 .achievement {
-	margin-top: 50px;
+	margin-top: 25px;
 }
 
 .achievementIcon {
@@ -118,7 +117,7 @@
 	display: flex;
 	max-width: 600px;
 	width: 100%;
-	margin-top: 35px;
+	margin-top: 25px;
 }
 
 .btnRestart {

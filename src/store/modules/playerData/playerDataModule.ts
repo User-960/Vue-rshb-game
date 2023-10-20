@@ -4,8 +4,8 @@ import { actions } from './actions'
 import { getters } from './getters'
 import { mutations } from './mutations'
 import { IPlayerDataState } from './types'
-import { IRootState } from '@/store/types'
 import { EN_CONFIG } from '@/config/config.player'
+import { IRootState } from '@/store/types'
 
 const state: IPlayerDataState = {
 	playerData: {
@@ -82,9 +82,10 @@ const state: IPlayerDataState = {
 	newUniqueName: '',
 	isLoading: false,
 
-  numberMultiplier: EN_CONFIG.NUMBER_MULTIPLIER,
+	numberMultiplier: EN_CONFIG.NUMBER_MULTIPLIER,
 
 	playersRating: [],
+	playerLiderboardRating: [],
 
 	isTableRatingVisible: false
 }

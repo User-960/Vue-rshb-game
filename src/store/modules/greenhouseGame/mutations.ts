@@ -202,7 +202,7 @@ export const mutations: MutationTree<IGreenhouseGameState> = {
 		state.isBonusBlockVisible = false
 	},
 	[EN_GreenhouseGameMutation.SHOW_BONUS_BLOCK_PAYED_GH](state) {
-		state.points += 100
+		state.points += 30
 		state.isBonusBlockPayedVisible = true
 	},
 	[EN_GreenhouseGameMutation.HIDE_BONUS_BLOCK_PAYED_GH](state) {

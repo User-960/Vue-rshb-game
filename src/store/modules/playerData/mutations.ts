@@ -38,6 +38,7 @@ export enum EN_PlayerDataMutation {
 	DELETE_UNIQUE_NAME = 'DELETE_UNIQUE_NAME',
 
 	GET_PLAYERS_RATING = 'GET_PLAYERS_RATING',
+	GET_PLAYER_LIDERBOARD_RANKING = 'GET_PLAYER_LIDERBOARD_RANKING',
 
 	SHOW_TABLE_RATING = 'SHOW_TABLE_RATING',
 	HIDE_TABLE_RATING = 'HIDE_TABLE_RATING'
@@ -230,6 +231,9 @@ export const mutations: MutationTree<IPlayerDataState> = {
 
 	[EN_PlayerDataMutation.GET_PLAYERS_RATING](state, players: any) {
 		state.playersRating = players
+	},
+	[EN_PlayerDataMutation.GET_PLAYER_LIDERBOARD_RANKING](state, players: any) {
+		state.playerLiderboardRating = players
 	},
 
 	[EN_PlayerDataMutation.SHOW_TABLE_RATING](state, player: IPlayer) {

@@ -7,6 +7,7 @@ import { IPlayerDataState } from './types'
 import {
 	IPlayer,
 	IPlayerLiderboard,
+	IPlayerLiderboardRanking,
 	IUserDataForm
 } from '@/interfaces/player.interface'
 import AuthService from '@/services/auth.service'
@@ -23,6 +24,7 @@ export enum EN_PlayerDataActions {
 	UPDATE_PLAYER_HARVEST = 'UPDATE_PLAYER_HARVEST',
 
 	GET_PLAYERS_RATING = 'GET_PLAYERS_RATING',
+	GET_PLAYER_LIDERBOARD_RATING = 'GET_PLAYER_LIDERBOARD_RATING',
 
 	GET_PLAYER_NEW_GAME = 'GET_PLAYER_NEW_GAME'
 }
@@ -168,6 +170,21 @@ export const actions: ActionTree<IPlayerDataState, IRootState> = {
 			.then((res: IPlayer | string) => {
 				typeof res !== 'string'
 					? commit(EN_PlayerDataMutation.GET_PLAYER, res)
+					: commit(EN_PlayerDataMutation.SHOW_ALERT, res)
+			})
+			.catch(error => {
+				return error
+			})
+	},
+
+	[EN_PlayerDataActions.GET_PLAYER_LIDERBOARD_RATING](
+		{ commit }: { commit: Commit },
+		id: string | number
+	) {
+		AuthService.getUserLiderboardRanking(id)
+			.then((res: any | string) => {
+				typeof res !== 'string'
+					? commit(EN_PlayerDataMutation.GET_PLAYER_LIDERBOARD_RANKING, res)
 					: commit(EN_PlayerDataMutation.SHOW_ALERT, res)
 			})
 			.catch(error => {

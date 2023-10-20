@@ -1,4 +1,8 @@
-import { IPlayer, IPlayerLiderboard } from '@/interfaces/player.interface'
+import {
+	IPlayer,
+	IPlayerLiderboard,
+	IPlayerLiderboardRanking
+} from '@/interfaces/player.interface'
 
 export interface IPlayerDataState {
 	playerData: IPlayer
@@ -11,6 +15,7 @@ export interface IPlayerDataState {
 	numberMultiplier: number
 
 	playersRating: IPlayerLiderboard[]
+	playerLiderboardRating: IPlayerLiderboardRanking[]
 
 	isTableRatingVisible: boolean
 }

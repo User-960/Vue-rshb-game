@@ -10,7 +10,8 @@ import {
 export enum EN_ENDPOINTS {
 	PLAYER = '/v1/player',
 	LIDERBOARD = '/v1/liderboard',
-	NEWGAME = 'newgame'
+	NEWGAME = 'newgame',
+	RANKING = 'ranking'
 }
 
 class AuthService {
@@ -173,6 +174,23 @@ class AuthService {
 		}
 	}
 
+	async getUserNewGame(id: string | number) {
+		try {
+			const { data } = await $axios.get<IPlayer>(
+				`${EN_ENDPOINTS.PLAYER}/${id}/${EN_ENDPOINTS.NEWGAME}/`
+			)
+
+			if (data.name !== null && data.gender !== null) {
+				localStorage.setItem(EN_USER.PLAYER_DATA, JSON.stringify(data))
+			}
+
+			return data
+		} catch (error: any) {
+			let errorMessage = 'Возникла ошибка при получение данных!'
+			return errorMessage
+		}
+	}
+
 	async getUsersRating() {
 		try {
 			const { data } = await $axios.get<IPlayerLiderboard[]>(
@@ -186,15 +204,11 @@ class AuthService {
 		}
 	}
 
-	async getUserNewGame(id: string | number) {
+	async getUserLiderboardRanking(id: string | number) {
 		try {
 			const { data } = await $axios.get<IPlayer>(
-				`${EN_ENDPOINTS.PLAYER}/${id}/${EN_ENDPOINTS.NEWGAME}/`
+				`${EN_ENDPOINTS.LIDERBOARD}/${id}/${EN_ENDPOINTS.RANKING}/`
 			)
-
-			if (data.name !== null && data.gender !== null) {
-				localStorage.setItem(EN_USER.PLAYER_DATA, JSON.stringify(data))
-			}
 
 			return data
 		} catch (error: any) {

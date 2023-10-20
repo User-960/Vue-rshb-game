@@ -15,7 +15,8 @@ export enum EN_PlayerDataGetters {
 
 	GET_NUMBER_MULTIPLIER = 'GET_NUMBER_MULTIPLIER',
 
-	GET_PLAYERS_RATING_DATA = 'GET_PLAYERS_RATING_DATA'
+	GET_PLAYERS_RATING_DATA = 'GET_PLAYERS_RATING_DATA',
+	GET_PLAYER_LIDERBOARD_RANKING_DATA = 'GET_PLAYER_LIDERBOARD_RANKING_DATA'
 }
 
 export const getters: GetterTree<IPlayerDataState, IRootState> = {
@@ -31,5 +32,7 @@ export const getters: GetterTree<IPlayerDataState, IRootState> = {
 
 	[EN_PlayerDataGetters.GET_NUMBER_MULTIPLIER]: state => state.numberMultiplier,
 
-	[EN_PlayerDataGetters.GET_PLAYERS_RATING_DATA]: state => state.playersRating
+	[EN_PlayerDataGetters.GET_PLAYERS_RATING_DATA]: state => state.playersRating,
+	[EN_PlayerDataGetters.GET_PLAYER_LIDERBOARD_RANKING_DATA]: state =>
+		state.playerLiderboardRating
 }

@@ -75,3 +75,10 @@ export interface IPlayerLiderboardAchievement {
 	gameFour: { achievement: boolean }
 	gameFive: { achievement: boolean }
 }
+
+export interface IPlayerLiderboardRanking {
+	player_id: number
+	place: number
+	total_players: number
+	liderdoard: IPlayerLiderboard[]
+}

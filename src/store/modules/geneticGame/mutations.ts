@@ -209,7 +209,7 @@ export const mutations: MutationTree<IGeneticGameState> = {
 		state.isBonusBlockVisible = false
 	},
 	[EN_GeneticGameMutation.SHOW_BONUS_BLOCK_PAYED_GN](state) {
-		state.points += 100
+		state.points += 30
 		state.isBonusBlockPayedVisible = true
 	},
 	[EN_GeneticGameMutation.HIDE_BONUS_BLOCK_PAYED_GN](state) {

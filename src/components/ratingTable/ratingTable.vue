@@ -10,14 +10,14 @@
             <h6>Рейтинг участников:</h6>
             <div :class='styles.quantityPlayers'>
               <img :class='styles.iconPlayers' src='../../../public/images/iconPerson.svg' alt='icon of player'/>
-              <p>1446</p>
+              <p>{{ GET_PLAYER_LIDERBOARD_RANKING_DATA.total_players }}</p>
             </div>
           </div>
 
           <div :class='styles.tablePlayer'>
             <div :class='styles.tablePlayerWrapper'>
-              <p :class='styles.tablePlayerId'>1005.</p>
-              <p :class='styles.tablePlayerName'>{{ GET_PLAYER_DATA.name }}</p>
+              <p :class='styles.tablePlayerId'>{{ GET_PLAYER_LIDERBOARD_RANKING_DATA.place }}</p>
+              <p :class='styles.tablePlayerName'>{{ GET_PLAYER_LIDERBOARD_RANKING_DATA.player_name }}</p>
             </div>
 
             <div :class='styles.award'>
@@ -37,7 +37,11 @@
             </div>
 
             <ul :class='styles.playerList'>
-              <li :class='styles.playerItem' v-for='(playerItem, i) in GET_PLAYERS_RATING_DATA' :key='playerItem.name'>
+              <li 
+                :class='styles.playerItem' 
+                v-for='(playerItem, i) in GET_PLAYER_LIDERBOARD_RANKING_DATA.liderdoard' 
+                :key='playerItem.name'
+              >
                 <div :class='styles.playerItemWrapper'>
                   <p :class='styles.playerItemId'>{{ i + 1 }}.</p>
                   <p :class='styles.playerItemName'>{{ playerItem.name }}</p>
@@ -77,12 +81,20 @@ export default Vue.extend({
   },
   created() {
     this.GET_PLAYERS_RATING()
+    this.GET_PLAYER_LIDERBOARD_RATING(this.GET_PLAYER_DATA.id)
   },
   computed: {
-    ...mapGetters([EN_PlayerDataGetters.GET_PLAYERS_RATING_DATA, EN_PlayerDataGetters.GET_PLAYER_DATA])
+    ...mapGetters([
+      EN_PlayerDataGetters.GET_PLAYERS_RATING_DATA, 
+      EN_PlayerDataGetters.GET_PLAYER_DATA, 
+      EN_PlayerDataGetters.GET_PLAYER_LIDERBOARD_RANKING_DATA
+    ])
   },
   methods: {
-    ...mapActions([EN_PlayerDataActions.GET_PLAYERS_RATING]),
+    ...mapActions([
+      EN_PlayerDataActions.GET_PLAYERS_RATING, 
+      EN_PlayerDataActions.GET_PLAYER_LIDERBOARD_RATING
+    ]),
     countAchievement(player: IPlayerLiderboard) {
       let numberAchievement: number = 0
       if (player.achievement.gameOne.achievement) {

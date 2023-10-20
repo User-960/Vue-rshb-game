@@ -38,7 +38,7 @@
 }
 
 .contentText {
-	min-width: 600px;
+	max-width: 600px;
 	margin-top: 55px;
 	margin-bottom: 15px;
 	line-height: 24px;
