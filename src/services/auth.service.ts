@@ -9,7 +9,8 @@ import {
 
 export enum EN_ENDPOINTS {
 	PLAYER = '/v1/player',
-	LIDERBOARD = '/v1/liderboard'
+	LIDERBOARD = '/v1/liderboard',
+	NEWGAME = 'newgame'
 }
 
 class AuthService {
@@ -177,6 +178,23 @@ class AuthService {
 			const { data } = await $axios.get<IPlayerLiderboard[]>(
 				`${EN_ENDPOINTS.LIDERBOARD}/`
 			)
+
+			return data
+		} catch (error: any) {
+			let errorMessage = 'Возникла ошибка при получение данных!'
+			return errorMessage
+		}
+	}
+
+	async getUserNewGame(id: string | number) {
+		try {
+			const { data } = await $axios.get<IPlayer>(
+				`${EN_ENDPOINTS.PLAYER}/${id}/${EN_ENDPOINTS.NEWGAME}/`
+			)
+
+			if (data.name !== null && data.gender !== null) {
+				localStorage.setItem(EN_USER.PLAYER_DATA, JSON.stringify(data))
+			}
 
 			return data
 		} catch (error: any) {

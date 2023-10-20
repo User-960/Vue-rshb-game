@@ -22,7 +22,9 @@ export enum EN_PlayerDataActions {
 	UPDATE_PLAYER_EQUIPMENT = 'UPDATE_PLAYER_EQUIPMENT',
 	UPDATE_PLAYER_HARVEST = 'UPDATE_PLAYER_HARVEST',
 
-	GET_PLAYERS_RATING = 'GET_PLAYERS_RATING'
+	GET_PLAYERS_RATING = 'GET_PLAYERS_RATING',
+
+	GET_PLAYER_NEW_GAME = 'GET_PLAYER_NEW_GAME'
 }
 
 export const actions: ActionTree<IPlayerDataState, IRootState> = {
@@ -151,6 +153,21 @@ export const actions: ActionTree<IPlayerDataState, IRootState> = {
 			.then((res: IPlayerLiderboard[] | string) => {
 				typeof res !== 'string'
 					? commit(EN_PlayerDataMutation.GET_PLAYERS_RATING, res)
+					: commit(EN_PlayerDataMutation.SHOW_ALERT, res)
+			})
+			.catch(error => {
+				return error
+			})
+	},
+
+	[EN_PlayerDataActions.GET_PLAYER_NEW_GAME](
+		{ commit }: { commit: Commit },
+		id: string | number
+	) {
+		AuthService.getUserNewGame(id)
+			.then((res: IPlayer | string) => {
+				typeof res !== 'string'
+					? commit(EN_PlayerDataMutation.GET_PLAYER, res)
 					: commit(EN_PlayerDataMutation.SHOW_ALERT, res)
 			})
 			.catch(error => {

@@ -42,6 +42,12 @@
                 Таблица
               </skipButton>
             </div>
+
+            <div :class='styles.wrapperBtn'>
+              <skipButton @onclick="restartGame">
+                Начать заново
+              </skipButton>
+            </div>
           </section>
         </div>
       </template>
@@ -57,10 +63,11 @@ import iconButton from '../../ui/button/iconButton/iconButton.vue'
 import exitButton from '../../ui/button/exitButton/exitButton.vue'
 import ratingTable from '../../ratingTable/ratingTable.vue'
 import social from '../../ui/social/social.vue'
-import { mapGetters, mapMutations } from 'vuex'
+import { mapActions, mapGetters, mapMutations } from 'vuex'
 import { EN_PlayerDataMutation } from '@/store/modules/playerData/mutations'
 import { EN_PlayerDataGetters } from '@/store/modules/playerData/getters'
 import { IPlayer } from '@/interfaces/player.interface'
+import { EN_PlayerDataActions } from '@/store/modules/playerData/actions'
 
 export default Vue.extend({
   name: 'finish',
@@ -79,8 +86,13 @@ export default Vue.extend({
   },
   methods: {
     ...mapMutations([EN_PlayerDataMutation.SHOW_TABLE_RATING]),
+    ...mapActions([EN_PlayerDataActions.GET_PLAYER_NEW_GAME]),
     restartFunc() {
       this.SHOW_TABLE_RATING()
+    },
+    restartGame() {
+      this.GET_PLAYER_NEW_GAME(this.GET_PLAYER_DATA.id)
+      this.$router.push({ name: 'home' })
     },
     countAchievement(player: IPlayer) {
       let numberAchievement: number = 0
