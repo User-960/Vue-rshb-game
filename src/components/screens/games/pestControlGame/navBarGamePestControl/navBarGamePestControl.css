@@ -29,8 +29,8 @@
 
 .blockButtonTimer {
 	position: absolute;
-	top: 29px;
-	left: 29px;
+	top: 24px;
+	left: 24px;
 
 	z-index: 120;
 }
