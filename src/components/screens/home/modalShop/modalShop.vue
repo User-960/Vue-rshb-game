@@ -119,10 +119,10 @@
         </div>
 
         <div :class='styles.sellBtnWrapper'>
-          <button :class='[ 
+          <button v-if='GET_PLAYER_DATA.minigame.gameFive.complete' :class='[ 
               {
                 [styles.sellBtn]: GET_PLAYER_DATA.minigame.gameFive.complete,
-                [styles.sellBtnNoActive]: GET_PLAYER_DATA.own_money >= 9270 || !GET_PLAYER_DATA.minigame.gameFive.complete,
+                [styles.sellBtnNoActive]: GET_PLAYER_DATA.own_money >= 9270,
                 [styles.sellBtnNoActiveFinish]: GET_PLAYER_DATA.own_money < 9270
               }
             ]' 
@@ -135,6 +135,13 @@
               GET_PLAYER_DATA.credit === 9000 ? 
               GET_PLAYER_DATA.own_coins * 13 : 0 
             }}
+          </button>
+
+          <button v-if='!GET_PLAYER_DATA.minigame.gameFive.complete' 
+            :class='[styles.sellBtn, styles.sellBtnNoActive]' 
+            aria-label='button sell non active'
+          >
+            Отсутствует урожай
           </button>
         </div>
       </div>
