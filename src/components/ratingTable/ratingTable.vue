@@ -17,15 +17,15 @@
           <div :class='styles.tablePlayer'>
             <div :class='styles.tablePlayerWrapper'>
               <p :class='styles.tablePlayerId'>1005.</p>
-              <p :class='styles.tablePlayerName'>ВасилийУничтожитель</p>
+              <p :class='styles.tablePlayerName'>{{ GET_PLAYER_DATA.name }}</p>
             </div>
 
             <div :class='styles.award'>
               <img :class='styles.iconAward' src='../../../public/images/iconAward.svg' alt='icon of player'/>
-              <p>5/5</p>
+              <p>{{ countAchievementPlayer(GET_PLAYER_DATA) }}/5</p>
             </div>
 
-            <div :class='styles.playerRating'>5000</div>
+            <div :class='styles.playerRating'>{{ GET_PLAYER_DATA.own_coins }}</div>
           </div>
 
           <div :class='styles.table'>
@@ -64,7 +64,7 @@ import topSectionRating from '../ui/section/topSectionRating/topSectionRating.vu
 import { EN_PlayerDataGetters } from '@/store/modules/playerData/getters'
 import { mapActions, mapGetters } from 'vuex'
 import { EN_PlayerDataActions } from '@/store/modules/playerData/actions'
-import { IPlayerLiderboard } from '@/interfaces/player.interface'
+import { IPlayer, IPlayerLiderboard } from '@/interfaces/player.interface'
 
 export default Vue.extend({
   name: 'ratingTable',
@@ -79,7 +79,7 @@ export default Vue.extend({
     this.GET_PLAYERS_RATING()
   },
   computed: {
-    ...mapGetters([EN_PlayerDataGetters.GET_PLAYERS_RATING_DATA])
+    ...mapGetters([EN_PlayerDataGetters.GET_PLAYERS_RATING_DATA, EN_PlayerDataGetters.GET_PLAYER_DATA])
   },
   methods: {
     ...mapActions([EN_PlayerDataActions.GET_PLAYERS_RATING]),
@@ -102,6 +102,30 @@ export default Vue.extend({
       }
 
       if (player.achievement.gameFive.achievement) {
+        numberAchievement += 1
+      }
+
+      return numberAchievement
+    },
+    countAchievementPlayer(player: IPlayer) {
+      let numberAchievement: number = 0
+      if (player.minigame?.gameOne.achievement) {
+        numberAchievement += 1
+      }
+
+      if (player.minigame?.gameTwo.achievement) {
+        numberAchievement += 1
+      }
+
+      if (player.minigame?.gameThree.achievement) {
+        numberAchievement += 1
+      }
+
+      if (player.minigame?.gameFour.achievement) {
+        numberAchievement += 1
+      }
+
+      if (player.minigame?.gameFive.achievement) {
         numberAchievement += 1
       }
 
