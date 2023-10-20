@@ -81,7 +81,7 @@ export default Vue.extend({
     payMaria() {
       if (!this.GET_PLAYER_DATA.minigame.gameOne.complete) {
         this.PAY_MONEY_MARIA()
-        this.SUM_COINS(100)
+        this.SUM_COINS(30)
         this.SAVE_SCORE_MINI_GAME_ONE(this.GET_POINTS_GN)
         if (this.GET_POINTS_GN >= 140) {
           this.PERFORM_ACHIEVEMENT('gameOne')

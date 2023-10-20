@@ -14,11 +14,11 @@
             </p>
             <br/>
             <p>
-              Предлагаю усовершенствовать наши растения с помощью генной инженерии.
+              Предлагаю усовершенствовать наши растения с помощью генной инженерии.
             </p>
             <br/>
             <p>
-              Следуя моим подсказкам, смешивай различные гены растений для получения модифицированных овощей и фруктов. Следи за временем, желаю удачи!
+              Следи за моими подсказками перетаскивая колбы с генами на столе в большую ёмкость с землёй. Необходимо вовремя успеть смешать 3 разных гена, пока происходит реакция. Следи за временем, у тебя всё получится!
             </p>
           </div>
         </div>
@@ -59,12 +59,14 @@ export default Vue.extend({
     ...mapMutations([
       EN_GeneticGameMutation.HIDE_RULES_BLOCK_GN, 
       EN_GeneticGameMutation.START_GAME_GN,
-      EN_GeneticGameMutation.START_FINISH_TIMER_TOMATO_GN
+      EN_GeneticGameMutation.START_FINISH_TIMER_TOMATO_GN,
+      EN_GeneticGameMutation.START_NEW_GAME_GN,
     ]),
     startGame() {
       this.HIDE_RULES_BLOCK_GN()
-      this.START_GAME_GN()
+      this.START_NEW_GAME_GN()
 
+      this.START_GAME_GN()
       this.START_FINISH_TIMER_TOMATO_GN()
     },
     goMap() {

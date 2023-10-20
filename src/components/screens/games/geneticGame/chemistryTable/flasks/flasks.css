@@ -14,14 +14,24 @@
 .dropZoneContainer {
 	position: relative;
 	min-width: 120px;
-	max-height: 70px;
+	min-height: 87px;
+
+	top: -15px;
+}
+
+.dropZoneContainerActive {
+	background-image: url(../../../../../../../public/images/emptyFlask.svg);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	animation: opacityZone 4s;
 }
 
 .listDrop {
 	display: flex;
 	position: relative;
 
-	top: -50px;
+	top: -15px;
 
 	display: flex;
 	justify-content: center;
@@ -273,6 +283,32 @@
 	to {
 		opacity: 0;
 		top: -30px;
+	}
+}
+
+@keyframes opacityZone {
+	from {
+		opacity: 0.2;
+	}
+
+	20% {
+		opacity: 0.8;
+	}
+
+	40% {
+		opacity: 0.2;
+	}
+
+	60% {
+		opacity: 0.8;
+	}
+
+	80% {
+		opacity: 0.2;
+	}
+
+	to {
+		opacity: 0.8;
 	}
 }
 

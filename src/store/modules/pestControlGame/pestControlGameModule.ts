@@ -19,7 +19,7 @@ const state: IPestControlGameState = {
 	points: 0,
 
 	timer: 10,
-	playerMistakes: 0,
+	playerMistakes: 1,
 
 	isChosenTomatoLevel: false,
 	isChosenPepperLevel: false,

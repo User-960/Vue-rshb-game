@@ -74,7 +74,7 @@
     <div v-if='GET_STRAWBERRY_LEVEL_GH' :class='styles.machineCharacteristicsStrawberry'>
       <ul :class='styles.characteristicsList'>
         <li :class='[styles.characteristicsItem, styles.soilMoisture]'>
-          <div :class='styles.soilMoistureNum'>32</div>
+          <div :class='styles.soilMoistureNum'>65</div>
           <div :class='styles.soilMoistureWrapper'>
             <div :class='styles.soilMoistureText'>Влажность почвы</div>
             <button :class='styles.soilMoistureBtn' @click='drainAirWrong'>Полить</button>

@@ -9,7 +9,7 @@
           <p :class='[styles.text, styles.textCharacteristic]' 
             v-if='GET_TOMATO_SOIL_MOISTURE_CHECK_GH'
           >
-            Давай вырастим помидор. Сообщи мне показатель <span>влажности почвы</span>.
+            Начнём с помидора. Сообщи мне показатель <span>влажности почвы</span>.
           </p>
 
           <p :class='[styles.text, styles.textCharacteristic]' 
@@ -34,7 +34,7 @@
             v-if='!GET_TOMATO_AIR_TEMPERATURE_CHECK_GH && !GET_TOMATO_SOIL_MOISTURE_CHECK_GH &&
                   !GET_TOMATO_SOIL_MOISTURE_ACTION_GH && !GET_TOMATO_AIR_HUMIDITY_CHECK_GH'
           >
-            Супер! Мы отрегулировали все показатели, совсем скоро можно будет собирать урожай.
+            Супер! Теперь все параметры верные и скоро можно будет высаживать растения.
           </p>
         </div>
 

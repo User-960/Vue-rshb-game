@@ -26,6 +26,7 @@ export enum EN_GeneticGameMutation {
 	HIDE_BONUS_BLOCK_PAYED_GN = 'HIDE_BONUS_BLOCK_PAYED_GN',
 	START_GAME_GN = 'START_GAME_GN',
 	FINISH_GAME_GN = 'FINISH_GAME_GN',
+	START_NEW_GAME_GN = 'START_NEW_GAME_GN',
 	PLUS_POINTS_GN = 'PLUS_POINTS_GN',
 	PLUS_POINTS_LINK_GN = 'PLUS_POINTS_LINK_GN',
 	MINUS_POINTS_GN = 'MINUS_POINTS_GN',
@@ -126,6 +127,44 @@ export const mutations: MutationTree<IGeneticGameState> = {
 		state.isStrawberryColor = false
 		state.isStrawberryModified = false
 	},
+	[EN_GeneticGameMutation.START_NEW_GAME_GN](state) {
+		state.isVictoryBlockVisible = false
+		state.isLossBlockVisible = false
+		state.isBonusBlockVisible = false
+		state.isBonusBlockPayedVisible = false
+		state.isStartGame = false
+		state.points = 0
+
+		state.timerTomato = 9
+		state.timerPepper = 9
+		state.timerStrawberry = 9
+
+		state.playerMistakes = 0
+		state.isFirstMistake = false
+		state.isSecondMistake = false
+
+		state.tomatoFlasksList = generatorFlasksList(nameFlasks)
+		state.tomatoFlasksDropZone = generatorFlasksDropZone()
+		state.isTomatoLevel = true
+		state.isTomatoSprout = false
+		state.isTomatoColor = false
+		state.isTomatoModified = false
+
+		state.pepperFlasksList = generatorFlasksList(nameFlasks)
+		state.pepperFlasksDropZone = generatorFlasksDropZone()
+		state.isPepperLevel = false
+		state.isPepperSprout = false
+		state.isPepperColor = false
+		state.isPepperModified = false
+
+		state.strawberryFlasksList = generatorFlasksList(nameFlasks)
+		state.strawberryFlasksDropZone = generatorFlasksDropZone()
+		state.isStrawberryLevel = false
+		state.isStrawberrySprout = false
+		state.isStrawberryColor = false
+		state.isStrawberryModified = false
+	},
+
 	[EN_GeneticGameMutation.SHOW_INFO_LINK_BLOCK_GN](state) {
 		const audio = new Audio(AUDIO_CONFIG.AUDIO_NEW_MISSION)
 		audio.autoplay = true
@@ -213,6 +252,12 @@ export const mutations: MutationTree<IGeneticGameState> = {
 
 			timerTomato = setInterval(() => {
 				state.timerTomato -= 1
+
+				if (state.timerTomato < 0) {
+					clearInterval(timerTomato)
+					state.timerTomato = 0
+					state.playerMistakes = 2
+				}
 			}, 1000)
 		}
 
@@ -260,6 +305,12 @@ export const mutations: MutationTree<IGeneticGameState> = {
 
 			timerPepper = setInterval(() => {
 				state.timerPepper -= 1
+
+				if (state.timerPepper < 0) {
+					clearInterval(timerPepper)
+					state.timerPepper = 0
+					state.playerMistakes = 2
+				}
 			}, 1000)
 		}
 
@@ -307,6 +358,12 @@ export const mutations: MutationTree<IGeneticGameState> = {
 
 			timerStrawberry = setInterval(() => {
 				state.timerStrawberry -= 1
+
+				if (state.timerStrawberry < 0) {
+					clearInterval(timerStrawberry)
+					state.timerStrawberry = 0
+					state.playerMistakes = 2
+				}
 			}, 1000)
 		}
 

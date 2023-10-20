@@ -2,7 +2,7 @@
   <div :class='styles.wrapper'>
     <div :class='styles.columns'>
       
-      <div :class='styles.dropZoneContainer'>
+      <div :class='[styles.dropZoneContainer, {[styles.dropZoneContainerActive]: isDropZoneActive}]'>
         <div :class='[
             styles.effect, 
             {
@@ -29,7 +29,7 @@
       <div :class='styles.flasksContainer'>
           <draggable :list="GET_FLASKS_TOMATO_GN" group="flasks" :move="detectMove" id='flasksContainer' :class='styles.flasksList'>
             <div v-for="flaskItem in GET_FLASKS_TOMATO_GN" :key="flaskItem.id">
-              <div :class='[styles.flask,
+              <div @mousedown='showDropZone' :class='[styles.flask,
                 {
                   [styles.greenFlask]: flaskItem.name === "greenFlask",
                   [styles.pinkFlask]: flaskItem.name === "pinkFlask",
@@ -71,6 +71,8 @@ import { EN_GeneticGameGetters } from '@/store/modules/geneticGame/getters'
 export default Vue.extend({
   name: 'flasksTomato',
   data: () => ({
+    isDropZoneActive: false,
+
     isBlueEffectActive: false,
     isGreenEffectActive: false,
     isRedEffectActive: false,
@@ -127,6 +129,9 @@ export default Vue.extend({
       EN_GeneticGameMutation.PLUS_POINTS_GN,
       EN_GeneticGameMutation.MINUS_POINTS_GN
     ]),
+    showDropZone() {
+      this.isDropZoneActive = true
+    },
     detectMove(evt: any){
       this.isGreenFlaskRotate = false
       this.isBlueFlaskRotate = false
@@ -144,6 +149,7 @@ export default Vue.extend({
           evt.to.attributes['id'].nodeValue === 'flasksDropZone'
         ) {
           if (!this.isGreenEffectActive) {
+            this.isDropZoneActive = false
             this.isGreenFlaskRotate = true
             this.isGreenEffectActive = true
             setTimeout(() => {
@@ -186,6 +192,7 @@ export default Vue.extend({
           evt.to.attributes['id'].nodeValue === 'flasksDropZone'
         ) {
           if (!this.isBlueEffectActive) {
+            this.isDropZoneActive = false
             this.isBlueFlaskRotate = true
             this.isBlueEffectActive = true
 
@@ -212,6 +219,7 @@ export default Vue.extend({
           evt.to.attributes['id'].nodeValue === 'flasksDropZone'
         ) {
           if (!this.isPinkEffectActive) {
+            this.isDropZoneActive = false
             this.isPinkFlaskRotate = true
             this.isPinkEffectActive = true
 
@@ -237,6 +245,7 @@ export default Vue.extend({
               }, EN_CONFIG.TIMING_EFFECT_FLASK)
             } else {
               setTimeout(() => {
+                this.isDropZoneActive = false
                 this.isPinkEffectActive = false
                 this.isEmptyFlask = true
 
@@ -265,6 +274,7 @@ export default Vue.extend({
           evt.to.attributes['id'].nodeValue === 'flasksDropZone'
         ) {
           if (!this.isYellowEffectActive) {
+            this.isDropZoneActive = false
             this.isYellowFlaskRotate = true
             this.isYellowEffectActive = true
             setTimeout(() => {
@@ -307,6 +317,7 @@ export default Vue.extend({
           evt.to.attributes['id'].nodeValue === 'flasksDropZone'
         ) {
           if (!this.isRedEffectActive) {
+            this.isDropZoneActive = false
             this.isRedFlaskRotate = true
             this.isRedEffectActive = true
             setTimeout(() => {
@@ -349,6 +360,7 @@ export default Vue.extend({
           evt.to.attributes['id'].nodeValue === 'flasksDropZone'
         ) {
           if (!this.isCyanEffectActive) {
+            this.isDropZoneActive = false
             this.isCyanFlaskRotate = true
             this.isCyanEffectActive = true
             setTimeout(() => {
@@ -391,6 +403,7 @@ export default Vue.extend({
           evt.to.attributes['id'].nodeValue === 'flasksDropZone'
         ) {
           if (!this.isOrangeEffectActive) {
+            this.isDropZoneActive = false
             this.isOrangeFlaskRotate = true
             this.isOrangeEffectActive = true
             setTimeout(() => {
@@ -433,6 +446,7 @@ export default Vue.extend({
           evt.to.attributes['id'].nodeValue === 'flasksDropZone'
         ) {
           if (!this.isPurpleEffectActive) {
+            this.isDropZoneActive = false
             this.isPurpleFlaskRotate = true
             this.isPurpleEffectActive = true
             setTimeout(() => {
@@ -475,6 +489,7 @@ export default Vue.extend({
           evt.to.attributes['id'].nodeValue === 'flasksDropZone'
         ) {
           if (!this.isPurpleEffectActive) {
+            this.isDropZoneActive = false
             this.isGreyFlaskRotate = true
             this.isGreyEffectActive = true
 

@@ -84,7 +84,7 @@ export default Vue.extend({
     payDanil() {
       if (!this.GET_PLAYER_DATA.minigame.gameTwo.complete) {
         this.PAY_MONEY_DANIL()
-        this.SUM_COINS(100)
+        this.SUM_COINS(30)
         this.SAVE_SCORE_MINI_GAME_TWO(this.GET_POINTS_GH)
         if (this.GET_POINTS_GH >= 185) {
           this.PERFORM_ACHIEVEMENT('gameTwo')

@@ -20,14 +20,14 @@
           <ul :class='styles.characteristicsList'>
             <li :class='styles.characteristicsItem' @click='chooseOptionStrawberry'>22</li>
             <li :class='styles.characteristicsItem' @click='chooseOptionStrawberry'>34,2</li>
-            <li :class='styles.characteristicsItem' @click='chooseOptionStrawberrySoilCorrect'>32</li>
+            <li :class='styles.characteristicsItem' @click='chooseOptionStrawberrySoilCorrect'>65</li>
           </ul>
         </div>
 
         <div v-if='GET_STRAWBERRY_AIR_HUMIDITY_CHECK_GH' :class='styles.contentStrawberry'>
           <ul :class='styles.characteristicsList'>
             <li :class='styles.characteristicsItem' @click='chooseOptionStrawberry'>122</li>
-            <li :class='styles.characteristicsItem' @click='chooseOptionStrawberryAirCorrect'>102</li>
+            <li :class='styles.characteristicsItem' @click='chooseOptionStrawberryAirCorrect'>90</li>
             <li :class='styles.characteristicsItem' @click='chooseOptionStrawberry'>2</li>
           </ul>
         </div>

@@ -34,7 +34,7 @@
             v-if='!GET_PEPPER_AIR_TEMPERATURE_CHECK_GH && !GET_PEPPER_SOIL_MOISTURE_CHECK_GH &&
                   !GET_PEPPER_AIR_HUMIDITY_ACTION_GH && !GET_PEPPER_AIR_HUMIDITY_CHECK_GH'
           >
-            Супер! Мы настроили все показатели.
+            Супер! Теперь все параметры верные и скоро можно будет высаживать растения.
           </p>
         </div>
 

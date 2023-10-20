@@ -32,7 +32,7 @@
           <button 
             :class='[styles.choiceBtn, {[styles.choiceBtnActive] : isRobotCollector}]' @click='showRobotCollectorCard'
           >
-            Робот-собиратель урожая
+            Робот - собиратель урожая
           </button>
 
         </ul>

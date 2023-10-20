@@ -1,11 +1,5 @@
 import { Module } from 'vuex'
 
-import { nameFlasks } from '@/components/screens/games/geneticGame/config/config'
-import {
-	generatorFlasksDropZone,
-	generatorFlasksList
-} from '@/components/screens/games/geneticGame/helpers/helpers'
-
 import { actions } from './actions'
 import { getters } from './getters'
 import { mutations } from './mutations'
@@ -55,7 +49,7 @@ const state: IGreenhouseGameState = {
 	isStrawberryAirHumidityCheck: false,
 	isStrawberryAirHumidityAction: false,
 	isStrawberryAirTemperatureCheck: false,
-	strawberryAirHumidityNum: 102,
+	strawberryAirHumidityNum: 90,
 	healthStrawberryPercentage: 100,
 	isStrawberryLevel: false,
 	playerMistakesStrawberry: 0,
