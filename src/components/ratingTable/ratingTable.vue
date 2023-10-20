@@ -48,7 +48,7 @@
                   <p>{{ countAchievement(playerItem) }}/5</p>
                 </div>
               
-                <div :class='styles.playerItemRating'>{{ playerItem.own_coins}}</div>
+                <div :class='styles.playerItemRating'>{{ playerItem.top_score}}</div>
               </li>
             </ul>
           </div>

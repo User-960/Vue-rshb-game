@@ -65,6 +65,7 @@ export interface IPlayerLiderboard {
 	name: string
 	own_money: number
 	own_coins: number
+	top_score: number
 }
 
 export interface IPlayerLiderboardAchievement {
