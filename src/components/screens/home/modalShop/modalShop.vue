@@ -122,8 +122,7 @@
           <button v-if='GET_PLAYER_DATA.minigame.gameFive.complete' :class='[ 
               {
                 [styles.sellBtn]: GET_PLAYER_DATA.minigame.gameFive.complete,
-                [styles.sellBtnNoActive]: GET_PLAYER_DATA.own_money >= 9270,
-                [styles.sellBtnNoActiveFinish]: GET_PLAYER_DATA.own_money < 9270
+                [styles.sellBtnNoActive]: GET_PLAYER_DATA.own_money >= 9270
               }
             ]' 
             @click='sellHarvest' 
