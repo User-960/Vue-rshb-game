@@ -18,6 +18,9 @@ const state: IPestControlGameState = {
 	strawberryLevel: 3,
 	points: 0,
 
+	timer: 10,
+	playerMistakes: 0,
+
 	isChosenTomatoLevel: false,
 	isChosenPepperLevel: false,
 	isChosenStrawberryLevel: false,

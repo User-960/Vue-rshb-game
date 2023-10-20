@@ -9,6 +9,11 @@ export enum EN_PestControlGameGetters {
 	GET_VICTORY_BLOCK_PS = 'GET_VICTORY_BLOCK_PS',
 	GET_LOSS_BLOCK_PS = 'GET_LOSS_BLOCK_PS',
 
+	GET_TIMER_PS = 'GET_TIMER_PS',
+	GET_PLAYER_MISTAKES_PS = 'GET_PLAYER_MISTAKES_PS',
+	GET_FIRST_MISTAKE_PS = 'GET_FIRST_MISTAKE_PS',
+	GET_SECOND_MISTAKE_PS = 'GET_SECOND_MISTAKE_PS',
+
 	GET_START_GAME_PS = 'GET_START_GAME_PS',
 	GET_GAME_LOOP_PS = 'GET_GAME_LOOP_PS',
 	GET_TOMATO_LEVEL_NUM_PS = 'GET_TOMATO_LEVEL_NUM_PS',
@@ -46,6 +51,10 @@ export const getters: GetterTree<IPestControlGameState, IRootState> = {
 		state.isVictoryBlockVisible,
 	[EN_PestControlGameGetters.GET_LOSS_BLOCK_PS]: state =>
 		state.isLossBlockVisible,
+
+	[EN_PestControlGameGetters.GET_TIMER_PS]: state => state.timer,
+	[EN_PestControlGameGetters.GET_PLAYER_MISTAKES_PS]: state =>
+		state.playerMistakes,
 
 	[EN_PestControlGameGetters.GET_START_GAME_PS]: state => state.isStartGame,
 	[EN_PestControlGameGetters.GET_GAME_LOOP_PS]: state => state.gameLoop,

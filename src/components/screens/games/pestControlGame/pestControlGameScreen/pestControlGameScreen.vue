@@ -151,7 +151,7 @@ import { EN_PestControlGameMutation } from '@/store/modules/pestControlGame/muta
 import Vue from 'vue'
 import { mapGetters, mapMutations } from 'vuex'
 import { EN_CONFIG } from '../config/config'
-import { getRandomNumber, getRandomNumberProblem } from '../helpers/helpers'
+import { getRandomNumberProblem } from '../helpers/helpers'
 import { AUDIO_CONFIG } from '@/config/audio'
 
 export default Vue.extend({
@@ -171,7 +171,13 @@ export default Vue.extend({
     ...mapGetters([
       EN_PestControlGameGetters.GET_START_GAME_PS,
       EN_PestControlGameGetters.GET_GAME_LOOP_PS,
+      EN_PestControlGameGetters.GET_TIMER_PS,
       EN_PestControlGameGetters.GET_LOSS_BLOCK_PS,
+
+      EN_PestControlGameGetters.GET_PLAYER_MISTAKES_PS,
+      EN_PestControlGameGetters.GET_FIRST_MISTAKE_PS,
+      EN_PestControlGameGetters.GET_SECOND_MISTAKE_PS,
+
       EN_PestControlGameGetters.GET_TOMATO_LEVEL_NUM_PS,
       EN_PestControlGameGetters.GET_PEPPER_LEVEL_NUM_PS,
       EN_PestControlGameGetters.GET_STRAWBERRY_LEVEL_NUM_PS,
@@ -202,29 +208,109 @@ export default Vue.extend({
           this.GET_GAME_LOOP_PS > 0 && 
           !this.GET_TOMATO_LINE_CRITICAL && 
           !this.GET_PEPPER_LINE_CRITICAL && 
-          !this.GET_STRAWBERRY_LINE_CRITICAL
+          !this.GET_STRAWBERRY_LINE_CRITICAL && 
+          this.GET_PLAYER_MISTAKES_PS < 2
         ) {
+        this.STOP_TIMER_PS()
         this.SHOW_VICTORY_BLOCK_PS()
       }
     },
     GET_GAME_LOOP_PS() {
-      if (this.GET_GAME_LOOP_PS < EN_CONFIG.QUANTITY_GAME_LOOP && this.GET_START_GAME_PS) {
+      if (this.GET_GAME_LOOP_PS < EN_CONFIG.QUANTITY_GAME_LOOP && this.GET_START_GAME_PS && this.GET_PLAYER_MISTAKES_PS < 2) {
         let numberLevel = getRandomNumberProblem(1, 4, this.previousProblem)
         this.previousProblem = numberLevel
 
         if (this.GET_TOMATO_LEVEL_NUM_PS === numberLevel) {
           this.startTomatoLevel()
+          this.UPDATE_TIMER_PS()
+          this.START_TIMER_PS()
         }
 
         if (this.GET_PEPPER_LEVEL_NUM_PS === numberLevel) {
           this.startPepperLevel()
+          this.UPDATE_TIMER_PS()
+          this.START_TIMER_PS()
         }
 
         if (this.GET_STRAWBERRY_LEVEL_NUM_PS === numberLevel) {
           this.startStrawberryLevel()
+          this.UPDATE_TIMER_PS()
+          this.START_TIMER_PS()
         }
       } else {
+        this.STOP_TIMER_PS()
         this.FINISH_GAME_PS()
+      }
+    },
+    GET_TIMER_PS() {
+      if (this.GET_TIMER_PS === 0 && this.GET_PLAYER_MISTAKES_PS === 0) {
+        this.INCREASE_PLAYER_MISTAKES_PS()
+        this.STOP_TIMER_PS()
+        this.UPDATE_TIMER_PS()
+
+        if (this.GET_TOMATO_LINE_CRITICAL) {
+          this.REMOVE_TOMATO_LINE_CRITICAL()
+          this.NOT_SELECT_BUG()
+          this.NOT_SELECT_CATERPILLAR()
+          this.NOT_SELECT_LOCUSTS()
+          this.NOT_SELECT_DRONE()
+
+          this.GAME_LOOP_PS()
+        }
+
+        if (this.GET_PEPPER_LINE_CRITICAL) {
+          this.REMOVE_PEPPER_LINE_CRITICAL()
+          this.NOT_SELECT_BUG()
+          this.NOT_SELECT_CATERPILLAR()
+          this.NOT_SELECT_LOCUSTS()
+          this.NOT_SELECT_DRONE()
+
+          this.GAME_LOOP_PS()
+        }
+
+        if (this.GET_STRAWBERRY_LINE_CRITICAL) {
+          this.REMOVE_STRAWBERRY_LINE_CRITICAL()
+          this.NOT_SELECT_BUG()
+          this.NOT_SELECT_CATERPILLAR()
+          this.NOT_SELECT_LOCUSTS()
+          this.NOT_SELECT_DRONE()
+
+          this.GAME_LOOP_PS()
+        }
+      }
+
+      if (this.GET_TIMER_PS === 0 && this.GET_PLAYER_MISTAKES_PS === 1) {
+        this.INCREASE_PLAYER_MISTAKES_PS()
+        this.STOP_TIMER_PS()
+
+        if (this.GET_TOMATO_LINE_CRITICAL) {
+          this.REMOVE_TOMATO_LINE_CRITICAL()
+          this.NOT_SELECT_BUG()
+          this.NOT_SELECT_CATERPILLAR()
+          this.NOT_SELECT_LOCUSTS()
+          this.NOT_SELECT_DRONE()
+        }
+
+        if (this.GET_PEPPER_LINE_CRITICAL) {
+          this.REMOVE_PEPPER_LINE_CRITICAL()
+          this.NOT_SELECT_BUG()
+          this.NOT_SELECT_CATERPILLAR()
+          this.NOT_SELECT_LOCUSTS()
+          this.NOT_SELECT_DRONE()
+        }
+
+        if (this.GET_STRAWBERRY_LINE_CRITICAL) {
+          this.REMOVE_STRAWBERRY_LINE_CRITICAL()
+          this.NOT_SELECT_BUG()
+          this.NOT_SELECT_CATERPILLAR()
+          this.NOT_SELECT_LOCUSTS()
+          this.NOT_SELECT_DRONE()
+        }
+
+        setTimeout(() => {
+          this.FINISH_GAME_PS()
+          this.SHOW_LOSS_BLOCK_PS()
+        }, EN_CONFIG.TIMING_LOSS_BLOCK)
       }
     },
     // Tomato Level
@@ -234,6 +320,7 @@ export default Vue.extend({
         (this.GET_SELECT_CATERPILLAR || this.GET_SELECT_LOCUSTS || this.GET_SELECT_BUG)
       ) {
         this.MOVE_DRONE_TOMATO()
+        this.STOP_TIMER_PS()
       }
 
       if (this.GET_MOVED_DRONE_TOMATO) {
@@ -282,6 +369,7 @@ export default Vue.extend({
         (this.GET_SELECT_CATERPILLAR || this.GET_SELECT_LOCUSTS || this.GET_SELECT_BUG)
       ) {
         this.MOVE_DRONE_PEPPER()
+        this.STOP_TIMER_PS()
       }
 
       if (this.GET_MOVED_DRONE_PEPPER) {
@@ -330,6 +418,7 @@ export default Vue.extend({
           (this.GET_SELECT_CATERPILLAR || this.GET_SELECT_LOCUSTS || this.GET_SELECT_BUG)
         ) {
         this.MOVE_DRONE_STRAWBERRY()
+        this.STOP_TIMER_PS()
       }
 
       if (this.GET_MOVED_DRONE_STRAWBERRY) {
@@ -416,6 +505,11 @@ export default Vue.extend({
       EN_PestControlGameMutation.NOT_MOVE_DRONE_PEPPER,
       EN_PestControlGameMutation.MOVE_DRONE_STRAWBERRY,
       EN_PestControlGameMutation.NOT_MOVE_DRONE_STRAWBERRY,
+
+      EN_PestControlGameMutation.INCREASE_PLAYER_MISTAKES_PS,
+      EN_PestControlGameMutation.START_TIMER_PS,
+      EN_PestControlGameMutation.STOP_TIMER_PS,
+      EN_PestControlGameMutation.UPDATE_TIMER_PS,
     ]),
     startTomatoLevel() {
       setTimeout(() => {

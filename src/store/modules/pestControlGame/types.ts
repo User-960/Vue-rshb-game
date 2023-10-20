@@ -10,6 +10,9 @@ export interface IPestControlGameState {
 	strawberryLevel: number
 	points: number
 
+	timer: number
+	playerMistakes: number
+
 	isChosenTomatoLevel: boolean
 	isChosenPepperLevel: boolean
 	isChosenStrawberryLevel: boolean

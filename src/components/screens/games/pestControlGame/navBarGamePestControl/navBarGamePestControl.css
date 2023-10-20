@@ -27,6 +27,14 @@
 	background: var(--primary-grey);
 }
 
+.blockButtonTimer {
+	position: absolute;
+	top: 29px;
+	left: 29px;
+
+	z-index: 120;
+}
+
 .blockButtonWallet {
 	position: absolute;
 	top: 24px;

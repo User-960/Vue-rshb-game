@@ -177,16 +177,16 @@
 }
 
 .indicatorNumberCritical::after {
-	left: 70px;
-	content: '80%';
-	animation: indicatorNumber 3s;
+	left: 80px;
+	content: '90%';
+	animation: indicatorNumber 6s;
 }
 
 .indicatorLineCritical {
-	width: 80px;
+	width: 90px;
 	background-color: #df1d11;
 
-	animation: widthLine 3s;
+	animation: widthLine 6s;
 }
 
 /* css li drone */
@@ -323,29 +323,39 @@
 	}
 
 	100% {
-		width: 80px;
+		width: 90px;
 	}
 }
 
 @keyframes indicatorNumber {
 	0% {
 		left: 20px;
+		content: '30%';
 	}
 
-	25% {
+	20% {
 		content: '40%';
 	}
 
-	50% {
+	40% {
+		content: '50%';
+	}
+
+	60% {
 		content: '60%';
 	}
 
-	75% {
+	80% {
+		content: '70%';
+	}
+
+	90% {
 		content: '80%';
 	}
 
 	100% {
-		left: 70px;
+		left: 80px;
+		content: '90%';
 	}
 }
 

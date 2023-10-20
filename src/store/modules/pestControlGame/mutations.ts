@@ -3,6 +3,8 @@ import { MutationTree } from 'vuex'
 import { IPestControlGameState } from './types'
 import { AUDIO_CONFIG } from '@/config/audio'
 
+let timer: any = null
+
 export enum EN_PestControlGameMutation {
 	RESTART_GAME_PS = 'RESTART_GAME_PS',
 	SHOW_INFO_LINK_BLOCK_PS = 'SHOW_INFO_LINK_BLOCK_PS',
@@ -13,6 +15,11 @@ export enum EN_PestControlGameMutation {
 	HIDE_VICTORY_BLOCK_PS = 'HIDE_VICTORY_BLOCK_PS',
 	SHOW_LOSS_BLOCK_PS = 'SHOW_LOSS_BLOCK_PS',
 	HIDE_LOSS_BLOCK_PS = 'HIDE_LOSS_BLOCK_PS',
+
+	INCREASE_PLAYER_MISTAKES_PS = 'INCREASE_PLAYER_MISTAKES_PS',
+	START_TIMER_PS = 'START_TIMER_PS',
+	STOP_TIMER_PS = 'STOP_TIMER_PS',
+	UPDATE_TIMER_PS = 'UPDATE_TIMER_PS',
 
 	START_GAME_PS = 'START_GAME_PS',
 	FINISH_GAME_PS = 'FINISH_GAME_PS',
@@ -70,6 +77,8 @@ export const mutations: MutationTree<IPestControlGameState> = {
 			(state.pepperLevel = 2),
 			(state.strawberryLevel = 3),
 			(state.points = 0),
+			(state.timer = 10),
+			(state.playerMistakes = 0),
 			(state.isChosenTomatoLevel = false),
 			(state.isChosenPepperLevel = false),
 			(state.isChosenStrawberryLevel = false),
@@ -227,6 +236,30 @@ export const mutations: MutationTree<IPestControlGameState> = {
 	},
 	[EN_PestControlGameMutation.NOT_MOVE_DRONE_STRAWBERRY](state) {
 		state.isDroneMovedStrawberry = false
+	},
+
+	[EN_PestControlGameMutation.INCREASE_PLAYER_MISTAKES_PS](state) {
+		state.playerMistakes += 1
+	},
+	[EN_PestControlGameMutation.START_TIMER_PS](state) {
+		if (state.timer > 0 && state.isStartGame) {
+			timer = setInterval(() => {
+				state.timer -= 1
+
+				if (state.timer < 0) {
+					clearInterval(timer)
+					state.timer = 10
+				}
+			}, 1000)
+		}
+	},
+	[EN_PestControlGameMutation.STOP_TIMER_PS](state) {
+		if (timer) {
+			clearInterval(timer)
+		}
+	},
+	[EN_PestControlGameMutation.UPDATE_TIMER_PS](state) {
+		state.timer = 10
 	},
 
 	[EN_PestControlGameMutation.COMPLETE_PEST_CONTROL_GAME](state) {
