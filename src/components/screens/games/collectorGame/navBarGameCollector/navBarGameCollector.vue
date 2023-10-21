@@ -215,6 +215,8 @@ export default Vue.extend({
         EN_CollectorGameMutation.FINISH_TOMATO_LEVEL_COL,
         EN_CollectorGameMutation.START_FINISH_ALL_TOMATOES_INTERVAL_COL,
         EN_CollectorGameMutation.START_FINISH_TIMER_TOMATO_COL,
+
+        EN_CollectorGameMutation.EXIT_TOMATO_LEVEL,
         
         EN_CollectorGameMutation.CLOSE_GAME_FIELD_PEPPER_COL,
         EN_CollectorGameMutation.RESTART_PEPPER_LEVEL_COL,
@@ -233,6 +235,7 @@ export default Vue.extend({
         this.FINISH_TOMATO_LEVEL_COL()
         this.START_FINISH_ALL_TOMATOES_INTERVAL_COL()
         this.START_FINISH_TIMER_TOMATO_COL()
+        // this.EXIT_TOMATO_LEVEL()
         this.RESTART_TOMATO_LEVEL_COL()
       }
 

@@ -6,6 +6,8 @@ export interface ICollectorGameState {
 	isStartGame: boolean
 	points: number
 
+	isExitTomatoLevel: boolean
+
 	timerTomato: number
 	pointsTomato: number
 	isOpenGameFieldTomato: boolean

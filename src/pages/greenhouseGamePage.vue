@@ -1,5 +1,7 @@
 <template>
   <greenhouseGame v-if='GET_PLAYER_DATA.minigame.gameOne.complete' />
+
+  <alert v-else />
 </template>
 
 <script lang="ts">
@@ -9,11 +11,13 @@ import { EN_USER } from '@/config/app.constants'
 import { mapActions, mapGetters } from 'vuex'
 import { EN_PlayerDataGetters } from '@/store/modules/playerData/getters'
 import { EN_PlayerDataActions } from '@/store/modules/playerData/actions'
+import alert from '../components/ui/alert/alert.vue'
 
 export default Vue.extend({
   name: 'greenhouseGamePage',
   components: {
-    greenhouseGame
+    greenhouseGame,
+    alert
   },
   created() {
     const playerData = localStorage.getItem(EN_USER.PLAYER_DATA)

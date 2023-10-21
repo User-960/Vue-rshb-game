@@ -173,6 +173,7 @@ export default Vue.extend({
       EN_PestControlGameGetters.GET_GAME_LOOP_PS,
       EN_PestControlGameGetters.GET_TIMER_PS,
       EN_PestControlGameGetters.GET_LOSS_BLOCK_PS,
+      EN_PestControlGameGetters.GET_RULES_BLOCK_PS,
 
       EN_PestControlGameGetters.GET_PLAYER_MISTAKES_PS,
       EN_PestControlGameGetters.GET_FIRST_MISTAKE_PS,
@@ -203,6 +204,10 @@ export default Vue.extend({
   },
   watch: {
     GET_START_GAME_PS() {
+      if (this.GET_START_GAME_PS && !this.GET_RULES_BLOCK_PS) {
+        this.GAME_LOOP_PS()
+      }
+
       if (
           !this.GET_START_GAME_PS &&
           this.GET_GAME_LOOP_PS > 0 && 

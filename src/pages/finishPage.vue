@@ -1,5 +1,7 @@
 <template>
   <finish v-if='GET_PLAYER_DATA.credit === 0 && GET_PLAYER_DATA.minigame.gameFive.complete' />
+
+  <alert v-else />
 </template>
 
 <script lang="ts">
@@ -9,11 +11,13 @@ import { mapActions, mapGetters } from 'vuex'
 import { EN_PlayerDataActions } from '@/store/modules/playerData/actions'
 import { EN_PlayerDataGetters } from '@/store/modules/playerData/getters'
 import { EN_USER } from '@/config/app.constants'
+import alert from '../components/ui/alert/alert.vue'
 
 export default Vue.extend({
   name: 'finishPage',
   components: {
-    finish
+    finish,
+    alert
   },
   created() {
     const playerData = localStorage.getItem(EN_USER.PLAYER_DATA)

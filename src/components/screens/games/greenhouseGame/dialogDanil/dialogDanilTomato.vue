@@ -9,7 +9,8 @@
           <p :class='[styles.text, styles.textCharacteristic]' 
             v-if='GET_TOMATO_SOIL_MOISTURE_CHECK_GH'
           >
-            Начнём с помидора. Сообщи мне показатель <span>влажности почвы</span>.
+            Начнём с помидора. <br/>
+            Сообщи мне показатель <span>влажности почвы</span>.
           </p>
 
           <p :class='[styles.text, styles.textCharacteristic]' 
@@ -69,7 +70,7 @@
           <p :class='[styles.text, styles.textCharacteristic]' 
             v-if='GET_FIRST_MISTAKE_TOMATO_GH'
           >
-            Уву, ты выполнил неверное действие. Жизнеспособность растения снижена.
+            Увы, ты выполнил неверное действие. Жизнеспособность растения снижена.
           </p>
 
           <p :class='[styles.text, styles.textCharacteristic]' 

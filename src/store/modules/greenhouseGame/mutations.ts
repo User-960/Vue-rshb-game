@@ -5,6 +5,7 @@ import { AUDIO_CONFIG } from '@/config/audio'
 
 export enum EN_GreenhouseGameMutation {
 	RESTART_GAME_GH = 'RESTART_GAME_GH',
+	START_NEW_GAME_GH = 'START_NEW_GAME_GH',
 
 	SHOW_INFO_LINK_BLOCK_GH = 'SHOW_INFO_LINK_BLOCK_GH',
 	HIDE_INFO_LINK_BLOCK_GH = 'HIDE_INFO_LINK_BLOCK_GH',
@@ -151,7 +152,55 @@ export const mutations: MutationTree<IGreenhouseGameState> = {
 		state.isStrawberryAirHumidityCheck = false
 		state.isStrawberryAirHumidityAction = false
 		state.isStrawberryAirTemperatureCheck = false
-		state.strawberryAirHumidityNum = 102
+		state.strawberryAirHumidityNum = 90
+		state.healthStrawberryPercentage = 100
+		state.isStrawberryLevel = false
+		state.playerMistakesStrawberry = 0
+		state.isFirstMistakeStrawberry = false
+		state.isSecondMistakeStrawberry = false
+	},
+	[EN_GreenhouseGameMutation.START_NEW_GAME_GH](state) {
+		state.isVictoryBlockVisible = false
+		state.isLossBlockVisible = false
+		state.isBonusBlockVisible = false
+		state.isBonusBlockPayedVisible = false
+		state.isStartGame = false
+		state.points = 0
+
+		state.timerPepper = 9
+		state.timerStrawberry = 9
+		state.playerMistakes = 0
+		state.isFirstMistake = false
+		state.isSecondMistake = false
+
+		state.timerTomato = 9
+		state.isTomatoSoilMoistureCheck = false
+		state.isTomatoSoilMoistureAction = false
+		state.tomatoSoilMoistureNum = 30.1
+		state.healthTomatoPercentage = 100
+		state.isTomatoAirHumidityCheck = false
+		state.isTomatoAirTemperatureCheck = false
+		state.isTomatoLevel = false
+		state.playerMistakesTomato = 0
+		state.isFirstMistakeTomato = false
+		state.isSecondMistakeTomato = false
+
+		state.isPepperSoilMoistureCheck = false
+		state.isPepperAirHumidityCheck = false
+		state.isPepperAirHumidityAction = false
+		state.isPepperAirTemperatureCheck = false
+		state.pepperAirHumidityNum = 65
+		state.healthPepperPercentage = 100
+		state.isPepperLevel = false
+		state.playerMistakesPepper = 0
+		state.isFirstMistakePepper = false
+		state.isSecondMistakePepper = false
+
+		state.isStrawberrySoilMoistureCheck = false
+		state.isStrawberryAirHumidityCheck = false
+		state.isStrawberryAirHumidityAction = false
+		state.isStrawberryAirTemperatureCheck = false
+		state.strawberryAirHumidityNum = 90
 		state.healthStrawberryPercentage = 100
 		state.isStrawberryLevel = false
 		state.playerMistakesStrawberry = 0
@@ -245,6 +294,11 @@ export const mutations: MutationTree<IGreenhouseGameState> = {
 
 			timerTomato = setInterval(() => {
 				state.timerTomato -= 1
+
+				if (state.timerTomato < 0) {
+					clearInterval(timerTomato)
+					state.timerTomato = 0
+				}
 			}, 1000)
 		}
 
@@ -280,6 +334,11 @@ export const mutations: MutationTree<IGreenhouseGameState> = {
 
 			timerPepper = setInterval(() => {
 				state.timerPepper -= 1
+
+				if (state.timerPepper < 0) {
+					clearInterval(timerPepper)
+					state.timerPepper = 0
+				}
 			}, 1000)
 		}
 
@@ -315,6 +374,11 @@ export const mutations: MutationTree<IGreenhouseGameState> = {
 
 			timerStrawberry = setInterval(() => {
 				state.timerStrawberry -= 1
+
+				if (state.timerStrawberry < 0) {
+					clearInterval(timerStrawberry)
+					state.timerStrawberry = 0
+				}
 			}, 1000)
 		}
 

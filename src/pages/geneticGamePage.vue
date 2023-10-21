@@ -1,5 +1,7 @@
 <template>
   <geneticGame v-if='GET_PLAYER_DATA.name !== null && GET_PLAYER_DATA.gender !== null' />
+
+  <alert v-else />
 </template>
 
 <script lang="ts">
@@ -9,11 +11,13 @@ import { EN_USER } from '@/config/app.constants'
 import { EN_PlayerDataGetters } from '@/store/modules/playerData/getters'
 import { mapActions, mapGetters } from 'vuex'
 import { EN_PlayerDataActions } from '@/store/modules/playerData/actions'
+import alert from '../components/ui/alert/alert.vue'
 
 export default Vue.extend({
   name: 'geneticGamePage',
   components: {
-    geneticGame
+    geneticGame,
+    alert
   },
   created() {
     const playerData = localStorage.getItem(EN_USER.PLAYER_DATA)

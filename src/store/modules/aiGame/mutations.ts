@@ -5,6 +5,8 @@ import { AUDIO_CONFIG } from '@/config/audio'
 
 export enum EN_AiGameMutation {
 	RESTART_GAME_AI = 'RESTART_GAME_AI',
+	START_NEW_GAME_AI = 'START_NEW_GAME_AI',
+
 	SHOW_INFO_LINK_BLOCK_AI = 'SHOW_INFO_LINK_BLOCK_AI',
 	HIDE_INFO_LINK_BLOCK_AI = 'HIDE_INFO_LINK_BLOCK_AI',
 	SHOW_RULES_BLOCK_AI = 'SHOW_RULES_BLOCK_AI',
@@ -114,6 +116,39 @@ export const mutations: MutationTree<IAiGameState> = {
 			(state.isChosenStrawberryLevel = false),
 			(state.isPestLineCritical = false)
 	},
+	[EN_AiGameMutation.START_NEW_GAME_AI](state) {
+		state.isVictoryBlockVisible = false
+		state.isLossBlockVisible = false
+		state.isStartGame = false
+		state.gameLoop = 0
+		state.tomatoLevel = 1
+		state.isTomatoMoistureLineCritical = false
+		state.isTomatoSystemBroken = false
+		state.isTomatoHealthLineCritical = false
+		state.isTomatoHealthLineEmpty = false
+		state.tomatoLevelMistakes = 1
+		state.pepperLevel = 2
+		state.isPepperMoistureLineCritical = false
+		state.isPepperSystemBroken = false
+		state.isPepperHealthLineCritical = false
+		state.isPepperHealthLineEmpty = false
+		state.pepperLevelMistakes = 1
+		state.strawberryLevel = 3
+		state.isStrawberryMoistureLineCritical = false
+		state.isStrawberryTemperatureLineCritical = false
+		state.isStrawberrySystemBroken = false
+		state.isStrawberryHealthLineCritical = false
+		state.isStrawberryHealthLineEmpty = false
+		state.strawberryLevelMistakes = 1
+		state.points = 0
+		state.timer = 90
+		state.isChosenBook = false
+		state.isChosenNumPad = false
+		state.isChosenTomatoLevel = false
+		state.isChosenPepperLevel = false
+		state.isChosenStrawberryLevel = false
+		state.isPestLineCritical = false
+	},
 	[EN_AiGameMutation.SHOW_INFO_LINK_BLOCK_AI](state) {
 		const audio = new Audio(AUDIO_CONFIG.AUDIO_NEW_MISSION)
 		audio.autoplay = true
@@ -221,6 +256,11 @@ export const mutations: MutationTree<IAiGameState> = {
 
 			timer = setInterval(() => {
 				state.timer -= 1
+
+				if (state.timer < 0) {
+					clearInterval(timer)
+					state.timer = 0
+				}
 			}, 1000)
 		}
 

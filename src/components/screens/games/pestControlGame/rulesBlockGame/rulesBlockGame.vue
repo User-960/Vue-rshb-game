@@ -52,12 +52,13 @@ export default Vue.extend({
     ...mapMutations([
       EN_PestControlGameMutation.HIDE_RULES_BLOCK_PS, 
       EN_PestControlGameMutation.START_GAME_PS,
-      EN_PestControlGameMutation.GAME_LOOP_PS
+      EN_PestControlGameMutation.START_NEW_GAME_PS,
     ]),
     startGame() {
       this.HIDE_RULES_BLOCK_PS()
+
+      this.START_NEW_GAME_PS()
       this.START_GAME_PS()
-      this.GAME_LOOP_PS()
     },
     goMap() {
       this.HIDE_RULES_BLOCK_PS()

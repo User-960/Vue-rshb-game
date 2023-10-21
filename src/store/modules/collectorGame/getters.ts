@@ -11,6 +11,8 @@ export enum EN_CollectorGameGetters {
 	GET_POINTS_COL = 'GET_POINTS_COL',
 	GET_START_GAME_COL = 'GET_START_GAME_COL',
 
+	GET_EXIT_TOMATO_LEVEL = 'GET_EXIT_TOMATO_LEVEL',
+
 	GET_TIMER_TOMATO_COL = 'GET_TIMER_TOMATO_COL',
 	GET_POINTS_TOMATO_COL = 'GET_POINTS_TOMATO_COL',
 	GET_OPEN_GAME_FIELD_TOMATO_COL = 'GET_OPEN_GAME_FIELD_TOMATO_COL',
@@ -61,6 +63,8 @@ export const getters: GetterTree<ICollectorGameState, IRootState> = {
 		state.isLossBlockVisible,
 	[EN_CollectorGameGetters.GET_POINTS_COL]: state => state.points,
 	[EN_CollectorGameGetters.GET_START_GAME_COL]: state => state.isStartGame,
+	[EN_CollectorGameGetters.GET_EXIT_TOMATO_LEVEL]: state =>
+		state.isExitTomatoLevel,
 
 	[EN_CollectorGameGetters.GET_TIMER_TOMATO_COL]: state => state.timerTomato,
 	[EN_CollectorGameGetters.GET_POINTS_TOMATO_COL]: state => state.pointsTomato,

@@ -1,5 +1,5 @@
 <template>
-  <div :class='styles.lossBlockGameWrapper' v-if='GET_LOSS_BLOCK_PS'>
+  <div :class='styles.lossBlockGameWrapper' v-if='GET_LOSS_BLOCK_PS && !GET_INFO_LINK_BLOCK_PS && !GET_RULES_BLOCK_PS'>
     <div :class='styles.lossBlockGame'>
       <div :class='styles.title'>
         Проигрыш
@@ -55,6 +55,8 @@ export default Vue.extend({
   computed: {
     ...mapGetters([
       EN_PestControlGameGetters.GET_LOSS_BLOCK_PS,
+      EN_PestControlGameGetters.GET_INFO_LINK_BLOCK_PS,
+      EN_PestControlGameGetters.GET_RULES_BLOCK_PS,
       EN_PestControlGameGetters.GET_POINTS_PS,
       EN_PlayerDataGetters.GET_PLAYER_DATA
     ]),

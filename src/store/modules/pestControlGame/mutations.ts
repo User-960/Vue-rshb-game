@@ -7,6 +7,8 @@ let timer: any = null
 
 export enum EN_PestControlGameMutation {
 	RESTART_GAME_PS = 'RESTART_GAME_PS',
+	START_NEW_GAME_PS = 'START_NEW_GAME_PS',
+
 	SHOW_INFO_LINK_BLOCK_PS = 'SHOW_INFO_LINK_BLOCK_PS',
 	HIDE_INFO_LINK_BLOCK_PS = 'HIDE_INFO_LINK_BLOCK_PS',
 	SHOW_RULES_BLOCK_PS = 'SHOW_RULES_BLOCK_PS',
@@ -93,6 +95,32 @@ export const mutations: MutationTree<IPestControlGameState> = {
 			(state.isDroneMovedPepper = false),
 			(state.isDroneMovedStrawberry = false)
 	},
+	[EN_PestControlGameMutation.START_NEW_GAME_PS](state) {
+		state.isVictoryBlockVisible = false
+		state.isLossBlockVisible = false
+		state.isStartGame = false
+		state.gameLoop = 0
+		state.tomatoLevel = 1
+		state.pepperLevel = 2
+		state.strawberryLevel = 3
+		state.points = 0
+		state.timer = 10
+		state.playerMistakes = 1
+		state.isChosenTomatoLevel = false
+		state.isChosenPepperLevel = false
+		state.isChosenStrawberryLevel = false
+		state.isTomatoLineCritical = false
+		state.isPepperLineCritical = false
+		state.isStrawberryLineCritical = false
+		state.isBugActive = false
+		state.isLocustsActive = false
+		state.isCaterpillarActive = false
+		state.isDroneActive = false
+		state.isDroneMovedTomato = false
+		state.isDroneMovedPepper = false
+		state.isDroneMovedStrawberry = false
+	},
+
 	[EN_PestControlGameMutation.SHOW_INFO_LINK_BLOCK_PS](state) {
 		const audio = new Audio(AUDIO_CONFIG.AUDIO_NEW_MISSION)
 		audio.autoplay = true

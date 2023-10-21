@@ -52,6 +52,7 @@ class AuthService {
 			return data
 		} catch (error: any) {
 			let errorMessage = 'Возникла ошибка при получение данных!'
+			console.log(errorMessage)
 			return errorMessage
 		}
 	}
