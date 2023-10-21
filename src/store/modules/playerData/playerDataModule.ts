@@ -85,7 +85,16 @@ const state: IPlayerDataState = {
 	numberMultiplier: EN_CONFIG.NUMBER_MULTIPLIER,
 
 	playersRating: [],
-	playerLiderboardRating: null,
+	playerLiderboardRating: {
+		player_id: 0,
+		place: 0,
+		total_players: 0,
+		own_coins: 0,
+		top_score: 0,
+		achievement_count: 0,
+		player_name: '',
+		liderdoard: []
+	},
 
 	isTableRatingVisible: false
 }
