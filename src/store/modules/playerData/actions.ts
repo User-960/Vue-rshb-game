@@ -182,7 +182,7 @@ export const actions: ActionTree<IPlayerDataState, IRootState> = {
 		id: string | number
 	) {
 		AuthService.getUserLiderboardRanking(id)
-			.then((res: any | string) => {
+			.then((res: IPlayerLiderboardRanking | string) => {
 				typeof res !== 'string'
 					? commit(EN_PlayerDataMutation.GET_PLAYER_LIDERBOARD_RANKING, res)
 					: commit(EN_PlayerDataMutation.SHOW_ALERT, res)

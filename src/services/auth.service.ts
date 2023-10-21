@@ -4,7 +4,8 @@ import { EN_USER } from '@/config/app.constants'
 import {
 	IEquipmentStack,
 	IPlayer,
-	IPlayerLiderboard
+	IPlayerLiderboard,
+	IPlayerLiderboardRanking
 } from '@/interfaces/player.interface'
 
 export enum EN_ENDPOINTS {
@@ -206,7 +207,7 @@ class AuthService {
 
 	async getUserLiderboardRanking(id: string | number) {
 		try {
-			const { data } = await $axios.get<IPlayer>(
+			const { data } = await $axios.get<IPlayerLiderboardRanking>(
 				`${EN_ENDPOINTS.LIDERBOARD}/${id}/${EN_ENDPOINTS.RANKING}/`
 			)
 

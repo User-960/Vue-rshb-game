@@ -15,7 +15,7 @@ export interface IPlayerDataState {
 	numberMultiplier: number
 
 	playersRating: IPlayerLiderboard[]
-	playerLiderboardRating: IPlayerLiderboardRanking[]
+	playerLiderboardRating: IPlayerLiderboardRanking | null
 
 	isTableRatingVisible: boolean
 }

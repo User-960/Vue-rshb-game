@@ -2,7 +2,11 @@ import { MutationTree } from 'vuex'
 
 import { IPlayerDataState } from './types'
 import { EN_CONFIG } from '@/config/config.player'
-import { IPlayer, IUserDataForm } from '@/interfaces/player.interface'
+import {
+	IPlayer,
+	IPlayerLiderboardRanking,
+	IUserDataForm
+} from '@/interfaces/player.interface'
 
 export enum EN_PlayerDataMutation {
 	CREATE_PLAYER = 'CREATE_PLAYER',
@@ -232,8 +236,11 @@ export const mutations: MutationTree<IPlayerDataState> = {
 	[EN_PlayerDataMutation.GET_PLAYERS_RATING](state, players: any) {
 		state.playersRating = players
 	},
-	[EN_PlayerDataMutation.GET_PLAYER_LIDERBOARD_RANKING](state, players: any) {
-		state.playerLiderboardRating = players
+	[EN_PlayerDataMutation.GET_PLAYER_LIDERBOARD_RANKING](
+		state,
+		playerLiderboardRating: IPlayerLiderboardRanking
+	) {
+		state.playerLiderboardRating = playerLiderboardRating
 	},
 
 	[EN_PlayerDataMutation.SHOW_TABLE_RATING](state, player: IPlayer) {

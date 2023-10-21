@@ -16,13 +16,13 @@
 
           <div :class='styles.tablePlayer'>
             <div :class='styles.tablePlayerWrapper'>
-              <p :class='styles.tablePlayerId'>{{ GET_PLAYER_LIDERBOARD_RANKING_DATA.place }}</p>
+              <p :class='styles.tablePlayerId'>{{ GET_PLAYER_LIDERBOARD_RANKING_DATA.place }}.</p>
               <p :class='styles.tablePlayerName'>{{ GET_PLAYER_LIDERBOARD_RANKING_DATA.player_name }}</p>
             </div>
 
             <div :class='styles.award'>
               <img :class='styles.iconAward' src='../../../public/images/iconAward.svg' alt='icon of player'/>
-              <p>{{ countAchievementPlayer(GET_PLAYER_DATA) }}/5</p>
+              <p>{{ GET_PLAYER_LIDERBOARD_RANKING_DATA.achievement_count }}/5</p>
             </div>
 
             <div :class='styles.playerRating'>{{ GET_PLAYER_LIDERBOARD_RANKING_DATA.top_score }}</div>

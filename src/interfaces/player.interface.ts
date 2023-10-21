@@ -80,5 +80,9 @@ export interface IPlayerLiderboardRanking {
 	player_id: number
 	place: number
 	total_players: number
+	own_coins: number
+	top_score: number
+	achievement_count: number
+	player_name: string
 	liderdoard: IPlayerLiderboard[]
 }
