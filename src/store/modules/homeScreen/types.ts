@@ -5,6 +5,15 @@ export interface IHomeScreenState {
 
 	isModalShopVisible: boolean
 
+	isFirstInfoIntroductionVisible: boolean
+	isSecondInfoIntroductionVisible: boolean
+	isThirdInfoIntroductionVisible: boolean
+	isFourInfoIntroductionVisible: boolean
+	isFiveInfoIntroductionVisible: boolean
+	isSixInfoIntroductionVisible: boolean
+	isArrowUpBankVisible: boolean
+	isArrowUpShopVisible: boolean
+
 	isPlayMusic: boolean
 
 	isStartGame: boolean

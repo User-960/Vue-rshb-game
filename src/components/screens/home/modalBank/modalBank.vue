@@ -1,6 +1,11 @@
 <template>
   <div :class='styles.modalBankWrapper' v-if='GET_MODAL_BANK_VISIBLE'>
-    <div :class='styles.modalBank' data-testid='modalBank' v-click-outside='onClickOutside'>
+     <div 
+      :class='styles.modalBank' 
+      data-testid='modalBank' 
+      v-click-outside='onClickOutside' 
+      v-if='!GET_FIVE_INFO_INTRODUCTION && !GET_SIX_INFO_INTRODUCTION'
+    >
       <bank v-if='isFirstCredit && GET_PLAYER_DATA.credit === 0 && GET_PLAYER_DATA.own_coins === 0'>
         <template v-slot:contentImg>
           <img 
@@ -125,8 +130,41 @@
           </button>
         </template>
       </bank>
-
     </div>
+
+    <infoBlockM v-click-outside='skipInfoIntroduction' v-if='GET_FIVE_INFO_INTRODUCTION'>
+      <template v-slot:contentText>
+        <p>
+          Ты описал поэтапно план своих действий, предоставил подробную смету по расходам на необходимое оборудование и расчёт прибыли, которую планируешь получить.
+        </p>
+        <br/>
+        <p>  
+          Теперь ты можешь получить гринкоины - цифровую валюту, с помощью которой ты можешь совершать покупки нового оборудования в магазине, заплатить своим друзьям за помощь и заработать больше гринкоинов за продажу собранного урожая.
+        </p>
+      </template>
+      <template v-slot:nextBtn>
+        <skipButton @onclick="skipInfoIntroduction">
+          Далее
+        </skipButton>
+      </template>
+    </infoBlockM>
+
+    <infoBlockM v-click-outside='skipInfoIntroduction' v-if='GET_SIX_INFO_INTRODUCTION'>
+      <template v-slot:contentText>
+        <p>
+          Теперь ты можешь купить необходимое оборудование в магазине.
+        </p>
+        <br/>
+        <p>  
+          Использование современной агротехники поможет повысить урожайность и сократить издержки.
+        </p>
+      </template>
+      <template v-slot:nextBtn>
+        <skipButton @onclick="skipInfoIntroduction">
+          Далее
+        </skipButton>
+      </template>
+    </infoBlockM>
   </div>
 </template>
 
@@ -142,6 +180,7 @@ import { EN_PlayerDataMutation } from '@/store/modules/playerData/mutations'
 import { EN_PlayerDataGetters } from '@/store/modules/playerData/getters'
 import vClickOutside from 'v-click-outside'
 import { EN_PlayerDataActions } from '@/store/modules/playerData/actions'
+import infoBlockM from '@/components/ui/infoBlock/infoBlockM/infoBlockM.vue'
 
 export default Vue.extend({
   name: 'modalBank',
@@ -153,18 +192,38 @@ export default Vue.extend({
   components: {
     skipButton,
     linkButton,
-    bank
+    bank,
+    infoBlockM
+  },
+  watch: {
+    GET_MODAL_BANK_VISIBLE() {
+      if (
+        this.GET_MODAL_BANK_VISIBLE && 
+        this.GET_PLAYER_DATA.credit === 0 && 
+        this.GET_PLAYER_DATA.own_money === 0
+      ) {
+        this.SHOW_FIVE_INFO_INTRODUCTION()
+      }
+    },
   },
   computed: {
     ...mapGetters([
       EN_HomeScreenGetters.GET_MODAL_BANK_VISIBLE,
+      EN_HomeScreenGetters.GET_FIVE_INFO_INTRODUCTION,
+      EN_HomeScreenGetters.GET_SIX_INFO_INTRODUCTION,
 
-      EN_PlayerDataGetters.GET_PLAYER_DATA
+      EN_PlayerDataGetters.GET_PLAYER_DATA,
     ]),
   },
   methods: {
     ...mapMutations([
       EN_HomeScreenMutation.HIDE_MODAL_BANK,
+      EN_HomeScreenMutation.SHOW_FIVE_INFO_INTRODUCTION,
+      EN_HomeScreenMutation.HIDE_FIVE_INFO_INTRODUCTION,
+      EN_HomeScreenMutation.SHOW_SIX_INFO_INTRODUCTION,
+      EN_HomeScreenMutation.HIDE_SIX_INFO_INTRODUCTION,
+
+      EN_HomeScreenMutation.SHOW_ARROW_UP_SHOP,
 
       EN_PlayerDataMutation.TAKE_CREDIT,
       EN_PlayerDataMutation.RETURN_CREDIT,
@@ -183,8 +242,11 @@ export default Vue.extend({
     },
     skipCongrats() {
       if (this.isCongrats) {
-        this.HIDE_MODAL_BANK()
         this.isCongrats = false
+
+        if (!this.GET_SIX_INFO_INTRODUCTION) {
+          this.SHOW_SIX_INFO_INTRODUCTION()
+        }
       }
     },
     returnCredit() {
@@ -198,6 +260,19 @@ export default Vue.extend({
     finishGame() {
       this.HIDE_MODAL_BANK()
       this.$router.push({ name: 'finish' })
+    },
+    skipInfoIntroduction() {
+      if (this.GET_FIVE_INFO_INTRODUCTION) {
+        this.HIDE_FIVE_INFO_INTRODUCTION() 
+        return
+      }
+
+      if (this.GET_SIX_INFO_INTRODUCTION) {
+        this.HIDE_SIX_INFO_INTRODUCTION() 
+        this.HIDE_MODAL_BANK()
+        this.SHOW_ARROW_UP_SHOP()
+        return
+      }
     },
     onClickOutside (event: any) {
       this.HIDE_MODAL_BANK()

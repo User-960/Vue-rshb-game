@@ -1,9 +1,9 @@
 @import '../../../assets/styles/variables.css';
 
 .bank {
-	padding: 60px;
+	padding: 50px;
 	max-width: 490px;
-	min-height: 460px;
+	min-height: 400px;
 
 	display: flex;
 	flex-direction: column;

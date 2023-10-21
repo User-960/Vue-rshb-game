@@ -14,6 +14,41 @@
 	height: 660px;
 }
 
+.infoBlockWrapper {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	border-radius: 36px;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 120;
+	animation: opacity 0.8s;
+}
+
+.arrowUpBank,
+.arrowUpShop {
+	background-image: url(../../../../../public/images/arrowUpBank.svg);
+	background-repeat: no-repeat;
+	background-position: top;
+	background-size: contain;
+
+	width: 220px;
+	height: 220px;
+
+	position: absolute;
+	top: 60px;
+
+	z-index: 110;
+	animation: arrowUp 2s;
+}
+
+.arrowUpBank {
+	left: 41.5%;
+}
+
+.arrowUpShop {
+	left: 46.5%;
+}
+
 .lab {
 	background-image: url(../../../../../public/images/labTable.svg);
 	background-repeat: no-repeat;
@@ -177,6 +212,33 @@
 	}
 
 	to {
+		opacity: 1;
+	}
+}
+
+/* animations */
+@keyframes opacity {
+	from {
+		opacity: 0;
+	}
+
+	30% {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes arrowUp {
+	from {
+		opacity: 0;
+		top: 120px;
+	}
+
+	to {
+		top: 60px;
 		opacity: 1;
 	}
 }

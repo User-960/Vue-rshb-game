@@ -1,25 +1,7 @@
 <template>
   <layout>
     <template v-slot:default>
-      <!-- <infoBlockM>
-        <template v-slot:contentText>
-          <p>
-            Ты – молодой специалист, который недавно завершил обучение на перспективном направлении «Плодово-ягодные культуры» в сельскохозяйственной школе <span>“Своё фермерство”</span>.
-          </p>
-          <br/>
-          <p>
-          Ты учился с большим интересом и почерпнул много полезной информации из агросферы. Тебе не терпится применить полученные знания в реальном деле.
-          </p>
-        </template>
-
-        <template v-slot:nextBtn>
-          <skipButton @onclick="nextFunc">
-            Далее
-          </skipButton>
-        </template>
-      </infoBlockM>
-
-      <infoBlockS>
+      <!-- <infoBlockS>
         <template v-slot:contentText>
           <p>Кликни на первую локацию</p>
         </template>

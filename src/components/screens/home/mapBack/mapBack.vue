@@ -2,6 +2,88 @@
   <navBar>
     <template v-slot:mapBack>
       <div :class='styles.map' data-testid='map'>
+
+        <div :class='styles.infoBlockWrapper' 
+          v-if='GET_FIRST_INFO_INTRODUCTION || GET_SECOND_INFO_INTRODUCTION || GET_THIRD_INFO_INTRODUCTION || GET_FOUR_INFO_INTRODUCTION'
+        >
+          <infoBlockM v-click-outside='skipInfoIntroduction' v-if='GET_FIRST_INFO_INTRODUCTION'>
+            <template v-slot:contentText>
+              <p>
+                Ты – молодой специалист, который недавно завершил обучение на перспективном направлении «Плодово-ягодные культуры» в сельскохозяйственной школе <span>“Своё фермерство”</span>.
+              </p>
+              <br/>
+              <p>
+              Ты учился с большим интересом и почерпнул много полезной информации из агросферы. Тебе не терпится применить полученные знания в реальном деле.
+              </p>
+            </template>
+
+            <template v-slot:nextBtn>
+              <skipButton @onclick="skipInfoIntroduction">
+                Далее
+              </skipButton>
+            </template>
+          </infoBlockM>
+
+          <infoBlockM v-click-outside='skipInfoIntroduction' v-if='GET_SECOND_INFO_INTRODUCTION'>
+            <template v-slot:contentText>
+              <p>
+                Когда ты вернулся домой, ты узнал, что у твоего соседа - фермера дела идут не очень: проблемы с вредителями, маленький урожай,  половина земли простаивает.
+              </p>
+              <br/>
+              <p>
+                После недолгих раздумий, ты решил обратиться к фермеру, чтобы арендовать землю, которую он не использует, чтобы применить полученные теоретические знания на практике.
+              </p>
+            </template>
+
+            <template v-slot:nextBtn>
+              <skipButton @onclick="skipInfoIntroduction">
+                Далее
+              </skipButton>
+            </template>
+          </infoBlockM>
+
+          <infoBlockM v-click-outside='skipInfoIntroduction' v-if='GET_THIRD_INFO_INTRODUCTION'>
+            <template v-slot:contentText>
+              <p>
+                Ты видишь карту, на ней три локации. 
+                Сейчас все 3 локации -  заблокированы. Каждая локация будет доступна после того как ты за заданное время успеешь выполнить задание.
+              </p>
+              <br/>
+              <p>
+                За каждое выполненное задание ты будешь получать баллы.
+                Набери как можно больше баллов, чтобы стать самым крупным фермером в округе.
+              </p>
+            </template>
+
+            <template v-slot:nextBtn>
+              <skipButton @onclick="skipInfoIntroduction">
+                Далее
+              </skipButton>
+            </template>
+          </infoBlockM>
+
+          <infoBlockM v-click-outside='skipInfoIntroduction' v-if='GET_FOUR_INFO_INTRODUCTION'>
+            <template v-slot:contentText>
+              <p>
+                В данный момент, твоих скопленных сбережений хватает только на несколько месяцев аренды, а на покупку необходимого оборудования и сырья средств нет.
+              </p>
+              <br/>
+              <p>
+                Обратись в сельскохозяйственный банк за финансовой помощью. 
+              </p>
+            </template>
+
+            <template v-slot:nextBtn>
+              <skipButton @onclick="skipInfoIntroduction">
+                Далее
+              </skipButton>
+            </template>
+          </infoBlockM>
+        </div>
+
+        <div :class='styles.arrowUpBank' v-if='GET_ARROW_UP_BANK'></div>
+        <div :class='styles.arrowUpShop' v-if='GET_ARROW_UP_SHOP'></div>
+
         <div :class='[
             styles.trees, 
             {[styles.beforeThirdGame]: GET_MAP_BEFORE_THIRD_GAME},
@@ -61,9 +143,11 @@ import modalBank from '../modalBank/modalBank.vue'
 import { mapGetters, mapMutations } from 'vuex'
 import { EN_HomeScreenMutation } from '@/store/modules/homeScreen/mutations'
 import modalShop from '../modalShop/modalShop.vue'
-import { EN_GeneticGameGetters } from '@/store/modules/geneticGame/getters'
 import { EN_HomeScreenGetters } from '@/store/modules/homeScreen/getters'
 import { EN_PlayerDataGetters } from '@/store/modules/playerData/getters'
+import infoBlockM from '@/components/ui/infoBlock/infoBlockM/infoBlockM.vue'
+import skipButton from '@/components/ui/button/skipButton/skipButton.vue'
+import vClickOutside from 'v-click-outside'
 
 // import { ref } from 'vue'
 // import { onClickOutside } from '@vueuse/core'
@@ -78,7 +162,16 @@ export default Vue.extend({
     navBar,
     modalHouse,
     modalBank,
-    modalShop
+    modalShop,
+    infoBlockM,
+    skipButton
+  },
+  created() {
+    if (this.GET_PLAYER_DATA.minigame.gameOne.complete === false && 
+        this.GET_PLAYER_DATA.minigame.gameOne.available === false
+      ) {
+      this.SHOW_FIRST_INFO_INTRODUCTION()
+    }
   },
   computed: {
     ...mapGetters([
@@ -90,11 +183,29 @@ export default Vue.extend({
       EN_HomeScreenGetters.GET_MAP_BEFORE_THIRD_GAME,
       EN_HomeScreenGetters.GET_MAP_BEFORE_FOURTH_GAME,
       EN_HomeScreenGetters.GET_MAP_BEFORE_FIFTH_GAME,
+
+      EN_HomeScreenGetters.GET_FIRST_INFO_INTRODUCTION,
+      EN_HomeScreenGetters.GET_SECOND_INFO_INTRODUCTION,
+      EN_HomeScreenGetters.GET_THIRD_INFO_INTRODUCTION,
+      EN_HomeScreenGetters.GET_FOUR_INFO_INTRODUCTION,
+
+      EN_HomeScreenGetters.GET_ARROW_UP_BANK,
+      EN_HomeScreenGetters.GET_ARROW_UP_SHOP,
     ])
   },
   methods: {
     ...mapMutations([
       EN_HomeScreenMutation.SHOW_MODAL_HOUSE,
+      EN_HomeScreenMutation.SHOW_FIRST_INFO_INTRODUCTION,
+      EN_HomeScreenMutation.HIDE_FIRST_INFO_INTRODUCTION,
+      EN_HomeScreenMutation.SHOW_SECOND_INFO_INTRODUCTION,
+      EN_HomeScreenMutation.HIDE_SECOND_INFO_INTRODUCTION,
+      EN_HomeScreenMutation.SHOW_THIRD_INFO_INTRODUCTION,
+      EN_HomeScreenMutation.HIDE_THIRD_INFO_INTRODUCTION,
+      EN_HomeScreenMutation.SHOW_FOUR_INFO_INTRODUCTION,
+      EN_HomeScreenMutation.HIDE_FOUR_INFO_INTRODUCTION,
+
+      EN_HomeScreenMutation.SHOW_ARROW_UP_BANK,
     ]),
     openFirstGame() {
       if (this.GET_PLAYER_DATA.minigame.gameOne.available) {
@@ -110,8 +221,36 @@ export default Vue.extend({
       if (this.GET_PLAYER_DATA.minigame.gameOne.complete) {
         this.$router.push({ name: 'greenhouse-game' })
       }
-    }
-  }
+    },
+    skipInfoIntroduction() {
+      if (this.GET_FIRST_INFO_INTRODUCTION) {
+        this.HIDE_FIRST_INFO_INTRODUCTION()
+        this.SHOW_SECOND_INFO_INTRODUCTION()
+        return
+      }
+
+      if (this.GET_SECOND_INFO_INTRODUCTION) {
+        this.HIDE_SECOND_INFO_INTRODUCTION()
+        this.SHOW_THIRD_INFO_INTRODUCTION()
+        return
+      }
+
+      if (this.GET_THIRD_INFO_INTRODUCTION) {
+        this.HIDE_THIRD_INFO_INTRODUCTION()
+        this.SHOW_FOUR_INFO_INTRODUCTION()
+        return
+      }
+
+      if (this.GET_FOUR_INFO_INTRODUCTION) {
+        this.HIDE_FOUR_INFO_INTRODUCTION()
+        this.SHOW_ARROW_UP_BANK()
+        return
+      }
+    },
+  },
+  directives: {
+    clickOutside: vClickOutside.directive
+  },
 })
 </script>
 

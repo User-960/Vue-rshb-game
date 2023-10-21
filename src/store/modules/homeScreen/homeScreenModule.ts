@@ -11,7 +11,16 @@ const state: IHomeScreenState = {
 	isModalShopVisible: false,
 	isPlayMusic: true,
 
-  isStartGame: true,
+	isFirstInfoIntroductionVisible: false,
+	isSecondInfoIntroductionVisible: false,
+	isThirdInfoIntroductionVisible: false,
+	isFourInfoIntroductionVisible: false,
+	isFiveInfoIntroductionVisible: false,
+	isSixInfoIntroductionVisible: false,
+	isArrowUpBankVisible: false,
+	isArrowUpShopVisible: false,
+
+	isStartGame: true,
 	isAfterFirstGame: false,
 	isAfterSecondGame: false,
 	isBeforeThirdGame: false,

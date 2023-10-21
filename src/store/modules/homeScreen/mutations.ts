@@ -13,6 +13,21 @@ export enum EN_HomeScreenMutation {
 	PLAY_BACK_MUSIC_MAP = 'PLAY_BACK_MUSIC_MAP',
 	STOP_BACK_MUSIC_MAP = 'STOP_BACK_MUSIC_MAP',
 
+	SHOW_FIRST_INFO_INTRODUCTION = 'SHOW_FIRST_INFO_INTRODUCTION',
+	HIDE_FIRST_INFO_INTRODUCTION = 'HIDE_FIRST_INFO_INTRODUCTION',
+	SHOW_SECOND_INFO_INTRODUCTION = 'SHOW_SECOND_INFO_INTRODUCTION',
+	HIDE_SECOND_INFO_INTRODUCTION = 'HIDE_SECOND_INFO_INTRODUCTION',
+	SHOW_THIRD_INFO_INTRODUCTION = 'SHOW_THIRD_INFO_INTRODUCTION',
+	HIDE_THIRD_INFO_INTRODUCTION = 'HIDE_THIRD_INFO_INTRODUCTION',
+	SHOW_FOUR_INFO_INTRODUCTION = 'SHOW_FOUR_INFO_INTRODUCTION',
+	HIDE_FOUR_INFO_INTRODUCTION = 'HIDE_FOUR_INFO_INTRODUCTION',
+	SHOW_FIVE_INFO_INTRODUCTION = 'SHOW_FIVE_INFO_INTRODUCTION',
+	HIDE_FIVE_INFO_INTRODUCTION = 'HIDE_FIVE_INFO_INTRODUCTION',
+	SHOW_SIX_INFO_INTRODUCTION = 'SHOW_SIX_INFO_INTRODUCTION',
+	HIDE_SIX_INFO_INTRODUCTION = 'HIDE_SIX_INFO_INTRODUCTION',
+	SHOW_ARROW_UP_BANK = 'SHOW_ARROW_UP_BANK',
+	SHOW_ARROW_UP_SHOP = 'SHOW_ARROW_UP_SHOP',
+
 	SHOW_MAP_AFTER_FIRST_GAME = 'SHOW_MAP_AFTER_FIRST_GAME',
 	HIDE_MAP_AFTER_FIRST_GAME = 'HIDE_MAP_AFTER_FIRST_GAME',
 	SHOW_MAP_AFTER_SECOND_GAME = 'SHOW_MAP_AFTER_SECOND_GAME',
@@ -72,6 +87,82 @@ export const mutations: MutationTree<IHomeScreenState> = {
 		audioBackMusicMap.pause()
 
 		state.isPlayMusic = false
+	},
+
+	[EN_HomeScreenMutation.SHOW_FIRST_INFO_INTRODUCTION](state) {
+		const audio = new Audio(AUDIO_CONFIG.AUDIO_MODAL_WINDOW)
+		audio.autoplay = true
+		audio.volume = 1
+
+		state.isFirstInfoIntroductionVisible = true
+	},
+	[EN_HomeScreenMutation.HIDE_FIRST_INFO_INTRODUCTION](state) {
+		state.isFirstInfoIntroductionVisible = false
+	},
+	[EN_HomeScreenMutation.SHOW_SECOND_INFO_INTRODUCTION](state) {
+		const audio = new Audio(AUDIO_CONFIG.AUDIO_MODAL_WINDOW)
+		audio.autoplay = true
+		audio.volume = 1
+
+		state.isSecondInfoIntroductionVisible = true
+	},
+	[EN_HomeScreenMutation.HIDE_SECOND_INFO_INTRODUCTION](state) {
+		state.isSecondInfoIntroductionVisible = false
+	},
+	[EN_HomeScreenMutation.SHOW_THIRD_INFO_INTRODUCTION](state) {
+		const audio = new Audio(AUDIO_CONFIG.AUDIO_MODAL_WINDOW)
+		audio.autoplay = true
+		audio.volume = 1
+
+		state.isThirdInfoIntroductionVisible = true
+	},
+	[EN_HomeScreenMutation.HIDE_THIRD_INFO_INTRODUCTION](state) {
+		state.isThirdInfoIntroductionVisible = false
+	},
+	[EN_HomeScreenMutation.SHOW_FOUR_INFO_INTRODUCTION](state) {
+		const audio = new Audio(AUDIO_CONFIG.AUDIO_MODAL_WINDOW)
+		audio.autoplay = true
+		audio.volume = 1
+
+		state.isFourInfoIntroductionVisible = true
+	},
+	[EN_HomeScreenMutation.HIDE_FOUR_INFO_INTRODUCTION](state) {
+		state.isFourInfoIntroductionVisible = false
+	},
+	[EN_HomeScreenMutation.SHOW_FIVE_INFO_INTRODUCTION](state) {
+		const audio = new Audio(AUDIO_CONFIG.AUDIO_MODAL_WINDOW)
+		audio.autoplay = true
+		audio.volume = 1
+
+		state.isFiveInfoIntroductionVisible = true
+	},
+	[EN_HomeScreenMutation.HIDE_FIVE_INFO_INTRODUCTION](state) {
+		state.isFiveInfoIntroductionVisible = false
+	},
+	[EN_HomeScreenMutation.SHOW_SIX_INFO_INTRODUCTION](state) {
+		const audio = new Audio(AUDIO_CONFIG.AUDIO_MODAL_WINDOW)
+		audio.autoplay = true
+		audio.volume = 1
+
+		state.isSixInfoIntroductionVisible = true
+	},
+	[EN_HomeScreenMutation.HIDE_SIX_INFO_INTRODUCTION](state) {
+		state.isSixInfoIntroductionVisible = false
+	},
+
+	[EN_HomeScreenMutation.SHOW_ARROW_UP_BANK](state) {
+		state.isArrowUpBankVisible = true
+
+		setTimeout(() => {
+			state.isArrowUpBankVisible = false
+		}, 5000)
+	},
+	[EN_HomeScreenMutation.SHOW_ARROW_UP_SHOP](state) {
+		state.isArrowUpShopVisible = true
+
+		setTimeout(() => {
+			state.isArrowUpShopVisible = false
+		}, 5000)
 	},
 
 	[EN_HomeScreenMutation.SHOW_MAP_AFTER_FIRST_GAME](state) {

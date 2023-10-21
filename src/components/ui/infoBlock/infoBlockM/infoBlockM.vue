@@ -3,11 +3,9 @@
     <div :class='styles.contentText'>
       <slot name="contentText"></slot>
     </div>
-
     <div :class='styles.wrapperBtn'>
       <slot name="nextBtn"></slot>
     </div>
-
   </div>
 </template>
 
