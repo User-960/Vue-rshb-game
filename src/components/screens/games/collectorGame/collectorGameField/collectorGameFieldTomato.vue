@@ -88,6 +88,7 @@ export default Vue.extend({
     lossBlockMiniGameTomato
   },
   created() {
+    this.NOT_EXIT_TOMATO_LEVEL()
     this.START_TOMATO_LEVEL_COL()
     this.START_FINISH_TIMER_TOMATO_COL()
 
@@ -219,6 +220,7 @@ export default Vue.extend({
       }
     },
     GET_EXIT_TOMATO_LEVEL() {
+      if (this.GET_EXIT_TOMATO_LEVEL === true) {
         document.removeEventListener('keyup', (event) => {
           if (event.code == 'KeyA' && !this.isMovingLeft && !this.isMovingRight && !this.isCollectorMovedLeft && this.GET_TOMATO_LEVEL_COL) {
             this.isMovingLeft = true
@@ -256,6 +258,7 @@ export default Vue.extend({
             } 
           }
         })
+      }
     },
     currentCellTomatoGreen() {
       if (
@@ -516,6 +519,7 @@ export default Vue.extend({
   methods: {
     ...mapMutations([
       EN_CollectorGameMutation.PLUS_POINTS_COL,
+      EN_CollectorGameMutation.NOT_EXIT_TOMATO_LEVEL,
 
       EN_CollectorGameMutation.PLUS_POINTS_TOMATO_GREEN_COL,
       EN_CollectorGameMutation.PLUS_POINTS_TOMATO_RED_COL,
