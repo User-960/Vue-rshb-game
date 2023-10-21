@@ -4,7 +4,7 @@
       <div :class='styles.map' data-testid='map'>
 
         <div :class='styles.infoBlockWrapper' 
-          v-if='GET_FIRST_INFO_INTRODUCTION || GET_SECOND_INFO_INTRODUCTION || GET_THIRD_INFO_INTRODUCTION || GET_FOUR_INFO_INTRODUCTION'
+          v-if='GET_FIRST_INFO_INTRODUCTION || GET_SECOND_INFO_INTRODUCTION || GET_THIRD_INFO_INTRODUCTION || GET_FOUR_INFO_INTRODUCTION || GET_SEVEN_INFO_INTRODUCTION'
         >
           <infoBlockM v-click-outside='skipInfoIntroduction' v-if='GET_FIRST_INFO_INTRODUCTION'>
             <template v-slot:contentText>
@@ -70,6 +70,24 @@
               <br/>
               <p>
                 Обратись в сельскохозяйственный банк за финансовой помощью. 
+              </p>
+            </template>
+
+            <template v-slot:nextBtn>
+              <skipButton @onclick="skipInfoIntroduction">
+                Далее
+              </skipButton>
+            </template>
+          </infoBlockM>
+
+          <infoBlockM v-click-outside='skipInfoIntroduction' v-if='GET_SEVEN_INFO_INTRODUCTION'>
+            <template v-slot:contentText>
+              <p>
+                Сбор урожая завершён. Давай его продадим на сельскохозяйственном маркетплейсе <span>“Своё родное”</span>?
+              </p>
+              <br/>
+              <p>
+                На маркетплейсе “Свое родное” люди могут заказывать качественные, экологически чистые фрукты и овощи  из соседних регионов, которые будут доставлены им в кратчайшие сроки.
               </p>
             </template>
 
@@ -173,6 +191,17 @@ export default Vue.extend({
       this.SHOW_FIRST_INFO_INTRODUCTION()
     }
   },
+  watch: {
+    GET_PLAYER_DATA() {
+      if (
+        this.GET_PLAYER_DATA.minigame.gameFive.complete && 
+        this.GET_PLAYER_DATA.own_money < 9270 && 
+        this.GET_PLAYER_DATA.credit === 9000
+      ) {
+        this.SHOW_SEVEN_INFO_INTRODUCTION()
+      }
+    }
+  },
   computed: {
     ...mapGetters([
       EN_PlayerDataGetters.GET_PLAYER_DATA,
@@ -188,6 +217,7 @@ export default Vue.extend({
       EN_HomeScreenGetters.GET_SECOND_INFO_INTRODUCTION,
       EN_HomeScreenGetters.GET_THIRD_INFO_INTRODUCTION,
       EN_HomeScreenGetters.GET_FOUR_INFO_INTRODUCTION,
+      EN_HomeScreenGetters.GET_SEVEN_INFO_INTRODUCTION,
 
       EN_HomeScreenGetters.GET_ARROW_UP_BANK,
       EN_HomeScreenGetters.GET_ARROW_UP_SHOP,
@@ -204,6 +234,8 @@ export default Vue.extend({
       EN_HomeScreenMutation.HIDE_THIRD_INFO_INTRODUCTION,
       EN_HomeScreenMutation.SHOW_FOUR_INFO_INTRODUCTION,
       EN_HomeScreenMutation.HIDE_FOUR_INFO_INTRODUCTION,
+      EN_HomeScreenMutation.SHOW_SEVEN_INFO_INTRODUCTION,
+      EN_HomeScreenMutation.HIDE_SEVEN_INFO_INTRODUCTION,
 
       EN_HomeScreenMutation.SHOW_ARROW_UP_BANK,
     ]),
@@ -244,6 +276,11 @@ export default Vue.extend({
       if (this.GET_FOUR_INFO_INTRODUCTION) {
         this.HIDE_FOUR_INFO_INTRODUCTION()
         this.SHOW_ARROW_UP_BANK()
+        return
+      }
+
+      if (this.GET_SEVEN_INFO_INTRODUCTION) {
+        this.HIDE_SEVEN_INFO_INTRODUCTION()
         return
       }
     },

@@ -11,6 +11,7 @@ export interface IHomeScreenState {
 	isFourInfoIntroductionVisible: boolean
 	isFiveInfoIntroductionVisible: boolean
 	isSixInfoIntroductionVisible: boolean
+	isSevenInfoIntroductionVisible: boolean
 	isArrowUpBankVisible: boolean
 	isArrowUpShopVisible: boolean
 

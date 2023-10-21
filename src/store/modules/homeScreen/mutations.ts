@@ -25,6 +25,8 @@ export enum EN_HomeScreenMutation {
 	HIDE_FIVE_INFO_INTRODUCTION = 'HIDE_FIVE_INFO_INTRODUCTION',
 	SHOW_SIX_INFO_INTRODUCTION = 'SHOW_SIX_INFO_INTRODUCTION',
 	HIDE_SIX_INFO_INTRODUCTION = 'HIDE_SIX_INFO_INTRODUCTION',
+	SHOW_SEVEN_INFO_INTRODUCTION = 'SHOW_SEVEN_INFO_INTRODUCTION',
+	HIDE_SEVEN_INFO_INTRODUCTION = 'HIDE_SEVEN_INFO_INTRODUCTION',
 	SHOW_ARROW_UP_BANK = 'SHOW_ARROW_UP_BANK',
 	SHOW_ARROW_UP_SHOP = 'SHOW_ARROW_UP_SHOP',
 
@@ -148,6 +150,16 @@ export const mutations: MutationTree<IHomeScreenState> = {
 	},
 	[EN_HomeScreenMutation.HIDE_SIX_INFO_INTRODUCTION](state) {
 		state.isSixInfoIntroductionVisible = false
+	},
+	[EN_HomeScreenMutation.SHOW_SEVEN_INFO_INTRODUCTION](state) {
+		const audio = new Audio(AUDIO_CONFIG.AUDIO_MODAL_WINDOW)
+		audio.autoplay = true
+		audio.volume = 1
+
+		state.isSevenInfoIntroductionVisible = true
+	},
+	[EN_HomeScreenMutation.HIDE_SEVEN_INFO_INTRODUCTION](state) {
+		state.isSevenInfoIntroductionVisible = false
 	},
 
 	[EN_HomeScreenMutation.SHOW_ARROW_UP_BANK](state) {

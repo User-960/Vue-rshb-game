@@ -15,6 +15,7 @@ export enum EN_HomeScreenGetters {
 	GET_FOUR_INFO_INTRODUCTION = 'GET_FOUR_INFO_INTRODUCTION',
 	GET_FIVE_INFO_INTRODUCTION = 'GET_FIVE_INFO_INTRODUCTION',
 	GET_SIX_INFO_INTRODUCTION = 'GET_SIX_INFO_INTRODUCTION',
+	GET_SEVEN_INFO_INTRODUCTION = 'GET_SEVEN_INFO_INTRODUCTION',
 	GET_ARROW_UP_BANK = 'GET_ARROW_UP_BANK',
 	GET_ARROW_UP_SHOP = 'GET_ARROW_UP_SHOP',
 
@@ -47,6 +48,8 @@ export const getters: GetterTree<IHomeScreenState, IRootState> = {
 		state.isFiveInfoIntroductionVisible,
 	[EN_HomeScreenGetters.GET_SIX_INFO_INTRODUCTION]: state =>
 		state.isSixInfoIntroductionVisible,
+	[EN_HomeScreenGetters.GET_SEVEN_INFO_INTRODUCTION]: state =>
+		state.isSevenInfoIntroductionVisible,
 	[EN_HomeScreenGetters.GET_ARROW_UP_BANK]: state => state.isArrowUpBankVisible,
 	[EN_HomeScreenGetters.GET_ARROW_UP_SHOP]: state => state.isArrowUpShopVisible,
 
