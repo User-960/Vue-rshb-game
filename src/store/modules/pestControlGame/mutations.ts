@@ -103,7 +103,13 @@ export const mutations: MutationTree<IPestControlGameState> = {
 		state.tomatoLevel = 1
 		state.pepperLevel = 2
 		state.strawberryLevel = 3
-		state.points = 0
+
+		if (state.points === 5) {
+			state.points = 5
+		} else {
+			state.points = 0
+		}
+
 		state.timer = 10
 		state.playerMistakes = 1
 		state.isChosenTomatoLevel = false

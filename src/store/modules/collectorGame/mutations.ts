@@ -132,7 +132,12 @@ export const mutations: MutationTree<ICollectorGameState> = {
 		state.isVictoryBlockVisible = false
 		state.isLossBlockVisible = false
 		state.isStartGame = false
-		state.points = 0
+
+		if (state.points === 5) {
+			state.points = 5
+		} else {
+			state.points = 0
+		}
 
 		state.isExitTomatoLevel = false
 

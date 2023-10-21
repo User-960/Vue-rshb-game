@@ -165,7 +165,12 @@ export const mutations: MutationTree<IGreenhouseGameState> = {
 		state.isBonusBlockVisible = false
 		state.isBonusBlockPayedVisible = false
 		state.isStartGame = false
-		state.points = 0
+
+		if (state.points === 5) {
+			state.points = 5
+		} else {
+			state.points = 0
+		}
 
 		state.timerPepper = 9
 		state.timerStrawberry = 9
