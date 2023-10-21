@@ -13,3 +13,17 @@
 	font-weight: 500;
 	line-height: 32px;
 }
+
+/* media */
+@media (max-width: 960px) {
+	.btn {
+		padding: 14px 20px;
+		font-size: 18px;
+	}
+}
+
+@media (max-width: 600px) {
+	.btn {
+		padding: 10px 16px;
+	}
+}

@@ -4,7 +4,6 @@
 	display: flex;
 	flex-direction: column;
 
-	border-radius: 36px;
 	background-image: url(../../../../public/images/startScreen.png);
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -66,4 +65,76 @@
 	margin-left: 25px;
 	max-width: 235px;
 	width: 100%;
+}
+
+/* media */
+@media (max-width: 960px) {
+	.statSection {
+		padding: 0px 90px 0px 90px;
+	}
+
+	.navSection {
+		padding: 0px 90px 0px 90px;
+	}
+
+	.wrapperBtn {
+		max-width: 200px;
+	}
+}
+
+@media (max-width: 720px) {
+	.title {
+		font-size: 28px;
+		line-height: 34px;
+	}
+
+	.statBlock {
+		font-size: 18px;
+	}
+
+	.wrapperBtn {
+		margin-top: 0px;
+	}
+}
+
+@media (max-width: 600px) {
+	.finishScreen {
+		background-position: center;
+	}
+
+	.statSection {
+		padding: 0px 50px 0px 50px;
+	}
+
+	.navSection {
+		padding: 0px 50px 0px 50px;
+	}
+
+	.result {
+		margin-bottom: 20px;
+	}
+}
+
+@media (max-width: 530px) {
+	.statSection {
+		padding: 0px 30px 0px 30px;
+	}
+
+	.blockTitle {
+		flex-direction: column-reverse;
+	}
+
+	.navSection {
+		padding: 0px 30px 0px 30px;
+	}
+}
+
+@media (max-width: 400px) {
+	.statSection {
+		padding: 0px 20px 0px 20px;
+	}
+
+	.navSection {
+		padding: 0px 20px 0px 20px;
+	}
 }

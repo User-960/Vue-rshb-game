@@ -110,6 +110,7 @@
 	cursor: pointer;
 }
 
+/* media */
 @media (max-width: 760px) {
 	.startBlock {
 		max-width: 480px;

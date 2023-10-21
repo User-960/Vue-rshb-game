@@ -5,3 +5,14 @@
 .social button {
 	margin: 0 8px;
 }
+
+/* media */
+@media (max-width: 530px) {
+	.social {
+		margin-bottom: 40px;
+	}
+
+	.social button {
+		margin: 0px 16px 0px 0px;
+	}
+}
