@@ -133,7 +133,12 @@ export const mutations: MutationTree<IGeneticGameState> = {
 		state.isBonusBlockVisible = false
 		state.isBonusBlockPayedVisible = false
 		state.isStartGame = false
-		state.points = 0
+
+		if (state.points === 5) {
+			state.points = 5
+		} else {
+			state.points = 0
+		}
 
 		state.timerTomato = 9
 		state.timerPepper = 9
