@@ -271,6 +271,8 @@ export const mutations: MutationTree<ICollectorGameState> = {
 		state.isGenerateCollectorTomato = false
 		state.isVictoryTomatoBlockVisible = false
 		state.isTomatoLevelCompleted = false
+
+		state.isExitTomatoLevel = true
 	},
 	[EN_CollectorGameMutation.PLUS_POINTS_TOMATO_GREEN_COL](state) {
 		state.pointsTomato += 1
