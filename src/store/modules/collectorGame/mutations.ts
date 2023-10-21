@@ -175,13 +175,6 @@ export const mutations: MutationTree<ICollectorGameState> = {
 		state.isStrawberryLevelCompleted = false
 	},
 
-	[EN_CollectorGameMutation.EXIT_TOMATO_LEVEL](state) {
-		state.isExitTomatoLevel = true
-	},
-	[EN_CollectorGameMutation.NOT_EXIT_TOMATO_LEVEL](state) {
-		state.isExitTomatoLevel = false
-	},
-
 	[EN_CollectorGameMutation.SHOW_INFO_LINK_BLOCK_COL](state) {
 		const audio = new Audio(AUDIO_CONFIG.AUDIO_NEW_MISSION)
 		audio.autoplay = true
@@ -271,8 +264,6 @@ export const mutations: MutationTree<ICollectorGameState> = {
 		state.isGenerateCollectorTomato = false
 		state.isVictoryTomatoBlockVisible = false
 		state.isTomatoLevelCompleted = false
-
-		state.isExitTomatoLevel = true
 	},
 	[EN_CollectorGameMutation.PLUS_POINTS_TOMATO_GREEN_COL](state) {
 		state.pointsTomato += 1

@@ -117,12 +117,12 @@
 	background-color: var(--primary-green);
 }
 
-.btnNonActive {
+.btnComplete {
 	opacity: 0.5;
 	cursor: not-allowed;
 }
 
-.btnNonActive:hover {
+.btnComplete:hover {
 	color: none;
 	background-color: none;
 }

@@ -17,6 +17,7 @@
 
       <div :class='styles.robot'>
         <img src='../../../../../../public/images/collectorShop.svg' alt='image robot collector' draggable='false' />
+
         <button 
           :class='[
             styles.btn, 
@@ -24,15 +25,16 @@
               [styles.btnActive]: (!GET_TOMATO_LEVEL_COMPLETED_COL && isChosenTomatoLevel) ||
                 (!GET_PEPPER_LEVEL_COMPLETED_COL && isChosenPepperLevel) || 
                 (!GET_STRAWBERRY_LEVEL_COMPLETED_COL && isChosenStrawberryLevel),
-              [styles.btnNonActive]: (GET_TOMATO_LEVEL_COMPLETED_COL && isChosenTomatoLevel) || 
+              [styles.btnComplete]: (GET_TOMATO_LEVEL_COMPLETED_COL && isChosenTomatoLevel) || 
               (GET_PEPPER_LEVEL_COMPLETED_COL && isChosenPepperLevel) ||
               (GET_STRAWBERRY_LEVEL_COMPLETED_COL && isChosenStrawberryLevel)
             }
           ]'
           @click='openGame'
         >
-          Собрать урожай
+          {{ GET_TOMATO_LEVEL_COMPLETED_COL && isChosenTomatoLevel ? 'Пройдено' : 'Собрать урожай' }}
         </button>
+
       </div>
     </div>
   </div>
