@@ -25,7 +25,7 @@
               <p>{{ countAchievementPlayer(GET_PLAYER_DATA) }}/5</p>
             </div>
 
-            <div :class='styles.playerRating'>{{ GET_PLAYER_DATA.own_coins }}</div>
+            <div :class='styles.playerRating'>{{ GET_PLAYER_LIDERBOARD_RANKING_DATA.top_score }}</div>
           </div>
 
           <div :class='styles.table'>
@@ -80,7 +80,6 @@ export default Vue.extend({
     topSectionRating
   },
   created() {
-    this.GET_PLAYERS_RATING()
     this.GET_PLAYER_LIDERBOARD_RATING(this.GET_PLAYER_DATA.id)
   },
   computed: {
