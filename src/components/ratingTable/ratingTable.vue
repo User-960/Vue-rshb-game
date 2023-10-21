@@ -25,7 +25,9 @@
               <p>{{ GET_PLAYER_LIDERBOARD_RANKING_DATA.achievement_count }}/5</p>
             </div>
 
-            <div :class='styles.playerRating'>{{ GET_PLAYER_LIDERBOARD_RANKING_DATA.top_score }}</div>
+            <div :class='styles.playerRating'>
+              {{ GET_PLAYER_LIDERBOARD_RANKING_DATA.top_score >= GET_PLAYER_LIDERBOARD_RANKING_DATA.own_coins ? GET_PLAYER_LIDERBOARD_RANKING_DATA.top_score : GET_PLAYER_LIDERBOARD_RANKING_DATA.own_coins}}
+            </div>
           </div>
 
           <div :class='styles.table'>
@@ -84,14 +86,12 @@ export default Vue.extend({
   },
   computed: {
     ...mapGetters([
-      EN_PlayerDataGetters.GET_PLAYERS_RATING_DATA, 
       EN_PlayerDataGetters.GET_PLAYER_DATA, 
       EN_PlayerDataGetters.GET_PLAYER_LIDERBOARD_RANKING_DATA
     ])
   },
   methods: {
-    ...mapActions([
-      EN_PlayerDataActions.GET_PLAYERS_RATING, 
+    ...mapActions([ 
       EN_PlayerDataActions.GET_PLAYER_LIDERBOARD_RATING
     ]),
     countAchievement(player: IPlayerLiderboard) {
