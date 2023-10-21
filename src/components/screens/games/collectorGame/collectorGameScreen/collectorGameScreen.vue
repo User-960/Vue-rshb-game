@@ -32,7 +32,10 @@
           ]'
           @click='openGame'
         >
-          {{ GET_TOMATO_LEVEL_COMPLETED_COL && isChosenTomatoLevel ? 'Пройдено' : 'Собрать урожай' }}
+          {{ 
+            GET_TOMATO_LEVEL_COMPLETED_COL && isChosenTomatoLevel ? 'Пройдено' : 'Собрать урожай' || GET_PEPPER_LEVEL_COMPLETED_COL && isChosenPepperLevel ? 'Пройдено' : 'Собрать урожай' ||
+            GET_STRAWBERRY_LEVEL_COMPLETED_COL && isChosenStrawberryLevel ? 'Пройдено' : 'Собрать урожай'
+          }}
         </button>
 
       </div>
