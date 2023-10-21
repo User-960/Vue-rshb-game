@@ -218,47 +218,47 @@ export default Vue.extend({
         })
       }
     },
-    // GET_EXIT_TOMATO_LEVEL() {
-    //   if (this.GET_EXIT_TOMATO_LEVEL) {
-    //     document.removeEventListener('keyup', (event) => {
-    //       if (event.code == 'KeyA' && !this.isMovingLeft && !this.isMovingRight && !this.isCollectorMovedLeft && this.GET_TOMATO_LEVEL_COL) {
-    //         this.isMovingLeft = true
-    //         if (this.isMovingLeft) {
-    //           this.currentCellCollector -= 1
-    //           this.currentIndexCellCollector -= 1
+    GET_EXIT_TOMATO_LEVEL() {
+      if (this.GET_EXIT_TOMATO_LEVEL) {
+        document.removeEventListener('keyup', (event) => {
+          if (event.code == 'KeyA' && !this.isMovingLeft && !this.isMovingRight && !this.isCollectorMovedLeft && this.GET_TOMATO_LEVEL_COL) {
+            this.isMovingLeft = true
+            if (this.isMovingLeft) {
+              this.currentCellCollector -= 1
+              this.currentIndexCellCollector -= 1
 
-    //           if (this.currentCellCollector > 116) {
-    //             this.isCollectorMovedLeft = true
-    //             this.moveCollectorLeft()
-    //           } else {
-    //             this.currentCellCollector = 129
-    //             this.currentIndexCellCollector = 12
-    //             this.isCollectorMovedLeft = true
-    //             this.moveCollectorLeft()
-    //           }
-    //         }
-    //       } 
+              if (this.currentCellCollector > 116) {
+                this.isCollectorMovedLeft = true
+                this.moveCollectorLeft()
+              } else {
+                this.currentCellCollector = 129
+                this.currentIndexCellCollector = 12
+                this.isCollectorMovedLeft = true
+                this.moveCollectorLeft()
+              }
+            }
+          } 
 
-    //       if (event.code == 'KeyD' && !this.isMovingRight && !this.isMovingLeft && !this.isCollectorMovedRight && this.GET_TOMATO_LEVEL_COL) {
-    //         this.isMovingRight = true
-    //         if (this.isMovingRight) {
-    //           this.currentCellCollector += 1
-    //           this.currentIndexCellCollector += 1
+          if (event.code == 'KeyD' && !this.isMovingRight && !this.isMovingLeft && !this.isCollectorMovedRight && this.GET_TOMATO_LEVEL_COL) {
+            this.isMovingRight = true
+            if (this.isMovingRight) {
+              this.currentCellCollector += 1
+              this.currentIndexCellCollector += 1
 
-    //           if (this.currentCellCollector < 130) {
-    //             this.isCollectorMovedRight = true
-    //             this.moveCollectorRight()
-    //           } else {
-    //             this.currentCellCollector = 117
-    //             this.currentIndexCellCollector = 0
-    //             this.isCollectorMovedRight = true
-    //             this.moveCollectorRight()
-    //           }
-    //         } 
-    //       }
-    //     })
-    //   }
-    // },
+              if (this.currentCellCollector < 130) {
+                this.isCollectorMovedRight = true
+                this.moveCollectorRight()
+              } else {
+                this.currentCellCollector = 117
+                this.currentIndexCellCollector = 0
+                this.isCollectorMovedRight = true
+                this.moveCollectorRight()
+              }
+            } 
+          }
+        })
+      }
+    },
     currentCellTomatoGreen() {
       if (
           this.currentCellCollector - 13 === this.currentCellTomatoGreen || 

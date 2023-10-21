@@ -235,7 +235,7 @@ export default Vue.extend({
         this.FINISH_TOMATO_LEVEL_COL()
         this.START_FINISH_ALL_TOMATOES_INTERVAL_COL()
         this.START_FINISH_TIMER_TOMATO_COL()
-        // this.EXIT_TOMATO_LEVEL()
+        this.EXIT_TOMATO_LEVEL()
         this.RESTART_TOMATO_LEVEL_COL()
       }
 
