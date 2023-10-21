@@ -219,7 +219,6 @@ export default Vue.extend({
       }
     },
     GET_EXIT_TOMATO_LEVEL() {
-      if (this.GET_EXIT_TOMATO_LEVEL) {
         document.removeEventListener('keyup', (event) => {
           if (event.code == 'KeyA' && !this.isMovingLeft && !this.isMovingRight && !this.isCollectorMovedLeft && this.GET_TOMATO_LEVEL_COL) {
             this.isMovingLeft = true
@@ -257,7 +256,6 @@ export default Vue.extend({
             } 
           }
         })
-      }
     },
     currentCellTomatoGreen() {
       if (
