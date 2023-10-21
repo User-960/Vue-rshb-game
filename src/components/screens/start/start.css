@@ -6,7 +6,6 @@
 	display: flex;
 	flex-direction: column;
 
-	border-radius: 36px;
 	background-image: url(../../../../public/images/startScreen.png);
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -67,4 +66,70 @@
 	max-width: 210px;
 	width: 100%;
 	align-self: flex-end;
+}
+
+/* media */
+@media (max-width: 960px) {
+	.wrapperBtn {
+		margin-top: 40px;
+		align-self: center;
+	}
+
+	.textSection {
+		padding: 0px 100px;
+	}
+}
+
+@media (max-width: 700px) {
+	.startScreen {
+		background-position: center;
+	}
+
+	.textSection {
+		padding: 0px 50px;
+	}
+
+	.textTitle {
+		font-size: 24px;
+	}
+
+	.firstP img {
+		margin-left: 16px;
+	}
+	.secondP img {
+		margin-left: 33px;
+	}
+}
+
+@media (max-width: 500px) {
+	.textSection {
+		padding: 0px 30px;
+	}
+
+	.textBlock {
+		font-size: 18px;
+		line-height: 24px;
+		letter-spacing: 0.8px;
+	}
+}
+
+@media (max-width: 420px) {
+	.textSection {
+		padding: 0px 20px;
+	}
+
+	.textBlock {
+		font-size: 16px;
+	}
+
+	.firstP img {
+		width: 95px;
+		height: 45px;
+		margin-left: 10px;
+	}
+	.secondP img {
+		width: 76px;
+		height: 85px;
+		margin-left: 20px;
+	}
 }

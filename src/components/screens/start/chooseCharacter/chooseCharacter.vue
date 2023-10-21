@@ -43,7 +43,6 @@
 import Vue from 'vue'
 import startBlock from '../../../ui/startBlock/startBlock.vue'
 import { EN_StartScreenGetters } from '@/store/modules/startScreen/getters'
-import { startScreen } from '@/store/modules/startScreen/startScreenModule'
 import skipButton from '../../../ui/button/skipButton/skipButton.vue'
 import { mapGetters, mapMutations } from 'vuex'
 import { EN_StartScreenMutation } from '@/store/modules/startScreen/mutations'

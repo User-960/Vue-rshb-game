@@ -2,7 +2,8 @@
 
 .startBlock {
 	position: relative;
-	width: 630px;
+	max-width: 630px;
+	width: 100%;
 	min-height: 430px;
 	padding: 90px;
 
@@ -27,9 +28,9 @@
 }
 
 .form {
-	z-index: 10;
 	display: flex;
 	flex-direction: column;
+	z-index: 20;
 }
 
 .label {
@@ -38,7 +39,7 @@
 	font-size: 36px;
 	font-weight: 700;
 	line-height: 44px;
-	z-index: 10;
+	z-index: 20;
 }
 
 .input {
@@ -59,6 +60,7 @@
 	max-width: 230px;
 	width: 100%;
 	align-self: flex-end;
+	z-index: 20;
 }
 
 .btnForm {
@@ -106,4 +108,58 @@
 	color: var(--primary-green);
 
 	cursor: pointer;
+}
+
+@media (max-width: 760px) {
+	.startBlock {
+		max-width: 480px;
+		min-height: 230px;
+		padding: 60px;
+	}
+
+	.wrapperBtn {
+		align-self: center;
+	}
+}
+
+@media (max-width: 600px) {
+	.startBlock {
+		max-width: 380px;
+	}
+
+	.startBlock:before {
+		width: 240px;
+		height: 200px;
+		background-size: contain;
+	}
+
+	.label {
+		font-size: 28px;
+		line-height: 32px;
+	}
+
+	.wrapperBtn {
+		margin-top: 38px;
+		max-width: 160px;
+	}
+}
+
+@media (max-width: 460px) {
+	.startBlock {
+		padding: 40px;
+		max-width: 320px;
+		min-height: 300px;
+	}
+
+	.label {
+		font-size: 22px;
+	}
+}
+
+@media (max-width: 380px) {
+	.startBlock {
+		padding: 35px;
+		max-width: 280px;
+		min-height: 280px;
+	}
 }
