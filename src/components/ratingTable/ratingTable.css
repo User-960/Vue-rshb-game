@@ -303,6 +303,40 @@
 	.tableProfit {
 		margin-left: 45px;
 	}
+
+	.tablePlayerId,
+	.tablePlayerName {
+		font-size: 14px;
+	}
+
+	.award {
+		font-size: 14px;
+	}
+
+	.award p {
+		font-size: 14px;
+	}
+
+	.playerRating {
+		font-size: 14px;
+	}
+
+	.playerItemId,
+	.playerItemName {
+		font-size: 14px;
+	}
+
+	.playerItemAward {
+		font-size: 14px;
+	}
+
+	.playerItemAward p {
+		font-size: 14px;
+	}
+
+	.playerItemRating {
+		font-size: 14px;
+	}
 }
 
 @media (max-width: 380px) {
