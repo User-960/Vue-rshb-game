@@ -22,11 +22,11 @@ export default Vue.extend({
   created() {
     const playerData = localStorage.getItem(EN_USER.PLAYER_DATA)
 
-    if (playerData) {
-      this.GET_PLAYER(JSON.parse(playerData).id)
-    } else {
-      this.$router.push({ name: 'start' })
-    }
+    // if (playerData) {
+    //   this.GET_PLAYER(JSON.parse(playerData).id)
+    // } else {
+    //   this.$router.push({ name: 'start' })
+    // }
   },
   computed: {
     ...mapGetters([
