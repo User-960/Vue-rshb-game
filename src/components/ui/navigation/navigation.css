@@ -13,3 +13,10 @@
 	border: 2px solid var(--primary-green);
 	background-color: var(--primary-grey);
 }
+
+@media (max-width: 1044px) {
+	.navigation {
+		width: 174px;
+		height: 66px;
+	}
+}

@@ -21,3 +21,15 @@
 	font-size: 20px;
 	line-height: 32px;
 }
+
+@media (max-width: 1044px) {
+	.blockBtn {
+		width: 135px;
+		height: 71px;
+		padding: 15px;
+	}
+
+	.indicator {
+		font-size: 18px;
+	}
+}

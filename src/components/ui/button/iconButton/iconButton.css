@@ -26,3 +26,11 @@
 	color: var(--primary-black);
 	background-color: var(--primary-green);
 }
+
+@media (max-width: 1044px) {
+	.btn {
+		width: 34px;
+		height: 34px;
+		padding: 7px;
+	}
+}

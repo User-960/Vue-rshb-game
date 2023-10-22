@@ -57,9 +57,8 @@
 .shopA {
 	padding: 35px 25px;
 
-	max-width: 620px;
+	width: 620px;
 	height: 420px;
-	width: 100%;
 
 	border-radius: 0px 0px 20px 20px;
 	background-color: var(--primary-grey);
@@ -269,5 +268,27 @@
 
 	to {
 		opacity: 1;
+	}
+}
+
+@media (max-width: 1044px) {
+	.shopType {
+		font-size: 22px;
+	}
+
+	.shopA {
+		width: 550px;
+		height: 390px;
+	}
+
+	.shopB {
+		padding: 50px 40px 40px;
+		width: 550px;
+		height: 390px;
+	}
+
+	.closeBtnWrapper {
+		top: -17px;
+		right: -32px;
 	}
 }

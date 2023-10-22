@@ -67,3 +67,11 @@
 	width: 100%;
 	align-self: center;
 }
+
+@media (max-width: 1044px) {
+	.bank {
+		padding: 35px;
+		max-width: 420px;
+		min-height: 330px;
+	}
+}
