@@ -4,7 +4,7 @@
 	background-image: url(../../../public/images/backgroundRatingTable.svg);
 	background-repeat: no-repeat;
 	background-position: center;
-	background-size: contain;
+	background-size: cover;
 
 	/* max-width: 1280px;
 	max-height: 660px; */
@@ -89,7 +89,7 @@
 }
 
 .tablePlayerName {
-	width: 260px;
+	min-width: 260px;
 }
 
 .award {
@@ -193,7 +193,7 @@
 }
 
 .playerItemName {
-	width: 260px;
+	min-width: 260px;
 }
 
 .playerItemAward {
@@ -204,6 +204,7 @@
 
 .playerItemAward p {
 	margin-left: 10px;
+	margin-right: 10px;
 
 	font-weight: 400;
 	font-size: 16px;
@@ -216,11 +217,123 @@
 }
 
 .playerItemRating {
-	width: 80px;
-	margin-left: 50px;
+	max-width: 80px;
+	margin-left: 40px;
 	align-items: center;
 
 	font-weight: 400;
 	font-size: 16px;
 	line-height: 32px;
+}
+
+/* media */
+@media (max-width: 620px) {
+	.tableTitle h6 {
+		font-size: 20px;
+		max-width: 273px;
+	}
+
+	.playerItemName {
+		min-width: 210px;
+	}
+
+	.tablePlayerName {
+		min-width: 210px;
+	}
+
+	.tableAward {
+		margin-left: 195px;
+	}
+}
+
+@media (max-width: 560px) {
+	.tableTitle h6 {
+		font-size: 18px;
+		max-width: 213px;
+	}
+
+	.playerItemName {
+		min-width: 170px;
+	}
+
+	.tablePlayerName {
+		min-width: 170px;
+	}
+
+	.tableAward {
+		margin-left: 155px;
+	}
+
+	.tablePlayerId,
+	.playerItemId {
+		width: 22px;
+	}
+
+	.tableName {
+		margin-left: 14px;
+	}
+
+	.tableProfit {
+		margin-left: 55px;
+	}
+
+	.playerItemRating {
+		margin-left: 40px;
+	}
+}
+
+@media (max-width: 500px) {
+	.tableTitle h6 {
+		font-size: 16px;
+		max-width: 193px;
+	}
+
+	.playerItemName {
+		min-width: 150px;
+	}
+
+	.tablePlayerName {
+		min-width: 150px;
+	}
+
+	.tableAward {
+		margin-left: 135px;
+	}
+
+	.tableProfit {
+		margin-left: 45px;
+	}
+}
+
+@media (max-width: 380px) {
+	.tableWrapper {
+		padding: 0px 10px;
+	}
+
+	.tableProfit {
+		margin-left: 35px;
+	}
+
+	.tableTitle h6 {
+		font-size: 14px;
+		max-width: 173px;
+	}
+
+	.playerItemName {
+		min-width: 130px;
+	}
+
+	.tablePlayerName {
+		min-width: 130px;
+	}
+
+	.tableAward {
+		margin-left: 115px;
+	}
+}
+
+@media (max-width: 380px) {
+	.tableProfit {
+		margin-left: 25px;
+	}
 }
