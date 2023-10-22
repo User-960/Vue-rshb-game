@@ -121,6 +121,14 @@
 	.wrapperBtn {
 		align-self: center;
 	}
+
+	.uniqueNames {
+		flex-direction: column;
+	}
+
+	.uniqueName {
+		margin: 10px 5px 0px 5px;
+	}
 }
 
 @media (max-width: 600px) {

@@ -50,18 +50,11 @@ export default Vue.extend({
   },
   created() {
     this.PLAY_BACK_MUSIC_MAP()
-
-    if (window.innerWidth < 800) {
-      document.body.style.transform = 'rotate(90deg)'
-    }
   },
   methods: {
     ...mapMutations([
       EN_HomeScreenMutation.PLAY_BACK_MUSIC_MAP
-    ]),
-    nextFunc() {
-      console.log('Next step')
-    }
+    ])
   }
 })
 </script>
