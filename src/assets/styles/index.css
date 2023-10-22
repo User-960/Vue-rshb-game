@@ -58,3 +58,10 @@ body {
 	background-color: rgba(191, 198, 220, 0.5);
 	border-radius: 4px;
 }
+
+/* media */
+@media (max-width: 600px) {
+	.error {
+		font-size: 13px;
+	}
+}
