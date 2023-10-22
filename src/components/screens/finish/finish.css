@@ -113,6 +113,10 @@
 	.result {
 		margin-bottom: 20px;
 	}
+
+	.result p {
+		width: 120px;
+	}
 }
 
 @media (max-width: 530px) {

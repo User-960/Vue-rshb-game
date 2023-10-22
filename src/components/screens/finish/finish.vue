@@ -15,11 +15,11 @@
             </div>
 
             <ul :class='styles.statBlock'>
-              <li :class='styles.result'>Затраты:<span>8500 гринкоинов</span></li>
-              <li :class='styles.result'>В т.ч. заемные средства:<span>9000 гринкоинов</span></li>
-              <li :class='styles.result'>Прибыль:<span>{{ GET_PLAYER_DATA.own_coins * 13 }} гринкоинов</span></li>
+              <li :class='styles.result'><p>Затраты:</p><span>8500 гринкоинов</span></li>
+              <li :class='styles.result'><p>В т.ч. заемные средства:</p><span>9000 гринкоинов</span></li>
+              <li :class='styles.result'><p>Прибыль:</p><span>{{ GET_PLAYER_DATA.own_coins * 13 }} гринкоинов</span></li>
 
-              <li :class='styles.result'>Награды:
+              <li :class='styles.result'><p>Награды:</p>
                 <span>
                   <iconButton>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
