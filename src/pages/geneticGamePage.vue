@@ -1,7 +1,7 @@
 <template>
-  <geneticGame v-if='GET_PLAYER_DATA.name !== null && GET_PLAYER_DATA.gender !== null' />
-
-  <alert v-else />
+  <!-- <geneticGame v-if='GET_PLAYER_DATA.name !== null && GET_PLAYER_DATA.gender !== null' />
+  <alert v-else /> -->
+  <geneticGame />
 </template>
 
 <script lang="ts">
