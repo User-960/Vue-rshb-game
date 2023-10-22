@@ -234,6 +234,25 @@
 	animation: moveCollectorRight 0.09s;
 }
 
+.mobileScreen {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+
+	display: flex;
+	z-index: 550;
+}
+
+.mobileLeft {
+	width: 100%;
+	height: 100%;
+}
+
+.mobileRight {
+	width: 100%;
+	height: 100%;
+}
+
 /* animations */
 @keyframes opacity {
 	0% {
@@ -701,5 +720,12 @@
 
 	100% {
 		top: 62px;
+	}
+} */
+
+/* media */
+/* @media (max-width: 1000px) {
+	.mobileScreen {
+		display: block;
 	}
 } */

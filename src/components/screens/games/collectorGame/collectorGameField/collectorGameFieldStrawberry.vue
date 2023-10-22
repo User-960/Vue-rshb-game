@@ -5,6 +5,12 @@
     <div :class='[styles.blackScreen, {[styles.blackScreenNon]: isBlackScreenShow}]'></div>
 
     <div :class='styles.gameWrapper'>
+
+      <div :class='styles.mobileScreen'>
+        <div :class='styles.mobileLeft' id='mobileLeftStrawberry'></div>
+        <div :class='styles.mobileRight' id='mobileRightStrawberry'></div>
+      </div>
+
       <div :class='styles.border'>
         <div :class='styles.gameField'>
           <div :class='[styles.decorations, styles.leftStrawberry]'></div>
@@ -124,9 +130,52 @@ export default Vue.extend({
       }
     },
     GET_STRAWBERRY_LEVEL_COL() {
+      const mobileLeft = document.getElementById('mobileLeftStrawberry')
+      const mobileRight = document.getElementById('mobileRightStrawberry')
+
       if (this.GET_STRAWBERRY_LEVEL_COL) {
         this.GENERATE_COLLECTOR_STRAWBERRY_COL()
         this.START_FINISH_ALL_STRAWBERRIES_INTERVAL_COL()
+
+        mobileLeft?.addEventListener('click', () => {
+           if (!this.isMovingLeft && !this.isMovingRight && !this.isCollectorMovedLeft && this.GET_STRAWBERRY_LEVEL_COL) {
+            this.isMovingLeft = true
+            if (this.isMovingLeft) {
+              this.currentCellCollector -= 1
+              this.currentIndexCellCollector -= 1
+
+              if (this.currentCellCollector > 116) {
+                this.isCollectorMovedLeft = true
+                this.moveCollectorLeft()
+              } else {
+                this.currentCellCollector = 129
+                this.currentIndexCellCollector = 12
+                this.isCollectorMovedLeft = true
+                this.moveCollectorLeft()
+              }
+            }
+          } 
+        })
+
+        mobileRight?.addEventListener('click', () => {
+          if (!this.isMovingRight && !this.isMovingLeft && !this.isCollectorMovedRight && this.GET_STRAWBERRY_LEVEL_COL) {
+            this.isMovingRight = true
+            if (this.isMovingRight) {
+              this.currentCellCollector += 1
+              this.currentIndexCellCollector += 1
+
+              if (this.currentCellCollector < 130) {
+                this.isCollectorMovedRight = true
+                this.moveCollectorRight()
+              } else {
+                this.currentCellCollector = 117
+                this.currentIndexCellCollector = 0
+                this.isCollectorMovedRight = true
+                this.moveCollectorRight()
+              }
+            } 
+          }
+        })
 
         document.addEventListener('keyup', (event) => {
           if (event.code == 'KeyA' && !this.isMovingLeft && !this.isMovingRight && !this.isCollectorMovedLeft && this.GET_STRAWBERRY_LEVEL_COL) {
@@ -176,6 +225,46 @@ export default Vue.extend({
         this.NOT_GENERATE_STRAWBERRY_RED_COL()
         this.NOT_GENERATE_STRAWBERRY_DARK_GREEN_COL()
         this.NOT_GENERATE_COLLECTOR_STRAWBERRY_COL()
+
+        mobileLeft?.removeEventListener('click', () => {
+           if (!this.isMovingLeft && !this.isMovingRight && !this.isCollectorMovedLeft && this.GET_STRAWBERRY_LEVEL_COL) {
+            this.isMovingLeft = true
+            if (this.isMovingLeft) {
+              this.currentCellCollector -= 1
+              this.currentIndexCellCollector -= 1
+
+              if (this.currentCellCollector > 116) {
+                this.isCollectorMovedLeft = true
+                this.moveCollectorLeft()
+              } else {
+                this.currentCellCollector = 129
+                this.currentIndexCellCollector = 12
+                this.isCollectorMovedLeft = true
+                this.moveCollectorLeft()
+              }
+            }
+          } 
+        })
+
+        mobileRight?.removeEventListener('click', () => {
+          if (!this.isMovingRight && !this.isMovingLeft && !this.isCollectorMovedRight && this.GET_STRAWBERRY_LEVEL_COL) {
+            this.isMovingRight = true
+            if (this.isMovingRight) {
+              this.currentCellCollector += 1
+              this.currentIndexCellCollector += 1
+
+              if (this.currentCellCollector < 130) {
+                this.isCollectorMovedRight = true
+                this.moveCollectorRight()
+              } else {
+                this.currentCellCollector = 117
+                this.currentIndexCellCollector = 0
+                this.isCollectorMovedRight = true
+                this.moveCollectorRight()
+              }
+            } 
+          }
+        })
 
         document.removeEventListener('keyup', (event) => {
           if (event.code == 'KeyA' && !this.isMovingLeft && !this.isMovingRight && !this.isCollectorMovedLeft && this.GET_STRAWBERRY_LEVEL_COL) {
