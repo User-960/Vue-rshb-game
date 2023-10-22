@@ -1,6 +1,7 @@
 <template>
-  <home v-if='GET_PLAYER_DATA.name !== null && GET_PLAYER_DATA.gender !== null' />
-  <alert v-else />
+  <home />
+  <!-- <home v-if='GET_PLAYER_DATA.name !== null && GET_PLAYER_DATA.gender !== null' />
+  <alert v-else /> -->
 </template>
 
 <script lang="ts">

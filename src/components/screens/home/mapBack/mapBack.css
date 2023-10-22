@@ -261,6 +261,18 @@
 	}
 }
 
+@keyframes arrowUpTablet {
+	from {
+		opacity: 0;
+		top: 120px;
+	}
+
+	to {
+		top: 40px;
+		opacity: 1;
+	}
+}
+
 @media (max-width: 1044px) {
 	.map {
 		max-width: var(--tablet-width);
@@ -295,6 +307,20 @@
 
 	.trees {
 		top: 30px;
+	}
+
+	.arrowUpBank,
+	.arrowUpShop {
+		top: 40px;
+		animation: arrowUpTablet 2s;
+	}
+
+	.arrowUpBank {
+		left: 39.5%;
+	}
+
+	.arrowUpShop {
+		left: 44.5%;
 	}
 }
 

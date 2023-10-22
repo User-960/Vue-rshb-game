@@ -11,6 +11,7 @@
 	padding: 60px;
 	max-width: 640px;
 	min-height: 350px;
+	width: 100%;
 
 	display: flex;
 	flex-direction: column;
@@ -50,5 +51,12 @@
 
 	to {
 		opacity: 1;
+	}
+}
+
+@media (max-width: 1044px) {
+	.infoBlock {
+		padding: 48px;
+		max-width: 720px;
 	}
 }

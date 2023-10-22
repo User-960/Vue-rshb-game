@@ -212,8 +212,12 @@ export const mutations: MutationTree<IPlayerDataState> = {
 	},
 	[EN_PlayerDataMutation.FIND_UNIQUE_NAME](state, nameText: string) {
 		if (typeof nameText === 'string') {
-			state.alertText = 'К сожалению, данное имя уже используется.'
-			state.newUniqueName = nameText
+			if (nameText === 'Возникла ошибка при получение данных!') {
+				state.alertText = 'Возникла ошибка при получение данных!'
+			} else {
+				state.alertText = 'К сожалению, данное имя уже используется.'
+				state.newUniqueName = nameText
+			}
 		}
 
 		state.isAlertVisible = true
