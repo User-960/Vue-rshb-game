@@ -1,7 +1,6 @@
 <template>
-  <!-- <geneticGame v-if='GET_PLAYER_DATA.name !== null && GET_PLAYER_DATA.gender !== null' />
-  <alert v-else /> -->
-  <geneticGame />
+  <geneticGame v-if='GET_PLAYER_DATA.name !== null && GET_PLAYER_DATA.gender !== null' />
+  <alert v-else />
 </template>
 
 <script lang="ts">
@@ -22,11 +21,11 @@ export default Vue.extend({
   created() {
     const playerData = localStorage.getItem(EN_USER.PLAYER_DATA)
 
-    // if (playerData) {
-    //   this.GET_PLAYER(JSON.parse(playerData).id)
-    // } else {
-    //   this.$router.push({ name: 'start' })
-    // }
+    if (playerData) {
+      this.GET_PLAYER(JSON.parse(playerData).id)
+    } else {
+      this.$router.push({ name: 'start' })
+    }
   },
   computed: {
     ...mapGetters([
