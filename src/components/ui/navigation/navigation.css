@@ -14,7 +14,7 @@
 	background-color: var(--primary-grey);
 }
 
-@media (max-width: 1044px) {
+/* @media (max-width: 1044px) {
 	.navigation {
 		width: 174px;
 		height: 66px;
@@ -26,4 +26,4 @@
 		width: 162px;
 		height: 56px;
 	}
-}
+} */

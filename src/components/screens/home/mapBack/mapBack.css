@@ -273,7 +273,7 @@
 	}
 }
 
-@media (max-width: 1044px) {
+/* @media (max-width: 1044px) {
 	.map {
 		max-width: var(--tablet-width);
 		max-height: var(--tablet-height);
@@ -333,9 +333,9 @@
 	.arrowUpShop {
 		left: 44.5%;
 	}
-}
+} */
 
-@media (max-width: 788px) {
+/* @media (max-width: 788px) {
 	.map {
 		max-width: var(--tablet-mobile-width);
 		max-height: var(--tablet-mobile-height);
@@ -405,4 +405,4 @@
 		max-width: var(--mobile-width);
 		max-height: var(--mobile-height);
 	}
-}
+} */

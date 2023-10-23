@@ -60,6 +60,13 @@
 
 @media (max-width: 1044px) {
 	.navBar {
+		zoom: 80%;
+		margin: 0 auto;
+	}
+}
+
+/* @media (max-width: 1044px) {
+	.navBar {
 		max-width: var(--tablet-width);
 		max-height: var(--tablet-height);
 	}
@@ -82,7 +89,7 @@
 	.navigation {
 		margin-left: -81px;
 	}
-}
+} */
 
 /* @media (max-width: 532px) {
 	.navBar {
