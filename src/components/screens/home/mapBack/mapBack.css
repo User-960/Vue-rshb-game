@@ -359,6 +359,12 @@
 		bottom: 0px;
 	}
 
+	.gardenBed.beforeFifthGame {
+		left: 193px;
+		bottom: 0px;
+		height: 268px;
+	}
+
 	.house {
 		background-image: url(../../../../../public/images/houseTableMobile.svg);
 		max-width: 220px;
@@ -394,9 +400,9 @@
 	}
 }
 
-/* @media (max-width: 532px) {
+@media (max-width: 532px) {
 	.map {
 		max-width: var(--mobile-width);
 		max-height: var(--mobile-height);
 	}
-} */
+}
