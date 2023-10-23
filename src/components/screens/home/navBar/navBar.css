@@ -61,7 +61,7 @@
 @media (max-width: 1044px) {
 	.navBar {
 		margin: 0 auto;
-		zoom: 60%;
+		zoom: var(--zoom-mobile);
 	}
 }
 

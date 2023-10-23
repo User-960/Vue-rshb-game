@@ -59,7 +59,7 @@
 @media (max-width: 1044px) {
 	.navBarGameCollector {
 		margin: 0 auto;
-		zoom: 60%;
+		zoom: var(--zoom-mobile);
 	}
 }
 
