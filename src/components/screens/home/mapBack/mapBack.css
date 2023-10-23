@@ -305,8 +305,19 @@
 		bottom: 40px;
 	}
 
+	.gardenBed.beforeFourthGame {
+		height: 335px;
+		left: 230px;
+		bottom: 3px;
+	}
+
+	.gardenBed.beforeFifthGame {
+		left: 255px;
+		bottom: 8px;
+	}
+
 	.trees {
-		top: 30px;
+		top: 32px;
 	}
 
 	.arrowUpBank,
