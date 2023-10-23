@@ -226,6 +226,12 @@
 	line-height: 32px;
 }
 
+.wrapperBtn {
+	position: absolute;
+	top: 25px;
+	right: 30px;
+}
+
 /* media */
 @media (max-width: 620px) {
 	.tableTitle h6 {

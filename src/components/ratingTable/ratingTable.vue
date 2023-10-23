@@ -4,6 +4,10 @@
         <topSectionRating />
       </div>
 
+      <div :class='styles.wrapperBtn'>
+        <closeButton @onclick="restartGame"></closeButton>
+      </div>
+
       <div :class='styles.main'>
         <div :class='styles.tableWrapper'>
           <div :class='styles.tableTitle'>
@@ -66,11 +70,13 @@
 <script lang='ts'>
 import Vue from 'vue'
 import iconButton from '../ui/button/iconButton/iconButton.vue'
+import closeButton from '../ui/button/closeButton/closeButton.vue'
 import topSectionRating from '../ui/section/topSectionRating/topSectionRating.vue'
 import { EN_PlayerDataGetters } from '@/store/modules/playerData/getters'
-import { mapActions, mapGetters } from 'vuex'
+import { mapActions, mapGetters, mapMutations } from 'vuex'
 import { EN_PlayerDataActions } from '@/store/modules/playerData/actions'
 import { IPlayer, IPlayerLiderboard } from '@/interfaces/player.interface'
+import { EN_PlayerDataMutation } from '@/store/modules/playerData/mutations'
 
 export default Vue.extend({
   name: 'ratingTable',
@@ -79,7 +85,8 @@ export default Vue.extend({
   }),
   components: {
     iconButton,
-    topSectionRating
+    topSectionRating,
+    closeButton
   },
   created() {
     this.GET_PLAYER_LIDERBOARD_RATING(this.GET_PLAYER_DATA.id)
@@ -91,6 +98,7 @@ export default Vue.extend({
     ])
   },
   methods: {
+    ...mapMutations([EN_PlayerDataMutation.HIDE_TABLE_RATING]),
     ...mapActions([ 
       EN_PlayerDataActions.GET_PLAYER_LIDERBOARD_RATING
     ]),
@@ -141,7 +149,10 @@ export default Vue.extend({
       }
 
       return numberAchievement
-    }
+    },
+    restartGame() {
+      this.HIDE_TABLE_RATING()
+    },
   }
 })
 </script>
