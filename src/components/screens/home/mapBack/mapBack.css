@@ -332,11 +332,54 @@
 
 	.lab {
 		background-image: url(../../../../../public/images/labTableMobile.svg);
+		max-width: 190px;
+		max-height: 200px;
+		bottom: 105px;
+		right: 90px;
+	}
+
+	.labAvailable {
+		background-image: url(../../../../../public/images/labTableMobileAvailable.svg);
+		cursor: pointer;
 	}
 
 	.gardenBed {
 		left: 195px;
 		bottom: 0px;
+	}
+
+	.house {
+		background-image: url(../../../../../public/images/houseTableMobile.svg);
+		max-width: 220px;
+		max-height: 115px;
+		left: 200px;
+		top: 48px;
+	}
+
+	.greenhouse {
+		background-image: url(../../../../../public/images/greenhouseTableMobile.svg);
+		max-width: 115px;
+		max-height: 180px;
+		left: 76px;
+		bottom: 78px;
+	}
+
+	.trees {
+		top: -12px;
+	}
+
+	.arrowUpBank,
+	.arrowUpShop {
+		top: 40px;
+		animation: arrowUpTablet 2s;
+	}
+
+	.arrowUpBank {
+		left: 39.5%;
+	}
+
+	.arrowUpShop {
+		left: 44.5%;
 	}
 }
 

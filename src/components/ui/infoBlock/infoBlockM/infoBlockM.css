@@ -57,6 +57,16 @@
 @media (max-width: 1044px) {
 	.infoBlock {
 		padding: 48px;
-		max-width: 720px;
+	}
+}
+
+@media (max-width: 788px) {
+	.infoBlock {
+		font-size: 14px;
+		padding: 34px;
+	}
+
+	.contentText {
+		line-height: 28px;
 	}
 }

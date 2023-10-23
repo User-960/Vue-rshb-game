@@ -74,4 +74,29 @@
 		max-width: 420px;
 		min-height: 330px;
 	}
+
+	.wrapperBtn {
+		margin-top: 30px;
+	}
+}
+
+@media (max-width: 788px) {
+	.bank {
+		padding: 30px 35px;
+	}
+
+	.title {
+		font-size: 24px;
+		line-height: 28px;
+	}
+
+	.contentText {
+		font-size: 14px;
+		line-height: 20px;
+	}
+
+	.contentImg {
+		max-width: 60px;
+		max-height: 90px;
+	}
 }

@@ -74,6 +74,14 @@
 		max-width: var(--tablet-mobile-width);
 		max-height: var(--tablet-mobile-height);
 	}
+
+	.blockButtonPoints {
+		top: 98px;
+	}
+
+	.navigation {
+		margin-left: -81px;
+	}
 }
 
 /* @media (max-width: 532px) {

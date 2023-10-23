@@ -33,3 +33,15 @@
 		font-size: 18px;
 	}
 }
+
+@media (max-width: 788px) {
+	.blockBtn {
+		width: 130px;
+		height: 56px;
+		padding: 12px;
+	}
+
+	.indicator {
+		font-size: 18px;
+	}
+}
