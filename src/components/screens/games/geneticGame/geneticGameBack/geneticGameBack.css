@@ -111,24 +111,3 @@
 .bookTableActive {
 	background-image: url(../../../../../../public/images/bookTableActive.svg);
 }
-
-/* @media (max-width: 1044px) {
-	.gameBack {
-		max-width: var(--tablet-width);
-		max-height: var(--tablet-height);
-	}
-}
-
-@media (max-width: 788px) {
-	.gameBack {
-		max-width: var(--tablet-mobile-width);
-		max-height: var(--tablet-mobile-height);
-	}
-} */
-
-/* @media (max-width: 532px) {
-	.contentWrapper {
-		max-width: var(--mobile-width);
-		max-height: var(--mobile-height);
-	}
-} */

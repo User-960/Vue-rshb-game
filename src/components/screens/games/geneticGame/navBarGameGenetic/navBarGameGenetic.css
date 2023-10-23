@@ -53,17 +53,3 @@
 	width: 100%;
 	height: 100%;
 }
-
-/* @media (max-width: 1044px) {
-	.navBarGameGenetic {
-		max-width: var(--tablet-width);
-		max-height: var(--tablet-height);
-	}
-}
-
-@media (max-width: 788px) {
-	.navBarGameGenetic {
-		max-width: var(--tablet-mobile-width);
-		max-height: var(--tablet-mobile-height);
-	}
-} */
