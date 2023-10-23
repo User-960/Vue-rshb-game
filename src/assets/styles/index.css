@@ -60,11 +60,11 @@ body {
 }
 
 /* media */
-@media (max-width: 1044px) {
+/* @media (max-width: 1044px) {
 	body {
-		zoom: 70%;
+		zoom: 50%;
 	}
-}
+} */
 
 @media (max-width: 600px) {
 	.error {

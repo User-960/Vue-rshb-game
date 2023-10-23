@@ -17,6 +17,13 @@
 
 /* @media (max-width: 1044px) {
 	.contentWrapper {
+		margin: 0 auto;
+		transform: scale(0.9);
+	}
+} */
+
+/* @media (max-width: 1044px) {
+	.contentWrapper {
 		max-width: var(--tablet-width);
 		max-height: var(--tablet-height);
 	}

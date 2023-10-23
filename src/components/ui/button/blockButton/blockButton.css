@@ -22,7 +22,7 @@
 	line-height: 32px;
 }
 
-@media (max-width: 1044px) {
+/* @media (max-width: 1044px) {
 	.blockBtn {
 		width: 135px;
 		height: 71px;
@@ -44,4 +44,4 @@
 	.indicator {
 		font-size: 18px;
 	}
-}
+} */

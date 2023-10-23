@@ -54,9 +54,16 @@
 	height: 100%;
 }
 
-@media (max-width: 1044px) {
+/* @media (max-width: 1044px) {
 	.navBarGameGenetic {
-		zoom: 80%;
 		margin: 0 auto;
+		zoom: 70%;
 	}
-}
+} */
+
+/* @media (max-width: 1044px) {
+	.navBarGameGenetic {
+		margin: 0 auto;
+		transform: scale(0.9);
+	}
+} */

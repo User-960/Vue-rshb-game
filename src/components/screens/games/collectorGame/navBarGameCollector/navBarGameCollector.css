@@ -57,9 +57,16 @@
 }
 
 @media (max-width: 1044px) {
+	.navBarGameCollector {
+		margin: 0 auto;
+		zoom: 60%;
+	}
+}
+
+/* @media (max-width: 1044px) {
 	.exitBtnLeave {
 		width: 66px;
 		height: 66px;
 		padding: 15px;
 	}
-}
+} */
