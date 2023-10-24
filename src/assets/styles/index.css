@@ -68,7 +68,7 @@ body {
 	z-index: 1000;
 
 	display: none;
-	background-color: #414141;
+	background-color: var(--primary-black);
 
 	align-items: center;
 	justify-content: center;
