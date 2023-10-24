@@ -83,6 +83,13 @@
 	}
 }
 
+@media (max-width: 600px) {
+	.navBarGameAi {
+		margin: 0 auto;
+		zoom: var(--zoom-mobile-ultra-mini);
+	}
+}
+
 /* @media (max-width: 1044px) {
 	.blockButtonWallet {
 		position: fixed;

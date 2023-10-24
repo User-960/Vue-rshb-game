@@ -76,3 +76,10 @@
 		zoom: var(--zoom-mobile-mini);
 	}
 }
+
+@media (max-width: 600px) {
+	.navBarGameGreenhouse {
+		margin: 0 auto;
+		zoom: var(--zoom-mobile-ultra-mini);
+	}
+}

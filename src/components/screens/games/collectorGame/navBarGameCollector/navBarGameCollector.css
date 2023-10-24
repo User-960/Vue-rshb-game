@@ -77,6 +77,13 @@
 	}
 }
 
+@media (max-width: 600px) {
+	.navBarGameCollector {
+		margin: 0 auto;
+		zoom: var(--zoom-mobile-ultra-mini);
+	}
+}
+
 /* @media (max-width: 1044px) {
 	.exitBtnLeave {
 		width: 66px;

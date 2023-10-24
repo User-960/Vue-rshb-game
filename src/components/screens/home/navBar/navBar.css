@@ -89,6 +89,13 @@
 	}
 }
 
+@media (max-width: 600px) {
+	.navBar {
+		margin: 0 auto;
+		zoom: var(--zoom-mobile-ultra-mini);
+	}
+}
+
 @media (max-width: 480px) {
 	.imgRotatePhone {
 		display: flex;
