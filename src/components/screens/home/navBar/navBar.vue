@@ -1,5 +1,11 @@
 <template>
   <div :class='styles.navBar'>
+
+    <div :class='styles.imgRotatePhone'>
+      <img src='../../../../../public/images/rotate-phone.png' />
+      <p :class='styles.imgRotatePhoneText'>Переверните экран</p>
+    </div>
+
     <div :class='styles.navigation'>
       <navigation/>
     </div>

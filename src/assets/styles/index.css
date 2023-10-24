@@ -60,12 +60,6 @@ body {
 }
 
 /* media */
-/* @media (max-width: 1044px) {
-	body {
-		zoom: 50%;
-	}
-} */
-
 @media (max-width: 600px) {
 	.error {
 		font-size: 13px;

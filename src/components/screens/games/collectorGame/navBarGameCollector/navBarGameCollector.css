@@ -59,6 +59,13 @@
 @media (max-width: 1044px) {
 	.navBarGameCollector {
 		margin: 0 auto;
+		zoom: var(--zoom-tablet);
+	}
+}
+
+@media (max-width: 760px) {
+	.navBarGamePestControl {
+		margin: 0 auto;
 		zoom: var(--zoom-mobile);
 	}
 }

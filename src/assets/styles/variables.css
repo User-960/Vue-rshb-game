@@ -16,7 +16,9 @@
 
 	--mobile: 480px;
 
-	--zoom-mobile: 55%;
+	--zoom-tablet: 55%;
+	--zoom-mobile: 50%;
+	/* --zoom-mobile: 0%; */
 
 	/* primary colors  */
 	--primary-green: #89e159;
