@@ -58,31 +58,6 @@
 	height: 100%;
 }
 
-.imgRotatePhone {
-	position: fixed;
-	z-index: 1000;
-
-	display: none;
-	width: 100%;
-	height: 100%;
-	background-color: #414141;
-
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-
-	font-size: 24px;
-	font-weight: 700;
-}
-
-.imgRotatePhone img {
-	max-width: 104px;
-	max-height: 104px;
-	width: 100%;
-	height: 100%;
-	margin-bottom: 40px;
-}
-
 @media (max-width: 1044px) {
 	.navBar {
 		margin: 0 auto;

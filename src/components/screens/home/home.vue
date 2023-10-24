@@ -15,6 +15,11 @@
 
       -->
 
+      <div class='imgRotatePhone'>
+        <img src='../../../../public/images/rotate-phone.png' />
+        <p class='imgRotatePhoneText'>Переверните экран</p>
+      </div>
+
       <mapBack/>
     </template>
   </layout>
@@ -60,5 +65,5 @@ export default Vue.extend({
 </script>
 
 <style module='styles'>
-  
+ 
 </style>
