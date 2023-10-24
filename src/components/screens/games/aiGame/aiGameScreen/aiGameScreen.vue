@@ -103,7 +103,10 @@
               <img 
                 :class='[
                   styles.aiLevelImg, 
-                  {[styles.aiLevelImgActive]: GET_CHOSEN_TOMATO_LEVEL_AI}
+                  {
+                    [styles.aiLevelImgActive]: GET_CHOSEN_TOMATO_LEVEL_AI,
+                    [styles.aiLevelImgBroken]: !GET_CHOSEN_TOMATO_LEVEL_AI && isChooseTomatoLevelBroken,
+                  }
                 ]' 
                 src='../../../../../../public/images/tomatoBushGreen.svg' 
                 alt='image of first level' 
@@ -116,7 +119,7 @@
                 {[styles.isBtnRestartActive]: isTomatoBtnRestart}
               ]'
               @click='restartTomatoSystem'
-            >Перезапуск системы</button>
+            >{{ isChooseTomatoLevelBroken ? 'Участок не выбран' : 'Перезапуск системы'}}</button>
           </div>
         </li>
 
@@ -232,7 +235,10 @@
               <img 
                 :class='[
                   styles.aiLevelImg, 
-                  {[styles.aiLevelImgActive]: GET_CHOSEN_PEPPER_LEVEL_AI}
+                  {
+                    [styles.aiLevelImgActive]: GET_CHOSEN_PEPPER_LEVEL_AI,
+                    [styles.aiLevelImgBroken]: !GET_CHOSEN_PEPPER_LEVEL_AI && isChoosePepperLevelBroken,
+                  }
                 ]' 
                 src='../../../../../../public/images/pepperBushGreen.svg' 
                 alt='image of second level' 
@@ -245,7 +251,7 @@
                 {[styles.isBtnRestartActive]: isPepperBtnRestart}
               ]'
               @click='restartPepperSystem'
-            >Перезапуск системы</button>
+            >{{ isChoosePepperLevelBroken ? 'Участок не выбран' : 'Перезапуск системы' }}</button>
           </div>
         </li>
 
@@ -361,7 +367,10 @@
               <img 
                 :class='[
                   styles.aiLevelImg, 
-                  {[styles.aiLevelImgActive]: GET_CHOSEN_STRAWBERRY_LEVEL_AI}
+                  {
+                    [styles.aiLevelImgActive]: GET_CHOSEN_STRAWBERRY_LEVEL_AI,
+                    [styles.aiLevelImgBroken]: !GET_CHOSEN_STRAWBERRY_LEVEL_AI && isChooseStrawberryLevelBroken,
+                  }
                 ]' 
                 src='../../../../../../public/images/strawberryBushGreen.svg' 
                 alt='image of third level' 
@@ -374,7 +383,7 @@
                 {[styles.isBtnRestartActive]: isStrawberryBtnRestart}
               ]'
               @click='restartStrawberrySystem'
-            >Перезапуск системы</button>
+            >{{ isChooseStrawberryLevelBroken ? 'Участок не выбран' : 'Перезапуск системы' }}</button>
           </div>
         </li>
 
@@ -414,6 +423,7 @@ export default Vue.extend({
     // isTomatoSystemBroken: false,
     isTomatoLevelRestart: true,
     // tomatoLevelMistakes: 1,
+    isChooseTomatoLevelBroken: false,
     tomatoPreviousProblem: 0,
 
     // isPepperMoistureLineCritical: false,
@@ -424,6 +434,7 @@ export default Vue.extend({
     // isPepperSystemBroken: false,
     isPepperLevelRestart: true,
     // pepperLevelMistakes: 1,
+    isChoosePepperLevelBroken: false,
     pepperPreviousProblem: 0,
 
     // isStrawberryMoistureLineCritical: false,
@@ -434,6 +445,7 @@ export default Vue.extend({
     // isStrawberrySystemBroken: false,
     isStrawberryLevelRestart: true,
     // strawberryLevelMistakes: 1,
+    isChooseStrawberryLevelBroken: false,
     strawberryPreviousProblem: 0,
   }),
   computed: {
@@ -603,6 +615,7 @@ export default Vue.extend({
               this.GET_BROKE_TOMATO_SYSTEM
             ) {
               if (this.GET_TOMATO_LEVEL_MISTAKES === 2) {
+                this.isChooseTomatoLevelBroken = false
                 this.isTomatoBtnRestart = false
                 this.FILL_TOMATO_HEALTH_LINE_EMPTY()
                 setTimeout(() => {
@@ -611,6 +624,7 @@ export default Vue.extend({
                   this.START_FINISH_TIMER_AI()
                 }, EN_CONFIG.TIMING_GAME_OVER_TOMATO)
               } else {
+                this.isChooseTomatoLevelBroken = false
                 this.isTomatoBtnRestart = false
                 this.FILL_TOMATO_HEALTH_LINE_CRITICAL()
                 this.INCREASE_TOMATO_LEVEL_MISTAKES()
@@ -670,6 +684,7 @@ export default Vue.extend({
               this.GET_BROKE_PEPPER_SYSTEM
             ) {
               if (this.GET_PEPPER_LEVEL_MISTAKES === 2) {
+                this.isChoosePepperLevelBroken = false
                 this.FILL_PEPPER_HEALTH_LINE_EMPTY()
                 setTimeout(() => {
                   this.MINUS_POINTS_AI()
@@ -678,6 +693,7 @@ export default Vue.extend({
                 }, EN_CONFIG.TIMING_GAME_OVER_PEPPER)
               } else {
                 this.FILL_PEPPER_HEALTH_LINE_CRITICAL()
+                this.isChoosePepperLevelBroken = false
                 this.isPepperBtnRestart = false
                 this.INCREASE_PEPPER_LEVEL_MISTAKES()
 
@@ -771,6 +787,7 @@ export default Vue.extend({
               this.GET_BROKE_STRAWBERRY_SYSTEM
             ) {
               if (this.GET_STRAWBERRY_LEVEL_MISTAKES === 2) {
+                this.isChoosePepperLevelBroken = false
                 this.FILL_STRAWBERRY_HEALTH_LINE_EMPTY()
                 setTimeout(() => {
                   this.MINUS_POINTS_AI()
@@ -779,6 +796,7 @@ export default Vue.extend({
                 }, EN_CONFIG.TIMING_GAME_OVER_STRAWBERRY)
               } else {
                 this.FILL_STRAWBERRY_HEALTH_LINE_CRITICAL()
+                this.isChooseStrawberryLevelBroken = false
                 this.isStrawberryBtnRestart = false
                 this.INCREASE_STRAWBERRY_LEVEL_MISTAKES()
 
@@ -862,6 +880,7 @@ export default Vue.extend({
       if (numberIndicator === 2) {
         this.isTomatoLevelRestart = false
         setTimeout(() => {
+          this.isChooseTomatoLevelBroken = true
           this.BROKE_TOMATO_SYSTEM()
         }, EN_CONFIG.TIMING_SYSTEM_TOMATO)
       }
@@ -880,6 +899,7 @@ export default Vue.extend({
       if (numberIndicator === 2) {
         this.isPepperLevelRestart = false
         setTimeout(() => {
+          this.isChoosePepperLevelBroken = true
           this.BROKE_PEPPER_SYSTEM()
         }, EN_CONFIG.TIMING_SYSTEM_PEPPER)
       }
@@ -905,6 +925,7 @@ export default Vue.extend({
       if (numberIndicator === 3) {
         this.isStrawberryLevelRestart = false
         setTimeout(() => {
+          this.isChooseStrawberryLevelBroken = true
           this.BROKE_STRAWBERRY_SYSTEM()
         }, EN_CONFIG.TIMING_SYSTEM_STRAWBERRY)
       }
@@ -924,6 +945,7 @@ export default Vue.extend({
         this.NOT_CHOOSE_PEPPER_LEVEL_AI()
         this.NOT_CHOOSE_STRAWBERRY_LEVEL_AI()
         this.CHOOSE_TOMATO_LEVEL_AI()
+        this.isChooseTomatoLevelBroken = false
         this.isTomatoBtnRestart = true
       }
     },
@@ -942,6 +964,7 @@ export default Vue.extend({
         this.NOT_CHOOSE_STRAWBERRY_LEVEL_AI()
         this.NOT_CHOOSE_TOMATO_LEVEL_AI()
         this.CHOOSE_PEPPER_LEVEL_AI()
+        this.isChoosePepperLevelBroken = false
         this.isPepperBtnRestart = true
       }
     },
@@ -961,6 +984,7 @@ export default Vue.extend({
         this.NOT_CHOOSE_TOMATO_LEVEL_AI()
         this.NOT_CHOOSE_PEPPER_LEVEL_AI()
         this.CHOOSE_STRAWBERRY_LEVEL_AI()
+        this.isChooseStrawberryLevelBroken = false
         this.isStrawberryBtnRestart = true
       }
     },
