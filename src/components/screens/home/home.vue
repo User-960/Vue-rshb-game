@@ -15,10 +15,10 @@
 
       -->
 
-      <!-- <div class='imgRotatePhone'>
+      <div class='imgRotatePhone'>
         <img src='../../../../public/images/rotate-phone.png' />
         <p class='imgRotatePhoneText'>Переверните экран</p>
-      </div> -->
+      </div>
 
       <mapBack/>
     </template>

@@ -1,5 +1,5 @@
 <template>
-  <div :class='styles.navBar'>
+  <div :class='styles.navBar' class='navBar'>
     <div :class='styles.navigation'>
       <navigation/>
     </div>
