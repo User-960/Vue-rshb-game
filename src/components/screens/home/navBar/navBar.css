@@ -58,6 +58,12 @@
 	height: 100%;
 }
 
+@media (orientation: portrait) {
+	.navBar {
+		display: none;
+	}
+}
+
 @media (max-width: 1044px) {
 	.navBar {
 		margin: 0 auto;
