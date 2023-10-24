@@ -56,17 +56,24 @@
 	height: 100%;
 }
 
-@media (max-width: 1044px) {
+@media (max-width: 1240px) {
 	.navBarGameCollector {
 		margin: 0 auto;
 		zoom: var(--zoom-tablet);
 	}
 }
 
-@media (max-width: 760px) {
-	.navBarGamePestControl {
+@media (max-width: 1044px) {
+	.navBarGameCollector {
 		margin: 0 auto;
 		zoom: var(--zoom-mobile);
+	}
+}
+
+@media (max-width: 760px) {
+	.navBarGameCollector {
+		margin: 0 auto;
+		zoom: var(--zoom-mobile-mini);
 	}
 }
 

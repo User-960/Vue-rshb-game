@@ -16,8 +16,9 @@
 
 	--mobile: 480px;
 
-	--zoom-tablet: 55%;
-	--zoom-mobile: 50%;
+	--zoom-tablet: 65%;
+	--zoom-mobile: 55%;
+	--zoom-mobile-mini: 50%;
 	/* --zoom-mobile: 0%; */
 
 	/* primary colors  */

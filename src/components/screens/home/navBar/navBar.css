@@ -68,17 +68,24 @@
 	}
 } */
 
-@media (max-width: 1044px) {
+@media (max-width: 1240px) {
 	.navBar {
 		margin: 0 auto;
 		zoom: var(--zoom-tablet);
 	}
 }
 
-@media (max-width: 760px) {
+@media (max-width: 1044px) {
 	.navBar {
 		margin: 0 auto;
 		zoom: var(--zoom-mobile);
+	}
+}
+
+@media (max-width: 760px) {
+	.navBar {
+		margin: 0 auto;
+		zoom: var(--zoom-mobile-mini);
 	}
 }
 
