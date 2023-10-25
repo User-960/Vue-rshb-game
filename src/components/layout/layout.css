@@ -23,11 +23,19 @@
 	}
 }
 
-@media (max-width: 1480px) {
+@media (max-width: 1580px) {
 	.contentWrapper {
 		margin: 0 auto;
 		max-width: var(--notebook-width);
 		max-height: var(--notebook-height);
+	}
+}
+
+@media (max-width: 1280px) {
+	.contentWrapper {
+		margin: 0 auto;
+		max-width: var(--desctop-width);
+		max-height: var(--desctop-height);
 	}
 }
 
