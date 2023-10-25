@@ -11,6 +11,7 @@ export interface IAiGameState {
 	isTomatoSystemBroken: boolean
 	isTomatoHealthLineCritical: boolean
 	isTomatoHealthLineEmpty: boolean
+	isChooseTomatoLevelBroken: boolean
 	tomatoLevelMistakes: number
 
 	pepperLevel: number
@@ -18,6 +19,7 @@ export interface IAiGameState {
 	isPepperSystemBroken: boolean
 	isPepperHealthLineCritical: boolean
 	isPepperHealthLineEmpty: boolean
+	isChoosePepperLevelBroken: boolean
 	pepperLevelMistakes: number
 
 	strawberryLevel: number
@@ -26,6 +28,7 @@ export interface IAiGameState {
 	isStrawberrySystemBroken: boolean
 	isStrawberryHealthLineCritical: boolean
 	isStrawberryHealthLineEmpty: boolean
+	isChooseStrawberryLevelBroken: boolean
 	strawberryLevelMistakes: number
 
 	points: number

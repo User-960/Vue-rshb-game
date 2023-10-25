@@ -19,6 +19,7 @@ const state: IAiGameState = {
 	isTomatoSystemBroken: false,
 	isTomatoHealthLineCritical: false,
 	isTomatoHealthLineEmpty: false,
+	isChooseTomatoLevelBroken: false,
 	tomatoLevelMistakes: 1,
 
 	pepperLevel: 2,
@@ -26,6 +27,7 @@ const state: IAiGameState = {
 	isPepperSystemBroken: false,
 	isPepperHealthLineCritical: false,
 	isPepperHealthLineEmpty: false,
+	isChoosePepperLevelBroken: false,
 	pepperLevelMistakes: 1,
 
 	strawberryLevel: 3,
@@ -34,6 +36,7 @@ const state: IAiGameState = {
 	isStrawberrySystemBroken: false,
 	isStrawberryHealthLineCritical: false,
 	isStrawberryHealthLineEmpty: false,
+	isChooseStrawberryLevelBroken: false,
 	strawberryLevelMistakes: 1,
 
 	points: 0,

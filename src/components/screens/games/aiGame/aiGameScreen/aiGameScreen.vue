@@ -105,7 +105,7 @@
                   styles.aiLevelImg, 
                   {
                     [styles.aiLevelImgActive]: GET_CHOSEN_TOMATO_LEVEL_AI,
-                    [styles.aiLevelImgBroken]: !GET_CHOSEN_TOMATO_LEVEL_AI && isChooseTomatoLevelBroken,
+                    [styles.aiLevelImgBroken]: !GET_CHOSEN_TOMATO_LEVEL_AI && GET_TOMATO_LEVEL_BROKEN_AI,
                   }
                 ]' 
                 src='../../../../../../public/images/tomatoBushGreen.svg' 
@@ -119,7 +119,7 @@
                 {[styles.isBtnRestartActive]: isTomatoBtnRestart}
               ]'
               @click='restartTomatoSystem'
-            >{{ isChooseTomatoLevelBroken ? 'Участок не выбран' : 'Перезапуск системы'}}</button>
+            >{{ GET_TOMATO_LEVEL_BROKEN_AI ? 'Участок не выбран' : 'Перезапуск системы'}}</button>
           </div>
         </li>
 
@@ -237,7 +237,7 @@
                   styles.aiLevelImg, 
                   {
                     [styles.aiLevelImgActive]: GET_CHOSEN_PEPPER_LEVEL_AI,
-                    [styles.aiLevelImgBroken]: !GET_CHOSEN_PEPPER_LEVEL_AI && isChoosePepperLevelBroken,
+                    [styles.aiLevelImgBroken]: !GET_CHOSEN_PEPPER_LEVEL_AI && GET_PEPPER_LEVEL_BROKEN_AI,
                   }
                 ]' 
                 src='../../../../../../public/images/pepperBushGreen.svg' 
@@ -251,7 +251,7 @@
                 {[styles.isBtnRestartActive]: isPepperBtnRestart}
               ]'
               @click='restartPepperSystem'
-            >{{ isChoosePepperLevelBroken ? 'Участок не выбран' : 'Перезапуск системы' }}</button>
+            >{{ GET_PEPPER_LEVEL_BROKEN_AI ? 'Участок не выбран' : 'Перезапуск системы' }}</button>
           </div>
         </li>
 
@@ -369,7 +369,7 @@
                   styles.aiLevelImg, 
                   {
                     [styles.aiLevelImgActive]: GET_CHOSEN_STRAWBERRY_LEVEL_AI,
-                    [styles.aiLevelImgBroken]: !GET_CHOSEN_STRAWBERRY_LEVEL_AI && isChooseStrawberryLevelBroken,
+                    [styles.aiLevelImgBroken]: !GET_CHOSEN_STRAWBERRY_LEVEL_AI && GET_STRAWBERRY_LEVEL_BROKEN_AI,
                   }
                 ]' 
                 src='../../../../../../public/images/strawberryBushGreen.svg' 
@@ -383,7 +383,7 @@
                 {[styles.isBtnRestartActive]: isStrawberryBtnRestart}
               ]'
               @click='restartStrawberrySystem'
-            >{{ isChooseStrawberryLevelBroken ? 'Участок не выбран' : 'Перезапуск системы' }}</button>
+            >{{ GET_STRAWBERRY_LEVEL_BROKEN_AI ? 'Участок не выбран' : 'Перезапуск системы' }}</button>
           </div>
         </li>
 
@@ -423,7 +423,7 @@ export default Vue.extend({
     // isTomatoSystemBroken: false,
     isTomatoLevelRestart: true,
     // tomatoLevelMistakes: 1,
-    isChooseTomatoLevelBroken: false,
+    // isChooseTomatoLevelBroken: false,
     tomatoPreviousProblem: 0,
 
     // isPepperMoistureLineCritical: false,
@@ -434,7 +434,7 @@ export default Vue.extend({
     // isPepperSystemBroken: false,
     isPepperLevelRestart: true,
     // pepperLevelMistakes: 1,
-    isChoosePepperLevelBroken: false,
+    // isChoosePepperLevelBroken: false,
     pepperPreviousProblem: 0,
 
     // isStrawberryMoistureLineCritical: false,
@@ -445,7 +445,7 @@ export default Vue.extend({
     // isStrawberrySystemBroken: false,
     isStrawberryLevelRestart: true,
     // strawberryLevelMistakes: 1,
-    isChooseStrawberryLevelBroken: false,
+    // isChooseStrawberryLevelBroken: false,
     strawberryPreviousProblem: 0,
   }),
   computed: {
@@ -465,6 +465,7 @@ export default Vue.extend({
       EN_AiGameGetters.GET_TOMATO_HEALTH_LINE_CRITICAL,
       EN_AiGameGetters.GET_TOMATO_HEALTH_LINE_EMPTY,
       EN_AiGameGetters.GET_TOMATO_LEVEL_MISTAKES,
+      EN_AiGameGetters.GET_TOMATO_LEVEL_BROKEN_AI,
 
       EN_AiGameGetters.GET_CHOSEN_PEPPER_LEVEL_AI,
       EN_AiGameGetters.GET_PEPPER_MOISTURE_LINE_CRITICAL,
@@ -472,6 +473,7 @@ export default Vue.extend({
       EN_AiGameGetters.GET_PEPPER_HEALTH_LINE_CRITICAL,
       EN_AiGameGetters.GET_PEPPER_HEALTH_LINE_EMPTY,
       EN_AiGameGetters.GET_PEPPER_LEVEL_MISTAKES,
+      EN_AiGameGetters.GET_PEPPER_LEVEL_BROKEN_AI,
 
       EN_AiGameGetters.GET_CHOSEN_STRAWBERRY_LEVEL_AI,
       EN_AiGameGetters.GET_STRAWBERRY_MOISTURE_LINE_CRITICAL,
@@ -480,6 +482,7 @@ export default Vue.extend({
       EN_AiGameGetters.GET_STRAWBERRY_HEALTH_LINE_CRITICAL,
       EN_AiGameGetters.GET_STRAWBERRY_HEALTH_LINE_EMPTY,
       EN_AiGameGetters.GET_STRAWBERRY_LEVEL_MISTAKES,
+      EN_AiGameGetters.GET_STRAWBERRY_LEVEL_BROKEN_AI,
 
       EN_AiGameGetters.GET_PEST_LINE_CRITICAL,
     ]),
@@ -615,7 +618,7 @@ export default Vue.extend({
               this.GET_BROKE_TOMATO_SYSTEM
             ) {
               if (this.GET_TOMATO_LEVEL_MISTAKES === 2) {
-                this.isChooseTomatoLevelBroken = false
+                this.NOT_CHOOSE_TOMATO_LEVEL_BROKEN_AI()
                 this.isTomatoBtnRestart = false
                 this.FILL_TOMATO_HEALTH_LINE_EMPTY()
                 setTimeout(() => {
@@ -624,7 +627,7 @@ export default Vue.extend({
                   this.START_FINISH_TIMER_AI()
                 }, EN_CONFIG.TIMING_GAME_OVER_TOMATO)
               } else {
-                this.isChooseTomatoLevelBroken = false
+                this.NOT_CHOOSE_TOMATO_LEVEL_BROKEN_AI()
                 this.isTomatoBtnRestart = false
                 this.FILL_TOMATO_HEALTH_LINE_CRITICAL()
                 this.INCREASE_TOMATO_LEVEL_MISTAKES()
@@ -684,7 +687,7 @@ export default Vue.extend({
               this.GET_BROKE_PEPPER_SYSTEM
             ) {
               if (this.GET_PEPPER_LEVEL_MISTAKES === 2) {
-                this.isChoosePepperLevelBroken = false
+                this.NOT_CHOOSE_PEPPER_LEVEL_BROKEN_AI()
                 this.FILL_PEPPER_HEALTH_LINE_EMPTY()
                 setTimeout(() => {
                   this.MINUS_POINTS_AI()
@@ -693,7 +696,7 @@ export default Vue.extend({
                 }, EN_CONFIG.TIMING_GAME_OVER_PEPPER)
               } else {
                 this.FILL_PEPPER_HEALTH_LINE_CRITICAL()
-                this.isChoosePepperLevelBroken = false
+                this.NOT_CHOOSE_PEPPER_LEVEL_BROKEN_AI()
                 this.isPepperBtnRestart = false
                 this.INCREASE_PEPPER_LEVEL_MISTAKES()
 
@@ -787,7 +790,7 @@ export default Vue.extend({
               this.GET_BROKE_STRAWBERRY_SYSTEM
             ) {
               if (this.GET_STRAWBERRY_LEVEL_MISTAKES === 2) {
-                this.isChoosePepperLevelBroken = false
+                this.NOT_CHOOSE_STRAWBERRY_LEVEL_BROKEN_AI()
                 this.FILL_STRAWBERRY_HEALTH_LINE_EMPTY()
                 setTimeout(() => {
                   this.MINUS_POINTS_AI()
@@ -796,7 +799,7 @@ export default Vue.extend({
                 }, EN_CONFIG.TIMING_GAME_OVER_STRAWBERRY)
               } else {
                 this.FILL_STRAWBERRY_HEALTH_LINE_CRITICAL()
-                this.isChooseStrawberryLevelBroken = false
+                this.NOT_CHOOSE_STRAWBERRY_LEVEL_BROKEN_AI()
                 this.isStrawberryBtnRestart = false
                 this.INCREASE_STRAWBERRY_LEVEL_MISTAKES()
 
@@ -837,6 +840,8 @@ export default Vue.extend({
       EN_AiGameMutation.FILL_TOMATO_HEALTH_LINE_EMPTY,
       EN_AiGameMutation.REMOVE_TOMATO_HEALTH_LINE_EMPTY,
       EN_AiGameMutation.INCREASE_TOMATO_LEVEL_MISTAKES,
+      EN_AiGameMutation.CHOOSE_TOMATO_LEVEL_BROKEN_AI,
+      EN_AiGameMutation.NOT_CHOOSE_TOMATO_LEVEL_BROKEN_AI,
 
       EN_AiGameMutation.CHOOSE_PEPPER_LEVEL_AI,
       EN_AiGameMutation.NOT_CHOOSE_PEPPER_LEVEL_AI,
@@ -849,6 +854,8 @@ export default Vue.extend({
       EN_AiGameMutation.FILL_PEPPER_HEALTH_LINE_EMPTY,
       EN_AiGameMutation.REMOVE_PEPPER_HEALTH_LINE_EMPTY,
       EN_AiGameMutation.INCREASE_PEPPER_LEVEL_MISTAKES,
+      EN_AiGameMutation.CHOOSE_PEPPER_LEVEL_BROKEN_AI,
+      EN_AiGameMutation.NOT_CHOOSE_PEPPER_LEVEL_BROKEN_AI,
 
       EN_AiGameMutation.CHOOSE_STRAWBERRY_LEVEL_AI,
       EN_AiGameMutation.NOT_CHOOSE_STRAWBERRY_LEVEL_AI,
@@ -863,6 +870,8 @@ export default Vue.extend({
       EN_AiGameMutation.FILL_STRAWBERRY_HEALTH_LINE_EMPTY,
       EN_AiGameMutation.REMOVE_STRAWBERRY_HEALTH_LINE_EMPTY,
       EN_AiGameMutation.INCREASE_STRAWBERRY_LEVEL_MISTAKES,
+      EN_AiGameMutation.CHOOSE_STRAWBERRY_LEVEL_BROKEN_AI,
+      EN_AiGameMutation.NOT_CHOOSE_STRAWBERRY_LEVEL_BROKEN_AI,
 
       EN_AiGameMutation.FILL_PEST_LINE_CRITICAL,
     ]),
@@ -880,7 +889,7 @@ export default Vue.extend({
       if (numberIndicator === 2) {
         this.isTomatoLevelRestart = false
         setTimeout(() => {
-          this.isChooseTomatoLevelBroken = true
+          this.CHOOSE_TOMATO_LEVEL_BROKEN_AI()
           this.BROKE_TOMATO_SYSTEM()
         }, EN_CONFIG.TIMING_SYSTEM_TOMATO)
       }
@@ -899,7 +908,7 @@ export default Vue.extend({
       if (numberIndicator === 2) {
         this.isPepperLevelRestart = false
         setTimeout(() => {
-          this.isChoosePepperLevelBroken = true
+          this.CHOOSE_PEPPER_LEVEL_BROKEN_AI()
           this.BROKE_PEPPER_SYSTEM()
         }, EN_CONFIG.TIMING_SYSTEM_PEPPER)
       }
@@ -925,7 +934,7 @@ export default Vue.extend({
       if (numberIndicator === 3) {
         this.isStrawberryLevelRestart = false
         setTimeout(() => {
-          this.isChooseStrawberryLevelBroken = true
+          this.CHOOSE_STRAWBERRY_LEVEL_BROKEN_AI()
           this.BROKE_STRAWBERRY_SYSTEM()
         }, EN_CONFIG.TIMING_SYSTEM_STRAWBERRY)
       }
@@ -945,7 +954,7 @@ export default Vue.extend({
         this.NOT_CHOOSE_PEPPER_LEVEL_AI()
         this.NOT_CHOOSE_STRAWBERRY_LEVEL_AI()
         this.CHOOSE_TOMATO_LEVEL_AI()
-        this.isChooseTomatoLevelBroken = false
+        this.NOT_CHOOSE_TOMATO_LEVEL_BROKEN_AI()
         this.isTomatoBtnRestart = true
       }
     },
@@ -964,7 +973,7 @@ export default Vue.extend({
         this.NOT_CHOOSE_STRAWBERRY_LEVEL_AI()
         this.NOT_CHOOSE_TOMATO_LEVEL_AI()
         this.CHOOSE_PEPPER_LEVEL_AI()
-        this.isChoosePepperLevelBroken = false
+        this.NOT_CHOOSE_PEPPER_LEVEL_BROKEN_AI()
         this.isPepperBtnRestart = true
       }
     },
@@ -984,7 +993,7 @@ export default Vue.extend({
         this.NOT_CHOOSE_TOMATO_LEVEL_AI()
         this.NOT_CHOOSE_PEPPER_LEVEL_AI()
         this.CHOOSE_STRAWBERRY_LEVEL_AI()
-        this.isChooseStrawberryLevelBroken = false
+        this.NOT_CHOOSE_STRAWBERRY_LEVEL_BROKEN_AI()
         this.isStrawberryBtnRestart = true
       }
     },

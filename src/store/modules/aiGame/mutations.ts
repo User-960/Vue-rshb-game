@@ -42,6 +42,8 @@ export enum EN_AiGameMutation {
 	FILL_TOMATO_HEALTH_LINE_EMPTY = 'FILL_TOMATO_HEALTH_LINE_EMPTY',
 	REMOVE_TOMATO_HEALTH_LINE_EMPTY = 'REMOVE_TOMATO_HEALTH_LINE_EMPTY',
 	INCREASE_TOMATO_LEVEL_MISTAKES = 'INCREASE_TOMATO_LEVEL_MISTAKES',
+	CHOOSE_TOMATO_LEVEL_BROKEN_AI = 'CHOOSE_TOMATO_LEVEL_BROKEN_AI',
+	NOT_CHOOSE_TOMATO_LEVEL_BROKEN_AI = 'NOT_CHOOSE_TOMATO_LEVEL_BROKEN_AI',
 
 	CHOOSE_PEPPER_LEVEL_AI = 'CHOOSE_PEPPER_LEVEL_AI',
 	NOT_CHOOSE_PEPPER_LEVEL_AI = 'NOT_CHOOSE_PEPPER_LEVEL_AI',
@@ -54,6 +56,8 @@ export enum EN_AiGameMutation {
 	FILL_PEPPER_HEALTH_LINE_EMPTY = 'FILL_PEPPER_HEALTH_LINE_EMPTY',
 	REMOVE_PEPPER_HEALTH_LINE_EMPTY = 'REMOVE_PEPPER_HEALTH_LINE_EMPTY',
 	INCREASE_PEPPER_LEVEL_MISTAKES = 'INCREASE_PEPPER_LEVEL_MISTAKES',
+	CHOOSE_PEPPER_LEVEL_BROKEN_AI = 'CHOOSE_PEPPER_LEVEL_BROKEN_AI',
+	NOT_CHOOSE_PEPPER_LEVEL_BROKEN_AI = 'NOT_CHOOSE_PEPPER_LEVEL_BROKEN_AI',
 
 	CHOOSE_STRAWBERRY_LEVEL_AI = 'CHOOSE_STRAWBERRY_LEVEL_AI',
 	NOT_CHOOSE_STRAWBERRY_LEVEL_AI = 'NOT_CHOOSE_STRAWBERRY_LEVEL_AI',
@@ -68,6 +72,8 @@ export enum EN_AiGameMutation {
 	FILL_STRAWBERRY_HEALTH_LINE_EMPTY = 'FILL_STRAWBERRY_HEALTH_LINE_EMPTY',
 	REMOVE_STRAWBERRY_HEALTH_LINE_EMPTY = 'REMOVE_STRAWBERRY_HEALTH_LINE_EMPTY',
 	INCREASE_STRAWBERRY_LEVEL_MISTAKES = 'INCREASE_STRAWBERRY_LEVEL_MISTAKES',
+	CHOOSE_STRAWBERRY_LEVEL_BROKEN_AI = 'CHOOSE_STRAWBERRY_LEVEL_BROKEN_AI',
+	NOT_CHOOSE_STRAWBERRY_LEVEL_BROKEN_AI = 'NOT_CHOOSE_STRAWBERRY_LEVEL_BROKEN_AI',
 
 	FILL_PEST_LINE_CRITICAL = 'FILL_PEST_LINE_CRITICAL',
 	REMOVE_PEST_LINE_CRITICAL = 'REMOVE_PEST_LINE_CRITICAL',
@@ -93,12 +99,14 @@ export const mutations: MutationTree<IAiGameState> = {
 			(state.isTomatoSystemBroken = false),
 			(state.isTomatoHealthLineCritical = false),
 			(state.isTomatoHealthLineEmpty = false),
+			(state.isChooseTomatoLevelBroken = false),
 			(state.tomatoLevelMistakes = 1),
 			(state.pepperLevel = 2),
 			(state.isPepperMoistureLineCritical = false),
 			(state.isPepperSystemBroken = false),
 			(state.isPepperHealthLineCritical = false),
 			(state.isPepperHealthLineEmpty = false),
+			(state.isChoosePepperLevelBroken = false),
 			(state.pepperLevelMistakes = 1),
 			(state.strawberryLevel = 3),
 			(state.isStrawberryMoistureLineCritical = false),
@@ -106,6 +114,7 @@ export const mutations: MutationTree<IAiGameState> = {
 			(state.isStrawberrySystemBroken = false),
 			(state.isStrawberryHealthLineCritical = false),
 			(state.isStrawberryHealthLineEmpty = false),
+			(state.isChooseStrawberryLevelBroken = false),
 			(state.strawberryLevelMistakes = 1),
 			(state.points = 0),
 			(state.timer = 90),
@@ -126,12 +135,14 @@ export const mutations: MutationTree<IAiGameState> = {
 		state.isTomatoSystemBroken = false
 		state.isTomatoHealthLineCritical = false
 		state.isTomatoHealthLineEmpty = false
+		state.isChooseTomatoLevelBroken = false
 		state.tomatoLevelMistakes = 1
 		state.pepperLevel = 2
 		state.isPepperMoistureLineCritical = false
 		state.isPepperSystemBroken = false
 		state.isPepperHealthLineCritical = false
 		state.isPepperHealthLineEmpty = false
+		state.isChoosePepperLevelBroken = false
 		state.pepperLevelMistakes = 1
 		state.strawberryLevel = 3
 		state.isStrawberryMoistureLineCritical = false
@@ -139,6 +150,7 @@ export const mutations: MutationTree<IAiGameState> = {
 		state.isStrawberrySystemBroken = false
 		state.isStrawberryHealthLineCritical = false
 		state.isStrawberryHealthLineEmpty = false
+		state.isChooseStrawberryLevelBroken = false
 		state.strawberryLevelMistakes = 1
 
 		if (state.points === 5) {
@@ -204,12 +216,14 @@ export const mutations: MutationTree<IAiGameState> = {
 			(state.isTomatoSystemBroken = false),
 			(state.isTomatoHealthLineCritical = false),
 			(state.isTomatoHealthLineEmpty = false),
+			(state.isChooseTomatoLevelBroken = false),
 			(state.tomatoLevelMistakes = 1),
 			(state.pepperLevel = 2),
 			(state.isPepperMoistureLineCritical = false),
 			(state.isPepperSystemBroken = false),
 			(state.isPepperHealthLineCritical = false),
 			(state.isPepperHealthLineEmpty = false),
+			(state.isChoosePepperLevelBroken = false),
 			(state.pepperLevelMistakes = 1),
 			(state.strawberryLevel = 3),
 			(state.isStrawberryMoistureLineCritical = false),
@@ -217,6 +231,7 @@ export const mutations: MutationTree<IAiGameState> = {
 			(state.isStrawberrySystemBroken = false),
 			(state.isStrawberryHealthLineCritical = false),
 			(state.isStrawberryHealthLineEmpty = false),
+			(state.isChooseStrawberryLevelBroken = false),
 			(state.strawberryLevelMistakes = 1),
 			(state.timer = 90),
 			(state.isChosenBook = false),
@@ -347,6 +362,12 @@ export const mutations: MutationTree<IAiGameState> = {
 	[EN_AiGameMutation.INCREASE_TOMATO_LEVEL_MISTAKES](state) {
 		state.tomatoLevelMistakes += 1
 	},
+	[EN_AiGameMutation.CHOOSE_TOMATO_LEVEL_BROKEN_AI](state) {
+		state.isChooseTomatoLevelBroken = true
+	},
+	[EN_AiGameMutation.NOT_CHOOSE_TOMATO_LEVEL_BROKEN_AI](state) {
+		state.isChooseTomatoLevelBroken = false
+	},
 
 	[EN_AiGameMutation.CHOOSE_PEPPER_LEVEL_AI](state) {
 		state.isChosenPepperLevel = true
@@ -380,6 +401,12 @@ export const mutations: MutationTree<IAiGameState> = {
 	},
 	[EN_AiGameMutation.INCREASE_PEPPER_LEVEL_MISTAKES](state) {
 		state.pepperLevelMistakes += 1
+	},
+	[EN_AiGameMutation.CHOOSE_PEPPER_LEVEL_BROKEN_AI](state) {
+		state.isChoosePepperLevelBroken = true
+	},
+	[EN_AiGameMutation.NOT_CHOOSE_PEPPER_LEVEL_BROKEN_AI](state) {
+		state.isChoosePepperLevelBroken = false
 	},
 
 	[EN_AiGameMutation.CHOOSE_STRAWBERRY_LEVEL_AI](state) {
@@ -420,6 +447,12 @@ export const mutations: MutationTree<IAiGameState> = {
 	},
 	[EN_AiGameMutation.INCREASE_STRAWBERRY_LEVEL_MISTAKES](state) {
 		state.strawberryLevelMistakes += 1
+	},
+	[EN_AiGameMutation.CHOOSE_STRAWBERRY_LEVEL_BROKEN_AI](state) {
+		state.isChooseStrawberryLevelBroken = true
+	},
+	[EN_AiGameMutation.NOT_CHOOSE_STRAWBERRY_LEVEL_BROKEN_AI](state) {
+		state.isChooseStrawberryLevelBroken = false
 	},
 
 	[EN_AiGameMutation.FILL_PEST_LINE_CRITICAL](state) {

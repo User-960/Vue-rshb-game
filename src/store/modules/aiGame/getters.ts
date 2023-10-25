@@ -26,6 +26,7 @@ export enum EN_AiGameGetters {
 	GET_TOMATO_HEALTH_LINE_CRITICAL = 'GET_TOMATO_HEALTH_LINE_CRITICAL',
 	GET_TOMATO_HEALTH_LINE_EMPTY = 'GET_TOMATO_HEALTH_LINE_EMPTY',
 	GET_TOMATO_LEVEL_MISTAKES = 'GET_TOMATO_LEVEL_MISTAKES',
+	GET_TOMATO_LEVEL_BROKEN_AI = 'GET_TOMATO_LEVEL_BROKEN_AI',
 
 	GET_CHOSEN_PEPPER_LEVEL_AI = 'GET_CHOSEN_PEPPER_LEVEL_AI',
 	GET_PEPPER_MOISTURE_LINE_CRITICAL = 'GET_PEPPER_MOISTURE_LINE_CRITICAL',
@@ -33,6 +34,7 @@ export enum EN_AiGameGetters {
 	GET_PEPPER_HEALTH_LINE_CRITICAL = 'GET_PEPPER_HEALTH_LINE_CRITICAL',
 	GET_PEPPER_HEALTH_LINE_EMPTY = 'GET_PEPPER_HEALTH_LINE_EMPTY',
 	GET_PEPPER_LEVEL_MISTAKES = 'GET_PEPPER_LEVEL_MISTAKES',
+	GET_PEPPER_LEVEL_BROKEN_AI = 'GET_PEPPER_LEVEL_BROKEN_AI',
 
 	GET_CHOSEN_STRAWBERRY_LEVEL_AI = 'GET_CHOSEN_STRAWBERRY_LEVEL_AI',
 	GET_STRAWBERRY_MOISTURE_LINE_CRITICAL = 'GET_STRAWBERRY_MOISTURE_LINE_CRITICAL',
@@ -41,6 +43,7 @@ export enum EN_AiGameGetters {
 	GET_STRAWBERRY_HEALTH_LINE_CRITICAL = 'GET_STRAWBERRY_HEALTH_LINE_CRITICAL',
 	GET_STRAWBERRY_HEALTH_LINE_EMPTY = 'GET_STRAWBERRY_HEALTH_LINE_EMPTY',
 	GET_STRAWBERRY_LEVEL_MISTAKES = 'GET_STRAWBERRY_LEVEL_MISTAKES',
+	GET_STRAWBERRY_LEVEL_BROKEN_AI = 'GET_STRAWBERRY_LEVEL_BROKEN_AI',
 
 	GET_PEST_LINE_CRITICAL = 'GET_PEST_LINE_CRITICAL',
 
@@ -76,6 +79,8 @@ export const getters: GetterTree<IAiGameState, IRootState> = {
 		state.isTomatoHealthLineEmpty,
 	[EN_AiGameGetters.GET_TOMATO_LEVEL_MISTAKES]: state =>
 		state.tomatoLevelMistakes,
+	[EN_AiGameGetters.GET_TOMATO_LEVEL_BROKEN_AI]: state =>
+		state.isChooseTomatoLevelBroken,
 
 	[EN_AiGameGetters.GET_CHOSEN_PEPPER_LEVEL_AI]: state =>
 		state.isChosenPepperLevel,
@@ -89,6 +94,8 @@ export const getters: GetterTree<IAiGameState, IRootState> = {
 		state.isPepperHealthLineEmpty,
 	[EN_AiGameGetters.GET_PEPPER_LEVEL_MISTAKES]: state =>
 		state.pepperLevelMistakes,
+	[EN_AiGameGetters.GET_PEPPER_LEVEL_BROKEN_AI]: state =>
+		state.isChoosePepperLevelBroken,
 
 	[EN_AiGameGetters.GET_CHOSEN_STRAWBERRY_LEVEL_AI]: state =>
 		state.isChosenStrawberryLevel,
@@ -104,6 +111,8 @@ export const getters: GetterTree<IAiGameState, IRootState> = {
 		state.isStrawberryHealthLineEmpty,
 	[EN_AiGameGetters.GET_STRAWBERRY_LEVEL_MISTAKES]: state =>
 		state.strawberryLevelMistakes,
+	[EN_AiGameGetters.GET_STRAWBERRY_LEVEL_BROKEN_AI]: state =>
+		state.isChooseStrawberryLevelBroken,
 
 	[EN_AiGameGetters.GET_PEST_LINE_CRITICAL]: state => state.isPestLineCritical,
 	[EN_AiGameGetters.GET_COMPLETE_AI_GAME]: state => state.isAiGameCompleted

@@ -20,7 +20,7 @@
 
 .numPadTable {
 	position: absolute;
-	bottom: 24px;
+	bottom: 28px;
 	left: 210px;
 
 	background-image: url(../../../../../../public/images/numPad.svg);
