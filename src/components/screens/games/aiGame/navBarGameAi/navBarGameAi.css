@@ -63,6 +63,27 @@
 	height: 100%;
 }
 
+@media (max-width: 2280px) {
+	.navBarGameAi {
+		margin: 0 auto;
+		zoom: var(--zoom-pc-full-hd);
+	}
+}
+
+@media (max-width: 1880px) {
+	.navBarGameAi {
+		margin: 0 auto;
+		zoom: var(--zoom-pc);
+	}
+}
+
+@media (max-width: 1580px) {
+	.navBarGameAi {
+		margin: 0 auto;
+		zoom: var(--zoom-notebook);
+	}
+}
+
 @media (max-width: 1240px) {
 	.navBarGameAi {
 		margin: 0 auto;
