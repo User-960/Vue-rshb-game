@@ -78,13 +78,6 @@
 	}
 }
 
-@media (max-width: 1300px) {
-	.navBarGameGreenhouse {
-		margin: 0 auto;
-		zoom: 100%;
-	}
-}
-
 @media (max-width: 1250px) {
 	.navBarGameGreenhouse {
 		margin: 0 auto;

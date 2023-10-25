@@ -78,13 +78,6 @@
 	}
 }
 
-@media (max-width: 1300px) {
-	.navBarGamePestControl {
-		margin: 0 auto;
-		zoom: 100%;
-	}
-}
-
 @media (max-width: 1250px) {
 	.navBarGamePestControl {
 		margin: 0 auto;
