@@ -69,6 +69,20 @@
 	}
 } */
 
+@media (max-width: 2080px) {
+	.navBar {
+		margin: 0 auto;
+		zoom: var(--zoom-pc-full-hd);
+	}
+}
+
+@media (max-width: 1880px) {
+	.navBar {
+		margin: 0 auto;
+		zoom: var(--zoom-pc-hd);
+	}
+}
+
 @media (max-width: 1680px) {
 	.navBar {
 		margin: 0 auto;

@@ -22,8 +22,10 @@
 
 	--mobile: 480px;
 
-	--zoom-pc: 170%;
-	--zoom-notebook: 115%;
+	--zoom-pc-full-hd: 140%;
+	--zoom-pc-hd: 130%;
+	--zoom-pc: 120%;
+	--zoom-notebook: 110%;
 
 	--zoom-tablet: 65%;
 	--zoom-mobile: 52%;
