@@ -2,11 +2,12 @@
 
 .navBarGameAi {
 	position: relative;
-	/* max-width: var(--desktop-width);
-	max-height: var(--desktop-height); */
-
 	width: var(--desktop-width);
 	height: var(--desktop-height);
+	margin: 0 auto;
+
+	/* max-width: var(--desktop-width);
+	max-height: var(--desktop-height); */
 
 	/* width: 100%;
 	height: 100%; */

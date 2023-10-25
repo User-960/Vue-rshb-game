@@ -4,6 +4,7 @@
 	position: relative;
 	width: var(--desktop-width);
 	height: var(--desktop-height);
+	margin: 0 auto;
 }
 
 .navigation {
@@ -67,6 +68,20 @@
 		display: flex;
 	}
 } */
+
+@media (max-width: 1680px) {
+	.navBar {
+		margin: 0 auto;
+		zoom: var(--zoom-pc);
+	}
+}
+
+@media (max-width: 1480px) {
+	.navBar {
+		margin: 0 auto;
+		zoom: var(--zoom-notebook);
+	}
+}
 
 @media (max-width: 1240px) {
 	.navBar {

@@ -2,6 +2,12 @@
 
 :root {
 	/* screen  */
+	--pc-width: 1680px;
+	--pc-height: 1060px;
+
+	--notebook-width: 1480px;
+	--notebook-height: 860px;
+
 	--desktop-width: 1290px;
 	--desktop-height: 670px;
 
@@ -15,6 +21,9 @@
 	--mobile-height: 274px;
 
 	--mobile: 480px;
+
+	--zoom-pc: 170%;
+	--zoom-notebook: 115%;
 
 	--zoom-tablet: 65%;
 	--zoom-mobile: 52%;
