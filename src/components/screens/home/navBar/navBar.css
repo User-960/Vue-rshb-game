@@ -83,14 +83,28 @@
 	}
 }
 
-@media (max-width: 1580px) {
+@media (max-width: 1380px) {
 	.navBar {
 		margin: 0 auto;
 		zoom: var(--zoom-notebook);
 	}
 }
 
-@media (max-width: 1240px) {
+@media (max-width: 1300px) {
+	.navBar {
+		margin: 0 auto;
+		zoom: 100%;
+	}
+}
+
+@media (max-width: 1250px) {
+	.navBar {
+		margin: 0 auto;
+		zoom: var(--zoom-tablet-notebook);
+	}
+}
+
+@media (max-width: 1150px) {
 	.navBar {
 		margin: 0 auto;
 		zoom: var(--zoom-tablet);
@@ -101,13 +115,6 @@
 	.navBar {
 		margin: 0 auto;
 		zoom: var(--zoom-mobile);
-	}
-}
-
-@media (max-width: 1280px) {
-	.navBar {
-		margin: 0 auto;
-		zoom: 100%;
 	}
 }
 

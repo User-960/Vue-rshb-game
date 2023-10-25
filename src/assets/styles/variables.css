@@ -25,10 +25,11 @@
 	--zoom-pc-full-hd: 135%;
 	--zoom-pc-hd: 125%;
 	--zoom-pc: 115%;
-	--zoom-notebook: 110%;
+	--zoom-notebook: 105%;
 
-	--zoom-tablet: 55%;
-	--zoom-mobile: 48%;
+	--zoom-tablet-notebook: 70%;
+	--zoom-tablet: 60%;
+	--zoom-mobile: 50%;
 	--zoom-mobile-mini: 45%;
 	--zoom-mobile-ultra-mini: 40%;
 	/* --zoom-mobile: 0%; */

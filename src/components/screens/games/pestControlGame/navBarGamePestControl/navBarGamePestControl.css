@@ -71,14 +71,28 @@
 	}
 }
 
-@media (max-width: 1580px) {
+@media (max-width: 1380px) {
 	.navBarGamePestControl {
 		margin: 0 auto;
 		zoom: var(--zoom-notebook);
 	}
 }
 
-@media (max-width: 1240px) {
+@media (max-width: 1300px) {
+	.navBarGamePestControl {
+		margin: 0 auto;
+		zoom: 100%;
+	}
+}
+
+@media (max-width: 1250px) {
+	.navBarGamePestControl {
+		margin: 0 auto;
+		zoom: var(--zoom-tablet-notebook);
+	}
+}
+
+@media (max-width: 1150px) {
 	.navBarGamePestControl {
 		margin: 0 auto;
 		zoom: var(--zoom-tablet);
