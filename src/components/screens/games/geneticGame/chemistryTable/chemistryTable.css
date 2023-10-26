@@ -146,3 +146,57 @@
 		opacity: 1;
 	}
 }
+
+/* media */
+@media (max-width: 1044px) {
+	.chemistryTableBack {
+		width: 700px;
+		height: 130px;
+	}
+
+	.bigFlaskEmpty {
+		bottom: 10px;
+		width: 160px;
+	}
+
+	.plantSproutTomato {
+		bottom: 102px;
+	}
+
+	.plantColorTomato {
+		bottom: 100px;
+	}
+
+	.plantModifiedTomato {
+		left: 108px;
+		bottom: 100px;
+	}
+
+	.plantSproutPepper {
+		bottom: 102px;
+	}
+
+	.plantColorPepper {
+		left: 175px;
+		bottom: 100px;
+	}
+
+	.plantModifiedPepper {
+		left: 130px;
+		bottom: 100px;
+	}
+
+	.plantSproutStrawberry {
+		bottom: 90px;
+	}
+
+	.plantColorStrawberry {
+		left: 195px;
+		bottom: 94px;
+	}
+
+	.plantModifiedStrawberry {
+		left: 195px;
+		bottom: 94px;
+	}
+}

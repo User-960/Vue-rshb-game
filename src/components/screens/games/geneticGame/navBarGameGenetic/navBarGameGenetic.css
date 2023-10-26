@@ -2,8 +2,8 @@
 
 .navBarGameGenetic {
 	position: relative;
-	width: 1280px;
-	height: 660px;
+	width: var(--desktop-width);
+	height: var(--desktop-height);
 	margin: 0 auto;
 }
 
@@ -11,6 +11,7 @@
 	position: absolute;
 	bottom: 210px;
 	left: 24px;
+	z-index: 120;
 }
 
 .exitButtonWrapper {
@@ -55,16 +56,42 @@
 	height: 100%;
 }
 
-/* @media (max-width: 1044px) {
+@media (max-width: 1044px) {
 	.navBarGameGenetic {
+		width: var(--tablet-width);
+		height: var(--tablet-height);
 		margin: 0 auto;
-		zoom: 70%;
 	}
-} */
 
-/* @media (max-width: 1044px) {
-	.navBarGameGenetic {
+	.navigationLevelsWrapper {
+		transform: scale(0.8);
+	}
+
+	.exitButtonWrapper {
+		bottom: 14px;
+		transform: scale(0.8);
+	}
+
+	.blockButtonPoints {
+		top: 108px;
+		transform: scale(0.8);
+	}
+
+	.blockButtonWallet {
+		transform: scale(0.8);
+	}
+}
+
+/* @media (max-width: 760px) {
+	.navBarGameCollector {
 		margin: 0 auto;
-		transform: scale(0.9);
+		zoom: var(--zoom-mobile-mini);
+	}
+}
+
+@media (max-width: 600px) {
+	.navBarGameCollector {
+		margin: 0 auto;
+		zoom: var(--zoom-mobile-ultra-mini);
 	}
 } */

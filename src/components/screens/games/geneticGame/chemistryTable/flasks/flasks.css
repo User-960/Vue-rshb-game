@@ -58,6 +58,7 @@
 
 	background-image: url(../../../../../../../public/images/flasksBox.svg);
 	background-repeat: no-repeat;
+	background-size: cover;
 
 	z-index: 40;
 }
@@ -319,5 +320,45 @@
 
 	to {
 		transform: rotate(-150deg);
+	}
+}
+
+/* media */
+@media (max-width: 1044px) {
+	.flasksContainer {
+		position: relative;
+		top: 67px;
+		left: 150px;
+
+		min-width: 338px;
+	}
+
+	.flask {
+		width: 24px;
+		height: 81px;
+	}
+
+	.flasksBox {
+		width: 316px;
+	}
+
+	.flasksList {
+		top: -20px;
+		left: 27px;
+	}
+
+	.flasksContainer {
+		top: 106px;
+		left: 40px;
+	}
+
+	.dropZoneContainer {
+		min-width: 110px;
+		min-height: 81px;
+		top: 12px;
+	}
+
+	.effect {
+		top: -30px;
 	}
 }

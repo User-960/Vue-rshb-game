@@ -15,7 +15,7 @@
 	margin: 0 auto;
 }
 
-@media (max-width: 1680px) {
+/* @media (max-width: 1680px) {
 	.contentWrapper {
 		margin: 0 auto;
 		max-width: var(--pc-width);
@@ -61,4 +61,4 @@
 		max-width: var(--mobile-width);
 		max-height: var(--mobile-height);
 	}
-}
+} */
