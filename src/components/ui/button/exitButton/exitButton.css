@@ -11,6 +11,35 @@
 	border-radius: 12px;
 	border: 2px solid var(--primary-green);
 	background: var(--primary-grey);
+
+	cursor: pointer;
+}
+
+.iconBtn {
+	width: 44px;
+	height: 44px;
+	padding: 6px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	text-align: center;
+	font-size: 24px;
+	font-weight: 400;
+	line-height: 21px;
+
+	border-radius: 8px;
+	border: 2px solid var(--primary-green);
+	background-color: var(--primary-black);
+
+	color: var(--primary-green);
+	transition: color 0.3s ease-in-out;
+}
+
+.iconBtn:hover {
+	color: var(--primary-black);
+	background-color: var(--primary-green);
 }
 
 /* @media (max-width: 1044px) {

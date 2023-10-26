@@ -20,12 +20,14 @@
 
 	color: var(--primary-green);
 	transition: color 0.3s ease-in-out;
+
+	cursor: default;
 }
 
-.btn:hover {
+/* .btn:hover {
 	color: var(--primary-black);
 	background-color: var(--primary-green);
-}
+} */
 
 /* @media (max-width: 1044px) {
 	.btn {
