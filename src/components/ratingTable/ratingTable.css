@@ -11,8 +11,8 @@
 	/* width: 100%;
 	height: 100%; */
 
-	max-width: 1280px;
-	min-height: 660px;
+	width: 100%;
+	height: 100%;
 
 	padding-top: 25px;
 	position: relative;
@@ -53,7 +53,7 @@
 
 .quantityPlayers p {
 	font-weight: 400;
-	font-size: 16px;
+	font-size: 18px;
 	line-height: 32px;
 
 	margin-left: 16px;
@@ -78,7 +78,7 @@
 .tablePlayerId,
 .tablePlayerName {
 	font-weight: 400;
-	font-size: 16px;
+	font-size: 18px;
 	line-height: 32px;
 
 	color: var(--primary-green);
@@ -103,7 +103,7 @@
 	margin-left: 10px;
 
 	font-weight: 400;
-	font-size: 16px;
+	font-size: 18px;
 	line-height: 32px;
 
 	color: var(--primary-green);
@@ -120,7 +120,7 @@
 	align-items: center;
 
 	font-weight: 400;
-	font-size: 16px;
+	font-size: 18px;
 	line-height: 32px;
 
 	color: var(--primary-green);
@@ -139,22 +139,22 @@
 .tableAward,
 .tableProfit {
 	font-weight: 400;
-	font-size: 14px;
+	font-size: 18px;
 	line-height: 32px;
 
 	color: var(--secondary-text-gray);
 }
 
 .tableName {
-	margin-left: 32px;
+	margin-left: 27px;
 }
 
 .tableAward {
-	margin-left: 245px;
+	margin-left: 235px;
 }
 
 .tableProfit {
-	margin-left: 58px;
+	margin-left: 45px;
 }
 
 .playerList {
@@ -170,7 +170,7 @@
 	align-items: center;
 	height: 41px;
 
-	margin-top: 10px;
+	margin-top: 16px;
 	margin-right: 15px;
 	padding-bottom: 5px;
 
@@ -184,7 +184,7 @@
 .playerItemId,
 .playerItemName {
 	font-weight: 400;
-	font-size: 16px;
+	font-size: 18px;
 	line-height: 32px;
 }
 
@@ -208,7 +208,7 @@
 	margin-right: 10px;
 
 	font-weight: 400;
-	font-size: 16px;
+	font-size: 18px;
 	line-height: 32px;
 }
 
@@ -223,7 +223,7 @@
 	align-items: center;
 
 	font-weight: 400;
-	font-size: 16px;
+	font-size: 18px;
 	line-height: 32px;
 }
 
@@ -234,6 +234,61 @@
 }
 
 /* media */
+@media (max-width: 1300px) {
+	.quantityPlayers p {
+		font-size: 16px;
+	}
+
+	.tablePlayerId,
+	.tablePlayerName {
+		font-size: 16px;
+	}
+
+	.award p {
+		font-size: 16px;
+	}
+
+	.playerRating {
+		font-size: 16px;
+	}
+
+	.tableN,
+	.tableName,
+	.tableAward,
+	.tableProfit {
+		font-size: 14px;
+	}
+
+	.playerItemId,
+	.playerItemName {
+		font-size: 16px;
+	}
+
+	.playerItemAward p {
+		font-size: 16px;
+	}
+
+	.playerItemRating {
+		font-size: 16px;
+	}
+
+	.tableProfit {
+		margin-left: 52px;
+	}
+
+	.tableName {
+		margin-left: 32px;
+	}
+
+	.tableAward {
+		margin-left: 248px;
+	}
+
+	.playerItem {
+		margin-top: 10px;
+	}
+}
+
 @media (max-width: 620px) {
 	.tableTitle h6 {
 		font-size: 20px;

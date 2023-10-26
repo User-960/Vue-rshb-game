@@ -34,13 +34,13 @@
 }
 
 .topData {
-	margin-right: 100px;
-	align-self: flex-end;
 	color: var(--primary-green);
 	text-align: center;
 	font-size: 32px;
 	font-weight: 700;
 	line-height: 48px;
+
+	width: 100%;
 }
 
 /* media */

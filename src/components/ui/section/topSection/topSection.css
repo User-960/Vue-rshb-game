@@ -26,9 +26,11 @@
 	justify-content: center;
 	align-items: center;
 
-	max-width: 837px;
+	/* max-width: 837px; */
+	min-height: 202px;
+	max-width: 75%;
 	width: 100%;
-	padding: 41px 90px 26px 90px;
+	padding: 41px 50px 26px 50px;
 
 	border-radius: 36px;
 	border: 2px solid var(--primary-green);
@@ -44,13 +46,14 @@
 }
 
 .topData {
-	margin-right: 25px;
-	align-self: flex-end;
 	color: var(--primary-green);
-	text-align: center;
+	text-align: end;
 	font-size: 32px;
 	font-weight: 700;
 	line-height: 48px;
+
+	max-width: 625px;
+	width: 100%;
 }
 
 @media (max-width: 960px) {
@@ -60,6 +63,7 @@
 	}
 
 	.topBlock {
+		margin: 0 auto;
 		margin-top: 40px;
 		padding: 41px 70px 26px 70px;
 	}
@@ -84,9 +88,6 @@
 		align-self: center;
 		margin-right: 0px;
 	}
-}
-
-@media (max-width: 660px) {
 }
 
 @media (max-width: 500px) {
