@@ -132,7 +132,7 @@
       </bank>
     </div>
 
-    <infoBlockM v-click-outside='skipInfoIntroduction' v-if='GET_FIVE_INFO_INTRODUCTION'>
+    <infoBlockM v-if='GET_FIVE_INFO_INTRODUCTION'>
       <template v-slot:contentText>
         <p>
           Теперь Вы можете получить гринкоины - это цифровая валюта, с помощью которой Вы можете совершать покупки нового оборудования в магазине и заплатить своим друзьям за помощь.
@@ -149,7 +149,7 @@
       </template>
     </infoBlockM>
 
-    <infoBlockM v-click-outside='skipInfoIntroduction' v-if='GET_SIX_INFO_INTRODUCTION'>
+    <infoBlockM v-if='GET_SIX_INFO_INTRODUCTION'>
       <template v-slot:contentText>
         <p>
           В магазине можно приобрести необходимое оборудование, которое потребуется для прохождения мини игр в локации Дом.

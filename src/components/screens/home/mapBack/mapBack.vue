@@ -6,7 +6,7 @@
         <div :class='styles.infoBlockWrapper' 
           v-if='GET_FIRST_INFO_INTRODUCTION || GET_SECOND_INFO_INTRODUCTION || GET_THIRD_INFO_INTRODUCTION || GET_FOUR_INFO_INTRODUCTION || GET_SEVEN_INFO_INTRODUCTION'
         >
-          <infoBlockM v-click-outside='skipInfoIntroduction' v-if='GET_FIRST_INFO_INTRODUCTION'>
+          <infoBlockM v-if='GET_FIRST_INFO_INTRODUCTION'>
             <template v-slot:contentText>
               <p>
                 Вы – молодой специалист, недавно завершивший обучение перспективного направления «Плодово - ягодные культуры» сельскохозяйственной школы <span>“Своё фермерство”</span>.
@@ -24,7 +24,7 @@
             </template>
           </infoBlockM>
 
-          <infoBlockM v-click-outside='skipInfoIntroduction' v-if='GET_SECOND_INFO_INTRODUCTION'>
+          <infoBlockM v-if='GET_SECOND_INFO_INTRODUCTION'>
             <template v-slot:contentText>
               <p>
                 Вы решили арендовать неиспользуемую землю и применить полученные знания для реализации давней задумки.
@@ -42,7 +42,7 @@
             </template>
           </infoBlockM>
 
-          <infoBlockM v-click-outside='skipInfoIntroduction' v-if='GET_THIRD_INFO_INTRODUCTION'>
+          <infoBlockM v-if='GET_THIRD_INFO_INTRODUCTION'>
             <template v-slot:contentText>
               <p>
                 Вы поэтапно описали план своих действий и предоставили подробную смету по расходам на оборудование и расчёт планируемой прибыли.
@@ -60,7 +60,7 @@
             </template>
           </infoBlockM>
 
-          <infoBlockM v-click-outside='skipInfoIntroduction' v-if='GET_FOUR_INFO_INTRODUCTION'>
+          <infoBlockM v-if='GET_FOUR_INFO_INTRODUCTION'>
             <template v-slot:contentText>
               <p>
                 На главной карте изображены 3 локации: Лаборатория, Теплица и Дом. Локации открываются по мере прохождения мини игр в них. Так же можно заработать ачивки в мини играх выполняя определённые условия для их получения.
@@ -79,7 +79,7 @@
             </template>
           </infoBlockM>
 
-          <infoBlockM v-click-outside='skipInfoIntroduction' v-if='GET_SEVEN_INFO_INTRODUCTION'>
+          <infoBlockM v-if='GET_SEVEN_INFO_INTRODUCTION'>
             <template v-slot:contentText>
               <p>
                 Сбор урожая завершён. Давай его продадим на сельскохозяйственном маркетплейсе <span>“Своё родное”</span>?
