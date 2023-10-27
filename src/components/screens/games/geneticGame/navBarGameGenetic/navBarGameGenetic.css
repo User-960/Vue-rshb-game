@@ -56,6 +56,38 @@
 	height: 100%;
 }
 
+@media (max-width: 1280px) {
+	.navBarGameGenetic {
+		width: var(--desktop-width);
+		height: var(--desktop-height);
+		margin: 0 auto;
+	}
+
+	.navigationLevelsWrapper {
+		bottom: 210px;
+		left: 24px;
+		transform: scale(1);
+	}
+
+	.exitButtonWrapper {
+		bottom: 24px;
+		left: 24px;
+		transform: scale(1);
+	}
+
+	.blockButtonPoints {
+		top: 128px;
+		right: 24px;
+		transform: scale(1);
+	}
+
+	.blockButtonWallet {
+		top: 24px;
+		right: 24px;
+		transform: scale(1);
+	}
+}
+
 @media (max-width: 1248px) {
 	.navBarGameGenetic {
 		width: var(--tablet-width);

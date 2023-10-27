@@ -115,6 +115,12 @@
 }
 
 /* media */
+@media (max-width: 1280px) {
+	.rulesBlockGame {
+		transform: scale(1);
+	}
+}
+
 @media (max-width: 1248px) {
 	.rulesBlockGame {
 		transform: scale(0.8);
