@@ -475,9 +475,12 @@
 		transform: scale(1);
 	}
 
+	.trees.beforeThirdGame {
+		height: 245px;
+	}
+
 	.trees.beforeFifthGame {
 		height: 245px;
-		background-image: url(../../../../../public/images/treesApples.svg);
 	}
 
 	.arrowUpBank {
@@ -542,9 +545,12 @@
 		transform: scale(1);
 	}
 
+	.trees.beforeThirdGame {
+		height: 202px;
+	}
+
 	.trees.beforeFifthGame {
 		height: 202px;
-		background-image: url(../../../../../public/images/treesApples.svg);
 	}
 
 	.arrowUpBank {
@@ -606,9 +612,12 @@
 		transform: scale(1);
 	}
 
+	.trees.beforeThirdGame {
+		height: 186px;
+	}
+
 	.trees.beforeFifthGame {
 		height: 186px;
-		background-image: url(../../../../../public/images/treesApples.svg);
 	}
 
 	.arrowUpBank {
@@ -671,9 +680,12 @@
 		transform: scale(1);
 	}
 
+	.trees.beforeThirdGame {
+		height: 200px;
+	}
+
 	.trees.beforeFifthGame {
 		height: 200px;
-		background-image: url(../../../../../public/images/treesApples.svg);
 	}
 
 	.arrowUpBank {
