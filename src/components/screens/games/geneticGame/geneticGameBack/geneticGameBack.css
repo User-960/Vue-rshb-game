@@ -3,8 +3,8 @@
 .gameBack {
 	position: relative;
 	background-color: var(--primary-black);
-	width: var(--desktop-width);
-	height: var(--desktop-height);
+	width: var(--notebook-width);
+	height: var(--notebook-height);
 }
 
 .chemistryTableWrapper {

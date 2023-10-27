@@ -28,6 +28,7 @@
 	border: 4px solid var(--primary-green);
 	background-color: var(--primary-black);
 
+	transform: scale(1.3);
 	z-index: 130;
 }
 
