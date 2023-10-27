@@ -324,7 +324,7 @@
 }
 
 /* media */
-@media (max-width: 1044px) {
+@media (max-width: 1248px) {
 	.flasksContainer {
 		position: relative;
 		top: 67px;
@@ -367,7 +367,7 @@
 	}
 }
 
-@media (max-width: 778px) {
+@media (max-width: 1078px) {
 	.flasksContainer {
 		position: relative;
 		top: 134px;
