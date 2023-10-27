@@ -156,7 +156,12 @@
 
 	.bigFlaskEmpty {
 		bottom: 10px;
+		left: 185px;
 		width: 160px;
+	}
+
+	.plant {
+		left: 175px;
 	}
 
 	.plantSproutTomato {
@@ -168,7 +173,7 @@
 	}
 
 	.plantModifiedTomato {
-		left: 108px;
+		left: 93px;
 		bottom: 100px;
 	}
 
@@ -177,12 +182,12 @@
 	}
 
 	.plantColorPepper {
-		left: 175px;
+		left: 160px;
 		bottom: 100px;
 	}
 
 	.plantModifiedPepper {
-		left: 130px;
+		left: 115px;
 		bottom: 100px;
 	}
 
@@ -191,12 +196,12 @@
 	}
 
 	.plantColorStrawberry {
-		left: 195px;
+		left: 180px;
 		bottom: 94px;
 	}
 
 	.plantModifiedStrawberry {
-		left: 195px;
+		left: 180px;
 		bottom: 94px;
 	}
 }

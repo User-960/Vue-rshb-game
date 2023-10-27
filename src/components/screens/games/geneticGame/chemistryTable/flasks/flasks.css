@@ -353,12 +353,14 @@
 	}
 
 	.dropZoneContainer {
-		min-width: 110px;
+		min-width: 120px;
 		min-height: 81px;
 		top: 12px;
+		left: -24px;
 	}
 
 	.effect {
 		top: -30px;
+		left: -23px;
 	}
 }
