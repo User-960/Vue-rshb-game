@@ -176,7 +176,7 @@
 	}
 }
 
-@media (max-width: 980px) {
+@media (max-width: 920px) {
 	.victoryBlockGame {
 		transform: scale(0.4);
 	}

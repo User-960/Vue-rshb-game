@@ -161,7 +161,7 @@
 	}
 }
 
-@media (max-width: 980px) {
+@media (max-width: 920px) {
 	.bonusBlock {
 		transform: scale(0.4);
 	}
