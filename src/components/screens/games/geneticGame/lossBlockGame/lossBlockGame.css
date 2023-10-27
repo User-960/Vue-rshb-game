@@ -133,6 +133,12 @@
 }
 
 /* media */
+@media (max-width: 1580px) {
+	.lossBlockGame {
+		transform: scale(1.3);
+	}
+}
+
 @media (max-width: 1280px) {
 	.lossBlockGame {
 		transform: scale(1);

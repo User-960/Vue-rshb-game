@@ -113,6 +113,19 @@
 }
 
 /* media */
+@media (max-width: 1580px) {
+	.gameBack {
+		width: var(--notebook-width);
+		height: var(--notebook-height);
+	}
+
+	.dialogMariaWrapper {
+		bottom: 31px;
+		right: 56px;
+		transform: scale(1.1);
+	}
+}
+
 @media (max-width: 1280px) {
 	.gameBack {
 		width: var(--desktop-width);

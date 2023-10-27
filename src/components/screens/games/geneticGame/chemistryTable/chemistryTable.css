@@ -148,6 +148,87 @@
 }
 
 /* media */
+@media (max-width: 1580px) {
+	.chemistryTableBack {
+		width: 990px;
+		height: 200px;
+	}
+
+	.bigFlaskEmpty {
+		bottom: 5px;
+		left: 230px;
+
+		width: 235px;
+		height: 200px;
+	}
+
+	.plant {
+		transform: scale(1.3);
+	}
+
+	.plantSproutTomato {
+		left: 244px;
+		transform: scale(1.3);
+
+		bottom: 148px;
+	}
+
+	.plantColorTomato {
+		left: 235px;
+		bottom: 155px;
+
+		transform: scale(1.3);
+	}
+
+	.plantModifiedTomato {
+		left: 170px;
+		bottom: 165px;
+
+		transform: scale(1.2);
+	}
+
+	.plantSproutPepper {
+		left: 237px;
+		bottom: 147px;
+
+		transform: scale(1.3);
+	}
+
+	.plantColorPepper {
+		left: 228px;
+		bottom: 153px;
+
+		transform: scale(1.3);
+	}
+
+	.plantModifiedPepper {
+		left: 192px;
+		bottom: 171px;
+		transform: scale(1.3);
+	}
+
+	.plantSproutStrawberry {
+		left: 245px;
+		bottom: 126px;
+
+		transform: scale(1);
+	}
+
+	.plantColorStrawberry {
+		left: 242px;
+		bottom: 133px;
+
+		transform: scale(1);
+	}
+
+	.plantModifiedStrawberry {
+		left: 242px;
+		bottom: 133px;
+
+		transform: scale(1);
+	}
+}
+
 @media (max-width: 1280px) {
 	.chemistryTableBack {
 		width: 870px;

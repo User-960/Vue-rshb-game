@@ -323,6 +323,45 @@
 }
 
 /* media */
+@media (max-width: 1580px) {
+	.flasksContainer {
+		position: relative;
+		top: 36px;
+		left: 222px;
+
+		min-width: 338px;
+	}
+
+	.flask {
+		width: 30px;
+		height: 87px;
+	}
+
+	.flasksBox {
+		width: 338px;
+	}
+
+	.flasksList {
+		top: -10px;
+		left: 27px;
+	}
+
+	.dropZoneContainer {
+		min-width: 120px;
+		min-height: 87px;
+
+		left: 45px;
+		top: -25px;
+	}
+
+	.effect {
+		left: -38px;
+		top: -25px;
+
+		transform: scale(1.2);
+	}
+}
+
 @media (max-width: 1280px) {
 	.flasksContainer {
 		position: relative;
