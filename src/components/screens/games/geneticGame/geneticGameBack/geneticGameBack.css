@@ -137,3 +137,16 @@
 		transform: scale(0.5);
 	}
 }
+
+@media (max-width: 790px) {
+	.gameBack {
+		width: var(--mobile-width);
+		height: var(--mobile-height);
+	}
+
+	.dialogMariaWrapper {
+		bottom: 0px;
+		right: -50px;
+		transform: scale(0.29);
+	}
+}

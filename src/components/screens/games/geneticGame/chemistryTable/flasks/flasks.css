@@ -409,3 +409,54 @@
 		transform: scale(0.6);
 	}
 }
+
+@media (max-width: 790px) {
+	.wrapper {
+		left: 50px;
+	}
+
+	.flasksContainer {
+		position: relative;
+		top: 155px;
+		left: 5px;
+
+		min-width: 338px;
+	}
+
+	.flask {
+		margin: 0px 1px;
+
+		width: 16px;
+		height: 46px;
+
+		background-size: cover;
+	}
+
+	.flasksBox {
+		width: 228px;
+		background-size: contain;
+	}
+
+	.flasksList {
+		top: 3px;
+		left: 22px;
+	}
+
+	.dropZoneContainer {
+		min-width: 110px;
+		min-height: 81px;
+		top: 89px;
+		left: 9px;
+	}
+
+	.listDrop {
+		top: 0px;
+	}
+
+	.effect {
+		top: -40px;
+		left: -50px;
+
+		transform: scale(0.4);
+	}
+}

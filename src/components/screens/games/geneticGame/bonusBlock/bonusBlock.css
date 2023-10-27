@@ -160,3 +160,9 @@
 		transform: scale(0.6);
 	}
 }
+
+@media (max-width: 790px) {
+	.bonusBlock {
+		transform: scale(0.4);
+	}
+}
