@@ -129,6 +129,7 @@
 
 @media (max-width: 920px) {
 	.rulesBlockGame {
-		transform: scale(0.4);
+		transform: scale(0.35);
+		width: 650px;
 	}
 }
