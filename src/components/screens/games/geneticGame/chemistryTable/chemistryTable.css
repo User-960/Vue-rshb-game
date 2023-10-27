@@ -150,14 +150,14 @@
 /* media */
 @media (max-width: 1044px) {
 	.chemistryTableBack {
-		width: 700px;
-		height: 130px;
+		width: 690px;
+		height: 140px;
 	}
 
 	.bigFlaskEmpty {
-		bottom: 10px;
+		bottom: 15px;
 		left: 185px;
-		width: 160px;
+		width: 150px;
 	}
 
 	.plant {
@@ -203,5 +203,84 @@
 	.plantModifiedStrawberry {
 		left: 180px;
 		bottom: 94px;
+	}
+}
+
+/* media */
+@media (max-width: 778px) {
+	.chemistryTableBack {
+		width: 520px;
+		height: 105px;
+	}
+
+	.bigFlaskEmpty {
+		bottom: 10px;
+		left: 125px;
+		width: 125px;
+	}
+
+	.plant {
+		bottom: 71px;
+		left: 102px;
+
+		transform: scale(0.8);
+	}
+
+	.plantSproutTomato {
+		bottom: 71px;
+
+		transform: scale(0.8);
+	}
+
+	.plantColorTomato {
+		bottom: 71px;
+
+		transform: scale(0.8);
+	}
+
+	.plantModifiedTomato {
+		left: 27px;
+		bottom: 30px;
+
+		transform: scale(0.6);
+	}
+
+	.plantSproutPepper {
+		bottom: 71px;
+
+		transform: scale(0.8);
+	}
+
+	.plantColorPepper {
+		left: 95px;
+		bottom: 60px;
+
+		transform: scale(0.6);
+	}
+
+	.plantModifiedPepper {
+		left: 38px;
+		bottom: 35px;
+		transform: scale(0.6);
+	}
+
+	.plantSproutStrawberry {
+		bottom: 60px;
+
+		transform: scale(0.8);
+	}
+
+	.plantColorStrawberry {
+		left: 102px;
+		bottom: 63px;
+
+		transform: scale(0.8);
+	}
+
+	.plantModifiedStrawberry {
+		left: 102px;
+		bottom: 63px;
+
+		transform: scale(0.8);
 	}
 }

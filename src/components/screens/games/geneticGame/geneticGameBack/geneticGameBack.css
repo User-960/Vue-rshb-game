@@ -125,3 +125,15 @@
 		transform: scale(0.8);
 	}
 }
+
+@media (max-width: 778px) {
+	.gameBack {
+		width: var(--tablet-mobile-width);
+		height: var(--tablet-mobile-height);
+	}
+
+	.dialogMariaWrapper {
+		bottom: -10px;
+		transform: scale(0.5);
+	}
+}

@@ -169,3 +169,9 @@
 		transform: scale(0.8);
 	}
 }
+
+@media (max-width: 778px) {
+	.victoryBlockGame {
+		transform: scale(0.6);
+	}
+}
