@@ -116,6 +116,38 @@
 
 @media (max-width: 920px) {
 	.navBarGameGenetic {
+		width: var(--middle-mobile-width);
+		height: var(--middle-mobile-height);
+		margin: 0 auto;
+	}
+
+	.blockButtonWallet {
+		top: -15px;
+		right: -25px;
+		transform: scale(0.5);
+	}
+
+	.blockButtonPoints {
+		top: 30px;
+		right: -25px;
+		transform: scale(0.5);
+	}
+
+	.exitButtonWrapper {
+		left: -4px;
+		bottom: -10px;
+		transform: scale(0.5);
+	}
+
+	.navigationLevelsWrapper {
+		left: -4px;
+		bottom: 51px;
+		transform: scale(0.5);
+	}
+}
+
+@media (max-width: 770px) {
+	.navBarGameGenetic {
 		width: var(--mobile-width);
 		height: var(--mobile-height);
 		margin: 0 auto;

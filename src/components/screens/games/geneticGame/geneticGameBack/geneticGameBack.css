@@ -140,12 +140,24 @@
 
 @media (max-width: 920px) {
 	.gameBack {
+		width: var(--middle-mobile-width);
+		height: var(--middle-mobile-height);
+	}
+
+	.dialogMariaWrapper {
+		bottom: 0px;
+		transform: scale(0.4);
+	}
+}
+
+@media (max-width: 770px) {
+	.gameBack {
 		width: var(--mobile-width);
 		height: var(--mobile-height);
 	}
 
 	.dialogMariaWrapper {
-		bottom: 0px;
+		bottom: -5px;
 		right: -50px;
 		transform: scale(0.29);
 	}

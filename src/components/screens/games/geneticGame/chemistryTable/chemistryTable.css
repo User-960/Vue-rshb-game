@@ -287,6 +287,13 @@
 
 @media (max-width: 920px) {
 	.chemistryTableBack {
+		width: 500px;
+		height: 100px;
+	}
+}
+
+@media (max-width: 770px) {
+	.chemistryTableBack {
 		width: 390px;
 		height: 82px;
 	}

@@ -163,6 +163,12 @@
 
 @media (max-width: 920px) {
 	.bonusBlock {
+		transform: scale(0.5);
+	}
+}
+
+@media (max-width: 770px) {
+	.bonusBlock {
 		transform: scale(0.4);
 	}
 }
