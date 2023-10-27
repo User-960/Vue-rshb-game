@@ -177,17 +177,3 @@
 		transform: scale(0.4);
 	}
 }
-
-/* @media (max-width: 760px) {
-	.navBarGameCollector {
-		margin: 0 auto;
-		zoom: var(--zoom-mobile-mini);
-	}
-}
-
-@media (max-width: 600px) {
-	.navBarGameCollector {
-		margin: 0 auto;
-		zoom: var(--zoom-mobile-ultra-mini);
-	}
-} */
