@@ -6,8 +6,8 @@
 	background-position: top;
 	background-size: cover;
 
-	max-width: var(--desktop-width);
-	max-height: var(--desktop-height);
+	max-width: var(--notebook-width);
+	max-height: var(--notebook-height);
 
 	width: 100%;
 	height: 100%;
@@ -25,6 +25,10 @@
 	background-color: rgba(0, 0, 0, 0.5);
 	z-index: 120;
 	animation: opacity 0.8s;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .arrowUpBank,
@@ -34,7 +38,6 @@
 	background-position: top;
 	background-size: contain;
 
-	width: 220px;
 	height: 220px;
 
 	position: absolute;
@@ -45,11 +48,13 @@
 }
 
 .arrowUpBank {
-	left: 41.5%;
+	width: 190px;
+	left: 48.5%;
 }
 
 .arrowUpShop {
-	left: 46.5%;
+	width: 190px;
+	left: 48.5%;
 }
 
 .lab {
@@ -59,7 +64,7 @@
 	background-position-y: bottom;
 
 	position: absolute;
-	bottom: 155px;
+	bottom: 247px;
 	right: 95px;
 
 	/* width: 350px;
@@ -71,6 +76,8 @@
 
 	cursor: not-allowed;
 	z-index: 100;
+
+	transform: scale(1.3);
 }
 
 .labAvailable {
@@ -86,8 +93,8 @@
 
 	position: absolute;
 
-	top: 110px;
-	left: 334px;
+	top: 170px;
+	left: 380px;
 
 	/* width: 375px;
 	height: 147px; */
@@ -98,6 +105,8 @@
 
 	cursor: not-allowed;
 	z-index: 100;
+
+	transform: scale(1.3);
 }
 
 .greenhouse {
@@ -116,10 +125,12 @@
 	height: 100%;
 
 	left: 80px;
-	bottom: 117px;
+	bottom: 181px;
 
 	cursor: not-allowed;
 	z-index: 100;
+
+	transform: scale(1.3);
 }
 
 .houseAvailable {
@@ -139,11 +150,12 @@
 	background-size: contain;
 
 	position: absolute;
-	width: 96%;
 	height: 310px;
 
-	left: 15px;
-	top: 68px;
+	width: 86%;
+	top: 64px;
+	left: 105px;
+	transform: scale(1.15);
 }
 
 .gardenBed {
@@ -155,8 +167,10 @@
 	width: 50%;
 	height: 270px;
 
-	left: 320px;
-	bottom: 80px;
+	bottom: 149px;
+	left: 380px;
+
+	transform: scale(1.3);
 }
 
 .gardenBed.startGame {
@@ -189,8 +203,8 @@
 	width: 54%;
 	height: 350px;
 
-	left: 284px;
-	bottom: 35px;
+	left: 325px;
+	bottom: 92px;
 }
 
 .trees.beforeFifthGame {
@@ -203,8 +217,8 @@
 	width: 51%;
 	height: 310px;
 
-	left: 316px;
-	bottom: 62px;
+	bottom: 131px;
+	left: 365px;
 }
 
 /* animations */
@@ -268,141 +282,411 @@
 	}
 
 	to {
-		top: 40px;
+		top: 30px;
 		opacity: 1;
 	}
 }
 
-/* @media (max-width: 1044px) {
-	.map {
-		max-width: var(--tablet-width);
-		max-height: var(--tablet-height);
+@keyframes arrowUpMobile {
+	from {
+		opacity: 0;
+		top: 120px;
 	}
 
-	.lab {
-		max-width: 250px;
-		max-height: 250px;
-		bottom: 110px;
-		right: 60px;
-	}
-
-	.house {
-		max-width: 305px;
-		max-height: 110px;
-		left: 280px;
-	}
-
-	.greenhouse {
-		max-width: 205px;
-		max-height: 255px;
-
-		left: 65px;
-		bottom: 75px;
-	}
-
-	.gardenBed {
-		left: 260px;
-		bottom: 40px;
-	}
-
-	.gardenBed.beforeFourthGame {
-		height: 335px;
-		left: 230px;
-		bottom: 3px;
-	}
-
-	.gardenBed.beforeFifthGame {
-		left: 255px;
-		bottom: 8px;
-	}
-
-	.trees {
-		top: 32px;
-	}
-
-	.arrowUpBank,
-	.arrowUpShop {
-		top: 40px;
-		animation: arrowUpTablet 2s;
-	}
-
-	.arrowUpBank {
-		left: 39.5%;
-	}
-
-	.arrowUpShop {
-		left: 44.5%;
-	}
-} */
-
-/* @media (max-width: 788px) {
-	.map {
-		max-width: var(--tablet-mobile-width);
-		max-height: var(--tablet-mobile-height);
-	}
-
-	.lab {
-		background-image: url(../../../../../public/images/labTableMobile.svg);
-		max-width: 190px;
-		max-height: 200px;
-		bottom: 105px;
-		right: 90px;
-	}
-
-	.labAvailable {
-		background-image: url(../../../../../public/images/labTableMobileAvailable.svg);
-		cursor: pointer;
-	}
-
-	.gardenBed {
-		left: 195px;
-		bottom: 0px;
-	}
-
-	.gardenBed.beforeFifthGame {
-		left: 193px;
-		bottom: 0px;
-		height: 268px;
-	}
-
-	.house {
-		background-image: url(../../../../../public/images/houseTableMobile.svg);
-		max-width: 220px;
-		max-height: 115px;
-		left: 200px;
-		top: 48px;
-	}
-
-	.greenhouse {
-		background-image: url(../../../../../public/images/greenhouseTableMobile.svg);
-		max-width: 115px;
-		max-height: 180px;
-		left: 76px;
-		bottom: 78px;
-	}
-
-	.trees {
-		top: -12px;
-	}
-
-	.arrowUpBank,
-	.arrowUpShop {
-		top: 40px;
-		animation: arrowUpTablet 2s;
-	}
-
-	.arrowUpBank {
-		left: 39.5%;
-	}
-
-	.arrowUpShop {
-		left: 44.5%;
+	to {
+		top: 24px;
+		opacity: 1;
 	}
 }
 
-@media (max-width: 532px) {
-	.map {
-		max-width: var(--mobile-width);
-		max-height: var(--mobile-height);
+@keyframes arrowUpMobileMini {
+	from {
+		opacity: 0;
+		top: 120px;
 	}
-} */
+
+	to {
+		top: 14px;
+		opacity: 1;
+	}
+}
+
+@media (max-width: 1580px) {
+	.map {
+		max-width: var(--notebook-width);
+		max-height: var(--notebook-height);
+	}
+
+	.lab {
+		transform: scale(1.3);
+	}
+
+	.house {
+		transform: scale(1.3);
+	}
+
+	.greenhouse {
+		transform: scale(1.3);
+	}
+
+	.gardenBed.beforeFifthGame {
+		transform: scale(1.3);
+	}
+
+	.arrowUpBank {
+		width: 190px;
+		left: 43.5%;
+	}
+
+	.arrowUpShop {
+		width: 190px;
+		left: 48.5%;
+	}
+}
+
+@media (max-width: 1280px) {
+	.map {
+		width: var(--desktop-width);
+		height: var(--desktop-height);
+	}
+
+	.lab {
+		bottom: 155px;
+		transform: scale(1);
+	}
+
+	.house {
+		top: 110px;
+		left: 334px;
+
+		transform: scale(1);
+	}
+
+	.greenhouse {
+		bottom: 117px;
+
+		transform: scale(1);
+	}
+
+	.gardenBed {
+		left: 320px;
+		bottom: 80px;
+
+		transform: scale(1);
+	}
+
+	.gardenBed.beforeFourthGame {
+		left: 284px;
+		bottom: 35px;
+	}
+
+	.gardenBed.beforeFifthGame {
+		left: 316px;
+		bottom: 62px;
+
+		transform: scale(1);
+	}
+
+	.trees {
+		background-image: url(../../../../../public/images/trees.svg);
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: contain;
+
+		position: absolute;
+		width: 96%;
+		height: 310px;
+
+		left: 15px;
+		top: 68px;
+
+		transform: scale(1);
+	}
+
+	.arrowUpBank {
+		width: 190px;
+		left: 42.5%;
+	}
+
+	.arrowUpShop {
+		width: 190px;
+		left: 47.5%;
+	}
+}
+
+@media (max-width: 1248px) {
+	.map {
+		width: var(--tablet-width);
+		height: var(--tablet-height);
+	}
+
+	.lab {
+		bottom: 100px;
+		right: 78px;
+		transform: scale(0.8);
+	}
+
+	.house {
+		top: 90px;
+		left: 213px;
+
+		transform: scale(0.8);
+	}
+
+	.greenhouse {
+		bottom: 59px;
+		left: 60px;
+
+		transform: scale(0.8);
+	}
+
+	.gardenBed {
+		left: 262px;
+		bottom: 38px;
+		transform: scale(1);
+	}
+
+	.gardenBed.beforeFourthGame {
+		left: 228px;
+		bottom: 0px;
+
+		transform: scale(0.97);
+	}
+
+	.gardenBed.beforeFifthGame {
+		left: 254px;
+		bottom: 19px;
+		transform: scale(1);
+	}
+
+	.trees {
+		background-image: url(../../../../../public/images/trees.svg);
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: contain;
+
+		position: absolute;
+		width: 96%;
+		height: 310px;
+
+		left: 15px;
+		top: 68px;
+
+		transform: scale(1);
+	}
+
+	.trees.beforeFifthGame {
+		height: 245px;
+		background-image: url(../../../../../public/images/treesApples.svg);
+	}
+
+	.arrowUpBank {
+		width: 190px;
+		left: 40.5%;
+	}
+
+	.arrowUpShop {
+		width: 190px;
+		left: 45.5%;
+	}
+}
+
+@media (max-width: 1168px) {
+	.map {
+		width: var(--tablet-mobile-width);
+		height: var(--tablet-mobile-height);
+	}
+
+	.lab {
+		bottom: 26px;
+		right: 2px;
+		transform: scale(0.6);
+	}
+
+	.house {
+		top: 36px;
+		left: 124px;
+		transform: scale(0.6);
+	}
+
+	.greenhouse {
+		bottom: 3px;
+		left: 7px;
+		transform: scale(0.6);
+	}
+
+	.gardenBed {
+		left: 203px;
+		bottom: 0px;
+		height: 265px;
+		transform: scale(1);
+	}
+
+	.gardenBed.beforeFourthGame {
+		left: 172px;
+		height: 252px;
+	}
+
+	.gardenBed.beforeFifthGame {
+		left: 194px;
+		height: 228px;
+		transform: scale(1);
+	}
+
+	.trees {
+		height: 200px;
+
+		left: 15px;
+		top: 38px;
+
+		transform: scale(1);
+	}
+
+	.trees.beforeFifthGame {
+		height: 202px;
+		background-image: url(../../../../../public/images/treesApples.svg);
+	}
+
+	.arrowUpBank {
+		left: 38%;
+		top: 30px;
+		animation: arrowUpTablet 2s;
+	}
+
+	.arrowUpShop {
+		left: 43%;
+		top: 30px;
+		animation: arrowUpTablet 2s;
+	}
+}
+
+@media (max-width: 920px) {
+	.map {
+		width: var(--middle-mobile-width);
+		height: var(--middle-mobile-height);
+	}
+
+	.lab {
+		bottom: -6px;
+		right: -31px;
+		transform: scale(0.5);
+	}
+
+	.house {
+		top: 26px;
+		left: 75px;
+		transform: scale(0.5);
+	}
+
+	.greenhouse {
+		bottom: -23px;
+		left: -8px;
+		transform: scale(0.5);
+	}
+
+	.gardenBed {
+		left: 166px;
+		height: 230px;
+		transform: scale(1);
+	}
+
+	.gardenBed.beforeFourthGame {
+		left: 143px;
+		height: 215px;
+	}
+
+	.gardenBed.beforeFifthGame {
+		left: 158px;
+		height: 185px;
+		transform: scale(1);
+	}
+
+	.trees {
+		top: 20px;
+		transform: scale(1);
+	}
+
+	.trees.beforeFifthGame {
+		height: 186px;
+		background-image: url(../../../../../public/images/treesApples.svg);
+	}
+
+	.arrowUpBank {
+		width: 170px;
+		left: 37%;
+		top: 24px;
+		animation: arrowUpMobile 2s;
+	}
+
+	.arrowUpShop {
+		width: 170px;
+		left: 43%;
+		top: 24px;
+		animation: arrowUpMobile 2s;
+	}
+}
+
+@media (max-width: 770px) {
+	.map {
+		width: var(--mobile-width);
+		height: var(--mobile-height);
+	}
+
+	.lab {
+		bottom: -15px;
+		right: -53px;
+		transform: scale(0.4);
+	}
+
+	.house {
+		top: 9px;
+		left: 19px;
+		transform: scale(0.4);
+	}
+
+	.greenhouse {
+		bottom: -34px;
+		left: -31px;
+		transform: scale(0.4);
+	}
+
+	.gardenBed {
+		left: 134px;
+		height: 180px;
+	}
+
+	.gardenBed.beforeFourthGame {
+		left: 116px;
+		height: 168px;
+	}
+
+	.gardenBed.beforeFifthGame {
+		left: 125px;
+		height: 142px;
+		transform: scale(1);
+	}
+
+	.trees {
+		top: -4px;
+		transform: scale(1);
+	}
+
+	.trees.beforeFifthGame {
+		height: 200px;
+		background-image: url(../../../../../public/images/treesApples.svg);
+	}
+
+	.arrowUpBank {
+		width: 150px;
+		left: 35.5%;
+		top: 14px;
+		animation: arrowUpMobileMini 2s;
+	}
+
+	.arrowUpShop {
+		width: 150px;
+		left: 41%;
+		top: 14px;
+		animation: arrowUpMobileMini 2s;
+	}
+}

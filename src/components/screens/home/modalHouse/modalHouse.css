@@ -7,6 +7,10 @@
 	background-color: rgba(0, 0, 0, 0.5);
 	z-index: 120;
 	animation: opacity 0.8s;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .modalHouse {
@@ -15,9 +19,8 @@
 
 	max-width: 360px;
 	min-height: 230px;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+
+	transform: scale(1.4);
 
 	display: flex;
 	flex-direction: column;
@@ -49,5 +52,41 @@
 
 	to {
 		opacity: 1;
+	}
+}
+
+@media (max-width: 1580px) {
+	.modalHouse {
+		transform: scale(1.4);
+	}
+}
+
+@media (max-width: 1280px) {
+	.modalHouse {
+		transform: scale(1);
+	}
+}
+
+@media (max-width: 1248px) {
+	.modalHouse {
+		transform: scale(0.8);
+	}
+}
+
+@media (max-width: 1168px) {
+	.modalHouse {
+		transform: scale(0.6);
+	}
+}
+
+@media (max-width: 920px) {
+	.modalHouse {
+		transform: scale(0.4);
+	}
+}
+
+@media (max-width: 770px) {
+	.modalHouse {
+		transform: scale(0.4);
 	}
 }
