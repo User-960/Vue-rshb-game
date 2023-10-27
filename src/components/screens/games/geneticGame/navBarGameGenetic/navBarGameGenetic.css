@@ -82,7 +82,7 @@
 	}
 }
 
-@media (max-width: 1078px) {
+@media (max-width: 1168px) {
 	.navBarGameGenetic {
 		width: var(--tablet-mobile-width);
 		height: var(--tablet-mobile-height);
@@ -114,7 +114,7 @@
 	}
 }
 
-@media (max-width: 790px) {
+@media (max-width: 980px) {
 	.navBarGameGenetic {
 		width: var(--mobile-width);
 		height: var(--mobile-height);

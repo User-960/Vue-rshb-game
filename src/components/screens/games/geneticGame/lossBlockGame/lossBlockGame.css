@@ -139,13 +139,13 @@
 	}
 }
 
-@media (max-width: 1078px) {
+@media (max-width: 1168px) {
 	.lossBlockGame {
 		transform: scale(0.6);
 	}
 }
 
-@media (max-width: 790px) {
+@media (max-width: 980px) {
 	.lossBlockGame {
 		transform: scale(0.4);
 	}

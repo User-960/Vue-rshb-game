@@ -207,7 +207,7 @@
 }
 
 /* media */
-@media (max-width: 1078px) {
+@media (max-width: 1168px) {
 	.chemistryTableBack {
 		width: 520px;
 		height: 105px;
@@ -285,7 +285,7 @@
 	}
 }
 
-@media (max-width: 790px) {
+@media (max-width: 980px) {
 	.chemistryTableBack {
 		width: 390px;
 		height: 82px;
