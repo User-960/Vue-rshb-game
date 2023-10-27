@@ -5,23 +5,25 @@
 	background-image: url(../../../../../../public/images/aiGameBack.svg);
 	background-repeat: no-repeat;
 	background-position: center;
-	background-size: contain;
+	background-size: cover;
 
-	width: var(--desktop-width);
-	height: var(--desktop-height);
+	width: var(--notebook-width);
+	height: var(--notebook-height);
 }
 
 .screenWrapper {
 	position: absolute;
-	top: 25px;
 	left: 50%;
 	margin-left: -350px;
+	top: 87px;
+	transform: scale(1.22);
 }
 
 .numPadTable {
 	position: absolute;
-	bottom: 28px;
-	left: 210px;
+
+	bottom: 79px;
+	left: 199px;
 
 	background-image: url(../../../../../../public/images/numPad.svg);
 	background-repeat: no-repeat;
@@ -47,7 +49,7 @@
 
 .bookTable {
 	position: absolute;
-	bottom: 0px;
+	bottom: 40px;
 	right: 100px;
 
 	background-image: url(../../../../../../public/images/bookTable.svg);
@@ -69,25 +71,173 @@
 	background-image: url(../../../../../../public/images/bookTableActive.svg);
 }
 
-/* @media (max-width: 1044px) {
+/* media */
+@media (max-width: 1580px) {
 	.gameBack {
-		background-size: cover;
+		width: var(--notebook-width);
+		height: var(--notebook-height);
+	}
 
+	.screenWrapper {
+		position: absolute;
+		top: 87px;
+		left: 50%;
+		margin-left: -350px;
+
+		transform: scale(1.22);
+	}
+
+	.numPadTable {
+		bottom: 79px;
+		left: 199px;
+	}
+
+	.bookTable {
+		bottom: 40px;
+		right: 100px;
+	}
+}
+
+@media (max-width: 1280px) {
+	.gameBack {
+		width: var(--desktop-width);
+		height: var(--desktop-height);
+	}
+
+	.screenWrapper {
+		position: absolute;
+		top: 25px;
+		left: 50%;
+		margin-left: -350px;
+
+		transform: scale(1);
+	}
+
+	.numPadTable {
+		bottom: 26px;
+		left: 210px;
+	}
+
+	.bookTable {
+		bottom: 0px;
+		right: 100px;
+	}
+}
+
+@media (max-width: 1248px) {
+	.gameBack {
 		width: var(--tablet-width);
 		height: var(--tablet-height);
 	}
 
 	.screenWrapper {
-		top: -25px;
-		margin-left: -368px;
-	}
+		top: -28px;
+		left: 50%;
+		margin-left: -367px;
 
-	.screenWrapper,
-	.numPadTable,
-	.numPadTableAvailable,
-	.numPadTableActive,
-	.bookTable,
-	.bookTableActive {
 		transform: scale(0.8);
 	}
-} */
+
+	.numPadTable {
+		bottom: 0px;
+		left: 157px;
+		max-height: 163px;
+		transform: scale(1);
+	}
+
+	.bookTable {
+		max-width: 118px;
+		max-height: 144px;
+	}
+}
+
+@media (max-width: 1168px) {
+	.gameBack {
+		width: var(--tablet-mobile-width);
+		height: var(--tablet-mobile-height);
+	}
+
+	.screenWrapper {
+		top: -70px;
+		left: 50%;
+		margin-left: -376px;
+
+		transform: scale(0.6);
+	}
+
+	.numPadTable {
+		bottom: 0px;
+		left: 100px;
+		max-height: 136px;
+		transform: scale(0.8);
+	}
+
+	.bookTable {
+		max-width: 118px;
+		max-height: 130px;
+		bottom: 0;
+		right: 78px;
+		transform: scale(0.9);
+	}
+}
+
+@media (max-width: 920px) {
+	.gameBack {
+		width: var(--middle-mobile-width);
+		height: var(--middle-mobile-height);
+	}
+
+	.screenWrapper {
+		top: -97px;
+		left: 50%;
+		margin-left: -376px;
+
+		transform: scale(0.5);
+	}
+
+	.numPadTable {
+		bottom: 0px;
+		left: 67px;
+		max-height: 113px;
+		transform: scale(0.8);
+	}
+
+	.bookTable {
+		max-width: 118px;
+		max-height: 111px;
+		bottom: 0;
+		right: 78px;
+		transform: scale(0.8);
+	}
+}
+
+@media (max-width: 770px) {
+	.gameBack {
+		width: var(--mobile-width);
+		height: var(--mobile-height);
+	}
+
+	.screenWrapper {
+		top: -120px;
+		left: 50%;
+		margin-left: -376px;
+
+		transform: scale(0.4);
+	}
+
+	.numPadTable {
+		bottom: 0px;
+
+		left: 42px;
+		max-height: 92px;
+		transform: scale(0.8);
+	}
+
+	.bookTable {
+		max-width: 118px;
+		max-height: 92px;
+		bottom: 0;
+		right: 48px;
+		transform: scale(0.8);
+	}
+}
