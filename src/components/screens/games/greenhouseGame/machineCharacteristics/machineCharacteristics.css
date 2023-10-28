@@ -256,6 +256,14 @@
 		left: 48px;
 		transform: scale(0.83);
 	}
+
+	.machineCharacteristicsTomato,
+	.machineCharacteristicsPepper,
+	.machineCharacteristicsStrawberry {
+		bottom: 30px;
+		left: 77px;
+		transform: scale(1.15);
+	}
 }
 
 @media (max-width: 920px) {
@@ -264,6 +272,14 @@
 		left: 13px;
 		transform: scale(0.65);
 		width: 314px;
+	}
+
+	.machineCharacteristicsTomato,
+	.machineCharacteristicsPepper,
+	.machineCharacteristicsStrawberry {
+		bottom: 31px;
+		left: 140px;
+		transform: scale(1.15);
 	}
 
 	.soilMoistureWrapper,

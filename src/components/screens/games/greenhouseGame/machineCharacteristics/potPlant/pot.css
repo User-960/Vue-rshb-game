@@ -181,10 +181,15 @@
 		top: 111px;
 		transform: scale(0.7);
 	}
+
+	.potWrapper {
+		left: 40px;
+	}
 }
 
 @media (max-width: 770px) {
 	.potWrapper {
+		left: 15px;
 		top: 43px;
 		transform: scale(0.8);
 	}
