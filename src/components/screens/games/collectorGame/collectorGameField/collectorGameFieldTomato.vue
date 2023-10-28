@@ -66,22 +66,18 @@ export default Vue.extend({
     cells: generatorCellsTomato(),
     previousColumn: 0,
 
-    // generateTomatoGreen: false,
     currentCellTomatoGreen: 0,
     currentIndexCellTomatoGreen: 0,
     previousColumnTomatoGreen: 0,
 
-    // generateTomatoRed: false,
     currentCellTomatoRed: 0,
     currentIndexCellTomatoRed: 0,
     previousColumnTomatoRed: 0,
     
-    // generateTomatoDarkGreen: false,
     currentCellTomatoDarkGreen: 0,
     currentIndexCellTomatoDarkGreen: 0,
     previousColumnTomatoDarkGreen: 0,
 
-    // generateCollector: false,
     currentCellCollector: 117,
     currentIndexCellCollector: 0,
     isCollectorMovedLeft: false,
@@ -139,7 +135,6 @@ export default Vue.extend({
 
         mobileLeft?.addEventListener('click', () => {
            if (!this.isMovingLeft && !this.isMovingRight && !this.isCollectorMovedLeft && this.GET_TOMATO_LEVEL_COL) {
-            console.log('left')
             this.isMovingLeft = true
             if (this.isMovingLeft) {
               this.currentCellCollector -= 1
@@ -160,7 +155,6 @@ export default Vue.extend({
 
         mobileRight?.addEventListener('click', () => {
           if (!this.isMovingRight && !this.isMovingLeft && !this.isCollectorMovedRight && this.GET_TOMATO_LEVEL_COL) {
-            console.log('right')
             this.isMovingRight = true
             if (this.isMovingRight) {
               this.currentCellCollector += 1
@@ -181,7 +175,6 @@ export default Vue.extend({
 
         document.addEventListener('keyup', (event) => {
           if (event.code == 'KeyA' && !this.isMovingLeft && !this.isMovingRight && !this.isCollectorMovedLeft && this.GET_TOMATO_LEVEL_COL) {
-            console.log('left')
             this.isMovingLeft = true
             if (this.isMovingLeft) {
               this.currentCellCollector -= 1
@@ -200,7 +193,6 @@ export default Vue.extend({
           } 
 
           if (event.code == 'KeyD' && !this.isMovingRight && !this.isMovingLeft && !this.isCollectorMovedRight && this.GET_TOMATO_LEVEL_COL) {
-            console.log('right')
             this.isMovingRight = true
             if (this.isMovingRight) {
               this.currentCellCollector += 1
@@ -232,7 +224,6 @@ export default Vue.extend({
 
         mobileLeft?.removeEventListener('click', () => {
            if (!this.isMovingLeft && !this.isMovingRight && !this.isCollectorMovedLeft && this.GET_TOMATO_LEVEL_COL) {
-            console.log('left')
             this.isMovingLeft = true
             if (this.isMovingLeft) {
               this.currentCellCollector -= 1
@@ -253,7 +244,6 @@ export default Vue.extend({
 
         mobileRight?.removeEventListener('click', () => {
           if (!this.isMovingRight && !this.isMovingLeft && !this.isCollectorMovedRight && this.GET_TOMATO_LEVEL_COL) {
-            console.log('right')
             this.isMovingRight = true
             if (this.isMovingRight) {
               this.currentCellCollector += 1

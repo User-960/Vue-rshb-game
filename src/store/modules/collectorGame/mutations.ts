@@ -327,13 +327,11 @@ export const mutations: MutationTree<ICollectorGameState> = {
 	},
 	[EN_CollectorGameMutation.START_FINISH_ALL_TOMATOES_INTERVAL_COL](state) {
 		if (!state.isTomatoLevel) {
-			console.log('Int not work')
 			clearInterval(tomatoesInterval)
 			return
 		}
 
 		tomatoesInterval = setInterval(() => {
-			console.log('Int work')
 			state.isGenerateTomatoGreen = true
 
 			setTimeout(() => {
