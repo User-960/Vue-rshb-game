@@ -18,8 +18,8 @@ const state: IHomeScreenState = {
 	isFiveInfoIntroductionVisible: false,
 	isSixInfoIntroductionVisible: false,
 	isSevenInfoIntroductionVisible: false,
-	isArrowUpBankVisible: true,
-	isArrowUpShopVisible: true,
+	isArrowUpBankVisible: false,
+	isArrowUpShopVisible: false,
 
 	isStartGame: true,
 	isAfterFirstGame: false,
