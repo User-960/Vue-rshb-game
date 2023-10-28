@@ -282,25 +282,25 @@
 
 	.blockButtonWallet {
 		top: -15px;
-		right: -25px;
+		right: -35px;
 		transform: scale(0.4);
 	}
 
 	.blockButtonPoints {
 		top: 30px;
-		right: -25px;
+		right: -35px;
 		transform: scale(0.4);
 	}
 
 	.exitButtonWrapper {
-		left: -4px;
+		left: -15px;
 		bottom: -10px;
 		transform: scale(0.4);
 	}
 
 	.blockButtonTimer {
 		top: -15px;
-		left: -25px;
+		left: -35px;
 		transform: scale(0.4);
 	}
 }

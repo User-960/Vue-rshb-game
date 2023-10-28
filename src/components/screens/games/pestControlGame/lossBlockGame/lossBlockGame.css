@@ -5,6 +5,10 @@
 	width: 100%;
 	height: 100%;
 
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
 	background-color: rgba(0, 0, 0, 0.5);
 	z-index: 120;
 	animation: opacity 0.8s;
@@ -24,10 +28,8 @@
 	background-color: var(--primary-black);
 
 	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
 	z-index: 130;
+	transform: scale(1.3);
 }
 
 .title {
@@ -129,5 +131,42 @@
 
 	to {
 		opacity: 1;
+	}
+}
+
+/* media */
+@media (max-width: 1580px) {
+	.lossBlockGame {
+		transform: scale(1.3);
+	}
+}
+
+@media (max-width: 1280px) {
+	.lossBlockGame {
+		transform: scale(1);
+	}
+}
+
+@media (max-width: 1248px) {
+	.lossBlockGame {
+		transform: scale(0.8);
+	}
+}
+
+@media (max-width: 1168px) {
+	.lossBlockGame {
+		transform: scale(0.6);
+	}
+}
+
+@media (max-width: 920px) {
+	.lossBlockGame {
+		transform: scale(0.5);
+	}
+}
+
+@media (max-width: 770px) {
+	.lossBlockGame {
+		transform: scale(0.4);
 	}
 }
