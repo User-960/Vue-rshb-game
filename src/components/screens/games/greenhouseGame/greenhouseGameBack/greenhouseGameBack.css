@@ -3,39 +3,193 @@
 .gameBack {
 	position: relative;
 	background-color: var(--primary-black);
-	width: 1280px;
-	height: 660px;
+	width: var(--notebook-width);
+	height: var(--notebook-height);
 }
 
 .machineCharacteristicsWrapper {
 	position: absolute;
-	bottom: 0px;
-	left: 0px;
+	bottom: 25px;
+	left: 40px;
 
 	max-width: 100%;
 	max-height: 100%;
 
-	z-index: 100;
+	z-index: 89;
+	transform: scale(1.1);
 }
 
 .dialogDanilWrapper {
 	position: absolute;
-	bottom: 0px;
-	right: 10px;
+	bottom: 32px;
+	right: 100px;
 
 	max-width: 100%;
 	max-height: 100%;
 
 	z-index: 90;
+	transform: scale(1.1);
 }
 
 .dialogTaskWrapper {
 	position: absolute;
-	top: 0px;
-	left: 0px;
+
+	top: 140px;
+	left: 70px;
 
 	max-width: 100%;
 	max-height: 100%;
 
 	z-index: 90;
+	transform: scale(1.1);
+}
+
+/* media */
+@media (max-width: 1620px) {
+	.gameBack {
+		width: var(--notebook-width);
+		height: var(--notebook-height);
+	}
+
+	.dialogDanilWrapper {
+		bottom: 32px;
+		right: 100px;
+		transform: scale(1.1);
+	}
+
+	.dialogTaskWrapper {
+		top: 140px;
+		left: 70px;
+		transform: scale(1.1);
+	}
+
+	.machineCharacteristicsWrapper {
+		bottom: 25px;
+		left: 40px;
+		transform: scale(1.1);
+	}
+}
+
+@media (max-width: 1280px) {
+	.gameBack {
+		width: var(--desktop-width);
+		height: var(--desktop-height);
+	}
+
+	.dialogDanilWrapper {
+		bottom: 0px;
+		right: 10px;
+		transform: scale(1);
+	}
+
+	.dialogTaskWrapper {
+		top: 0px;
+		left: 0px;
+		transform: scale(1);
+	}
+
+	.machineCharacteristicsWrapper {
+		bottom: 0px;
+		left: 0px;
+		transform: scale(1);
+	}
+}
+
+@media (max-width: 1248px) {
+	.gameBack {
+		width: var(--tablet-width);
+		height: var(--tablet-height);
+	}
+
+	.dialogDanilWrapper {
+		bottom: -10px;
+		right: -60px;
+		transform: scale(0.8);
+	}
+
+	.dialogTaskWrapper {
+		top: -24px;
+		left: -35px;
+		transform: scale(0.8);
+	}
+
+	.machineCharacteristicsWrapper {
+		bottom: -62px;
+		left: -109px;
+		transform: scale(0.7);
+	}
+}
+
+@media (max-width: 1168px) {
+	.gameBack {
+		width: var(--tablet-mobile-width);
+		height: var(--tablet-mobile-height);
+	}
+
+	.dialogDanilWrapper {
+		bottom: 23px;
+		right: -140px;
+		transform: scale(0.58);
+	}
+
+	.dialogTaskWrapper {
+		top: -50px;
+		left: -84px;
+		transform: scale(0.65);
+	}
+
+	.machineCharacteristicsWrapper {
+		bottom: -72px;
+		left: -128px;
+		transform: scale(0.58);
+	}
+}
+
+@media (max-width: 920px) {
+	.gameBack {
+		width: var(--middle-mobile-width);
+		height: var(--middle-mobile-height);
+	}
+
+	.dialogTaskWrapper {
+		top: -60px;
+		left: -124px;
+		transform: scale(0.5);
+	}
+
+	.dialogDanilWrapper {
+		bottom: 42px;
+		transform: scale(0.5);
+	}
+
+	.machineCharacteristicsWrapper {
+		bottom: -1px;
+		left: -144px;
+		transform: scale(0.65);
+	}
+}
+
+@media (max-width: 770px) {
+	.gameBack {
+		width: var(--mobile-width);
+		height: var(--mobile-height);
+	}
+
+	.dialogDanilWrapper {
+		bottom: 46px;
+		right: -79px;
+		transform: scale(0.4);
+	}
+
+	.dialogTaskWrapper {
+		top: -85px;
+		left: -148px;
+		transform: scale(0.4);
+	}
+
+	.machineCharacteristicsWrapper {
+		bottom: 52px;
+		left: -116px;
+		transform: scale(0.65);
+	}
 }

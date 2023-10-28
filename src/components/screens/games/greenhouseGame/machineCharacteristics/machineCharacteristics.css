@@ -248,3 +248,47 @@
 		opacity: 1;
 	}
 }
+
+/* media */
+@media (max-width: 1168px) {
+	.characteristicsList {
+		top: 80px;
+		left: 48px;
+		transform: scale(0.83);
+	}
+}
+
+@media (max-width: 920px) {
+	.characteristicsList {
+		top: 112px;
+		left: 13px;
+		transform: scale(0.65);
+		width: 314px;
+	}
+
+	.soilMoistureWrapper,
+	.airMoistureText,
+	.airTemperatureWrapper {
+		width: 214px;
+	}
+
+	.soilMoistureNum,
+	.airMoistureNum,
+	.airTemperatureNum {
+		width: 74px;
+		font-size: 30px;
+		width: 92px;
+		padding: 15px 25px;
+
+		margin-right: 7px;
+	}
+}
+
+@media (max-width: 770px) {
+	.characteristicsList {
+		top: 148px;
+		left: -31px;
+		transform: scale(0.48);
+		width: 314px;
+	}
+}
