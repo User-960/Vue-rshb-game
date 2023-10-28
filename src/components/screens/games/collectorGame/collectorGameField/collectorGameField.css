@@ -111,7 +111,7 @@
 	justify-content: center;
 	align-items: center;
 
-	transform: scale(1.2);
+	transform: scale(1.27);
 }
 
 .cell {
@@ -277,12 +277,24 @@
 		top: 1px;
 	}
 
+	2% {
+		top: 2px;
+	}
+
 	3% {
 		top: 3px;
 	}
 
 	5% {
 		top: 4px;
+	}
+
+	6% {
+		top: 5px;
+	}
+
+	7% {
+		top: 6px;
 	}
 
 	8% {
@@ -293,12 +305,20 @@
 		top: 8px;
 	}
 
+	12% {
+		top: 9px;
+	}
+
 	13% {
 		top: 10px;
 	}
 
 	15% {
 		top: 11px;
+	}
+
+	17% {
+		top: 12px;
 	}
 
 	18% {
@@ -309,12 +329,20 @@
 		top: 14px;
 	}
 
+	22% {
+		top: 15px;
+	}
+
 	23% {
 		top: 16px;
 	}
 
 	25% {
 		top: 17px;
+	}
+
+	27% {
+		top: 18px;
 	}
 
 	28% {
@@ -325,12 +353,20 @@
 		top: 20px;
 	}
 
+	32% {
+		top: 21px;
+	}
+
 	33% {
 		top: 22px;
 	}
 
 	35% {
 		top: 23px;
+	}
+
+	37% {
+		top: 24px;
 	}
 
 	38% {
@@ -341,12 +377,20 @@
 		top: 26px;
 	}
 
+	42% {
+		top: 27px;
+	}
+
 	43% {
 		top: 28px;
 	}
 
 	45% {
 		top: 29px;
+	}
+
+	47% {
+		top: 30px;
 	}
 
 	48% {
@@ -357,12 +401,20 @@
 		top: 32px;
 	}
 
+	52% {
+		top: 33px;
+	}
+
 	53% {
 		top: 34px;
 	}
 
 	55% {
 		top: 35px;
+	}
+
+	57% {
+		top: 36px;
 	}
 
 	58% {
@@ -373,12 +425,20 @@
 		top: 38px;
 	}
 
+	62% {
+		top: 39px;
+	}
+
 	63% {
 		top: 40px;
 	}
 
 	65% {
 		top: 41px;
+	}
+
+	67% {
+		top: 42px;
 	}
 
 	68% {
@@ -389,12 +449,20 @@
 		top: 44px;
 	}
 
+	72% {
+		top: 45px;
+	}
+
 	73% {
 		top: 46px;
 	}
 
 	75% {
 		top: 47px;
+	}
+
+	77% {
+		top: 48px;
 	}
 
 	78% {
@@ -405,12 +473,20 @@
 		top: 50px;
 	}
 
+	82% {
+		top: 51px;
+	}
+
 	83% {
 		top: 52px;
 	}
 
 	85% {
 		top: 53px;
+	}
+
+	87% {
+		top: 54px;
 	}
 
 	88% {
@@ -421,12 +497,20 @@
 		top: 56px;
 	}
 
+	92% {
+		top: 57px;
+	}
+
 	93% {
 		top: 58px;
 	}
 
 	95% {
 		top: 59px;
+	}
+
+	97% {
+		top: 60px;
 	}
 
 	98% {
@@ -958,92 +1042,6 @@
 	}
 }
 
-/* @keyframes gravityTomato {
-	0% {
-		top: 1px;
-	}
-
-	5% {
-		top: 4px;
-	}
-
-	10% {
-		top: 8px;
-	}
-
-	15% {
-		top: 11px;
-	}
-
-	20% {
-		top: 14px;
-	}
-
-	25% {
-		top: 17px;
-	}
-
-	30% {
-		top: 20px;
-	}
-
-	35% {
-		top: 23px;
-	}
-
-	40% {
-		top: 26px;
-	}
-
-	45% {
-		top: 29px;
-	}
-
-	50% {
-		top: 32px;
-	}
-
-	55% {
-		top: 35px;
-	}
-
-	60% {
-		top: 38px;
-	}
-
-	65% {
-		top: 41px;
-	}
-
-	70% {
-		top: 44px;
-	}
-
-	75% {
-		top: 47px;
-	}
-
-	80% {
-		top: 50px;
-	}
-
-	85% {
-		top: 53px;
-	}
-
-	90% {
-		top: 56px;
-	}
-
-	95% {
-		top: 59px;
-	}
-
-	100% {
-		top: 62px;
-	}
-} */
-
 @keyframes moveCollectorLeft {
 	0% {
 		left: 31px;
@@ -1144,195 +1142,6 @@
 	}
 }
 
-/* @keyframes moveCollectorLeft {
-	0% {
-		left: 31px;
-	}
-
-	5% {
-		left: 28px;
-	}
-
-	10% {
-		left: 25px;
-	}
-
-	15% {
-		left: 22px;
-	}
-
-	20% {
-		left: 19px;
-	}
-
-	25% {
-		left: 16px;
-	}
-
-	30% {
-		left: 13px;
-	}
-
-	35% {
-		left: 10px;
-	}
-
-	40% {
-		left: 7px;
-	}
-
-	45% {
-		left: 4px;
-	}
-
-	50% {
-		left: 1px;
-	}
-
-	55% {
-		left: -2px;
-	}
-
-	60% {
-		left: -5px;
-	}
-
-	65% {
-		left: -8px;
-	}
-
-	70% {
-		left: -11px;
-	}
-
-	75% {
-		left: -14px;
-	}
-
-	80% {
-		left: -17px;
-	}
-
-	85% {
-		left: -20px;
-	}
-
-	90% {
-		left: -23px;
-	}
-
-	95% {
-		left: -26px;
-	}
-
-	100% {
-		left: -31px;
-	}
-}
-
-@keyframes moveCollectorRight {
-	0% {
-		left: -93px;
-	}
-
-	5% {
-		left: -90px;
-	}
-
-	10% {
-		left: -87px;
-	}
-
-	15% {
-		left: -84px;
-	}
-
-	20% {
-		left: -81px;
-	}
-
-	25% {
-		left: -78px;
-	}
-
-	30% {
-		left: -75px;
-	}
-
-	35% {
-		left: -72px;
-	}
-
-	40% {
-		left: -69px;
-	}
-
-	45% {
-		left: -66px;
-	}
-
-	50% {
-		left: -63px;
-	}
-
-	55% {
-		left: -60px;
-	}
-
-	60% {
-		left: -57px;
-	}
-
-	65% {
-		left: -54px;
-	}
-
-	70% {
-		left: -51px;
-	}
-
-	75% {
-		left: -48px;
-	}
-
-	80% {
-		left: -45px;
-	}
-
-	85% {
-		left: -42px;
-	}
-
-	90% {
-		left: -39px;
-	}
-
-	95% {
-		left: -36px;
-	}
-
-	100% {
-		left: -31px;
-	}
-} */
-
-/* @keyframes gravityTomato {
-	0% {
-		top: 0px;
-	}
-
-	100% {
-		top: 62px;
-	}
-} */
-
-/* media */
-/* @media (max-width: 1000px) {
-	.mobileScreen {
-		display: block;
-	}
-} */
-
 /* media */
 @media (max-width: 1620px) {
 	.gameWrapper {
@@ -1343,6 +1152,10 @@
 	.border {
 		width: var(--notebook-width);
 		height: var(--notebook-height);
+	}
+
+	.cellWrapper {
+		transform: scale(1.27);
 	}
 
 	.cell {
