@@ -2,7 +2,6 @@
   <div :class='styles.modalHouseWrapper' v-if='GET_MODAL_HOUSE_VISIBLE' data-testid='modalHouse'>
     <div 
       :class='styles.modalHouse'
-      v-click-outside='onClickOutside'
     >
       <linkButton @onclick='openGameAI' :isGameAvailable='GET_PLAYER_DATA.equipment.software.available'>
         Искусственный интеллект

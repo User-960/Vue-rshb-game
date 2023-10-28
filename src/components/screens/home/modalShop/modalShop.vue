@@ -1,10 +1,10 @@
 <template>
   <div :class='styles.modalHouseWrapper' v-if='GET_MODAL_SHOP_VISIBLE'>
 
-    <div :class='styles.modalShop' v-click-outside='onClickOutside'>
+    <div :class='styles.modalShop'>
       <div :class='styles.navShop'>
         <div :class='styles.closeBtnWrapper'>
-          <closeButton @onclick='HIDE_MODAL_SHOP'/>
+          <closeButton @onclick='onClickOutside'/>
         </div>
         
         <button 
