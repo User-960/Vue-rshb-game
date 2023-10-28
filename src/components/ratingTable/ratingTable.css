@@ -6,16 +6,16 @@
 	background-position: center;
 	background-size: cover;
 
-	/* max-width: 1280px;
-	max-height: 660px; */
-	/* width: 100%;
-	height: 100%; */
-
 	width: 100%;
 	height: 100%;
 
 	padding-top: 25px;
 	position: relative;
+
+	margin: 0 auto;
+
+	max-width: var(--notebook-width);
+	min-height: var(--notebook-height);
 }
 
 .main {
