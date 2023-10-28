@@ -505,6 +505,7 @@
 
 	.trees.beforeThirdGame {
 		height: 245px;
+		top: 52px;
 	}
 
 	.trees.beforeFifthGame {
@@ -582,6 +583,7 @@
 
 	.trees.beforeThirdGame {
 		height: 202px;
+		top: 35px;
 	}
 
 	.trees.beforeFifthGame {
@@ -655,6 +657,7 @@
 
 	.trees.beforeThirdGame {
 		height: 186px;
+		top: 19px;
 	}
 
 	.trees.beforeFifthGame {
@@ -723,7 +726,8 @@
 	}
 
 	.trees.beforeThirdGame {
-		height: 200px;
+		height: 190px;
+		top: 0px;
 	}
 
 	.trees.beforeFifthGame {
