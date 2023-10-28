@@ -2,9 +2,6 @@
 
 .navBar {
 	position: relative;
-	/* width: var(--desktop-width);
-	height: var(--desktop-height); */
-
 	width: var(--notebook-width);
 	height: var(--notebook-height);
 	margin: 0 auto;
@@ -12,35 +9,39 @@
 
 .navigation {
 	position: absolute;
-	top: 24px;
+	top: 44px;
 	left: 50%;
 	margin-left: -107px;
 
 	z-index: 120;
+	transform: scale(1.2);
 }
 
 .exitButton {
 	position: absolute;
 	bottom: 24px;
-	left: 24px;
+	left: 44px;
 
 	z-index: 120;
+	transform: scale(1.2);
 }
 
 .blockButtonWallet {
 	position: absolute;
-	top: 24px;
-	right: 24px;
+	top: 44px;
+	right: 44px;
 
 	z-index: 120;
+	transform: scale(1.2);
 }
 
 .blockButtonPoints {
 	position: absolute;
-	top: 128px;
-	right: 24px;
+	top: 168px;
+	right: 44px;
 
 	z-index: 120;
+	transform: scale(1.2);
 }
 
 .mapBack {
@@ -117,7 +118,7 @@
 	}
 } */
 
-@media (max-width: 1580px) {
+@media (max-width: 1620px) {
 	.navBar {
 		width: var(--notebook-width);
 		height: var(--notebook-height);
@@ -127,6 +128,22 @@
 	.mapBack {
 		width: var(--notebook-width);
 		height: var(--notebook-height);
+	}
+
+	.navigation {
+		transform: scale(1.2);
+	}
+
+	.exitButton {
+		transform: scale(1.2);
+	}
+
+	.blockButtonWallet {
+		transform: scale(1.2);
+	}
+
+	.blockButtonPoints {
+		transform: scale(1.2);
 	}
 }
 
@@ -140,6 +157,26 @@
 	.mapBack {
 		width: var(--desktop-width);
 		height: var(--desktop-height);
+	}
+
+	.navigation {
+		top: 24px;
+		transform: scale(1);
+	}
+
+	.exitButton {
+		left: 24px;
+		transform: scale(1);
+	}
+
+	.blockButtonWallet {
+		top: 24px;
+		transform: scale(1);
+	}
+
+	.blockButtonPoints {
+		top: 128px;
+		transform: scale(1);
 	}
 }
 
@@ -156,18 +193,24 @@
 	}
 
 	.navigation {
+		top: 14px;
 		transform: scale(0.8);
 	}
 
 	.exitButton {
+		bottom: 14px;
+		left: 14px;
 		transform: scale(0.8);
 	}
 
 	.blockButtonWallet {
+		top: 14px;
+		right: 14px;
 		transform: scale(0.8);
 	}
 
 	.blockButtonPoints {
+		right: 14px;
 		top: 108px;
 		transform: scale(0.8);
 	}
@@ -186,25 +229,25 @@
 	}
 
 	.navigation {
-		top: 5px;
+		top: 2px;
 		transform: scale(0.6);
 	}
 
 	.exitButton {
-		bottom: 5px;
-		left: 5px;
+		bottom: 0px;
+		left: 0px;
 		transform: scale(0.6);
 	}
 
 	.blockButtonWallet {
-		right: 5px;
-		top: 5px;
+		right: 0px;
+		top: 2px;
 		transform: scale(0.6);
 	}
 
 	.blockButtonPoints {
-		right: 5px;
-		top: 68px;
+		right: 0px;
+		top: 66px;
 		transform: scale(0.6);
 	}
 }
@@ -222,26 +265,26 @@
 	}
 
 	.navigation {
-		top: 0px;
-		transform: scale(0.6);
+		top: -5px;
+		transform: scale(0.5);
 	}
 
 	.exitButton {
-		bottom: 5px;
-		left: 0px;
-		transform: scale(0.6);
+		bottom: -5px;
+		left: -5px;
+		transform: scale(0.5);
 	}
 
 	.blockButtonWallet {
 		right: -15px;
-		top: 0px;
-		transform: scale(0.6);
+		top: -5px;
+		transform: scale(0.5);
 	}
 
 	.blockButtonPoints {
 		right: -15px;
-		top: 68px;
-		transform: scale(0.6);
+		top: 47px;
+		transform: scale(0.5);
 	}
 }
 

@@ -106,7 +106,7 @@
 }
 
 /* media */
-@media (max-width: 1580px) {
+@media (max-width: 1620px) {
 	.infoLinkBlockGame {
 		transform: scale(1.3);
 	}

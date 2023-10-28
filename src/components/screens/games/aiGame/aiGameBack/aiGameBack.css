@@ -23,14 +23,14 @@
 	position: absolute;
 
 	bottom: 79px;
-	left: 199px;
+	left: 250px;
 
 	background-image: url(../../../../../../public/images/numPad.svg);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;
 
-	max-width: 141px;
+	max-width: 181px;
 	max-height: 172px;
 	width: 100%;
 	height: 100%;
@@ -50,7 +50,7 @@
 .bookTable {
 	position: absolute;
 	bottom: 40px;
-	right: 100px;
+	right: 175px;
 
 	background-image: url(../../../../../../public/images/bookTable.svg);
 	background-repeat: no-repeat;
@@ -72,7 +72,7 @@
 }
 
 /* media */
-@media (max-width: 1580px) {
+@media (max-width: 1620px) {
 	.gameBack {
 		width: var(--notebook-width);
 		height: var(--notebook-height);
@@ -89,12 +89,13 @@
 
 	.numPadTable {
 		bottom: 79px;
-		left: 199px;
+		left: 250px;
+		max-width: 181px;
 	}
 
 	.bookTable {
 		bottom: 40px;
-		right: 100px;
+		right: 175px;
 	}
 }
 
@@ -140,7 +141,7 @@
 
 	.numPadTable {
 		bottom: 0px;
-		left: 157px;
+		left: 136px;
 		max-height: 163px;
 		transform: scale(1);
 	}
@@ -167,7 +168,7 @@
 
 	.numPadTable {
 		bottom: 0px;
-		left: 100px;
+		left: 80px;
 		max-height: 136px;
 		transform: scale(0.8);
 	}
@@ -197,7 +198,7 @@
 
 	.numPadTable {
 		bottom: 0px;
-		left: 67px;
+		left: 49px;
 		max-height: 113px;
 		transform: scale(0.8);
 	}
@@ -228,7 +229,7 @@
 	.numPadTable {
 		bottom: 0px;
 
-		left: 42px;
+		left: 21px;
 		max-height: 92px;
 		transform: scale(0.8);
 	}

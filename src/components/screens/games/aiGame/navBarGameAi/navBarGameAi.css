@@ -115,7 +115,7 @@
 } */
 
 /* media */
-@media (max-width: 1580px) {
+@media (max-width: 1620px) {
 	.navBarGameAi {
 		width: var(--notebook-width);
 		height: var(--notebook-height);
