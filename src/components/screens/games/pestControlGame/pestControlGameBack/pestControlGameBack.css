@@ -14,7 +14,7 @@
 
 	top: 87px;
 	left: 50%;
-	margin-left: -350px;
+	margin-left: -325px;
 
 	transform: scale(1.22);
 }
@@ -30,7 +30,7 @@
 		position: absolute;
 		top: 87px;
 		left: 50%;
-		margin-left: -350px;
+		margin-left: -325px;
 
 		transform: scale(1.22);
 	}
@@ -56,7 +56,7 @@
 		position: absolute;
 		top: 25px;
 		left: 50%;
-		margin-left: -350px;
+		margin-left: -325px;
 
 		transform: scale(1);
 	}
@@ -71,7 +71,7 @@
 	.screenWrapper {
 		top: -28px;
 		left: 50%;
-		margin-left: -367px;
+		margin-left: -350px;
 
 		transform: scale(0.8);
 	}
@@ -86,7 +86,7 @@
 	.screenWrapper {
 		top: -70px;
 		left: 50%;
-		margin-left: -376px;
+		margin-left: -360px;
 
 		transform: scale(0.6);
 	}
@@ -101,7 +101,7 @@
 	.screenWrapper {
 		top: -97px;
 		left: 50%;
-		margin-left: -376px;
+		margin-left: -360px;
 
 		transform: scale(0.5);
 	}
@@ -116,7 +116,7 @@
 	.screenWrapper {
 		top: -120px;
 		left: 50%;
-		margin-left: -376px;
+		margin-left: -366px;
 
 		transform: scale(0.4);
 	}
