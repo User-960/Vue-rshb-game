@@ -113,6 +113,10 @@
 	line-height: 36px;
 }
 
+.text span {
+	text-decoration: underline;
+}
+
 .timer {
 	position: absolute;
 	bottom: -5px;

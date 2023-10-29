@@ -9,19 +9,19 @@
           <p :class='styles.text' 
             v-if='!GET_STRAWBERRY_SPROUT && !GET_STRAWBERRY_COLOR && !GET_STRAWBERRY_MODIFIED'
           >
-            Нужно сделать клубнику устойчивой к вирусным инфекциям. Используй для этого фиолетовую колбу.
+            Нужно сделать клубнику устойчивой к вирусным инфекциям. Используй для этого <span>фиолетовую</span> колбу.
           </p>
 
           <p :class='styles.text' 
             v-else-if='GET_STRAWBERRY_SPROUT && !GET_STRAWBERRY_COLOR && !GET_STRAWBERRY_MODIFIED'
           >
-            Давай улучшим пигментацию клубники. Используй для этого желтую колбу.
+            Давай улучшим пигментацию клубники. Используй для этого <span>желтую</span> колбу.
           </p>
 
           <p :class='styles.text' 
             v-else-if='GET_STRAWBERRY_COLOR && !GET_STRAWBERRY_MODIFIED && !GET_STRAWBERRY_SPROUT'
           >
-            Теперь предлагаю увеличить содержание витамина С. Используй для этого голубую колбу.
+            Теперь предлагаю увеличить содержание витамина С. Используй для этого <span>голубую</span> колбу.
           </p>
         </div>
 

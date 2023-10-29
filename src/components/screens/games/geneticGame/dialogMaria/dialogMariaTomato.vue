@@ -9,19 +9,19 @@
           <p :class='styles.text' 
             v-if='!GET_TOMATO_SPROUT && !GET_TOMATO_COLOR && !GET_TOMATO_MODIFIED'
           >
-            Давай сделаем помидор устойчивым к вредителям. Используй для этого синюю колбу.
+            Давай сделаем помидор устойчивым к вредителям. Используй для этого <span>синюю</span> колбу.
           </p>
 
           <p :class='styles.text' 
             v-else-if='GET_TOMATO_SPROUT && !GET_TOMATO_COLOR && !GET_TOMATO_MODIFIED'
           >
-            Теперь предлагаю усилить структуру плода. Используй для этого серую колбу.
+            Теперь предлагаю усилить структуру плода. Используй для этого <span>серую</span> колбу.
           </p>
 
           <p :class='styles.text' 
             v-else-if='GET_TOMATO_COLOR && !GET_TOMATO_MODIFIED && !GET_TOMATO_SPROUT'
           >
-            Давай увеличим содержание антиоксидантов. Используй для этого розовую колбу.
+            Давай увеличим содержание антиоксидантов. Используй для этого <span>розовую</span> колбу.
           </p>
         </div>
 

@@ -9,19 +9,19 @@
           <p :class='styles.text' 
             v-if='!GET_PEPPER_SPROUT && !GET_PEPPER_COLOR && !GET_PEPPER_MODIFIED'
           >
-            Нужно увеличить срок хранения перца. Используй для этого красную колбу.
+            Нужно увеличить срок хранения перца. Используй для этого <span>красную</span> колбу.
           </p>
 
           <p :class='styles.text' 
             v-else-if='GET_PEPPER_SPROUT && !GET_PEPPER_COLOR && !GET_PEPPER_MODIFIED'
           >
-            Теперь предлагаю улучшить вкус перца. Используй для этого оранжевую колбу.
+            Теперь предлагаю улучшить вкус перца. Используй для этого <span>оранжевую</span> колбу.
           </p>
 
           <p :class='styles.text' 
             v-else-if='GET_PEPPER_COLOR && !GET_PEPPER_MODIFIED && !GET_PEPPER_SPROUT'
           >
-            Давай сделаем перец устойчивым к грибковым инфекциям. Используй для этого зеленую колбу.
+            Давай сделаем перец устойчивым к грибковым инфекциям. Используй для этого <span>зеленую</span> колбу.
           </p>
         </div>
 
