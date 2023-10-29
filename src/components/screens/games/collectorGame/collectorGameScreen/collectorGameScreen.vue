@@ -16,23 +16,46 @@
       </ul>
 
       <div :class='styles.robot'>
-        <img src='../../../../../../public/images/collectorShop.svg' alt='image robot collector' draggable='false' />
+        <img 
+          src='../../../../../../public/images/collectorShop.svg' 
+          alt='image robot collector' 
+          draggable='false' 
+          :class='[
+                styles.robotImg, 
+                {[styles.robotImgActive]: isChosenTomatoLevel || isChosenPepperLevel || isChosenStrawberryLevel}
+              ]' 
+        />
 
-        <button 
+        <button
+          aria-label='active button for start level'
+          v-if='isChosenTomatoLevel || isChosenPepperLevel || isChosenStrawberryLevel' 
           :class='[
             styles.btn, 
             {
               [styles.btnActive]: (!GET_TOMATO_LEVEL_COMPLETED_COL && isChosenTomatoLevel) ||
-                (!GET_PEPPER_LEVEL_COMPLETED_COL && isChosenPepperLevel) || 
-                (!GET_STRAWBERRY_LEVEL_COMPLETED_COL && isChosenStrawberryLevel),
+                (GET_TOMATO_LEVEL_COMPLETED_COL && !GET_PEPPER_LEVEL_COMPLETED_COL && isChosenPepperLevel) || 
+                (GET_PEPPER_LEVEL_COMPLETED_COL && !GET_STRAWBERRY_LEVEL_COMPLETED_COL && isChosenStrawberryLevel),
               [styles.btnComplete]: (GET_TOMATO_LEVEL_COMPLETED_COL && isChosenTomatoLevel) || 
               (GET_PEPPER_LEVEL_COMPLETED_COL && isChosenPepperLevel) ||
-              (GET_STRAWBERRY_LEVEL_COMPLETED_COL && isChosenStrawberryLevel)
+              (GET_STRAWBERRY_LEVEL_COMPLETED_COL && isChosenStrawberryLevel),
+              [styles.btnNoActive]: (!GET_TOMATO_LEVEL_COMPLETED_COL && isChosenPepperLevel) || (!GET_PEPPER_LEVEL_COMPLETED_COL && isChosenStrawberryLevel)
             }
           ]'
           @click='openGame'
         >
-          Собрать урожай
+          <p v-if='GET_TOMATO_LEVEL_COMPLETED_COL && isChosenTomatoLevel'>Пройдено</p>
+
+          <p v-if='GET_TOMATO_LEVEL_COMPLETED_COL && GET_PEPPER_LEVEL_COMPLETED_COL && isChosenPepperLevel'>Пройдено</p>
+
+          <p v-if='GET_PEPPER_LEVEL_COMPLETED_COL && GET_STRAWBERRY_LEVEL_COMPLETED_COL && isChosenStrawberryLevel'>Пройдено</p>
+
+          <p v-if='!GET_TOMATO_LEVEL_COMPLETED_COL && isChosenTomatoLevel || !GET_PEPPER_LEVEL_COMPLETED_COL && isChosenPepperLevel || !GET_STRAWBERRY_LEVEL_COMPLETED_COL && isChosenStrawberryLevel'>
+            Собрать урожай
+          </p>
+        </button>
+
+        <button v-else :class='styles.btn' aria-label='non active button for start level'>
+          <p>Участок не выбран</p>
         </button>
 
       </div>

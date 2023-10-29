@@ -79,15 +79,23 @@
 	align-items: center;
 }
 
-.robot img {
+.robotImg {
 	max-height: 156px;
 	width: 100%;
 	height: 100%;
 	user-select: none;
 	padding: 15px;
+
+	opacity: 0.5;
+}
+
+.robotImgActive {
+	opacity: 1;
 }
 
 .btn {
+	position: relative;
+
 	display: flex;
 	padding: 8px 10px;
 	justify-content: center;
@@ -125,4 +133,19 @@
 .btnComplete:hover {
 	color: none;
 	background-color: none;
+}
+
+.btnNoActive {
+	/* opacity: 0.5; */
+	cursor: not-allowed;
+	border: 2px solid var(--secondary-text-gray-dark);
+
+	color: var(--secondary-text-gray-dark);
+}
+
+.btnNoActive:hover {
+	cursor: not-allowed;
+	color: none;
+	background-color: none;
+	color: var(--secondary-text-gray-dark);
 }
