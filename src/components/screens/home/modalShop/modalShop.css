@@ -273,6 +273,7 @@
 	}
 }
 
+/* media */
 @media (max-width: 1620px) {
 	.modalShop {
 		transform: scale(1.4);

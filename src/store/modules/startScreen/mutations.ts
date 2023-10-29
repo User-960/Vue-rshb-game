@@ -15,11 +15,13 @@ export enum EN_StartScreenMutation {
 	HIDE_ERROR_SERVER = 'HIDE_ERROR_SERVER'
 }
 
+const audioModalWindow = new Audio(AUDIO_CONFIG.AUDIO_MODAL_WINDOW)
+const audioClickButton = new Audio(AUDIO_CONFIG.AUDIO_CLICK_BUTTON)
+
 export const mutations: MutationTree<IStartScreenState> = {
 	[EN_StartScreenMutation.SHOW_CHOOSE_CHARACTER](state) {
-		const audio = new Audio(AUDIO_CONFIG.AUDIO_MODAL_WINDOW)
-		audio.autoplay = true
-		audio.volume = 1
+		audioModalWindow.volume = 1
+		audioModalWindow.play()
 
 		state.isChooseCharacterVisible = true
 	},
@@ -27,9 +29,8 @@ export const mutations: MutationTree<IStartScreenState> = {
 		state.isChooseCharacterVisible = false
 	},
 	[EN_StartScreenMutation.SHOW_AUTH_PLAYER](state) {
-		const audio = new Audio(AUDIO_CONFIG.AUDIO_MODAL_WINDOW)
-		audio.autoplay = true
-		audio.volume = 1
+		audioModalWindow.volume = 1
+		audioModalWindow.play()
 
 		state.isAuthPlayerVisible = true
 	},
@@ -37,16 +38,14 @@ export const mutations: MutationTree<IStartScreenState> = {
 		state.isAuthPlayerVisible = false
 	},
 	[EN_StartScreenMutation.SELECT_GENDER_WOMEN](state) {
-		const audio = new Audio(AUDIO_CONFIG.AUDIO_CLICK_BUTTON)
-		audio.autoplay = true
-		audio.volume = 1
+		audioClickButton.volume = 1
+		audioClickButton.play()
 
 		state.player.gender = 'Female'
 	},
 	[EN_StartScreenMutation.SELECT_GENDER_MEN](state) {
-		const audio = new Audio(AUDIO_CONFIG.AUDIO_CLICK_BUTTON)
-		audio.autoplay = true
-		audio.volume = 1
+		audioClickButton.volume = 1
+		audioClickButton.play()
 
 		state.player.gender = 'Male'
 	},

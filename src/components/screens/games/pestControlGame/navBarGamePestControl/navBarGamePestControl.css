@@ -61,62 +61,6 @@
 	height: 100%;
 }
 
-/* @media (max-width: 2280px) {
-	.navBarGamePestControl {
-		margin: 0 auto;
-		zoom: var(--zoom-pc-full-hd);
-	}
-}
-
-@media (max-width: 1880px) {
-	.navBarGamePestControl {
-		margin: 0 auto;
-		zoom: var(--zoom-pc);
-	}
-}
-
-@media (max-width: 1380px) {
-	.navBarGamePestControl {
-		margin: 0 auto;
-		zoom: var(--zoom-notebook);
-	}
-}
-
-@media (max-width: 1250px) {
-	.navBarGamePestControl {
-		margin: 0 auto;
-		zoom: var(--zoom-tablet-notebook);
-	}
-}
-
-@media (max-width: 1150px) {
-	.navBarGamePestControl {
-		margin: 0 auto;
-		zoom: var(--zoom-tablet);
-	}
-}
-
-@media (max-width: 1044px) {
-	.navBarGamePestControl {
-		margin: 0 auto;
-		zoom: var(--zoom-mobile);
-	}
-}
-
-@media (max-width: 760px) {
-	.navBarGamePestControl {
-		margin: 0 auto;
-		zoom: var(--zoom-mobile-mini);
-	}
-}
-
-@media (max-width: 600px) {
-	.navBarGamePestControl {
-		margin: 0 auto;
-		zoom: var(--zoom-mobile-ultra-mini);
-	}
-} */
-
 /* media */
 @media (max-width: 1620px) {
 	.navBarGamePestControl {

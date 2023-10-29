@@ -342,17 +342,10 @@ export const mutations: MutationTree<ICollectorGameState> = {
 			}, EN_CONFIG.TIMING_GENERATE_TIMEOUT_TOMATO_DARK_GREEN)
 
 			if (state.timerTomato <= 0 || !state.isTomatoLevel) {
-				console.log('Int not work')
 				clearInterval(tomatoesInterval)
 			}
 		}, EN_CONFIG.TIMING_GENERATE_ALL_TOMATOES_INTERVAL)
 	},
-	// [EN_CollectorGameMutation.FINISH_ALL_TOMATOES_INTERVAL_COL](state) {
-	// 	if (!state.isTomatoLevel) {
-	// 		console.log('Int not work')
-	// 		clearInterval(tomatoesInterval)
-	// 	}
-	// },
 	[EN_CollectorGameMutation.OPEN_GAME_FIELD_TOMATO_COL](state) {
 		state.isOpenGameFieldTomato = true
 	},

@@ -58,62 +58,6 @@
 	height: 100%;
 }
 
-/* @media (max-width: 2280px) {
-	.navBarGameAi {
-		margin: 0 auto;
-		zoom: var(--zoom-pc-full-hd);
-	}
-}
-
-@media (max-width: 1880px) {
-	.navBarGameAi {
-		margin: 0 auto;
-		zoom: var(--zoom-pc);
-	}
-}
-
-@media (max-width: 1380px) {
-	.navBarGameAi {
-		margin: 0 auto;
-		zoom: var(--zoom-notebook);
-	}
-}
-
-@media (max-width: 1250px) {
-	.navBarGameAi {
-		margin: 0 auto;
-		zoom: var(--zoom-tablet-notebook);
-	}
-}
-
-@media (max-width: 1150px) {
-	.navBarGameAi {
-		margin: 0 auto;
-		zoom: var(--zoom-tablet);
-	}
-}
-
-@media (max-width: 1044px) {
-	.navBarGameAi {
-		margin: 0 auto;
-		zoom: var(--zoom-mobile);
-	}
-}
-
-@media (max-width: 760px) {
-	.navBarGameAi {
-		margin: 0 auto;
-		zoom: var(--zoom-mobile-mini);
-	}
-}
-
-@media (max-width: 600px) {
-	.navBarGameAi {
-		margin: 0 auto;
-		zoom: var(--zoom-mobile-ultra-mini);
-	}
-} */
-
 /* media */
 @media (max-width: 1620px) {
 	.navBarGameAi {
