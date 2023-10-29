@@ -1,20 +1,6 @@
 <template>
   <layout>
     <template v-slot:default>
-      <!-- <infoBlockS>
-        <template v-slot:contentText>
-          <p>Кликни на первую локацию</p>
-        </template>
-
-        <template v-slot:nextBtn>
-          <skipButton @onclick="nextFunc">
-            Далее
-          </skipButton>
-        </template>
-      </infoBlockS>
-
-      -->
-
       <div class='imgRotatePhone'>
         <img src='../../../../public/images/rotate-phone.png' />
         <p class='imgRotatePhoneText'>Переверните экран</p>
@@ -29,7 +15,6 @@
 import Vue from 'vue'
 import layout from '../../layout/layout.vue'
 import infoBlockM from '@/components/ui/infoBlock/infoBlockM/infoBlockM.vue'
-import infoBlockS from '@/components/ui/infoBlock/infoBlockS/infoBlockS.vue'
 import skipButton from '@/components/ui/button/skipButton/skipButton.vue'
 import iconButton from '@/components/ui/button/iconButton/iconButton.vue'
 
@@ -43,7 +28,6 @@ export default Vue.extend({
   components: {
     layout,
     infoBlockM,
-    infoBlockS,
     skipButton,
     iconButton,
     mapBack

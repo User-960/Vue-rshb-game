@@ -1,6 +1,11 @@
 <template>
   <layout>
     <template v-slot:default>
+      <div class='imgRotatePhone'>
+        <img src='../../../../../public/images/rotate-phone.png' />
+        <p class='imgRotatePhoneText'>Переверните экран</p>
+      </div>
+      
       <greenhouseGameBack/>
     </template>
   </layout>
