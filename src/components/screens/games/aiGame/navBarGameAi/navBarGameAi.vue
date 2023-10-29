@@ -1,5 +1,5 @@
 <template>
-  <div :class='styles.navBarGameAi'>
+  <div :class='styles.navBarGameAi' class='navBar'>
     <div :class='styles.blockButtonTimer'>
       <blockButton>
       <template v-slot:contentIconBtn>

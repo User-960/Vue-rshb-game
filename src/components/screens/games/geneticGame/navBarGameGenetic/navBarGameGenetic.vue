@@ -1,5 +1,5 @@
 <template>
-  <div :class='styles.navBarGameGenetic'>
+  <div :class='styles.navBarGameGenetic' class='navBar'>
     
     <div :class='styles.navigationLevelsWrapper'>
       <navigationLevels/>

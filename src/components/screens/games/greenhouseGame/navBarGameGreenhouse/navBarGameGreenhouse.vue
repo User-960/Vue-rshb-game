@@ -1,5 +1,5 @@
 <template>
-  <div :class='styles.navBarGameGreenhouse'>
+  <div :class='styles.navBarGameGreenhouse' class='navBar'>
     
     <div :class='styles.navigationLevelsWrapper'>
       <navigationLevels/>

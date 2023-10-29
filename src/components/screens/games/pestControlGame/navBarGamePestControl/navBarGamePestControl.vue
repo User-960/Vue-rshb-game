@@ -1,5 +1,5 @@
 <template>
-  <div :class='styles.navBarGamePestControl'>
+  <div :class='styles.navBarGamePestControl' class='navBar'>
     <div :class='styles.exitButtonWrapper' @click='exitGame'>
       <exitButton/>
     </div>

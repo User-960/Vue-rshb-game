@@ -1,5 +1,5 @@
 <template>
-  <div :class='styles.navBarGameCollector'>
+  <div :class='styles.navBarGameCollector' class='navBar'>
     <div :class='styles.exitButtonWrapper' @click='exitGame' 
          v-if='!GET_OPEN_GAME_FIELD_TOMATO_COL && !GET_OPEN_GAME_FIELD_PEPPER_COL && !GET_OPEN_GAME_FIELD_STRAWBERRY_COL'
     >
