@@ -160,7 +160,7 @@
 .playerList {
 	display: flex;
 	flex-direction: column;
-	height: 340px;
+	height: 495px;
 
 	overflow: auto;
 }
@@ -259,6 +259,10 @@
 		font-size: 14px;
 	}
 
+	.playerList {
+		height: 435px;
+	}
+
 	.playerItemId,
 	.playerItemName {
 		font-size: 16px;
@@ -286,6 +290,12 @@
 
 	.playerItem {
 		margin-top: 10px;
+	}
+}
+
+@media (max-width: 1100px) {
+	.playerList {
+		height: 340px;
 	}
 }
 
