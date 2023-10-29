@@ -17,7 +17,7 @@
 }
 
 /* media */
-@media (max-width: 1620px) {
+/* @media (max-width: 1620px) {
 	.contentWrapper {
 		max-width: var(--notebook-width);
 		max-height: var(--notebook-height);
@@ -57,4 +57,4 @@
 		max-width: var(--mobile-width);
 		max-height: var(--mobile-height);
 	}
-}
+} */
