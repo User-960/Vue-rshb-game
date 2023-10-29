@@ -1,5 +1,5 @@
 <template>
-  <div :class='styles.lossBlockGameWrapper' v-if='GET_LOSS_BLOCK_GN && !GET_INFO_LINK_BLOCK_GN && !GET_RULES_BLOCK_GN'>
+  <div :class='styles.lossBlockGameWrapper' v-if='GET_LOSS_BLOCK_GN && !GET_INFO_LINK_BLOCK_GN && !GET_RULES_BLOCK_GN && !GET_BONUS_BLOCK_GN && !GET_BONUS_BLOCK_PAYED_GN'>
     <div :class='styles.lossBlockGame'>
       <div :class='styles.title'>
         Проигрыш
@@ -57,6 +57,8 @@ export default Vue.extend({
       EN_GeneticGameGetters.GET_LOSS_BLOCK_GN,
       EN_GeneticGameGetters.GET_INFO_LINK_BLOCK_GN,
       EN_GeneticGameGetters.GET_RULES_BLOCK_GN,
+      EN_GeneticGameGetters.GET_BONUS_BLOCK_GN,
+      EN_GeneticGameGetters.GET_BONUS_BLOCK_PAYED_GN,
       EN_GeneticGameGetters.GET_POINTS_GN,
 
       EN_PlayerDataGetters.GET_PLAYER_DATA

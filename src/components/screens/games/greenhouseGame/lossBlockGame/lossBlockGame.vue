@@ -1,5 +1,5 @@
 <template>
-  <div :class='styles.lossBlockGameWrapper' v-if='GET_LOSS_BLOCK_GH'>
+  <div :class='styles.lossBlockGameWrapper' v-if='GET_LOSS_BLOCK_GH && !GET_INFO_LINK_BLOCK_GH && !GET_RULES_BLOCK_GH && !GET_BONUS_BLOCK_GH && !GET_BONUS_BLOCK_PAYED_GH'>
     <div :class='styles.lossBlockGame'>
       <div :class='styles.title'>
         Проигрыш
@@ -56,6 +56,10 @@ export default Vue.extend({
     ...mapGetters([
       EN_GreenhouseGameGetters.GET_LOSS_BLOCK_GH,
       EN_GreenhouseGameGetters.GET_POINTS_GH,
+      EN_GreenhouseGameGetters.GET_INFO_LINK_BLOCK_GH,
+      EN_GreenhouseGameGetters.GET_RULES_BLOCK_GH,
+      EN_GreenhouseGameGetters.GET_BONUS_BLOCK_GH,
+      EN_GreenhouseGameGetters.GET_BONUS_BLOCK_PAYED_GH,
 
       EN_PlayerDataGetters.GET_PLAYER_DATA
     ]),

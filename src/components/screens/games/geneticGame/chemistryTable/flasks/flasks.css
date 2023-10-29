@@ -416,6 +416,7 @@
 
 	.flasksBox {
 		width: 316px;
+		background-size: cover;
 	}
 
 	.flasksList {
