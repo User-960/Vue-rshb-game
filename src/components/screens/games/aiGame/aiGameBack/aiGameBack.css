@@ -22,16 +22,17 @@
 .numPadTable {
 	position: absolute;
 
-	bottom: 79px;
-	left: 250px;
+	bottom: 15px;
+	left: 225px;
 
 	background-image: url(../../../../../../public/images/numPad.svg);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;
 
-	max-width: 181px;
-	max-height: 172px;
+	max-width: 235px;
+	max-height: 245px;
+
 	width: 100%;
 	height: 100%;
 
@@ -49,8 +50,8 @@
 
 .bookTable {
 	position: absolute;
-	bottom: 40px;
-	right: 175px;
+	bottom: 20px;
+	right: 170px;
 
 	background-image: url(../../../../../../public/images/bookTable.svg);
 	background-repeat: no-repeat;
@@ -59,8 +60,9 @@
 
 	overflow-x: hidden;
 
-	max-width: 151px;
-	max-height: 189px;
+	max-width: 225px;
+	max-height: 255px;
+
 	width: 100%;
 	height: 100%;
 
@@ -88,14 +90,19 @@
 	}
 
 	.numPadTable {
-		bottom: 79px;
-		left: 250px;
-		max-width: 181px;
+		bottom: 15px;
+		left: 225px;
+
+		max-width: 235px;
+		max-height: 245px;
 	}
 
 	.bookTable {
-		bottom: 40px;
-		right: 175px;
+		bottom: 20px;
+		right: 170px;
+
+		max-width: 225px;
+		max-height: 255px;
 	}
 }
 
@@ -115,13 +122,19 @@
 	}
 
 	.numPadTable {
-		bottom: 26px;
-		left: 210px;
+		bottom: 7px;
+		left: 200px;
+
+		max-width: 165px;
+		max-height: 195px;
 	}
 
 	.bookTable {
 		bottom: 0px;
 		right: 100px;
+
+		max-width: 160px;
+		max-height: 185px;
 	}
 }
 
@@ -168,7 +181,7 @@
 
 	.numPadTable {
 		bottom: 0px;
-		left: 80px;
+		left: 83px;
 		max-height: 136px;
 		transform: scale(0.8);
 	}
@@ -198,7 +211,7 @@
 
 	.numPadTable {
 		bottom: 0px;
-		left: 49px;
+		left: 55px;
 		max-height: 113px;
 		transform: scale(0.8);
 	}
@@ -228,8 +241,7 @@
 
 	.numPadTable {
 		bottom: 0px;
-
-		left: 21px;
+		left: 28px;
 		max-height: 92px;
 		transform: scale(0.8);
 	}
