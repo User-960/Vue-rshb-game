@@ -524,11 +524,11 @@
 
 @keyframes gravityTomato {
 	0% {
-		top: 1px;
+		top: 0px;
 	}
 
 	1% {
-		top: 1.5px;
+		top: 1px;
 	}
 
 	2% {
@@ -1096,11 +1096,11 @@
 
 @keyframes gravityTomatoTablet {
 	0% {
-		top: 1px;
+		top: 0px;
 	}
 
 	1% {
-		top: 1.5px;
+		top: 1px;
 	}
 
 	2% {
@@ -1412,13 +1412,163 @@
 	}
 }
 
-@keyframes gravityTomatoTabletMobile {
+/* @keyframes gravityTomatoTabletMobile {
 	0% {
 		top: 1px;
 	}
 
 	1% {
 		top: 2px;
+	}
+
+	4% {
+		top: 3px;
+	}
+
+	7% {
+		top: 4px;
+	}
+
+	10% {
+		top: 5px;
+	}
+
+	13% {
+		top: 6px;
+	}
+
+	16% {
+		top: 7px;
+	}
+
+	19% {
+		top: 8px;
+	}
+
+	22% {
+		top: 9px;
+	}
+
+	25% {
+		top: 10px;
+	}
+
+	28% {
+		top: 11px;
+	}
+
+	31% {
+		top: 12px;
+	}
+
+	34% {
+		top: 13px;
+	}
+
+	37% {
+		top: 14px;
+	}
+
+	40% {
+		top: 15px;
+	}
+
+	43% {
+		top: 16px;
+	}
+
+	46% {
+		top: 17px;
+	}
+
+	49% {
+		top: 18px;
+	}
+
+	52% {
+		top: 19px;
+	}
+
+	55% {
+		top: 20px;
+	}
+
+	58% {
+		top: 21px;
+	}
+
+	61% {
+		top: 22px;
+	}
+
+	64% {
+		top: 23px;
+	}
+
+	67% {
+		top: 24px;
+	}
+
+	70% {
+		top: 25px;
+	}
+
+	73% {
+		top: 26px;
+	}
+
+	76% {
+		top: 27px;
+	}
+
+	79% {
+		top: 28px;
+	}
+
+	82% {
+		top: 29px;
+	}
+
+	85% {
+		top: 30px;
+	}
+
+	88% {
+		top: 31px;
+	}
+
+	91% {
+		top: 32px;
+	}
+
+	94% {
+		top: 33px;
+	}
+
+	97% {
+		top: 34px;
+	}
+
+	100% {
+		top: 35px;
+	}
+} */
+
+@keyframes gravityTomatoTabletMobile {
+	0% {
+		top: 0px;
+	}
+
+	1% {
+		top: 1px;
+	}
+
+	2% {
+		top: 2px;
+	}
+
+	3% {
+		top: 2.5px;
 	}
 
 	4% {
@@ -1674,11 +1824,11 @@
 
 @keyframes gravityTomatoMiddleMobile {
 	0% {
-		top: 1px;
+		top: 0px;
 	}
 
 	1% {
-		top: 1.5px;
+		top: 1px;
 	}
 
 	2% {
@@ -1934,6 +2084,10 @@
 
 @keyframes gravityTomatoMobile {
 	0% {
+		top: 0px;
+	}
+
+	1% {
 		top: 1px;
 	}
 
