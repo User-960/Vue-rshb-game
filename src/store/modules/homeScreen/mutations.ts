@@ -79,6 +79,8 @@ export const mutations: MutationTree<IHomeScreenState> = {
 	[EN_HomeScreenMutation.PLAY_BACK_MUSIC_MAP](state) {
 		if (audioBackMusicMap) {
 			audioBackMusicMap.volume = 0.1
+			// audioBackMusicMap.loop = true
+
 			audioBackMusicMap.play()
 
 			state.isPlayMusic = true
