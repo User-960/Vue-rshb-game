@@ -77,14 +77,16 @@ export const mutations: MutationTree<IHomeScreenState> = {
 		state.isModalShopVisible = false
 	},
 	[EN_HomeScreenMutation.PLAY_BACK_MUSIC_MAP](state) {
-		if (audioBackMusicMap) {
-			audioBackMusicMap.volume = 0.1
-			audioBackMusicMap.loop = true
+		audioBackMusicMap.addEventListener('loadeddata', () => {
+			if (audioBackMusicMap) {
+				audioBackMusicMap.volume = 0.1
+				audioBackMusicMap.loop = true
 
-			audioBackMusicMap.play()
+				audioBackMusicMap.play()
 
-			state.isPlayMusic = true
-		}
+				state.isPlayMusic = true
+			}
+		})
 	},
 	[EN_HomeScreenMutation.STOP_BACK_MUSIC_MAP](state) {
 		audioBackMusicMap.pause()
