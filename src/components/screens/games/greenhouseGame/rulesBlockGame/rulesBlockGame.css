@@ -148,7 +148,16 @@
 
 @media (max-width: 770px) {
 	.rulesBlockGame {
-		transform: scale(0.35);
-		width: 650px;
+		transform: scale(0.4);
+		min-width: 744px;
+		max-height: 730px;
+	}
+
+	.contentText {
+		font-size: 20px;
+	}
+
+	.rulesContentWrapper img {
+		max-width: 180px;
 	}
 }

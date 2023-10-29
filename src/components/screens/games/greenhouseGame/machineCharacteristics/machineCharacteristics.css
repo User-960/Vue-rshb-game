@@ -277,9 +277,9 @@
 	.machineCharacteristicsTomato,
 	.machineCharacteristicsPepper,
 	.machineCharacteristicsStrawberry {
-		bottom: 31px;
-		left: 140px;
-		transform: scale(1.15);
+		bottom: 42px;
+		left: 143px;
+		transform: scale(1.2);
 	}
 
 	.soilMoistureWrapper,
@@ -304,7 +304,15 @@
 	.characteristicsList {
 		top: 148px;
 		left: -31px;
-		transform: scale(0.48);
+		transform: scale(0.5);
 		width: 314px;
+	}
+
+	.machineCharacteristicsTomato,
+	.machineCharacteristicsPepper,
+	.machineCharacteristicsStrawberry {
+		bottom: 65px;
+		left: 133px;
+		transform: scale(1.3);
 	}
 }

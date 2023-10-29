@@ -42,8 +42,8 @@
 
 .flasksContainer {
 	position: relative;
-	top: 67px;
-	left: 150px;
+	top: 37px;
+	left: 214px;
 
 	min-width: 338px;
 }
@@ -323,11 +323,11 @@
 }
 
 /* media */
-@media (max-width: 1580px) {
+@media (max-width: 1620px) {
 	.flasksContainer {
 		position: relative;
-		top: 36px;
-		left: 222px;
+		top: 37px;
+		left: 214px;
 
 		min-width: 338px;
 	}
@@ -365,8 +365,8 @@
 @media (max-width: 1280px) {
 	.flasksContainer {
 		position: relative;
-		top: 67px;
-		left: 150px;
+		top: 68px;
+		left: 108px;
 
 		min-width: 338px;
 	}
@@ -403,8 +403,8 @@
 @media (max-width: 1248px) {
 	.flasksContainer {
 		position: relative;
-		top: 67px;
-		left: 150px;
+		top: 95px;
+		left: 38px;
 
 		min-width: 338px;
 	}
@@ -422,11 +422,6 @@
 	.flasksList {
 		top: -20px;
 		left: 27px;
-	}
-
-	.flasksContainer {
-		top: 106px;
-		left: 40px;
 	}
 
 	.dropZoneContainer {
@@ -447,8 +442,8 @@
 @media (max-width: 1168px) {
 	.flasksContainer {
 		position: relative;
-		top: 134px;
-		left: -82px;
+		top: 129px;
+		left: -86px;
 
 		min-width: 338px;
 	}

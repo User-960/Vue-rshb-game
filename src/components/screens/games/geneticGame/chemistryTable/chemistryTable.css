@@ -6,8 +6,10 @@
 	background-position: center;
 	background-size: contain;
 
-	width: 870px;
-	height: 166px;
+	width: 990px;
+	height: 200px;
+
+	left: 0px;
 }
 
 .bigFlaskEmpty {
@@ -148,10 +150,12 @@
 }
 
 /* media */
-@media (max-width: 1580px) {
+@media (max-width: 1620px) {
 	.chemistryTableBack {
 		width: 990px;
 		height: 200px;
+
+		left: 0px;
 	}
 
 	.bigFlaskEmpty {
@@ -233,6 +237,8 @@
 	.chemistryTableBack {
 		width: 870px;
 		height: 166px;
+
+		left: 0px;
 	}
 
 	.bigFlaskEmpty {
