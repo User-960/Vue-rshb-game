@@ -75,18 +75,18 @@
 
 @media (max-width: 1168px) {
 	.modalHouse {
-		transform: scale(0.6);
+		transform: scale(0.68);
 	}
 }
 
 @media (max-width: 920px) {
 	.modalHouse {
-		transform: scale(0.4);
+		transform: scale(0.5);
 	}
 }
 
 @media (max-width: 770px) {
 	.modalHouse {
-		transform: scale(0.4);
+		transform: scale(0.5);
 	}
 }

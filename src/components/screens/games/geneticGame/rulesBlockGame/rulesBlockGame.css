@@ -136,13 +136,13 @@
 
 @media (max-width: 1168px) {
 	.rulesBlockGame {
-		transform: scale(0.6);
+		transform: scale(0.64);
 	}
 }
 
 @media (max-width: 920px) {
 	.rulesBlockGame {
-		transform: scale(0.5);
+		transform: scale(0.54);
 	}
 }
 

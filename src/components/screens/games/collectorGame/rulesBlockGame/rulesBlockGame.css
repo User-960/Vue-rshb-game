@@ -53,7 +53,7 @@
 
 .btnWrapper {
 	display: flex;
-	max-width: 600px;
+	max-width: 744px;
 	width: 100%;
 	margin-top: 35px;
 }
@@ -127,13 +127,13 @@
 
 @media (max-width: 1168px) {
 	.rulesBlockGame {
-		transform: scale(0.6);
+		transform: scale(0.61);
 	}
 }
 
 @media (max-width: 920px) {
 	.rulesBlockGame {
-		transform: scale(0.5);
+		transform: scale(0.51);
 	}
 }
 
