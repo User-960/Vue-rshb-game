@@ -45,12 +45,13 @@ export enum EN_HomeScreenMutation {
 }
 
 const audioBackMusicMap = new Audio(AUDIO_CONFIG.AUDIO_BACK_MUSIC_MAP)
+const audioClickButton = new Audio(AUDIO_CONFIG.AUDIO_CLICK_BUTTON)
+const audioModalWindow = new Audio(AUDIO_CONFIG.AUDIO_MODAL_WINDOW)
 
 export const mutations: MutationTree<IHomeScreenState> = {
 	[EN_HomeScreenMutation.SHOW_MODAL_HOUSE](state) {
-		const audio = new Audio(AUDIO_CONFIG.AUDIO_MODAL_WINDOW)
-		audio.autoplay = true
-		audio.volume = 1
+		audioModalWindow.volume = 1
+		audioModalWindow.play()
 
 		state.isModalHouseVisible = true
 	},
@@ -58,9 +59,8 @@ export const mutations: MutationTree<IHomeScreenState> = {
 		state.isModalHouseVisible = false
 	},
 	[EN_HomeScreenMutation.SHOW_MODAL_BANK](state) {
-		const audio = new Audio(AUDIO_CONFIG.AUDIO_CLICK_BUTTON)
-		audio.autoplay = true
-		audio.volume = 1
+		audioClickButton.volume = 1
+		audioClickButton.play()
 
 		state.isModalBankVisible = true
 	},
@@ -68,9 +68,8 @@ export const mutations: MutationTree<IHomeScreenState> = {
 		state.isModalBankVisible = false
 	},
 	[EN_HomeScreenMutation.SHOW_MODAL_SHOP](state) {
-		const audio = new Audio(AUDIO_CONFIG.AUDIO_CLICK_BUTTON)
-		audio.autoplay = true
-		audio.volume = 1
+		audioClickButton.volume = 1
+		audioClickButton.play()
 
 		state.isModalShopVisible = true
 	},
@@ -78,10 +77,10 @@ export const mutations: MutationTree<IHomeScreenState> = {
 		state.isModalShopVisible = false
 	},
 	[EN_HomeScreenMutation.PLAY_BACK_MUSIC_MAP](state) {
-		audioBackMusicMap.volume = 0.1
-		audioBackMusicMap.autoplay = true
+		if (audioBackMusicMap) {
+			audioBackMusicMap.volume = 0.1
+			audioBackMusicMap.play()
 
-		if (audioBackMusicMap.autoplay) {
 			state.isPlayMusic = true
 		}
 	},
@@ -92,9 +91,8 @@ export const mutations: MutationTree<IHomeScreenState> = {
 	},
 
 	[EN_HomeScreenMutation.SHOW_FIRST_INFO_INTRODUCTION](state) {
-		const audio = new Audio(AUDIO_CONFIG.AUDIO_MODAL_WINDOW)
-		audio.autoplay = true
-		audio.volume = 1
+		audioModalWindow.volume = 1
+		audioModalWindow.play()
 
 		state.isFirstInfoIntroductionVisible = true
 	},
@@ -102,9 +100,8 @@ export const mutations: MutationTree<IHomeScreenState> = {
 		state.isFirstInfoIntroductionVisible = false
 	},
 	[EN_HomeScreenMutation.SHOW_SECOND_INFO_INTRODUCTION](state) {
-		const audio = new Audio(AUDIO_CONFIG.AUDIO_MODAL_WINDOW)
-		audio.autoplay = true
-		audio.volume = 1
+		audioModalWindow.volume = 1
+		audioModalWindow.play()
 
 		state.isSecondInfoIntroductionVisible = true
 	},
@@ -112,9 +109,8 @@ export const mutations: MutationTree<IHomeScreenState> = {
 		state.isSecondInfoIntroductionVisible = false
 	},
 	[EN_HomeScreenMutation.SHOW_THIRD_INFO_INTRODUCTION](state) {
-		const audio = new Audio(AUDIO_CONFIG.AUDIO_MODAL_WINDOW)
-		audio.autoplay = true
-		audio.volume = 1
+		audioModalWindow.volume = 1
+		audioModalWindow.play()
 
 		state.isThirdInfoIntroductionVisible = true
 	},
@@ -122,9 +118,8 @@ export const mutations: MutationTree<IHomeScreenState> = {
 		state.isThirdInfoIntroductionVisible = false
 	},
 	[EN_HomeScreenMutation.SHOW_FOUR_INFO_INTRODUCTION](state) {
-		const audio = new Audio(AUDIO_CONFIG.AUDIO_MODAL_WINDOW)
-		audio.autoplay = true
-		audio.volume = 1
+		audioModalWindow.volume = 1
+		audioModalWindow.play()
 
 		state.isFourInfoIntroductionVisible = true
 	},
@@ -132,9 +127,8 @@ export const mutations: MutationTree<IHomeScreenState> = {
 		state.isFourInfoIntroductionVisible = false
 	},
 	[EN_HomeScreenMutation.SHOW_FIVE_INFO_INTRODUCTION](state) {
-		const audio = new Audio(AUDIO_CONFIG.AUDIO_MODAL_WINDOW)
-		audio.autoplay = true
-		audio.volume = 1
+		audioModalWindow.volume = 1
+		audioModalWindow.play()
 
 		state.isFiveInfoIntroductionVisible = true
 	},
@@ -142,9 +136,8 @@ export const mutations: MutationTree<IHomeScreenState> = {
 		state.isFiveInfoIntroductionVisible = false
 	},
 	[EN_HomeScreenMutation.SHOW_SIX_INFO_INTRODUCTION](state) {
-		const audio = new Audio(AUDIO_CONFIG.AUDIO_MODAL_WINDOW)
-		audio.autoplay = true
-		audio.volume = 1
+		audioModalWindow.volume = 1
+		audioModalWindow.play()
 
 		state.isSixInfoIntroductionVisible = true
 	},
@@ -152,9 +145,8 @@ export const mutations: MutationTree<IHomeScreenState> = {
 		state.isSixInfoIntroductionVisible = false
 	},
 	[EN_HomeScreenMutation.SHOW_SEVEN_INFO_INTRODUCTION](state) {
-		const audio = new Audio(AUDIO_CONFIG.AUDIO_MODAL_WINDOW)
-		audio.autoplay = true
-		audio.volume = 1
+		audioModalWindow.volume = 1
+		audioModalWindow.play()
 
 		state.isSevenInfoIntroductionVisible = true
 	},
