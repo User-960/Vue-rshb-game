@@ -54,7 +54,9 @@ export default Vue.extend({
     ]),
   },
   created() {
-    this.PLAY_BACK_MUSIC_MAP()
+    if (this.GET_BACK_MUSIC_MAP) {
+      this.PLAY_BACK_MUSIC_MAP()
+    }
   },
   methods: {
     ...mapMutations([
