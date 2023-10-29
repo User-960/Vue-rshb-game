@@ -185,6 +185,9 @@ import { EN_PlayerDataGetters } from '@/store/modules/playerData/getters'
 import vClickOutside from 'v-click-outside'
 import { EN_PlayerDataActions } from '@/store/modules/playerData/actions'
 import infoBlockM from '@/components/ui/infoBlock/infoBlockM/infoBlockM.vue'
+import { AUDIO_CONFIG } from '@/config/audio'
+
+const audioMoney = new Audio(AUDIO_CONFIG.AUDIO_MONEY)
 
 export default Vue.extend({
   name: 'modalBank',
@@ -238,6 +241,9 @@ export default Vue.extend({
     ]),
     takeCredit() {
       if (this.isFirstCredit && !this.GET_PLAYER_DATA.minigame.gameFive.complete) {
+        audioMoney.volume = 1
+        audioMoney.play()
+        
         this.TAKE_CREDIT()
         this.UPDATE_PLAYER_CREDIT(this.GET_PLAYER_DATA)
 

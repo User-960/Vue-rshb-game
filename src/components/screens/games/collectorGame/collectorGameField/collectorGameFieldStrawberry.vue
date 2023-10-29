@@ -58,6 +58,9 @@ import { EN_CollectorGameMutation } from '@/store/modules/collectorGame/mutation
 import victoryBlockMiniGameStrawberry from '../victoryBlockGame/victoryBlockMiniGameStrawberry.vue'
 import lossBlockMiniGameStrawberry from '../lossBlockGame/lossBlockMiniGameStrawberry.vue'
 import { EN_CONFIG } from '../config/config'
+import { AUDIO_CONFIG } from '@/config/audio'
+
+const audioCatchHarvest = new Audio(AUDIO_CONFIG.AUDIO_CATCH_HARVEST)
 
 export default Vue.extend({
   name: 'collectorGameFieldStrawberry',
@@ -66,22 +69,18 @@ export default Vue.extend({
     cells: generatorCellsStrawberry(),
     previousColumn: 0,
 
-    // generateStrawberryGreen: false,
     currentCellStrawberryGreen: 0,
     currentIndexCellStrawberryGreen: 0,
     previousColumnStrawberryGreen: 0,
 
-    // generateStrawberryRed: false,
     currentCellStrawberryRed: 0,
     currentIndexCellStrawberryRed: 0,
     previousColumnStrawberryRed: 0,
     
-    // generateStrawberryDarkGreen: false,
     currentCellStrawberryDarkGreen: 0,
     currentIndexCellStrawberryDarkGreen: 0,
     previousColumnStrawberryDarkGreen: 0,
 
-    // generateCollector: false,
     currentCellCollector: 117,
     currentIndexCellCollector: 0,
     isCollectorMovedLeft: false,
@@ -310,6 +309,9 @@ export default Vue.extend({
           this.currentCellCollector - 13 === this.currentCellStrawberryGreen || 
           this.currentCellCollector === this.currentCellStrawberryGreen
         ) {
+        audioCatchHarvest.volume = 1
+        audioCatchHarvest.play()
+
         this.PLUS_POINTS_STRAWBERRY_GREEN_COL()
       }
     },
@@ -317,6 +319,9 @@ export default Vue.extend({
       if (this.currentCellCollector - 13 === this.currentCellStrawberryRed ||
           this.currentCellCollector === this.currentCellStrawberryRed
         ) {
+        audioCatchHarvest.volume = 1
+        audioCatchHarvest.play()
+
         this.PLUS_POINTS_STRAWBERRY_RED_COL()
       }
     },
@@ -324,6 +329,9 @@ export default Vue.extend({
       if (this.currentCellCollector - 13 === this.currentCellStrawberryDarkGreen ||
           this.currentCellCollector === this.currentCellStrawberryDarkGreen
         ) {
+        audioCatchHarvest.volume = 1
+        audioCatchHarvest.play()
+
         this.PLUS_POINTS_STRAWBERRY_DARK_GREEN_COL()
       }
     },

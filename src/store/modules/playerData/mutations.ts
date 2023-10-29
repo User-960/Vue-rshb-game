@@ -4,8 +4,7 @@ import { IPlayerDataState } from './types'
 import { EN_CONFIG } from '@/config/config.player'
 import {
 	IPlayer,
-	IPlayerLiderboardRanking,
-	IUserDataForm
+	IPlayerLiderboardRanking
 } from '@/interfaces/player.interface'
 
 export enum EN_PlayerDataMutation {

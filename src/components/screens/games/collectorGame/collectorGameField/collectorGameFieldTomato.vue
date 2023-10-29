@@ -58,6 +58,9 @@ import { EN_CollectorGameMutation } from '@/store/modules/collectorGame/mutation
 import victoryBlockMiniGameTomato from '../victoryBlockGame/victoryBlockMiniGameTomato.vue'
 import lossBlockMiniGameTomato from '../lossBlockGame/lossBlockMiniGameTomato.vue'
 import { EN_CONFIG } from '../config/config'
+import { AUDIO_CONFIG } from '@/config/audio'
+
+const audioCatchHarvest = new Audio(AUDIO_CONFIG.AUDIO_CATCH_HARVEST)
 
 export default Vue.extend({
   name: 'collectorGameFieldTomato',
@@ -306,6 +309,9 @@ export default Vue.extend({
           this.currentCellCollector - 13 === this.currentCellTomatoGreen || 
           this.currentCellCollector === this.currentCellTomatoGreen
         ) {
+        audioCatchHarvest.volume = 1
+        audioCatchHarvest.play()
+
         this.PLUS_POINTS_TOMATO_GREEN_COL()
       }
     },
@@ -313,6 +319,9 @@ export default Vue.extend({
       if (this.currentCellCollector - 13 === this.currentCellTomatoRed ||
           this.currentCellCollector === this.currentCellTomatoRed
         ) {
+        audioCatchHarvest.volume = 1
+        audioCatchHarvest.play()
+
         this.PLUS_POINTS_TOMATO_RED_COL()
       }
     },
@@ -320,6 +329,9 @@ export default Vue.extend({
       if (this.currentCellCollector - 13 === this.currentCellTomatoDarkGreen ||
           this.currentCellCollector === this.currentCellTomatoDarkGreen
         ) {
+        audioCatchHarvest.volume = 1
+        audioCatchHarvest.play()
+
         this.PLUS_POINTS_TOMATO_DARK_GREEN_COL()
       }
     },

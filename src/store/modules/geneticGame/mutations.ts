@@ -82,6 +82,10 @@ export enum EN_GeneticGameMutation {
 }
 
 const audioVictory = new Audio(AUDIO_CONFIG.AUDIO_VICTORY)
+const audioLoss = new Audio(AUDIO_CONFIG.AUDIO_LOSS)
+const audioBonus = new Audio(AUDIO_CONFIG.AUDIO_BONUS)
+const audioPayBonus = new Audio(AUDIO_CONFIG.AUDIO_PAY_BONUS)
+const audioNewMission = new Audio(AUDIO_CONFIG.AUDIO_NEW_MISSION)
 
 let timerTomato: any = null
 let timerPepper: any = null
@@ -171,19 +175,14 @@ export const mutations: MutationTree<IGeneticGameState> = {
 	},
 
 	[EN_GeneticGameMutation.SHOW_INFO_LINK_BLOCK_GN](state) {
-		const audio = new Audio(AUDIO_CONFIG.AUDIO_NEW_MISSION)
-		audio.autoplay = true
-		audio.volume = 1
-
 		state.isInfoLinkBlockVisible = true
 	},
 	[EN_GeneticGameMutation.HIDE_INFO_LINK_BLOCK_GN](state) {
 		state.isInfoLinkBlockVisible = false
 	},
 	[EN_GeneticGameMutation.SHOW_RULES_BLOCK_GN](state) {
-		const audio = new Audio(AUDIO_CONFIG.AUDIO_NEW_MISSION)
-		audio.autoplay = true
-		audio.volume = 1
+		audioNewMission.volume = 1
+		audioNewMission.play()
 
 		state.isRulesBlockVisible = true
 	},
@@ -191,29 +190,36 @@ export const mutations: MutationTree<IGeneticGameState> = {
 		state.isRulesBlockVisible = false
 	},
 	[EN_GeneticGameMutation.SHOW_VICTORY_BLOCK_GN](state) {
-		audioVictory.autoplay = true
 		audioVictory.volume = 1
+		audioVictory.play()
 
 		state.isVictoryBlockVisible = true
 	},
 	[EN_GeneticGameMutation.HIDE_VICTORY_BLOCK_GN](state) {
-		audioVictory.autoplay = false
-
 		state.isVictoryBlockVisible = false
 	},
 	[EN_GeneticGameMutation.SHOW_LOSS_BLOCK_GN](state) {
+		audioLoss.volume = 1
+		audioLoss.play()
+
 		state.isLossBlockVisible = true
 	},
 	[EN_GeneticGameMutation.HIDE_LOSS_BLOCK_GN](state) {
 		state.isLossBlockVisible = false
 	},
 	[EN_GeneticGameMutation.SHOW_BONUS_BLOCK_GN](state) {
+		audioBonus.volume = 1
+		audioBonus.play()
+
 		state.isBonusBlockVisible = true
 	},
 	[EN_GeneticGameMutation.HIDE_BONUS_BLOCK_GN](state) {
 		state.isBonusBlockVisible = false
 	},
 	[EN_GeneticGameMutation.SHOW_BONUS_BLOCK_PAYED_GN](state) {
+		audioPayBonus.volume = 1
+		audioPayBonus.play()
+
 		state.points += 30
 		state.isBonusBlockPayedVisible = true
 	},

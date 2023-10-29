@@ -160,6 +160,10 @@ import { EN_HomeScreenMutation } from '@/store/modules/homeScreen/mutations'
 import { EN_PlayerDataGetters } from '@/store/modules/playerData/getters'
 import { EN_PlayerDataMutation } from '@/store/modules/playerData/mutations'
 import { EN_PlayerDataActions } from '@/store/modules/playerData/actions'
+import { AUDIO_CONFIG } from '@/config/audio'
+
+const audioBuyShop = new Audio(AUDIO_CONFIG.AUDIO_BUY_SHOP)
+const audioMoney = new Audio(AUDIO_CONFIG.AUDIO_MONEY)
 
 export default Vue.extend({
   name: 'modalShop',
@@ -247,18 +251,27 @@ export default Vue.extend({
     },
     buySoftware() {
       if (this.GET_PLAYER_DATA.minigame.gameTwo.complete && !this.GET_PLAYER_DATA.equipment.software.available) {
+        audioBuyShop.volume = 1
+        audioBuyShop.play()
+
         this.BUY_EQUIPMENT('software')
         this.UPDATE_PLAYER_EQUIPMENT(this.GET_PLAYER_DATA)
       }
     },
     buyDrone() {
       if (this.GET_PLAYER_DATA.minigame.gameThree.complete && !this.GET_PLAYER_DATA.equipment.bpla.available) {
+        audioBuyShop.volume = 1
+        audioBuyShop.play()
+
         this.BUY_EQUIPMENT('bpla')
         this.UPDATE_PLAYER_EQUIPMENT(this.GET_PLAYER_DATA)
       }
     },
     buyRobot() {
       if (this.GET_PLAYER_DATA.minigame.gameFour.complete && !this.GET_PLAYER_DATA.equipment.robot.available) {
+        audioBuyShop.volume = 1
+        audioBuyShop.play()
+
         this.BUY_EQUIPMENT('robot')
         this.UPDATE_PLAYER_EQUIPMENT(this.GET_PLAYER_DATA)
       }
@@ -269,6 +282,9 @@ export default Vue.extend({
           this.GET_PLAYER_DATA.own_money < 9270 && 
           this.GET_PLAYER_DATA.credit === 9000
         ) {
+        audioMoney.volume = 1
+        audioMoney.play()
+
         this.SELL_HARVEST()
         this.UPDATE_PLAYER_HARVEST(this.GET_PLAYER_DATA)
       }

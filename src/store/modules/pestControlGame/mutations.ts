@@ -66,6 +66,8 @@ export enum EN_PestControlGameMutation {
 }
 
 const audioVictory = new Audio(AUDIO_CONFIG.AUDIO_VICTORY)
+const audioLoss = new Audio(AUDIO_CONFIG.AUDIO_LOSS)
+const audioNewMission = new Audio(AUDIO_CONFIG.AUDIO_NEW_MISSION)
 
 export const mutations: MutationTree<IPestControlGameState> = {
 	[EN_PestControlGameMutation.RESTART_GAME_PS](state) {
@@ -128,19 +130,14 @@ export const mutations: MutationTree<IPestControlGameState> = {
 	},
 
 	[EN_PestControlGameMutation.SHOW_INFO_LINK_BLOCK_PS](state) {
-		const audio = new Audio(AUDIO_CONFIG.AUDIO_NEW_MISSION)
-		audio.autoplay = true
-		audio.volume = 1
-
 		state.isInfoLinkBlockVisible = true
 	},
 	[EN_PestControlGameMutation.HIDE_INFO_LINK_BLOCK_PS](state) {
 		state.isInfoLinkBlockVisible = false
 	},
 	[EN_PestControlGameMutation.SHOW_RULES_BLOCK_PS](state) {
-		const audio = new Audio(AUDIO_CONFIG.AUDIO_NEW_MISSION)
-		audio.autoplay = true
-		audio.volume = 1
+		audioNewMission.volume = 1
+		audioNewMission.play()
 
 		state.isRulesBlockVisible = true
 	},
@@ -148,17 +145,18 @@ export const mutations: MutationTree<IPestControlGameState> = {
 		state.isRulesBlockVisible = false
 	},
 	[EN_PestControlGameMutation.SHOW_VICTORY_BLOCK_PS](state) {
-		audioVictory.autoplay = true
 		audioVictory.volume = 1
+		audioVictory.play()
 
 		state.isVictoryBlockVisible = true
 	},
 	[EN_PestControlGameMutation.HIDE_VICTORY_BLOCK_PS](state) {
-		audioVictory.autoplay = false
-
 		state.isVictoryBlockVisible = false
 	},
 	[EN_PestControlGameMutation.SHOW_LOSS_BLOCK_PS](state) {
+		audioLoss.volume = 1
+		audioLoss.play()
+
 		state.isLossBlockVisible = true
 	},
 	[EN_PestControlGameMutation.HIDE_LOSS_BLOCK_PS](state) {

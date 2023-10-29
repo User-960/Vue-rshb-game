@@ -83,6 +83,10 @@ export enum EN_AiGameMutation {
 }
 
 const audioVictory = new Audio(AUDIO_CONFIG.AUDIO_VICTORY)
+const audioTypeKeyboard = new Audio(AUDIO_CONFIG.AUDIO_TYPE_KEYBOARD)
+const audioOpenNote = new Audio(AUDIO_CONFIG.AUDIO_OPEN_NOTE)
+const audioLoss = new Audio(AUDIO_CONFIG.AUDIO_LOSS)
+const audioNewMission = new Audio(AUDIO_CONFIG.AUDIO_NEW_MISSION)
 
 let timer: any = null
 
@@ -168,19 +172,14 @@ export const mutations: MutationTree<IAiGameState> = {
 		state.isPestLineCritical = false
 	},
 	[EN_AiGameMutation.SHOW_INFO_LINK_BLOCK_AI](state) {
-		const audio = new Audio(AUDIO_CONFIG.AUDIO_NEW_MISSION)
-		audio.autoplay = true
-		audio.volume = 1
-
 		state.isInfoLinkBlockVisible = true
 	},
 	[EN_AiGameMutation.HIDE_INFO_LINK_BLOCK_AI](state) {
 		state.isInfoLinkBlockVisible = false
 	},
 	[EN_AiGameMutation.SHOW_RULES_BLOCK_AI](state) {
-		const audio = new Audio(AUDIO_CONFIG.AUDIO_NEW_MISSION)
-		audio.autoplay = true
-		audio.volume = 1
+		audioNewMission.volume = 1
+		audioNewMission.play()
 
 		state.isRulesBlockVisible = true
 	},
@@ -188,17 +187,18 @@ export const mutations: MutationTree<IAiGameState> = {
 		state.isRulesBlockVisible = false
 	},
 	[EN_AiGameMutation.SHOW_VICTORY_BLOCK_AI](state) {
-		audioVictory.autoplay = true
 		audioVictory.volume = 1
+		audioVictory.play()
 
 		state.isVictoryBlockVisible = true
 	},
 	[EN_AiGameMutation.HIDE_VICTORY_BLOCK_AI](state) {
-		audioVictory.autoplay = false
-
 		state.isVictoryBlockVisible = false
 	},
 	[EN_AiGameMutation.SHOW_LOSS_BLOCK_AI](state) {
+		audioLoss.volume = 1
+		audioLoss.play()
+
 		state.isLossBlockVisible = true
 	},
 	[EN_AiGameMutation.HIDE_LOSS_BLOCK_AI](state) {
@@ -304,6 +304,9 @@ export const mutations: MutationTree<IAiGameState> = {
 	},
 	[EN_AiGameMutation.CHOOSE_BOOK_AI](state) {
 		if (!state.isChosenNumPad) {
+			audioOpenNote.volume = 1
+			audioOpenNote.play()
+
 			state.isChosenBook = true
 		}
 	},
@@ -321,6 +324,9 @@ export const mutations: MutationTree<IAiGameState> = {
 				!state.isPepperSystemBroken &&
 				!state.isStrawberrySystemBroken
 			) {
+				audioTypeKeyboard.volume = 1
+				audioTypeKeyboard.play()
+
 				state.isChosenNumPad = true
 			}
 		}

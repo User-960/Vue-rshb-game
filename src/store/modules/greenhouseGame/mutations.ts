@@ -103,6 +103,10 @@ export enum EN_GreenhouseGameMutation {
 }
 
 const audioVictory = new Audio(AUDIO_CONFIG.AUDIO_VICTORY)
+const audioLoss = new Audio(AUDIO_CONFIG.AUDIO_LOSS)
+const audioBonus = new Audio(AUDIO_CONFIG.AUDIO_BONUS)
+const audioPayBonus = new Audio(AUDIO_CONFIG.AUDIO_PAY_BONUS)
+const audioNewMission = new Audio(AUDIO_CONFIG.AUDIO_NEW_MISSION)
 
 let timerTomato: any = null
 let timerPepper: any = null
@@ -213,19 +217,14 @@ export const mutations: MutationTree<IGreenhouseGameState> = {
 		state.isSecondMistakeStrawberry = false
 	},
 	[EN_GreenhouseGameMutation.SHOW_INFO_LINK_BLOCK_GH](state) {
-		const audio = new Audio(AUDIO_CONFIG.AUDIO_NEW_MISSION)
-		audio.autoplay = true
-		audio.volume = 1
-
 		state.isInfoLinkBlockVisible = true
 	},
 	[EN_GreenhouseGameMutation.HIDE_INFO_LINK_BLOCK_GH](state) {
 		state.isInfoLinkBlockVisible = false
 	},
 	[EN_GreenhouseGameMutation.SHOW_RULES_BLOCK_GH](state) {
-		const audio = new Audio(AUDIO_CONFIG.AUDIO_NEW_MISSION)
-		audio.autoplay = true
-		audio.volume = 1
+		audioNewMission.volume = 1
+		audioNewMission.play()
 
 		state.isRulesBlockVisible = true
 	},
@@ -233,29 +232,36 @@ export const mutations: MutationTree<IGreenhouseGameState> = {
 		state.isRulesBlockVisible = false
 	},
 	[EN_GreenhouseGameMutation.SHOW_VICTORY_BLOCK_GH](state) {
-		audioVictory.autoplay = true
 		audioVictory.volume = 1
+		audioVictory.play()
 
 		state.isVictoryBlockVisible = true
 	},
 	[EN_GreenhouseGameMutation.HIDE_VICTORY_BLOCK_GH](state) {
-		audioVictory.autoplay = false
-
 		state.isVictoryBlockVisible = false
 	},
 	[EN_GreenhouseGameMutation.SHOW_LOSS_BLOCK_GH](state) {
+		audioLoss.volume = 1
+		audioLoss.play()
+
 		state.isLossBlockVisible = true
 	},
 	[EN_GreenhouseGameMutation.HIDE_LOSS_BLOCK_GH](state) {
 		state.isLossBlockVisible = false
 	},
 	[EN_GreenhouseGameMutation.SHOW_BONUS_BLOCK_GH](state) {
+		audioBonus.volume = 1
+		audioBonus.play()
+
 		state.isBonusBlockVisible = true
 	},
 	[EN_GreenhouseGameMutation.HIDE_BONUS_BLOCK_GH](state) {
 		state.isBonusBlockVisible = false
 	},
 	[EN_GreenhouseGameMutation.SHOW_BONUS_BLOCK_PAYED_GH](state) {
+		audioPayBonus.volume = 1
+		audioPayBonus.play()
+
 		state.points += 30
 		state.isBonusBlockPayedVisible = true
 	},
@@ -441,7 +447,6 @@ export const mutations: MutationTree<IGreenhouseGameState> = {
 		state.tomatoSoilMoistureNum = 35
 
 		const tomatoSoilMoistureInt = setInterval(() => {
-			console.log(1)
 			state.tomatoSoilMoistureNum += 1
 			if (state.tomatoSoilMoistureNum === 60) {
 				clearInterval(tomatoSoilMoistureInt)
@@ -466,7 +471,6 @@ export const mutations: MutationTree<IGreenhouseGameState> = {
 	[EN_GreenhouseGameMutation.MINUS_TOMATO_HEALTH_PERCENTAGE_GH](state) {
 		if (state.isFirstMistakeTomato && !state.isSecondMistakeTomato) {
 			const healthTomatoInt = setInterval(() => {
-				console.log(1)
 				state.healthTomatoPercentage -= 5
 				if (state.healthTomatoPercentage === 50) {
 					clearInterval(healthTomatoInt)
@@ -476,7 +480,6 @@ export const mutations: MutationTree<IGreenhouseGameState> = {
 
 		if (!state.isFirstMistakeTomato && state.isSecondMistakeTomato) {
 			const healthTomatoInt = setInterval(() => {
-				console.log(1)
 				state.healthTomatoPercentage -= 5
 				if (state.healthTomatoPercentage === 0) {
 					clearInterval(healthTomatoInt)

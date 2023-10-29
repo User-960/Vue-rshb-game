@@ -116,6 +116,9 @@ export enum EN_CollectorGameMutation {
 }
 
 const audioVictory = new Audio(AUDIO_CONFIG.AUDIO_VICTORY)
+const audioLoss = new Audio(AUDIO_CONFIG.AUDIO_LOSS)
+const audioNewMission = new Audio(AUDIO_CONFIG.AUDIO_NEW_MISSION)
+
 let timerTomato: any = null
 let tomatoesInterval: any = null
 
@@ -176,19 +179,14 @@ export const mutations: MutationTree<ICollectorGameState> = {
 	},
 
 	[EN_CollectorGameMutation.SHOW_INFO_LINK_BLOCK_COL](state) {
-		const audio = new Audio(AUDIO_CONFIG.AUDIO_NEW_MISSION)
-		audio.autoplay = true
-		audio.volume = 1
-
 		state.isInfoLinkBlockVisible = true
 	},
 	[EN_CollectorGameMutation.HIDE_INFO_LINK_BLOCK_COL](state) {
 		state.isInfoLinkBlockVisible = false
 	},
 	[EN_CollectorGameMutation.SHOW_RULES_BLOCK_COL](state) {
-		const audio = new Audio(AUDIO_CONFIG.AUDIO_NEW_MISSION)
-		audio.autoplay = true
-		audio.volume = 1
+		audioNewMission.volume = 1
+		audioNewMission.play()
 
 		state.isRulesBlockVisible = true
 	},
@@ -196,17 +194,18 @@ export const mutations: MutationTree<ICollectorGameState> = {
 		state.isRulesBlockVisible = false
 	},
 	[EN_CollectorGameMutation.SHOW_VICTORY_BLOCK_COL](state) {
-		audioVictory.autoplay = true
 		audioVictory.volume = 1
+		audioVictory.play()
 
 		state.isVictoryBlockVisible = true
 	},
 	[EN_CollectorGameMutation.HIDE_VICTORY_BLOCK_COL](state) {
-		audioVictory.autoplay = false
-
 		state.isVictoryBlockVisible = false
 	},
 	[EN_CollectorGameMutation.SHOW_LOSS_BLOCK_COL](state) {
+		audioLoss.volume = 1
+		audioLoss.play()
+
 		state.isLossBlockVisible = true
 	},
 	[EN_CollectorGameMutation.HIDE_LOSS_BLOCK_COL](state) {
@@ -397,6 +396,9 @@ export const mutations: MutationTree<ICollectorGameState> = {
 		state.isVictoryTomatoBlockVisible = false
 	},
 	[EN_CollectorGameMutation.SHOW_LOSS_BLOCK_TOMATO_COL](state) {
+		audioLoss.volume = 1
+		audioLoss.play()
+
 		state.isLossTomatoBlockVisible = true
 	},
 	[EN_CollectorGameMutation.HIDE_LOSS_BLOCK_TOMATO_COL](state) {
@@ -546,6 +548,9 @@ export const mutations: MutationTree<ICollectorGameState> = {
 		state.isVictoryPepperBlockVisible = false
 	},
 	[EN_CollectorGameMutation.SHOW_LOSS_BLOCK_PEPPER_COL](state) {
+		audioLoss.volume = 1
+		audioLoss.play()
+
 		state.isLossPepperBlockVisible = true
 	},
 	[EN_CollectorGameMutation.HIDE_LOSS_BLOCK_PEPPER_COL](state) {
@@ -695,6 +700,9 @@ export const mutations: MutationTree<ICollectorGameState> = {
 		state.isVictoryStrawberryBlockVisible = false
 	},
 	[EN_CollectorGameMutation.SHOW_LOSS_BLOCK_STRAWBERRY_COL](state) {
+		audioLoss.volume = 1
+		audioLoss.play()
+
 		state.isLossStrawberryBlockVisible = true
 	},
 	[EN_CollectorGameMutation.HIDE_LOSS_BLOCK_STRAWBERRY_COL](state) {

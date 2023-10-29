@@ -58,6 +58,9 @@ import { EN_CollectorGameMutation } from '@/store/modules/collectorGame/mutation
 import victoryBlockMiniGamePepper from '../victoryBlockGame/victoryBlockMiniGamePepper.vue'
 import lossBlockMiniGamePepper from '../lossBlockGame/lossBlockMiniGamePepper.vue'
 import { EN_CONFIG } from '../config/config'
+import { AUDIO_CONFIG } from '@/config/audio'
+
+const audioCatchHarvest = new Audio(AUDIO_CONFIG.AUDIO_CATCH_HARVEST)
 
 export default Vue.extend({
   name: 'collectorGameFieldPepper',
@@ -66,22 +69,18 @@ export default Vue.extend({
     cells: generatorCellsPepper(),
     previousColumn: 0,
 
-    // generatePepperGreen: false,
     currentCellPepperGreen: 0,
     currentIndexCellPepperGreen: 0,
     previousColumnPepperGreen: 0,
 
-    // generatePepperRed: false,
     currentCellPepperRed: 0,
     currentIndexCellPepperRed: 0,
     previousColumnPepperRed: 0,
     
-    // generatePepperDarkGreen: false,
     currentCellPepperDarkGreen: 0,
     currentIndexCellPepperDarkGreen: 0,
     previousColumnPepperDarkGreen: 0,
 
-    // generateCollector: false,
     currentCellCollector: 117,
     currentIndexCellCollector: 0,
     isCollectorMovedLeft: false,
@@ -310,6 +309,9 @@ export default Vue.extend({
           this.currentCellCollector - 13 === this.currentCellPepperGreen || 
           this.currentCellCollector === this.currentCellPepperGreen
         ) {
+        audioCatchHarvest.volume = 1
+        audioCatchHarvest.play()
+
         this.PLUS_POINTS_PEPPER_GREEN_COL()
       }
     },
@@ -317,6 +319,9 @@ export default Vue.extend({
       if (this.currentCellCollector - 13 === this.currentCellPepperRed ||
           this.currentCellCollector === this.currentCellPepperRed
         ) {
+        audioCatchHarvest.volume = 1
+        audioCatchHarvest.play()
+
         this.PLUS_POINTS_PEPPER_RED_COL()
       }
     },
@@ -324,6 +329,9 @@ export default Vue.extend({
       if (this.currentCellCollector - 13 === this.currentCellPepperDarkGreen ||
           this.currentCellCollector === this.currentCellPepperDarkGreen
         ) {
+        audioCatchHarvest.volume = 1
+        audioCatchHarvest.play()
+        
         this.PLUS_POINTS_PEPPER_DARK_GREEN_COL()
       }
     },
