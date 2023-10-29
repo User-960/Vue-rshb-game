@@ -13,10 +13,16 @@
 
 .dropZoneContainer {
 	position: relative;
+	/* min-width: 120px;
+	min-height: 87px;
+
+	top: -15px; */
+
 	min-width: 120px;
 	min-height: 87px;
 
-	top: -15px;
+	left: 45px;
+	top: -25px;
 }
 
 .dropZoneContainerActive {
@@ -210,11 +216,16 @@
 
 .effect {
 	position: absolute;
-	left: -38px;
-	top: -25px;
+	/* left: -38px;
+	top: -25px; */
 
 	width: 200px;
 	height: 156px;
+
+	left: -38px;
+	top: -25px;
+
+	transform: scale(1.2);
 
 	background-image: none;
 	background-repeat: no-repeat;
@@ -388,7 +399,7 @@
 	.dropZoneContainer {
 		min-width: 120px;
 		min-height: 87px;
-
+		left: 10px;
 		top: -15px;
 	}
 

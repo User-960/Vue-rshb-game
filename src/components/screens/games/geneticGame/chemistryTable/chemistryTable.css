@@ -14,16 +14,22 @@
 
 .bigFlaskEmpty {
 	position: absolute;
-	bottom: 0px;
+	/* bottom: 0px;
 	left: 200px;
+
+  width: 192px;
+	height: 160px; */
 
 	background-image: url(../../../../../../public/images/bigFlaskEmpty.svg);
 	background-repeat: no-repeat;
 	background-size: contain;
 	background-position-y: bottom;
 
-	width: 192px;
-	height: 160px;
+	bottom: 5px;
+	left: 230px;
+
+	width: 235px;
+	height: 200px;
 }
 
 .plant {
@@ -33,6 +39,8 @@
 	background-repeat: no-repeat;
 	background-size: contain;
 	z-index: 10;
+
+	transform: scale(1.3);
 }
 
 .plantSproutTomato {
@@ -42,90 +50,138 @@
 	width: 120px;
 	height: 90px;
 
+	left: 244px;
+	transform: scale(1.3);
+
+	bottom: 148px;
+
 	animation: opacity 2s;
 }
 
 .plantColorTomato {
-	bottom: 110px;
 	background-image: url(../../../../../../public/images/isPlantColorTomato.svg);
+
+	/* bottom: 110px; */
 
 	width: 140px;
 	height: 110px;
+
+	left: 235px;
+	bottom: 155px;
+
+	transform: scale(1.3);
 
 	animation: opacity 2s;
 }
 
 .plantModifiedTomato {
-	left: 120px;
-	bottom: 110px;
 	background-image: url(../../../../../../public/images/isPlantModifiedTomato.svg);
 
 	width: 270px;
 	height: 254px;
 
+	/* left: 120px;
+	bottom: 110px; */
+
+	left: 170px;
+	bottom: 165px;
+
+	transform: scale(1.2);
+
 	animation: opacity 2s;
 }
 
 .plantSproutPepper {
-	bottom: 110px;
 	background-image: url(../../../../../../public/images/isPlantSproutPepper.svg);
 
 	width: 120px;
 	height: 90px;
 
+	/* bottom: 110px; */
+
+	left: 237px;
+	bottom: 147px;
+
+	transform: scale(1.3);
+
 	animation: opacity 2s;
 }
 
 .plantColorPepper {
-	left: 185px;
-	bottom: 110px;
 	background-image: url(../../../../../../public/images/isPlantColorPepper.svg);
 
 	width: 140px;
 	height: 110px;
 
+	/* left: 185px;
+	bottom: 110px; */
+
+	left: 228px;
+	bottom: 153px;
+
+	transform: scale(1.3);
+
 	animation: opacity 2s;
 }
 
 .plantModifiedPepper {
-	left: 140px;
-	bottom: 110px;
 	background-image: url(../../../../../../public/images/isPlantModifiedPepper.svg);
 
 	width: 270px;
 	height: 234px;
 
+	/* left: 140px;
+	bottom: 110px; */
+
+	left: 192px;
+	bottom: 171px;
+	transform: scale(1.3);
+
 	animation: opacity 2s;
 }
 
 .plantSproutStrawberry {
-	bottom: 100px;
 	background-image: url(../../../../../../public/images/isPlantSproutStrawberry.svg);
 
 	width: 125px;
 	height: 120px;
 
+	/* bottom: 100px; */
+
+	left: 245px;
+	bottom: 126px;
+
+	transform: scale(1);
+
 	animation: opacity 2s;
 }
 
 .plantColorStrawberry {
-	left: 195px;
-	bottom: 105px;
 	background-image: url(../../../../../../public/images/isPlantColorStrawberry.svg);
 
 	width: 128px;
 	height: 137px;
 
+	/* left: 195px;
+	bottom: 105px; */
+
+	left: 242px;
+	bottom: 150px;
+
 	animation: opacity 2s;
 }
 
 .plantModifiedStrawberry {
-	left: 195px;
-	bottom: 105px;
 	background-image: url(../../../../../../public/images/isPlantModifiedStrawberry.svg);
 
 	width: 128px;
 	height: 137px;
+
+	/* left: 195px;
+	bottom: 105px; */
+
+	left: 242px;
+	bottom: 150px;
 
 	animation: opacity 2s;
 }
@@ -220,14 +276,14 @@
 
 	.plantColorStrawberry {
 		left: 242px;
-		bottom: 133px;
+		bottom: 150px;
 
 		transform: scale(1);
 	}
 
 	.plantModifiedStrawberry {
 		left: 242px;
-		bottom: 133px;
+		bottom: 150px;
 
 		transform: scale(1);
 	}

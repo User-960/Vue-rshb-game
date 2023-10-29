@@ -97,8 +97,8 @@
 	}
 
 	.dialogMariaWrapper {
-		bottom: -5px;
-		right: -50px;
-		transform: scale(0.29);
+		bottom: 5px;
+		right: -39px;
+		transform: scale(0.31);
 	}
 }
