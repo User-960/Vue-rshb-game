@@ -145,5 +145,12 @@
 
 	.navSection {
 		padding: 0px 20px 0px 20px;
+		align-items: center;
+		flex-direction: column-reverse;
+	}
+
+	.wrapperBtn {
+		margin-bottom: 25px;
+		margin-left: 0px;
 	}
 }
