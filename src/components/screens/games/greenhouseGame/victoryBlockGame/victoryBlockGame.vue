@@ -27,7 +27,7 @@
           
           </div>
         
-          <div :class='styles.achievement' v-if='GET_POINTS_GH >= 185'>
+          <div :class='styles.achievement' v-if='GET_POINTS_GH >= 180'>
             <div :class='styles.achievementIcon'>
               <p :class='styles.achievementName'>
                 “Экспертный наблюдатель”

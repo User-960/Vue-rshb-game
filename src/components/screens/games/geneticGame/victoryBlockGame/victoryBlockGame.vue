@@ -27,7 +27,7 @@
           
           </div>
         
-          <div :class='styles.achievement' v-if='GET_POINTS_GN >= 140'>
+          <div :class='styles.achievement' v-if='GET_POINTS_GN >= 135'>
             <div :class='styles.achievementIcon'>
               <p :class='styles.achievementName'>
                 “Мастер скрещивания”

@@ -24,7 +24,7 @@
         
       </div>
 
-      <div :class='styles.achievement' v-if='GET_POINTS_AI >= 95'>
+      <div :class='styles.achievement' v-if='GET_POINTS_AI >= 90'>
         <div :class='styles.achievementIcon'>
           <p :class='styles.achievementName'>
             “Точный настройщик”
