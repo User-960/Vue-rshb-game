@@ -2346,6 +2346,27 @@
 	}
 }
 
+@media (max-width: 1400px) {
+	.gameWrapper {
+		max-width: var(--notebook-desktop-width);
+		max-height: var(--notebook-desktop-height);
+	}
+
+	.border {
+		width: var(--notebook-desktop-width);
+		height: var(--notebook-desktop-height);
+	}
+
+	.cellWrapper {
+		transform: scale(1.15);
+	}
+
+	.cell {
+		width: 62px;
+		height: 62px;
+	}
+}
+
 @media (max-width: 1280px) {
 	.gameWrapper {
 		max-width: var(--desktop-width);

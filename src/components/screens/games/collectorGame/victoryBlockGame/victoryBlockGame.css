@@ -193,6 +193,15 @@
 	}
 }
 
+@media (max-width: 1400px) {
+	.victoryBlockGame,
+	.victoryBlockTomatoLevel,
+	.victoryBlockPepperLevel,
+	.victoryBlockStrawberryLevel {
+		transform: scale(1.15);
+	}
+}
+
 @media (max-width: 1280px) {
 	.victoryBlockGame,
 	.victoryBlockTomatoLevel,

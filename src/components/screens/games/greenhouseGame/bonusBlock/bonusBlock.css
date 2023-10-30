@@ -156,6 +156,12 @@
 	}
 }
 
+@media (max-width: 1400px) {
+	.bonusBlock {
+		transform: scale(1.15);
+	}
+}
+
 @media (max-width: 1280px) {
 	.bonusBlock {
 		transform: scale(1);

@@ -91,6 +91,38 @@
 	}
 }
 
+@media (max-width: 1400px) {
+	.navBarGameAi {
+		width: var(--notebook-desktop-width);
+		height: var(--notebook-desktop-height);
+		margin: 0 auto;
+	}
+
+	.exitButtonWrapper {
+		bottom: 24px;
+		left: 45px;
+		transform: scale(1.1);
+	}
+
+	.blockButtonPoints {
+		top: 160px;
+		right: 50px;
+		transform: scale(1.1);
+	}
+
+	.blockButtonWallet {
+		top: 44px;
+		right: 50px;
+		transform: scale(1.1);
+	}
+
+	.blockButtonTimer {
+		top: 44px;
+		left: 50px;
+		transform: scale(1.1);
+	}
+}
+
 @media (max-width: 1280px) {
 	.navBarGameAi {
 		width: var(--desktop-width);

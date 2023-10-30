@@ -280,6 +280,12 @@
 	}
 }
 
+@media (max-width: 1400px) {
+	.modalShop {
+		transform: scale(1.2);
+	}
+}
+
 @media (max-width: 1280px) {
 	.modalShop {
 		transform: scale(1);

@@ -70,6 +70,31 @@
 	}
 }
 
+@media (max-width: 1400px) {
+	.gameBack {
+		width: var(--notebook-desktop-width);
+		height: var(--notebook-desktop-height);
+	}
+
+	.dialogDanilWrapper {
+		bottom: 20px;
+		right: 46px;
+		transform: scale(1.06);
+	}
+
+	.dialogTaskWrapper {
+		top: 20px;
+		left: 70px;
+		transform: scale(1.05);
+	}
+
+	.machineCharacteristicsWrapper {
+		bottom: 25px;
+		left: 40px;
+		transform: scale(1.1);
+	}
+}
+
 @media (max-width: 1280px) {
 	.gameBack {
 		width: var(--desktop-width);

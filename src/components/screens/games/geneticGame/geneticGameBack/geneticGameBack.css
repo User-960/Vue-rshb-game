@@ -40,6 +40,19 @@
 	}
 }
 
+@media (max-width: 1400px) {
+	.gameBack {
+		width: var(--notebook-desktop-width);
+		height: var(--notebook-desktop-height);
+	}
+
+	.dialogMariaWrapper {
+		bottom: 1px;
+		right: 23px;
+		transform: scale(1);
+	}
+}
+
 @media (max-width: 1280px) {
 	.gameBack {
 		width: var(--desktop-width);

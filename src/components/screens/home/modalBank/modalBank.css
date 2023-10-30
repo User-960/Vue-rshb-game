@@ -72,6 +72,12 @@
 	}
 }
 
+@media (max-width: 1400px) {
+	.modalBank {
+		transform: scale(1.2);
+	}
+}
+
 @media (max-width: 1280px) {
 	.modalBank {
 		transform: scale(1);

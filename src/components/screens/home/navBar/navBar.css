@@ -79,6 +79,35 @@
 	}
 }
 
+@media (max-width: 1400px) {
+	.navBar {
+		width: var(--notebook-desktop-width);
+		height: var(--notebook-desktop-height);
+		margin: 0 auto;
+	}
+
+	.mapBack {
+		width: var(--notebook-desktop-width);
+		height: var(--notebook-desktop-height);
+	}
+
+	.navigation {
+		transform: scale(1.15);
+	}
+
+	.exitButton {
+		transform: scale(1.15);
+	}
+
+	.blockButtonWallet {
+		transform: scale(1.15);
+	}
+
+	.blockButtonPoints {
+		transform: scale(1.15);
+	}
+}
+
 @media (max-width: 1280px) {
 	.navBar {
 		width: var(--desktop-width);

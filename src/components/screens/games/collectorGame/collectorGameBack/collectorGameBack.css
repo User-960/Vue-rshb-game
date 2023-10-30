@@ -33,15 +33,21 @@
 
 		transform: scale(1.22);
 	}
+}
 
-	.numPadTable {
-		bottom: 79px;
-		left: 199px;
+@media (max-width: 1400px) {
+	.gameBack {
+		width: var(--notebook-desktop-width);
+		height: var(--notebook-desktop-height);
 	}
 
-	.bookTable {
-		bottom: 40px;
-		right: 100px;
+	.screenWrapper {
+		position: absolute;
+		top: 64px;
+		left: 50%;
+		margin-left: -325px;
+
+		transform: scale(1.1);
 	}
 }
 

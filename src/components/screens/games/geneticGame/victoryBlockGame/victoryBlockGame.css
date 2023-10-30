@@ -171,6 +171,12 @@
 	}
 }
 
+@media (max-width: 1400px) {
+	.victoryBlockGame {
+		transform: scale(1.15);
+	}
+}
+
 @media (max-width: 1280px) {
 	.victoryBlockGame {
 		transform: scale(1);

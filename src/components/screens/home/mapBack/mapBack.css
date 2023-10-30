@@ -367,6 +367,66 @@
 	}
 }
 
+@media (max-width: 1400px) {
+	.map {
+		max-width: var(--notebook-desktop-width);
+		max-height: var(--notebook-desktop-height);
+	}
+
+	.lab {
+		bottom: 195px;
+		transform: scale(1.1);
+	}
+
+	.house {
+		top: 141px;
+		left: 367px;
+		transform: scale(1.1);
+	}
+
+	.greenhouse {
+		left: 112px;
+		bottom: 138px;
+		transform: scale(1.1);
+	}
+
+	.gardenBed {
+		left: 353px;
+		bottom: 109px;
+		transform: scale(1.1);
+	}
+
+	.gardenBed.beforeFourthGame {
+		left: 305px;
+		bottom: 60px;
+	}
+
+	.gardenBed.beforeFifthGame {
+		bottom: 92px;
+		left: 342px;
+		transform: scale(1.1);
+	}
+
+	.trees {
+		top: 93px;
+	}
+
+	.trees.beforeFifthGame {
+		height: 335px;
+		top: 90px;
+	}
+
+	.arrowUpBank {
+		width: 190px;
+		left: 43%;
+	}
+
+	.arrowUpShop {
+		width: 190px;
+		left: 48%;
+	}
+}
+
 @media (max-width: 1280px) {
 	.map {
 		width: var(--desktop-width);
