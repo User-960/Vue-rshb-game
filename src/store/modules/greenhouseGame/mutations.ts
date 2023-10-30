@@ -130,13 +130,13 @@ export const mutations: MutationTree<IGreenhouseGameState> = {
 		state.isSecondMistake = false
 
 		state.timerTomato = 9
-		state.isTomatoSoilMoistureCheck = false
+		state.isTomatoSoilMoistureCheck = true
 		state.isTomatoSoilMoistureAction = false
 		state.tomatoSoilMoistureNum = 30.1
 		state.healthTomatoPercentage = 100
 		state.isTomatoAirHumidityCheck = false
 		state.isTomatoAirTemperatureCheck = false
-		state.isTomatoLevel = false
+		state.isTomatoLevel = true
 		state.playerMistakesTomato = 0
 		state.isFirstMistakeTomato = false
 		state.isSecondMistakeTomato = false

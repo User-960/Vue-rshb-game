@@ -46,12 +46,12 @@ export default Vue.extend({
   }),
   watch: {
     GET_TOMATO_AIR_TEMPERATURE_CHECK_GH() {
-      if (!this.GET_TOMATO_AIR_TEMPERATURE_CHECK_GH) {
+      if (!this.GET_TOMATO_AIR_TEMPERATURE_CHECK_GH && !this.GET_TOMATO_SOIL_MOISTURE_CHECK_GH && !this.GET_TOMATO_AIR_HUMIDITY_CHECK_GH && this.GET_TOMATO_LEVEL_GH) {
         this.isNavPepperLevelAccess = true
       }
     },
     GET_PEPPER_AIR_TEMPERATURE_CHECK_GH() {
-      if (!this.GET_PEPPER_AIR_TEMPERATURE_CHECK_GH) {
+      if (!this.GET_PEPPER_AIR_TEMPERATURE_CHECK_GH && !this.GET_PEPPER_SOIL_MOISTURE_CHECK_GH && !this.GET_PEPPER_AIR_HUMIDITY_CHECK_GH && this.GET_PEPPER_LEVEL_GH) {
         this.isNavStrawberryLevelAccess = true
       }
     }
