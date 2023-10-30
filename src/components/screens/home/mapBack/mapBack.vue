@@ -115,7 +115,7 @@
             styles.lab, 
             {
               [styles.labAvailable]: GET_PLAYER_DATA.minigame.gameOne.available,
-              [styles.labAvailableAnimation]: GET_PLAYER_DATA.minigame.gameOne.available && !GET_PLAYER_DATA.minigame.gameOne.complete,
+              [styles.levelAvailableAnimation]: GET_PLAYER_DATA.minigame.gameOne.available && !GET_PLAYER_DATA.minigame.gameOne.complete,
             }
           ]' 
           @click='openFirstGame'
@@ -125,7 +125,9 @@
         <modalHouse/>
         <div :class='[
             styles.house, 
-            {[styles.houseAvailable]: GET_PLAYER_DATA.minigame.gameTwo.complete}
+            {
+              [styles.houseAvailable]: GET_PLAYER_DATA.minigame.gameTwo.complete
+            }
           ]' 
           @click='openModalHouse'
           data-testid='houseGame'
@@ -135,7 +137,10 @@
         <div 
           :class='[
             styles.greenhouse, 
-            {[styles.greenhouseAvailable]: GET_PLAYER_DATA.minigame.gameOne.complete}
+            {
+              [styles.greenhouseAvailable]: GET_PLAYER_DATA.minigame.gameOne.complete,
+              [styles.levelAvailableAnimation]: GET_PLAYER_DATA.minigame.gameTwo.available && !GET_PLAYER_DATA.minigame.gameTwo.complete,
+            }
           ]' 
           @click='openSecondGame'>
         </div>

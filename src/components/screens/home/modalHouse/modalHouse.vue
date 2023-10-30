@@ -11,12 +11,16 @@
         Дроны
       </linkButton>
 
-      <linkButton @onclick='openGameSystem' :isGameAvailable='GET_PLAYER_DATA.equipment.robot.available'>
+      <linkButton @onclick='openGameCollector' :isGameAvailable='GET_PLAYER_DATA.equipment.robot.available'>
         Автоматизированные системы
       </linkButton>
 
+      <div :class='styles.infoText' v-if='isInfoTextVisible'>
+        У вас нет соответствующего оборудования
+      </div>
+
       <div :class='styles.closeBtnWrapper'>
-        <closeButton @onclick='HIDE_MODAL_HOUSE'/>
+        <closeButton @onclick='onClickOutside'/>
       </div>
     </div>
   </div>
@@ -38,6 +42,8 @@ export default Vue.extend({
     isGameAiAvailable: true,
     isGameSystem: true,
     isGameDroneAvailable: true,
+
+    isInfoTextVisible: false
   }),
   components: {
     linkButton,
@@ -59,6 +65,10 @@ export default Vue.extend({
         this.$router.push({ name: 'ai-game' })
         this.HIDE_MODAL_HOUSE()
       }
+      
+      if (!this.GET_PLAYER_DATA.equipment.software.available) {
+        this.isInfoTextVisible = true
+      }
     },
     openGameDrone() {
       if (
@@ -67,18 +77,30 @@ export default Vue.extend({
       ) {
         this.$router.push({ name: 'pest-control' })
         this.HIDE_MODAL_HOUSE()
+      } 
+
+      if (!this.GET_PLAYER_DATA.equipment.bpla.available) {
+        this.isInfoTextVisible = true
       }
     },
-    openGameSystem() {
+    openGameCollector() {
       if (
         this.GET_PLAYER_DATA.minigame.gameFour.complete && 
         this.GET_PLAYER_DATA.equipment.robot.available
       ) {
         this.$router.push({ name: 'robot-collector' })
         this.HIDE_MODAL_HOUSE()
+      } 
+
+      if (!this.GET_PLAYER_DATA.equipment.robot.available) {
+        this.isInfoTextVisible = true
       }
     },
     onClickOutside (event: any) {
+      if (this.isInfoTextVisible) {
+        this.isInfoTextVisible = false
+      }
+
       this.HIDE_MODAL_HOUSE()
     }
   },

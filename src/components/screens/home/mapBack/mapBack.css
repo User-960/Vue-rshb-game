@@ -82,7 +82,7 @@
 	cursor: pointer;
 }
 
-.labAvailableAnimation {
+.levelAvailableAnimation {
 	animation: opacityLabAnimation 10s;
 }
 
