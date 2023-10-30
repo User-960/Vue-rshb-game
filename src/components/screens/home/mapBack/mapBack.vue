@@ -112,7 +112,11 @@
         <modalShop/>
 
         <div :class='[
-            styles.lab, {[styles.labAvailable]: GET_PLAYER_DATA.minigame.gameOne.available}
+            styles.lab, 
+            {
+              [styles.labAvailable]: GET_PLAYER_DATA.minigame.gameOne.available,
+              [styles.labAvailableAnimation]: GET_PLAYER_DATA.minigame.gameOne.available && !GET_PLAYER_DATA.minigame.gameOne.complete,
+            }
           ]' 
           @click='openFirstGame'
         >

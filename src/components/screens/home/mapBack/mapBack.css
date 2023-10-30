@@ -82,6 +82,10 @@
 	cursor: pointer;
 }
 
+.labAvailableAnimation {
+	animation: opacityLabAnimation 10s;
+}
+
 .house {
 	background-image: url(../../../../../public/images/houseTable.svg);
 	background-repeat: no-repeat;
@@ -330,6 +334,52 @@
 
 	to {
 		top: 37px;
+		opacity: 1;
+	}
+}
+
+@keyframes opacityLabAnimation {
+	from {
+		opacity: 1;
+	}
+
+	10% {
+		opacity: 0.25;
+	}
+
+	20% {
+		opacity: 1;
+	}
+
+	30% {
+		opacity: 0.25;
+	}
+
+	40% {
+		opacity: 1;
+	}
+
+	50% {
+		opacity: 0.25;
+	}
+
+	60% {
+		opacity: 1;
+	}
+
+	70% {
+		opacity: 0.25;
+	}
+
+	80% {
+		opacity: 1;
+	}
+
+	90% {
+		opacity: 0.25;
+	}
+
+	100% {
 		opacity: 1;
 	}
 }
