@@ -4,7 +4,16 @@
       <div :class='styles.gameBack' data-testid='aiGameBack'>
 
         <div 
-          :class='[styles.bookTable, {[styles.bookTableActive]: GET_CHOSEN_BOOK_AI}]' @click='chooseBook'
+          :class='[
+            styles.bookTable, 
+            {
+              [styles.bookTableActive]: GET_CHOSEN_BOOK_AI,
+              [styles.bookTableAnimation]: 
+              (GET_CHOSEN_TOMATO_LEVEL_AI && !GET_CHOSEN_BOOK_AI && !GET_BROKE_TOMATO_SYSTEM) || 
+              (GET_CHOSEN_PEPPER_LEVEL_AI && !GET_CHOSEN_BOOK_AI && !GET_BROKE_PEPPER_SYSTEM) || (GET_CHOSEN_STRAWBERRY_LEVEL_AI && !GET_CHOSEN_BOOK_AI && !GET_BROKE_STRAWBERRY_SYSTEM)
+            }
+          ]' 
+          @click='chooseBook'
         ></div>
 
         <div 
@@ -13,6 +22,11 @@
               {
                 [styles.numPadTableAvailable]: GET_CHOSEN_BOOK_AI,
                 [styles.numPadTableActive]: GET_CHOSEN_NUMPAD_AI,
+                [styles.numPadTableAnimation]: 
+                (GET_CHOSEN_BOOK_AI && GET_TOMATO_MOISTURE_LINE_CRITICAL) || 
+                (GET_CHOSEN_BOOK_AI && GET_PEPPER_MOISTURE_LINE_CRITICAL) || 
+                (GET_CHOSEN_BOOK_AI && GET_STRAWBERRY_MOISTURE_LINE_CRITICAL) || 
+                (GET_CHOSEN_BOOK_AI && GET_STRAWBERRY_TEMPERATURE_LINE_CRITICAL)
               }
             ]'
           @click='chooseNumPad'
@@ -65,7 +79,20 @@ export default Vue.extend({
   computed: {
     ...mapGetters([
       EN_AiGameGetters.GET_CHOSEN_BOOK_AI,
-      EN_AiGameGetters.GET_CHOSEN_NUMPAD_AI
+      EN_AiGameGetters.GET_CHOSEN_NUMPAD_AI,
+
+      EN_AiGameGetters.GET_CHOSEN_TOMATO_LEVEL_AI,
+      EN_AiGameGetters.GET_CHOSEN_PEPPER_LEVEL_AI,
+      EN_AiGameGetters.GET_CHOSEN_STRAWBERRY_LEVEL_AI,
+
+      EN_AiGameGetters.GET_BROKE_TOMATO_SYSTEM,
+      EN_AiGameGetters.GET_BROKE_PEPPER_SYSTEM,
+      EN_AiGameGetters.GET_BROKE_STRAWBERRY_SYSTEM,
+
+      EN_AiGameGetters.GET_TOMATO_MOISTURE_LINE_CRITICAL,
+      EN_AiGameGetters.GET_PEPPER_MOISTURE_LINE_CRITICAL,
+      EN_AiGameGetters.GET_STRAWBERRY_MOISTURE_LINE_CRITICAL,
+      EN_AiGameGetters.GET_STRAWBERRY_TEMPERATURE_LINE_CRITICAL,
     ]),
   },
   methods: {
@@ -75,10 +102,16 @@ export default Vue.extend({
       EN_AiGameMutation.CHOOSE_NUMPAD_AI,
     ]),
     chooseBook() {
-      if (!this.GET_CHOSEN_BOOK_AI) {
+      if (!this.GET_CHOSEN_BOOK_AI && this.GET_CHOSEN_TOMATO_LEVEL_AI && this.GET_TOMATO_MOISTURE_LINE_CRITICAL) {
         this.CHOOSE_BOOK_AI()
-      } else {
-        this.NOT_CHOOSE_BOOK_AI()
+      }
+
+      if (!this.GET_CHOSEN_BOOK_AI && this.GET_CHOSEN_PEPPER_LEVEL_AI && this.GET_PEPPER_MOISTURE_LINE_CRITICAL) {
+        this.CHOOSE_BOOK_AI()
+      }
+
+      if (!this.GET_CHOSEN_BOOK_AI && this.GET_CHOSEN_STRAWBERRY_LEVEL_AI && this.GET_STRAWBERRY_MOISTURE_LINE_CRITICAL || this.GET_STRAWBERRY_TEMPERATURE_LINE_CRITICAL) {
+        this.CHOOSE_BOOK_AI()
       }
     },
     chooseNumPad() {
