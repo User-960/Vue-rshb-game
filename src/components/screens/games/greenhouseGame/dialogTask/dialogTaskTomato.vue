@@ -78,7 +78,7 @@ export default Vue.extend({
       }
     },
     GET_TOMATO_SOIL_MOISTURE_ACTION_GH() {
-      if (!this.GET_TOMATO_SOIL_MOISTURE_ACTION_GH) {
+      if (!this.GET_TOMATO_SOIL_MOISTURE_ACTION_GH && !this.GET_TOMATO_SOIL_MOISTURE_CHECK_GH) {
         this.INCREASE_TOMATO_SOIL_MOISTURE_NUM_GH()
         this.UPDATE_TIMER_TOMATO_GH()
         this.SHOW_TOMATO_AIR_HUMIDITY_CHECK_GH()
