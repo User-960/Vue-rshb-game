@@ -448,7 +448,7 @@ export const mutations: MutationTree<IGreenhouseGameState> = {
 
 		const tomatoSoilMoistureInt = setInterval(() => {
 			state.tomatoSoilMoistureNum += 1
-			if (state.tomatoSoilMoistureNum === 60) {
+			if (state.tomatoSoilMoistureNum >= 60) {
 				clearInterval(tomatoSoilMoistureInt)
 			}
 		}, 60)
@@ -534,7 +534,7 @@ export const mutations: MutationTree<IGreenhouseGameState> = {
 	[EN_GreenhouseGameMutation.INCREASE_PEPPER_AIR_HUMIDITY_NUM_GH](state) {
 		const pepperSoilMoistureInt = setInterval(() => {
 			state.pepperAirHumidityNum += 1
-			if (state.pepperAirHumidityNum === 80) {
+			if (state.pepperAirHumidityNum >= 80) {
 				clearInterval(pepperSoilMoistureInt)
 			}
 		}, 60)
@@ -614,7 +614,7 @@ export const mutations: MutationTree<IGreenhouseGameState> = {
 	[EN_GreenhouseGameMutation.REDUCE_STRAWBERRY_AIR_HUMIDITY_NUM_GH](state) {
 		const strawberrySoilMoistureInt = setInterval(() => {
 			state.strawberryAirHumidityNum -= 1
-			if (state.strawberryAirHumidityNum === 78) {
+			if (state.strawberryAirHumidityNum <= 78) {
 				clearInterval(strawberrySoilMoistureInt)
 			}
 		}, 60)
