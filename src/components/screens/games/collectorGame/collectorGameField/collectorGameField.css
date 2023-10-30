@@ -272,7 +272,7 @@
 }
 
 /* animations */
-/* @keyframes gravityTomato {
+@keyframes gravityTomato {
 	0% {
 		top: 1px;
 	}
@@ -520,9 +520,9 @@
 	100% {
 		top: 62px;
 	}
-} */
+}
 
-@keyframes gravityTomato {
+/* @keyframes gravityTomato {
 	0% {
 		top: 0px;
 	}
@@ -926,9 +926,9 @@
 	100% {
 		top: 62px;
 	}
-}
+} */
 
-/* @keyframes gravityTomatoTablet {
+@keyframes gravityTomatoTablet {
 	0% {
 		top: 1px;
 	}
@@ -1092,9 +1092,9 @@
 	100% {
 		top: 41px;
 	}
-} */
+}
 
-@keyframes gravityTomatoTablet {
+/* @keyframes gravityTomatoTablet {
 	0% {
 		top: 0px;
 	}
@@ -1410,9 +1410,9 @@
 	100% {
 		top: 41px;
 	}
-}
+} */
 
-/* @keyframes gravityTomatoTabletMobile {
+@keyframes gravityTomatoTabletMobile {
 	0% {
 		top: 1px;
 	}
@@ -1552,9 +1552,9 @@
 	100% {
 		top: 35px;
 	}
-} */
+}
 
-@keyframes gravityTomatoTabletMobile {
+/* @keyframes gravityTomatoTabletMobile {
 	0% {
 		top: 0px;
 	}
@@ -1702,9 +1702,9 @@
 	100% {
 		top: 35px;
 	}
-}
+} */
 
-/* @keyframes gravityTomatoMiddleMobile {
+@keyframes gravityTomatoMiddleMobile {
 	0% {
 		top: 1px;
 	}
@@ -1820,9 +1820,9 @@
 	100% {
 		top: 29px;
 	}
-} */
+}
 
-@keyframes gravityTomatoMiddleMobile {
+/* @keyframes gravityTomatoMiddleMobile {
 	0% {
 		top: 0px;
 	}
@@ -1986,9 +1986,9 @@
 	100% {
 		top: 29px;
 	}
-}
+} */
 
-/* @keyframes gravityTomatoMobile {
+@keyframes gravityTomatoMobile {
 	0% {
 		top: 1px;
 	}
@@ -2080,9 +2080,9 @@
 	100% {
 		top: 23px;
 	}
-} */
+}
 
-@keyframes gravityTomatoMobile {
+/* @keyframes gravityTomatoMobile {
 	0% {
 		top: 0px;
 	}
@@ -2222,7 +2222,7 @@
 	100% {
 		top: 23px;
 	}
-}
+} */
 
 @keyframes moveCollectorLeft {
 	0% {

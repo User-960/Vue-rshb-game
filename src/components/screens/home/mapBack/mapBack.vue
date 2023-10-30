@@ -166,9 +166,6 @@ import infoBlockM from '@/components/ui/infoBlock/infoBlockM/infoBlockM.vue'
 import skipButton from '@/components/ui/button/skipButton/skipButton.vue'
 import vClickOutside from 'v-click-outside'
 
-// import { ref } from 'vue'
-// import { onClickOutside } from '@vueuse/core'
-
 export default Vue.extend({
   name: 'mapBack',
   data: () => ({
