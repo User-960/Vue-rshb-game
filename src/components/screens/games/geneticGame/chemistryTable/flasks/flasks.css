@@ -16,20 +16,20 @@
 	/* min-width: 120px;
 	min-height: 87px;
 
-	top: -15px; */
+	left: 45px;
+	top: -25px; */
 
 	min-width: 120px;
-	min-height: 87px;
-
+	min-height: 298px;
 	left: 45px;
-	top: -25px;
+	top: 135px;
 }
 
 .dropZoneContainerActive {
 	background-image: url(../../../../../../../public/images/emptyFlask.svg);
 	background-repeat: no-repeat;
-	background-size: contain;
-	background-position: center;
+	background-size: auto;
+	background-position: top;
 	animation: opacityZone 4s;
 }
 
@@ -71,7 +71,7 @@
 .flasksList {
 	display: flex;
 	position: relative;
-	top: -10px;
+	top: 198px;
 	left: 27px;
 
 	z-index: 50;
@@ -353,16 +353,21 @@
 	}
 
 	.flasksList {
-		top: -10px;
+		top: 198px;
 		left: 27px;
 	}
 
 	.dropZoneContainer {
-		min-width: 120px;
+		/* min-width: 120px;
 		min-height: 87px;
 
 		left: 45px;
-		top: -25px;
+		top: -25px; */
+
+		min-width: 120px;
+		min-height: 298px;
+		left: 45px;
+		top: 135px;
 	}
 
 	.effect {
@@ -392,15 +397,15 @@
 	}
 
 	.flasksList {
-		top: -10px;
+		top: 175px;
 		left: 27px;
 	}
 
 	.dropZoneContainer {
 		min-width: 120px;
-		min-height: 87px;
-		left: 10px;
-		top: -15px;
+		min-height: 272px;
+		left: 2px;
+		top: 145px;
 	}
 
 	.effect {
@@ -431,15 +436,15 @@
 	}
 
 	.flasksList {
-		top: -20px;
+		top: 100px;
 		left: 27px;
 	}
 
 	.dropZoneContainer {
 		min-width: 120px;
-		min-height: 81px;
-		top: 12px;
-		left: -24px;
+		min-height: 200px;
+		left: -27px;
+		top: 145px;
 	}
 
 	.effect {
@@ -474,15 +479,15 @@
 	}
 
 	.flasksList {
-		top: -2px;
+		top: 80px;
 		left: 27px;
 	}
 
 	.dropZoneContainer {
 		min-width: 120px;
-		min-height: 81px;
-		top: 58px;
-		left: -95px;
+		min-height: 160px;
+		left: -96px;
+		top: 155px;
 	}
 
 	.effect {
@@ -516,15 +521,15 @@
 	}
 
 	.flasksList {
-		top: -6px;
+		top: 75px;
 		left: 17px;
 	}
 
 	.dropZoneContainer {
 		min-width: 120px;
-		min-height: 81px;
-		top: 58px;
-		left: -95px;
+		min-height: 160px;
+		left: -96px;
+		top: 155px;
 	}
 
 	.effect {
