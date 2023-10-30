@@ -38,13 +38,18 @@ export default Vue.extend({
     ]),
   },
   created() {
-    if (this.GET_BACK_MUSIC_MAP) {
-      this.PLAY_BACK_MUSIC_MAP()
-    }
+    this.PLAY_BACK_MUSIC_MAP()
+
+    setTimeout(() => {
+      if (this.GET_BACK_MUSIC_MAP) {
+        this.START_BACK_MUSIC_MAP()
+      }
+    }, 5000)
   },
   methods: {
     ...mapMutations([
-      EN_HomeScreenMutation.PLAY_BACK_MUSIC_MAP
+      EN_HomeScreenMutation.PLAY_BACK_MUSIC_MAP,
+      EN_HomeScreenMutation.START_BACK_MUSIC_MAP,
     ])
   }
 })

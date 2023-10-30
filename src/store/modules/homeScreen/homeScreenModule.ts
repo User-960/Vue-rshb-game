@@ -9,7 +9,7 @@ const state: IHomeScreenState = {
 	isModalHouseVisible: false,
 	isModalBankVisible: false,
 	isModalShopVisible: false,
-	isPlayMusic: true,
+	isPlayMusic: false,
 
 	isFirstInfoIntroductionVisible: false,
 	isSecondInfoIntroductionVisible: false,

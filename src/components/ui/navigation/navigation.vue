@@ -44,13 +44,14 @@ export default Vue.extend({
       EN_HomeScreenMutation.SHOW_MODAL_BANK, 
       EN_HomeScreenMutation.SHOW_MODAL_SHOP, 
       EN_HomeScreenMutation.STOP_BACK_MUSIC_MAP,
+      EN_HomeScreenMutation.START_BACK_MUSIC_MAP,
       EN_HomeScreenMutation.PLAY_BACK_MUSIC_MAP,
     ]),
     turnOffVolume() {
       this.STOP_BACK_MUSIC_MAP()
     },
     turnOnVolume() {
-      this.PLAY_BACK_MUSIC_MAP()
+      this.START_BACK_MUSIC_MAP()
     },
     openBank() {
       this.SHOW_MODAL_BANK()

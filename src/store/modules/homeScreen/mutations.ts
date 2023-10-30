@@ -11,6 +11,7 @@ export enum EN_HomeScreenMutation {
 	SHOW_MODAL_SHOP = 'SHOW_MODAL_SHOP',
 	HIDE_MODAL_SHOP = 'HIDE_MODAL_SHOP',
 	PLAY_BACK_MUSIC_MAP = 'PLAY_BACK_MUSIC_MAP',
+	START_BACK_MUSIC_MAP = 'START_BACK_MUSIC_MAP',
 	STOP_BACK_MUSIC_MAP = 'STOP_BACK_MUSIC_MAP',
 
 	SHOW_FIRST_INFO_INTRODUCTION = 'SHOW_FIRST_INFO_INTRODUCTION',
@@ -81,17 +82,17 @@ export const mutations: MutationTree<IHomeScreenState> = {
 			if (audioBackMusicMap) {
 				audioBackMusicMap.volume = 0.1
 				audioBackMusicMap.loop = true
-
-				audioBackMusicMap.play()
-
 				state.isPlayMusic = true
 			}
 		})
 	},
+	[EN_HomeScreenMutation.START_BACK_MUSIC_MAP](state) {
+		state.isPlayMusic = true
+		audioBackMusicMap.play()
+	},
 	[EN_HomeScreenMutation.STOP_BACK_MUSIC_MAP](state) {
-		audioBackMusicMap.pause()
-
 		state.isPlayMusic = false
+		audioBackMusicMap.pause()
 	},
 
 	[EN_HomeScreenMutation.SHOW_FIRST_INFO_INTRODUCTION](state) {
