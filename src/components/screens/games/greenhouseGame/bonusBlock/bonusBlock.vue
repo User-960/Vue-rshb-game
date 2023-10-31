@@ -101,7 +101,7 @@ export default Vue.extend({
     skipGame() {
       if (!this.GET_PLAYER_DATA.minigame.gameTwo.complete) {
         this.SAVE_SCORE_MINI_GAME_TWO(this.GET_POINTS_GH)
-        if (this.GET_POINTS_GH >= 185) {
+        if (this.GET_POINTS_GH >= 180) {
           this.PERFORM_ACHIEVEMENT('gameTwo')
         }
         this.COMPLETE_MINI_GAME('gameTwo')
