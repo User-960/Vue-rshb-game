@@ -83,18 +83,17 @@ export default Vue.extend({
     closeButton,
     iconButton
   },
-  // watch: {
-  //   GET_VICTORY_BLOCK_GH() {
-  //     if (this.GET_VICTORY_BLOCK_GH) {
-  //       if (!this.GET_PLAYER_DATA.minigame.gameTwo.complete) {
-  //         this.SUM_COINS(this.GET_POINTS_GH)
-  //       }
-        
-  //       this.COMPLETE_GREENHOUSE_GAME()
-  //       this.SHOW_MAP_AFTER_SECOND_GAME()
-  //     }
-  //   }
-  // },
+  watch: {
+    GET_VICTORY_BLOCK_GH() {
+      if (this.GET_VICTORY_BLOCK_GH) {
+        if (!this.GET_PLAYER_DATA.minigame.gameTwo.complete) {
+          this.SUM_COINS(this.GET_POINTS_GH)
+        }
+        this.COMPLETE_GREENHOUSE_GAME()
+        this.SHOW_MAP_AFTER_SECOND_GAME()
+      }
+    }
+  },
   computed: {
     ...mapGetters([
       EN_GreenhouseGameGetters.GET_VICTORY_BLOCK_GH,
@@ -111,8 +110,10 @@ export default Vue.extend({
 
       EN_HomeScreenMutation.SHOW_MAP_AFTER_SECOND_GAME,
       EN_PlayerDataMutation.SUM_COINS,
+      EN_PlayerDataMutation.MINUS_COINS,
     ]),
     restartGame() {
+      this.MINUS_COINS(this.GET_POINTS_GH)
       this.RESTART_GAME_GH()
     },
     skipToMap() {

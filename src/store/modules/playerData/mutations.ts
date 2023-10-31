@@ -26,6 +26,7 @@ export enum EN_PlayerDataMutation {
 	SELL_HARVEST = 'SELL_HARVEST',
 
 	SUM_COINS = 'SUM_COINS',
+	MINUS_COINS = 'MINUS_COINS',
 	COMPLETE_MINI_GAME = 'COMPLETE_MINI_GAME',
 	PERFORM_ACHIEVEMENT = 'PERFORM_ACHIEVEMENT',
 	SAVE_SCORE_MINI_GAME_ONE = 'SAVE_SCORE_MINI_GAME_ONE',
@@ -124,6 +125,9 @@ export const mutations: MutationTree<IPlayerDataState> = {
 
 	[EN_PlayerDataMutation.SUM_COINS](state, coins: number) {
 		state.playerData.own_coins += coins
+	},
+	[EN_PlayerDataMutation.MINUS_COINS](state, coins: number) {
+		state.playerData.own_coins -= coins
 	},
 	[EN_PlayerDataMutation.COMPLETE_MINI_GAME](state, miniGame: string) {
 		if (miniGame === 'gameOne' && state.playerData.minigame !== null) {
