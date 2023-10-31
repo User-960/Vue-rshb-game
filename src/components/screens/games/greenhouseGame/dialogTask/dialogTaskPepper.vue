@@ -18,25 +18,58 @@
       <div :class='styles.content'>
         <div v-if='GET_PEPPER_SOIL_MOISTURE_CHECK_GH' :class='styles.contentPepper'>
           <ul :class='styles.characteristicsList'>
-            <li :class='styles.characteristicsItem' @click='chooseOptionPepperSoilCorrect'>85</li>
-            <li :class='styles.characteristicsItem' @click='chooseOptionPepper'>25</li>
-            <li :class='styles.characteristicsItem' @click='chooseOptionPepper'>80,5</li>
+            <li :class='[styles.characteristicsItem, {[styles.characteristicsItemAnimation]: GET_PEPPER_SOIL_MOISTURE_CHECK_GH}]' @click='chooseOptionPepperSoilCorrect'
+            >
+              85
+            </li>
+
+            <li :class='[styles.characteristicsItem, {[styles.characteristicsItemAnimation]: GET_PEPPER_SOIL_MOISTURE_CHECK_GH}]' @click='chooseOptionPepper'
+            >
+              25
+            </li>
+
+            <li :class='[styles.characteristicsItem, {[styles.characteristicsItemAnimation]: GET_PEPPER_SOIL_MOISTURE_CHECK_GH}]' @click='chooseOptionPepper'
+            >
+              80,5
+            </li>
           </ul>
         </div>
 
         <div v-if='GET_PEPPER_AIR_HUMIDITY_CHECK_GH' :class='styles.contentPepper'>
           <ul :class='styles.characteristicsList'>
-            <li :class='styles.characteristicsItem' @click='chooseOptionPepper'>27</li>
-            <li :class='styles.characteristicsItem' @click='chooseOptionPepper'>70,2</li>
-            <li :class='styles.characteristicsItem' @click='chooseOptionPepperAirCorrect'>65</li>
+            <li :class='[styles.characteristicsItem, {[styles.characteristicsItemAnimation]: GET_PEPPER_AIR_HUMIDITY_CHECK_GH}]' @click='chooseOptionPepper'
+            >
+              27
+            </li>
+
+            <li :class='[styles.characteristicsItem, {[styles.characteristicsItemAnimation]: GET_PEPPER_AIR_HUMIDITY_CHECK_GH}]' @click='chooseOptionPepper'
+            >
+              70,2
+            </li>
+
+            <li :class='[styles.characteristicsItem, {[styles.characteristicsItemAnimation]: GET_PEPPER_AIR_HUMIDITY_CHECK_GH}]' @click='chooseOptionPepperAirCorrect'
+            >
+              65
+            </li>
           </ul>
         </div>
 
         <div v-if='GET_PEPPER_AIR_TEMPERATURE_CHECK_GH' :class='styles.contentPepper'>
           <ul :class='styles.characteristicsList'>
-            <li :class='styles.characteristicsItem' @click='chooseOptionPepper'>65</li>
-            <li :class='styles.characteristicsItem' @click='chooseOptionPepper'>25,7</li>
-            <li :class='styles.characteristicsItem' @click='chooseOptionPepperAirCorrect'>27</li>
+            <li :class='[styles.characteristicsItem, {[styles.characteristicsItemAnimation]: GET_PEPPER_AIR_TEMPERATURE_CHECK_GH}]' @click='chooseOptionPepper'
+            >
+              65
+            </li>
+
+            <li :class='[styles.characteristicsItem, {[styles.characteristicsItemAnimation]: GET_PEPPER_AIR_TEMPERATURE_CHECK_GH}]' @click='chooseOptionPepper'
+            >
+              25,7
+            </li>
+
+            <li :class='[styles.characteristicsItem, {[styles.characteristicsItemAnimation]: GET_PEPPER_AIR_TEMPERATURE_CHECK_GH}]' @click='chooseOptionPepperAirCorrect'
+            >
+              27
+            </li>
           </ul>
         </div>
       </div>

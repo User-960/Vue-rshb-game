@@ -121,6 +121,9 @@ import { mapGetters, mapMutations } from 'vuex'
 import { EN_GreenhouseGameGetters } from '@/store/modules/greenhouseGame/getters'
 import { EN_GreenhouseGameMutation } from '@/store/modules/greenhouseGame/mutations'
 import { EN_CONFIG } from '../config/config'
+import { AUDIO_CONFIG } from '@/config/audio'
+
+const audioButtonGame = new Audio(AUDIO_CONFIG.AUDIO_BUTTON_GAME)
 
 export default Vue.extend({
   name: 'machineCharacteristics',
@@ -187,6 +190,9 @@ export default Vue.extend({
     ]),
     pourSoilWrongCorrect() {
       if (this.GET_TOMATO_LEVEL_GH && this.GET_TOMATO_SOIL_MOISTURE_ACTION_GH) {
+        audioButtonGame.volume = 1
+        audioButtonGame.play()
+
         this.PLUS_POINTS_GH()
         this.HIDE_TOMATO_SOIL_MOISTURE_ACTION_GH()
       }
@@ -219,6 +225,9 @@ export default Vue.extend({
     },
     moisturizeAirCorrect() {
       if (this.GET_PEPPER_LEVEL_GH && this.GET_PEPPER_AIR_HUMIDITY_ACTION_GH) {
+        audioButtonGame.volume = 1
+        audioButtonGame.play()
+
         this.PLUS_POINTS_GH()
         this.HIDE_PEPPER_AIR_HUMIDITY_ACTION_GH()
       }
@@ -251,6 +260,9 @@ export default Vue.extend({
     },
     drainAirCorrect() {
       if (this.GET_STRAWBERRY_LEVEL_GH && this.GET_STRAWBERRY_AIR_HUMIDITY_ACTION_GH) {
+        audioButtonGame.volume = 1
+        audioButtonGame.play()
+        
         this.PLUS_POINTS_GH()
         this.HIDE_STRAWBERRY_AIR_HUMIDITY_ACTION_GH()
       }

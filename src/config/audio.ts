@@ -1,5 +1,6 @@
 import audioBackMusicMap from '../assets/audio/audioBackMusicMap.wav'
 import audioBonus from '../assets/audio/audioBonus.wav'
+import audioButtonGame from '../assets/audio/audioButtonGame.wav'
 import audioBuyShop from '../assets/audio/audioBuyShop.wav'
 import audioCatchHarvest from '../assets/audio/audioCatchHarvest.wav'
 import audioChooseActionComputer from '../assets/audio/audioChooseActionComputer.wav'
@@ -27,5 +28,6 @@ export const AUDIO_CONFIG = {
 	AUDIO_PAY_BONUS: audioPayBonus,
 	AUDIO_CATCH_HARVEST: audioCatchHarvest,
 	AUDIO_OPEN_NOTE: audioOpenNote,
+	AUDIO_BUTTON_GAME: audioButtonGame,
 	AUDIO_BACK_MUSIC_MAP: audioBackMusicMap
 }

@@ -43,7 +43,7 @@
 	padding: 12px 20px;
 	margin: 0 10px;
 
-	border: 2px solid #bfc6dc;
+	border: 2px solid rgba(191, 198, 220, 1);
 	border-radius: 8px;
 
 	color: var(--primary-green);
@@ -52,4 +52,55 @@
 	line-height: 22px;
 
 	cursor: pointer;
+}
+
+.characteristicsItemAnimation {
+	animation: opacityAnimation 7s;
+}
+
+/* animations */
+@keyframes opacityAnimation {
+	from {
+		border: 2px solid rgba(191, 198, 220, 1);
+	}
+
+	10% {
+		border: 2px solid rgba(191, 198, 220, 0.3);
+	}
+
+	20% {
+		border: 2px solid rgba(191, 198, 220, 1);
+	}
+
+	30% {
+		border: 2px solid rgba(191, 198, 220, 0.3);
+	}
+
+	40% {
+		border: 2px solid rgba(191, 198, 220, 1);
+	}
+
+	50% {
+		border: 2px solid rgba(191, 198, 220, 0.3);
+	}
+
+	60% {
+		border: 2px solid rgba(191, 198, 220, 1);
+	}
+
+	70% {
+		border: 2px solid rgba(191, 198, 220, 0.3);
+	}
+
+	80% {
+		border: 2px solid rgba(191, 198, 220, 1);
+	}
+
+	90% {
+		border: 2px solid rgba(191, 198, 220, 0.3);
+	}
+
+	100% {
+		border: 2px solid rgba(191, 198, 220, 1);
+	}
 }

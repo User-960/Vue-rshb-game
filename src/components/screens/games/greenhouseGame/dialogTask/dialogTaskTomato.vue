@@ -18,25 +18,70 @@
       <div :class='styles.content'>
         <div v-if='GET_TOMATO_SOIL_MOISTURE_CHECK_GH' :class='styles.contentTomato'>
           <ul :class='styles.characteristicsList'>
-            <li :class='styles.characteristicsItem' @click='chooseOptionTomato'>25</li>
-            <li :class='styles.characteristicsItem' @click='chooseOptionTomatoSoilCorrect'>30.1</li>
-            <li :class='styles.characteristicsItem' @click='chooseOptionTomato'>30</li>
+            <li 
+              :class='[styles.characteristicsItem, {[styles.characteristicsItemAnimation]: GET_TOMATO_SOIL_MOISTURE_CHECK_GH}]' 
+              @click='chooseOptionTomato'
+            >
+              25
+            </li>
+
+            <li 
+              :class='[styles.characteristicsItem, {[styles.characteristicsItemAnimation]: GET_TOMATO_SOIL_MOISTURE_CHECK_GH}]' 
+              @click='chooseOptionTomatoSoilCorrect'
+            >
+              30.1
+            </li>
+
+            <li 
+              :class='[styles.characteristicsItem, {[styles.characteristicsItemAnimation]: GET_TOMATO_SOIL_MOISTURE_CHECK_GH}]' 
+              @click='chooseOptionTomato'
+            >
+              30
+            </li>
           </ul>
         </div>
 
         <div v-if='GET_TOMATO_AIR_HUMIDITY_CHECK_GH' :class='styles.contentTomato'>
           <ul :class='styles.characteristicsList'>
-            <li :class='styles.characteristicsItem' @click='chooseOptionTomato'>70,6</li>
-            <li :class='styles.characteristicsItem' @click='chooseOptionTomato'>25</li>
-            <li :class='styles.characteristicsItem' @click='chooseOptionTomatoAirCorrect'>70</li>
+            <li :class='[styles.characteristicsItem, {[styles.characteristicsItemAnimation]: GET_TOMATO_AIR_HUMIDITY_CHECK_GH}]' 
+            @click='chooseOptionTomato'
+            >
+              70,6
+            </li>
+
+            <li :class='[styles.characteristicsItem, {[styles.characteristicsItemAnimation]: GET_TOMATO_AIR_HUMIDITY_CHECK_GH}]' 
+            @click='chooseOptionTomato'
+            >
+              25
+            </li>
+
+            <li :class='[styles.characteristicsItem, {[styles.characteristicsItemAnimation]: GET_TOMATO_AIR_HUMIDITY_CHECK_GH}]' 
+            @click='chooseOptionTomatoAirCorrect'
+            >
+              70
+            </li>
           </ul>
         </div>
 
         <div v-if='GET_TOMATO_AIR_TEMPERATURE_CHECK_GH' :class='styles.contentTomato'>
           <ul :class='styles.characteristicsList'>
-            <li :class='styles.characteristicsItem' @click='chooseOptionTomatoAirCorrect'>25</li>
-            <li :class='styles.characteristicsItem' @click='chooseOptionTomato'>60,8</li>
-            <li :class='styles.characteristicsItem' @click='chooseOptionTomato'>70</li>
+            <li :class='[styles.characteristicsItem, {[styles.characteristicsItemAnimation]: GET_TOMATO_AIR_TEMPERATURE_CHECK_GH}]' 
+            @click='chooseOptionTomatoAirCorrect'
+            >
+              25
+            </li>
+
+            <li :class='[styles.characteristicsItem, {[styles.characteristicsItemAnimation]: GET_TOMATO_AIR_TEMPERATURE_CHECK_GH}]' 
+            @click='chooseOptionTomato'
+            >
+              60,8
+            </li>
+
+            <li :class='[styles.characteristicsItem, {[styles.characteristicsItemAnimation]: GET_TOMATO_AIR_TEMPERATURE_CHECK_GH}]' 
+            @click='chooseOptionTomato'
+            >
+              70
+            </li>
           </ul>
         </div>
       </div>
