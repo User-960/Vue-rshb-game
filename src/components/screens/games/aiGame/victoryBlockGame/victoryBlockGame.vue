@@ -78,7 +78,7 @@ export default Vue.extend({
         if (!this.GET_PLAYER_DATA.minigame.gameThree.complete) {
           this.SUM_COINS(this.GET_POINTS_AI)
           this.SAVE_SCORE_MINI_GAME_THREE(this.GET_POINTS_AI)
-          if (this.GET_POINTS_AI >= 95) {
+          if (this.GET_POINTS_AI >= 90) {
             this.PERFORM_ACHIEVEMENT('gameThree')
           }
           this.COMPLETE_MINI_GAME('gameThree')

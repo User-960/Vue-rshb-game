@@ -86,7 +86,7 @@ export default Vue.extend({
         this.PAY_MONEY_DANIL()
         this.SUM_COINS(30)
         this.SAVE_SCORE_MINI_GAME_TWO(this.GET_POINTS_GH)
-        if (this.GET_POINTS_GH >= 185) {
+        if (this.GET_POINTS_GH >= 180) {
           this.PERFORM_ACHIEVEMENT('gameTwo')
         }
         this.COMPLETE_MINI_GAME('gameTwo')

@@ -83,7 +83,7 @@ export default Vue.extend({
         this.PAY_MONEY_MARIA()
         this.SUM_COINS(30)
         this.SAVE_SCORE_MINI_GAME_ONE(this.GET_POINTS_GN)
-        if (this.GET_POINTS_GN >= 140) {
+        if (this.GET_POINTS_GN >= 135) {
           this.PERFORM_ACHIEVEMENT('gameOne')
         }
         this.COMPLETE_MINI_GAME('gameOne')

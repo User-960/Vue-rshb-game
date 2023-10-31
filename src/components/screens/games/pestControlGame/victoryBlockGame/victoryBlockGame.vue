@@ -78,7 +78,7 @@ export default Vue.extend({
         if (!this.GET_PLAYER_DATA.minigame.gameFour.complete) {
           this.SUM_COINS(this.GET_POINTS_PS)
           this.SAVE_SCORE_MINI_GAME_FOUR(this.GET_POINTS_PS)
-          if (this.GET_POINTS_PS >= 65) {
+          if (this.GET_POINTS_PS >= 60) {
             this.PERFORM_ACHIEVEMENT('gameFour')
           }
           this.COMPLETE_MINI_GAME('gameFour')
