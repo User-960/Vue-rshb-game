@@ -1,5 +1,5 @@
 <template>
-  <div :class='styles.victoryBlockWrapper' v-if='GET_VICTORY_BLOCK_GN'>
+  <div :class='styles.victoryBlockWrapper' v-if='GET_VICTORY_BLOCK_GN && !GET_INFO_LINK_BLOCK_GN && !GET_RULES_BLOCK_GN'>
     <div :class='styles.victoryBlockGame'>
 
       <div :class='styles.victoryContentWrapper'>
@@ -93,6 +93,8 @@ export default Vue.extend({
     ...mapGetters([
       EN_GeneticGameGetters.GET_VICTORY_BLOCK_GN,
       EN_GeneticGameGetters.GET_POINTS_GN,
+      EN_GeneticGameGetters.GET_INFO_LINK_BLOCK_GN,
+      EN_GeneticGameGetters.GET_RULES_BLOCK_GN,
 
       EN_PlayerDataGetters.GET_PLAYER_DATA
     ]),
