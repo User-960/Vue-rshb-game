@@ -137,6 +137,8 @@
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: contain;
+
+	transform: scale(0.8);
 }
 
 .isTomatoGreen {
@@ -167,6 +169,8 @@
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: contain;
+
+	transform: scale(0.8);
 }
 
 .isTomatoRed {
@@ -197,6 +201,8 @@
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: contain;
+
+	transform: scale(0.8);
 }
 
 .isTomatoDarkGreen {
@@ -221,12 +227,17 @@
 
 	width: 124px;
 	height: 124px;
+
+	/* width: 112px;
+	height: 112px; */
 	z-index: 100;
 
 	background-image: url(../../../../../../public/images/collectorDrone.svg);
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: contain;
+
+	transform: scale(0.88);
 }
 
 .isCollectorMovedLeft {
