@@ -363,7 +363,7 @@ export default Vue.extend({
 
         if (numberColumn === 5) {
           this.makeTomatoGreen(allColumns[5], 5, 0)
-          this.makeTomatoGreenDouble(allColumns[5 + 3], 5 + 3, 0)
+          // this.makeTomatoGreenDouble(allColumns[5 + 3], 5 + 3, 0)
           this.NOT_GENERATE_TOMATO_GREEN_COL()
         }
 

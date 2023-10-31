@@ -2224,7 +2224,7 @@
 	}
 } */
 
-@keyframes moveCollectorLeft {
+/* @keyframes moveCollectorLeft {
 	0% {
 		left: 31px;
 	}
@@ -2238,6 +2238,50 @@
 	0% {
 		left: -93px;
 	}
+
+	100% {
+		left: -31px;
+	}
+} */
+
+@keyframes moveCollectorLeft {
+	0% {
+		left: 31px;
+	}
+
+	/* 25% {
+		left: 15.5px;
+	} */
+
+	50% {
+		left: 0px;
+	}
+
+	/* 75% {
+		left: 15.5px;
+	} */
+
+	100% {
+		left: -31px;
+	}
+}
+
+@keyframes moveCollectorRight {
+	0% {
+		left: -93px;
+	}
+
+	/* 25% {
+		left: -77.5px;
+	} */
+
+	50% {
+		left: -62px;
+	}
+
+	/* 75% {
+		left: -46.5px;
+	} */
 
 	100% {
 		left: -31px;

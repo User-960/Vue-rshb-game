@@ -342,7 +342,7 @@ export default Vue.extend({
 
         if (numberColumn === 1) {
           this.makeStrawberryGreen(allColumns[1], 1, 0)
-          this.makeStrawberryGreenDouble(allColumns[1 + 3], 1 + 3, 0)
+          // this.makeStrawberryGreenDouble(allColumns[1 + 3], 1 + 3, 0)
           this.NOT_GENERATE_STRAWBERRY_GREEN_COL()
         }
 
@@ -528,7 +528,7 @@ export default Vue.extend({
 
         if (numberColumn === 9) {
           this.makeStrawberryDarkGreen(allColumns[9], 9, 0)
-          this.makeStrawberryDarkGreenDouble(allColumns[9 - 3], 9 - 3, 0)
+          // this.makeStrawberryDarkGreenDouble(allColumns[9 - 3], 9 - 3, 0)
           this.NOT_GENERATE_STRAWBERRY_DARK_GREEN_COL()
         }
 
