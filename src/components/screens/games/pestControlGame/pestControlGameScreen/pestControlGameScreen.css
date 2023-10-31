@@ -28,7 +28,6 @@
 }
 
 .listLevels {
-	/* max-width: 600px; */
 	width: 100%;
 
 	display: flex;
@@ -209,7 +208,7 @@
 	background-position: center;
 	background-repeat: no-repeat;
 	user-select: none;
-	cursor: pointer;
+	cursor: not-allowed;
 }
 
 .insecticideBug {
@@ -246,6 +245,11 @@
 
 .insecticideCaterpillarActive {
 	background-image: url(../../../../../../public/images/insecticideCaterpillarActive.svg);
+}
+
+.insecticideAnimation {
+	cursor: pointer;
+	animation: opacityAnimation 5s;
 }
 
 /* css drone */
@@ -530,5 +534,51 @@
 	100% {
 		top: 0px;
 		right: 0px;
+	}
+}
+
+@keyframes opacityAnimation {
+	from {
+		opacity: 1;
+	}
+
+	10% {
+		opacity: 0.55;
+	}
+
+	20% {
+		opacity: 1;
+	}
+
+	30% {
+		opacity: 0.55;
+	}
+
+	40% {
+		opacity: 1;
+	}
+
+	50% {
+		opacity: 0.55;
+	}
+
+	60% {
+		opacity: 1;
+	}
+
+	70% {
+		opacity: 0.55;
+	}
+
+	80% {
+		opacity: 1;
+	}
+
+	90% {
+		opacity: 0.55;
+	}
+
+	100% {
+		opacity: 1;
 	}
 }

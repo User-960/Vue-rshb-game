@@ -101,7 +101,10 @@
               :class='[
                 styles.insecticide, 
                 styles.insecticideBug, 
-                {[styles.insecticideBugActive]: GET_SELECT_BUG}
+                {
+                  [styles.insecticideBugActive]: GET_SELECT_BUG,
+                  [styles.insecticideAnimation]: isInsecticideAnimation,
+                }
               ]'
               @click='selectBug'
             ></li>
@@ -110,7 +113,10 @@
               :class='[
                 styles.insecticide, 
                 styles.insecticideLocusts, 
-                {[styles.insecticideLocustsActive]: GET_SELECT_LOCUSTS}
+                {
+                  [styles.insecticideLocustsActive]: GET_SELECT_LOCUSTS,
+                  [styles.insecticideAnimation]: isInsecticideAnimation,
+                }
               ]'
               @click='selectLocusts'
             ></li>
@@ -119,7 +125,10 @@
               :class='[
                 styles.insecticide, 
                 styles.insecticideCaterpillar, 
-                {[styles.insecticideCaterpillarActive]: GET_SELECT_CATERPILLAR}
+                {
+                  [styles.insecticideCaterpillarActive]: GET_SELECT_CATERPILLAR,
+                  [styles.insecticideAnimation]: isInsecticideAnimation,
+                }
               ]'
               @click='selectCaterpillar'
             ></li>
@@ -158,6 +167,8 @@ export default Vue.extend({
   name: 'pestControlGameScreen',
   data: () => ({
     previousProblem: 0,
+
+    isInsecticideAnimation: false,
 
     isUltrasoundTomatoActive: false,
     isUltrasoundPepperActive: false,
@@ -524,16 +535,19 @@ export default Vue.extend({
     ]),
     startTomatoLevel() {
       setTimeout(() => {
+        this.isInsecticideAnimation = true
         this.FILL_TOMATO_LINE_CRITICAL()
       }, EN_CONFIG.TIMING_LINE_CRITICAL_TOMATO)
     },
     startPepperLevel() {
       setTimeout(() => {
+        this.isInsecticideAnimation = true
         this.FILL_PEPPER_LINE_CRITICAL()
       }, EN_CONFIG.TIMING_LINE_CRITICAL_PEPPER)
     },
     startStrawberryLevel() {
       setTimeout(() => {
+        this.isInsecticideAnimation = true
         this.FILL_STRAWBERRY_LINE_CRITICAL()
       }, EN_CONFIG.TIMING_LINE_CRITICAL_STRAWBERRY)
     },
@@ -582,6 +596,8 @@ export default Vue.extend({
     selectBug() {
       if ((this.GET_TOMATO_LINE_CRITICAL || this.GET_PEPPER_LINE_CRITICAL || this.GET_STRAWBERRY_LINE_CRITICAL) 
       && !this.GET_SELECT_DRONE) {
+        this.isInsecticideAnimation = false
+
         this.NOT_SELECT_CATERPILLAR()
         this.NOT_SELECT_LOCUSTS()
         this.SELECT_BUG()
@@ -590,6 +606,8 @@ export default Vue.extend({
     selectLocusts() {
       if ((this.GET_TOMATO_LINE_CRITICAL || this.GET_PEPPER_LINE_CRITICAL || this.GET_STRAWBERRY_LINE_CRITICAL)
       && !this.GET_SELECT_DRONE) {
+        this.isInsecticideAnimation = false
+
         this.NOT_SELECT_CATERPILLAR()
         this.NOT_SELECT_BUG()
         this.SELECT_LOCUSTS()
@@ -598,6 +616,8 @@ export default Vue.extend({
     selectCaterpillar() {
       if ((this.GET_TOMATO_LINE_CRITICAL || this.GET_PEPPER_LINE_CRITICAL || this.GET_STRAWBERRY_LINE_CRITICAL) 
       && !this.GET_SELECT_DRONE) {
+        this.isInsecticideAnimation = false
+
         this.NOT_SELECT_LOCUSTS()
         this.NOT_SELECT_BUG()
         this.SELECT_CATERPILLAR()
