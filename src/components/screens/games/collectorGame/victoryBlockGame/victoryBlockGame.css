@@ -121,7 +121,7 @@
 
 .btnWrapper {
 	display: flex;
-	max-width: 600px;
+	max-width: 720px;
 	width: 100%;
 	margin-top: 25px;
 }
@@ -239,10 +239,19 @@
 }
 
 @media (max-width: 770px) {
-	.victoryBlockGame,
 	.victoryBlockTomatoLevel,
 	.victoryBlockPepperLevel,
 	.victoryBlockStrawberryLevel {
 		transform: scale(0.4);
+	}
+
+	.victoryBlockGame {
+		transform: scale(0.4);
+		min-width: 800px;
+		max-height: 730px;
+	}
+
+	.victoryBlockGame {
+		font-size: 20px;
 	}
 }

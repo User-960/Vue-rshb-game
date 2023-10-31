@@ -204,5 +204,15 @@
 @media (max-width: 770px) {
 	.victoryBlockGame {
 		transform: scale(0.4);
+		min-width: 800px;
+		max-height: 730px;
+	}
+
+	.victoryBlockGame {
+		font-size: 20px;
+	}
+
+	.victoryBlockGame img {
+		max-width: 180px;
 	}
 }
