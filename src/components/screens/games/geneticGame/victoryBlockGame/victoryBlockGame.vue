@@ -78,17 +78,17 @@ export default Vue.extend({
     closeButton,
     iconButton
   },
-  watch: {
-    GET_VICTORY_BLOCK_GN() {
-      if (this.GET_VICTORY_BLOCK_GN) {
-        if (!this.GET_PLAYER_DATA.minigame.gameOne.complete) {
-          this.SUM_COINS(this.GET_POINTS_GN)
-        }
-        this.COMPLETE_GENETIC_GAME()
-        this.SHOW_MAP_AFTER_FIRST_GAME()
-      }
-    }
-  },
+  // watch: {
+  //   GET_VICTORY_BLOCK_GN() {
+  //     if (this.GET_VICTORY_BLOCK_GN) {
+  //       if (!this.GET_PLAYER_DATA.minigame.gameOne.complete) {
+  //         this.SUM_COINS(this.GET_POINTS_GN)
+  //       }
+  //       this.COMPLETE_GENETIC_GAME()
+  //       this.SHOW_MAP_AFTER_FIRST_GAME()
+  //     }
+  //   }
+  // },
   computed: {
     ...mapGetters([
       EN_GeneticGameGetters.GET_VICTORY_BLOCK_GN,
