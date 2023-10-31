@@ -130,7 +130,7 @@
 }
 
 /* media */
-@media (max-width: 1620px) {
+@media (max-width: 2320px) {
 	.gameBack {
 		width: var(--notebook-width);
 		height: var(--notebook-height);
@@ -162,7 +162,7 @@
 	}
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1960px) {
 	.gameBack {
 		width: var(--notebook-desktop-width);
 		height: var(--notebook-desktop-height);
@@ -193,7 +193,7 @@
 	}
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1580px) {
 	.gameBack {
 		width: var(--desktop-width);
 		height: var(--desktop-height);
@@ -209,8 +209,8 @@
 	}
 
 	.numPadTable {
-		bottom: 7px;
-		left: 142px;
+		bottom: 5px;
+		left: 197px;
 
 		max-width: 165px;
 		max-height: 195px;
@@ -225,7 +225,7 @@
 	}
 }
 
-@media (max-width: 1248px) {
+@media (max-width: 1360px) {
 	.gameBack {
 		width: var(--tablet-width);
 		height: var(--tablet-height);
@@ -252,7 +252,7 @@
 	}
 }
 
-@media (max-width: 1168px) {
+@media (max-width: 1228px) {
 	.gameBack {
 		width: var(--tablet-mobile-width);
 		height: var(--tablet-mobile-height);
@@ -282,7 +282,7 @@
 	}
 }
 
-@media (max-width: 920px) {
+@media (max-width: 980px) {
 	.gameBack {
 		width: var(--middle-mobile-width);
 		height: var(--middle-mobile-height);

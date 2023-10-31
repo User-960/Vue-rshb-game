@@ -250,7 +250,7 @@
 }
 
 /* media */
-@media (max-width: 1168px) {
+@media (max-width: 1228px) {
 	.characteristicsList {
 		top: 80px;
 		left: 48px;
@@ -266,7 +266,7 @@
 	}
 }
 
-@media (max-width: 920px) {
+@media (max-width: 980px) {
 	.characteristicsList {
 		top: 112px;
 		left: 13px;

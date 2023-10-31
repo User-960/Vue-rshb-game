@@ -52,37 +52,37 @@
 	}
 }
 
-@media (max-width: 1620px) {
+@media (max-width: 2320px) {
 	.infoBlock {
 		transform: scale(1.38);
 	}
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1960px) {
 	.infoBlock {
 		transform: scale(1.18);
 	}
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1580px) {
 	.infoBlock {
 		transform: scale(0.98);
 	}
 }
 
-@media (max-width: 1248px) {
+@media (max-width: 1360px) {
 	.infoBlock {
 		transform: scale(0.78);
 	}
 }
 
-@media (max-width: 1168px) {
+@media (max-width: 1228px) {
 	.infoBlock {
 		transform: scale(0.63);
 	}
 }
 
-@media (max-width: 920px) {
+@media (max-width: 980px) {
 	.infoBlock {
 		transform: scale(0.52);
 	}

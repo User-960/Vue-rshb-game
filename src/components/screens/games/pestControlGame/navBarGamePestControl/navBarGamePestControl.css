@@ -62,7 +62,7 @@
 }
 
 /* media */
-@media (max-width: 1620px) {
+@media (max-width: 2320px) {
 	.navBarGamePestControl {
 		width: var(--notebook-width);
 		height: var(--notebook-height);
@@ -94,7 +94,7 @@
 	}
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1960px) {
 	.navBarGamePestControl {
 		width: var(--notebook-desktop-width);
 		height: var(--notebook-desktop-height);
@@ -126,7 +126,7 @@
 	}
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1580px) {
 	.navBarGamePestControl {
 		width: var(--desktop-width);
 		height: var(--desktop-height);
@@ -158,7 +158,7 @@
 	}
 }
 
-@media (max-width: 1248px) {
+@media (max-width: 1360px) {
 	.navBarGamePestControl {
 		width: var(--tablet-width);
 		height: var(--tablet-height);
@@ -188,7 +188,7 @@
 	}
 }
 
-@media (max-width: 1168px) {
+@media (max-width: 1228px) {
 	.navBarGamePestControl {
 		width: var(--tablet-mobile-width);
 		height: var(--tablet-mobile-height);
@@ -220,7 +220,7 @@
 	}
 }
 
-@media (max-width: 920px) {
+@media (max-width: 980px) {
 	.navBarGamePestControl {
 		width: var(--middle-mobile-width);
 		height: var(--middle-mobile-height);
