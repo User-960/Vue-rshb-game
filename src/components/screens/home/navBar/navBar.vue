@@ -4,9 +4,9 @@
       <navigation/>
     </div>
 
-    <div :class='styles.exitButton'>
+    <!-- <div :class='styles.exitButton'>
       <exitButton/>
-    </div>
+    </div> -->
 
     <div :class='styles.blockButtonWallet' data-title='Кошелёк'>
       <blockButton>
