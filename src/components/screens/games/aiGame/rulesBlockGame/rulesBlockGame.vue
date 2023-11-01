@@ -7,17 +7,29 @@
 
       <div :class='styles.contentText'>
         <p>
-          Установленная автоматизированная система контроля влажности почвы и температуры воздуха нуждается в настройке.
+          Установленная автоматизированная система контроля влажности почвы и температуры воздуха нуждается в настройке. Необходимо настроить работу датчиков используя записи в блокноте Данила.
         </p>
-        <br/>
+        <!-- <br/>
         <p>
           Необходимо настроить работу датчиков используя записи в блокноте Данила.
-        </p>
+        </p> -->
         <br/>
         <p>
           Когда один из индикаторов участка стал красным, то кликни сначала один раз на участок, затем один раз на блокнот и один раз на клавиатуру. Показатели сразу нормализуются. 
         </p>
-        <br/>
+
+        <div :class='styles.rulesInfo'>
+          <img :class='[styles.rulesImg, styles.rulesImgLevel]' src='../../../../../../public/images/tomatoBushGreen.svg' alt='image of bush' />
+          
+          <img :class='[styles.rulesArrow]' src='../../../../../../public/images/arrowUpBank.svg' alt='image of arrow' />
+
+          <img :class='styles.rulesImg' src='../../../../../../public/images/bookTable.svg' alt='image of book' />
+
+          <img :class='[styles.rulesArrow]' src='../../../../../../public/images/arrowUpBank.svg' alt='image of arrow' />
+
+          <img :class='styles.rulesImg' src='../../../../../../public/images/numPad.svg' alt='image of numpad' />
+        </div>
+
         <p>
           При появлении проблемы системы на участке, в правом нижнем углу экрана, необходимо нажать на выделенный красным цветом участок и нажать кнопку перезапуска системы под ним.
         </p>

@@ -20,6 +20,19 @@
             <p>
               Следи за моими подсказками и перетаскивай колбы с генами на столе в область над большой ёмкостью с землёй. Необходимо вовремя успеть смешать 3 разных гена, пока происходит реакция. Следи за временем, у тебя всё получится!
             </p>
+
+            <div :class='styles.rulesInfo'>
+              <img :class='[styles.rulesImg, styles.rulesBigFlaskImg]' src='../../../../../../public/images/rulesGeneticBigFlask.svg' alt='image of big flask' />
+
+              <img :class='[styles.rulesArrow]' src='../../../../../../public/images/arrowUpBank.svg' alt='image of arrow' />
+
+              <img :class='styles.rulesImg' src='../../../../../../public/images/rulesGeneticFlask.svg' alt='image of flask' />
+
+              <img :class='[styles.rulesArrow]' src='../../../../../../public/images/arrowUpBank.svg' alt='image of arrow' />
+
+              <img :class='styles.rulesImg' src='../../../../../../public/images/rulesGeneticFlasks.svg' alt='image of flasks' />
+            </div>
+
           </div>
         </div>
 

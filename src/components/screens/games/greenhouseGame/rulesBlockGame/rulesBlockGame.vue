@@ -18,8 +18,17 @@
             </p>
             <br/>
             <p>
-             Следуя моим подсказкам, выбирай точные показания приборов из предложенных вариантов и выполняй мои рекомендации верно. Важно, чтобы индикатор жизнеспособности растения не опускался до красного уровня, иначе оно погибнет. Начнём!
+             Следуя моим подсказкам, выбирай точные показания приборов из предложенных вариантов и выполняй мои рекомендации верно. Важно, чтобы индикатор жизнеспособности растения не опускался до красного уровня, иначе оно погибнет.
             </p>
+            
+            <div :class='styles.rulesInfo'>
+              <img :class='[styles.rulesImg, styles.rulesTerminalImg]' src='../../../../../../public/images/rulesGreenhouseTerminal.svg' alt='image of laboratory' />
+
+              <img :class='[styles.rulesArrow]' src='../../../../../../public/images/arrowUpBank.svg' alt='image of arrow' />
+
+              <img :class='styles.rulesImg' src='../../../../../../public/images/rulesGreenhouseTask.svg' alt='image of task' />
+            </div>
+
           </div>
         </div>
 

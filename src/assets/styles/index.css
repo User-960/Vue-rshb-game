@@ -84,6 +84,7 @@ body {
 }
 
 .imgRotatePhoneRecommend {
+	max-width: 280px;
 	margin-top: 15px;
 	font-size: 16px;
 	padding: 0 14px;

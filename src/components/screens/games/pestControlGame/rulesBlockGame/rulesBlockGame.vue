@@ -11,11 +11,19 @@
         </p>
         <br/>
         <p>
-          Когда индикатор вредителей покраснеет, то надо отправить дрона на участок. Выбрать соответствующее вредителям на участке средство, кликнуть на дрона и на участок с вредителями. Необходимо вовремя успеть отправить дрона, иначе растения погибнут.
+          Когда индикатор вредителей покраснеет, то надо отправить дрона на участок. Выбрать соответствующее вредителям на участке средство, кликнуть на дрона и на участок с вредителями. Необходимо вовремя успеть отправить дрон, иначе растения погибнут.
         </p>
-        <br/>
+
+        <div :class='styles.rulesInfo'>
+          <img :class='[styles.rulesImg, styles.rulesInsecticideImg]' src='../../../../../../public/images/insecticideBugActive.svg' alt='image of insecticide of bug' />
+          <img :class='[styles.rulesArrow]' src='../../../../../../public/images/arrowUpBank.svg' alt='image of arrow' />
+          <img :class='styles.rulesImg' src='../../../../../../public/images/droneGameActive.svg' alt='image of drone' />
+          <img :class='[styles.rulesArrow]' src='../../../../../../public/images/arrowUpBank.svg' alt='image of arrow' />
+          <img :class='[styles.rulesImg, styles.rulesImgLevel]' src='../../../../../../public/images/tomatoBushGreen.svg' alt='image of bush' />
+        </div>
+
         <p>
-          Будь внимателен, для каждого вида вредителей подходит определенный инсектицид.
+          Важно! Для каждого вида вредителей подходит определенный инсектицид.
         </p>
       </div>
 
