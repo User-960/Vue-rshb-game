@@ -13,6 +13,7 @@ import audioMistake from '../assets/audio/audioMistake.wav'
 import audioModalWindow from '../assets/audio/audioModalWindow.wav'
 import audioMoney from '../assets/audio/audioMoney.wav'
 import audioNewMission from '../assets/audio/audioNewMission.wav'
+import audioNewProblem from '../assets/audio/audioNewProblem.wav'
 import audioOpenNote from '../assets/audio/audioOpenNote.wav'
 import audioPayBonus from '../assets/audio/audioPayBonus.wav'
 import audioSuccessFlask from '../assets/audio/audioSuccessFlask.wav'
@@ -39,5 +40,6 @@ export const AUDIO_CONFIG = {
 	AUDIO_MISTAKE: audioMistake,
 	AUDIO_DRONE_MOVED: audioDroneMoved,
 	AUDIO_DRONE_MOVED_RETURN: audioDroneReturn,
+	AUDIO_NEW_PROBLEM: audioNewProblem,
 	AUDIO_BACK_MUSIC_MAP: audioBackMusicMap
 }

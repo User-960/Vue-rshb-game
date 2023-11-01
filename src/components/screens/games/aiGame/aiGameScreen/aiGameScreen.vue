@@ -412,6 +412,9 @@ import { EN_CONFIG } from '../config/config'
 import { getRandomNumberLevel, getRandomNumberProblem } from '../helpers/helpers'
 import { AUDIO_CONFIG } from '@/config/audio'
 
+const audioMistake = new Audio(AUDIO_CONFIG.AUDIO_MISTAKE)
+const audioNewProblem = new Audio(AUDIO_CONFIG.AUDIO_NEW_PROBLEM)
+
 export default Vue.extend({
   name: 'aiGameScreen',
   data: () => ({
@@ -574,6 +577,9 @@ export default Vue.extend({
                 }, EN_CONFIG.TIMING_GAME_OVER_TOMATO)
 
               } else {
+                audioMistake.volume = 1
+                audioMistake.play()
+
                 this.FILL_TOMATO_HEALTH_LINE_CRITICAL()
                 this.INCREASE_TOMATO_LEVEL_MISTAKES()
 
@@ -608,6 +614,9 @@ export default Vue.extend({
                   this.START_FINISH_TIMER_AI()
                 }, EN_CONFIG.TIMING_GAME_OVER_TOMATO)
               } else {
+                audioMistake.volume = 1
+                audioMistake.play()
+
                 this.NOT_CHOOSE_TOMATO_LEVEL_BROKEN_AI()
                 this.isTomatoBtnRestart = false
                 this.FILL_TOMATO_HEALTH_LINE_CRITICAL()
@@ -643,6 +652,9 @@ export default Vue.extend({
                 }, EN_CONFIG.TIMING_GAME_OVER_PEPPER)
 
               } else {
+                audioMistake.volume = 1
+                audioMistake.play()
+
                 this.FILL_PEPPER_HEALTH_LINE_CRITICAL()
                 this.INCREASE_PEPPER_LEVEL_MISTAKES()
 
@@ -676,6 +688,9 @@ export default Vue.extend({
                   this.START_FINISH_TIMER_AI()
                 }, EN_CONFIG.TIMING_GAME_OVER_PEPPER)
               } else {
+                audioMistake.volume = 1
+                audioMistake.play()
+
                 this.FILL_PEPPER_HEALTH_LINE_CRITICAL()
                 this.NOT_CHOOSE_PEPPER_LEVEL_BROKEN_AI()
                 this.isPepperBtnRestart = false
@@ -711,6 +726,9 @@ export default Vue.extend({
                 }, EN_CONFIG.TIMING_GAME_OVER_STRAWBERRY)
 
               } else {
+                audioMistake.volume = 1
+                audioMistake.play()
+
                 this.FILL_STRAWBERRY_HEALTH_LINE_CRITICAL()
                 this.INCREASE_STRAWBERRY_LEVEL_MISTAKES()
 
@@ -746,6 +764,9 @@ export default Vue.extend({
                 }, EN_CONFIG.TIMING_GAME_OVER_STRAWBERRY)
 
               } else {
+                audioMistake.volume = 1
+                audioMistake.play()
+
                 this.FILL_STRAWBERRY_HEALTH_LINE_CRITICAL()
                 this.INCREASE_STRAWBERRY_LEVEL_MISTAKES()
 
@@ -779,6 +800,9 @@ export default Vue.extend({
                   this.START_FINISH_TIMER_AI()
                 }, EN_CONFIG.TIMING_GAME_OVER_STRAWBERRY)
               } else {
+                audioMistake.volume = 1
+                audioMistake.play()
+
                 this.FILL_STRAWBERRY_HEALTH_LINE_CRITICAL()
                 this.NOT_CHOOSE_STRAWBERRY_LEVEL_BROKEN_AI()
                 this.isStrawberryBtnRestart = false
@@ -872,6 +896,10 @@ export default Vue.extend({
         setTimeout(() => {
           this.CHOOSE_TOMATO_LEVEL_BROKEN_AI()
           this.BROKE_TOMATO_SYSTEM()
+
+          audioNewProblem.volume = 1
+          audioNewProblem.play()
+
         }, EN_CONFIG.TIMING_SYSTEM_TOMATO)
       }
     },
@@ -891,6 +919,10 @@ export default Vue.extend({
         setTimeout(() => {
           this.CHOOSE_PEPPER_LEVEL_BROKEN_AI()
           this.BROKE_PEPPER_SYSTEM()
+
+          audioNewProblem.volume = 1
+          audioNewProblem.play()
+
         }, EN_CONFIG.TIMING_SYSTEM_PEPPER)
       }
     },
@@ -917,6 +949,10 @@ export default Vue.extend({
         setTimeout(() => {
           this.CHOOSE_STRAWBERRY_LEVEL_BROKEN_AI()
           this.BROKE_STRAWBERRY_SYSTEM()
+
+          audioNewProblem.volume = 1
+          audioNewProblem.play()
+          
         }, EN_CONFIG.TIMING_SYSTEM_STRAWBERRY)
       }
     },
