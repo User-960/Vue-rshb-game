@@ -68,6 +68,8 @@ export enum EN_PestControlGameMutation {
 const audioVictory = new Audio(AUDIO_CONFIG.AUDIO_VICTORY)
 const audioLoss = new Audio(AUDIO_CONFIG.AUDIO_LOSS)
 const audioNewMission = new Audio(AUDIO_CONFIG.AUDIO_NEW_MISSION)
+const audioDroneMoved = new Audio(AUDIO_CONFIG.AUDIO_DRONE_MOVED)
+const audioDroneMovedLong = new Audio(AUDIO_CONFIG.AUDIO_DRONE_MOVED_LONG)
 
 export const mutations: MutationTree<IPestControlGameState> = {
 	[EN_PestControlGameMutation.RESTART_GAME_PS](state) {
@@ -251,22 +253,41 @@ export const mutations: MutationTree<IPestControlGameState> = {
 	[EN_PestControlGameMutation.NOT_SELECT_DRONE](state) {
 		state.isDroneActive = false
 	},
+
 	[EN_PestControlGameMutation.MOVE_DRONE_TOMATO](state) {
+		audioDroneMoved.volume = 0.4
+		audioDroneMoved.play()
+
 		state.isDroneMovedTomato = true
 	},
 	[EN_PestControlGameMutation.NOT_MOVE_DRONE_TOMATO](state) {
+		audioDroneMoved.volume = 0.4
+		audioDroneMoved.play()
+
 		state.isDroneMovedTomato = false
 	},
 	[EN_PestControlGameMutation.MOVE_DRONE_PEPPER](state) {
+		audioDroneMovedLong.volume = 0.4
+		audioDroneMovedLong.play()
+
 		state.isDroneMovedPepper = true
 	},
 	[EN_PestControlGameMutation.NOT_MOVE_DRONE_PEPPER](state) {
+		// audioDroneMoved.volume = 0.4
+		// audioDroneMoved.play()
+
 		state.isDroneMovedPepper = false
 	},
 	[EN_PestControlGameMutation.MOVE_DRONE_STRAWBERRY](state) {
+		audioDroneMoved.volume = 0.4
+		audioDroneMoved.play()
+
 		state.isDroneMovedStrawberry = true
 	},
 	[EN_PestControlGameMutation.NOT_MOVE_DRONE_STRAWBERRY](state) {
+		audioDroneMoved.volume = 0.4
+		audioDroneMoved.play()
+
 		state.isDroneMovedStrawberry = false
 	},
 
