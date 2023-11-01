@@ -6,7 +6,7 @@ import audioCatchHarvest from '../assets/audio/audioCatchHarvest.wav'
 import audioChooseActionComputer from '../assets/audio/audioChooseActionComputer.wav'
 import audioClickButton from '../assets/audio/audioClickButton.wav'
 import audioDroneMoved from '../assets/audio/audioDroneMoved.wav'
-import audioDroneMovedLong from '../assets/audio/audioDroneMovedLong.wav'
+import audioDroneReturn from '../assets/audio/audioDroneReturn.wav'
 import audioFinishGame from '../assets/audio/audioFinishGame.wav'
 import audioLossBlock from '../assets/audio/audioLossBlock.wav'
 import audioMistake from '../assets/audio/audioMistake.wav'
@@ -38,6 +38,6 @@ export const AUDIO_CONFIG = {
 	AUDIO_FINISH_GAME: audioFinishGame,
 	AUDIO_MISTAKE: audioMistake,
 	AUDIO_DRONE_MOVED: audioDroneMoved,
-	AUDIO_DRONE_MOVED_LONG: audioDroneMovedLong,
+	AUDIO_DRONE_MOVED_RETURN: audioDroneReturn,
 	AUDIO_BACK_MUSIC_MAP: audioBackMusicMap
 }
