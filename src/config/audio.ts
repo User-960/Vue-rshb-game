@@ -6,7 +6,7 @@ import audioCatchHarvest from '../assets/audio/audioCatchHarvest.wav'
 import audioChooseActionComputer from '../assets/audio/audioChooseActionComputer.wav'
 import audioClickButton from '../assets/audio/audioClickButton.wav'
 import audioFinishGame from '../assets/audio/audioFinishGame.wav'
-import audioLoss from '../assets/audio/audioLoss.wav'
+import audioLossBlock from '../assets/audio/audioLossBlock.wav'
 import audioModalWindow from '../assets/audio/audioModalWindow.wav'
 import audioMoney from '../assets/audio/audioMoney.wav'
 import audioNewMission from '../assets/audio/audioNewMission.wav'
@@ -21,7 +21,7 @@ export const AUDIO_CONFIG = {
 	AUDIO_MODAL_WINDOW: audioModalWindow,
 	AUDIO_CLICK_BUTTON: audioClickButton,
 	AUDIO_VICTORY: audioVictory,
-	AUDIO_LOSS: audioLoss,
+	AUDIO_LOSS: audioLossBlock,
 	AUDIO_CHOOSE_ACTION_COMPUTER: audioChooseActionComputer,
 	AUDIO_TYPE_KEYBOARD: audioTypeKeyboard,
 	AUDIO_BUY_SHOP: audioBuyShop,
