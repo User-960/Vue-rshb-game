@@ -87,6 +87,7 @@ import { EN_CONFIG } from '../config/config'
 import { AUDIO_CONFIG } from '@/config/audio'
 
 const audioSuccessFlask = new Audio(AUDIO_CONFIG.AUDIO_SUCCESS_FLASK)
+const audioMistake = new Audio(AUDIO_CONFIG.AUDIO_MISTAKE)
 
 export default Vue.extend({
   name: 'dialogTaskPepper',
@@ -185,6 +186,9 @@ export default Vue.extend({
       }
     },
     chooseOptionPepper() {
+      audioMistake.volume = 1
+      audioMistake.play()
+
       if (this.GET_PEPPER_LEVEL_GH && this.GET_PLAYER_MISTAKES_PEPPER_GH === 0) {
         this.MINUS_POINTS_GH()
         this.INCREASE_PLAYER_MISTAKES_PEPPER_GH()
