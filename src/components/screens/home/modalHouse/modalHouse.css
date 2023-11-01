@@ -39,6 +39,7 @@
 }
 
 .infoText {
+	padding-top: 15px;
 	text-align: center;
 	color: var(--secondary-hover-red);
 }
@@ -47,6 +48,24 @@
 	position: absolute;
 	top: 15px;
 	right: 15px;
+}
+
+.goShop {
+	margin-top: 10px;
+	max-width: 300px;
+	width: 100%;
+	padding: 8px 10px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	border-radius: 8px;
+	background: var(--secondary-gradient-green-hard);
+
+	color: var(--primary-grey);
+	font-weight: 500;
+	line-height: 24px;
 }
 
 /* animations */

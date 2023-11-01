@@ -107,45 +107,30 @@ export const mutations: MutationTree<IHomeScreenState> = {
 		state.isFirstInfoIntroductionVisible = false
 	},
 	[EN_HomeScreenMutation.SHOW_SECOND_INFO_INTRODUCTION](state) {
-		audioModalWindow.volume = 1
-		audioModalWindow.play()
-
 		state.isSecondInfoIntroductionVisible = true
 	},
 	[EN_HomeScreenMutation.HIDE_SECOND_INFO_INTRODUCTION](state) {
 		state.isSecondInfoIntroductionVisible = false
 	},
 	[EN_HomeScreenMutation.SHOW_THIRD_INFO_INTRODUCTION](state) {
-		audioModalWindow.volume = 1
-		audioModalWindow.play()
-
 		state.isThirdInfoIntroductionVisible = true
 	},
 	[EN_HomeScreenMutation.HIDE_THIRD_INFO_INTRODUCTION](state) {
 		state.isThirdInfoIntroductionVisible = false
 	},
 	[EN_HomeScreenMutation.SHOW_FOUR_INFO_INTRODUCTION](state) {
-		audioModalWindow.volume = 1
-		audioModalWindow.play()
-
 		state.isFourInfoIntroductionVisible = true
 	},
 	[EN_HomeScreenMutation.HIDE_FOUR_INFO_INTRODUCTION](state) {
 		state.isFourInfoIntroductionVisible = false
 	},
 	[EN_HomeScreenMutation.SHOW_FOUR_HALF_INFO_INTRODUCTION](state) {
-		audioModalWindow.volume = 1
-		audioModalWindow.play()
-
 		state.isFourHalfInfoIntroductionVisible = true
 	},
 	[EN_HomeScreenMutation.HIDE_FOUR_HALF_INFO_INTRODUCTION](state) {
 		state.isFourHalfInfoIntroductionVisible = false
 	},
 	[EN_HomeScreenMutation.SHOW_FIVE_INFO_INTRODUCTION](state) {
-		audioModalWindow.volume = 1
-		audioModalWindow.play()
-
 		state.isFiveInfoIntroductionVisible = true
 	},
 	[EN_HomeScreenMutation.HIDE_FIVE_INFO_INTRODUCTION](state) {

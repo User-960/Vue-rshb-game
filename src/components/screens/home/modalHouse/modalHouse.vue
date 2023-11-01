@@ -16,7 +16,8 @@
       </linkButton>
 
       <div :class='styles.infoText' v-if='isInfoTextVisible'>
-        У вас нет соответствующего оборудования
+        <p>У вас нет соответствующего оборудования</p>
+        <button :class='styles.goShop' @click='goShop'>Перейти в магазин</button>
       </div>
 
       <div :class='styles.closeBtnWrapper'>
@@ -56,7 +57,10 @@ export default Vue.extend({
     ]),
   },
   methods: {
-    ...mapMutations([EN_HomeScreenMutation.HIDE_MODAL_HOUSE]),
+    ...mapMutations([
+      EN_HomeScreenMutation.HIDE_MODAL_HOUSE,
+      EN_HomeScreenMutation.SHOW_MODAL_SHOP,
+    ]),
     openGameAI() {
       if (
         this.GET_PLAYER_DATA.minigame.gameTwo.complete && 
@@ -95,6 +99,12 @@ export default Vue.extend({
       if (!this.GET_PLAYER_DATA.equipment.robot.available) {
         this.isInfoTextVisible = true
       }
+    },
+    goShop() {
+      this.isInfoTextVisible = false
+
+      this.HIDE_MODAL_HOUSE()
+      this.SHOW_MODAL_SHOP()
     },
     onClickOutside (event: any) {
       if (this.isInfoTextVisible) {
