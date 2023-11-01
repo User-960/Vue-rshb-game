@@ -11,9 +11,18 @@
         </p>
         <br/>
         <p>
-          Робот движется вправо и влево по нажатию кнопок на клавиатуре A и D соответственно(в мобильной версии нажатием левой и правой грани экрана). Наибольшее количество баллов приносят спелые красные плоды - 4 балла, а зелёные и тёмно - зелёные по 1 и 2 баллам соответсвенно.
+          Робот движется вправо и влево по нажатию кнопок на клавиатуре A и D соответственно или нажатием левой и правой грани экрана. Наибольшее количество баллов приносят спелые красные плоды - 4 балла, а зелёные и тёмно - зелёные по 1 и 2 баллам соответсвенно.
         </p>
-        <br/>
+
+        <div :class='styles.rulesInfo'>
+          <img :class='[styles.rulesImg, styles.rulesAImg]' src='../../../../../../public/images/rulesA.png' alt='image of key A' />
+          <img :class='[styles.rulesImg, styles.rulesDImg]' src='../../../../../../public/images/rulesD.png' alt='image of key d' />
+
+          <div :class='styles.rulesTextImg'>или</div>
+
+          <img :class='[styles.rulesImg, styles.rulesSmartphone]' src='../../../../../../public/images/rulesCollectorSmartphone.svg' alt='image of bush' />
+        </div>
+
         <p>
           Старайся собрать по больше спелых плодов в отведённое время!
         </p>
