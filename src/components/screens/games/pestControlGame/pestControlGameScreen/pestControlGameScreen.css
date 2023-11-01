@@ -263,8 +263,8 @@
 	background-repeat: no-repeat;
 	background-size: contain;
 
+	cursor: not-allowed;
 	user-select: none;
-	cursor: pointer;
 }
 
 .droneAnimation {
@@ -273,9 +273,13 @@
 	animation: opacityDrone 4s;
 }
 
-.drone:hover {
-	background-image: url(../../../../../../public/images/droneGameActive.svg);
+.droneAnimation:hover {
+	cursor: pointer;
 }
+
+/* .drone:hover {
+	background-image: url(../../../../../../public/images/droneGameActive.svg);
+} */
 
 .droneActive {
 	background-image: url(../../../../../../public/images/droneGameActive.svg);
