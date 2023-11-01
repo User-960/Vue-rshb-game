@@ -70,6 +70,7 @@ import { EN_GeneticGameGetters } from '@/store/modules/geneticGame/getters'
 import { AUDIO_CONFIG } from '@/config/audio'
 
 const audioSuccessFlask = new Audio(AUDIO_CONFIG.AUDIO_SUCCESS_FLASK)
+const audioMistake = new Audio(AUDIO_CONFIG.AUDIO_MISTAKE)
 
 export default Vue.extend({
   name: 'flasksPepper',
@@ -188,6 +189,9 @@ export default Vue.extend({
                 this.INCREASE_PLAYER_MISTAKES_GN()
                 this.INCREASE_PLAYER_MISTAKES_GN()
 
+                audioMistake.volume = 1
+                audioMistake.play()
+
                 if (this.GET_PLAYER_MISTAKES_GN >= 2) {
                   this.SHOW_SECOND_MISTAKE_GN()
                   this.START_FINISH_TIMER_PEPPER_GN()
@@ -218,6 +222,9 @@ export default Vue.extend({
 
               this.MINUS_POINTS_GN()
               this.INCREASE_PLAYER_MISTAKES_GN()
+
+              audioMistake.volume = 1
+              audioMistake.play()
 
               if (this.GET_PLAYER_MISTAKES_GN === 1) {
                 this.SHOW_FIRST_MISTAKE_GN()
@@ -262,6 +269,9 @@ export default Vue.extend({
               this.MINUS_POINTS_GN()
               this.INCREASE_PLAYER_MISTAKES_GN()
 
+              audioMistake.volume = 1
+              audioMistake.play()
+
               if (this.GET_PLAYER_MISTAKES_GN === 1) {
                 this.SHOW_FIRST_MISTAKE_GN()
                 this.START_FINISH_TIMER_PEPPER_GN()
@@ -304,6 +314,9 @@ export default Vue.extend({
 
               this.MINUS_POINTS_GN()
               this.INCREASE_PLAYER_MISTAKES_GN()
+
+              audioMistake.volume = 1
+              audioMistake.play()
 
               if (this.GET_PLAYER_MISTAKES_GN === 1) {
                 this.SHOW_FIRST_MISTAKE_GN()
@@ -378,6 +391,9 @@ export default Vue.extend({
               this.MINUS_POINTS_GN()
               this.INCREASE_PLAYER_MISTAKES_GN()
 
+              audioMistake.volume = 1
+              audioMistake.play()
+
               if (this.GET_PLAYER_MISTAKES_GN === 1) {
                 this.SHOW_FIRST_MISTAKE_GN()
                 this.START_FINISH_TIMER_PEPPER_GN()
@@ -447,6 +463,9 @@ export default Vue.extend({
                 this.INCREASE_PLAYER_MISTAKES_GN()
                 this.INCREASE_PLAYER_MISTAKES_GN()
 
+                audioMistake.volume = 1
+                audioMistake.play()
+
                 if (this.GET_PLAYER_MISTAKES_GN >= 2) {
                   this.SHOW_SECOND_MISTAKE_GN()
                   this.START_FINISH_TIMER_PEPPER_GN()
@@ -477,6 +496,9 @@ export default Vue.extend({
 
               this.MINUS_POINTS_GN()
               this.INCREASE_PLAYER_MISTAKES_GN()
+
+              audioMistake.volume = 1
+              audioMistake.play()
 
               if (this.GET_PLAYER_MISTAKES_GN === 1) {
                 this.SHOW_FIRST_MISTAKE_GN()
@@ -520,6 +542,9 @@ export default Vue.extend({
 
               this.MINUS_POINTS_GN()
               this.INCREASE_PLAYER_MISTAKES_GN()
+
+              audioMistake.volume = 1
+              audioMistake.play()
 
               if (this.GET_PLAYER_MISTAKES_GN === 1) {
                 this.SHOW_FIRST_MISTAKE_GN()
