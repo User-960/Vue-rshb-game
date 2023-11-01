@@ -3,7 +3,8 @@
     <template v-slot:default>
       <div class='imgRotatePhone'>
         <img src='../../../../../public/images/rotate-phone.png' />
-        <p class='imgRotatePhoneText'>Переверните экран</p>
+        <p class='imgRotatePhoneText'>Переверните экран.</p>
+        <p class='imgRotatePhoneText'>Убедитесь что у вас включён автоповорот экрана.</p>
       </div>
 
       <aiGameBack/>

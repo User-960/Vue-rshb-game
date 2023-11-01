@@ -78,6 +78,11 @@ body {
 	font-weight: 700;
 }
 
+.imgRotatePhoneText {
+	padding: 0 14px;
+	text-align: center;
+}
+
 .imgRotatePhone img {
 	max-width: 104px;
 	max-height: 104px;
