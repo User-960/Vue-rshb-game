@@ -22,6 +22,8 @@ export enum EN_HomeScreenMutation {
 	HIDE_THIRD_INFO_INTRODUCTION = 'HIDE_THIRD_INFO_INTRODUCTION',
 	SHOW_FOUR_INFO_INTRODUCTION = 'SHOW_FOUR_INFO_INTRODUCTION',
 	HIDE_FOUR_INFO_INTRODUCTION = 'HIDE_FOUR_INFO_INTRODUCTION',
+	SHOW_FOUR_HALF_INFO_INTRODUCTION = 'SHOW_FOUR_HALF_INFO_INTRODUCTION',
+	HIDE_FOUR_HALF_INFO_INTRODUCTION = 'HIDE_FOUR_HALF_INFO_INTRODUCTION',
 	SHOW_FIVE_INFO_INTRODUCTION = 'SHOW_FIVE_INFO_INTRODUCTION',
 	HIDE_FIVE_INFO_INTRODUCTION = 'HIDE_FIVE_INFO_INTRODUCTION',
 	SHOW_SIX_INFO_INTRODUCTION = 'SHOW_SIX_INFO_INTRODUCTION',
@@ -130,6 +132,15 @@ export const mutations: MutationTree<IHomeScreenState> = {
 	},
 	[EN_HomeScreenMutation.HIDE_FOUR_INFO_INTRODUCTION](state) {
 		state.isFourInfoIntroductionVisible = false
+	},
+	[EN_HomeScreenMutation.SHOW_FOUR_HALF_INFO_INTRODUCTION](state) {
+		audioModalWindow.volume = 1
+		audioModalWindow.play()
+
+		state.isFourHalfInfoIntroductionVisible = true
+	},
+	[EN_HomeScreenMutation.HIDE_FOUR_HALF_INFO_INTRODUCTION](state) {
+		state.isFourHalfInfoIntroductionVisible = false
 	},
 	[EN_HomeScreenMutation.SHOW_FIVE_INFO_INTRODUCTION](state) {
 		audioModalWindow.volume = 1

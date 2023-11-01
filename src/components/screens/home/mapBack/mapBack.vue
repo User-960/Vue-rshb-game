@@ -4,7 +4,7 @@
       <div :class='styles.map' data-testid='map'>
 
         <div :class='styles.infoBlockWrapper' 
-          v-if='GET_FIRST_INFO_INTRODUCTION || GET_SECOND_INFO_INTRODUCTION || GET_THIRD_INFO_INTRODUCTION || GET_FOUR_INFO_INTRODUCTION || GET_SEVEN_INFO_INTRODUCTION'
+          v-if='GET_FIRST_INFO_INTRODUCTION || GET_SECOND_INFO_INTRODUCTION || GET_THIRD_INFO_INTRODUCTION || GET_FOUR_INFO_INTRODUCTION || GET_FOUR_HALF_INFO_INTRODUCTION || GET_SEVEN_INFO_INTRODUCTION'
         >
           <infoBlockM v-if='GET_FIRST_INFO_INTRODUCTION'>
             <template v-slot:contentText>
@@ -63,12 +63,29 @@
           <infoBlockM v-if='GET_FOUR_INFO_INTRODUCTION'>
             <template v-slot:contentText>
               <p>
-                На главной карте изображены 3 локации: Лаборатория, Теплица и Дом. Локации открываются по мере прохождения мини игр в них. Доступные для прохождения локации будут подсвечены зелёным цветом. Так же можно заработать ачивки в мини играх выполняя определённые условия для их получения.
+                На главной карте изображены 3 локации: Лаборатория, Теплица и Дом.
               </p>
-              <br/>
+              <div :class='styles.locationInfo'>
+                <img :class='styles.locationImg' src='../../../../../public/images/labLocation.svg' alt='image of laboratory' />
+                <img :class='styles.locationImg' src='../../../../../public/images/greenhouseLocation.svg' alt='image of laboratory' />
+                <img :class='styles.locationImg' src='../../../../../public/images/houseLocation.svg' alt='image of laboratory' />
+              </div>
+              <p :class='styles.text'>
+                Локации открываются по мере прохождения мини игр в них. Доступные для прохождения локации будут подсвечены <span>зелёным цветом</span>. Так же можно заработать ачивки в мини играх выполняя определённые условия для их получения.
+              </p>
+            </template>
+
+            <template v-slot:nextBtn>
+              <skipButton @onclick="skipInfoIntroduction">
+                Далее
+              </skipButton>
+            </template>
+          </infoBlockM>
+
+          <infoBlockM v-if='GET_FOUR_HALF_INFO_INTRODUCTION'>
+            <template v-slot:contentText>
               <p>
                 За успешное прохождение мини игр будут начисляться баллы, которые в конце игры определяют прибыль от собранного урожая и будут указаны в таблице рейтинга всех игроков. Чтобы начать игру в первой локации "Лаборатория", обратись в банк за финансовой помощью.
-
               </p>
             </template>
 
@@ -222,6 +239,7 @@ export default Vue.extend({
       EN_HomeScreenGetters.GET_SECOND_INFO_INTRODUCTION,
       EN_HomeScreenGetters.GET_THIRD_INFO_INTRODUCTION,
       EN_HomeScreenGetters.GET_FOUR_INFO_INTRODUCTION,
+      EN_HomeScreenGetters.GET_FOUR_HALF_INFO_INTRODUCTION,
       EN_HomeScreenGetters.GET_SEVEN_INFO_INTRODUCTION,
 
       EN_HomeScreenGetters.GET_ARROW_UP_BANK,
@@ -239,6 +257,8 @@ export default Vue.extend({
       EN_HomeScreenMutation.HIDE_THIRD_INFO_INTRODUCTION,
       EN_HomeScreenMutation.SHOW_FOUR_INFO_INTRODUCTION,
       EN_HomeScreenMutation.HIDE_FOUR_INFO_INTRODUCTION,
+      EN_HomeScreenMutation.SHOW_FOUR_HALF_INFO_INTRODUCTION,
+      EN_HomeScreenMutation.HIDE_FOUR_HALF_INFO_INTRODUCTION,
       EN_HomeScreenMutation.SHOW_SEVEN_INFO_INTRODUCTION,
       EN_HomeScreenMutation.HIDE_SEVEN_INFO_INTRODUCTION,
 
@@ -280,6 +300,12 @@ export default Vue.extend({
 
       if (this.GET_FOUR_INFO_INTRODUCTION) {
         this.HIDE_FOUR_INFO_INTRODUCTION()
+        this.SHOW_FOUR_HALF_INFO_INTRODUCTION()
+        return
+      }
+
+      if (this.GET_FOUR_HALF_INFO_INTRODUCTION) {
+        this.HIDE_FOUR_HALF_INFO_INTRODUCTION()
         this.SHOW_ARROW_UP_BANK()
         return
       }

@@ -15,6 +15,7 @@ const state: IHomeScreenState = {
 	isSecondInfoIntroductionVisible: false,
 	isThirdInfoIntroductionVisible: false,
 	isFourInfoIntroductionVisible: false,
+	isFourHalfInfoIntroductionVisible: false,
 	isFiveInfoIntroductionVisible: false,
 	isSixInfoIntroductionVisible: false,
 	isSevenInfoIntroductionVisible: false,
