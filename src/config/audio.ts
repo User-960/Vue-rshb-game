@@ -5,6 +5,7 @@ import audioBuyShop from '../assets/audio/audioBuyShop.wav'
 import audioCatchHarvest from '../assets/audio/audioCatchHarvest.wav'
 import audioChooseActionComputer from '../assets/audio/audioChooseActionComputer.wav'
 import audioClickButton from '../assets/audio/audioClickButton.wav'
+import audioFinishGame from '../assets/audio/audioFinishGame.wav'
 import audioLoss from '../assets/audio/audioLoss.wav'
 import audioModalWindow from '../assets/audio/audioModalWindow.wav'
 import audioMoney from '../assets/audio/audioMoney.wav'
@@ -31,5 +32,6 @@ export const AUDIO_CONFIG = {
 	AUDIO_OPEN_NOTE: audioOpenNote,
 	AUDIO_BUTTON_GAME: audioButtonGame,
 	AUDIO_SUCCESS_FLASK: audioSuccessFlask,
+	AUDIO_FINISH_GAME: audioFinishGame,
 	AUDIO_BACK_MUSIC_MAP: audioBackMusicMap
 }

@@ -188,6 +188,7 @@ import infoBlockM from '@/components/ui/infoBlock/infoBlockM/infoBlockM.vue'
 import { AUDIO_CONFIG } from '@/config/audio'
 
 const audioMoney = new Audio(AUDIO_CONFIG.AUDIO_MONEY)
+const audioFinishGame= new Audio(AUDIO_CONFIG.AUDIO_FINISH_GAME)
 
 export default Vue.extend({
   name: 'modalBank',
@@ -266,6 +267,9 @@ export default Vue.extend({
         this.UPDATE_PLAYER_CREDIT(this.GET_PLAYER_DATA)
 
         this.isReturnCredit = false
+
+        audioFinishGame.volume = 1
+        audioFinishGame.play()
       }
     },
     finishGame() {
