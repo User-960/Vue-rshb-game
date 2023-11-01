@@ -29,7 +29,7 @@
       <div :class='styles.flasksContainer'>
           <draggable :list="GET_FLASKS_STRAWBERRY_GN" group="flasks" :move="detectMove" id='flasksContainer' :class='styles.flasksList'>
             <div v-for="flaskItem in GET_FLASKS_STRAWBERRY_GN" :key="flaskItem.id">
-              <div @mousedown='showDropZone' :class='[styles.flask,
+              <div @mousedown='showDropZone' :title="checkFlaskName(flaskItem)" :class='[styles.flask,
                 {
                   [styles.greenFlask]: flaskItem.name === "greenFlask",
                   [styles.pinkFlask]: flaskItem.name === "pinkFlask",
@@ -68,6 +68,7 @@ import { mapGetters, mapMutations } from 'vuex'
 import { EN_GeneticGameMutation } from '@/store/modules/geneticGame/mutations'
 import { EN_GeneticGameGetters } from '@/store/modules/geneticGame/getters'
 import { AUDIO_CONFIG } from '@/config/audio'
+import { IFlask } from '@/store/modules/geneticGame/types'
 
 const audioSuccessFlask = new Audio(AUDIO_CONFIG.AUDIO_SUCCESS_FLASK)
 const audioMistake = new Audio(AUDIO_CONFIG.AUDIO_MISTAKE)
@@ -134,6 +135,47 @@ export default Vue.extend({
       EN_GeneticGameMutation.MINUS_POINTS_GN,
       EN_GeneticGameMutation.STOP_TIMER_STRAWBERRY_GN
     ]),
+    checkFlaskName(flask: IFlask) {
+	    let flasksName: string = ''
+
+	    if (flask.name === 'greenFlask') {
+	    	flasksName = 'зелёная колба'
+	    }
+    
+	    if (flask.name === 'pinkFlask') {
+	    	flasksName = 'розовая колба'
+	    }
+    
+	    if (flask.name === 'yellowFlask') {
+	    	flasksName = 'жёлтая колба'
+	    }
+    
+	    if (flask.name === 'blueFlask') {
+	    	flasksName = 'синяя колба'
+	    }
+    
+	    if (flask.name === 'redFlask') {
+	    	flasksName = 'красная колба'
+	    }
+    
+	    if (flask.name === 'cyanFlask') {
+	    	flasksName = 'голубая колба'
+	    }
+    
+	    if (flask.name === 'purpleFlask') {
+	    	flasksName = 'фиолетовая колба'
+	    }
+    
+	    if (flask.name === 'orangeFlask') {
+	    	flasksName = 'оранжевая колба'
+	    }
+    
+	    if (flask.name === 'greyFlask') {
+	    	flasksName = 'серая колба'
+	    }
+
+	    return flasksName
+    },
     showDropZone() {
       this.isDropZoneActive = true
     },
