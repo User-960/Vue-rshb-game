@@ -84,6 +84,9 @@ import { EN_GreenhouseGameMutation } from '@/store/modules/greenhouseGame/mutati
 import Vue from 'vue'
 import { mapGetters, mapMutations } from 'vuex'
 import { EN_CONFIG } from '../config/config'
+import { AUDIO_CONFIG } from '@/config/audio'
+
+const audioSuccessFlask = new Audio(AUDIO_CONFIG.AUDIO_SUCCESS_FLASK)
 
 export default Vue.extend({
   name: 'dialogTaskPepper',
@@ -157,17 +160,26 @@ export default Vue.extend({
     ]),
     chooseOptionPepperSoilCorrect() {
       if (this.GET_PEPPER_SOIL_MOISTURE_CHECK_GH) {
+        audioSuccessFlask.volume = 1
+        audioSuccessFlask.play()
+
         this.PLUS_POINTS_GH()
         this.HIDE_PEPPER_SOIL_MOISTURE_CHECK_GH()
       }
     },
     chooseOptionPepperAirCorrect() {
       if (this.GET_PEPPER_AIR_HUMIDITY_CHECK_GH) {
+        audioSuccessFlask.volume = 1
+        audioSuccessFlask.play()
+
         this.PLUS_POINTS_GH()
         this.HIDE_PEPPER_AIR_HUMIDITY_CHECK_GH()
       }
 
       if (this.GET_PEPPER_AIR_TEMPERATURE_CHECK_GH) {
+        audioSuccessFlask.volume = 1
+        audioSuccessFlask.play()
+        
         this.PLUS_POINTS_GH()
         this.HIDE_PEPPER_AIR_TEMPERATURE_CHECK_GH()
       }

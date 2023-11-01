@@ -11,6 +11,7 @@ import audioMoney from '../assets/audio/audioMoney.wav'
 import audioNewMission from '../assets/audio/audioNewMission.wav'
 import audioOpenNote from '../assets/audio/audioOpenNote.wav'
 import audioPayBonus from '../assets/audio/audioPayBonus.wav'
+import audioSuccessFlask from '../assets/audio/audioSuccessFlask.wav'
 import audioTypeKeyboard from '../assets/audio/audioTypeKeyboard.wav'
 import audioVictory from '../assets/audio/audioVictory.wav'
 
@@ -29,5 +30,6 @@ export const AUDIO_CONFIG = {
 	AUDIO_CATCH_HARVEST: audioCatchHarvest,
 	AUDIO_OPEN_NOTE: audioOpenNote,
 	AUDIO_BUTTON_GAME: audioButtonGame,
+	AUDIO_SUCCESS_FLASK: audioSuccessFlask,
 	AUDIO_BACK_MUSIC_MAP: audioBackMusicMap
 }

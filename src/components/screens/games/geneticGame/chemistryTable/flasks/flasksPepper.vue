@@ -67,6 +67,9 @@ import { EN_CONFIG } from '../../config/config'
 import { mapGetters, mapMutations } from 'vuex'
 import { EN_GeneticGameMutation } from '@/store/modules/geneticGame/mutations'
 import { EN_GeneticGameGetters } from '@/store/modules/geneticGame/getters'
+import { AUDIO_CONFIG } from '@/config/audio'
+
+const audioSuccessFlask = new Audio(AUDIO_CONFIG.AUDIO_SUCCESS_FLASK)
 
 export default Vue.extend({
   name: 'flasksPepper',
@@ -158,6 +161,9 @@ export default Vue.extend({
                 this.HIDE_PEPPER_COLOR()
                 this.SHOW_PEPPER_MODIFIED()
                 this.PLUS_POINTS_GN()
+
+                audioSuccessFlask.volume = 1
+                audioSuccessFlask.play()
               }, EN_CONFIG.TIMING_GROW_PLANT)
 
               setTimeout(() => {
@@ -338,6 +344,9 @@ export default Vue.extend({
 
             this.SHOW_PEPPER_SPROUT()
             this.PLUS_POINTS_GN()
+
+            audioSuccessFlask.volume = 1
+            audioSuccessFlask.play()
             setTimeout(() => {
               this.isRedEffectActive = false
               this.isEmptyFlask = true
@@ -410,7 +419,10 @@ export default Vue.extend({
               setTimeout(() => {
                 this.HIDE_PEPPER_SPROUT()
                 this.SHOW_PEPPER_COLOR()
-                this.PLUS_POINTS_GN()            
+                this.PLUS_POINTS_GN()
+                
+                audioSuccessFlask.volume = 1
+                audioSuccessFlask.play()
               }, EN_CONFIG.TIMING_GROW_PLANT);
 
               setTimeout(() => {
