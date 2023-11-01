@@ -265,7 +265,7 @@ export default Vue.extend({
       if (this.isReturnCredit && this.GET_PLAYER_DATA.own_money >= 9270) {
         audioMoney.volume = 1
         audioMoney.play()
-        
+
         this.RETURN_CREDIT()
         this.UPDATE_PLAYER_CREDIT(this.GET_PLAYER_DATA)
 
@@ -274,10 +274,11 @@ export default Vue.extend({
     },
     finishGame() {
       this.HIDE_MODAL_BANK()
-      this.$router.push({ name: 'finish' })
 
       audioFinishGame.volume = 1
       audioFinishGame.play()
+      
+      this.$router.push({ name: 'finish' })
     },
     skipInfoIntroduction() {
       if (this.GET_FIVE_INFO_INTRODUCTION) {
