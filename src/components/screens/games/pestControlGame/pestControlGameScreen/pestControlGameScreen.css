@@ -267,6 +267,12 @@
 	cursor: pointer;
 }
 
+.droneAnimation {
+	cursor: pointer;
+	background-image: url(../../../../../../public/images/droneGameActive.svg);
+	animation: opacityDrone 4s;
+}
+
 .drone:hover {
 	background-image: url(../../../../../../public/images/droneGameActive.svg);
 }
@@ -321,6 +327,52 @@
 }
 
 /* animations */
+@keyframes opacityDrone {
+	from {
+		opacity: 0.5;
+	}
+
+	10% {
+		opacity: 1;
+	}
+
+	20% {
+		opacity: 0.5;
+	}
+
+	30% {
+		opacity: 1;
+	}
+
+	40% {
+		opacity: 0.5;
+	}
+
+	50% {
+		opacity: 1;
+	}
+
+	60% {
+		opacity: 0.5;
+	}
+
+	70% {
+		opacity: 1;
+	}
+
+	80% {
+		opacity: 0.5;
+	}
+
+	90% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0.5;
+	}
+}
+
 @keyframes widthLine {
 	0% {
 		width: 30px;

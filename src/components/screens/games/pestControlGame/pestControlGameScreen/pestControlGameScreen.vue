@@ -137,6 +137,7 @@
           <div 
             :class='[
               styles.drone, 
+              {[styles.droneAnimation]: !GET_SELECT_DRONE && (GET_SELECT_BUG || GET_SELECT_LOCUSTS || GET_SELECT_CATERPILLAR)},
               {[styles.droneActive]: GET_SELECT_DRONE},
               {[styles.droneMovedTomato]: GET_MOVED_DRONE_TOMATO},
               {[styles.droneReturnTomato]: isDroneFinishWorkTomato},
