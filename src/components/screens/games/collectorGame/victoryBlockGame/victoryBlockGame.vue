@@ -28,7 +28,7 @@
         
       </div>
 
-      <div :class='styles.achievement' v-if='GET_POINTS_COL >= 100'>
+      <div :class='styles.achievement' v-if='GET_POINTS_COL >= 90'>
         <div :class='styles.achievementIcon'>
           <p :class='styles.achievementName'>
             “Великий сборщик”
@@ -86,7 +86,7 @@ export default Vue.extend({
         if (!this.GET_PLAYER_DATA.minigame.gameFive.complete) {
           this.SUM_COINS(this.GET_POINTS_COL)
           this.SAVE_SCORE_MINI_GAME_FIVE(this.GET_POINTS_COL)
-          if (this.GET_POINTS_COL >= 100) {
+          if (this.GET_POINTS_COL >= 90) {
             this.PERFORM_ACHIEVEMENT('gameFive')
           }
           this.COMPLETE_MINI_GAME('gameFive')
