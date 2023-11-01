@@ -109,6 +109,12 @@
 	cursor: pointer;
 }
 
+.btnNoActive,
+.btnNoActive {
+	opacity: 0.4;
+	cursor: not-allowed;
+}
+
 .airTemperatureBtnWrapper {
 	display: flex;
 	justify-content: space-around;

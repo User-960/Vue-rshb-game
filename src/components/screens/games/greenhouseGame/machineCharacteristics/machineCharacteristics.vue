@@ -7,7 +7,16 @@
           <div :class='styles.soilMoistureNum'>{{ GET_TOMATO_SOIL_MOISTURE_NUM_GH }}</div>
           <div :class='styles.soilMoistureWrapper'>
             <div :class='styles.soilMoistureText'>Влажность почвы</div>
-            <button :class='styles.soilMoistureBtn' @click='pourSoilWrongCorrect'>Полить</button>
+
+            <button 
+              :class='[
+                styles.soilMoistureBtn, {[styles.btnNoActive]: !GET_TOMATO_SOIL_MOISTURE_ACTION_GH}
+              ]' 
+              @click='pourSoilWrongCorrect'
+              >
+                Полить
+            </button>
+
           </div>
         </li>
 
@@ -16,8 +25,25 @@
           <div :class='styles.airMoistureWrapper'>
             <div :class='styles.airMoistureText'>Влажность воздуха</div>
             <div :class='styles.airMoistureBtnWrapper'>
-              <button :class='styles.airMoistureBtn' @click='pourSoilWrong'>Увлажнить</button>
-              <button :class='styles.airMoistureBtn' @click='pourSoilWrong'>Осушить</button>
+
+              <button 
+                :class='[
+                  styles.airMoistureBtn, {[styles.btnNoActive]: !GET_TOMATO_SOIL_MOISTURE_ACTION_GH
+                }]' 
+                @click='pourSoilWrong'
+              >
+               Увлажнить
+              </button>
+
+              <button 
+                :class='[
+                  styles.airMoistureBtn, {[styles.btnNoActive]: !GET_TOMATO_SOIL_MOISTURE_ACTION_GH}
+                ]' 
+                @click='pourSoilWrong'
+              >
+                Осушить
+              </button>
+
             </div>
           </div>
         </li>
@@ -42,7 +68,16 @@
           <div :class='styles.soilMoistureNum'>85</div>
           <div :class='styles.soilMoistureWrapper'>
             <div :class='styles.soilMoistureText'>Влажность почвы</div>
-            <button :class='styles.soilMoistureBtn' @click='moisturizeAirWrong'>Полить</button>
+
+            <button 
+              :class='[
+                styles.soilMoistureBtn, {[styles.btnNoActive]: !GET_PEPPER_AIR_HUMIDITY_ACTION_GH}
+              ]' 
+              @click='moisturizeAirWrong'
+            >
+              Полить
+            </button>
+
           </div>
         </li>
 
@@ -51,8 +86,25 @@
           <div :class='styles.airMoistureWrapper'>
             <div :class='styles.airMoistureText'>Влажность воздуха</div>
             <div :class='styles.airMoistureBtnWrapper'>
-              <button :class='styles.airMoistureBtn' @click='moisturizeAirCorrect'>Увлажнить</button>
-              <button :class='styles.airMoistureBtn' @click='moisturizeAirWrong'>Осушить</button>
+
+              <button 
+                :class='[
+                  styles.airMoistureBtn, {[styles.btnNoActive]: !GET_PEPPER_AIR_HUMIDITY_ACTION_GH}
+                ]' 
+                @click='moisturizeAirCorrect'
+              >
+                Увлажнить
+              </button>
+
+              <button 
+                :class='[
+                  styles.airMoistureBtn, {[styles.btnNoActive]: !GET_PEPPER_AIR_HUMIDITY_ACTION_GH}
+                ]' 
+                @click='moisturizeAirWrong'
+              >
+                Осушить
+              </button>
+
             </div>
           </div>
         </li>
@@ -77,7 +129,16 @@
           <div :class='styles.soilMoistureNum'>65</div>
           <div :class='styles.soilMoistureWrapper'>
             <div :class='styles.soilMoistureText'>Влажность почвы</div>
-            <button :class='styles.soilMoistureBtn' @click='drainAirWrong'>Полить</button>
+
+            <button 
+              :class='[
+                styles.soilMoistureBtn, {[styles.btnNoActive]: !GET_STRAWBERRY_AIR_HUMIDITY_ACTION_GH}
+              ]' 
+              @click='drainAirWrong'
+            >
+              Полить
+            </button>
+
           </div>
         </li>
 
@@ -86,8 +147,25 @@
           <div :class='styles.airMoistureWrapper'>
             <div :class='styles.airMoistureText'>Влажность воздуха</div>
             <div :class='styles.airMoistureBtnWrapper'>
-              <button :class='styles.airMoistureBtn' @click='drainAirWrong'>Увлажнить</button>
-              <button :class='styles.airMoistureBtn' @click='drainAirCorrect'>Осушить</button>
+
+              <button 
+                :class='[
+                  styles.airMoistureBtn, {[styles.btnNoActive]: !GET_STRAWBERRY_AIR_HUMIDITY_ACTION_GH}
+                ]' 
+                @click='drainAirWrong'
+              >
+                Увлажнить
+              </button>
+
+              <button 
+                :class='[
+                  styles.airMoistureBtn, {[styles.btnNoActive]: !GET_STRAWBERRY_AIR_HUMIDITY_ACTION_GH}
+                ]' 
+                @click='drainAirCorrect'
+              >
+                Осушить
+              </button>
+
             </div>
           </div>
         </li>
@@ -198,7 +276,7 @@ export default Vue.extend({
       }
     },
     pourSoilWrong() {
-      if (this.GET_TOMATO_LEVEL_GH && this.GET_PLAYER_MISTAKES_TOMATO_GH === 0) {
+      if (this.GET_TOMATO_LEVEL_GH && this.GET_PLAYER_MISTAKES_TOMATO_GH === 0 && this.GET_TOMATO_SOIL_MOISTURE_ACTION_GH) {
         this.MINUS_POINTS_GH()
         this.INCREASE_PLAYER_MISTAKES_TOMATO_GH()
         this.SHOW_FIRST_MISTAKE_TOMATO_GH()
@@ -233,7 +311,7 @@ export default Vue.extend({
       }
     },
     moisturizeAirWrong() {
-      if (this.GET_PEPPER_LEVEL_GH && this.GET_PLAYER_MISTAKES_PEPPER_GH === 0) {
+      if (this.GET_PEPPER_LEVEL_GH && this.GET_PLAYER_MISTAKES_PEPPER_GH === 0 && this.GET_PEPPER_AIR_HUMIDITY_ACTION_GH) {
         this.MINUS_POINTS_GH()
         this.INCREASE_PLAYER_MISTAKES_PEPPER_GH()
         this.SHOW_FIRST_MISTAKE_PEPPER_GH()
@@ -268,7 +346,7 @@ export default Vue.extend({
       }
     },
     drainAirWrong() {
-      if (this.GET_STRAWBERRY_LEVEL_GH && this.GET_PLAYER_MISTAKES_STRAWBERRY_GH === 0) {
+      if (this.GET_STRAWBERRY_LEVEL_GH && this.GET_PLAYER_MISTAKES_STRAWBERRY_GH === 0 && this.GET_STRAWBERRY_AIR_HUMIDITY_ACTION_GH) {
         this.MINUS_POINTS_GH()
         this.INCREASE_PLAYER_MISTAKES_STRAWBERRY_GH()
         this.SHOW_FIRST_MISTAKE_STRAWBERRY_GH()
