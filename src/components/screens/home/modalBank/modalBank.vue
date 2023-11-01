@@ -267,14 +267,14 @@ export default Vue.extend({
         this.UPDATE_PLAYER_CREDIT(this.GET_PLAYER_DATA)
 
         this.isReturnCredit = false
-
-        audioFinishGame.volume = 1
-        audioFinishGame.play()
       }
     },
     finishGame() {
       this.HIDE_MODAL_BANK()
       this.$router.push({ name: 'finish' })
+
+      audioFinishGame.volume = 1
+      audioFinishGame.play()
     },
     skipInfoIntroduction() {
       if (this.GET_FIVE_INFO_INTRODUCTION) {
