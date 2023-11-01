@@ -70,6 +70,8 @@ import { EN_CollectorGameMutation } from '@/store/modules/collectorGame/mutation
 import Vue from 'vue'
 import { mapGetters, mapMutations } from 'vuex'
 
+const audioButtonGame = new Audio(AUDIO_CONFIG.AUDIO_BUTTON_GAME)
+
 export default Vue.extend({
   name: 'collectorGameScreen',
   data: () => ({
@@ -123,6 +125,9 @@ export default Vue.extend({
     },
     openGame() {
       if (this.isChosenTomatoLevel && !this.GET_TOMATO_LEVEL_COMPLETED_COL) {
+        audioButtonGame.volume = 1
+        audioButtonGame.play()
+
         this.OPEN_GAME_FIELD_TOMATO_COL()
       } 
 
@@ -131,6 +136,9 @@ export default Vue.extend({
           !this.GET_PEPPER_LEVEL_COMPLETED_COL && 
           this.GET_TOMATO_LEVEL_COMPLETED_COL
       ) {
+        audioButtonGame.volume = 1
+        audioButtonGame.play()
+
         this.OPEN_GAME_FIELD_PEPPER_COL()
       }
 
@@ -139,6 +147,9 @@ export default Vue.extend({
           !this.GET_STRAWBERRY_LEVEL_COMPLETED_COL && 
           this.GET_PEPPER_LEVEL_COMPLETED_COL
         ) {
+          audioButtonGame.volume = 1
+          audioButtonGame.play()
+
         this.OPEN_GAME_FIELD_STRAWBERRY_COL()
       }
     }
