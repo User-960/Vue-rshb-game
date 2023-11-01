@@ -105,7 +105,7 @@
 }
 
 .rulesInfo {
-	margin: 18px 0px;
+	margin: 20px 0px 6px 0px;
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
@@ -121,6 +121,7 @@
 .rulesTerminalImg {
 	max-width: 180px;
 	max-height: 100px;
+	user-select: none;
 }
 
 .rulesArrow {
@@ -177,13 +178,13 @@
 
 @media (max-width: 980px) {
 	.rulesBlockGame {
-		transform: scale(0.4);
-		min-width: 744px;
+		transform: scale(0.5);
+		min-width: 780px;
 		max-height: 730px;
 	}
 
 	.contentText {
-		font-size: 20px;
+		font-size: 19px;
 	}
 
 	.rulesContentWrapper img {
