@@ -244,7 +244,7 @@ export default Vue.extend({
       if (this.isFirstCredit && !this.GET_PLAYER_DATA.minigame.gameFive.complete) {
         audioMoney.volume = 1
         audioMoney.play()
-        
+
         this.TAKE_CREDIT()
         this.UPDATE_PLAYER_CREDIT(this.GET_PLAYER_DATA)
 
@@ -263,6 +263,9 @@ export default Vue.extend({
     },
     returnCredit() {
       if (this.isReturnCredit && this.GET_PLAYER_DATA.own_money >= 9270) {
+        audioMoney.volume = 1
+        audioMoney.play()
+        
         this.RETURN_CREDIT()
         this.UPDATE_PLAYER_CREDIT(this.GET_PLAYER_DATA)
 
