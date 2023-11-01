@@ -239,11 +239,13 @@
 }
 
 .isCollectorMovedLeft {
-	animation: moveCollectorLeft 0.09s;
+	/* animation: moveCollectorLeft 0.09s; */
+	animation: moveCollectorLeft 0.1s;
 }
 
 .isCollectorMovedRight {
-	animation: moveCollectorRight 0.09s;
+	/* animation: moveCollectorRight 0.09s; */
+	animation: moveCollectorRight 0.1s;
 }
 
 .mobileScreen {
@@ -283,7 +285,7 @@
 /* animations */
 @keyframes gravityTomato {
 	0% {
-		top: 1px;
+		top: 0.5px;
 	}
 
 	2% {
@@ -939,7 +941,7 @@
 
 @keyframes gravityTomatoTablet {
 	0% {
-		top: 1px;
+		top: 0.5px;
 	}
 
 	2% {
@@ -1423,7 +1425,7 @@
 
 @keyframes gravityTomatoTabletMobile {
 	0% {
-		top: 1px;
+		top: 0.5px;
 	}
 
 	1% {
@@ -1715,7 +1717,7 @@
 
 @keyframes gravityTomatoMiddleMobile {
 	0% {
-		top: 1px;
+		top: 0.5px;
 	}
 
 	2% {
@@ -1999,7 +2001,7 @@
 
 @keyframes gravityTomatoMobile {
 	0% {
-		top: 1px;
+		top: 0.5px;
 	}
 
 	3% {
@@ -2544,11 +2546,11 @@
 	}
 
 	.isCollectorMovedLeft {
-		animation: moveCollectorLeftTablet 0.09s;
+		animation: moveCollectorLeftTablet 0.1s;
 	}
 
 	.isCollectorMovedRight {
-		animation: moveCollectorRightTablet 0.09s;
+		animation: moveCollectorRightTablet 0.1s;
 	}
 }
 
@@ -2651,11 +2653,11 @@
 	}
 
 	.isCollectorMovedLeft {
-		animation: moveCollectorLeftTabletMobile 0.09s;
+		animation: moveCollectorLeftTabletMobile 0.1s;
 	}
 
 	.isCollectorMovedRight {
-		animation: moveCollectorRightTabletMobile 0.09s;
+		animation: moveCollectorRightTabletMobile 0.1s;
 	}
 }
 
@@ -2761,11 +2763,11 @@
 	}
 
 	.isCollectorMovedLeft {
-		animation: moveCollectorLeftMiddleMobile 0.09s;
+		animation: moveCollectorLeftMiddleMobile 0.1s;
 	}
 
 	.isCollectorMovedRight {
-		animation: moveCollectorRightMiddleMobile 0.09s;
+		animation: moveCollectorRightMiddleMobile 0.1s;
 	}
 }
 
@@ -2871,10 +2873,10 @@
 	}
 
 	.isCollectorMovedLeft {
-		animation: moveCollectorLeftMobile 0.09s;
+		animation: moveCollectorLeftMobile 0.1s;
 	}
 
 	.isCollectorMovedRight {
-		animation: moveCollectorRightMobile 0.09s;
+		animation: moveCollectorRightMobile 0.1s;
 	}
 }
