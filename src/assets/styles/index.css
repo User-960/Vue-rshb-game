@@ -83,6 +83,13 @@ body {
 	text-align: center;
 }
 
+.imgRotatePhoneRecommend {
+	margin-top: 15px;
+	font-size: 16px;
+	padding: 0 14px;
+	text-align: center;
+}
+
 .imgRotatePhone img {
 	max-width: 104px;
 	max-height: 104px;
