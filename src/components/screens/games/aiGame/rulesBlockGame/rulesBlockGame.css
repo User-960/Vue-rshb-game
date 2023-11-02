@@ -109,9 +109,16 @@
 	user-select: none;
 }
 
+.rulesImgBtn {
+	max-width: 150px;
+	max-height: 70px;
+
+	user-select: none;
+}
+
 .rulesWarningImg {
-	max-width: 140px;
-	max-height: 60px;
+	max-width: 150px;
+	max-height: 70px;
 
 	user-select: none;
 }
@@ -122,6 +129,18 @@
 
 	border-radius: 4px;
 	border: 2px solid var(--secondary-text-gray);
+
+	user-select: none;
+}
+
+.rulesImgLevelRed {
+	max-width: 150px;
+	max-height: 70px;
+
+	margin-left: 15px;
+
+	border-radius: 4px;
+	border: 2px solid var(--secondary-hover-red-dark);
 
 	user-select: none;
 }

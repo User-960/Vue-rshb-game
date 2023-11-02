@@ -35,10 +35,11 @@
 
         <div :class='styles.rulesInfo'>
           <img :class='[styles.rulesWarningImg]' src='../../../../../../public/images/rulesAiSystem.svg' alt='image of warning' />
+          <img :class='[styles.rulesImg, styles.rulesImgLevelRed]' src='../../../../../../public/images/tomatoBushGreen.svg' alt='image of bush' />
           
           <img :class='[styles.rulesArrow]' src='../../../../../../public/images/arrowUpBank.svg' alt='image of arrow' />
 
-          <img :class='styles.rulesImg' src='../../../../../../public/images/rulesAiBtn.svg' alt='image of button' />
+          <img :class='styles.rulesImgBtn' src='../../../../../../public/images/rulesAiBtn.svg' alt='image of button' />
         </div>
       </div>
 
