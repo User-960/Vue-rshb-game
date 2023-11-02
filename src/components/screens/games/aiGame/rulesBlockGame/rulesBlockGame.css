@@ -41,7 +41,7 @@
 
 .contentText {
 	min-width: 600px;
-	margin-top: 50px;
+	margin-top: 40px;
 	margin-bottom: 15px;
 	line-height: 24px;
 
@@ -55,7 +55,7 @@
 	display: flex;
 	max-width: 744px;
 	width: 100%;
-	margin-top: 30px;
+	margin-top: 20px;
 }
 
 .btnMap {
@@ -96,7 +96,7 @@
 }
 
 .rulesInfo {
-	margin: 5px;
+	margin: 5px 0px 5px 0px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -105,6 +105,13 @@
 .rulesImg {
 	max-width: 170px;
 	max-height: 90px;
+
+	user-select: none;
+}
+
+.rulesWarningImg {
+	max-width: 140px;
+	max-height: 60px;
 
 	user-select: none;
 }
