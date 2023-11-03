@@ -6,7 +6,7 @@
       v-if='!GET_FIVE_INFO_INTRODUCTION && !GET_SIX_INFO_INTRODUCTION'
     >
     <div :class='styles.closeBtnWrapper'>
-      <closeButton @onclick='onClickOutside'/>
+      <closeButton @onclick='onClickOutside' data-testid='closeBankBtn'/>
     </div>
 
       <bank v-if='isFirstCredit && GET_PLAYER_DATA.credit === 0 && GET_PLAYER_DATA.own_coins === 0'>
@@ -25,7 +25,7 @@
         </template>
 
         <template v-slot:nextBtn>
-          <skipButton @onclick="takeCredit">
+          <skipButton @onclick="takeCredit" data-testid='takeCreditBtn'>
             Взять гринкоины
           </skipButton>
         </template>
@@ -48,7 +48,7 @@
         </template>
 
         <template v-slot:nextBtn>
-          <skipButton @onclick="skipCongrats">
+          <skipButton @onclick="skipCongrats" data-testid='congratsBtn'>
             Выйти
           </skipButton>
         </template>
@@ -133,9 +133,9 @@
           </button>
         </template>
       </bank>
-    </div>
+     </div>
 
-    <infoBlockM v-if='GET_FIVE_INFO_INTRODUCTION'>
+    <infoBlockM v-if='GET_FIVE_INFO_INTRODUCTION' data-testid='infoIntroductionFifth'>
       <template v-slot:contentText>
         <p>
           Теперь Вы можете получить гринкоины - это цифровая валюта, с помощью которой Вы можете совершать покупки нового оборудования в магазине и заплатить своим друзьям за помощь.
@@ -146,13 +146,13 @@
         </p>
       </template>
       <template v-slot:nextBtn>
-        <skipButton @onclick="skipInfoIntroduction">
+        <skipButton @onclick="skipInfoIntroduction" data-testid='infoIntroductionFifthBtn'>
           Далее
         </skipButton>
       </template>
     </infoBlockM>
 
-    <infoBlockM v-if='GET_SIX_INFO_INTRODUCTION'>
+    <infoBlockM v-if='GET_SIX_INFO_INTRODUCTION' data-testid='infoIntroductionSixth'>
       <template v-slot:contentText>
         <p>
           В магазине можно приобрести необходимое оборудование, которое потребуется для прохождения мини игр в локации Дом.
@@ -163,7 +163,7 @@
         </p>
       </template>
       <template v-slot:nextBtn>
-        <skipButton @onclick="skipInfoIntroduction">
+        <skipButton @onclick="skipInfoIntroduction" data-testid='infoIntroductionSixthBtn'>
           Далее
         </skipButton>
       </template>

@@ -19,16 +19,4 @@ describe('test App component', () => {
 		// assert
 		expect(screen.getByTestId('app')).toBeTruthy()
 	})
-
-	// it('open About page', async () => {
-	// 	// arrange
-
-	// 	// act
-	// 	render(App)
-	// 	const aboutBtn = screen.getByText('About')
-	// 	await fireEvent.click(aboutBtn)
-
-	// 	// assert
-	// 	await screen.findByText('About Page')
-	// })
 })

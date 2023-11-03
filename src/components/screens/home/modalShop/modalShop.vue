@@ -1,7 +1,7 @@
 <template>
   <div :class='styles.modalHouseWrapper' v-if='GET_MODAL_SHOP_VISIBLE'>
 
-    <div :class='styles.modalShop'>
+    <div :class='styles.modalShop' data-testid='modalShop'>
       <div :class='styles.navShop'>
         <div :class='styles.closeBtnWrapper'>
           <closeButton @onclick='onClickOutside'/>
@@ -10,27 +10,36 @@
         <button 
           :class='[styles.shopType, {[styles.shopTypeActive] : isShopA}]'
           @click='choiceShopA'
+          data-testid='navShopABtn'
         >Своё фермерство</button>
 
         <button 
           :class='[styles.shopType, {[styles.shopTypeActive] : isShopB}]'
           @click='choiceShopB'
+          data-testid='navShopBBtn'
         >Своё родное</button>
       </div>
 
       <div :class='[styles.shopA, {[styles.shopAActive] : isShowShopA}]'>
         <ul :class='styles.choice'>
 
-          <button :class='[styles.choiceBtn, {[styles.choiceBtnActive] : isPc}]' @click='showPcCard'>
+          <button 
+            :class='[styles.choiceBtn, {[styles.choiceBtnActive] : isPc}]' @click='showPcCard' 
+            data-testid='shopPc'
+          >
             Программное обеспечение
           </button>
 
-          <button :class='[styles.choiceBtn, {[styles.choiceBtnActive] : isDrone}]' @click='showDroneCard'>
+          <button 
+            :class='[styles.choiceBtn, {[styles.choiceBtnActive] : isDrone}]' @click='showDroneCard' 
+            data-testid='shopDrone'
+          >
             Беспилотный летательный аппарат
           </button>
 
           <button 
             :class='[styles.choiceBtn, {[styles.choiceBtnActive] : isRobotCollector}]' @click='showRobotCollectorCard'
+            data-testid='shopRobot'
           >
             Робот - собиратель урожая
           </button>
@@ -139,6 +148,7 @@
           <button v-if='!GET_PLAYER_DATA.minigame.gameFive.complete' 
             :class='[styles.sellBtn, styles.sellBtnNoActive]' 
             aria-label='button sell non active'
+            data-testid='shopBtnSell'
           >
             Отсутствует урожай
           </button>

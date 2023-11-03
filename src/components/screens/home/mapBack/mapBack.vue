@@ -18,7 +18,7 @@
             </template>
 
             <template v-slot:nextBtn>
-              <skipButton @onclick="skipInfoIntroduction">
+              <skipButton @onclick="skipInfoIntroduction"  data-testid='infoIntroductionFirstBtn'>
                 Далее
               </skipButton>
             </template>
@@ -36,7 +36,7 @@
             </template>
 
             <template v-slot:nextBtn>
-              <skipButton @onclick="skipInfoIntroduction">
+              <skipButton @onclick="skipInfoIntroduction" data-testid='infoIntroductionSecondBtn'>
                 Далее
               </skipButton>
             </template>
@@ -54,7 +54,7 @@
             </template>
 
             <template v-slot:nextBtn>
-              <skipButton @onclick="skipInfoIntroduction">
+              <skipButton @onclick="skipInfoIntroduction" data-testid='infoIntroductionThirdBtn'>
                 Далее
               </skipButton>
             </template>
@@ -76,7 +76,7 @@
             </template>
 
             <template v-slot:nextBtn>
-              <skipButton @onclick="skipInfoIntroduction">
+              <skipButton @onclick="skipInfoIntroduction" data-testid='infoIntroductionFourthBtn'>
                 Далее
               </skipButton>
             </template>
@@ -90,7 +90,7 @@
             </template>
 
             <template v-slot:nextBtn>
-              <skipButton @onclick="skipInfoIntroduction">
+              <skipButton @onclick="skipInfoIntroduction" data-testid='infoIntroductionFourthHalfBtn'>
                 Далее
               </skipButton>
             </template>
@@ -115,8 +115,8 @@
           </infoBlockM>
         </div>
 
-        <div :class='styles.arrowUpBank' v-if='GET_ARROW_UP_BANK'></div>
-        <div :class='styles.arrowUpShop' v-if='GET_ARROW_UP_SHOP'></div>
+        <div :class='styles.arrowUpBank' v-if='GET_ARROW_UP_BANK' data-testid='arrowBank'></div>
+        <div :class='styles.arrowUpShop' v-if='GET_ARROW_UP_SHOP' data-testid='arrowShop'></div>
 
         <div :class='[
             styles.trees, 
