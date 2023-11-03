@@ -17,6 +17,7 @@
         }
       ]'
       @click='openPepperLevel'
+      data-testid='navPepperLevelBtn'
     ></li>
 
     <li :class='[
@@ -28,6 +29,7 @@
         }
       ]'
       @click='openStrawberryLevel'
+      data-testid='navStrawberryLevelBtn'
     ></li>
   </ul>
 </template>

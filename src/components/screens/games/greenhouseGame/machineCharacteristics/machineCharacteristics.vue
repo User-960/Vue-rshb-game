@@ -13,6 +13,7 @@
                 styles.soilMoistureBtn, {[styles.btnNoActive]: !GET_TOMATO_SOIL_MOISTURE_ACTION_GH}
               ]' 
               @click='pourSoilWrongCorrect'
+              data-testid='tomatoTaskSoilMoistureBtn'
               >
                 Полить
             </button>
@@ -92,6 +93,7 @@
                   styles.airMoistureBtn, {[styles.btnNoActive]: !GET_PEPPER_AIR_HUMIDITY_ACTION_GH}
                 ]' 
                 @click='moisturizeAirCorrect'
+                data-testid='pepperTaskMoisturizeAirBtn'
               >
                 Увлажнить
               </button>
@@ -162,6 +164,7 @@
                   styles.airMoistureBtn, {[styles.btnNoActive]: !GET_STRAWBERRY_AIR_HUMIDITY_ACTION_GH}
                 ]' 
                 @click='drainAirCorrect'
+                data-testid='strawberryTaskDrainAirBtn'
               >
                 Осушить
               </button>

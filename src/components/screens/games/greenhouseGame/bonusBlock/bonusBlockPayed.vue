@@ -1,5 +1,5 @@
 <template>
-  <div :class='styles.bonusBlockWrapper' v-if='GET_BONUS_BLOCK_PAYED_GH && !GET_INFO_LINK_BLOCK_GH && !GET_RULES_BLOCK_GH'>
+  <div :class='styles.bonusBlockWrapper' v-if='GET_BONUS_BLOCK_PAYED_GH && !GET_INFO_LINK_BLOCK_GH && !GET_RULES_BLOCK_GH' data-testid='bonusBlockPayed'>
     <div :class='styles.bonusBlock'>
 
       <div :class='styles.contentWrapper'>

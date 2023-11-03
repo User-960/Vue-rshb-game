@@ -1,5 +1,5 @@
 <template>
-  <div :class='styles.victoryBlockWrapper' v-if='GET_VICTORY_BLOCK_GH && !GET_INFO_LINK_BLOCK_GH && !GET_RULES_BLOCK_GH'>
+  <div :class='styles.victoryBlockWrapper' v-if='GET_VICTORY_BLOCK_GH && !GET_INFO_LINK_BLOCK_GH && !GET_RULES_BLOCK_GH' data-testid='victoryBlock'>
     <div :class='styles.victoryBlockGame'>
 
       <div :class='styles.victoryContentWrapper'>
@@ -57,7 +57,7 @@
           Ещё раз
         </button>
 
-        <button :class='styles.btnMap' @click='skipToMap'>
+        <button :class='styles.btnMap' @click='skipToMap' data-testid='victoryBlockSkipBtn'>
           Далее
         </button>
       </div>

@@ -1,7 +1,7 @@
 <template>
   <navBarGameGreenhouse>
     <template v-slot:gameBack>
-      <div :class='styles.gameBack' data-testid='greenhouseGameBack'>
+      <div :class='styles.gameBack' data-testid='greenhouseGame'>
         <infoLinkBlockGame 
           link='https://vc.ru/rshb/674688-sredstva-zashchity-rasteniy' 
         />
@@ -23,7 +23,7 @@
         </div>
 
         <div :class='styles.machineCharacteristicsWrapper'>
-          <machineCharacteristics/>
+          <machineCharacteristics data-testid='machineCharacteristicsGH' />
         </div>
 
         <div :class='styles.dialogDanilWrapper'>

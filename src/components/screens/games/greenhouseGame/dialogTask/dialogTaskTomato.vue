@@ -28,6 +28,7 @@
             <li 
               :class='[styles.characteristicsItem, {[styles.characteristicsItemAnimation]: GET_TOMATO_SOIL_MOISTURE_CHECK_GH}]' 
               @click='chooseOptionTomatoSoilCorrect'
+              data-testid='tomatoTaskSoilMoistureCorrect'
             >
               30.1
             </li>
@@ -57,6 +58,7 @@
 
             <li :class='[styles.characteristicsItem, {[styles.characteristicsItemAnimation]: GET_TOMATO_AIR_HUMIDITY_CHECK_GH}]' 
             @click='chooseOptionTomatoAirCorrect'
+            data-testid='tomatoTaskAirHumidityCorrect'
             >
               70
             </li>
@@ -67,6 +69,7 @@
           <ul :class='styles.characteristicsList'>
             <li :class='[styles.characteristicsItem, {[styles.characteristicsItemAnimation]: GET_TOMATO_AIR_TEMPERATURE_CHECK_GH}]' 
             @click='chooseOptionTomatoAirCorrect'
+            data-testid='tomatoTaskAirTemperatureCorrect'
             >
               25
             </li>

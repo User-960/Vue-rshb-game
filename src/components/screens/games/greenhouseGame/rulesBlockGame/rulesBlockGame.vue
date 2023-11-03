@@ -40,7 +40,11 @@
           Карта
         </button>
 
-        <button :class='styles.btnStartGame' @click='startGame'>
+        <button 
+          :class='styles.btnStartGame' 
+          @click='startGame' 
+          data-testid='rulesBlockBtnGH'
+        >
           Играть
         </button>
       </div>

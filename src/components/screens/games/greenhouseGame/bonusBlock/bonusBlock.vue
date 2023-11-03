@@ -28,7 +28,7 @@
           Отказаться
         </button>
 
-        <button :class='styles.payDanilBtn' @click='payDanil'>
+        <button :class='styles.payDanilBtn' @click='payDanil' data-testid='bonusBlockPayBtn'>
           Отблагодарить Данила
         </button>
       </div>

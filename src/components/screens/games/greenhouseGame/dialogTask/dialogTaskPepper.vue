@@ -19,6 +19,7 @@
         <div v-if='GET_PEPPER_SOIL_MOISTURE_CHECK_GH' :class='styles.contentPepper'>
           <ul :class='styles.characteristicsList'>
             <li :class='[styles.characteristicsItem, {[styles.characteristicsItemAnimation]: GET_PEPPER_SOIL_MOISTURE_CHECK_GH}]' @click='chooseOptionPepperSoilCorrect'
+            data-testid='pepperTaskSoilMoistureCorrect'
             >
               85
             </li>
@@ -48,6 +49,7 @@
             </li>
 
             <li :class='[styles.characteristicsItem, {[styles.characteristicsItemAnimation]: GET_PEPPER_AIR_HUMIDITY_CHECK_GH}]' @click='chooseOptionPepperAirCorrect'
+            data-testid='pepperTaskAirHumidityCorrect'
             >
               65
             </li>
@@ -67,6 +69,7 @@
             </li>
 
             <li :class='[styles.characteristicsItem, {[styles.characteristicsItemAnimation]: GET_PEPPER_AIR_TEMPERATURE_CHECK_GH}]' @click='chooseOptionPepperAirCorrect'
+            data-testid='pepperTaskAirTemperatureCorrect'
             >
               27
             </li>

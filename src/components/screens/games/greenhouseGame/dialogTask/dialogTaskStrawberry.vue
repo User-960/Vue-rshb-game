@@ -29,6 +29,7 @@
             </li>
 
             <li :class='[styles.characteristicsItem, {[styles.characteristicsItemAnimation]: GET_STRAWBERRY_SOIL_MOISTURE_CHECK_GH}]' @click='chooseOptionStrawberrySoilCorrect'
+            data-testid='strawberryTaskSoilMoistureCorrect'
             >
               65
             </li>
@@ -43,6 +44,7 @@
             </li>
 
             <li :class='[styles.characteristicsItem, {[styles.characteristicsItemAnimation]: GET_STRAWBERRY_AIR_HUMIDITY_CHECK_GH}]' @click='chooseOptionStrawberryAirCorrect'
+            data-testid='strawberryTaskAirHumidityCorrect'
             >
               90
             </li>
@@ -62,6 +64,7 @@
             </li>
 
             <li :class='[styles.characteristicsItem, {[styles.characteristicsItemAnimation]: GET_STRAWBERRY_AIR_TEMPERATURE_CHECK_GH}]' @click='chooseOptionStrawberryAirCorrect'
+            data-testid='strawberryTaskAirTemperatureCorrect'
             >
               22
             </li>
