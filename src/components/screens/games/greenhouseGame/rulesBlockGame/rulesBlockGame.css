@@ -16,7 +16,7 @@
 
 .rulesBlockGame {
 	padding: 45px;
-	max-width: 744px;
+	max-width: 780px;
 	min-height: 490px;
 	width: 100%;
 
@@ -36,6 +36,10 @@
 	display: flex;
 }
 
+.rulesContentWrapper img {
+	max-width: 150px;
+}
+
 .rulesTextWrapper {
 	display: flex;
 	flex-direction: column;
@@ -49,13 +53,13 @@
 }
 
 .contentText {
-	max-width: 500px;
-	margin-top: 50px;
+	max-width: 550px;
+	margin-top: 40px;
 	margin-bottom: 10px;
 	line-height: 24px;
 
 	color: var(--secondary-text-gray);
-	font-size: 18px;
+	font-size: 20px;
 	font-weight: 400;
 	letter-spacing: -0.414px;
 }
@@ -112,15 +116,15 @@
 }
 
 .rulesImg {
-	max-width: 170px;
-	max-height: 90px;
+	max-width: 190px;
+	max-height: 110px;
 
 	user-select: none;
 }
 
 .rulesTerminalImg {
-	max-width: 180px;
-	max-height: 100px;
+	max-width: 190px;
+	max-height: 110px;
 	user-select: none;
 }
 
@@ -172,7 +176,7 @@
 
 @media (max-width: 1228px) {
 	.rulesBlockGame {
-		transform: scale(0.64);
+		transform: scale(0.6);
 	}
 }
 

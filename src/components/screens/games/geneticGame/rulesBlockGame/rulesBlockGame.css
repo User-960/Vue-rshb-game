@@ -36,6 +36,10 @@
 	display: flex;
 }
 
+.rulesContentWrapper img {
+	max-width: 170px;
+}
+
 .rulesTextWrapper {
 	display: flex;
 	flex-direction: column;
@@ -49,13 +53,13 @@
 }
 
 .contentText {
-	max-width: 500px;
-	margin-top: 50px;
+	max-width: 550px;
+	margin-top: 40px;
 	margin-bottom: 15px;
 	line-height: 24px;
 
 	color: var(--secondary-text-gray);
-	font-size: 18px;
+	font-size: 20px;
 	font-weight: 400;
 	letter-spacing: -0.414px;
 }
@@ -112,8 +116,8 @@
 }
 
 .rulesImg {
-	max-width: 150px;
-	max-height: 70px;
+	max-width: 160px;
+	max-height: 80px;
 
 	user-select: none;
 }
@@ -171,7 +175,7 @@
 
 @media (max-width: 1228px) {
 	.rulesBlockGame {
-		transform: scale(0.64);
+		transform: scale(0.6);
 	}
 }
 
@@ -182,10 +186,6 @@
 		max-height: 730px;
 	}
 
-	.contentText {
-		font-size: 18px;
-	}
-
 	.rulesContentWrapper img {
 		max-width: 180px;
 	}
@@ -194,12 +194,8 @@
 @media (max-width: 770px) {
 	.rulesBlockGame {
 		transform: scale(0.4);
-		min-width: 744px;
+		min-width: 780px;
 		max-height: 730px;
-	}
-
-	.contentText {
-		font-size: 20px;
 	}
 
 	.rulesContentWrapper img {

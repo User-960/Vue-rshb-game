@@ -40,13 +40,13 @@
 }
 
 .contentText {
-	min-width: 600px;
+	min-width: 620px;
 	margin-top: 40px;
 	margin-bottom: 15px;
 	line-height: 24px;
 
 	color: var(--secondary-text-gray);
-	font-size: 18px;
+	font-size: 19px;
 	font-weight: 400;
 	letter-spacing: -0.414px;
 }
@@ -55,7 +55,7 @@
 	display: flex;
 	max-width: 744px;
 	width: 100%;
-	margin-top: 20px;
+	margin-top: 10px;
 }
 
 .btnMap {
@@ -96,7 +96,7 @@
 }
 
 .rulesInfo {
-	margin: 5px 0px 5px 0px;
+	margin: 14px 0px 5px 0px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -175,7 +175,7 @@
 
 @media (max-width: 1960px) {
 	.rulesBlockGame {
-		transform: scale(1.15);
+		transform: scale(1.13);
 	}
 }
 
@@ -199,12 +199,12 @@
 
 @media (max-width: 980px) {
 	.rulesBlockGame {
-		transform: scale(0.51);
+		transform: scale(0.5);
 	}
 }
 
 @media (max-width: 770px) {
 	.rulesBlockGame {
-		transform: scale(0.41);
+		transform: scale(0.4);
 	}
 }
