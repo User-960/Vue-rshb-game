@@ -114,8 +114,8 @@ export default Vue.extend({
     GET_TIMER_TOMATO_GH() {
       if (this.GET_TOMATO_LEVEL_GH && this.GET_TIMER_TOMATO_GH === 0 && this.GET_PLAYER_MISTAKES_TOMATO_GH === 0) {
         this.INCREASE_PLAYER_MISTAKES_TOMATO_GH()
-        this.MINUS_TOMATO_HEALTH_PERCENTAGE_GH()
         this.SHOW_FIRST_MISTAKE_TOMATO_GH()
+        this.MINUS_TOMATO_HEALTH_PERCENTAGE_GH()
         this.START_FINISH_TIMER_TOMATO_GH()
         setTimeout(() => {
           this.HIDE_FIRST_MISTAKE_TOMATO_GH()
@@ -132,6 +132,7 @@ export default Vue.extend({
         ) {
         this.INCREASE_PLAYER_MISTAKES_TOMATO_GH()
         this.SHOW_SECOND_MISTAKE_TOMATO_GH()
+        this.MINUS_TOMATO_HEALTH_PERCENTAGE_GH()
         this.START_FINISH_TIMER_TOMATO_GH()
         setTimeout(() => {
           this.FINISH_GAME_GH()
