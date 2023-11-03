@@ -14,7 +14,7 @@
           </div>
 
           <div :class='styles.pestLevel'>
-            <div :class='styles.pestLevelImgWrapper'>
+            <div :class='styles.pestLevelImgWrapper' data-testid='tomatoBushLevel'>
               <img 
                 :class='[
                   styles.pestLevelImg, 
@@ -50,7 +50,7 @@
           </div>
 
           <div :class='styles.pestLevel'>
-            <div :class='styles.pestLevelImgWrapper'>
+            <div :class='styles.pestLevelImgWrapper' data-testid='pepperBushLevel'>
               <img :class='[styles.pestLevelImg, {[styles.pestLevelImgActive]: GET_CHOSEN_PEPPER_LEVEL}]' src='../../../../../../public/images/pepperBushGreen.svg' alt='image of first level' draggable='false' />
               <div :class='[{[styles.ultrasound]: isUltrasoundPepperActive}]' ></div>
             </div>
@@ -78,7 +78,7 @@
           </div>
 
           <div :class='styles.pestLevel'>
-            <div :class='styles.pestLevelImgWrapper'>
+            <div :class='styles.pestLevelImgWrapper' data-testid='strawberryBushLevel'>
               <img :class='[styles.pestLevelImg, {[styles.pestLevelImgActive]: GET_CHOSEN_STRAWBERRY_LEVEL}]' src='../../../../../../public/images/strawberryBushGreen.svg' alt='image of first level' draggable='false' />
               <div :class='[{[styles.ultrasound]: isUltrasoundStrawberryActive}]' ></div>
             </div>
@@ -107,6 +107,7 @@
                 }
               ]'
               @click='selectBug'
+              data-testid='insecticideBugBtn'
             ></li>
 
             <li 
@@ -119,6 +120,7 @@
                 }
               ]'
               @click='selectLocusts'
+              data-testid='insecticideLocustsBtn'
             ></li>
 
             <li 
@@ -131,6 +133,7 @@
                 }
               ]'
               @click='selectCaterpillar'
+              data-testid='insecticideCaterpillarBtn'
             ></li>
           </ul>
 
@@ -147,6 +150,7 @@
               {[styles.droneReturnStrawberry]: isDroneFinishWorkStrawberry},
             ]' 
             @click='selectDrone'
+            data-testid='droneBtn'
           ></div>
         </li>
 

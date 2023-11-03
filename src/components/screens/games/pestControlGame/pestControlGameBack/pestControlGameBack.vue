@@ -1,7 +1,7 @@
 <template>
   <navBarGamePestControl>
     <template v-slot:gameBack>
-      <div :class='styles.gameBack' data-testid='pestControlGameBack'>
+      <div :class='styles.gameBack' data-testid='pestControlGame'>
         <infoLinkBlockGame 
           link='https://vc.ru/future/592705-perspektivy-bespilotnyh-tehnologiy-v-selskom-hozyaystve' 
         />

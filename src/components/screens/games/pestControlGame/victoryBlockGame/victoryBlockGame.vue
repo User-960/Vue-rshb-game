@@ -1,5 +1,5 @@
 <template>
-  <div :class='styles.victoryBlockWrapper' v-if='GET_VICTORY_BLOCK_PS'>
+  <div :class='styles.victoryBlockWrapper' v-if='GET_VICTORY_BLOCK_PS' data-testid='victoryBlock'>
     <div :class='styles.victoryBlockGame'>
       <div :class='styles.title'>
         Победа!
