@@ -1,23 +1,22 @@
 import audioBackMusicMap from '../assets/audio/audioBackMusicMap.wav'
-import audioBonus from '../assets/audio/audioBonus.wav'
-import audioButtonGame from '../assets/audio/audioButtonGame.wav'
-import audioBuyShop from '../assets/audio/audioBuyShop.wav'
+import audioBonus from '../assets/audio/audioBonus.mp3'
+import audioButtonGame from '../assets/audio/audioButtonGame.mp3'
+import audioBuyShop from '../assets/audio/audioBuyShop.mp3'
 import audioCatchHarvest from '../assets/audio/audioCatchHarvest.mp3'
-import audioChooseActionComputer from '../assets/audio/audioChooseActionComputer.wav'
-import audioClickButton from '../assets/audio/audioClickButton.wav'
+import audioChooseActionComputer from '../assets/audio/audioChooseActionComputer.mp3'
+import audioClickButton from '../assets/audio/audioClickButton.mp3'
 import audioDroneMoved from '../assets/audio/audioDroneMoved.wav'
 import audioDroneReturn from '../assets/audio/audioDroneReturn.wav'
-import audioFinishGame from '../assets/audio/audioFinishGame.wav'
+import audioFinishGame from '../assets/audio/audioFinishGame.mp3'
 import audioLossBlock from '../assets/audio/audioLossBlock.mp3'
-import audioMistake from '../assets/audio/audioMistake.wav'
-import audioModalWindow from '../assets/audio/audioModalWindow.wav'
-import audioMoney from '../assets/audio/audioMoney.wav'
-import audioNewMission from '../assets/audio/audioNewMission.wav'
-import audioNewProblem from '../assets/audio/audioNewProblem.wav'
-import audioOpenNote from '../assets/audio/audioOpenNote.wav'
-import audioPayBonus from '../assets/audio/audioPayBonus.wav'
-import audioSuccessFlask from '../assets/audio/audioSuccessFlask.wav'
-import audioTypeKeyboard from '../assets/audio/audioTypeKeyboard.wav'
+import audioMistake from '../assets/audio/audioMistake.mp3'
+import audioModalWindow from '../assets/audio/audioModalWindow.mp3'
+import audioMoney from '../assets/audio/audioMoney.mp3'
+import audioNewMission from '../assets/audio/audioNewMission.mp3'
+import audioOpenNote from '../assets/audio/audioOpenNote.mp3'
+import audioPayBonus from '../assets/audio/audioPayBonus.mp3'
+import audioSuccessFlask from '../assets/audio/audioSuccessFlask.mp3'
+import audioTypeKeyboard from '../assets/audio/audioTypeKeyboard.mp3'
 import audioVictory from '../assets/audio/audioVictory.mp3'
 
 export const AUDIO_CONFIG = {
@@ -40,6 +39,5 @@ export const AUDIO_CONFIG = {
 	AUDIO_MISTAKE: audioMistake,
 	AUDIO_DRONE_MOVED: audioDroneMoved,
 	AUDIO_DRONE_MOVED_RETURN: audioDroneReturn,
-	AUDIO_NEW_PROBLEM: audioNewProblem,
 	AUDIO_BACK_MUSIC_MAP: audioBackMusicMap
 }

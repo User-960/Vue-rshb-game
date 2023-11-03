@@ -413,7 +413,6 @@ import { getRandomNumberLevel, getRandomNumberProblem } from '../helpers/helpers
 import { AUDIO_CONFIG } from '@/config/audio'
 
 const audioMistake = new Audio(AUDIO_CONFIG.AUDIO_MISTAKE)
-const audioNewProblem = new Audio(AUDIO_CONFIG.AUDIO_NEW_PROBLEM)
 
 export default Vue.extend({
   name: 'aiGameScreen',
@@ -896,10 +895,6 @@ export default Vue.extend({
         setTimeout(() => {
           this.CHOOSE_TOMATO_LEVEL_BROKEN_AI()
           this.BROKE_TOMATO_SYSTEM()
-
-          audioNewProblem.volume = 1
-          audioNewProblem.play()
-
         }, EN_CONFIG.TIMING_SYSTEM_TOMATO)
       }
     },
@@ -919,9 +914,6 @@ export default Vue.extend({
         setTimeout(() => {
           this.CHOOSE_PEPPER_LEVEL_BROKEN_AI()
           this.BROKE_PEPPER_SYSTEM()
-
-          audioNewProblem.volume = 1
-          audioNewProblem.play()
 
         }, EN_CONFIG.TIMING_SYSTEM_PEPPER)
       }
@@ -949,9 +941,6 @@ export default Vue.extend({
         setTimeout(() => {
           this.CHOOSE_STRAWBERRY_LEVEL_BROKEN_AI()
           this.BROKE_STRAWBERRY_SYSTEM()
-
-          audioNewProblem.volume = 1
-          audioNewProblem.play()
           
         }, EN_CONFIG.TIMING_SYSTEM_STRAWBERRY)
       }
