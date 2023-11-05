@@ -36,7 +36,7 @@ describe('test greenhouseGame screen', () => {
 		expect(screen.getByTestId('tomatoTaskSoilMoistureCorrect')).toBeTruthy()
 	})
 
-	it('complete tomato level', async () => {
+	it('complete greenhouseGame', async () => {
 		// given
 		const mockAudio = jest
 			.spyOn(window.HTMLMediaElement.prototype, 'play')
@@ -44,44 +44,21 @@ describe('test greenhouseGame screen', () => {
 
 		// when
 		render(greenhouseGame)
+		await fireEvent.click(screen.getByTestId('infoBlockBtnGH'))
+		await fireEvent.click(screen.getByTestId('rulesBlockBtnGH'))
+
 		await fireEvent.click(screen.getByTestId('tomatoTaskSoilMoistureCorrect'))
 		await fireEvent.click(screen.getByTestId('tomatoTaskSoilMoistureBtn'))
 		await fireEvent.click(screen.getByTestId('tomatoTaskAirHumidityCorrect'))
 		await fireEvent.click(screen.getByTestId('tomatoTaskAirTemperatureCorrect'))
 		await fireEvent.click(screen.getByTestId('navPepperLevelBtn'))
 
-		// then
-		expect(mockAudio).toHaveBeenCalled()
-		expect(screen.getByTestId('pepperTaskSoilMoistureCorrect')).toBeTruthy()
-	})
-
-	it('complete pepper level', async () => {
-		// given
-		const mockAudio = jest
-			.spyOn(window.HTMLMediaElement.prototype, 'play')
-			.mockImplementation(() => Promise.resolve())
-
-		// when
-		render(greenhouseGame)
 		await fireEvent.click(screen.getByTestId('pepperTaskSoilMoistureCorrect'))
 		await fireEvent.click(screen.getByTestId('pepperTaskAirHumidityCorrect'))
 		await fireEvent.click(screen.getByTestId('pepperTaskMoisturizeAirBtn'))
 		await fireEvent.click(screen.getByTestId('pepperTaskAirTemperatureCorrect'))
 		await fireEvent.click(screen.getByTestId('navStrawberryLevelBtn'))
 
-		// then
-		expect(mockAudio).toHaveBeenCalled()
-		expect(screen.getByTestId('strawberryTaskSoilMoistureCorrect')).toBeTruthy()
-	})
-
-	it('complete strawberry level and pay bonus', async () => {
-		// given
-		const mockAudio = jest
-			.spyOn(window.HTMLMediaElement.prototype, 'play')
-			.mockImplementation(() => Promise.resolve())
-
-		// when
-		render(greenhouseGame)
 		await fireEvent.click(
 			screen.getByTestId('strawberryTaskSoilMoistureCorrect')
 		)
@@ -92,15 +69,14 @@ describe('test greenhouseGame screen', () => {
 		await fireEvent.click(
 			screen.getByTestId('strawberryTaskAirTemperatureCorrect')
 		)
+
 		setTimeout(async () => {
 			await fireEvent.click(screen.getByTestId('victoryBlockSkipBtn'))
 			await fireEvent.click(screen.getByTestId('bonusBlockPayBtn'))
-		}, 1000)
 
-		// then
-		expect(mockAudio).toHaveBeenCalled()
-		setTimeout(() => {
+			// then
+			expect(mockAudio).toHaveBeenCalled()
 			expect(screen.getByTestId('bonusBlockPayed')).toBeTruthy()
-		}, 1000)
+		}, 100)
 	})
 })

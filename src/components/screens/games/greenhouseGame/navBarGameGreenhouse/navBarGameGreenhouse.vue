@@ -35,7 +35,7 @@
       </template>
 
       <template v-slot:contentIndicator>
-        {{ GET_POINTS_GH }}
+        <p data-testid='navPoints'>{{ GET_POINTS_GH }}</p>
       </template>
       </blockButton>
     </div>
