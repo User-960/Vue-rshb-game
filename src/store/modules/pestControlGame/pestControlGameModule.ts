@@ -52,9 +52,3 @@ export const getDefaultPestControlGameState = () => {
 
 export const pestControlGame: Module<IPestControlGameState, IRootState> =
 	getDefaultPestControlGameState()
-
-// export const defaultHomeScreenState: Module<IHomeScreenState, IRootState> = {
-// 	state,
-// 	mutations,
-// 	getters
-// }

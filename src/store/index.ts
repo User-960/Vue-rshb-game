@@ -32,17 +32,3 @@ export const getDefaultStore = (): StoreOptions<IRootState> => {
 }
 
 export default new Vuex.Store<IRootState>(getDefaultStore())
-
-// const defaultStore: StoreOptions<any> = {
-// 	modules: {
-// 		homeScreen
-// 	}
-// }
-
-// const store: Store<IRootState> = new Vuex.Store({
-// 	// other configuration...
-// })
-
-// store.registerModule('homeScreen', homeScreen)
-
-// export default store

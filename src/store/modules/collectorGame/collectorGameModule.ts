@@ -68,9 +68,3 @@ export const getDefaultCollectorGameState = () => {
 
 export const collectorGame: Module<ICollectorGameState, IRootState> =
 	getDefaultCollectorGameState()
-
-// export const defaultHomeScreenState: Module<IHomeScreenState, IRootState> = {
-// 	state,
-// 	mutations,
-// 	getters
-// }

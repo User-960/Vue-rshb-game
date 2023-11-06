@@ -40,9 +40,3 @@ export const getDefaultHomeScreenState = () => {
 
 export const homeScreen: Module<IHomeScreenState, IRootState> =
 	getDefaultHomeScreenState()
-
-// export const defaultHomeScreenState: Module<IHomeScreenState, IRootState> = {
-// 	state,
-// 	mutations,
-// 	getters
-// }

@@ -110,9 +110,3 @@ export const getDefaultPlayerDataState = () => {
 
 export const playerData: Module<IPlayerDataState, IRootState> =
 	getDefaultPlayerDataState()
-
-// export const defaultHomeScreenState: Module<IHomeScreenState, IRootState> = {
-// 	state,
-// 	mutations,
-// 	getters
-// }
