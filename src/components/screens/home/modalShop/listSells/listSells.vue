@@ -25,20 +25,6 @@ import { mapGetters } from 'vuex'
 
 export default Vue.extend({
   name: 'listSells',
-  // props: {
-  //   name: {
-  //     type: String,
-  //     required: true
-  //   },
-  //   weight: {
-  //     type: String,
-  //     required: true
-  //   },
-  //   img: {
-  //     type: String,
-  //     required: true
-  //   }
-  // },
   computed: {
     ...mapGetters([
       EN_PlayerDataGetters.GET_PLAYER_DATA
