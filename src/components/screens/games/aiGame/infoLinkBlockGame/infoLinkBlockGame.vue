@@ -29,7 +29,7 @@
         </div>
 
         <div :class='styles.skipButtonWrapper'>
-          <button :class='styles.skipButton' @click='closeBlock'>
+          <button :class='styles.skipButton' @click='closeBlock' data-testid='infoBlockBtnAi'>
             Далее
           </button>
         </div>

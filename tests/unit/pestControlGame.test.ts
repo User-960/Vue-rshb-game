@@ -10,7 +10,7 @@ const render = async (ui: any) => {
 }
 
 describe('test pestControlGame screen', () => {
-	it('render home screen', () => {
+	it('render pestControlGame screen', () => {
 		// given
 
 		// when
