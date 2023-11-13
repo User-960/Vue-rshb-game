@@ -22,6 +22,8 @@ export enum EN_PlayerDataMutation {
 	PLUS_POINTS_LINK_DRONE = 'PLUS_POINTS_LINK_DRONE',
 	PLUS_POINTS_LINK_ROBOT = 'PLUS_POINTS_LINK_ROBOT',
 
+	ESTIMATE_GAME = 'ESTIMATE_GAME',
+
 	BUY_EQUIPMENT = 'BUY_EQUIPMENT',
 	SELL_HARVEST = 'SELL_HARVEST',
 
@@ -93,6 +95,10 @@ export const mutations: MutationTree<IPlayerDataState> = {
 	},
 	[EN_PlayerDataMutation.PLUS_POINTS_LINK_ROBOT](state) {
 		state.playerData.own_coins += 5
+	},
+
+	[EN_PlayerDataMutation.ESTIMATE_GAME](state, user_review: number) {
+		state.playerData.user_review = user_review
 	},
 
 	[EN_PlayerDataMutation.BUY_EQUIPMENT](state, equipment: string) {

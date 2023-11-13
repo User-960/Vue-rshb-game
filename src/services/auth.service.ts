@@ -176,6 +176,26 @@ class AuthService {
 		}
 	}
 
+	async updatePlayerEstimate(id: string | number, user_review: number | null) {
+		try {
+			const { data } = await $axios.patch<IPlayer>(
+				`${EN_ENDPOINTS.PLAYER}/${id}/`,
+				{
+					user_review
+				}
+			)
+
+			if (data.name !== null && data.gender !== null) {
+				localStorage.setItem(EN_USER.PLAYER_DATA, JSON.stringify(data))
+			}
+
+			return data
+		} catch (error: any) {
+			let errorMessage = 'Возникла ошибка при получение данных!'
+			return errorMessage
+		}
+	}
+
 	async getUserNewGame(id: string | number) {
 		try {
 			const { data } = await $axios.get<IPlayer>(

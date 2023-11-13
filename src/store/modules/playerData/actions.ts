@@ -22,6 +22,7 @@ export enum EN_PlayerDataActions {
 	UPDATE_PLAYER_MINI_GAME = 'UPDATE_PLAYER_MINI_GAME',
 	UPDATE_PLAYER_EQUIPMENT = 'UPDATE_PLAYER_EQUIPMENT',
 	UPDATE_PLAYER_HARVEST = 'UPDATE_PLAYER_HARVEST',
+	UPDATE_PLAYER_ESTIMATE = 'UPDATE_PLAYER_ESTIMATE',
 
 	GET_PLAYERS_RATING = 'GET_PLAYERS_RATING',
 	GET_PLAYER_LIDERBOARD_RATING = 'GET_PLAYER_LIDERBOARD_RATING',
@@ -129,6 +130,19 @@ export const actions: ActionTree<IPlayerDataState, IRootState> = {
 			player.equipment,
 			player.own_money
 		)
+			.then((res: IPlayer | string) => {
+				typeof res !== 'string'
+					? commit(EN_PlayerDataMutation.UPDATE_PLAYER, res)
+					: commit(EN_PlayerDataMutation.SHOW_ALERT, res)
+			})
+			.catch(error => console.log(error))
+	},
+
+	[EN_PlayerDataActions.UPDATE_PLAYER_ESTIMATE](
+		{ commit }: { commit: Commit },
+		player: IPlayer
+	) {
+		AuthService.updatePlayerEstimate(player.id, player.user_review)
 			.then((res: IPlayer | string) => {
 				typeof res !== 'string'
 					? commit(EN_PlayerDataMutation.UPDATE_PLAYER, res)

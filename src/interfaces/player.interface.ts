@@ -58,6 +58,7 @@ export interface IPlayer {
 	equipment: IEquipmentStack | null
 	harvest: IHarvestStack | null
 	minigame: IMiniGames | null
+	user_review: number | null
 }
 
 export interface IPlayerLiderboard {

@@ -74,7 +74,8 @@ const state: IPlayerDataState = {
 				complete: false,
 				score: 0
 			}
-		}
+		},
+		user_review: null
 	},
 
 	isAlertVisible: false,

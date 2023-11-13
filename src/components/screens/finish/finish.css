@@ -12,6 +12,8 @@
 
 	max-width: var(--notebook-width);
 	min-height: var(--notebook-height);
+
+	position: relative;
 }
 
 .statSection {

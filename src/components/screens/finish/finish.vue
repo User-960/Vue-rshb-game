@@ -6,6 +6,8 @@
 
       <template v-slot:default v-else-if='!GET_TABLE_RATING'>
         <div :class='styles.finishScreen'>
+          <estimationBlock/>
+          
           <topSection/>
 
           <section :class='styles.statSection'>
@@ -58,6 +60,7 @@
 import Vue from 'vue';
 import skipButton from '../../ui/button/skipButton/skipButton.vue'
 import topSection from '../../ui/section/topSection/topSection.vue'
+import estimationBlock from '../../ui/estimationBlock/estimationBlock.vue'
 import layout from '../../layout/layout.vue'
 import iconButton from '../../ui/button/iconButton/iconButton.vue'
 import exitButton from '../../ui/button/exitButton/exitButton.vue'
@@ -68,6 +71,7 @@ import { EN_PlayerDataMutation } from '@/store/modules/playerData/mutations'
 import { EN_PlayerDataGetters } from '@/store/modules/playerData/getters'
 import { IPlayer } from '@/interfaces/player.interface'
 import { EN_PlayerDataActions } from '@/store/modules/playerData/actions'
+import { EN_FinishScreenMutation } from '@/store/modules/finishScreen/mutations'
 
 export default Vue.extend({
   name: 'finish',
@@ -79,13 +83,22 @@ export default Vue.extend({
     iconButton,
     exitButton,
     social,
-    ratingTable
+    ratingTable,
+    estimationBlock
+  },
+  created() {
+    if (this.GET_PLAYER_DATA.user_review === null) {
+      this.SHOW_ESTIMATION_BLOCK()
+    }
   },
   computed: {
     ...mapGetters([EN_PlayerDataGetters.GET_TABLE_RATING, EN_PlayerDataGetters.GET_PLAYER_DATA])
   },
   methods: {
-    ...mapMutations([EN_PlayerDataMutation.SHOW_TABLE_RATING]),
+    ...mapMutations([
+      EN_PlayerDataMutation.SHOW_TABLE_RATING,
+      EN_FinishScreenMutation.SHOW_ESTIMATION_BLOCK
+    ]),
     ...mapActions([EN_PlayerDataActions.GET_PLAYER_NEW_GAME]),
     restartFunc() {
       this.SHOW_TABLE_RATING()

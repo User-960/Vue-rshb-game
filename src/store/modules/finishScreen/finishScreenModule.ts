@@ -10,7 +10,7 @@ const state: IFinishScreenState = {
 	isEstimationBlockVisible: false
 }
 
-export const getDefaultStartScreenState = () => {
+export const getDefaultFinishScreenState = () => {
 	return {
 		state,
 		mutations,
@@ -19,5 +19,5 @@ export const getDefaultStartScreenState = () => {
 	}
 }
 
-export const startScreen: Module<IFinishScreenState, IRootState> =
-	getDefaultStartScreenState()
+export const finishScreen: Module<IFinishScreenState, IRootState> =
+	getDefaultFinishScreenState()
